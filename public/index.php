@@ -8,6 +8,20 @@
 
 /*
 |--------------------------------------------------------------------------
+| Start The Timer
+|--------------------------------------------------------------------------
+|
+| This will allow us to see the page generation time.
+| Simply execute:
+| <?php global $timer_start; ?>
+| Generated in {{ round((microtime(1) - $timer_start), 4) }} sec.
+|
+*/
+
+$timer_start = microtime(1);
+
+/*
+|--------------------------------------------------------------------------
 | Register The Auto Loader
 |--------------------------------------------------------------------------
 |

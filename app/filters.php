@@ -11,15 +11,12 @@
 |
 */
 
-App::before(function($request)
-{
-	//
+App::before(function($request) {
+    Log::debug('Page load event occurred', array('URL' => Request::url(), 'Headers' => Request::header()));
 });
 
-
-App::after(function($request, $response)
-{
-	//
+App::after(function($request, $response) {
+    //
 });
 
 /*
@@ -33,15 +30,16 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
-{
-	if (Auth::guest()) return Redirect::guest('login');
-});
+// check if the user is logged in and their access level
+Route::filter('auth', function($route, $request, $value) {
+    if (!Sentry::check()) {
+        Session::flash('error', 'You must be logged in to perform that action.');
+        return Redirect::route('account.login');
+    }
 
-
-Route::filter('auth.basic', function()
-{
-	return Auth::basic();
+    if (!Sentry::getUser()->hasAccess($value)) {
+        App::abort(403, ucwords($value).' Permissions Are Required');
+    }
 });
 
 /*
@@ -55,9 +53,8 @@ Route::filter('auth.basic', function()
 |
 */
 
-Route::filter('guest', function()
-{
-	if (Auth::check()) return Redirect::to('/');
+Route::filter('guest', function() {
+    if (Auth::check()) return Redirect::route('base');
 });
 
 /*
@@ -71,10 +68,8 @@ Route::filter('guest', function()
 |
 */
 
-Route::filter('csrf', function()
-{
-	if (Session::token() != Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
+Route::filter('csrf', function() {
+    if (Session::token() != Input::get('_token')) {
+        throw new Illuminate\Session\TokenMismatchException;
+    }
 });

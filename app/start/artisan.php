@@ -11,3 +11,8 @@
 |
 */
 
+Artisan::add(new AppUpdate);
+
+Artisan::add(new AppInstall);
+
+Artisan::add(new AppReset);

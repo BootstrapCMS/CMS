@@ -13,10 +13,12 @@
 
 ClassLoader::addDirectories(array(
 
-	app_path().'/commands',
-	app_path().'/controllers',
-	app_path().'/models',
-	app_path().'/database/seeds',
+    app_path().'/commands',
+    app_path().'/controllers',
+    app_path().'/models',
+    app_path().'/database/seeds',
+    app_path().'/libraries',
+    app_path().'/handlers'
 
 ));
 
@@ -48,9 +50,108 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 |
 */
 
-App::error(function(Exception $exception, $code)
-{
-	Log::error($exception);
+App::error(function(Exception $exception, $code) {
+    switch ($code) {
+        case 404:
+            Log::warning($exception);
+        case 500:
+            Log::critical($exception);
+        default:
+            Log::error($exception);
+    }
+
+    if (Config::get('app.debug') === false) {
+        try {
+            switch ($code) {
+                case 400:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Bad Request',
+                        'message' => 'The request cannot be fulfilled due to bad syntax.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 401:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Unauthorized',
+                        'message' => 'Authentication is required and has failed or has not yet been provided.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 403:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Forbidden',
+                        'message' => 'The request was a valid request, but the server is refusing to respond to it.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 404:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Not Found',
+                        'message' => 'The requested resource could not be found but may be available again in the future.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 405:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Method Not Allowed',
+                        'message' => 'A request was made of a resource using a request method not supported by that resource.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 500:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Internal Server Error',
+                        'message' => 'An error has occurred and this page cannot be displayed.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 501:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Not Implemented',
+                        'message' => 'The server either does not recognize the request method, or it lacks the ability to fulfill the request.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 502:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Bad Gateway',
+                        'message' => 'The server was acting as a gateway or proxy and received an invalid response from the upstream server.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 503:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Service Unavailable',
+                        'message' => 'The server is currently unavailable. It may be overloaded or down for maintenance.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 504:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Gateway Timeout',
+                        'message' => 'The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                case 505:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'HTTP Version Not Supported',
+                        'message' => 'The server does not support the HTTP protocol version used in the request.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details, $code);
+                default:
+                    $details = array('exception' => $exception,
+                        'code' => $code,
+                        'name' => 'Unknown Error',
+                        'message' => 'An unknown error has occurred and this page cannot be displayed.',
+                        'extra' => $exception->getMessage());
+                    return Response::view('error', $details);
+            }
+        } catch (Exception $e) {
+            return Response::view('errors.500', array(), 500);
+        }
+    }
 });
 
 /*
@@ -60,13 +161,12 @@ App::error(function(Exception $exception, $code)
 |
 | The "down" Artisan command gives you the ability to put an application
 | into maintenance mode. Here, you will define what is displayed back
-| to the user if maintenace mode is in effect for this application.
+| to the user if maintenance mode is in effect for this application.
 |
 */
 
-App::down(function()
-{
-	return Response::make("Be right back!", 503);
+App::down(function() {
+    App::abort(503, 'Down For Maintenance');
 });
 
 /*
@@ -81,3 +181,4 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+require app_path().'/listeners.php';
