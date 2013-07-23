@@ -42,8 +42,8 @@ Please check the system requirements before installing Bootstrap CMS.
   * If you don't have a cache server like [Redis](http://redis.io), disable caching in cms.php
   * If you don't have a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd), set queue.php to use "sync"
 4. You can run "php artisan app:install" to setup and seed your database.  
-  * Make sure you setup your database config in database.php.  
-5. Finally, setup and [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder
+  * Make sure you setup your database config in database.php. 
+5. Finally, setup and [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run "php artisan serve"
 
 
