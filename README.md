@@ -5,6 +5,7 @@ Bootstrap-CMS
 Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013  
 
 
+Build status: [![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png?branch=master)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
