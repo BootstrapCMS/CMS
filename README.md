@@ -11,7 +11,7 @@ Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013
 
 ## What Is Bootstrap CMS?
 
-Bootstrap CMS is a PHP CMS powered by [Laravel 4](http://laravel.com) with [Sentry 2](http://docs.cartalyst.com/sentry-2).  
+Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Sentry 2.0](http://docs.cartalyst.com/sentry-2).  
 
 * Bootstrap CMS, in its current form, is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Bootstrap CMS will eventually use [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) to run tests to check if it's working as it should.  
@@ -37,13 +37,13 @@ Please check the system requirements before installing Bootstrap CMS.
 1. Clone this repository to your server.  
 2. From a command line open in the folder, run "composer install".  
 3. Navigate to app/config, and adjust the config accordingly.  
-  * If you don't want Boostrap CMS to send emails, you can disable that in cms.php.  
-  * If you don't have a cache server like [Redis](http://redis.io), disable caching in cms.php.  
-  * If you don't have a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd), set queue.php to use "sync".  
+  * If you don't want Boostrap CMS to send emails, you can disable that in cms.php
+  * If you don't have a cache server like [Redis](http://redis.io), disable caching in cms.php
+  * If you don't have a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd), set queue.php to use "sync"
 4. You can run "php artisan app:install" to setup and seed your database.  
   * Make sure you setup your database config in database.php.  
-5. Finally, setup and [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.  
-  * For development, you can simply run "php artisan serve".  
+5. Finally, setup and [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder
+  * For development, you can simply run "php artisan serve"
 
 
 ## Updating Your Fork
