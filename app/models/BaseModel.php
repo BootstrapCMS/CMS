@@ -5,7 +5,7 @@ class BaseModel extends Ardent {
     protected $guarded = array('_token', 'id');
 
     /**
-     * Get formatted creation date.
+     * Get the formatted creation date.
      *
      * @return string
      */
@@ -14,7 +14,7 @@ class BaseModel extends Ardent {
     }
 
     /**
-     * Get formatted last modified date.
+     * Get the formatted last modified date.
      *
      * @return string
      */
