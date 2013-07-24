@@ -1,7 +1,14 @@
+<IfModule mod_security.c>
+    SecFilterEngine On
+    SecFilterScanPOST On
+    SecFilter "delete[[:space:]]+from"
+    SecFilter "insert[[:space:]]+into"
+    SecFilter "select.+from
+</IfModule>
+
 <IfModule mod_rewrite.c>
     Options -MultiViews
     RewriteEngine On
-
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
