@@ -16,12 +16,12 @@ Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Se
 
 * Bootstrap CMS, in its current form, is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Bootstrap CMS will eventually use [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) to run tests to check if it's working as it should.  
-* Bootstrap CMS uses [Composer](https://getcomposer.org) to load dependencies.  
+* Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.  
 * Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md) and a set of [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases).  
 * Bootstrap CMS is licensed under the GNU AGPLv3, available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md).  
 
 
-## What Does "Testing Release" Mean?
+## What Does Testing Release Mean?
 
 Basically, expect no support what so ever. This includes, but is not exclusive to:  
 
@@ -30,7 +30,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
   * Updates may not be backwards compatible
 * Technically, this software comes with no support after the testing stage either.  
   * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
-  * See the GNU Affero General Public License for more details
+  * See the [GNU Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) for more details
 
 
 ## System Requirements
