@@ -16,8 +16,21 @@ Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Se
 
 * Bootstrap CMS, in its current form, is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Bootstrap CMS will eventually use [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) to run tests to check if it's working as it should.  
-* Bootstrap CMS uses [Composer](https://getcomposer.org) to load dependencies and all licenses for dependencies can be resolved from there.  
+* Bootstrap CMS uses [Composer](https://getcomposer.org) to load dependencies.  
+* Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md) and a set of [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases).  
 * Bootstrap CMS is licensed under the GNU AGPLv3, available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md).  
+
+
+## What Does "Testing Release" Mean?
+
+Basically, expect no support what so ever. This includes, but is not exclusive to:  
+
+* No support or help will be given during installation or updating.  
+  * No database migration support between updates
+  * Updates may not be backwards compatible
+* Technically, this software comes with no support after the testing stage either.  
+  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
+  * See the GNU Affero General Public License for more details
 
 
 ## System Requirements
@@ -43,7 +56,7 @@ Please check the system requirements before installing Bootstrap CMS.
   * If you don't have a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd), set queue.php to use "sync"
 4. You can run "php artisan app:install" to setup and seed your database.  
   * Make sure you setup your database config in database.php. 
-5. Finally, setup and [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
+5. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run "php artisan serve"
 
 
