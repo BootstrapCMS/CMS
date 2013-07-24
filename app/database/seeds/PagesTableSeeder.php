@@ -50,7 +50,7 @@ class PagesTableSeeder extends Seeder {
             ',
             'show_title' => false,
             'icon' => 'icon-home',
-            'author_id' => 1,
+            'user_id' => 1,
             'created_at' => new DateTime,
             'updated_at' => new DateTime
             );
@@ -65,7 +65,7 @@ class PagesTableSeeder extends Seeder {
     This is the about page!
 </p>
             ',
-            'author_id' => 1,
+            'user_id' => 1,
             'created_at' => new DateTime,
             'updated_at' => new DateTime
             );
