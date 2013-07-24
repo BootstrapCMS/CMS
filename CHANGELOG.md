@@ -2,19 +2,22 @@ CHANGE LOG
 ==========
 
 
-## V0.1.1 Alpha (Upcoming)
+## V0.1.1 Alpha (24/07/2013)
 #### Minor Release
 
 * Added a base model
-* Updated relational modeling
+* Updated the relational modeling
 * Added the db tables for the models
+* Use unsigned values in the db where possible
 * Added a simple in-browser cache test
 * Added basic use of apache mod_secuirty
-* Updated documentation
 * Cleaned up the routes
-* Fixed a bug in page seeding
+* Fixed a bug in the page seeding
 * Changed the behavior of the app commands
+* Some composer tweaks
+* Updated travis config
 * Other minor fixes
+* Updated documentation
 
 
 ## V0.1 Alpha (23/07/2013)
