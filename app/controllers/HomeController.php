@@ -24,4 +24,12 @@ class HomeController extends BaseController {
         Queue::push('MailHandler', $data);
         return 'done';
     }
+
+    public function addValue($value) {
+        Cache::put('cachetest', $value, 10);
+    }
+
+    public function getValue() {
+        return Cache::get('cachetest');
+    }
 }

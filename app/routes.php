@@ -16,6 +16,8 @@
 Route::get('test', array('as' => 'test', 'uses' => 'HomeController@showWelcome'));
 Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'HomeController@testQueue'));
 Route::get('log/{file}', array('as' => 'log', 'uses' => 'HomeController@showLog'));
+Route::get('add/{value}', array('as' => 'add', 'uses' => 'HomeController@addValue'));
+Route::get('get', array('as' => 'get', 'uses' => 'HomeController@getValue'));
 
 
 // send users to the home page
