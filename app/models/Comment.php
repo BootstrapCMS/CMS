@@ -1,21 +1,21 @@
 <?php
 
-class Blog extends BaseModel {
+class Comment extends BaseModel {
 
-    protected $table = 'blogs';
+    protected $table = 'comments';
 
     public static $rules = array(
         'title' => 'required',
-        'slug' => 'required',
         'body' => 'required',
-        'user_id' => 'required'
+        'user_id' => 'required',
+        'blog_id' => 'required'
         );
 
     public static $factory = array(
         'title' => 'string',
-        'slug' => 'string',
         'body' => 'text',
-        'user_id' => 'factory|User'
+        'user_id' => 'factory|User',
+        'blog_id' => 'factory|Blog'
     );
 
     /**
@@ -29,12 +29,12 @@ class Blog extends BaseModel {
     }
 
     /**
-     * Has many comments.
+     * Belongs to blog.
      *
-     * @return Comments
+     * @return Blog
      */
-    public function comments()
+    public function blog()
     {
-        return $this->hasMany('Comment');
+        return $this->belongsTo('Blog');
     }
 }

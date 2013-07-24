@@ -1,25 +1,21 @@
 <?php
 
-class Event extends Ardent {
+class Event extends BaseModel {
 
     protected $table = 'events';
-
-    protected $hidden = array();
-
-    protected $guarded = array();
 
     public static $rules = array(
         'title' => 'required',
         'slug' => 'required',
         'body' => 'required',
-        'author_id' => 'required'
+        'user_id' => 'required'
         );
 
     public static $factory = array(
-        'title' => 'string',
+        'title' => 'String',
         'slug' => 'string',
         'body' => 'text',
-        'author_id' => 'factory|User'
+        'user_id' => 'factory|User'
     );
 
     /**
@@ -27,23 +23,8 @@ class Event extends Ardent {
      *
      * @return User
      */
-    public function author()
+    public function user()
     {
-        return $this->belongsTo('User', 'author_id');
-    }
- 
-    /**
-     * Get formatted creation date.
-     *
-     * @return string
-     */
-    public function createdAt()
-    {
-        $date_obj =  $this->created_at;
- 
-        if (is_string($this->created_at))
-            $date_obj =  DateTime::createFromFormat('Y-m-d H:i:s', $date_obj);
- 
-        return $date_obj->format('d/m/Y');
+        return $this->belongsTo('User');
     }
 }

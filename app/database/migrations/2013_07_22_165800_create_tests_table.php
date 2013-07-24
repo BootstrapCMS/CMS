@@ -14,6 +14,7 @@ class CreateTestsTable extends Migration {
             $table->increments('id');
             $table->string('author');
 			$table->text('body');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration {
             $table->boolean('show_title')->default(true);
             $table->boolean('show_nav')->default(true);
             $table->string('icon')->default('');
-            $table->integer('author_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
