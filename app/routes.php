@@ -12,10 +12,9 @@
 */
 
 
-// test hello world route
+// test routes
 Route::get('test', array('as' => 'test', 'uses' => 'HomeController@showWelcome'));
-
-// log viewing
+Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'HomeController@testQueue'));
 Route::get('log/{file}', array('as' => 'log', 'uses' => 'HomeController@showLog'));
 
 
@@ -58,10 +57,3 @@ Route::resource('events', 'EventController');
 // blog routes
 Route::resource('blogs', 'BlogController');
 Route::resource('blogs.comments', 'CommentController');
-
-// forum routes
-// TODO
-
-// testing
-Route::resource('tests', 'TestsController');
-Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'HomeController@testQueue'));
