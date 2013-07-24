@@ -28,6 +28,9 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 * No support or help will be given during installation or updating.  
   * No database migration support between updates
   * Updates may not be backwards compatible
+* Some of the config may be for features that don't exist yet.  
+  * Some config may even brake the entire site
+  * Just remember, this software comes WITHOUT ANY WARRANTY
 * Technically, this software comes with no support after the testing stage either.  
   * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
   * See the [GNU Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) for more details
