@@ -13,7 +13,7 @@ class PagesTableSeeder extends Seeder {
             'slug' => 'home',
             'body' => '
 <div class="jumbotron">
-    <h1>Bootstrap CMS</h1>
+    <h1><?php echo Config::get("cms.name"); ?></h1>
     <p class="lead">Powered by laravel 4 with Sentry 2</p>
     <a class="btn btn-large btn-success" href="<?php echo URL::route("account.register"); ?>">Sign Up Today</a>
 </div>
