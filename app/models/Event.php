@@ -8,6 +8,8 @@ class Event extends BaseModel {
         'title' => 'required',
         'slug' => 'required',
         'body' => 'required',
+        'date' => 'required',
+        'location' => 'required',
         'user_id' => 'required'
         );
 
@@ -15,6 +17,8 @@ class Event extends BaseModel {
         'title' => 'String',
         'slug' => 'string',
         'body' => 'text',
+        //'date' => '????',
+        'location' => 'text',
         'user_id' => 'factory|User'
     );
 
@@ -26,5 +30,14 @@ class Event extends BaseModel {
     public function user()
     {
         return $this->belongsTo('User');
+    }
+
+    /**
+     * Get the formatted date of the event.
+     *
+     * @return string
+     */
+    public function getDate(){
+        return $this->_formatDate($this->date);
     }
 }
