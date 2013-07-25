@@ -25,6 +25,11 @@ class HomeController extends BaseController {
         return 'done';
     }
 
+    public function testError() {
+        Queue::push('TestHandler', array());
+        return 'done';
+    }
+
     public function addValue($value) {
         Cache::put('cachetest', $value, 10);
     }
