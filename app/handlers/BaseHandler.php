@@ -112,7 +112,7 @@ abstract class BaseHandler {
 
         // wait x seconds, then push back to queue, or abort if that fails
         try {
-            $this->job->release($job->attempts());
+            $this->job->release($this->job->attempts());
         } catch (Exception $e) {
             Log::error($e);
             $this->abort(get_class($this).' has aborted after failing to repush to the queue');
