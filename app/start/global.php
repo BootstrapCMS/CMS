@@ -171,7 +171,7 @@ App::error(function(Exception $exception, $code) {
 */
 
 App::down(function() {
-    App::abort(503, 'Down For Maintenance');
+    return Response::view('maintenance', array(), 503);
 });
 
 /*
