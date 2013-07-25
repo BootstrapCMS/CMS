@@ -149,7 +149,12 @@ App::error(function(Exception $exception, $code) {
                     return Response::view('error', $details);
             }
         } catch (Exception $e) {
-            return Response::view('errors.500', array(), 500);
+            $details = array('exception' => $exception,
+                'code' => $code,
+                'name' => 'Internal Server Error',
+                'message' => 'An error has occurred and this page cannot be displayed.',
+                'extra' => $exception->getMessage());
+            return Response::view('error', $details, $code);
         }
     }
 });
