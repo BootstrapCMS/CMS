@@ -2,6 +2,13 @@ CHANGE LOG
 ==========
 
 
+## V0.1.2 Alpha (Upcoming)
+#### Minor Release
+
+* Added an error handler in-browser test
+* Fixed an issue with $job in BaseHandler
+
+
 ## V0.1.1 Alpha (24/07/2013)
 #### Minor Release
 

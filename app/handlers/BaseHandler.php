@@ -22,7 +22,7 @@ abstract class BaseHandler {
      * Constructor.
      */
     public function __construct() {
-        // unprotected
+        // unprotected against exceptions
         $this->init();
     }
 
