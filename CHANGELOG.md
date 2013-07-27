@@ -11,6 +11,8 @@ CHANGE LOG
 * Fixed a potential bug in the error pages
 * Added a new maintenance page
 * Added page details for editors
+* Minor view refactoring
+* Other minor fixes
 
 
 ## V0.1.1 Alpha (24/07/2013)
@@ -27,8 +29,8 @@ CHANGE LOG
 * Changed the behavior of the app commands
 * Some composer tweaks
 * Updated travis config
-* Other minor fixes
 * Updated documentation
+* Other minor fixes
 
 
 ## V0.1 Alpha (23/07/2013)
