@@ -115,6 +115,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
+        'Fideloper\Proxy\ProxyServiceProvider',
         'Way\Generators\GeneratorsServiceProvider'
 
     ),
