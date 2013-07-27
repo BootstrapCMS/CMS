@@ -5,7 +5,7 @@
 {{ $page->title }}
 @stop
 
-@section('content')
+@section('controls')
 
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     <div class="well clearfix">
@@ -26,8 +26,12 @@
             </div>
         </div>
     </div>
-    <br>
+    <hr>
 @endif
+
+@stop
+
+@section('content')
 
 <?php eval('?>'.$page->body.'<?'); ?>
 
