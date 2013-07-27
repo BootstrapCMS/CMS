@@ -50,11 +50,11 @@ class PageController extends BaseController {
             'title' => Binput::get('title'),
             'slug' => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
             'title' => Binput::get('title'),
-            'body' => Input::get('body'), // use standard Input
+            'body' => Input::get('body'), // use standard input method
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav' => (Binput::get('show_nav') == 'on'),
             'icon' => Binput::get('icon'),
-            'author_id' => Sentry::getUser()->getId());
+            'user_id' => Sentry::getUser()->getId());
 
         $this->page->fill($input);
         if ($this->page->save()) {
@@ -91,7 +91,16 @@ class PageController extends BaseController {
      * @return Response
      */
     public function edit($slug) {
-        //
+        $page = null;
+        try {
+            $page = Page::where('slug', '=', $slug)->firstOrFail();
+        } catch (Exception $e) {
+            App::abort(404, 'Page Not Found');
+        }
+        if (!$page) {
+            App::abort(404, 'Page Not Found');
+        }
+        return View::make('pages.edit', array('page' => $page));
     }
 
     /**
