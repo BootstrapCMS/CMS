@@ -114,6 +114,7 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'VTalbot\Markdown\MarkdownServiceProvider',
         'Way\Generators\GeneratorsServiceProvider'
 
     ),
@@ -181,6 +182,7 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Ardent'          => 'LaravelBook\Ardent\Ardent'
 
     ),

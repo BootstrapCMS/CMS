@@ -33,6 +33,6 @@
 
 @section('content')
 
-<?php eval('?>'.$page->body.'<?'); ?>
+<?php eval('?>'.Markdown::string($page->body)); ?>
 
 @stop
