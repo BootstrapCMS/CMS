@@ -12,7 +12,6 @@ class AccountController extends BaseController {
         parent::__construct();
     }
 
-
     /**
      * Redirect to the profile page.
      *
