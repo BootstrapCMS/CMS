@@ -146,15 +146,15 @@ App::error(function(Exception $exception, $code) {
                         'name' => 'Unknown Error',
                         'message' => 'An unknown error has occurred and this page cannot be displayed.',
                         'extra' => $exception->getMessage());
-                    return Response::view('error', $details);
+                    return Response::view('error', $details, 500);
             }
         } catch (Exception $e) {
             $details = array('exception' => $exception,
-                'code' => $code,
+                'code' => 500,
                 'name' => 'Internal Server Error',
                 'message' => 'An error has occurred and this page cannot be displayed.',
                 'extra' => $exception->getMessage());
-            return Response::view('error', $details, $code);
+            return Response::view('error', $details, 500);
         }
     }
 });

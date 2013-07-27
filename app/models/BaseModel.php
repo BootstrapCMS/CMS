@@ -2,7 +2,7 @@
 
 class BaseModel extends Ardent {
 
-    protected $guarded = array('_token', 'id');
+    protected $guarded = array('_token', '_method', 'id');
 
     /**
      * Get the formatted creation date.
