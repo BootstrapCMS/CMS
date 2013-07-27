@@ -7,6 +7,10 @@ CHANGE LOG
 
 * Added an error handler in-browser test
 * Fixed an issue with $job in BaseHandler
+* Cleaned up the error page css
+* Fixed a potential bug in the error pages
+* Added a new maintenance page
+* Added page details for editors
 
 
 ## V0.1.1 Alpha (24/07/2013)
