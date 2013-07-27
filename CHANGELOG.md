@@ -5,13 +5,17 @@ CHANGE LOG
 ## V0.1.2 Alpha (Upcoming)
 #### Minor Release
 
+* Major improvements to page editing and creation
+* Added page details for editors
 * Added an error handler in-browser test
 * Fixed an issue with $job in BaseHandler
 * Cleaned up the error page css
 * Fixed a potential bug in the error pages
 * Added a new maintenance page
-* Added page details for editors
 * Minor view refactoring
+* Fixed login redirects
+* Added markdown support in pages
+* Added load balancer support
 * Other minor fixes
 
 
