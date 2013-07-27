@@ -84,7 +84,7 @@ class AccountController extends BaseController {
             }
 
             Log::info('Login successful', array('Email' => $input['email']));
-            return Redirect::route('base');
+            return Redirect::intended(URL::route('base'));
         }
     }
 

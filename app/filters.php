@@ -34,7 +34,7 @@ App::after(function($request, $response) {
 Route::filter('auth', function($route, $request, $value) {
     if (!Sentry::check()) {
         Session::flash('error', 'You must be logged in to perform that action.');
-        return Redirect::route('account.login');
+        return Redirect::guest(URL::route('account.login'));
     }
 
     if (!Sentry::getUser()->hasAccess($value)) {
@@ -54,7 +54,7 @@ Route::filter('auth', function($route, $request, $value) {
 */
 
 Route::filter('guest', function() {
-    if (Auth::check()) return Redirect::route('base');
+    if (Auth::check()) return Redirect::intended(URL::route('base'));
 });
 
 /*
