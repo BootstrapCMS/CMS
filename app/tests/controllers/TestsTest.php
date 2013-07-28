@@ -5,6 +5,7 @@ use Way\Tests\Factory;
 
 class TestsTest extends TestCase {
 
+/*
     public function __construct()
     {
         $this->mock = m::mock('Eloquent', 'S');
@@ -120,4 +121,7 @@ class TestsTest extends TestCase {
                 ->once()
                 ->andReturn(m::mock(['passes' => $bool]));
     }
+
+*/
+
 }
