@@ -3,45 +3,38 @@
 use Mockery as m;
 use Way\Tests\Factory;
 
-class TestsTest extends TestCase {
+class PagesTest extends TestCase {
 
-/*
-    public function __construct()
-    {
-        $this->mock = m::mock('Eloquent', 'S');
+    public function __construct() {
+        $this->mock = m::mock('Page', 'S');
         $this->collection = m::mock('Illuminate\Database\Eloquent\Collection')->shouldDeferMissing();
     }
 
-    public function setUp()
-    {
+    public function setUp() {
         parent::setUp();
 
         $this->attributes = Factory::s(['id' => 1]);
         $this->app->instance('S', $this->mock);
     }
 
-    public function tearDown()
-    {
+    public function tearDown() {
         m::close();
     }
 
-    public function testIndex()
-    {
+    public function testIndex() {
         $this->mock->shouldReceive('all')->once()->andReturn($this->collection);
         $this->call('GET', 's');
 
         $this->assertViewHas('s');
     }
 
-    public function testCreate()
-    {
+    public function testCreate() {
         $this->call('GET', 's/create');
 
         $this->assertResponseOk();
     }
 
-    public function testStore()
-    {
+    public function testStore() {
         $this->mock->shouldReceive('create')->once();
         $this->validate(true);
         $this->call('POST', 's');
@@ -49,8 +42,7 @@ class TestsTest extends TestCase {
         $this->assertRedirectedToRoute('s.index');
     }
 
-    public function testStoreFails()
-    {
+    public function testStoreFails() {
         $this->mock->shouldReceive('create')->once();
         $this->validate(false);
         $this->call('POST', 's');
@@ -60,8 +52,7 @@ class TestsTest extends TestCase {
         $this->assertSessionHas('message');
     }
 
-    public function testShow()
-    {
+    public function testShow() {
         $this->mock->shouldReceive('findOrFail')
                    ->with(1)
                    ->once()
@@ -72,8 +63,7 @@ class TestsTest extends TestCase {
         $this->assertViewHas('s');
     }
 
-    public function testEdit()
-    {
+    public function testEdit() {
         $this->collection->id = 1;
         $this->mock->shouldReceive('find')
                    ->with(1)
@@ -85,8 +75,7 @@ class TestsTest extends TestCase {
         $this->assertViewHas('s');
     }
 
-    public function testUpdate()
-    {
+    public function testUpdate() {
         $this->mock->shouldReceive('find')
                    ->with(1)
                    ->andReturn(m::mock(['update' => true]));
@@ -97,8 +86,7 @@ class TestsTest extends TestCase {
         $this->assertRedirectedTo('s/1');
     }
 
-    public function testUpdateFails()
-    {
+    public function testUpdateFails() {
         $this->mock->shouldReceive('find')->with(1)->andReturn(m::mock(['update' => true]));
         $this->validate(false);
         $this->call('PATCH', 's/1');
@@ -108,20 +96,15 @@ class TestsTest extends TestCase {
         $this->assertSessionHas('message');
     }
 
-    public function testDestroy()
-    {
+    public function testDestroy() {
         $this->mock->shouldReceive('find')->with(1)->andReturn(m::mock(['delete' => true]));
 
         $this->call('DELETE', 's/1');
     }
 
-    protected function validate($bool)
-    {
+    protected function validate($bool) {
         Validator::shouldReceive('make')
                 ->once()
                 ->andReturn(m::mock(['passes' => $bool]));
     }
-
-*/
-
 }
