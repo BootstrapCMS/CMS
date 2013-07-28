@@ -7,6 +7,10 @@ CHANGE LOG
 
 * Major improvements to page editing and creation
 * Added page details for editors
+* Added markdown support in pages
+* Added load balancer support
+* Added some more libs
+* Added some more tests
 * Added an error handler in-browser test
 * Fixed an issue with $job in BaseHandler
 * Cleaned up the error page css
@@ -14,8 +18,6 @@ CHANGE LOG
 * Added a new maintenance page
 * Minor view refactoring
 * Fixed login redirects
-* Added markdown support in pages
-* Added load balancer support
 * Other minor fixes
 
 
