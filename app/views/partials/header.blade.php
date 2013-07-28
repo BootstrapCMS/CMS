@@ -11,7 +11,12 @@
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/bootstrap-lightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-select.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/switch.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/prettify.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <!--[if IE]>

@@ -19,7 +19,13 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
 <script src="{{ asset('js/restfulizer.js') }}"></script>
 <script src="{{ asset('js/hotkeys.js') }}"></script>
-<script src="{{ asset('js/switch.js') }}"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.min.js"></script>
+<script src="{{ asset('js/select.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.5/bootstrap-switch.min.js"></script>
+
+<script src="{{ asset('js/prettify.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
