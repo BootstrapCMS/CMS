@@ -13,7 +13,8 @@
 
 
 // test routes
-Route::get('test', array('as' => 'test', 'uses' => 'HomeController@showWelcome'));
+Route::get('hello', array('as' => 'hello', 'uses' => 'HomeController@showWelcome'));
+Route::get('test', array('as' => 'test', 'uses' => 'HomeController@showTest'));
 Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'HomeController@testQueue'));
 Route::get('testerror', array('as' => 'testerror', 'uses' => 'HomeController@testError'));
 Route::get('log/{file}', array('as' => 'log', 'uses' => 'HomeController@showLog'));

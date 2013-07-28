@@ -7,6 +7,11 @@ class HomeController extends BaseController {
         return View::make('hello');
     }
 
+    public function showTest() {
+        Log::notice('Test 123');
+        return 'Test 123';
+    }
+
     public function showLog($file) {
         $path = storage_path().'\\logs\\'.$file;
         if(!file_exists($path)) {
