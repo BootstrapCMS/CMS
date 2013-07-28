@@ -3,6 +3,11 @@
 @section('title')
 @parent
 {{ $page->title }}
+<?php 
+if($page->show_title == false) {
+    $hide_title = true;
+}
+?>
 @stop
 
 @section('controls')
