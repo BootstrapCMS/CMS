@@ -10,14 +10,16 @@ CHANGE LOG
 * Added markdown support in pages
 * Added load balancer support
 * Added some more libs
-* Added some more tests
-* Added an error handler in-browser test
-* Fixed an issue with $job in BaseHandler
-* Cleaned up the error page css
-* Fixed a potential bug in the error pages
 * Added a new maintenance page
+* Added an error handler in-browser test
+* Added a very basic in-browser test page
+* Cleaned up the error page css
 * Minor view refactoring
+* Some composer tweaks
+* Fixed an issue with $job in BaseHandler
+* Fixed a potential bug in the error pages
 * Fixed login redirects
+* Removed the broken tests
 * Other minor fixes
 
 
@@ -25,16 +27,16 @@ CHANGE LOG
 #### Minor Release
 
 * Added a base model
-* Updated the relational modeling
 * Added the db tables for the models
-* Use unsigned values in the db where possible
 * Added a simple in-browser cache test
-* Added basic use of apache mod_secuirty
-* Cleaned up the routes
-* Fixed a bug in the page seeding
-* Changed the behavior of the app commands
-* Some composer tweaks
+* Added basic use of apache 
 * Updated travis config
+* Some composer tweaks
+* Use unsigned values in the db where possible
+* Cleaned up the routes
+* Updated the relational modeling
+* Changed the behavior of the app commands
+* Fixed a bug in the page seeding
 * Updated documentation
 * Other minor fixes
 
