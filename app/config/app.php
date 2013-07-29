@@ -116,6 +116,7 @@ return array(
         'Cartalyst\Sentry\SentryServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
+        'Basset\BassetServiceProvider',
         'Way\Generators\GeneratorsServiceProvider'
 
     ),
@@ -184,7 +185,8 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
-        'Ardent'          => 'LaravelBook\Ardent\Ardent'
+        'Ardent'          => 'LaravelBook\Ardent\Ardent',
+        'Basset'          => 'Basset\Facade'
 
     ),
 

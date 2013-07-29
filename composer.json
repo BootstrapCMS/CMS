@@ -1,4 +1,14 @@
 {
+    "name": "gjc/bootstrap-cms",
+    "description": "Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With Sentry 2.0",
+    "keywords": ["laravel", "framework", "sentry", "bootstrap", "cms", "blog", "login", "Bootstrap CMS", "Bootstrap-CMS", "Graham Campbell", "GrahamCampbell"],
+    "license": "GNU Affero General Public License v3",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@mineuk.com"
+        }
+    ],
     "require": {
         "php": ">=5.3.7",
         "laravel/framework": "4.0.*",
@@ -7,6 +17,9 @@
         "vtalbot/markdown": "1.4.*",
         "laravelbook/ardent": "dev-master",
         "fideloper/proxy": "dev-master",
+        "jasonlewis/basset": "dev-develop",
+        "natxet/CssMin": "dev-master",
+        "linkorb/jsmin-php": "dev-master",
         "way/generators": "dev-master"
     },
     "require-dev": {
@@ -26,7 +39,26 @@
         ]
     },
     "scripts": {
-        "post-update-cmd": "php artisan optimize"
+        "post-install-cmd": [
+            "php artisan optimize"
+        ],
+        "pre-update-cmd": [
+            "php artisan clear-compiled"
+        ],
+        "post-update-cmd": [
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "develop"
+        }
     },
     "minimum-stability": "dev"
 }

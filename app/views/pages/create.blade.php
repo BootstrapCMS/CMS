@@ -24,3 +24,17 @@ Create Page
 </div>
 
 @stop
+
+@section('css')
+
+{{ Basset::show('switches.css') }}
+{{ Basset::show('editor.css') }}
+
+@stop
+
+@section('js')
+
+{{ Basset::show('switches.js') }}
+{{ Basset::show('editor.js') }}
+
+@stop
