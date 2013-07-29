@@ -8,9 +8,9 @@
 
     <div class="container">
         @include('partials.title')
+        @include('partials.notifications')
         @section('controls')
         @show
-        @include('partials.notifications')
         @section('content')
         @show
         <br><hr>
