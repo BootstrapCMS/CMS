@@ -10,7 +10,7 @@ Edit {{ $page->title }}
 <div class="well">
     <?php
     $form = array('url' => URL::route('pages.update', array('pages' => $page->slug)),
-        'method' => 'PUT',
+        'method' => 'PATCH',
         'button' => 'Save Page',
         'defaults' => array(
             'title' => $page->title,
