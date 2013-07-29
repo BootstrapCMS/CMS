@@ -34,6 +34,7 @@ return array(
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('bootstrap-select.min.css')->apply('CssMin');
+                $collection->stylesheet('main.css')->apply('CssMin');
             });
             //$directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
@@ -43,6 +44,7 @@ return array(
                 $collection->javascript('bootstrap.min.js');
                 $collection->javascript('restfulizer.js');
                 $collection->javascript('bootstrap-select.min.js');
+                $collection->javascript('main.js');
             });
             $directory->apply('JsMin');
         },
@@ -90,13 +92,13 @@ return array(
 
         'extra' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('main.css');
+                $collection->stylesheet('extra.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('main.js');
+                $collection->javascript('extra.js');
             });
             $directory->apply('JsMin');
         }
