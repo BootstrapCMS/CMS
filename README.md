@@ -51,7 +51,9 @@ Bootstrap CMS was designed to run on a Linux machine with PHP 5.4 and MySQL 5.5.
 
 Please check the system requirements before installing Bootstrap CMS.  
 
-1. Clone this repository to your server.  
+1. You may install by cloning from github, or via composer.  
+  * Github: "git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git"
+  * Composer: "composer create-project gjc/bootstrap-cms"
 2. From a command line open in the folder, run "composer install".  
 3. Navigate to app/config, and adjust the config accordingly.  
   * If you don't want Boostrap CMS to send emails, you can disable that in cms.php
@@ -68,7 +70,7 @@ Please check the system requirements before installing Bootstrap CMS.
 The latest and greatest source can be found on [GitHub](https://github.com/GrahamCampbell/Bootstrap-CMS).  
 Before submitting a pull request, you should ensure that your fork is up to date.  
 
-You may fork the Bootstrap CMS:  
+You may fork Bootstrap CMS:  
 
     git remote add upstream git://github.com/GrahamCampbell/Bootstrap-CMS.git
 
