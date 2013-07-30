@@ -76,7 +76,11 @@ class PageController extends BaseController {
         $page = $this->page->where('slug', '=', $slug)->first();
 
         if (!$page) {
-            App::abort(404, 'Page Not Found');
+            if ($slug == 'home') {
+                App::abort(500, 'The Homepage Is Missing');
+            } else {
+                App::abort(404, 'Page Not Found');
+            }
         }
 
         return View::make('pages.show', array('page' => $page));
@@ -92,7 +96,11 @@ class PageController extends BaseController {
         $page = $this->page->where('slug', '=', $slug)->first();
 
         if (!$page) {
-            App::abort(404, 'Page Not Found');
+            if ($slug == 'home') {
+                App::abort(500, 'The Homepage Is Missing');
+            } else {
+                App::abort(404, 'Page Not Found');
+            }
         }
 
         return View::make('pages.edit', array('page' => $page));
@@ -108,7 +116,11 @@ class PageController extends BaseController {
         $page = $this->page->where('slug', '=', $slug)->first();
 
         if (!$page) {
-            App::abort(404, 'Page Not Found');
+            if ($slug == 'home') {
+                App::abort(500, 'The Homepage Is Missing');
+            } else {
+                App::abort(404, 'Page Not Found');
+            }
         }
 
         $input = array(
@@ -120,6 +132,13 @@ class PageController extends BaseController {
             'show_nav' => (Binput::get('show_nav') == 'on'),
             'icon' => Binput::get('icon'),
             'user_id' => Sentry::getUser()->getId());
+
+        if ($slug == 'home') {
+            if ($slug != $input['slug']) {
+                Session::flash('error', 'You cannot rename the homepage.');
+                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+            }
+        }
 
         $page->fill($input);
 
@@ -141,7 +160,16 @@ class PageController extends BaseController {
         $page = $this->page->where('slug', '=', $slug)->first();
 
         if (!$page) {
-            App::abort(404, 'Page Not Found');
+            if ($slug == 'home') {
+                App::abort(500, 'The Homepage Is Missing');
+            } else {
+                App::abort(404, 'Page Not Found');
+            }
+        }
+
+        if ($slug == 'home') {
+            Session::flash('error', 'You cannot delete the homepage.');
+            return Redirect::route('base');
         }
 
         $page->delete();
