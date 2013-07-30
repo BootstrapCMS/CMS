@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-
     <meta charset="utf-8">
     <title>
         {{ Config::get('cms.name') }} - Error {{ $code }}
@@ -9,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ Config::get('cms.name') }}">
     <meta name="author" content="Graham Campbell">
-
     <style type="text/css">
         @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
         article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
@@ -80,12 +78,9 @@
         svg:not(:root),.main{overflow:hidden;}
         figure,form{margin:0;}
     </style>
-
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-
 </head>
 <body>
-
     <div class="wrapper">
         <div class="error-spacer"></div>
         <div role="main" class="main">
@@ -111,12 +106,10 @@
                 dispatched to deal with your problem. We're really sorry about this, and will
                 work hard to get this resolved as soon as possible.
             </p>
-
             <p>
                 Perhaps you would like to go to our <a href="{{{ URL::route('base') }}}">home page</a>?
             </p>
         </div>
     </div>
-
 </body>
 </html>

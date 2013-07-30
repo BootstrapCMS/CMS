@@ -19,15 +19,11 @@ App::after(function($request, $response) {
     if(App::Environment() != 'local') {
         if($response instanceof Illuminate\Http\Response) {
             $output = $response->getOriginalContent();
-
-            $filters = array(
-                '/<!--([^\[|(<!)].*)/' => '',
-                '/(?<!\S)\/\/\s*[^\r\n]*/' => '',
-                '/\s{2,}/' => '',
-                '/(\r?\n)/' => '',
-            );
+            
+            $filters = array('/<!--([^\[|(<!)].*)/' => '', '/(?<!\S)\/\/\s*[^\r\n]*/' => '');
             
             $output = preg_replace(array_keys($filters), array_values($filters), $output);
+
             $response->setContent($output);
         }
     }

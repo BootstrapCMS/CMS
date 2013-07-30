@@ -138,6 +138,10 @@ class PageController extends BaseController {
                 Session::flash('error', 'You cannot rename the homepage.');
                 return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
             }
+            if ($input['show_nav'] == false) {
+                Session::flash('error', 'The homepage must be on the navigation bar.');
+                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+            }
         }
 
         $page->fill($input);
