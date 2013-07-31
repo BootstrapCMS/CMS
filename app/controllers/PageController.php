@@ -1,11 +1,14 @@
 <?php
 
+use PageRepositoryInterface as Page;
+
 class PageController extends BaseController {
 
     protected $page;
 
     /**
-     * Constructor
+     * Load the injected model.
+     * Setup access permissions.
      */
     public function __construct(Page $page) {
         $this->page = $page;
@@ -73,7 +76,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function show($slug) {
-        $page = $this->page->where('slug', '=', $slug)->first();
+        $page = $this->page->findBySlug($slug);
 
         if (!$page) {
             if ($slug == 'home') {
@@ -93,7 +96,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function edit($slug) {
-        $page = $this->page->where('slug', '=', $slug)->first();
+        $page = $this->page->findBySlug($slug);
 
         if (!$page) {
             if ($slug == 'home') {
@@ -113,7 +116,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function update($slug) {
-        $page = $this->page->where('slug', '=', $slug)->first();
+        $page = $this->page->findBySlug($slug);
 
         if (!$page) {
             if ($slug == 'home') {
@@ -161,7 +164,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function destroy($slug) {
-        $page = $this->page->where('slug', '=', $slug)->first();
+        $page = $this->page->findBySlug($slug);
 
         if (!$page) {
             if ($slug == 'home') {

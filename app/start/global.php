@@ -12,14 +12,7 @@
 */
 
 ClassLoader::addDirectories(array(
-
-    app_path().'/commands',
-    app_path().'/controllers',
-    app_path().'/models',
-    app_path().'/database/seeds',
-    app_path().'/libraries',
-    app_path().'/handlers'
-
+    // it is better to autoload in composer.json
 ));
 
 /*
@@ -185,5 +178,6 @@ App::down(function() {
 |
 */
 
+require app_path().'/bindings.php';
 require app_path().'/filters.php';
 require app_path().'/listeners.php';

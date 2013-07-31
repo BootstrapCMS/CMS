@@ -1,8 +1,21 @@
 <?php
 
-class BaseModel extends Ardent {
+abstract class BaseModel extends Ardent {
 
     protected $guarded = array('_token', '_method', 'id');
+
+    /**
+     * For Testing
+     */
+    public static function shouldReceive() {
+        $class = get_called_class();
+        $repo = "{$class}RepositoryInterface";
+        $mock = Mockery::mock($repo);
+ 
+        App::instance($repo, $mock);
+ 
+        return call_user_func_array([$mock, 'shouldReceive'], func_get_args());
+    }
 
     /**
      * Get the formatted creation date.

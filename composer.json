@@ -31,13 +31,17 @@
     },
     "autoload": {
         "classmap": [
-            "app/commands",
-            "app/controllers",
+            "app/libraries",
+            "app/repositories",
             "app/models",
+            "app/controllers",
+            "app/handlers",
+            "app/commands",
             "app/database/migrations",
             "app/database/seeds",
             "app/tests/TestCase.php",
-            "app/libraries"
+            "app/tests/models/ModelTestCase.php",
+            "app/tests/controllers/ControllerTestCase.php"
         ]
     },
     "scripts": {
