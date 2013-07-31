@@ -2,9 +2,20 @@
 
 class HomeController extends BaseController {
 
+    /**
+     * Load the injected models.
+     * Setup access permissions.
+     */
+    public function __construct(Page $page) {
+        $this->page = $page;
+
+        parent::__construct();
+    }
+
+
     public function showWelcome() {
         Log::notice('Hello World');
-        return View::make('hello');
+        return $this->viewMake('hello');
     }
 
     public function showTest() {
@@ -17,7 +28,7 @@ class HomeController extends BaseController {
         if(!file_exists($path)) {
             App::abort(404, 'Log Not Found');
         }
-        return View::make('log', array('file' => $file, 'path' => $path));
+        return $this->viewMake('log', array('file' => $file, 'path' => $path));
     }
 
     public function testQueue() {

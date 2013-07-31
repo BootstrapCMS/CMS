@@ -8,11 +8,11 @@
             <div class="nav-collapse collapse">
 
                 <ul class="nav">
-                    @foreach(Page::all(array('title', 'slug', 'icon', 'show_nav')) as $item)
-                        @if($item->show_nav)
-                            <li{{ ((Request::is('pages/'.$item->slug) || Request::is('pages/'.$item->slug.'/edit')) ? ' class="active"' : '') }}>
-                                <a href="{{ URL::route('pages.show', array('pages' => $item->slug)) }}">
-                                    {{ ((!$item->icon == '') ? '<i class="'.$item->icon.' icon-white"></i> ' : '') }}{{ $item->title }}
+                    @foreach($nav_pages as $item)
+                        @if($item['show_nav'])
+                            <li{{ ((Request::is('pages/'.$item['slug']) || Request::is('pages/'.$item['slug'].'/edit')) ? ' class="active"' : '') }}>
+                                <a href="{{ URL::route('pages.show', array('pages' => $item['slug'])) }}">
+                                    {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
                                 </a>
                             </li>
                         @endif

@@ -2,13 +2,20 @@
 
 class CommentController extends BaseController {
 
+    protected $comment;
+
     /**
+     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct() {
+    public function __construct(Page $page, Comment $comment) {
+        $this->page = $page;
+        $this->comment = $comment;
+
         $this->mods[] = 'edit';
         $this->mods[] = 'update';
         $this->mods[] = 'destroy';
+
         parent::__construct();
     }
 

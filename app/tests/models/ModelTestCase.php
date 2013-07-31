@@ -1,6 +1,6 @@
 <?php
 
-class ModelTestCase extends TestCase {
+abstract class ModelTestCase extends TestCase {
 
     /**
      * Default preparation for each test.

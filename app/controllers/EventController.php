@@ -2,15 +2,22 @@
 
 class EventController extends BaseController {
 
+    protected $event;
+
     /**
+     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct() {
+    public function __construct(Page $page, Event $event) {
+        $this->page = $page;
+        $this->event = $event;
+
         $this->edits[] = 'create';
         $this->edits[] = 'store';
         $this->edits[] = 'edit';
         $this->edits[] = 'update';
         $this->edits[] = 'destroy';
+
         parent::__construct();
     }
 

@@ -5,16 +5,16 @@ class Blog extends BaseModel {
     protected $table = 'blogs';
 
     public static $rules = array(
-        'title' => 'required',
-        'slug' => 'required',
-        'body' => 'required',
+        'title'   => 'required',
+        'slug'    => 'required',
+        'body'    => 'required',
         'user_id' => 'required'
         );
 
     public static $factory = array(
-        'title' => 'string',
-        'slug' => 'string',
-        'body' => 'text',
+        'title'   => 'string',
+        'slug'    => 'string',
+        'body'    => 'text',
         'user_id' => 'factory|User'
     );
 

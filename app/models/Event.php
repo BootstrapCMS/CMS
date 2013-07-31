@@ -5,21 +5,21 @@ class Event extends BaseModel {
     protected $table = 'events';
 
     public static $rules = array(
-        'title' => 'required',
-        'slug' => 'required',
-        'body' => 'required',
-        'date' => 'required',
+        'title'    => 'required',
+        'slug'     => 'required',
+        'body'     => 'required',
+        'date'     => 'required',
         'location' => 'required',
-        'user_id' => 'required'
+        'user_id'  => 'required'
         );
 
     public static $factory = array(
-        'title' => 'String',
-        'slug' => 'string',
-        'body' => 'text',
-        //'date' => '????',
+        'title'    => 'String',
+        'slug'     => 'string',
+        'body'     => 'text',
+        //'date'   => '????',
         'location' => 'text',
-        'user_id' => 'factory|User'
+        'user_id'  => 'factory|User'
     );
 
     /**

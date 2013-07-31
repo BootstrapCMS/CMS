@@ -117,8 +117,8 @@ return array(
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
-        'Apipack\Eden\EdenServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider'
+        'Way\Generators\GeneratorsServiceProvider',
+
 
     ),
 
@@ -186,11 +186,7 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
-        'Ardent'          => 'LaravelBook\Ardent\Ardent',
         'Basset'          => 'Basset\Facade',
-        'Google'          => 'Apipack\Eden\Facade\Google',
-        'Facebook'        => 'Apipack\Eden\Facade\Facebook',
-        'Instagram'       => 'Apipack\Eden\Facade\Instagram'
 
     ),
 

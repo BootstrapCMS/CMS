@@ -5,15 +5,15 @@ class Comment extends BaseModel {
     protected $table = 'comments';
 
     public static $rules = array(
-        'title' => 'required',
-        'body' => 'required',
+        'title'   => 'required',
+        'body'    => 'required',
         'user_id' => 'required',
         'blog_id' => 'required'
         );
 
     public static $factory = array(
-        'title' => 'string',
-        'body' => 'text',
+        'title'   => 'string',
+        'body'    => 'text',
         'user_id' => 'factory|User',
         'blog_id' => 'factory|Blog'
     );

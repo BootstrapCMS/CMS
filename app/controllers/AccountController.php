@@ -2,13 +2,20 @@
 
 class AccountController extends BaseController {
 
+    protected $user;
+
     /**
+     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct() {
+    public function __construct(Page $page, User $user) {
+        $this->page = $page;
+        $this->user = $user;
+
         $this->users[] = 'getProfile';
         $this->users[] = 'putProfile';
         $this->users[] = 'getLogout';
+
         parent::__construct();
     }
 
@@ -27,7 +34,7 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function getLogin() {
-        return View::make('account.login');
+        return $this->viewMake('account.login');
     }
 
     /**
@@ -99,7 +106,7 @@ class AccountController extends BaseController {
             Session::flash('error', 'Registration is currently disabled.');
             return Redirect::route('base');
         }
-        return View::make('account.register');
+        return $this->viewMake('account.register');
     }
 
     /**
@@ -167,7 +174,7 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function getProfile() {
-        return View::make('account.profile');
+        return $this->viewMake('account.profile');
     }
 
     /**
@@ -186,7 +193,7 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function getReset() {
-        return View::make('account.reset');
+        return $this->viewMake('account.reset');
     }
 
     /**

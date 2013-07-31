@@ -15,12 +15,10 @@
         "pda/pheanstalk": "2.1.*",
         "cartalyst/sentry": "2.0.*",
         "vtalbot/markdown": "1.4.*",
-        "laravelbook/ardent": "dev-master",
         "fideloper/proxy": "dev-master",
         "jasonlewis/basset": "dev-develop",
         "natxet/CssMin": "dev-master",
         "linkorb/jsmin-php": "dev-master",
-        "apipack/eden": "dev-master",
         "way/generators": "dev-master"
     },
     "require-dev": {
@@ -32,7 +30,6 @@
     "autoload": {
         "classmap": [
             "app/libraries",
-            "app/repositories",
             "app/models",
             "app/controllers",
             "app/handlers",

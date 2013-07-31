@@ -46,16 +46,13 @@ Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'us
 Route::get('account/logout', array('as' => 'account.logout', 'uses' => 'AccountController@getLogout'));
 
 
-// users routes
+// user routes
 Route::resource('users', 'UserController');
 
-// config routes
-Route::resource('config', 'ConfigController');
-
-// pages routes
+// page routes
 Route::resource('pages', 'PageController');
 
-// events routes
+// event routes
 Route::resource('events', 'EventController');
 
 // blog routes

@@ -1,22 +1,22 @@
 <?php
 
-use PageRepositoryInterface as Page;
-
 class PageController extends BaseController {
 
     protected $page;
 
     /**
-     * Load the injected model.
+     * Load the injected models.
      * Setup access permissions.
      */
     public function __construct(Page $page) {
         $this->page = $page;
+
         $this->edits[] = 'create';
         $this->edits[] = 'store';
         $this->edits[] = 'edit';
         $this->edits[] = 'update';
         $this->edits[] = 'destroy';
+
         parent::__construct();
     }
 
@@ -38,7 +38,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('pages.create');
+        return $this->viewMake('pages.create');
     }
 
     /**
@@ -47,24 +47,26 @@ class PageController extends BaseController {
      * @return Response
      */
     public function store() {
-        $page = new $this->page;
-
         $input = array(
-            'title' => Binput::get('title'),
-            'slug' => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
-            'body' => Input::get('body'), // use standard input method
+            'title'      => Binput::get('title'),
+            'slug'       => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
+            'body'       => Input::get('body'), // use standard input method
             'show_title' => (Binput::get('show_title') == 'on'),
-            'show_nav' => (Binput::get('show_nav') == 'on'),
-            'icon' => Binput::get('icon'),
-            'user_id' => Sentry::getUser()->getId());
+            'show_nav'   => (Binput::get('show_nav') == 'on'),
+            'icon'       => Binput::get('icon'),
+            'user_id'    => $this->getUserId()
+        );
 
-        $page->fill($input);
+        $rules = (new ReflectionClass($this->page))->getStaticPropertyValue('rules');
 
-        if ($page->save()) {
+        $v = Validator::make($input, $rules);
+        if ($v->fails()) {
+            return Redirect::route('pages.create')->withInput()->withErrors($v->errors());
+        } else {
+            $page = $this->page->create($input);
+
             Session::flash('success', 'Your page has been created successfully.');
             return Redirect::route('pages.show', array('pages' => $page->slug));
-        } else {
-            return Redirect::route('pages.create')->withInput()->withErrors($page->errors());
         }
     }
 
@@ -85,7 +87,7 @@ class PageController extends BaseController {
             }
         }
 
-        return View::make('pages.show', array('page' => $page));
+        return $this->viewMake('pages.show', array('page' => $page));
     }
 
     /**
@@ -105,7 +107,7 @@ class PageController extends BaseController {
             }
         }
 
-        return View::make('pages.edit', array('page' => $page));
+        return $this->viewMake('pages.edit', array('page' => $page));
     }
 
     /**
@@ -115,16 +117,6 @@ class PageController extends BaseController {
      * @return Response
      */
     public function update($slug) {
-        $page = $this->page->findBySlug($slug);
-
-        if (!$page) {
-            if ($slug == 'home') {
-                App::abort(500, 'The Homepage Is Missing');
-            } else {
-                App::abort(404, 'Page Not Found');
-            }
-        }
-
         $input = array(
             'title' => Binput::get('title'),
             'slug' => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
@@ -132,26 +124,39 @@ class PageController extends BaseController {
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav' => (Binput::get('show_nav') == 'on'),
             'icon' => Binput::get('icon'),
-            'user_id' => Sentry::getUser()->getId());
+        );
 
-        if ($slug == 'home') {
-            if ($slug != $input['slug']) {
-                Session::flash('error', 'You cannot rename the homepage.');
-                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+        $rules = (new ReflectionClass($this->page))->getStaticPropertyValue('rules');
+        unset($rules['user_id']);
+
+        $v = Validator::make($input, $rules);
+        if ($v->fails()) {
+            return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($page->errors());
+        } else {
+            $page = $this->page->findBySlug($slug);
+            if (!$page) {
+                if ($slug == 'home') {
+                    App::abort(500, 'The Homepage Is Missing');
+                } else {
+                    App::abort(404, 'Page Not Found');
+                }
             }
-            if ($input['show_nav'] == false) {
-                Session::flash('error', 'The homepage must be on the navigation bar.');
-                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+
+            if ($slug == 'home') {
+                if ($slug != $input['slug']) {
+                    Session::flash('error', 'You cannot rename the homepage.');
+                    return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+                }
+                if ($input['show_nav'] == false) {
+                    Session::flash('error', 'The homepage must be on the navigation bar.');
+                    return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+                }
             }
-        }
 
-        $page->fill($input);
-
-        if ($page->save()) {
+            $page->update($input);
+            
             Session::flash('success', 'Your page has been updated successfully.');
             return Redirect::route('pages.show', array('pages' => $page->slug));
-        } else {
-            return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($page->errors());
         }
     }
 

@@ -2,15 +2,22 @@
 
 class BlogController extends BaseController {
 
+    protected $blog;
+
     /**
+     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct() {
+    public function __construct(Page $page, Blog $blog) {
+        $this->page = $page;
+        $this->blog = $blog;
+
         $this->blogs[] = 'create';
         $this->blogs[] = 'store';
         $this->blogs[] = 'edit';
         $this->blogs[] = 'update';
         $this->blogs[] = 'destroy';
+
         parent::__construct();
     }
 
