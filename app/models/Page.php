@@ -4,7 +4,7 @@ class Page extends BaseModel {
 
     protected $table = 'pages';
 
-    public static $rules = array(
+    public $rules = array(
         'title'      => 'required',
         'slug'       => 'required',
         'body'       => 'required',
@@ -13,7 +13,7 @@ class Page extends BaseModel {
         'user_id'    => 'required',
     );
 
-    public static $factory = array(
+    public $factory = array(
         'title'      => 'Page Title',
         'slug'       => 'page-title',
         'body'       => 'This is the page body!',

@@ -18,7 +18,8 @@ abstract class ControllerTestCase extends TestCase {
         $this->mock = Mockery::mock('Eloquent', $this->model);
         $this->collection = Mockery::mock('Illuminate\Database\Eloquent\Collection')->shouldDeferMissing();
 
-        $this->attributes = Factory::attributesFor($this->model, (new ReflectionClass($this->model))->getStaticPropertyValue('factory'));
+        $model = new $this->model;
+        $this->attributes = Factory::attributesFor($this->model, $model->factory);
         $this->factory = Factory::make($this->model, $this->attributes);
 
         $this->app->instance($this->model, $this->mock);

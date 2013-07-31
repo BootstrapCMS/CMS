@@ -10,7 +10,9 @@ abstract class BaseModel extends Eloquent {
      * @return string
      */
     public function createdAt() {
-        return $this->_formatDate($this->created_at);
+        $value = $this->_formatDate($this->created_at);
+
+        return $value;
     }
 
     /**
@@ -19,7 +21,9 @@ abstract class BaseModel extends Eloquent {
      * @return string
      */
     public function updatedAt(){
-        return $this->_formatDate($this->updated_at);
+        $value = $this->_formatDate($this->updated_at);
+
+        return $value;
     }
 
     /**
@@ -31,6 +35,9 @@ abstract class BaseModel extends Eloquent {
         if (is_string($date_obj)) {
             $date_obj =  DateTime::createFromFormat('Y-m-d H:i:s', $date_obj);
         }
-        return $date_obj->format('d/m/Y');
+
+        $value = $date_obj->format('d/m/Y');
+
+        return $value;
     }
 }

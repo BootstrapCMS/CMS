@@ -57,7 +57,7 @@ class PageController extends BaseController {
             'user_id'    => $this->getUserId()
         );
 
-        $rules = (new ReflectionClass($this->page))->getStaticPropertyValue('rules');
+        $rules = $this->page->rules;
 
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
@@ -126,12 +126,12 @@ class PageController extends BaseController {
             'icon' => Binput::get('icon'),
         );
 
-        $rules = (new ReflectionClass($this->page))->getStaticPropertyValue('rules');
+        $rules = $this->page->rules;
         unset($rules['user_id']);
 
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
-            return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($page->errors());
+            return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($v->errors());
         } else {
             $page = $this->page->findBySlug($slug);
             if (!$page) {
