@@ -39,6 +39,6 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function shouldReceive() {
-        return call_user_func_array([$this->mock, 'shouldReceive'], func_get_args());
+        return call_user_func_array(array($this->mock, 'shouldReceive'), func_get_args());
     }
 }
