@@ -52,7 +52,6 @@ class PageController extends BaseController {
         $input = array(
             'title' => Binput::get('title'),
             'slug' => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
-            'title' => Binput::get('title'),
             'body' => Input::get('body'), // use standard input method
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav' => (Binput::get('show_nav') == 'on'),
@@ -129,7 +128,6 @@ class PageController extends BaseController {
         $input = array(
             'title' => Binput::get('title'),
             'slug' => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
-            'title' => Binput::get('title'),
             'body' => Input::get('body'), // use standard input method
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav' => (Binput::get('show_nav') == 'on'),
