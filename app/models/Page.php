@@ -21,10 +21,19 @@ class Page extends BaseModel {
     /**
      * Belongs to user.
      *
-     * @return User
+     * @return BelongsTo
      */
     public function user()
     {
         return $this->belongsTo('User');
+    }
+
+    /**
+     * Get user.
+     *
+     * @return User
+     */
+    public function getUser($columns = array('*')) {
+        return $this->user()->first($columns);
     }
 }
