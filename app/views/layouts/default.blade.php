@@ -9,7 +9,7 @@
     {{ HTMLMin::render($__env->make('partials.header', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
 </head>
 <body>
-    {{ HTMLMin::render(View::make('partials.navigation')->render()) }}
+    {{ HTMLMin::render($__env->make('partials.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
     <div class="container">
         {{ HTMLMin::render($__env->make('partials.title', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
         {{ HTMLMin::render($__env->make('partials.notifications', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
