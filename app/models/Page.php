@@ -8,13 +8,19 @@ class Page extends BaseModel {
         'title' => 'required',
         'slug' => 'required',
         'body' => 'required',
+        'show_title' => 'required',
+        'show_nav' => 'required',
         'user_id' => 'required'
         );
 
     public static $factory = array(
-        'title' => 'String',
-        'body' => 'text',
-        'user_id' => '1'
+        'title' => 'Page Title',
+        'slug' => 'page-title',
+        'body' => 'This is the page body!',
+        'show_title' => true,
+        'show_nav' => true,
+        'icon' => '',
+        'user_id' => 1
     );
 
     /**

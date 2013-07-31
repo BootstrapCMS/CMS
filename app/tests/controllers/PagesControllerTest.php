@@ -1,5 +1,7 @@
 <?php
 
+use Way\Tests\Factory;
+
 class PostsControllerTest extends TestCase {
 
     public function testIndex() {
