@@ -13,9 +13,8 @@ class Page extends BaseModel {
 
     public static $factory = array(
         'title' => 'String',
-        'slug' => 'string',
         'body' => 'text',
-        'user_id' => 'factory|User'
+        'user_id' => '1'
     );
 
     /**
