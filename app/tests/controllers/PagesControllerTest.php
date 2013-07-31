@@ -25,6 +25,7 @@ class PagesControllerTest extends ControllerTestCase {
         $this->call('POST', 'pages');
 
         $this->assertRedirectedToRoute('pages.show', array('pages' => $this->attributes['slug']));
+        $this->assertSessionHas('success');
     }
 
     public function testStoreFails() {
@@ -82,8 +83,10 @@ class PagesControllerTest extends ControllerTestCase {
     // }
 
     public function testDestroy() {
-        $this->shouldReceive('findBySlug')->with($this->attributes['slug'])->andReturn(Mockery::mock(['delete' => true]));
+        $this->shouldReceive('findBySlug')->with($this->attributes['slug'])->andReturn(Mockery::mock(array('delete' => true)));
 
         $this->call('DELETE', 'pages/'.$this->attributes['slug']);
+
+        $this->assertRedirectedToRoute('base');
     }
 }
