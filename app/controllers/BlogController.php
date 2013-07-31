@@ -3,7 +3,7 @@
 class BlogController extends BaseController {
 
     /**
-     * Constructor
+     * Setup access permissions.
      */
     public function __construct() {
         $this->blogs[] = 'create';

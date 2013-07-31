@@ -3,7 +3,7 @@
 class AccountController extends BaseController {
 
     /**
-     * Constructor
+     * Setup access permissions.
      */
     public function __construct() {
         $this->users[] = 'getProfile';

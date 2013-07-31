@@ -5,7 +5,7 @@ class UserController extends BaseController {
     protected $sendgrid;
 
     /**
-     * Constructor
+     * Setup access permissions.
      */
     public function __construct() {
         $this->mods[] = 'index';

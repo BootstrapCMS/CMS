@@ -3,7 +3,7 @@
 class ConfigController extends BaseController {
 
     /**
-     * Constructor
+     * Setup access permissions.
      */
     public function __construct() {
         $this->admins[] = 'index';

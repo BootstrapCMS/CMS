@@ -11,7 +11,7 @@ class BaseController extends Controller {
     /**
      * Setup scrf protection.
      * Setup brute force protection.
-     * Handel user permissions.
+     * Setup access permissions.
      */
     public function __construct() {
         $this->beforeFilter('csrf', array('on' => 'post'));

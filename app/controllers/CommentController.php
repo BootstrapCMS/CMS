@@ -3,7 +3,7 @@
 class CommentController extends BaseController {
 
     /**
-     * Constructor
+     * Setup access permissions.
      */
     public function __construct() {
         $this->mods[] = 'edit';

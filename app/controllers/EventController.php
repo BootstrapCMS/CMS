@@ -3,7 +3,7 @@
 class EventController extends BaseController {
 
     /**
-     * Constructor
+     * Setup access permissions.
      */
     public function __construct() {
         $this->edits[] = 'create';
