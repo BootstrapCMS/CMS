@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.1.2 Alpha (Upcoming)
+## V0.2 Alpha (Upcoming)
 #### Minor Release
 
 * Major improvements to page editing and creation
@@ -13,13 +13,19 @@ CHANGE LOG
 * Added a new maintenance page
 * Added an error handler in-browser test
 * Added a very basic in-browser test page
+* Added a new assets system
+* Added css, js, and html minification
+* Added some working tests
 * Cleaned up the error page css
-* Minor view refactoring
+* Major controller refactoring
+* Dropped ardent support
+* Minor model refactoring
+* View refactoring
 * Some composer tweaks
 * Fixed an issue with $job in BaseHandler
 * Fixed a potential bug in the error pages
 * Fixed login redirects
-* Removed the broken tests
+* Removed some old files
 * Other minor fixes
 
 
