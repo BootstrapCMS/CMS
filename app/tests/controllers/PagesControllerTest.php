@@ -1,5 +1,7 @@
 <?php
 
+use Way\Tests\Factory;
+
 class PagesControllerTest extends ControllerTestCase {
 
     protected $model = 'Page';
@@ -20,7 +22,8 @@ class PagesControllerTest extends ControllerTestCase {
 
     public function testStore() {
         $this->validate(true);
-        $this->shouldReceive('create')->once()->andReturn($this->factory);
+        $this->shouldReceive('create')
+            ->once()->andReturn($this->factory);
 
         $this->call('POST', 'pages');
 
@@ -40,7 +43,8 @@ class PagesControllerTest extends ControllerTestCase {
     public function testShow() {
         $this->setAsPage();
 
-        $this->shouldReceive('findBySlug')->with($this->attributes['slug'])->once()->andReturn($this->factory);
+        $this->shouldReceive('findBySlug')
+            ->with($this->attributes['slug'])->once()->andReturn($this->factory);
 
         $this->call('GET', 'pages/'.$this->attributes['slug']);
 
@@ -49,38 +53,39 @@ class PagesControllerTest extends ControllerTestCase {
         $this->assertViewHas('page');
     }
 
-    // public function testEdit() {
-    //     $this->collection->id = 1;
-    //     $this->mock->shouldReceive('find')
-    //                ->with(1)
-    //                ->once()
-    //                ->andReturn($this->collection);
+    public function testEdit() {
+        $this->setAsPage();
 
-    //     $this->call('GET', 'pages/1/edit');
+        $this->shouldReceive('findBySlug')
+            ->with($this->attributes['slug'])->once()->andReturn($this->factory);
 
-    //     $this->assertViewHas('page');
-    // }
+        $this->call('GET', 'pages/'.$this->attributes['slug'].'/edit');
 
-    // public function testUpdate() {
-    //     $this->mock->shouldReceive('find')
-    //                ->with(1)
-    //                ->andReturn(Mockery::mock(['update' => true]));
+        $this->assertResponseOk();
 
-    //     $this->validate(true);
-    //     $this->call('PATCH', 'pages/1');
+        $this->assertViewHas('page');
+    }
 
-    //     $this->assertRedirectedTo('pages/1');
-    // }
+    public function testUpdate() {
+        $this->validate(true);
+        $this->shouldReceive('findBySlug')
+            ->with($this->attributes['slug'])
+            ->andReturn(Mockery::mock(array('update' => true, 'getSlug' => $this->attributes['slug'])));
 
-    // public function testUpdateFails() {
-    //     $this->mock->shouldReceive('find')->with(1)->andReturn(Mockery::mock(['update' => true]));
-    //     $this->validate(false);
-    //     $this->call('PATCH', 'pages/1');
+        $this->call('PATCH', 'pages/'.$this->attributes['slug']);
 
-    //     $this->assertRedirectedTo('pages/1/edit');
-    //     $this->assertSessionHasErrors();
-    //     $this->assertSessionHas('message');
-    // }
+        $this->assertRedirectedToRoute('pages.show', array('pages' => $this->attributes['slug']));
+        $this->assertSessionHas('success');
+    }
+
+    public function testUpdateFails() {
+        $this->validate(false);
+
+        $this->call('PATCH', 'pages/'.$this->attributes['slug']);
+
+        $this->assertRedirectedTo('pages/'.$this->attributes['slug'].'/edit');
+        $this->assertSessionHasErrors();
+    }
 
     public function testDestroy() {
         $this->shouldReceive('findBySlug')->with($this->attributes['slug'])->andReturn(Mockery::mock(array('delete' => true)));

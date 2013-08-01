@@ -66,7 +66,7 @@ class PageController extends BaseController {
             $page = $this->page->create($input);
 
             Session::flash('success', 'Your page has been created successfully.');
-            return Redirect::route('pages.show', array('pages' => $page->slug));
+            return Redirect::route('pages.show', array('pages' => $page->getSlug()));
         }
     }
 
@@ -156,7 +156,7 @@ class PageController extends BaseController {
             $page->update($input);
             
             Session::flash('success', 'Your page has been updated successfully.');
-            return Redirect::route('pages.show', array('pages' => $page->slug));
+            return Redirect::route('pages.show', array('pages' => $page->getSlug()));
         }
     }
 

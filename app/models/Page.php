@@ -23,6 +23,18 @@ class Page extends BaseModel {
         'user_id'    => 1, //'factory|User'
     );
 
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function getSlug() {
+        return $this->slug;
+    }
+
     public function getNav() {
         // TODO: caching logic
         return $this->all(array('title', 'slug', 'icon', 'show_nav'))->toArray();
