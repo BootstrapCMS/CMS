@@ -9,6 +9,9 @@ class SentryUserGroupSeeder extends Seeder {
         DB::table('users_groups')->delete();
 
         Sentry::getUserProvider()->findByLogin('admin@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Admins'));
+        Sentry::getUserProvider()->findByLogin('semiadmin@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Moderators'));
+        Sentry::getUserProvider()->findByLogin('semiadmin@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Bloggers'));
+        Sentry::getUserProvider()->findByLogin('semiadmin@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Editors'));
         Sentry::getUserProvider()->findByLogin('moderator@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Moderators'));
         Sentry::getUserProvider()->findByLogin('blogger@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Bloggers'));
         Sentry::getUserProvider()->findByLogin('editor@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Editors'));
