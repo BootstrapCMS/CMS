@@ -2,7 +2,7 @@
 
 @section('title')
 @parent
-Edit {{ $page->title }}
+Edit {{ $page->getTitle() }}
 @stop
 
 @section('controls')
@@ -17,7 +17,7 @@ Edit {{ $page->title }}
 
         <div class="span6">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->slug)) }}">Show Page</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('pages.destroy', array('pages' => $page->slug)) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Delete Page</a>
+                <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}">Show Page</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('pages.destroy', array('pages' => $page->getSlug())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Delete Page</a>
             </div>
         </div>
 <hr>
@@ -28,15 +28,15 @@ Edit {{ $page->title }}
 
 <div class="well">
     <?php
-    $form = array('url' => URL::route('pages.update', array('pages' => $page->slug)),
+    $form = array('url' => URL::route('pages.update', array('pages' => $page->getSlug())),
         'method' => 'PATCH',
         'button' => 'Save Page',
         'defaults' => array(
-            'title' => $page->title,
-            'icon' => $page->icon,
-            'body' => $page->body,
-            'show_title' => ($page->show_title == true),
-            'show_nav' => ($page->show_nav == true),
+            'title' => $page->getTitle(),
+            'icon' => $page->getIcon(),
+            'body' => $page->getBody(),
+            'show_title' => ($page->getShowTitle() == true),
+            'show_nav' => ($page->getShowNav() == true),
             ));
     ?>
     @include('pages.form')

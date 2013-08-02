@@ -2,9 +2,9 @@
 
 @section('title')
 @parent
-{{ $page->title }}
+{{ $page->getTitle() }}
 <?php 
-if($page->show_title == false) {
+if($page->getShowTitle() == false) {
     $hide_title = true;
 }
 ?>
@@ -18,15 +18,15 @@ if($page->show_title == false) {
             <p>
                 <strong>Page Creator:</strong> {{ $page->getUser()->email }}
             </p>
-            <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->slug)) }}">Edit Page</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('pages.destroy', array('pages' => $page->slug)) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Delete Page</a>
+            <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->getSlug())) }}">Edit Page</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('pages.destroy', array('pages' => $page->getSlug())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Delete Page</a>
         </div>
         <div class="span5">
             <div class="pull-right">
                 <p>
-                    <em>Page Created: {{ $page->created_at }}</em>
+                    <em>Page Created: {{ $page->getCreatedAt() }}</em>
                 </p>
                 <p>
-                    <em>Last Updated: {{ $page->updated_at }}</em>
+                    <em>Last Updated: {{ $page->getUpdatedAt() }}</em>
                 </p>
             </div>
         </div>
@@ -38,6 +38,6 @@ if($page->show_title == false) {
 
 @section('content')
 
-<?php eval('?>'.Markdown::string($page->body)); ?>
+<?php eval('?>'.Markdown::string($page->getBody())); ?>
 
 @stop

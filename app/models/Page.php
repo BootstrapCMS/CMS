@@ -14,18 +14,17 @@ class Page extends BaseModel {
     );
 
     public $factory = array(
+        'id'         => 1,
         'title'      => 'Page Title',
         'slug'       => 'page-title',
         'body'       => 'This is the page body!',
         'show_title' => true,
         'show_nav'   => true,
         'icon'       => '',
-        'user_id'    => 1, //'factory|User'
+        'user_id'    => 1,
+        'created_at' => '2013-08-01 12:34:56',
+        'updated_at' => '2013-08-01 12:34:56',
     );
-
-    public function getId() {
-        return $this->id;
-    }
 
     public function getTitle() {
         return $this->title;
@@ -33,6 +32,26 @@ class Page extends BaseModel {
 
     public function getSlug() {
         return $this->slug;
+    }
+
+    public function getBody() {
+        return $this->body;
+    }
+
+    public function getShowTitle() {
+        return $this->show_title;
+    }
+
+    public function getShowNav() {
+        return $this->show_nav;
+    }
+
+    public function getIcon() {
+        return $this->icon;
+    }
+
+    public function getUserId() {
+        return $this->user_id;
     }
 
     public function getNav() {
