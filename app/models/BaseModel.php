@@ -1,6 +1,6 @@
 <?php
 
-abstract class BaseModel extends Eloquent {
+abstract class BaseModel extends Eloquent implements IBelongsToUser {
 
     protected $guarded = array('_token', '_method', 'id');
 
@@ -14,5 +14,21 @@ abstract class BaseModel extends Eloquent {
 
     public function getUpdatedAt() {
         return $this->updated_at;
+    }
+
+    public function user() {
+        return $this->belongsTo('User');
+    }
+
+    public function getUser($columns = array('*')) {
+        return $this->user()->first($columns);
+    }
+
+    public function getUserId() {
+        return $this->user_id;
+    }
+
+    public function getUserEmail() {
+        return $this->getUser(array('email'))->email;
     }
 }

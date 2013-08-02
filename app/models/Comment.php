@@ -1,6 +1,6 @@
 <?php
 
-class Comment extends BaseModel {
+class Comment extends BaseModel implements IBelongsToBlog {
 
     protected $table = 'comments';
 
@@ -18,23 +18,19 @@ class Comment extends BaseModel {
         'blog_id' => 'factory|Blog'
     );
 
-    /**
-     * Belongs to user.
-     *
-     * @return User
-     */
-    public function user()
-    {
+    public function blog() {
         return $this->belongsTo('User');
     }
 
-    /**
-     * Belongs to blog.
-     *
-     * @return Blog
-     */
-    public function blog()
-    {
-        return $this->belongsTo('Blog');
+    public function getBlog($columns = array('*')) {
+        return $this->blog()->first($columns);
+    }
+
+    public function getBlogId() {
+        return $this->blog_id;
+    }
+
+    public function getBlogSlug() {
+        return $this->getBlog(array('slug'))->getSlug();
     }
 }

@@ -22,8 +22,6 @@ class Page extends BaseModel {
         'show_nav'   => true,
         'icon'       => '',
         'user_id'    => 1,
-        'created_at' => '2013-08-01 12:34:56',
-        'updated_at' => '2013-08-01 12:34:56',
     );
 
     public function getTitle() {
@@ -50,38 +48,12 @@ class Page extends BaseModel {
         return $this->icon;
     }
 
-    public function getUserId() {
-        return $this->user_id;
-    }
-
     public function getNav() {
         // TODO: caching logic
-        return $this->all(array('title', 'slug', 'icon', 'show_nav'))->toArray();
+        return $this->where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
+        //return $this->all(array('title', 'slug', 'icon'))->toArray();
     }
 
-    /**
-     * Belongs to user.
-     *
-     * @return BelongsTo
-     */
-    public function user() {
-        return $this->belongsTo('User');
-    }
-
-    /**
-     * Get user.
-     *
-     * @return User
-     */
-    public function getUser($columns = array('*')) {
-        return $this->user()->first($columns);
-    }
-
-    /**
-     * Get page by slug.
-     *
-     * @return Page
-     */
     public function findBySlug($slug, $columns = array('*')) {
         return $this->where('slug', '=', $slug)->first($columns);
     }

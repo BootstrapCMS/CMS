@@ -6,7 +6,6 @@ class Event extends BaseModel {
 
     public static $rules = array(
         'title'    => 'required',
-        'slug'     => 'required',
         'body'     => 'required',
         'date'     => 'required',
         'location' => 'required',
@@ -15,7 +14,6 @@ class Event extends BaseModel {
 
     public static $factory = array(
         'title'    => 'String',
-        'slug'     => 'string',
         'body'     => 'text',
         //'date'   => '????',
         'location' => 'text',

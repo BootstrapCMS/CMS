@@ -1,6 +1,7 @@
 <?php
 
 use Way\Tests\Factory;
+use Carbon\Carbon;
 
 abstract class ControllerTestCase extends TestCase {
 
@@ -17,14 +18,31 @@ abstract class ControllerTestCase extends TestCase {
 
         $model = new $this->model;
         $this->attributes = $model->factory;
+        $this->attributes['created_at'] = Carbon::createFromTimeStamp(1234567890);
+        $this->attributes['updated_at'] = Carbon::createFromTimeStamp(1234567890);
 
         $this->app->instance($this->model, $this->mock);
 
+        $this->setUpLinks();
+    }
+
+    public function setUpLinks() {
         $this->addLinks(array(
             'getId'        => 'id',
             'getCreatedAt' => 'created_at',
             'getUpdatedAt' => 'updated_at',
         ));
+    }
+
+    protected function addLink($name, $attribute) {
+        $this->shouldReceive($name)
+            ->andReturn($this->attributes[$attribute]);
+    }
+
+    protected function addLinks($links) {
+        foreach ($links as $name => $attribute) {
+            $this->addLink($name, $attribute);
+        }
     }
 
     public function tearDown() {
@@ -42,17 +60,6 @@ abstract class ControllerTestCase extends TestCase {
 
     protected function shouldReceive() {
         return call_user_func_array(array($this->mock, 'shouldReceive'), func_get_args());
-    }
-
-    protected function addLink($name, $attribute) {
-        $this->shouldReceive($name)
-            ->andReturn($this->attributes[$attribute]);
-    }
-
-    protected function addLinks($array) {
-        foreach ($array as $key => $value) {
-            $this->addLink($key, $value);
-        }
     }
 
     public function testMocking() {

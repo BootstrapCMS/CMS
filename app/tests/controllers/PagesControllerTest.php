@@ -6,8 +6,8 @@ class PagesControllerTest extends ControllerTestCase {
 
     protected $model = 'Page';
 
-    public function setup() {
-        parent::setup();
+    public function setUpLinks() {
+        parent::setUpLinks();
 
         $this->addLinks(array(
             'getTitle'     => 'title',

@@ -9,13 +9,11 @@
 
                 <ul class="nav">
                     @foreach($nav_pages as $item)
-                        @if($item['show_nav'])
-                            <li{{ ((Request::is('pages/'.$item['slug']) || Request::is('pages/'.$item['slug'].'/edit')) ? ' class="active"' : '') }}>
-                                <a href="{{ URL::route('pages.show', array('pages' => $item['slug'])) }}">
-                                    {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
-                                </a>
-                            </li>
-                        @endif
+                        <li{{ ((Request::is('pages/'.$item['slug']) || Request::is('pages/'.$item['slug'].'/edit')) ? ' class="active"' : '') }}>
+                            <a href="{{ URL::route('pages.show', array('pages' => $item['slug'])) }}">
+                                {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
 
