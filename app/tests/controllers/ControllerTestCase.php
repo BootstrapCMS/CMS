@@ -15,13 +15,12 @@ abstract class ControllerTestCase extends TestCase {
         parent::setUp();
 
         $this->mock = Mockery::mock($this->model);
+        $this->app->instance($this->model, $this->mock);
 
         $model = new $this->model;
         $this->attributes = $model->factory;
         $this->attributes['created_at'] = Carbon::createFromTimeStamp(1234567890);
         $this->attributes['updated_at'] = Carbon::createFromTimeStamp(1234567890);
-
-        $this->app->instance($this->model, $this->mock);
 
         $this->setUpLinks();
     }
