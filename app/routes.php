@@ -30,6 +30,14 @@ Route::get('/', array('as' => 'base', function() {
     return Redirect::route('pages.show', array('pages' => 'home'));
 }));
 
+// send users to the posts page
+Route::get('blog', array('as' => 'blog', function() {
+    Session::flash('', ''); // work around laravel bug
+    Session::reflash();
+    Log::info('Redirecting from blog to the posts page');
+    return Redirect::route('blog.posts.index');
+}));
+
 
 // account routes
 Route::get('account', array('as' => 'account.index', 'uses' => 'AccountController@getIndex'));
@@ -56,5 +64,5 @@ Route::resource('pages', 'PageController');
 Route::resource('events', 'EventController');
 
 // blog routes
-Route::resource('blogs', 'BlogController');
-Route::resource('blogs.comments', 'CommentController');
+Route::resource('blog/posts', 'PostController');
+Route::resource('blog/posts.comments', 'CommentController');

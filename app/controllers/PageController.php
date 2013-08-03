@@ -54,7 +54,7 @@ class PageController extends BaseController {
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav'   => (Binput::get('show_nav') == 'on'),
             'icon'       => Binput::get('icon'),
-            'user_id'    => $this->getUserId()
+            'user_id'    => $this->getUserId(),
         );
 
         $rules = $this->page->rules;
@@ -134,6 +134,7 @@ class PageController extends BaseController {
             return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($v->errors());
         } else {
             $page = $this->page->findBySlug($slug);
+
             if (!$page) {
                 if ($slug == 'home') {
                     App::abort(500, 'The Homepage Is Missing');
@@ -179,12 +180,12 @@ class PageController extends BaseController {
 
         if ($slug == 'home') {
             Session::flash('error', 'You cannot delete the homepage.');
-            return Redirect::route('base');
+            return Redirect::route('pages.index');
         }
 
         $page->delete();
 
         Session::flash('success', 'Your page has been deleted successfully.');
-        return Redirect::route('base');
+        return Redirect::route('pages.index');
     }
 }

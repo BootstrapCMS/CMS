@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateBlogsTable extends Migration {
+class CreatePostsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -11,10 +11,9 @@ class CreateBlogsTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('blogs', function(Blueprint $table) {
+        Schema::create('posts', function(Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('title');
-            $table->string('slug');
             $table->text('body');
             $table->integer('user_id')->unsigned();
             $table->timestamps();

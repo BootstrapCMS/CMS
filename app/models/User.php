@@ -1,6 +1,6 @@
 <?php
 
-class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages, IHasManyBlogs, IHasManyComments, IHasManyEvents {
+class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages, IHasManyPosts, IHasManyComments, IHasManyEvents {
 
     protected $table = 'users';
 
@@ -24,20 +24,16 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
         return $this->pages()->where('slug', '=', $slug)->first($columns);
     }
 
-    public function blogs() {
-        return $this->hasMany('Blog');
+    public function posts() {
+        return $this->hasMany('Post');
     }
 
-    public function getBlogs($columns = array('*')) {
-        return $this->blogs()->all($columns);
+    public function getPosts($columns = array('*')) {
+        return $this->posts()->all($columns);
     }
 
-    public function findBlog($id, $columns = array('*')) {
-        return $this->blogs()->find($id, $columns);
-    }
-
-    public function findBlogBySlug($slug, $columns = array('*')) {
-        return $this->blogs()->where('slug', '=', $slug)->first($columns);
+    public function findPost($id, $columns = array('*')) {
+        return $this->posts()->find($id, $columns);
     }
 
     public function events() {

@@ -59,8 +59,8 @@
                                 @endif
                                 @if (Sentry::getUser()->hasAccess('blog'))
                                     <li>
-                                        <a href="{{ URL::route('blogs.create') }}">
-                                            <i class="icon-book"></i> Create Blog
+                                        <a href="{{ URL::route('blog.posts.create') }}">
+                                            <i class="icon-book"></i> Create Post
                                         </a>
                                     </li>
                                 @endif

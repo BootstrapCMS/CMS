@@ -6,8 +6,12 @@ use Carbon\Carbon;
 abstract class ControllerTestCase extends TestCase {
 
     protected $model; // must be set in the extending class
+    protected $name; // must be set in the extending class
+    protected $base; // must be set in the extending class
+    protected $uid; // must be set in the extending class
 
     protected $mock;
+    protected $pagemock;
 
     protected $attributes;
 
@@ -34,7 +38,7 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function addLink($name, $attribute) {
-        $this->shouldReceive($name)
+        $this->mock->shouldReceive($name)
             ->andReturn($this->attributes[$attribute]);
     }
 
@@ -49,7 +53,14 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     public function setAsPage() {
-        $this->shouldReceive('getNav')->once()->andReturn(array());
+        if ($this->model != 'Page') {
+            $this->pagemock = Mockery::mock('Page');
+            $this->app->instance('Page', $this->pagemock);
+
+            $this->pagemock->shouldReceive('getNav')->once()->andReturn(array());
+        } else {
+            $this->mock->shouldReceive('getNav')->once()->andReturn(array());
+        }
     }
 
     protected function validate($bool) {
@@ -57,12 +68,41 @@ abstract class ControllerTestCase extends TestCase {
             ->andReturn(Mockery::mock(array('passes' => $bool, 'fails' => !$bool, 'errors' => array())));
     }
 
-    protected function shouldReceive() {
-        return call_user_func_array(array($this->mock, 'shouldReceive'), func_get_args());
+    protected function getUid() {
+        return $this->attributes[$this->uid];
+    }
+
+    protected function getFind() {
+        if ($this->uid == 'id') {
+            return 'find';
+        } else {
+            return 'findBy'.ucfirst($this->uid);
+        }
+    }
+
+    protected function getPath($path = null) {
+        if (!$path) {
+            return str_replace('.', '/', $this->base);
+        } else {
+            return str_replace('.', '/', $this->base).'/'.$path;
+        }
+    }
+
+    protected function getRoute($route = null) {
+        if (!$route) {
+            return $this->base;
+        } else {
+            return $this->base.'.'.$route;
+        }
+    }
+
+    public function getRoutePram($pram) {
+        return array($this->name => $pram);
     }
 
     public function testMocking() {
         $this->assertNotNull($this->model);
+        $this->assertNotNull($this->base);
         $this->assertNotNull($this->mock);
         $this->assertNotNull($this->attributes);
 

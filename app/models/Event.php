@@ -9,15 +9,15 @@ class Event extends BaseModel {
         'body'     => 'required',
         'date'     => 'required',
         'location' => 'required',
-        'user_id'  => 'required'
+        'user_id'  => 'required',
         );
 
     public static $factory = array(
         'title'    => 'String',
         'body'     => 'text',
-        //'date'   => '????',
+        'date'     => '????',
         'location' => 'text',
-        'user_id'  => 'factory|User'
+        'user_id'  => 1,
     );
 
     /**

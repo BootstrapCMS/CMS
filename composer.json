@@ -38,7 +38,8 @@
             "app/database/seeds",
             "app/tests/TestCase.php",
             "app/tests/models/ModelTestCase.php",
-            "app/tests/controllers/ControllerTestCase.php"
+            "app/tests/controllers/ControllerTestCase.php",
+            "app/tests/controllers/ResourcefulTestCase.php"
         ]
     },
     "scripts": {

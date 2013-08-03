@@ -1,22 +1,29 @@
 <?php
 
-class Blog extends BaseModel IHasManyComments {
+class Post extends BaseModel implements IHasManyComments {
 
-    protected $table = 'blogs';
+    protected $table = 'posts';
 
-    public static $rules = array(
+    public $rules = array(
         'title'   => 'required',
-        'slug'    => 'required',
         'body'    => 'required',
-        'user_id' => 'required'
+        'user_id' => 'required',
         );
 
-    public static $factory = array(
+    public $factory = array(
+        'id'      => 1,
         'title'   => 'string',
-        'slug'    => 'string',
         'body'    => 'text',
-        'user_id' => 'factory|User'
+        'user_id' => 1,
     );
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function getBody() {
+        return $this->body;
+    }
 
     public function comments() {
         return $this->hasMany('Comment');
