@@ -31,6 +31,9 @@ abstract class BaseHandler {
      * Called by Laravel.
      */
     public function fire($job, $data) {
+        // log the job start
+        Log::debug(get_class($this).' has started execution');
+
         // load job details and data to the class
         $this->job = $job;
         $this->data = $data;
