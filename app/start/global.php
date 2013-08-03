@@ -47,8 +47,10 @@ App::error(function(Exception $exception, $code) {
     switch ($code) {
         case 404:
             Log::warning($exception);
+            break;
         case 500:
             Log::critical($exception);
+            break;
         default:
             Log::error($exception);
     }
