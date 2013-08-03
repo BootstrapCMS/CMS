@@ -1,10 +1,6 @@
 <?php
 
-use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
-
-class AppReset extends Command {
+class AppReset extends AppCommand {
 
     protected $name = 'app:reset';
 
@@ -14,9 +10,10 @@ class AppReset extends Command {
      * Run the command.
      */
     public function fire() {
-        $this->call('key:generate');
-        $this->call('migrate:refresh');
-        $this->call('migrate', array('--package' => 'cartalyst/sentry'));
-        $this->call('db:seed');
+        $this->genAppKey();
+        $this->resetMigrations();
+        $this->runMigrations();
+        $this->runSeeding();
+        $this->genAssets();
     }
 }
