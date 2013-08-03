@@ -7,14 +7,11 @@ class CreateEventsTable extends Migration {
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up() {
         Schema::create('events', function(Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('title');
-            $table->string('slug');
             $table->text('body');
             $table->timestamp('date');
             $table->text('location');
@@ -26,8 +23,6 @@ class CreateEventsTable extends Migration {
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down() {
         Schema::drop('events');
