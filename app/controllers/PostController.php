@@ -3,12 +3,13 @@
 class PostController extends BaseController {
 
     protected $post;
+    protected $comment;
 
     /**
      * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page, Post $post) {
+    public function __construct(Page $page, Post $post, Comment $comment) {
         $this->page = $page;
         $this->post = $post;
 
