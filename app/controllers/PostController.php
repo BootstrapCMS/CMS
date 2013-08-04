@@ -28,7 +28,8 @@ class PostController extends BaseController {
      * @return Response
      */
     public function index() {
-        return $this->viewMake('posts.index');
+        $posts = $this->post->orderBy('id', 'desc')->get(array('id', 'title', 'body'));
+        return $this->viewMake('posts.index', array('posts' => $posts));
     }
 
     /**
