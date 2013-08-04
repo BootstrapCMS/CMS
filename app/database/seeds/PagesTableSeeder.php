@@ -10,9 +10,8 @@ class PagesTableSeeder extends Seeder {
 
         $home = array(
             'Title' => 'Home',
-            'slug' => 'home',
-            'body' => '
-<div class="jumbotron">
+            'slug'  => 'home',
+            'body'  => '<div class="jumbotron">
     <h1><?php echo Config::get("cms.name"); ?></h1>
     <p class="lead">Powered by laravel 4 with Sentry 2</p>
     <a class="btn btn-large btn-success" href="<?php echo URL::route("account.register"); ?>">Sign Up Today</a>
@@ -46,29 +45,27 @@ class PagesTableSeeder extends Seeder {
         </p>
     </div>
 
-</div>
-            ',
+</div>',
             'show_title' => false,
-            'icon' => 'icon-home',
-            'user_id' => 1,
+            'icon'       => 'icon-home',
+            'user_id'    => 1,
             'created_at' => new DateTime,
-            'updated_at' => new DateTime
-            );
+            'updated_at' => new DateTime,
+        );
 
         DB::table('pages')->insert($home);
 
         $about = array(
             'Title' => 'About',
-            'slug' => 'about',
-            'body' => '
-<p class="lead">
+            'slug'  => 'about',
+            'body'  => '<p class="lead">
     This is the about page!
-</p>
-            ',
-            'user_id' => 1,
+</p>',
+            'user_id'    => 1,
+            'icon'       => 'icon-info-sign',
             'created_at' => new DateTime,
-            'updated_at' => new DateTime
-            );
+            'updated_at' => new DateTime,
+        );
 
         DB::table('pages')->insert($about);
     }

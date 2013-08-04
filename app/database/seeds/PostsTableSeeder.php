@@ -9,11 +9,11 @@ class PostsTableSeeder extends Seeder {
         DB::table('posts')->delete();
 
         $post = array(
-            'Title' => 'Hello World',
-            'body' => 'This is an example blog post.',
-            'user_id' => 1,
+            'Title'      => 'Hello World',
+            'body'       => 'This is an example blog post.',
+            'user_id'    => 1,
             'created_at' => new DateTime,
-            'updated_at' => new DateTime
+            'updated_at' => new DateTime,
             );
 
         DB::table('posts')->insert($post);
