@@ -34,7 +34,7 @@ return array(
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('bootstrap-select.min.css');
-                $collection->stylesheet('main.css')->apply('CssMin');
+                $collection->stylesheet('main.css');
             });
             $directory->apply('UriRewriteFilter');
 
