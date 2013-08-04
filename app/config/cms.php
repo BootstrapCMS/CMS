@@ -57,4 +57,21 @@ return array(
 
     'cache' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | CSS Theme
+    |--------------------------------------------------------------------------
+    |
+    | This defines what theme of Bootstrap to use from bootswatch.com.
+    |
+    | Supported: "amelia", "cerulean", "cosmo", "cyborg", "default", "flatly",
+    |            "journal", "readable", "simplex", "slate", "spacelab", "spruce",
+    |            "superhero", "united"
+    |
+    | Default to "default".
+    |
+    */
+
+    'theme' => 'default',
+
 );
