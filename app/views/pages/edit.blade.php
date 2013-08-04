@@ -14,12 +14,12 @@ Edit {{ $page->getTitle() }}
                 Please edit the page:
             </p>
         </div>
-
         <div class="span6">
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}"><i class="icon-file-text"></i> Show Page</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('pages.destroy', array('pages' => $page->getSlug())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Page</a>
             </div>
         </div>
+    </div>
 <hr>
 
 @stop
