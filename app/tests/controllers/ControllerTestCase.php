@@ -53,13 +53,25 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     public function setAsPage() {
+        $nav = array(
+            array(
+                'title' => 'Home',
+                'slug' => 'home',
+                'icon' => 'icon-home',
+            ),
+            array(
+                'title' => 'About',
+                'slug' => 'about',
+                'icon' => 'icon-info-sign',
+            ),
+        );
         if ($this->model != 'Page') {
             $this->pagemock = Mockery::mock('Page');
             $this->app->instance('Page', $this->pagemock);
 
-            $this->pagemock->shouldReceive('getNav')->once()->andReturn(array());
+            $this->pagemock->shouldReceive('getNav')->once()->andReturn($nav);
         } else {
-            $this->mock->shouldReceive('getNav')->once()->andReturn(array());
+            $this->mock->shouldReceive('getNav')->once()->andReturn($nav);
         }
     }
 
