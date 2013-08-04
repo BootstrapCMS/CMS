@@ -33,10 +33,9 @@ return array(
                 $collection->stylesheet('bootstrap.min.css');
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
-                $collection->stylesheet('bootstrap-select.min.css')->apply('CssMin');
+                $collection->stylesheet('bootstrap-select.min.css');
                 $collection->stylesheet('main.css')->apply('CssMin');
             });
-            //$directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
@@ -53,7 +52,6 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('edit.css');
             });
-            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
@@ -68,7 +66,6 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-switch.css');
             });
-            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
@@ -81,7 +78,6 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-lightbox.min.css');
             });
-            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
@@ -94,7 +90,6 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('extra.css');
             });
-            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
