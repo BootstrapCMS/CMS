@@ -27,7 +27,7 @@ class EventController extends BaseController {
      * @return Response
      */
     public function index() {
-        return 'events index';
+        return $this->viewMake('events.index');
     }
 
     /**
