@@ -51,7 +51,6 @@ class Page extends BaseModel {
     public function getNav() {
         // TODO: caching logic
         return $this->where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
-        //return $this->all(array('title', 'slug', 'icon'))->toArray();
     }
 
     public function findBySlug($slug, $columns = array('*')) {
