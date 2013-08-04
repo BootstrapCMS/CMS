@@ -10,7 +10,8 @@ abstract class ModelTestCase extends TestCase {
     public function setUp() {
         parent::setUp();
 
-        Artisan::call('app:install');
+        Artisan::call('migrate', array('--package' => 'cartalyst/sentry'));
+        Artisan::call('migrate', array('--seed' => true));
 
         $this->object = new $this->model;
         $this->instance = $this->object->find(1);
