@@ -2,10 +2,10 @@
 
 @section('title')
 @parent
-Edit User
+Edit {{ $user->first_name.' '.$user->last_name }}
 @stop
 
-@section('content')
+@section('controls')
 
 <p class="lead">
     Currently editing   
@@ -16,6 +16,10 @@ Edit User
     @endif
     profile:
 </p>
+
+@stop
+
+@section('content')
 
 <h4>Change Name</h4>
 <div class="well">
