@@ -36,7 +36,7 @@ Login
         </div>
     
         <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Log In"> 
+            <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Log In</button>
             <a href="{{ URL::route('account.reset') }}" class="btn btn-link">Forgot Password?</a>
         </div>
   </form>

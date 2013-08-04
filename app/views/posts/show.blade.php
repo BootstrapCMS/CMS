@@ -13,7 +13,7 @@
             <p>
                 <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
             </p>
-            <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}">Edit Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Delete Post</a>
+            <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Post</a>
         </div>
         <div class="span5">
             <div class="pull-right">

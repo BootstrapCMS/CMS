@@ -36,8 +36,8 @@ Register
         </div>
 
         <div class="form-actions">
-            <input class="btn-primary btn" type="submit" value="Register"> 
-            <input class="btn-inverse btn" type="reset" value="Reset">
+            <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Register</button>
+            <button class="btn btn-inverse" type="reset">Reset</button>
         </div>  
     </form>
 </div>

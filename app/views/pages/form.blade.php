@@ -51,6 +51,6 @@
     </div>
 
     <div class="form-actions">
-        <input class="btn btn-primary" type="submit" value="{{ $form['button'] }}"> 
+        <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> {{ $form['button'] }}</button>
     </div>
 </form>

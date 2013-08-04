@@ -17,7 +17,7 @@ Edit {{ $post->getTitle() }}
 
         <div class="span6">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}">Show Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Delete Post</a>
+                <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Post</a>
             </div>
         </div>
 <hr>
