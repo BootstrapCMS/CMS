@@ -7,15 +7,21 @@ CHANGE LOG
 
 * Major improvements to page editing and creation
 * Added page details for editors
-* Added markdown support in pages
+* Added a blogging system
+* Added markdown support
 * Added load balancer support
 * Added some more libs
+* Added theme support
 * Added a new maintenance page
 * Added an error handler in-browser test
 * Added a very basic in-browser test page
 * Added a new assets system
-* Added css, js, and html minification
+* Added js, and html minification
 * Added some working tests
+* Added in-browser log viewing
+* Added the option to disable blogging and events
+* Updated navigation bad
+* Now using Font Awesome
 * Cleaned up the error page css
 * Major controller refactoring
 * Dropped ardent support
@@ -25,7 +31,13 @@ CHANGE LOG
 * Fixed an issue with $job in BaseHandler
 * Fixed a potential bug in the error pages
 * Fixed login redirects
+* Fixed some html validation errors
+* Fixed some migration and seeding issues
+* Fixed a file permission issue
+* Fixed some formatting issues
 * Removed some old files
+* Updated documentation
+* Now available through composer
 * Other minor fixes
 
 
