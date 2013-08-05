@@ -33,19 +33,27 @@ Blog
 @section('content')
 
 @foreach($posts as $key => $post)
-<h2>{{ $post->getTitle() }}</h2>
-<p>
-    {{ $post->getSummary() }}
-</p>
-<p>
-    <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a>
-    @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
-         <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Post</a>
-    @endif
-</p>
-@if (!$key == count($posts)-1)
-<br>
+    <h2>{{ $post->getTitle() }}</h2>
+    <p>
+        {{ $post->getSummary() }}
+    </p>
+    <p>
+        <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a>
+        @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+             <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post_{{ $post->getId() }}" data-toggle="modal" data-target="#delete_post_{{ $post->getId() }}"><i class="icon-remove"></i> Delete Post</a>
+        @endif
+    </p>
+    @if (!$key == count($posts)-1)
+    <br>
 @endif
 @endforeach
+
+@stop
+
+@section('messages')
+
+@if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+    @include('posts.deletes')
+@endif
 
 @stop

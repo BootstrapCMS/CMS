@@ -18,7 +18,7 @@ if($page->getShowTitle() == false) {
             <p>
                 <strong>Page Creator:</strong> {{ $page->getUserEmail() }}
             </p>
-            <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->getSlug())) }}"><i class="icon-edit"></i> Edit Page</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('pages.destroy', array('pages' => $page->getSlug())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Page</a>
+            <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->getSlug())) }}"><i class="icon-edit"></i> Edit Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="icon-remove"></i> Delete Page</a>
         </div>
         <div class="span5">
             <div class="pull-right">
@@ -39,5 +39,13 @@ if($page->getShowTitle() == false) {
 @section('content')
 
 <?php eval('?>'.Markdown::string($page->getBody())); ?>
+
+@stop
+
+@section('messages')
+
+@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+    @include('pages.delete')
+@endif
 
 @stop

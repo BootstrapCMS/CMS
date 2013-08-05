@@ -16,7 +16,7 @@ Edit {{ $page->getTitle() }}
         </div>
         <div class="span6">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}"><i class="icon-file-text"></i> Show Page</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('pages.destroy', array('pages' => $page->getSlug())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Page</a>
+                <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}"><i class="icon-file-text"></i> Show Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="icon-remove"></i> Delete Page</a>
             </div>
         </div>
     </div>
@@ -41,6 +41,14 @@ Edit {{ $page->getTitle() }}
     ?>
     @include('pages.form')
 </div>
+
+@stop
+
+@section('messages')
+
+@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+    @include('pages.delete')
+@endif
 
 @stop
 

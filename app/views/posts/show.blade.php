@@ -13,7 +13,7 @@
             <p>
                 <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
             </p>
-            <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Post</a>
+            <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="icon-remove"></i> Delete Post</a>
         </div>
         <div class="span5">
             <div class="pull-right">
@@ -92,6 +92,14 @@
         <p><strong>User</strong> - time</p>
         <p>{{ $comment }}</p>
     @endforeach
+@endif
+
+@stop
+
+@section('messages')
+
+@if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+    @include('posts.delete')
 @endif
 
 @stop

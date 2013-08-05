@@ -16,7 +16,7 @@ Edit {{ $post->getTitle() }}
         </div>
         <div class="span6">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Post</a>
+                <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="icon-remove"></i> Delete Post</a>
             </div>
         </div>
     </div>
@@ -39,5 +39,13 @@ Edit {{ $post->getTitle() }}
     ?>
     @include('posts.form')
 </div>
+
+@stop
+
+@section('messages')
+
+@if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+    @include('posts.delete')
+@endif
 
 @stop
