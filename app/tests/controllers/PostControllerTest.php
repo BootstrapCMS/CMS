@@ -46,11 +46,11 @@ class PostControllerTest extends ResourcefulTestCase {
         $this->mock->shouldReceive($this->getFind())
             ->with($this->getUid())->once()->andReturn($this->mock);
 
-        $this->mock->shouldReceive('getUserEmail')
-            ->once()->andReturn('email');
+        $this->mock->shouldReceive('getUserName')
+            ->once()->andReturn('name');
 
-        // $this->mock->shouldReceive('getComments')
-        //     ->once()->andReturn(array());
+        $this->mock->shouldReceive('getCommentsReversed')
+            ->once()->andReturn(array());
 
         $this->call('GET', $this->getPath($this->getUid()));
 
