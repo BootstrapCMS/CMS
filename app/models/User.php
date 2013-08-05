@@ -13,7 +13,7 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
     }
 
     public function getPages($columns = array('*')) {
-        return $this->pages()->all($columns);
+        return $this->pages()->get($columns);
     }
 
     public function findPage($id, $columns = array('*')) {
@@ -29,7 +29,7 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
     }
 
     public function getPosts($columns = array('*')) {
-        return $this->posts()->all($columns);
+        return $this->posts()->get($columns);
     }
 
     public function findPost($id, $columns = array('*')) {
@@ -41,7 +41,7 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
     }
 
     public function getEvents($columns = array('*')) {
-        return $this->events()->all($columns);
+        return $this->events()->get($columns);
     }
 
     public function findEvent($id, $columns = array('*')) {
@@ -53,7 +53,11 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
     }
 
     public function getComments($columns = array('*')) {
-        return $this->comments()->all($columns);
+        return $this->comments()->get($columns);
+    }
+
+    public function getCommentsReversed($columns = array('*')) {
+        return $this->comments()->orderBy('id', 'desc')->get($columns);
     }
 
     public function findComment($id, $columns = array('*')) {

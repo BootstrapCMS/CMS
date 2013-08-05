@@ -3,13 +3,12 @@
 class PostController extends BaseController {
 
     protected $post;
-    protected $comment;
 
     /**
      * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page, Post $post, Comment $comment) {
+    public function __construct(Page $page, Post $post) {
         $this->page = $page;
         $this->post = $post;
 
@@ -80,8 +79,7 @@ class PostController extends BaseController {
             App::abort(404, 'Post Not Found');
         }
 
-        $comments = array(); // there is currently no comments table...
-        //$comments = $post->getComments();
+        $comments = $post->getCommentsReversed();
 
         return $this->viewMake('posts.show', array('post' => $post, 'comments' => $comments));
     }

@@ -4,22 +4,24 @@ class Comment extends BaseModel implements IBelongsToPost {
 
     protected $table = 'comments';
 
-    public static $rules = array(
-        'title'   => 'required',
+    public $rules = array(
         'body'    => 'required',
         'user_id' => 'required',
         'post_id' => 'required',
     );
 
-    public static $factory = array(
-        'title'   => 'string',
+    public $factory = array(
         'body'    => 'text',
         'user_id' => 1,
         'post_id' => 1,
     );
 
+    public function getBody() {
+        return $this->body;
+    }
+
     public function post() {
-        return $this->belongsTo('User');
+        return $this->belongsTo('Post');
     }
 
     public function getPost($columns = array('*')) {

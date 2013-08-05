@@ -36,7 +36,11 @@ class Post extends BaseModel implements IHasManyComments {
     }
 
     public function getComments($columns = array('*')) {
-        return $this->comments()->all($columns);
+        return $this->comments()->get($columns);
+    }
+
+    public function getCommentsReversed($columns = array('*')) {
+        return $this->comments()->orderBy('id', 'desc')->get($columns);
     }
 
     public function findComment($id, $columns = array('*')) {

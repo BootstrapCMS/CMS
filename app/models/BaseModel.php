@@ -31,4 +31,9 @@ abstract class BaseModel extends Eloquent implements IBelongsToUser {
     public function getUserEmail() {
         return $this->getUser(array('email'))->email;
     }
+
+    public function getUserName() {
+        $user = $this->getUser(array('first_name', 'last_name'));
+        return $user->first_name.' '.$user->last_name;
+    }
 }

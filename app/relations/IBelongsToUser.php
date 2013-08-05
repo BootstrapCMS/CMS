@@ -10,4 +10,6 @@ interface IBelongsToUser {
 
     public function getUserEmail();
 
+    public function getUserName();
+
 }
