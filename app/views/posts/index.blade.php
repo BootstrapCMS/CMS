@@ -11,7 +11,11 @@ Blog
     <div class="span12">
         <div class="span6">
             <p class="lead">
-                Here you may find our blog posts:
+                @if (count($posts) == 0)
+                    There are currently no blog posts.
+                @else
+                    Here you may find our blog posts:
+                @endif
             </p>
         </div>
         @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))

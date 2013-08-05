@@ -76,7 +76,9 @@
         </div>
     </div>
 @else
-<p><strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong></p>
+<p>
+    <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
+</p>
 <br>
 @endif
 
