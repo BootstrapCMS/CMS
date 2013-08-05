@@ -59,6 +59,7 @@
 
 <br>
 <hr>
+<h4>Comments</h4>
 @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
     <div class="row-fluid">
         <div class="span12">
@@ -74,8 +75,21 @@
             </form>
         </div>
     </div>
+@else
+<p><strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong></p>
+<br>
 @endif
 
-<p class="lead">Comments go here!</p>
+@if (count($comments) == 0)
+<p>There are currently no comments.</p>
+@else
+    @foreach ($comments as $key => $comment)
+        @if ($key != 0)
+        <hr>
+        @endif
+        <p><strong>User</strong> - time</p>
+        <p>{{ $comment }}</p>
+    @endforeach
+@endif
 
 @stop

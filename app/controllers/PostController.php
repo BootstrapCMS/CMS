@@ -80,7 +80,10 @@ class PostController extends BaseController {
             App::abort(404, 'Post Not Found');
         }
 
-        return $this->viewMake('posts.show', array('post' => $post));
+        $comments = array(); // there is currently no comments table...
+        //$comments = $post->getComments();
+
+        return $this->viewMake('posts.show', array('post' => $post, 'comments' => $comments));
     }
 
     /**
