@@ -30,13 +30,14 @@ Route::get('/', array('as' => 'base', function() {
 }));
 
 // send users to the posts page
-Route::get('blog', array('as' => 'blog', function() {
-    Session::flash('', ''); // work around laravel bug
-    Session::reflash();
-    Log::info('Redirecting from blog to the posts page');
-    return Redirect::route('blog.posts.index');
-}));
-
+if (Config::get('cms.blogging')) {
+    Route::get('blog', array('as' => 'blog', function() {
+        Session::flash('', ''); // work around laravel bug
+        Session::reflash();
+        Log::info('Redirecting from blog to the posts page');
+        return Redirect::route('blog.posts.index');
+    }));
+}
 
 // account routes
 Route::get('account', array('as' => 'account.index', 'uses' => 'AccountController@getIndex'));
@@ -60,8 +61,12 @@ Route::resource('users', 'UserController');
 Route::resource('pages', 'PageController');
 
 // event routes
-Route::resource('events', 'EventController');
+if (Config::get('cms.events')) {
+    Route::resource('events', 'EventController');
+}
 
 // blog routes
-Route::resource('blog/posts', 'PostController');
-Route::resource('blog/posts.comments', 'CommentController');
+if (Config::get('cms.blogging')) {
+    Route::resource('blog/posts', 'PostController');
+    Route::resource('blog/posts.comments', 'CommentController');
+}

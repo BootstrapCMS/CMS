@@ -13,16 +13,20 @@
                             {{ ((!$nav_pages[0]['icon'] == '') ? '<i class="'.$nav_pages[0]['icon'].' icon-white"></i> ' : '') }}{{ $nav_pages[0]['title'] }}
                         </a>
                     </li>
-                    <li{{ ((Request::is('blog') || Request::is('blog/*')) ? ' class="active"' : '') }}>
-                        <a href="{{ URL::route('blog') }}">
-                            <i class="icon-book"></i> Blog
-                        </a>
-                    </li>
-                    <li{{ ((Request::is('events') || Request::is('events/*')) ? ' class="active"' : '') }}>
-                        <a href="{{ URL::route('events.index') }}">
-                            <i class="icon-calendar"></i> Events
-                        </a>
-                    </li>
+                    @if (Config::get('cms.blogging'))
+                        <li{{ ((Request::is('blog') || Request::is('blog/*')) ? ' class="active"' : '') }}>
+                            <a href="{{ URL::route('blog') }}">
+                                <i class="icon-book"></i> Blog
+                            </a>
+                        </li>
+                    @endif
+                    @if (Config::get('cms.events'))
+                        <li{{ ((Request::is('events') || Request::is('events/*')) ? ' class="active"' : '') }}>
+                            <a href="{{ URL::route('events.index') }}">
+                                <i class="icon-calendar"></i> Events
+                            </a>
+                        </li>
+                    @endif
                     <?php unset($nav_pages[0]); ?>
                     @foreach($nav_pages as $item)
                         <li{{ ((Request::is('pages/'.$item['slug']) || Request::is('pages/'.$item['slug'].'/edit')) ? ' class="active"' : '') }}>
@@ -73,19 +77,23 @@
                                         </a>
                                     </li>
                                 @endif
-                                @if (Sentry::getUser()->hasAccess('edit'))
-                                    <li>
-                                        <a href="{{ URL::route('events.create') }}">
-                                            <i class="icon-calendar"></i> Create Event
-                                        </a>
-                                    </li>
+                                @if (Config::get('cms.blogging'))
+                                    @if (Sentry::getUser()->hasAccess('blog'))
+                                        <li>
+                                            <a href="{{ URL::route('blog.posts.create') }}">
+                                                <i class="icon-book"></i> Create Post
+                                            </a>
+                                        </li>
+                                    @endif
                                 @endif
-                                @if (Sentry::getUser()->hasAccess('blog'))
-                                    <li>
-                                        <a href="{{ URL::route('blog.posts.create') }}">
-                                            <i class="icon-book"></i> Create Post
-                                        </a>
-                                    </li>
+                                @if (Config::get('cms.events'))
+                                    @if (Sentry::getUser()->hasAccess('edit'))
+                                        <li>
+                                            <a href="{{ URL::route('events.create') }}">
+                                                <i class="icon-calendar"></i> Create Event
+                                            </a>
+                                        </li>
+                                    @endif
                                 @endif
                                 <li>
                                     <a href="#">
