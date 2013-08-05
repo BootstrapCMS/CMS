@@ -2,20 +2,6 @@ body {
     padding-top: 60px;
 }
 
-.alert {
-    padding-right: 14px;
-    margin-bottom: 0;
-}
-
-.alert + .alert {
-    margin-top: 20px;
-}
-
-.alert .close {
-    top: 0;
-    right: 0;
-}
-
 .alert-emergency {
     background-color: #dca7a7;
     border-color: #d89ca6;

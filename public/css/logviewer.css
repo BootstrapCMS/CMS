@@ -2,6 +2,20 @@ pre {
     margin: 0;
 }
 
+.alert {
+    padding-right: 14px;
+    margin-bottom: 0;
+}
+
+.alert + .alert {
+    margin-top: 20px;
+}
+
+.alert .close {
+    top: 0;
+    right: 0;
+}
+
 .toggle-stack {
     font-size: 18px;
     color: #000000;
