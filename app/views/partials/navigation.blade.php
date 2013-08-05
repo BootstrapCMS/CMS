@@ -13,12 +13,12 @@
                             {{ ((!$nav_pages[0]['icon'] == '') ? '<i class="'.$nav_pages[0]['icon'].' icon-white"></i> ' : '') }}{{ $nav_pages[0]['title'] }}
                         </a>
                     </li>
-                    <li{{ (Request::is('blog/*') ? ' class="active"' : '') }}>
+                    <li{{ ((Request::is('blog') || Request::is('blog/*')) ? ' class="active"' : '') }}>
                         <a href="{{ URL::route('blog') }}">
                             <i class="icon-book"></i> Blog
                         </a>
                     </li>
-                    <li{{ (Request::is('events/*') ? ' class="active"' : '') }}>
+                    <li{{ ((Request::is('events') || Request::is('events/*')) ? ' class="active"' : '') }}>
                         <a href="{{ URL::route('events.index') }}">
                             <i class="icon-calendar"></i> Events
                         </a>
