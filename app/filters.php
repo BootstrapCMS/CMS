@@ -12,11 +12,36 @@
 */
 
 App::before(function($request) {
-    Log::debug('Page load event occurred', array('URL' => Request::url(), 'Headers' => Request::header()));
+    if (!$request->is('logviewer/*')) {
+        Log::debug('Page load event occurred', array('URL' => Request::url(), 'Headers' => Request::header()));
+    } else {
+        $value = 'admin';
+
+        if (!Sentry::check()) {
+            Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
+            Session::flash('error', 'You must be logged in to perform that action.');
+            return Redirect::guest(URL::route('account.login'));
+        }
+
+        if (!Sentry::getUser()->hasAccess($value)) {
+            Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
+            App::abort(403, ucwords($value).' Permissions Are Required');
+        }
+    }
 });
 
 App::after(function($request, $response) {
-    //
+    if(App::Environment() != 'local') {
+        if($response instanceof Illuminate\Http\Response) {
+            $output = $response->getOriginalContent();
+            
+            $filters = array('/<!--([^\[|(<!)].*)/' => '', '/(?<!\S)\/\/\s*[^\r\n]*/' => '');
+            
+            $output = preg_replace(array_keys($filters), array_values($filters), $output);
+
+            $response->setContent($output);
+        }
+    }
 });
 
 /*
@@ -33,11 +58,13 @@ App::after(function($request, $response) {
 // check if the user is logged in and their access level
 Route::filter('auth', function($route, $request, $value) {
     if (!Sentry::check()) {
+        Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
         Session::flash('error', 'You must be logged in to perform that action.');
-        return Redirect::route('account.login');
+        return Redirect::guest(URL::route('account.login'));
     }
 
     if (!Sentry::getUser()->hasAccess($value)) {
+        Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
         App::abort(403, ucwords($value).' Permissions Are Required');
     }
 });
@@ -54,7 +81,7 @@ Route::filter('auth', function($route, $request, $value) {
 */
 
 Route::filter('guest', function() {
-    if (Auth::check()) return Redirect::route('base');
+    if (Auth::check()) return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
 });
 
 /*

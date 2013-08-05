@@ -2,17 +2,24 @@
 
 class HomeController extends BaseController {
 
-    public function showWelcome() {
-        Log::notice('Hello World');
-        return View::make('hello');
+    /**
+     * Load the injected models.
+     * Setup access permissions.
+     */
+    public function __construct(Page $page) {
+        $this->page = $page;
+
+        parent::__construct();
     }
 
-    public function showLog($file) {
-        $path = storage_path().'\\logs\\'.$file;
-        if(!file_exists($path)) {
-            App::abort(404, 'Log Not Found');
-        }
-        return View::make('log', array('file' => $file, 'path' => $path));
+    public function showWelcome() {
+        Log::notice('Hello World');
+        return $this->viewMake('hello');
+    }
+
+    public function showTest() {
+        Log::notice('Test 123');
+        return 'Test 123';
     }
 
     public function testQueue() {
@@ -22,6 +29,11 @@ class HomeController extends BaseController {
             'subject' => Config::get('cms.name').' - Welcome');
 
         Queue::push('MailHandler', $data);
+        return 'done';
+    }
+
+    public function testError() {
+        Queue::push('TestHandler', array());
         return 'done';
     }
 

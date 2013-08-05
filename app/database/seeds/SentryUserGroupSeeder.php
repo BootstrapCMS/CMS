@@ -8,10 +8,17 @@ class SentryUserGroupSeeder extends Seeder {
     public function run() {
         DB::table('users_groups')->delete();
 
-        Sentry::getUserProvider()->findByLogin('admin@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Admins'));
-        Sentry::getUserProvider()->findByLogin('moderator@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Moderators'));
-        Sentry::getUserProvider()->findByLogin('blogger@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Bloggers'));
-        Sentry::getUserProvider()->findByLogin('editor@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Editors'));
-        Sentry::getUserProvider()->findByLogin('user@dsmg.co.uk')->addGroup(Sentry::getGroupProvider()->findByName('Users'));
+        $this->matchUser('admin@dsmg.co.uk', 'Admins');
+        $this->matchUser('semiadmin@dsmg.co.uk', 'Moderators');
+        $this->matchUser('semiadmin@dsmg.co.uk', 'Bloggers');
+        $this->matchUser('semiadmin@dsmg.co.uk', 'Editors');
+        $this->matchUser('moderator@dsmg.co.uk', 'Moderators');
+        $this->matchUser('blogger@dsmg.co.uk', 'Bloggers');
+        $this->matchUser('editor@dsmg.co.uk', 'Editors');
+        $this->matchUser('user@dsmg.co.uk', 'Users');
+    }
+
+    protected function matchUser($email, $group) {
+        return Sentry::getUserProvider()->findByLogin($email)->addGroup(Sentry::getGroupProvider()->findByName($group));
     }
 }

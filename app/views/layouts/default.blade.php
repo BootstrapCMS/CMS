@@ -1,46 +1,28 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
-@include('partials.header')
-
+<head>
+    <meta charset="utf-8">
+    <title>
+        {{ Config::get('cms.name') }} - @section('title')
+        @show
+    </title>
+    {{ HTMLMin::render($__env->make('partials.header', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+</head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-                </button>
-                <a class="brand" href="{{ URL::route('base') }}">{{ Config::get('cms.name') }}</a>
-                <div class="nav-collapse collapse">
-                    @include('partials.navigation')
-                </div>
-            </div>
-        </div>
-    </div>
-
+    {{ HTMLMin::render($__env->make('partials.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
     <div class="container">
-        @if (isset($page))
-            @if ($page->show_title == true)
-                <div class="page-header">
-                    <h1>
-                        @section('title') 
-                        @show
-                    </h1>
-                </div>
-            @endif
-        @else
-            <div class="page-header">
-                <h1>
-                    @section('title') 
-                    @show
-                </h1>
-            </div>
-        @endif
-        @include('partials.notifications')
+        {{ HTMLMin::render($__env->make('partials.title', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+        {{ HTMLMin::render($__env->make('partials.notifications', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+        @section('controls')
+        {{ HTMLMin::render($__env->yieldSection()) }}
         @section('content')
         @show
+        @section('comments')
+        {{ HTMLMin::render($__env->yieldSection()) }}
+        @section('messages')
+        {{ HTMLMin::render($__env->yieldSection()) }}
         <br><hr>
     </div>
-    @include('partials.footer')
-    </body>
+    {{ HTMLMin::render($__env->make('partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+</body>
 </html>

@@ -12,13 +12,11 @@
                     <p class="muted pull-right">Generated in {{ round((microtime(1) - $timer_start), 4) }} sec.</p>
                 </div>
             </div>
-            </div>
         </div>
     </div>
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="{{ asset('js/restfulizer.js') }}"></script>
-<script src="{{ asset('js/switch.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+{{ Basset::show('main.js') }}
+@section('js')
+@show
+{{ Basset::show('extra.js') }}

@@ -1,10 +1,6 @@
 <?php
 
-use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
-
-class AppUpdate extends Command {
+class AppUpdate extends AppCommand {
 
     protected $name = 'app:update';
 
@@ -14,7 +10,7 @@ class AppUpdate extends Command {
      * Run the command.
      */
     public function fire() {
-        $this->call('migrate');
-        $this->call('migrate', array('--package' => 'cartalyst/sentry'));
+        $this->runMigrations();
+        $this->genAssets();
     }
 }

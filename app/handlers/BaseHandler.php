@@ -22,7 +22,7 @@ abstract class BaseHandler {
      * Constructor.
      */
     public function __construct() {
-        // unprotected
+        // unprotected against exceptions
         $this->init();
     }
 
@@ -31,6 +31,9 @@ abstract class BaseHandler {
      * Called by Laravel.
      */
     public function fire($job, $data) {
+        // log the job start
+        Log::debug(get_class($this).' has started execution');
+
         // load job details and data to the class
         $this->job = $job;
         $this->data = $data;
@@ -112,7 +115,7 @@ abstract class BaseHandler {
 
         // wait x seconds, then push back to queue, or abort if that fails
         try {
-            $this->job->release($job->attempts());
+            $this->job->release($this->job->attempts());
         } catch (Exception $e) {
             Log::error($e);
             $this->abort(get_class($this).' has aborted after failing to repush to the queue');

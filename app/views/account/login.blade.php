@@ -19,15 +19,15 @@ Login
             </div>
         </div>
     
-       <div class="control-group {{ $errors->has('password') ? 'error' : '' }}" for="password">
+       <div class="control-group {{ ($errors->has('password')) ? 'error' : '' }}" for="password">
             <label class="control-label" for="password">Password</label>
             <div class="controls">
-                <input name="password" value="" type="password" class="input-xlarge" placeholder="Password">
+                <input name="password" id="password" value="" type="password" class="input-xlarge" placeholder="Password">
                 {{ ($errors->has('password') ?  $errors->first('password') : '') }}
             </div>
         </div>
 
-        <div class="control-group" for"rememberme">
+        <div class="control-group" for="rememberme">
             <div class="controls">
                 <label class="checkbox inline">
                     <input type="checkbox" name="rememberMe" value="1"> Remember Me
@@ -36,7 +36,7 @@ Login
         </div>
     
         <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Log In"> 
+            <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Log In</button>
             <a href="{{ URL::route('account.reset') }}" class="btn btn-link">Forgot Password?</a>
         </div>
   </form>

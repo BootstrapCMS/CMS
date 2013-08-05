@@ -1,40 +1,34 @@
 <?php
 
-class Comment extends BaseModel {
+class Comment extends BaseModel implements IBelongsToPost {
 
     protected $table = 'comments';
 
-    public static $rules = array(
-        'title' => 'required',
-        'body' => 'required',
+    public $rules = array(
+        'body'    => 'required',
         'user_id' => 'required',
-        'blog_id' => 'required'
-        );
-
-    public static $factory = array(
-        'title' => 'string',
-        'body' => 'text',
-        'user_id' => 'factory|User',
-        'blog_id' => 'factory|Blog'
+        'post_id' => 'required',
     );
 
-    /**
-     * Belongs to user.
-     *
-     * @return User
-     */
-    public function user()
-    {
-        return $this->belongsTo('User');
+    public $factory = array(
+        'body'    => 'text',
+        'user_id' => 1,
+        'post_id' => 1,
+    );
+
+    public function getBody() {
+        return $this->body;
     }
 
-    /**
-     * Belongs to blog.
-     *
-     * @return Blog
-     */
-    public function blog()
-    {
-        return $this->belongsTo('Blog');
+    public function post() {
+        return $this->belongsTo('Post');
+    }
+
+    public function getPost($columns = array('*')) {
+        return $this->post()->first($columns);
+    }
+
+    public function getPostId() {
+        return $this->post_id;
     }
 }

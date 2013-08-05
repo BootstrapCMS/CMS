@@ -2,13 +2,22 @@
 
 class CommentController extends BaseController {
 
+    protected $comment;
+
     /**
-     * Constructor
+     * Load the injected models.
+     * Setup access permissions.
      */
-    public function __construct() {
+    public function __construct(Page $page, Comment $comment) {
+        $this->page = $page;
+        $this->comment = $comment;
+
+        $this->users[] = 'create';
+        $this->users[] = 'store';
         $this->mods[] = 'edit';
         $this->mods[] = 'update';
         $this->mods[] = 'destroy';
+
         parent::__construct();
     }
 
@@ -17,8 +26,8 @@ class CommentController extends BaseController {
      *
      * @return Response
      */
-    public function index() {
-        return 'comments index';
+    public function index($post_id) {
+        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
     /**
@@ -26,8 +35,8 @@ class CommentController extends BaseController {
      *
      * @return Response
      */
-    public function create() {
-        return 'comments create';
+    public function create($post_id) {
+        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
     /**
@@ -35,8 +44,25 @@ class CommentController extends BaseController {
      *
      * @return Response
      */
-    public function store() {
-        return 'comments store';
+    public function store($post_id) {
+        $input = array(
+            'body'    => Binput::get('body'), // use the protected version this time
+            'user_id' => $this->getUserId(),
+            'post_id' => $post_id,
+        );
+
+        $rules = $this->comment->rules;
+
+        $v = Validator::make($input, $rules);
+        if ($v->fails()) {
+            Session::flash('error', 'Your comment was empty.');
+            return Redirect::route('blog.posts.show', array('posts' => $post_id));
+        } else {
+            $post = $this->comment->create($input);
+
+            Session::flash('success', 'Your post has been created successfully.');
+            return Redirect::route('blog.posts.show', array('posts' => $post_id));
+        }
     }
 
     /**
@@ -45,8 +71,8 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function show($slug, $id) {
-        return 'comments show '.$id.' from blog ' . $slug;
+    public function show($post_id, $id) {
+        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
     /**
@@ -55,8 +81,8 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function edit($slug, $id) {
-        return 'comments edit '.$id.' from blog ' . $slug;
+    public function edit($post_id, $id) {
+        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
     /**
@@ -65,8 +91,31 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function update($slug, $id) {
-        return 'comments update '.$id.' from blog ' . $slug;
+    public function update($post_id, $id) {
+        $input = array(
+            'body' => Input::get('body'), // use standard input method
+        );
+
+        $rules = $this->comment->rules;
+        unset($rules['user_id']);
+        unset($rules['post_id']);
+
+        $v = Validator::make($input, $rules);
+        if ($v->fails()) {
+            Session::flash('error', 'The comment was empty.');
+            return Redirect::route('blog.posts.show', array('posts' => $post_id));
+        } else {
+            $comment = $this->comment->find($id);
+
+            if (!$comment) {
+                App::abort(404, 'Comment Not Found');
+            }
+
+            $comment->update($input);
+            
+            Session::flash('success', 'Your post has been updated successfully.');
+            return Redirect::route('blog.posts.show', array('posts' => $post_id));
+        }
     }
 
     /**
@@ -75,7 +124,16 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function destroy($slug, $id) {
-        return 'comments destroy '.$id.' from blog ' . $slug;
+    public function destroy($post_id, $id) {
+        $comment = $this->comment->find($id);
+
+        if (!$comment) {
+            App::abort(404, 'Comment Not Found');
+        }
+
+        $comment->delete();
+
+        Session::flash('success', 'The comment has been deleted successfully.');
+        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 }

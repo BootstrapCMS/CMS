@@ -7,17 +7,13 @@ class CreateCommentsTable extends Migration {
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up() {
         Schema::create('comments', function(Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('title');
-            $table->string('slug');
             $table->text('body');
             $table->integer('user_id')->unsigned();
-            $table->integer('blog_id')->unsigned();
+            $table->integer('post_id')->unsigned();
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
@@ -25,8 +21,6 @@ class CreateCommentsTable extends Migration {
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down() {
         Schema::drop('comments');

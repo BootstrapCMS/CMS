@@ -12,14 +12,7 @@
 */
 
 ClassLoader::addDirectories(array(
-
-    app_path().'/commands',
-    app_path().'/controllers',
-    app_path().'/models',
-    app_path().'/database/seeds',
-    app_path().'/libraries',
-    app_path().'/handlers'
-
+    // it is better to autoload in composer.json
 ));
 
 /*
@@ -54,8 +47,10 @@ App::error(function(Exception $exception, $code) {
     switch ($code) {
         case 404:
             Log::warning($exception);
+            break;
         case 500:
             Log::critical($exception);
+            break;
         default:
             Log::error($exception);
     }
@@ -146,10 +141,15 @@ App::error(function(Exception $exception, $code) {
                         'name' => 'Unknown Error',
                         'message' => 'An unknown error has occurred and this page cannot be displayed.',
                         'extra' => $exception->getMessage());
-                    return Response::view('error', $details);
+                    return Response::view('error', $details, 500);
             }
         } catch (Exception $e) {
-            return Response::view('errors.500', array(), 500);
+            $details = array('exception' => $exception,
+                'code' => 500,
+                'name' => 'Internal Server Error',
+                'message' => 'An error has occurred and this page cannot be displayed.',
+                'extra' => $exception->getMessage());
+            return Response::view('error', $details, 500);
         }
     }
 });
@@ -166,7 +166,7 @@ App::error(function(Exception $exception, $code) {
 */
 
 App::down(function() {
-    App::abort(503, 'Down For Maintenance');
+    return Response::view('maintenance', array(), 503);
 });
 
 /*

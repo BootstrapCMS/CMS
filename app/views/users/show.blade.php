@@ -5,7 +5,7 @@
 {{ $user->first_name.' '.$user->last_name }}
 @stop
 
-@section('content')
+@section('controls')
 
 <p class="lead">
     Currently showing   
@@ -17,9 +17,11 @@
     profile:
 </p>
 
-@if (Sentry::check())
+@stop
+
+@section('content')
+
     <h4>Account Profile:</h4>
-    
     <div class="well clearfix">
         <div class="span7">
             @if ($user->first_name)
@@ -54,6 +56,5 @@
     <div>
         <pre>{{ var_dump($user) }}</pre>
     </div>
-  @endif
 
 @stop

@@ -114,7 +114,12 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider'
+        'VTalbot\Markdown\MarkdownServiceProvider',
+        'Fideloper\Proxy\ProxyServiceProvider',
+        'Basset\BassetServiceProvider',
+        'Kmd\Logviewer\LogviewerServiceProvider',
+        'Way\Generators\GeneratorsServiceProvider',
+
 
     ),
 
@@ -181,7 +186,8 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-        'Ardent'          => 'LaravelBook\Ardent\Ardent'
+        'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
+        'Basset'          => 'Basset\Facade',
 
     ),
 

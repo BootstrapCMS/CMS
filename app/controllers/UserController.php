@@ -2,12 +2,16 @@
 
 class UserController extends BaseController {
 
-    protected $sendgrid;
+    protected $user;
 
     /**
-     * Constructor
+     * Load the injected models.
+     * Setup access permissions.
      */
-    public function __construct() {
+    public function __construct(Page $page, User $user) {
+        $this->page = $page;
+        $this->user = $user;
+
         $this->mods[] = 'index';
         $this->admins[] = 'create';
         $this->admins[] = 'store';
@@ -15,6 +19,7 @@ class UserController extends BaseController {
         $this->admins[] = 'edit';
         $this->admins[] = 'update';
         $this->admins[] = 'destroy';
+
         parent::__construct();
     }
 

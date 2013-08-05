@@ -1,36 +1,39 @@
 <?php
 
-class BaseModel extends Ardent {
+abstract class BaseModel extends Eloquent implements IBelongsToUser {
 
-    protected $guarded = array('_token', 'id');
+    protected $guarded = array('_token', '_method', 'id');
 
-    /**
-     * Get the formatted creation date.
-     *
-     * @return string
-     */
-    public function createdAt() {
-        return $this->_formatDate($this->created_at);
+    public function getId() {
+        return $this->id;
     }
 
-    /**
-     * Get the formatted last modified date.
-     *
-     * @return string
-     */
-    public function updatedAt(){
-        return $this->_formatDate($this->updated_at);
+    public function getCreatedAt() {
+        return $this->created_at;
     }
 
-    /**
-     * Get the formatted date from input.
-     *
-     * @return string
-     */
-    protected function _formatDate($date_obj) {
-        if (is_string($date_obj)) {
-            $date_obj =  DateTime::createFromFormat('Y-m-d H:i:s', $date_obj);
-        }
-        return $date_obj->format('d/m/Y');
+    public function getUpdatedAt() {
+        return $this->updated_at;
+    }
+
+    public function user() {
+        return $this->belongsTo('User');
+    }
+
+    public function getUser($columns = array('*')) {
+        return $this->user()->first($columns);
+    }
+
+    public function getUserId() {
+        return $this->user_id;
+    }
+
+    public function getUserEmail() {
+        return $this->getUser(array('email'))->email;
+    }
+
+    public function getUserName() {
+        $user = $this->getUser(array('first_name', 'last_name'));
+        return $user->first_name.' '.$user->last_name;
     }
 }

@@ -22,7 +22,7 @@ Register
         <div class="control-group {{ $errors->has('password') ? 'error' : '' }}" for="password">
             <label class="control-label" for="password">Password</label>
             <div class="controls">
-                <input name="password" value="" type="password" class="input-xlarge" placeholder="Password">
+                <input name="password" id="password" value="" type="password" class="input-xlarge" placeholder="Password">
                 {{ ($errors->has('password') ?  $errors->first('password') : '') }}
             </div>
         </div>
@@ -30,14 +30,14 @@ Register
         <div class="control-group {{ $errors->has('password_confirmation') ? 'error' : '' }}" for="password_confirmation">
             <label class="control-label" for="password_confirmation">Confirm Password</label>
             <div class="controls">
-                <input name="password_confirmation" value="" type="password" class="input-xlarge" placeholder="Confirm Password">
+                <input name="password_confirmation" id="password_confirmation" value="" type="password" class="input-xlarge" placeholder="Confirm Password">
                 {{ ($errors->has('password_confirmation') ? $errors->first('password_confirmation') : '') }}
             </div>
         </div>
 
         <div class="form-actions">
-            <input class="btn-primary btn" type="submit" value="Register"> 
-            <input class="btn-inverse btn" type="reset" value="Reset">
+            <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Register</button>
+            <button class="btn btn-inverse" type="reset">Reset</button>
         </div>  
     </form>
 </div>

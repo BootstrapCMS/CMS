@@ -45,6 +45,38 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
+    | Enable Blogging
+    |--------------------------------------------------------------------------
+    |
+    | This defines if the blog functionality is enabled.
+    |
+    | Disabling it will not delete anything from your database, it will just
+    | inaccessible from the web. All associated route will not be registered,
+    | and the navigation bar will not show any associated links.
+    | Default to true.
+    |
+    */
+
+    'blogging' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Enable Events
+    |--------------------------------------------------------------------------
+    |
+    | This defines if the event functionality is enabled.
+    |
+    | Disabling it will not delete anything from your database, it will just
+    | inaccessible from the web. All associated route will not be registered,
+    | and the navigation bar will not show any associated links.
+    | Default to true.
+    |
+    */
+
+    'events' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Use In Memory Caching
     |--------------------------------------------------------------------------
     |
@@ -56,5 +88,22 @@ return array(
     */
 
     'cache' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | CSS Theme
+    |--------------------------------------------------------------------------
+    |
+    | This defines what theme of Bootstrap to use from bootswatch.com.
+    |
+    | Supported: "amelia", "cerulean", "cosmo", "cyborg", "default", "flatly",
+    |            "journal", "readable", "simplex", "slate", "spacelab", "spruce",
+    |            "superhero", "united"
+    |
+    | Default to "default".
+    |
+    */
+
+    'theme' => 'default',
 
 );

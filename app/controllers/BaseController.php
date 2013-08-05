@@ -1,6 +1,8 @@
 <?php
 
-class BaseController extends Controller {
+abstract class BaseController extends Controller {
+
+    protected $page; // must be set in the extending class
 
     protected $users = array();
     protected $edits = array();
@@ -11,7 +13,7 @@ class BaseController extends Controller {
     /**
      * Setup scrf protection.
      * Setup brute force protection.
-     * Handel user permissions.
+     * Setup access permissions.
      */
     public function __construct() {
         $this->beforeFilter('csrf', array('on' => 'post'));
@@ -42,5 +44,18 @@ class BaseController extends Controller {
      */
     public function missingMethod($parameters) {
         return App::abort(404, 'Missing Controller Method');
+    }
+
+    public function viewMake($view, $data = array()) {
+        $data['nav_pages'] = $this->page->getNav();
+        return View::make($view, $data);
+    }
+
+    public function getUserId() {
+        if (Sentry::getUser()) {
+            return Sentry::getUser()->getId();
+        } else {
+            return 1;
+        }
     }
 }

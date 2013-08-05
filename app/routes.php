@@ -13,9 +13,10 @@
 
 
 // test routes
-Route::get('test', array('as' => 'test', 'uses' => 'HomeController@showWelcome'));
+Route::get('hello', array('as' => 'hello', 'uses' => 'HomeController@showWelcome'));
+Route::get('test', array('as' => 'test', 'uses' => 'HomeController@showTest'));
 Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'HomeController@testQueue'));
-Route::get('log/{file}', array('as' => 'log', 'uses' => 'HomeController@showLog'));
+Route::get('testerror', array('as' => 'testerror', 'uses' => 'HomeController@testError'));
 Route::get('add/{value}', array('as' => 'add', 'uses' => 'HomeController@addValue'));
 Route::get('get', array('as' => 'get', 'uses' => 'HomeController@getValue'));
 
@@ -28,6 +29,15 @@ Route::get('/', array('as' => 'base', function() {
     return Redirect::route('pages.show', array('pages' => 'home'));
 }));
 
+// send users to the posts page
+if (Config::get('cms.blogging')) {
+    Route::get('blog', array('as' => 'blog', function() {
+        Session::flash('', ''); // work around laravel bug
+        Session::reflash();
+        Log::info('Redirecting from blog to the posts page');
+        return Redirect::route('blog.posts.index');
+    }));
+}
 
 // account routes
 Route::get('account', array('as' => 'account.index', 'uses' => 'AccountController@getIndex'));
@@ -44,18 +54,19 @@ Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'us
 Route::get('account/logout', array('as' => 'account.logout', 'uses' => 'AccountController@getLogout'));
 
 
-// users routes
+// user routes
 Route::resource('users', 'UserController');
 
-// config routes
-Route::resource('config', 'ConfigController');
-
-// pages routes
+// page routes
 Route::resource('pages', 'PageController');
 
-// events routes
-Route::resource('events', 'EventController');
+// event routes
+if (Config::get('cms.events')) {
+    Route::resource('events', 'EventController');
+}
 
 // blog routes
-Route::resource('blogs', 'BlogController');
-Route::resource('blogs.comments', 'CommentController');
+if (Config::get('cms.blogging')) {
+    Route::resource('blog/posts', 'PostController');
+    Route::resource('blog/posts.comments', 'CommentController');
+}
