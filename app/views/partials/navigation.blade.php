@@ -45,6 +45,13 @@
                                         <i class="icon-cog"></i> View Profile
                                     </a>
                                 </li>
+                                @if (Sentry::getUser()->hasAccess('admin'))
+                                    <li>
+                                        <a href="{{ URL::to('logviewer') }}">
+                                            <i class="icon-wrench"></i> View Logs
+                                        </a>
+                                    </li>
+                                @endif
                                 @if (Sentry::getUser()->hasAccess('mod'))
                                     <li>
                                         <a href="{{ URL::route('users.index') }}">

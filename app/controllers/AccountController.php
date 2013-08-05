@@ -25,6 +25,9 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function getIndex() {
+        Session::flash('', ''); // work around laravel bug
+        Session::reflash();
+        Log::info('Redirecting from account to the profile page');
         return Redirect::route('account.profile');
     }
 
@@ -342,6 +345,7 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function getLogout() {
+        Log::info('User logged out', array('Email' => Sentry::getUser()->email));
         Sentry::logout();
         return Redirect::route('base');
     }

@@ -12,7 +12,6 @@ class HomeController extends BaseController {
         parent::__construct();
     }
 
-
     public function showWelcome() {
         Log::notice('Hello World');
         return $this->viewMake('hello');
@@ -21,14 +20,6 @@ class HomeController extends BaseController {
     public function showTest() {
         Log::notice('Test 123');
         return 'Test 123';
-    }
-
-    public function showLog($file) {
-        $path = storage_path().'\\logs\\'.$file;
-        if(!file_exists($path)) {
-            App::abort(404, 'Log Not Found');
-        }
-        return $this->viewMake('log', array('file' => $file, 'path' => $path));
     }
 
     public function testQueue() {

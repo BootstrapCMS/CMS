@@ -117,6 +117,7 @@ return array(
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
+        'Kmd\Logviewer\LogviewerServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
 
 

@@ -17,7 +17,6 @@ Route::get('hello', array('as' => 'hello', 'uses' => 'HomeController@showWelcome
 Route::get('test', array('as' => 'test', 'uses' => 'HomeController@showTest'));
 Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'HomeController@testQueue'));
 Route::get('testerror', array('as' => 'testerror', 'uses' => 'HomeController@testError'));
-Route::get('log/{file}', array('as' => 'log', 'uses' => 'HomeController@showLog'));
 Route::get('add/{value}', array('as' => 'add', 'uses' => 'HomeController@addValue'));
 Route::get('get', array('as' => 'get', 'uses' => 'HomeController@getValue'));
 

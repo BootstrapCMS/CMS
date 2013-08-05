@@ -86,6 +86,18 @@ return array(
             $directory->apply('JsMin');
         },
 
+        'logviewer' => function($collection) {
+            $directory = $collection->directory('css', function($collection) {
+                $collection->stylesheet('logviewer.css');
+            });
+            $directory->apply('UriRewriteFilter');
+
+            $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('logviewer.js');
+            });
+            $directory->apply('JsMin');
+        },
+
         'extra' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('extra.css');

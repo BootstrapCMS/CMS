@@ -15,6 +15,7 @@
         "pda/pheanstalk": "2.1.*",
         "cartalyst/sentry": "2.0.*",
         "vtalbot/markdown": "1.4.*",
+        "kmd/logviewer": "dev-master",
         "fideloper/proxy": "dev-master",
         "jasonlewis/basset": "dev-develop",
         "natxet/CssMin": "dev-master",
