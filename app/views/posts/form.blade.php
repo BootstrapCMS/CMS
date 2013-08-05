@@ -14,6 +14,14 @@
         </div>
     </div>
 
+    <div class="control-group {{ ($errors->has('summary')) ? 'error' : '' }}" for="summary">
+        <label class="control-label" for="summary">Post Summary</label>
+        <div class="controls">
+            <input name="summary" value="{{ Request::old('summary', $form['defaults']['summary']) }}" type="text" class="input-xlarge" placeholder="Post Title">
+            {{ ($errors->has('summary') ? $errors->first('summary') : '') }}
+        </div>
+    </div>
+
     <div class="control-group {{ ($errors->has('body')) ? 'error' : '' }}" for="body">
         <label class="control-label" for="body">Post Body</label>
         <div class="controls">

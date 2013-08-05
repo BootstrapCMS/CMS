@@ -14,8 +14,9 @@ Create Post
         'button' => 'Create New Post',
         'defaults' => array(
             'title' => '',
+            'summary' => '',
             'body' => '',
-            ));
+    ));
     ?>
     @include('posts.form')
 </div>

@@ -28,7 +28,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function index() {
-        $posts = $this->post->orderBy('id', 'desc')->get(array('id', 'title', 'body'));
+        $posts = $this->post->orderBy('id', 'desc')->get(array('id', 'title', 'summary', 'body'));
         return $this->viewMake('posts.index', array('posts' => $posts));
     }
 
@@ -48,9 +48,10 @@ class PostController extends BaseController {
      */
     public function store() {
         $input = array(
-            'title'      => Binput::get('title'),
-            'body'       => Input::get('body'), // use standard input method
-            'user_id'    => $this->getUserId(),
+            'title'   => Binput::get('title'),
+            'summary' => Binput::get('summary'),
+            'body'    => Input::get('body'), // use standard input method
+            'user_id' => $this->getUserId(),
         );
 
         $rules = $this->post->rules;
@@ -106,8 +107,9 @@ class PostController extends BaseController {
      */
     public function update($id) {
         $input = array(
-            'title' => Binput::get('title'),
-            'body' => Input::get('body'), // use standard input method
+            'title'   => Binput::get('title'),
+            'summary' => Binput::get('summary'),
+            'body'    => Input::get('body'), // use standard input method
         );
 
         $rules = $this->post->rules;

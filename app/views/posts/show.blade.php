@@ -29,6 +29,24 @@
     <hr>
 @endif
 
+<div class="row-fluid">
+    <div class="span12">
+        <div class="span8">
+            <p class="lead">
+                {{ $post->getSummary() }}
+            </p>
+        </div>
+        <div class="span4">
+            <div class="pull-right">
+                <p>
+                    Author: {{ $post->getUserEmail() }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
 @stop
 
 @section('content')
@@ -39,7 +57,25 @@
 
 @section('comments')
 
+<br>
 <hr>
+@if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
+    <div class="row-fluid">
+        <div class="span12">
+            <form class="form-vertical" action="{{ URL::route('blog.posts.comments.store', array('posts' => $post->getId())) }}" method="post">   
+                {{ Form::token() }}
+                <div class="controls controls-row">
+                    <div class="controls">
+                        <textarea id="message" name="message" class="span12, comment-box" placeholder="Your Message" rows="5"></textarea>
+                    </div>
+                <div class="controls">
+                    <button id="contact-submit" type="submit" class="btn btn-primary"><i class="icon-comment"></i> Comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+@endif
+
 <p class="lead">Comments go here!</p>
 
 @stop

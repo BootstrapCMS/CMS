@@ -28,11 +28,10 @@ Blog
 
 @section('content')
 
-@foreach($posts as $post)
+@foreach($posts as $key => $post)
 <h2>{{ $post->getTitle() }}</h2>
 <p>
-    <?php $content = $post->getBody(); ?>
-    {{ (strlen($content) > 53) ? substr($content,0,50).'...' : $content }}
+    {{ $post->getSummary() }}
 </p>
 <p>
     <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a>
@@ -40,7 +39,9 @@ Blog
          <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger action_confirm" href="{{ URL::route('blog.posts.destroy', array('posts' => $post->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE"><i class="icon-remove"></i> Delete Post</a>
     @endif
 </p>
+@if (!$key == count($posts)-1)
 <br>
+@endif
 @endforeach
 
 @stop

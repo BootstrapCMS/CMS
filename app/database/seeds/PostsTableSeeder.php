@@ -9,7 +9,8 @@ class PostsTableSeeder extends Seeder {
         DB::table('posts')->delete();
 
         $post = array(
-            'Title'      => 'Hello World',
+            'title'      => 'Hello World',
+            'summary'    => 'This is the first blog post.',
             'body'       => 'This is an example blog post.',
             'user_id'    => 1,
             'created_at' => new DateTime,

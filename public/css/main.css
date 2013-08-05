@@ -105,3 +105,7 @@ body {
 .marketing {
     margin: 60px 0;
 }
+
+.comment-box {
+    resize: none;
+}

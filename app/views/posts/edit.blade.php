@@ -33,8 +33,9 @@ Edit {{ $post->getTitle() }}
         'button' => 'Save Post',
         'defaults' => array(
             'title' => $post->getTitle(),
+            'summary' => $post->getSummary(),
             'body' => $post->getBody(),
-            ));
+    ));
     ?>
     @include('posts.form')
 </div>
