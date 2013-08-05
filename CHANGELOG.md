@@ -2,8 +2,8 @@ CHANGE LOG
 ==========
 
 
-## V0.2 Alpha (Upcoming)
-#### Minor Release
+## V0.2 Alpha (05/08/2013)
+#### Major Release
 
 * Major improvements to page editing and creation
 * Added page details for editors
