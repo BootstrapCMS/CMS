@@ -4,7 +4,7 @@ class Event extends BaseModel {
 
     protected $table = 'events';
 
-    public static $rules = array(
+    public $rules = array(
         'title'    => 'required',
         'body'     => 'required',
         'date'     => 'required',
@@ -12,7 +12,7 @@ class Event extends BaseModel {
         'user_id'  => 'required',
     );
 
-    public static $factory = array(
+    public $factory = array(
         'title'    => 'String',
         'body'     => 'text',
         'date'     => '????',
