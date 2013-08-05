@@ -9,7 +9,7 @@ class PagesTableSeeder extends Seeder {
         DB::table('pages')->delete();
 
         $home = array(
-            'Title' => 'Home',
+            'title' => 'Home',
             'slug'  => 'home',
             'body'  => '<div class="jumbotron">
     <h1><?php echo Config::get("cms.name"); ?></h1>
@@ -56,7 +56,7 @@ class PagesTableSeeder extends Seeder {
         DB::table('pages')->insert($home);
 
         $about = array(
-            'Title' => 'About',
+            'title' => 'About',
             'slug'  => 'about',
             'body'  => '<p class="lead">
     This is the about page!

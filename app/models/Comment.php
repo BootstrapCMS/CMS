@@ -9,7 +9,7 @@ class Comment extends BaseModel implements IBelongsToPost {
         'body'    => 'required',
         'user_id' => 'required',
         'post_id' => 'required',
-        );
+    );
 
     public static $factory = array(
         'title'   => 'string',

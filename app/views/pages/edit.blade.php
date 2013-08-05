@@ -37,7 +37,7 @@ Edit {{ $page->getTitle() }}
             'body' => $page->getBody(),
             'show_title' => ($page->getShowTitle() == true),
             'show_nav' => ($page->getShowNav() == true),
-            ));
+    ));
     ?>
     @include('pages.form')
 </div>

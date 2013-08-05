@@ -10,7 +10,7 @@ class Event extends BaseModel {
         'date'     => 'required',
         'location' => 'required',
         'user_id'  => 'required',
-        );
+    );
 
     public static $factory = array(
         'title'    => 'String',

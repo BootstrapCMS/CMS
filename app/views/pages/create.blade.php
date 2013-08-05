@@ -18,7 +18,7 @@ Create Page
             'body' => '',
             'show_title' => true,
             'show_nav' => true,
-            ));
+    ));
     ?>
     @include('pages.form')
 </div>
