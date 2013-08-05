@@ -26,4 +26,15 @@ class PostControllerTest extends ResourcefulTestCase {
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);
         $this->assertEquals($this->mock->getUserId(), $this->attributes['user_id']);
     }
+
+    public function testIndex() {
+        $this->setAsPage();
+
+        $this->mock->shouldReceive('orderBy')
+            ->once()->andReturn(Mockery::mock(array('get' => array($this->mock))));
+
+        $this->call('GET', $this->getPath());
+
+        $this->assertResponseOk();
+    }
 }
