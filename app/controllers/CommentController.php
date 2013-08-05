@@ -26,8 +26,8 @@ class CommentController extends BaseController {
      *
      * @return Response
      */
-    public function index() {
-        return 'comments index';
+    public function index($post_id) {
+        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
     /**
@@ -35,7 +35,7 @@ class CommentController extends BaseController {
      *
      * @return Response
      */
-    public function create() {
+    public function create($post_id) {
         return 'comments create';
     }
 
@@ -44,7 +44,7 @@ class CommentController extends BaseController {
      *
      * @return Response
      */
-    public function store() {
+    public function store($post_id) {
         return 'comments store';
     }
 
@@ -54,8 +54,8 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function show($slug, $id) {
-        return 'comments show '.$id.' from blog ' . $slug;
+    public function show($post_id, $id) {
+        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
     /**
@@ -64,8 +64,8 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function edit($slug, $id) {
-        return 'comments edit '.$id.' from blog ' . $slug;
+    public function edit($post_id, $id) {
+        return 'comments edit '.$id.' from post ' . $post_id;
     }
 
     /**
@@ -74,8 +74,8 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function update($slug, $id) {
-        return 'comments update '.$id.' from blog ' . $slug;
+    public function update($post_id, $id) {
+        return 'comments update '.$id.' from post ' . $post_id;
     }
 
     /**
@@ -84,7 +84,7 @@ class CommentController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function destroy($slug, $id) {
-        return 'comments destroy '.$id.' from blog ' . $slug;
+    public function destroy($post_id, $id) {
+        return 'comments destroy '.$id.' from post ' . $post_id;
     }
 }
