@@ -26,7 +26,7 @@ Blog
             </div>
         @endif
     </div>
-<hr>
+</div>
 
 @stop
 

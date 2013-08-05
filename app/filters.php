@@ -81,7 +81,7 @@ Route::filter('auth', function($route, $request, $value) {
 */
 
 Route::filter('guest', function() {
-    if (Auth::check()) return Redirect::intended(URL::route('base'));
+    if (Auth::check()) return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
 });
 
 /*

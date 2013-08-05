@@ -20,6 +20,7 @@ Edit {{ $page->getTitle() }}
             </div>
         </div>
     </div>
+</div>
 <hr>
 
 @stop

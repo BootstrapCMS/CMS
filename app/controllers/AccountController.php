@@ -94,7 +94,7 @@ class AccountController extends BaseController {
             }
 
             Log::info('Login successful', array('Email' => $input['email']));
-            return Redirect::intended(URL::route('base'));
+            return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
         }
     }
 
@@ -107,7 +107,7 @@ class AccountController extends BaseController {
         if (Config::get('cms.regallowed') === false) {
             Log::notice('Registration disabled');
             Session::flash('error', 'Registration is currently disabled.');
-            return Redirect::route('base');
+            return Redirect::route('pages.show', array('pages' => 'home'));
         }
         return $this->viewMake('account.register');
     }
@@ -121,7 +121,7 @@ class AccountController extends BaseController {
         if (Config::get('cms.regallowed') === false) {
             Log::notice('Registration disabled');
             Session::flash('error', 'Registration is currently disabled.');
-            return Redirect::route('base');
+            return Redirect::route('pages.show', array('pages' => 'home'));
         }
         $input = array(
             'email' => Binput::get('email'),
@@ -154,7 +154,7 @@ class AccountController extends BaseController {
 
                     Log::info('Registration successful, activation not required', array('Email' => $input['email']));
                     Session::flash('success', 'Your account has been created successfully.');
-                    return Redirect::route('base');
+                    return Redirect::route('pages.show', array('pages' => 'home'));
                 } else {
                     $data = array(
                         'view' => 'emails.welcome',
@@ -174,7 +174,7 @@ class AccountController extends BaseController {
 
                     Log::info('Registration successful, activation required', array('Email' => $input['email']));
                     Session::flash('success', 'Your account has been created. Check your email for the confirmation link.');
-                    return Redirect::route('base');
+                    return Redirect::route('pages.show', array('pages' => 'home'));
                 }
             } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
                 Log::notice($e);
@@ -290,7 +290,7 @@ class AccountController extends BaseController {
 
                 Log::info('Password reset successfully', array('Email' => $input['email']));
                 Session::flash('success', 'Your password has been changed. Check your email for the new password.');
-                return Redirect::route('base');
+                return Redirect::route('pages.show', array('pages' => 'home'));
             }
             else {
                 Log::error(''); // TODO!
@@ -301,7 +301,7 @@ class AccountController extends BaseController {
         catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::notice($e);
             Session::flash('error', 'There was a problem resetting your password. Please contact support.');
-            return Redirect::route('base');
+            return Redirect::route('pages.show', array('pages' => 'home'));
         }
     }
 
@@ -323,19 +323,19 @@ class AccountController extends BaseController {
 
                 Log::info('Activation successful', array('Email' => $input['email']));
                 Session::flash('success', 'Your account has been activated successfully.');
-                return Redirect::route('base');
+                return Redirect::route('pages.show', array('pages' => 'home'));
             } else {
                 Session::flash('error', 'There was a problem activating this account. Please contact support.');
-                return Redirect::route('base');
+                return Redirect::route('pages.show', array('pages' => 'home'));
             }
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::error($e);
             Session::flash('error', 'There was a problem activating this account. Please contact support.');
-            return Redirect::route('base');
+            return Redirect::route('pages.show', array('pages' => 'home'));
         } catch (Cartalyst\SEntry\Users\UserAlreadyActivatedException $e) {
             Log::notice($e);
             Session::flash('error', 'You have already activated this account.');
-            return Redirect::route('base');
+            return Redirect::route('pages.show', array('pages' => 'home'));
         }
     }
 
@@ -347,7 +347,7 @@ class AccountController extends BaseController {
     public function getLogout() {
         Log::info('User logged out', array('Email' => Sentry::getUser()->email));
         Sentry::logout();
-        return Redirect::route('base');
+        return Redirect::route('pages.show', array('pages' => 'home'));
     }
 
     /**

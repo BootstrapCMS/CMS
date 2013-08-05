@@ -20,7 +20,7 @@
                 </ul>
                 @if ( ! $empty)
                     <div class="pull-right">
-                        {{ HTML::link(URL::route('base'), 'Return To Site', array('class' => 'btn btn-info')) }} {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }}
+                        {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }} {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }}
                     </div>
                 @endif
             </div>

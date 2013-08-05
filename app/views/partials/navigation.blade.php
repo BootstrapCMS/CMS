@@ -4,7 +4,7 @@
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="{{ URL::route('base') }}">{{ Config::get('cms.name') }}</a>
+            <a class="brand" href="{{ URL::route('pages.show', array('pages' => 'home')) }}">{{ Config::get('cms.name') }}</a>
             <div class="nav-collapse collapse">
 
                 <ul class="nav">
