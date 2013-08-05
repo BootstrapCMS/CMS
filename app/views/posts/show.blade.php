@@ -59,7 +59,7 @@
 
 <br>
 <hr>
-<h4>Comments</h4>
+<h3>Comments</h3>
 @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
     <br>
     <div class="row-fluid">
@@ -101,9 +101,11 @@
                         </p>
                     </div>
                     <div class="span3">
-                        <div class="pull-right">
-                            <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="icon-edit"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="icon-remove"></i> Delete</a>
-                        </div>
+                        @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+                            <div class="pull-right">
+                                <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="icon-edit"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="icon-remove"></i> Delete</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -117,6 +119,9 @@
 
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     @include('posts.delete')
+@endif
+
+@if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
     @include('posts.comments')
 @endif
 
