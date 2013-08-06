@@ -22,6 +22,12 @@ abstract class ModelTestCase extends TestCase {
         $this->assertClassHasAttribute('guarded', $this->model);
         $this->assertInstanceOf($this->model, $this->object);
         $this->assertInstanceOf('Eloquent', $this->object);
+
+        $this->extraModelTests();
+    }
+
+    protected function extraModelTests() {
+        // can be set in the extending class
     }
 
     public function testGetId() {

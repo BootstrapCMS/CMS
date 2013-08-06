@@ -1,6 +1,5 @@
 <?php
 
-use Way\Tests\Factory;
 use Carbon\Carbon;
 
 abstract class ControllerTestCase extends TestCase {
@@ -35,6 +34,12 @@ abstract class ControllerTestCase extends TestCase {
             'getCreatedAt' => 'created_at',
             'getUpdatedAt' => 'updated_at',
         ));
+
+        $this->extraLinks();
+    }
+
+    protected function extraLinks() {
+        // can be set in the extending class
     }
 
     protected function addLink($name, $attribute) {
@@ -65,6 +70,7 @@ abstract class ControllerTestCase extends TestCase {
                 'icon' => 'icon-info-sign',
             ),
         );
+
         if ($this->model != 'Page') {
             $this->pagemock = Mockery::mock('Page');
             $this->app->instance('Page', $this->pagemock);
@@ -121,5 +127,11 @@ abstract class ControllerTestCase extends TestCase {
         $this->assertEquals($this->mock->getId(), $this->attributes['id']);
         $this->assertEquals($this->mock->getCreatedAt(), $this->attributes['created_at']);
         $this->assertEquals($this->mock->getUpdatedAt(), $this->attributes['updated_at']);
+
+        $this->extraMockingTests();
+    }
+
+    protected function extraMockingTests() {
+        // can be set in the extending class
     }
 }
