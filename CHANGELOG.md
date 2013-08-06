@@ -8,7 +8,11 @@ CHANGE LOG
 * Added more tests
 * More test refactoring
 * Fixed bootstrap switch
+* Fixed the comment controller
+* Fixed some account bugs
+* Registration now requires names
 * Some css tweaks
+* Some minor model tweaks
 * Fixed composer.json
 * Updated seeding
 
