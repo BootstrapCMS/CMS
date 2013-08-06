@@ -5,9 +5,12 @@ CHANGE LOG
 ## V0.2.1 Alpha (Upcoming)
 #### Minor Release
 
+* Added more tests
+* More test refactoring
 * Fixed bootstrap switch
 * Some css tweaks
 * Fixed composer.json
+* Updated seeding
 
 
 ## V0.2 Alpha (05/08/2013)
