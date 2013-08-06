@@ -11,7 +11,11 @@ Events
     <div class="span12">
         <div class="span6">
             <p class="lead">
-                Here you may find our events:
+                @if (count($events) == 0)
+                    There are currently no events.
+                @else
+                    Here you may find our events:
+                @endif
             </p>
         </div>
         @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
