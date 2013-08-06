@@ -34,6 +34,7 @@ return array(
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('bootstrap-select.min.css');
+                $collection->stylesheet('flat-ui-fonts.css');
                 $collection->stylesheet('main.css');
             });
             $directory->apply('UriRewriteFilter');
