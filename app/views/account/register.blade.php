@@ -11,6 +11,22 @@ Register
     <form class="form-horizontal" action="{{ URL::route('account.register.post') }}" method="post">
         {{ Form::token() }}
         
+        <div class="control-group {{ ($errors->has('first_name')) ? 'error' : '' }}" for="first_name">
+            <label class="control-label" for="first_name">First Name</label>
+            <div class="controls">
+                <input name="first_name" id="first_name" value="{{ Request::old('first_name') }}" type="text" class="input-xlarge" placeholder="First Name">
+                {{ ($errors->has('first_name') ? $errors->first('first_name') : '') }}
+            </div>
+        </div>
+
+        <div class="control-group {{ ($errors->has('last_name')) ? 'error' : '' }}" for="last_name">
+            <label class="control-label" for="last_name">Last Name</label>
+            <div class="controls">
+                <input name="last_name" id="last_name" value="{{ Request::old('last_name') }}" type="text" class="input-xlarge" placeholder="Last Name">
+                {{ ($errors->has('last_name') ? $errors->first('last_name') : '') }}
+            </div>
+        </div>  
+
         <div class="control-group {{ ($errors->has('email')) ? 'error' : '' }}" for="email">
             <label class="control-label" for="email">Email</label>
             <div class="controls">

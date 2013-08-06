@@ -46,16 +46,17 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function postLogin() {
+        $remember = Binput::get('rememberMe');
+
         $input = array(
             'email' => Binput::get('email'),
             'password' => Binput::get('password'),
-            'rememberMe' => Binput::get('rememberMe'),
-            );
+        );
 
         $rules = array(
             'email' => 'required|min:4|max:32|email',
             'password' => 'required|min:6',
-            );
+        );
 
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
@@ -63,24 +64,33 @@ class AccountController extends BaseController {
             return Redirect::route('account.login')->withErrors($v)->withInput();
         } else {
             try {
-                $user = Sentry::getUserProvider()->findByLogin($input['email']);
-
-                $throttle = Sentry::getThrottleProvider()->findByUserId($user->id);
+                $throttle = Sentry::getThrottleProvider()->findByUserId(Sentry::getUserProvider()->findByLogin($input['email'])->id);
                 $throttle->check();
 
-                $credentials = array(
-                    'email'    => $input['email'],
-                    'password' => $input['password'],
-                );
-
-                $user = Sentry::authenticate($credentials, $input['rememberMe']);
+                $user = Sentry::authenticate($input, $remember);
             } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
+                Log::notice($e);
+                Session::flash('error', 'Your details were invalid.');
+                return Redirect::route('account.login')->withErrors($v)->withInput();
+            } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
+                Log::notice($e);
+                Session::flash('error', 'Your details were invalid.');
+                return Redirect::route('account.login')->withErrors($v)->withInput();
+            } catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
                 Log::notice($e);
                 Session::flash('error', 'Your details were invalid.');
                 return Redirect::route('account.login')->withErrors($v)->withInput();
             } catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
                 Log::notice($e);
                 Session::flash('error', 'You have not yet activated this account.');
+                return Redirect::route('account.login')->withErrors($v)->withInput();
+            } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
+                Log::notice($e);
+                Session::flash('error', 'Your details were invalid.');
+                return Redirect::route('account.login')->withErrors($v)->withInput();
+            } catch (Cartalyst\Sentry\Users\WrongPasswordException $e) {
+                Log::notice($e);
+                Session::flash('error', 'Your details were invalid.');
                 return Redirect::route('account.login')->withErrors($v)->withInput();
             } catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
                 Log::notice($e);
@@ -123,13 +133,18 @@ class AccountController extends BaseController {
             Session::flash('error', 'Registration is currently disabled.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
+
         $input = array(
+            'first_name' => Binput::get('first_name'),
+            'last_name' => Binput::get('last_name'),
             'email' => Binput::get('email'),
             'password' => Binput::get('password'),
             'password_confirmation' => Binput::get('password_confirmation'),
         );
 
         $rules = array (
+            'first_name' => 'required|min:4|max:32',
+            'last_name' => 'required|min:4|max:32',
             'email' => 'required|min:4|max:32|email',
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required',
@@ -141,12 +156,9 @@ class AccountController extends BaseController {
             return Redirect::route('account.register')->withErrors($v)->withInput();
         } else {
             try {
-                $userdata = array(
-                    'email' => $input['email'],
-                    'password' => $input['password'],
-                );
+                unset($input['password_confirmation']);
 
-                $user = Sentry::register($userdata);
+                $user = Sentry::register($input);
 
                 if (Config::get('cms.regemail') === false) {
                     $user->attemptActivation($user->GetActivationCode());
@@ -166,7 +178,7 @@ class AccountController extends BaseController {
                     try {
                         Queue::push('MailHandler', $data);
                     } catch (Exception $e) {
-                        Log::error($e);
+                        Log::alert($e);
                         $user->delete();
                         Session::flash('error', 'We were unable to create your account. Please contact support.');
                         return Redirect::route('account.register');
@@ -203,9 +215,7 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function putProfile() {
-        // TODO
-        // this should be multiple functions to allow different properties to be updated separately
-        return 'The is the profile PUT!';
+        Sentry::getUser()->update();
     }
 
     /**
@@ -248,7 +258,7 @@ class AccountController extends BaseController {
                 try {
                     Queue::push('MailHandler', $data);
                 } catch (Exception $e) {
-                    Log::critical($e);
+                    Log::alert($e);
                     Session::flash('error', 'We were unable to reset your password. Please contact support.');
                     return Redirect::route('account.reset');
                 }
@@ -293,13 +303,13 @@ class AccountController extends BaseController {
                 return Redirect::route('pages.show', array('pages' => 'home'));
             }
             else {
-                Log::error(''); // TODO!
+                Log::error('There was a problem resetting a password', array('Id' => $id));
                 Session::flash('error', 'There was a problem resetting your password. Please contact support.');
                 return Redirect::route('base');
             }
         }
         catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            Log::notice($e);
+            Log::error($e);
             Session::flash('error', 'There was a problem resetting your password. Please contact support.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
@@ -321,7 +331,7 @@ class AccountController extends BaseController {
             if ($user->attemptActivation($code)) {
                 $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
 
-                Log::info('Activation successful', array('Email' => $input['email']));
+                Log::info('Activation successful', array('Email' => $user->email));
                 Session::flash('success', 'Your account has been activated successfully.');
                 return Redirect::route('pages.show', array('pages' => 'home'));
             } else {
