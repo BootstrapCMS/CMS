@@ -101,7 +101,7 @@ Edit {{ $user->first_name.' '.$user->last_name }}
                     <tr>
                         <td>{{ $group->name }}</td>
                         <td>
-                            <div class="switch" data-on-label="In" data-on='info' data-off-label="Out">
+                            <div class="make-switch" data-on-label="In" data-on='info' data-off-label="Out">
                                 <input name="permissions[{{ $group->id }}]" type="checkbox" {{ ( $user->inGroup($group)) ? 'checked' : '' }} >
                             </div>
                         </td>

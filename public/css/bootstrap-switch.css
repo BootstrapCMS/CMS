@@ -1,5 +1,5 @@
 /* ============================================================
- * bootstrapSwitch v1.7 by Larentis Mattia @SpiritualGuru
+ * bootstrapSwitch v1.8 by Larentis Mattia @SpiritualGuru
  * http://www.larentis.eu/
  *
  * Enhanced for radiobuttons by Stein, Peter @BdMdesigN
@@ -41,6 +41,9 @@
   transform: scale(0.6);
   margin-top: -1px;
   margin-bottom: -1px;
+}
+.has-switch.switch-mini i.switch-mini-font-icons {
+  line-height: 9px;
 }
 .has-switch.switch-small {
   min-width: 80px;
@@ -122,7 +125,7 @@
   width: 34%;
   border-left: 1px solid #cccccc;
   border-right: 1px solid #cccccc;
-  color: #ffffff;
+  color: #000000;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #f5f5f5;
   background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
@@ -145,7 +148,7 @@
 .has-switch label.active,
 .has-switch label.disabled,
 .has-switch label[disabled] {
-  color: #ffffff;
+  color: #000000;
   background-color: #e6e6e6;
   *background-color: #d9d9d9;
 }
