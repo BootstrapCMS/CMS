@@ -89,7 +89,7 @@ abstract class ResourcefulTestCase extends ControllerTestCase {
     }
 
     protected function storeFailsCall() {
-        $this->call('POST', $this->getPath());
+        $this->storeCall();
     }
 
     protected function storeFailsAssertions() {
@@ -189,7 +189,7 @@ abstract class ResourcefulTestCase extends ControllerTestCase {
     }
 
     protected function updateFailsCall() {
-        $this->call('PATCH', $this->getPath($this->getUid()));
+        $this->updateCall();
     }
 
     protected function updateFailsAssertions() {
