@@ -8,10 +8,9 @@ Reset Password
 @section('content')
 <p class="lead">Please enter your details:</p>
 <div class="well">
-    <form class="form-horizontal" action="{{ URL::route('account.reset.post') }}" method="post">   
-        {{ Form::token() }}
-        
-        <div class="control-group {{ ($errors->has('email')) ? 'error' : '' }}" for="email">
+    {{ Form::open(array('url' => URL::route('account.reset.post'), 'method' => 'POST', 'class' => 'form-horizontal')) }}
+
+        <div class="control-group{{ ($errors->has('email')) ? ' error' : '' }}">
             <label class="control-label" for="email">Email Address</label>
             <div class="controls">
                 <input name="email" id="email" value="{{ Request::old('email') }}" type="text" class="input-xlarge" placeholder="Email Address">
@@ -22,7 +21,7 @@ Reset Password
         <div class="form-actions">
             <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Reset Password</button>
         </div>
-  </form>
+    {{ Form::close() }}
 </div>
 
 @stop

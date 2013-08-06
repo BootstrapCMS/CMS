@@ -64,17 +64,19 @@
     <br>
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-vertical" action="{{ URL::route('blog.posts.comments.store', array('posts' => $post->getId())) }}" method="post">   
-                {{ Form::token() }}
-                <div class="controls controls-row">
+            {{ Form::open(array('url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
+
+                <div class="control-group">
                     <div class="controls">
                         <textarea id="body" name="body" class="span12, comment-box" placeholder="Type a comment..." rows="3"></textarea>
                     </div>
                 </div>
-                <div class="controls">
-                    <button id="contact-submit" type="submit" class="btn btn-primary"><i class="icon-comment"></i> Post Comment</button>
+                <div class="control-group">
+                    <div class="controls">
+                        <button id="contact-submit" type="submit" class="btn btn-primary"><i class="icon-comment"></i> Post Comment</button>
+                    </div>
                 </div>
-            </form>
+            {{ Form::close() }}
         </div>
     <br>
     </div>

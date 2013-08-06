@@ -8,10 +8,9 @@ Login
 
 <p class="lead">Please enter your details:</p>
 <div class="well">
-    <form class="form-horizontal" action="{{ URL::route('account.login.post') }}" method="post">   
-        {{ Form::token(); }}
+    {{ Form::open(array('url' => URL::route('account.login.post'), 'method' => 'POST', 'class' => 'form-horizontal')) }}
 
-        <div class="control-group {{ ($errors->has('email')) ? 'error' : '' }}" for="email">
+        <div class="control-group{{ ($errors->has('email')) ? ' error' : '' }}">
             <label class="control-label" for="email">Email</label>
             <div class="controls">
                 <input name="email" id="email" value="{{ Request::old('email') }}" type="text" class="input-xlarge" placeholder="Email">
@@ -19,7 +18,7 @@ Login
             </div>
         </div>
     
-       <div class="control-group {{ ($errors->has('password')) ? 'error' : '' }}" for="password">
+       <div class="control-group{{ ($errors->has('password')) ? ' error' : '' }}">
             <label class="control-label" for="password">Password</label>
             <div class="controls">
                 <input name="password" id="password" value="" type="password" class="input-xlarge" placeholder="Password">
@@ -27,7 +26,7 @@ Login
             </div>
         </div>
 
-        <div class="control-group" for="rememberme">
+        <div class="control-group">
             <div class="controls">
                 <label class="checkbox inline">
                     <input type="checkbox" name="rememberMe" value="1"> Remember Me
@@ -39,7 +38,7 @@ Login
             <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Log In</button>
             <a href="{{ URL::route('account.reset') }}" class="btn btn-link">Forgot Password?</a>
         </div>
-  </form>
+  {{ Form::close() }}
 </div>
 
 @stop

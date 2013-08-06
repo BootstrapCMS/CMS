@@ -8,10 +8,9 @@ Register
 @section('content')
 <p class="lead">Please enter your details:</p>
 <div class="well">
-    <form class="form-horizontal" action="{{ URL::route('account.register.post') }}" method="post">
-        {{ Form::token() }}
-        
-        <div class="control-group {{ ($errors->has('first_name')) ? 'error' : '' }}" for="first_name">
+    {{ Form::open(array('url' => URL::route('account.register.post'), 'method' => 'POST', 'class' => 'form-horizontal')) }}
+
+        <div class="control-group{{ ($errors->has('first_name')) ? ' error' : '' }}">
             <label class="control-label" for="first_name">First Name</label>
             <div class="controls">
                 <input name="first_name" id="first_name" value="{{ Request::old('first_name') }}" type="text" class="input-xlarge" placeholder="First Name">
@@ -19,7 +18,7 @@ Register
             </div>
         </div>
 
-        <div class="control-group {{ ($errors->has('last_name')) ? 'error' : '' }}" for="last_name">
+        <div class="control-group{{ ($errors->has('last_name')) ? ' error' : '' }}">
             <label class="control-label" for="last_name">Last Name</label>
             <div class="controls">
                 <input name="last_name" id="last_name" value="{{ Request::old('last_name') }}" type="text" class="input-xlarge" placeholder="Last Name">
@@ -27,7 +26,7 @@ Register
             </div>
         </div>  
 
-        <div class="control-group {{ ($errors->has('email')) ? 'error' : '' }}" for="email">
+        <div class="control-group{{ ($errors->has(' email')) ? 'error' : '' }}">
             <label class="control-label" for="email">Email</label>
             <div class="controls">
                 <input name="email" id="email" value="{{ Request::old('email') }}" type="text" class="input-xlarge" placeholder="Email">
@@ -35,7 +34,7 @@ Register
             </div>
         </div>  
 
-        <div class="control-group {{ $errors->has('password') ? 'error' : '' }}" for="password">
+        <div class="control-group{{ $errors->has('password') ? ' error' : '' }}">
             <label class="control-label" for="password">Password</label>
             <div class="controls">
                 <input name="password" id="password" value="" type="password" class="input-xlarge" placeholder="Password">
@@ -43,7 +42,7 @@ Register
             </div>
         </div>
 
-        <div class="control-group {{ $errors->has('password_confirmation') ? 'error' : '' }}" for="password_confirmation">
+        <div class="control-group{{ $errors->has('password_confirmation') ? ' error' : '' }}">
             <label class="control-label" for="password_confirmation">Confirm Password</label>
             <div class="controls">
                 <input name="password_confirmation" id="password_confirmation" value="" type="password" class="input-xlarge" placeholder="Confirm Password">
@@ -55,7 +54,7 @@ Register
             <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Register</button>
             <button class="btn btn-inverse" type="reset">Reset</button>
         </div>  
-    </form>
+    {{ Form::close() }}
 </div>
 
 
