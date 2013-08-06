@@ -4,10 +4,6 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
 
     protected $table = 'users';
 
-    public $rules = array();
-
-    public $factory = array();
-
     public function pages() {
         return $this->hasMany('Page');
     }
