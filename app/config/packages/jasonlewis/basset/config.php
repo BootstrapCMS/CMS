@@ -34,13 +34,13 @@ return array(
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('bootstrap-select.min.css');
-                $collection->stylesheet('flat-ui-fonts.css');
-                $collection->stylesheet('main.css');
+                $collection->stylesheet('main.css')->apply('CssMin');
             });
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('jquery-2.0.3.min.js');
+                $collection->javascript('jquery-1.10.2.min.js');
+                $collection->javascript('respond.min.js');
                 $collection->javascript('bootstrap.min.js');
                 $collection->javascript('restfulizer.js');
                 $collection->javascript('bootstrap-select.min.js');
@@ -53,6 +53,7 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('edit.css');
             });
+            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
@@ -67,6 +68,7 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-switch.css');
             });
+            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
@@ -75,13 +77,15 @@ return array(
             $directory->apply('JsMin');
         },
 
-        'lightbox' => function($collection) {
+        'images' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-lightbox.min.css');
             });
+            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('jquery.lazyload.min.js');
                 $collection->javascript('bootstrap-lightbox.min.js');
             });
             $directory->apply('JsMin');
@@ -91,6 +95,7 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('logviewer.css');
             });
+            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
@@ -103,6 +108,7 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('extra.css');
             });
+            $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {

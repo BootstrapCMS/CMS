@@ -5,4 +5,11 @@
 @section('css')
 @show
 {{ Basset::show('extra.css') }}
+
+<!--[if IE]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">

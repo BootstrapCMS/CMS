@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
     <title>{{ Lang::get('logviewer::logviewer.title') }}</title>
-    {{ HTMLMin::render($__env->make('partials.header', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+    @include('partials.header')
     {{ Basset::show('logviewer.css') }}
 </head>
 
