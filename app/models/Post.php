@@ -46,4 +46,12 @@ class Post extends BaseModel implements IHasManyComments {
     public function findComment($id, $columns = array('*')) {
         return $this->comments()->find($id, $columns);
     }
+
+    public function delete() {
+        foreach($this->comments() as $comment) {
+            $comment->delete();
+        }
+
+        return parent::delete();
+    }
 }

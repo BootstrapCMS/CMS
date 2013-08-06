@@ -59,4 +59,24 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
     public function findComment($id, $columns = array('*')) {
         return $this->comments()->find($id, $columns);
     }
+
+    public function delete() {
+        foreach($this->pages() as $page) {
+            $page->delete();
+        }
+
+        foreach($this->post() as $post) {
+            $post->delete();
+        }
+
+        foreach($this->events() as $event) {
+            $event->delete();
+        }
+
+        foreach($this->comments() as $comment) {
+            $comment->delete();
+        }
+
+        return parent::delete();
+    }
 }
