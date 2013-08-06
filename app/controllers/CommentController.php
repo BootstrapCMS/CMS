@@ -22,24 +22,6 @@ class CommentController extends BaseController {
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index($post_id) {
-        return Redirect::route('blog.posts.show', array('posts' => $post_id));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create($post_id) {
-        return Redirect::route('blog.posts.show', array('posts' => $post_id));
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @return Response
@@ -63,26 +45,6 @@ class CommentController extends BaseController {
             Session::flash('success', 'Your post has been created successfully.');
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($post_id, $id) {
-        return Redirect::route('blog.posts.show', array('posts' => $post_id));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($post_id, $id) {
-        return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
     /**
@@ -113,7 +75,7 @@ class CommentController extends BaseController {
 
             $comment->update($input);
             
-            Session::flash('success', 'Your post has been updated successfully.');
+            Session::flash('success', 'The comment has been updated successfully.');
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }
     }
