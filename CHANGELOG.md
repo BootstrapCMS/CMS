@@ -6,6 +6,9 @@ CHANGE LOG
 #### Minor Release
 
 * Added native support for Cloudflare proxies
+* Added proper model deletion
+* Added an actual profile page (upcoming)
+* Added an admin/moderator interface with users (upcoming)
 * Added more tests
 * More test refactoring
 * Fixed bootstrap switch
