@@ -20,22 +20,19 @@ class Event extends BaseModel {
         'user_id'  => 1,
     );
 
-    /**
-     * Belongs to user.
-     *
-     * @return User
-     */
-    public function user()
-    {
-        return $this->belongsTo('User');
+    public function getTitle() {
+        return $this->title;
     }
 
-    /**
-     * Get the formatted date of the event.
-     *
-     * @return string
-     */
-    public function getDate(){
-        return $this->_formatDate($this->date);
+    public function getBody() {
+        return $this->body;
+    }
+
+    public function getDate() {
+        return $this->date;
+    }
+
+    public function getLocation() {
+        return $this->location;
     }
 }
