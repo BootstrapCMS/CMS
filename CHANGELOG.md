@@ -5,14 +5,17 @@ CHANGE LOG
 ## V0.2.1 Alpha (Upcoming)
 #### Minor Release
 
+* Added native support for Cloudflare proxies
 * Added more tests
 * More test refactoring
 * Fixed bootstrap switch
 * Fixed the comment controller
 * Fixed some account bugs
+* Fixed some form errors
 * Registration now requires names
 * Some css tweaks
 * Some minor model tweaks
+* Cleaned up the views
 * Fixed composer.json
 * Updated seeding
 
