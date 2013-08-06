@@ -11,7 +11,8 @@ class Comment extends BaseModel implements IBelongsToPost {
     );
 
     public $factory = array(
-        'body'    => 'text',
+        'id'      => 1,
+        'body'    => 'This a comment!',
         'user_id' => 1,
         'post_id' => 1,
     );
