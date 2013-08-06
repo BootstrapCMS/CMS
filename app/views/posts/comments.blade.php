@@ -13,10 +13,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="controls">
                     <button class="btn btn-success" type="submit">Update</button>
                     <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                </div>
             </div>
         </form>
     </div>
