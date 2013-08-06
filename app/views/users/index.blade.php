@@ -1,18 +1,14 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Users
 @stop
 
 @section('controls')
-
 <p class="lead">Here is a list of all the current users:</p>
-
 @stop
 
 @section('content')
-
 <div class="well">
     <table class="table">
         <thead>
@@ -38,5 +34,4 @@ Users
         </tbody>
     </table>
 </div>
-
 @stop

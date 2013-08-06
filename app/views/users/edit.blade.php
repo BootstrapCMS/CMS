@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Edit {{ $user->first_name.' '.$user->last_name }}
 @stop
 
 @section('controls')
-
 <p class="lead">
     Currently editing   
     @if($user->id == Sentry::getUser()->id)
@@ -16,11 +14,9 @@ Edit {{ $user->first_name.' '.$user->last_name }}
     @endif
     profile:
 </p>
-
 @stop
 
 @section('content')
-
 <h4>Change Name</h4>
 <div class="well">
     <form class="form-horizontal" action="{{ URL::to('users/edit') }}/{{ $user->id }}" method="post">
@@ -115,5 +111,4 @@ Edit {{ $user->first_name.' '.$user->last_name }}
     </form>
 </div>
 @endif    
-
 @stop

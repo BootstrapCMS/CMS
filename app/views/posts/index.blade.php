@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Blog
 @stop
 
 @section('controls')
-
 <div class="row-fluid">
     <div class="span12">
         <div class="span6">
@@ -27,11 +25,9 @@ Blog
         @endif
     </div>
 </div>
-
 @stop
 
 @section('content')
-
 @foreach($posts as $key => $post)
     <h2>{{ $post->getTitle() }}</h2>
     <p>
@@ -47,13 +43,10 @@ Blog
     <br>
 @endif
 @endforeach
-
 @stop
 
 @section('messages')
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     @include('posts.deletes')
 @endif
-
 @stop

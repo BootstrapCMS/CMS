@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Events
 @stop
 
 @section('controls')
-
 <div class="row-fluid">
     <div class="span12">
         <div class="span6">
@@ -27,7 +25,6 @@ Events
         @endif
     </div>
 <hr>
-
 @stop
 
 @section('content')

@@ -1,8 +1,11 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Register
+@stop
+
+@section('controls')
+<p class="lead">Here is your profile:</p>
 @stop
 
 @section('content')
@@ -56,6 +59,4 @@ Register
         </div>  
     {{ Form::close() }}
 </div>
-
-
 @stop

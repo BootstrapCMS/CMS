@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 {{ $post->getTitle() }}
 @stop
 
 @section('controls')
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     <div class="well clearfix">
         <div class="span6">
@@ -46,19 +44,14 @@
     </div>
 </div>
 <br>
-
 @stop
 
 @section('content')
-
 <?php eval('?>'.Markdown::string($post->getBody())); ?>
-
 @stop
 
 @section('comments')
-
-<br>
-<hr>
+<br><hr>
 <h3>Comments</h3>
 @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
     <br>
@@ -114,17 +107,13 @@
         </div>
     @endforeach
 @endif
-
 @stop
 
 @section('messages')
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     @include('posts.delete')
 @endif
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
     @include('posts.comments')
 @endif
-
 @stop

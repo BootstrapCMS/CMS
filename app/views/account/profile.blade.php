@@ -1,14 +1,15 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Profile
 @stop
 
-@section('content')
+@section('controls')
 <p class="lead">Here is your profile:</p>
+@stop
+
+@section('content')
 <div class="well">
     Coming soon...
 </div>
-
 @stop

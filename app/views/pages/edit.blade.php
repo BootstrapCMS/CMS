@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Edit {{ $page->getTitle() }}
 @stop
 
 @section('controls')
-
 <div class="row-fluid">
     <div class="span12">
         <div class="span6">
@@ -22,11 +20,9 @@ Edit {{ $page->getTitle() }}
     </div>
 </div>
 <hr>
-
 @stop
 
 @section('content')
-
 <div class="well">
     <?php
     $form = array('url' => URL::route('pages.update', array('pages' => $page->getSlug())),
@@ -42,25 +38,18 @@ Edit {{ $page->getTitle() }}
     ?>
     @include('pages.form')
 </div>
-
 @stop
 
 @section('messages')
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     @include('pages.delete')
 @endif
-
 @stop
 
 @section('css')
-
 {{ Basset::show('switches.css') }}
-
 @stop
 
 @section('js')
-
 {{ Basset::show('switches.js') }}
-
 @stop

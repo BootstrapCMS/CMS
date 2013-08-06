@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 {{ $user->first_name.' '.$user->last_name }}
 @stop
 
 @section('controls')
-
 <p class="lead">
     Currently showing   
     @if($user->id == Sentry::getUser()->id)
@@ -16,11 +14,9 @@
     @endif
     profile:
 </p>
-
 @stop
 
 @section('content')
-
     <h4>Account Profile:</h4>
     <div class="well clearfix">
         <div class="span7">
@@ -56,5 +52,4 @@
     <div>
         <pre>{{ var_dump($user) }}</pre>
     </div>
-
 @stop

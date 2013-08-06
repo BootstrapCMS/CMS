@@ -1,8 +1,11 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Reset Password
+@stop
+
+@section('controls')
+<p class="lead">Here is your profile:</p>
 @stop
 
 @section('content')
@@ -23,5 +26,4 @@ Reset Password
         </div>
     {{ Form::close() }}
 </div>
-
 @stop

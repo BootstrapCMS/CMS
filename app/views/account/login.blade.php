@@ -4,8 +4,11 @@
 Login
 @stop
 
-@section('content')
+@section('controls')
+<p class="lead">Here is your profile:</p>
+@stop
 
+@section('content')
 <p class="lead">Please enter your details:</p>
 <div class="well">
     {{ Form::open(array('url' => URL::route('account.login.post'), 'method' => 'POST', 'class' => 'form-horizontal')) }}
@@ -40,5 +43,4 @@ Login
         </div>
   {{ Form::close() }}
 </div>
-
 @stop
