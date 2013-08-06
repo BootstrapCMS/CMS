@@ -2,6 +2,14 @@ CHANGE LOG
 ==========
 
 
+## V0.2.1 Alpha (Upcoming)
+#### Minor Release
+
+* Fixed bootstrap switch
+* Some css tweaks
+* Fixed composer.json
+
+
 ## V0.2 Alpha (05/08/2013)
 #### Major Release
 
