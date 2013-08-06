@@ -210,12 +210,30 @@ class AccountController extends BaseController {
     }
 
     /**
-     * Update the user's profile.
+     * Delete the user's profile.
      *
      * @return Response
      */
-    public function putProfile() {
-        Sentry::getUser()->update();
+    public function deleteProfile() {
+        //
+    }
+
+    /**
+     * Update the user's details.
+     *
+     * @return Response
+     */
+    public function patchDetails() {
+        //Sentry::getUser()->update();
+    }
+
+    /**
+     * Update the user's password.
+     *
+     * @return Response
+     */
+    public function patchPassword() {
+        //Sentry::getUser()->update();
     }
 
     /**

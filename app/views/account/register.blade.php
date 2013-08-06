@@ -5,11 +5,10 @@ Register
 @stop
 
 @section('controls')
-<p class="lead">Here is your profile:</p>
+<p class="lead">Please enter your details:</p>
 @stop
 
 @section('content')
-<p class="lead">Please enter your details:</p>
 <div class="well">
     {{ Form::open(array('url' => URL::route('account.register.post'), 'method' => 'POST', 'class' => 'form-horizontal')) }}
 
