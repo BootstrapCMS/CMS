@@ -58,7 +58,13 @@ class UserController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        //
+        $user = $this->user->find($id);
+
+        if (!$user) {
+            App::abort(404, 'User Not Found');
+        }
+
+        return $this->viewMake('users.show', array('user' => $user));
     }
 
     /**

@@ -23,7 +23,7 @@ Profile
 @stop
 
 @section('content')
-<h4>Change Details</h4>
+<h3>Change Details</h3>
 <div class="well">
     <?php
     $form = array('url' => URL::route('account.details.patch'),
@@ -37,8 +37,8 @@ Profile
     ?>
     @include('account.details')
 </div>
-
-<h4>Change Password</h4>
+<hr>
+<h3>Change Password</h3>
 <div class="well">
     <?php
     $form = array('url' => URL::route('account.password.patch'),
