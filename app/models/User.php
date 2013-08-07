@@ -4,6 +4,34 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
 
     protected $table = 'users';
 
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getFirstName() {
+        return $this->first_name;
+    }
+
+    public function getLastName() {
+        return $this->last_name;
+    }
+
+    public function getName() {
+        return $this->first_name.' '.$this->last_name;
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+
+    public function getCreatedAt() {
+        return $this->created_at;
+    }
+
+    public function getUpdatedAt() {
+        return $this->updated_at;
+    }
+
     public function pages() {
         return $this->hasMany('Page');
     }
