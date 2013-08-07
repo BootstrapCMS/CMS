@@ -61,19 +61,19 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
     }
 
     public function delete() {
-        foreach($this->pages() as $page) {
+        foreach($this->getPages(array('id')) as $page) {
             $page->delete();
         }
 
-        foreach($this->posts() as $post) {
+        foreach($this->getPosts(array('id')) as $post) {
             $post->delete();
         }
 
-        // foreach($this->events() as $event) {
+        // foreach($this->getEvents(array('id')) as $event) {
         //     $event->delete();
         // }
 
-        foreach($this->comments() as $comment) {
+        foreach($this->getComments(array('id')) as $comment) {
             $comment->delete();
         }
 
