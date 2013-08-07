@@ -29,7 +29,8 @@ class UserController extends BaseController {
      * @return Response
      */
     public function index() {
-        //
+        $users = $this->user->orderBy('first_name')->get(array('id', 'first_name', 'last_name', 'email'));
+        return $this->viewMake('users.index', array('users' => $users));
     }
 
     /**
@@ -87,6 +88,15 @@ class UserController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        //
+        $user = $this->user->find($id);
+
+        if (!$user) {
+            App::abort(404, 'User Not Found');
+        }
+
+        $user->delete();
+
+        Session::flash('success', 'The user has been deleted successfully.');
+        return Redirect::route('users.index');
     }
 }

@@ -4,7 +4,10 @@
         <h3>Are you sure?</h3>
     </div>
     <div class="modal-body">
-        <p>Are you sure you want to delete your account and all your content including any pages, posts, events, or comments you might own?</p>
+        <p>
+            You are about to delete your account and all your content including any pages, posts, events, or comments you might own! This process cannot be undone.
+        </p>
+        <p>Are you sure you wish to continue?</p>
     </div>
     <div class="modal-footer">
         <a class="btn btn-success" href="{{ URL::route('account.profile.delete') }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Yes</a>
