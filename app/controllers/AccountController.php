@@ -143,8 +143,8 @@ class AccountController extends BaseController {
         );
 
         $rules = array (
-            'first_name' => 'required|min:4|max:32',
-            'last_name' => 'required|min:4|max:32',
+            'first_name' => 'required|min:2|max:32',
+            'last_name' => 'required|min:2|max:32',
             'email' => 'required|min:4|max:32|email',
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required',
@@ -215,7 +215,18 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function deleteProfile() {
-        //
+        $user = Sentry::getUser();
+
+        if (!$user) {
+            App::abort(404, 'User Not Found');
+        }
+
+        Sentry::logout();
+
+        $user->delete();
+
+        Session::flash('success', 'Your account has been deleted successfully.');
+        return Redirect::route('pages.show', array('pages' => 'home'));
     }
 
     /**
@@ -224,7 +235,35 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function patchDetails() {
-        //Sentry::getUser()->update();
+        $input = array(
+            'first_name' => Binput::get('first_name'),
+            'last_name' => Binput::get('last_name'),
+            'email' => Binput::get('email'),
+        );
+
+        $rules = array (
+            'first_name' => 'required|min:2|max:32',
+            'last_name' => 'required|min:2|max:32',
+            'email' => 'required|min:4|max:32|email',
+        );
+
+        $v = Validator::make($input, $rules);
+
+        $v = Validator::make($input, $rules);
+        if ($v->fails()) {
+            return Redirect::route('account.profile')->withInput()->withErrors($v->errors());
+        } else {
+            $user = Sentry::getUser();
+
+            if (!$user) {
+                App::abort(404, 'User Not Found');
+            }
+
+            $user->update($input);
+            
+            Session::flash('success', 'Your details have been updated successfully.');
+            return Redirect::route('account.profile');
+        }
     }
 
     /**
@@ -233,7 +272,33 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function patchPassword() {
-        //Sentry::getUser()->update();
+        $input = array(
+            'password' => Binput::get('password'),
+            'password_confirmation' => Binput::get('password_confirmation'),
+        );
+
+        $rules = array (
+            'password' => 'required|min:6|confirmed',
+            'password_confirmation' => 'required',
+        );
+
+        $v = Validator::make($input, $rules);
+        if ($v->fails()) {
+            return Redirect::route('account.profile')->withInput()->withErrors($v->errors());
+        } else {
+            unset($input['password_confirmation']);
+
+            $user = Sentry::getUser();
+
+            if (!$user) {
+                App::abort(404, 'User Not Found');
+            }
+
+            $user->update($input);
+            
+            Session::flash('success', 'Your password has been updated successfully.');
+            return Redirect::route('account.profile');
+        }
     }
 
     /**

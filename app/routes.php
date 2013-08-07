@@ -47,7 +47,7 @@ Route::get('account/register', array('as' => 'account.register', 'uses' => 'Acco
 Route::post('account/register', array('as' => 'account.register.post', 'uses' => 'AccountController@postRegister'));
 Route::get('account/profile', array('as' => 'account.profile', 'uses' => 'AccountController@getProfile'));
 Route::delete('account/profile', array('as' => 'account.profile.delete', 'uses' => 'AccountController@deleteProfile'));
-Route::patch('account/details', array('as' => 'account.detail.patch', 'uses' => 'AccountController@patchDetails'));
+Route::patch('account/details', array('as' => 'account.details.patch', 'uses' => 'AccountController@patchDetails'));
 Route::patch('account/password', array('as' => 'account.password.patch', 'uses' => 'AccountController@patchPassword'));
 Route::get('account/reset', array('as' => 'account.reset', 'uses' => 'AccountController@getReset'));
 Route::post('account/reset', array('as' => 'account.reset.post', 'uses' => 'AccountController@postReset'));

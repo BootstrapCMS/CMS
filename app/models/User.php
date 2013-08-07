@@ -65,13 +65,13 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
             $page->delete();
         }
 
-        foreach($this->post() as $post) {
+        foreach($this->posts() as $post) {
             $post->delete();
         }
 
-        foreach($this->events() as $event) {
-            $event->delete();
-        }
+        // foreach($this->events() as $event) {
+        //     $event->delete();
+        // }
 
         foreach($this->comments() as $comment) {
             $comment->delete();
