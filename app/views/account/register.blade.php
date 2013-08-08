@@ -28,7 +28,7 @@ Register
             </div>
         </div>  
 
-        <div class="control-group{{ ($errors->has(' email')) ? 'error' : '' }}">
+        <div class="control-group{{ ($errors->has('email')) ? ' error' : '' }}">
             <label class="control-label" for="email">Email</label>
             <div class="controls">
                 <input name="email" id="email" value="{{ Request::old('email') }}" type="text" class="input-xlarge" placeholder="Email">
