@@ -62,50 +62,50 @@ class AccountController extends BaseController {
         if ($v->fails()) {
             Log::info('Login failed because validation failed', array('Email' => $input['email'], 'Messages' => $v->messages()->all()));
             return Redirect::route('account.login')->withErrors($v)->withInput();
-        } else {
-            try {
-                $throttle = Sentry::getThrottleProvider()->findByUserId(Sentry::getUserProvider()->findByLogin($input['email'])->id);
-                $throttle->check();
-
-                $user = Sentry::authenticate($input, $remember);
-            } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-                Log::notice($e);
-                Session::flash('error', 'Your details were invalid.');
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
-                Log::notice($e);
-                Session::flash('error', 'Your details were invalid.');
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
-                Log::notice($e);
-                Session::flash('error', 'Your details were invalid.');
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
-                Log::notice($e);
-                Session::flash('error', 'You have not yet activated this account.');
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-                Log::notice($e);
-                Session::flash('error', 'Your details were invalid.');
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Users\WrongPasswordException $e) {
-                Log::notice($e);
-                Session::flash('error', 'Your details were invalid.');
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
-                Log::notice($e);
-                $time = $throttle->getSuspensionTime();
-                Session::flash('error', "Your account has been suspended for $time minutes.");
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Throttling\UserBannedException $e) {
-                Log::notice($e);
-                Session::flash('error', 'You have been banned.');
-                return Redirect::route('account.login')->withErrors($v)->withInput();
-            }
-
-            Log::info('Login successful', array('Email' => $input['email']));
-            return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
         }
+
+        try {
+            $throttle = Sentry::getThrottleProvider()->findByUserId(Sentry::getUserProvider()->findByLogin($input['email'])->id);
+            $throttle->check();
+
+            $user = Sentry::authenticate($input, $remember);
+        } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
+            Log::notice($e);
+            Session::flash('error', 'Your details were invalid.');
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
+            Log::notice($e);
+            Session::flash('error', 'Your details were invalid.');
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
+            Log::notice($e);
+            Session::flash('error', 'Your details were invalid.');
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
+            Log::notice($e);
+            Session::flash('error', 'You have not yet activated this account.');
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
+            Log::notice($e);
+            Session::flash('error', 'Your details were invalid.');
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Users\WrongPasswordException $e) {
+            Log::notice($e);
+            Session::flash('error', 'Your details were invalid.');
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
+            Log::notice($e);
+            $time = $throttle->getSuspensionTime();
+            Session::flash('error', "Your account has been suspended for $time minutes.");
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Throttling\UserBannedException $e) {
+            Log::notice($e);
+            Session::flash('error', 'You have been banned.');
+            return Redirect::route('account.login')->withErrors($v)->withInput();
+        }
+
+        Log::info('Login successful', array('Email' => $input['email']));
+        return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
     }
 
     /**
@@ -114,11 +114,12 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function getRegister() {
-        if (Config::get('cms.regallowed') === false) {
+        if (!Config::get('cms.regallowed')) {
             Log::notice('Registration disabled');
             Session::flash('error', 'Registration is currently disabled.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
+
         return $this->viewMake('account.register');
     }
 
@@ -128,7 +129,7 @@ class AccountController extends BaseController {
      * @return Response
      */
     public function postRegister() {
-        if (Config::get('cms.regallowed') === false) {
+        if (!Config::get('cms.regallowed')) {
             Log::notice('Registration disabled');
             Session::flash('error', 'Registration is currently disabled.');
             return Redirect::route('pages.show', array('pages' => 'home'));
@@ -154,49 +155,49 @@ class AccountController extends BaseController {
         if ($v->fails()) {
             Log::info('Registration failed because validation failed', array('Email' => $input['email'], 'Messages' => $v->messages()->all()));
             return Redirect::route('account.register')->withErrors($v)->withInput();
-        } else {
-            try {
-                unset($input['password_confirmation']);
+        }
 
-                $user = Sentry::register($input);
+        try {
+            unset($input['password_confirmation']);
 
-                if (Config::get('cms.regemail') === false) {
-                    $user->attemptActivation($user->GetActivationCode());
-                    $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
+            $user = Sentry::register($input);
 
-                    Log::info('Registration successful, activation not required', array('Email' => $input['email']));
-                    Session::flash('success', 'Your account has been created successfully.');
-                    return Redirect::route('pages.show', array('pages' => 'home'));
-                } else {
-                    $data = array(
-                        'view' => 'emails.welcome',
-                        'link' => URL::route('account.activate', array('id' => $user->getId(), 'code' => $user->GetActivationCode())),
-                        'email' => $user->getLogin(),
-                        'subject' => Config::get('cms.name').' - Welcome',
-                    );
+            if (!Config::get('cms.regemail')) {
+                $user->attemptActivation($user->GetActivationCode());
+                $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
 
-                    try {
-                        Queue::push('MailHandler', $data);
-                    } catch (Exception $e) {
-                        Log::alert($e);
-                        $user->delete();
-                        Session::flash('error', 'We were unable to create your account. Please contact support.');
-                        return Redirect::route('account.register');
-                    }
-
-                    Log::info('Registration successful, activation required', array('Email' => $input['email']));
-                    Session::flash('success', 'Your account has been created. Check your email for the confirmation link.');
-                    return Redirect::route('pages.show', array('pages' => 'home'));
-                }
-            } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
-                Log::notice($e);
-                Session::flash('error', 'Login field required.');
-                return Redirect::route('account.register')->withErrors($v)->withInput();
-            } catch (Cartalyst\Sentry\Users\UserExistsException $e) {
-                Log::notice($e);
-                Session::flash('error', 'User already exists.');
-                return Redirect::route('account.register')->withErrors($v)->withInput();
+                Log::info('Registration successful, activation not required', array('Email' => $input['email']));
+                Session::flash('success', 'Your account has been created successfully.');
+                return Redirect::route('pages.show', array('pages' => 'home'));
             }
+
+            $data = array(
+                'view' => 'emails.welcome',
+                'link' => URL::route('account.activate', array('id' => $user->getId(), 'code' => $user->GetActivationCode())),
+                'email' => $user->getLogin(),
+                'subject' => Config::get('cms.name').' - Welcome',
+            );
+
+            try {
+                Queue::push('MailHandler', $data);
+            } catch (Exception $e) {
+                Log::alert($e);
+                $user->delete();
+                Session::flash('error', 'We were unable to create your account. Please contact support.');
+                return Redirect::route('account.register');
+            }
+
+            Log::info('Registration successful, activation required', array('Email' => $input['email']));
+            Session::flash('success', 'Your account has been created. Check your email for the confirmation link.');
+            return Redirect::route('pages.show', array('pages' => 'home'));
+        } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
+            Log::notice($e);
+            Session::flash('error', 'Login field required.');
+            return Redirect::route('account.register')->withErrors($v)->withInput();
+        } catch (Cartalyst\Sentry\Users\UserExistsException $e) {
+            Log::notice($e);
+            Session::flash('error', 'User already exists.');
+            return Redirect::route('account.register')->withErrors($v)->withInput();
         }
     }
 
@@ -216,10 +217,7 @@ class AccountController extends BaseController {
      */
     public function deleteProfile() {
         $user = Sentry::getUser();
-
-        if (!$user) {
-            App::abort(404, 'User Not Found');
-        }
+        $this->checkUser($user);
 
         Sentry::logout();
 
@@ -252,18 +250,15 @@ class AccountController extends BaseController {
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
             return Redirect::route('account.profile')->withInput()->withErrors($v->errors());
-        } else {
-            $user = Sentry::getUser();
-
-            if (!$user) {
-                App::abort(404, 'User Not Found');
-            }
-
-            $user->update($input);
-            
-            Session::flash('success', 'Your details have been updated successfully.');
-            return Redirect::route('account.profile');
         }
+
+        $user = Sentry::getUser();
+        $this->checkUser($user);
+
+        $user->update($input);
+        
+        Session::flash('success', 'Your details have been updated successfully.');
+        return Redirect::route('account.profile');
     }
 
     /**
@@ -285,20 +280,17 @@ class AccountController extends BaseController {
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
             return Redirect::route('account.profile')->withInput()->withErrors($v->errors());
-        } else {
-            unset($input['password_confirmation']);
-
-            $user = Sentry::getUser();
-
-            if (!$user) {
-                App::abort(404, 'User Not Found');
-            }
-
-            $user->update($input);
-            
-            Session::flash('success', 'Your password has been updated successfully.');
-            return Redirect::route('account.profile');
         }
+
+        unset($input['password_confirmation']);
+
+        $user = Sentry::getUser();
+        $this->checkUser($user);
+
+        $user->update($input);
+        
+        Session::flash('success', 'Your password has been updated successfully.');
+        return Redirect::route('account.profile');
     }
 
     /**
@@ -327,33 +319,33 @@ class AccountController extends BaseController {
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
             return Redirect::route('account.reset')->withErrors($v)->withInput();
-        } else {
+        }
+
+        try {
+            $user = Sentry::getUserProvider()->findByLogin($input['email']);
+
+            $data = array(
+                'view' => 'emails.reset',
+                'link' => URL::route('account.password', array('id' => $user->getId(), 'code' => $user->getResetPasswordCode())),
+                'email' => $user->getLogin(),
+                'subject' => Config::get('cms.name').' - Password Reset Confirmation',
+            );
+
             try {
-                $user = Sentry::getUserProvider()->findByLogin($input['email']);
-
-                $data = array(
-                    'view' => 'emails.reset',
-                    'link' => URL::route('account.password', array('id' => $user->getId(), 'code' => $user->getResetPasswordCode())),
-                    'email' => $user->getLogin(),
-                    'subject' => Config::get('cms.name').' - Password Reset Confirmation',
-                );
-
-                try {
-                    Queue::push('MailHandler', $data);
-                } catch (Exception $e) {
-                    Log::alert($e);
-                    Session::flash('error', 'We were unable to reset your password. Please contact support.');
-                    return Redirect::route('account.reset');
-                }
-
-                Log::info('Reset email sent', array('Email' => $input['email']));
-                Session::flash('success', 'Check your email for password reset information.');
-                return Redirect::route('account.reset');
-            } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-                Log::notice($e);
-                Session::flash('error', 'That user does not exist.');
+                Queue::push('MailHandler', $data);
+            } catch (Exception $e) {
+                Log::alert($e);
+                Session::flash('error', 'We were unable to reset your password. Please contact support.');
                 return Redirect::route('account.reset');
             }
+
+            Log::info('Reset email sent', array('Email' => $input['email']));
+            Session::flash('success', 'Check your email for password reset information.');
+            return Redirect::route('account.reset');
+        } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
+            Log::notice($e);
+            Session::flash('error', 'That user does not exist.');
+            return Redirect::route('account.reset');
         }
     }
 
@@ -372,26 +364,23 @@ class AccountController extends BaseController {
 
             $password = $this->_generatePassword(12,8);
 
-            if ($user->attemptResetPassword($code, $password)) {
-
-                $data = array(
-                    'view' => 'emails.password',
-                    'password' => $password,
-                    'email' => $user->getLogin(),
-                    'subject' => Config::get('cms.name').' - New Password Information',
-                );
-
-                Log::info('Password reset successfully', array('Email' => $input['email']));
-                Session::flash('success', 'Your password has been changed. Check your email for the new password.');
-                return Redirect::route('pages.show', array('pages' => 'home'));
-            }
-            else {
+            if (!$user->attemptResetPassword($code, $password)) {
                 Log::error('There was a problem resetting a password', array('Id' => $id));
                 Session::flash('error', 'There was a problem resetting your password. Please contact support.');
                 return Redirect::route('base');
             }
-        }
-        catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
+
+            $data = array(
+                'view' => 'emails.password',
+                'password' => $password,
+                'email' => $user->getLogin(),
+                'subject' => Config::get('cms.name').' - New Password Information',
+            );
+
+            Log::info('Password reset successfully', array('Email' => $input['email']));
+            Session::flash('success', 'Your password has been changed. Check your email for the new password.');
+            return Redirect::route('pages.show', array('pages' => 'home'));
+        } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::error($e);
             Session::flash('error', 'There was a problem resetting your password. Please contact support.');
             return Redirect::route('pages.show', array('pages' => 'home'));
@@ -411,16 +400,16 @@ class AccountController extends BaseController {
         try {
             $user = Sentry::getUserProvider()->findById($id);
 
-            if ($user->attemptActivation($code)) {
-                $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
-
-                Log::info('Activation successful', array('Email' => $user->email));
-                Session::flash('success', 'Your account has been activated successfully.');
-                return Redirect::route('pages.show', array('pages' => 'home'));
-            } else {
+            if (!$user->attemptActivation($code)) {
                 Session::flash('error', 'There was a problem activating this account. Please contact support.');
                 return Redirect::route('pages.show', array('pages' => 'home'));
             }
+
+            $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
+
+            Log::info('Activation successful', array('Email' => $user->email));
+            Session::flash('success', 'Your account has been activated successfully.');
+            return Redirect::route('pages.show', array('pages' => 'home'));
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::error($e);
             Session::flash('error', 'There was a problem activating this account. Please contact support.');
@@ -441,6 +430,12 @@ class AccountController extends BaseController {
         Log::info('User logged out', array('Email' => Sentry::getUser()->email));
         Sentry::logout();
         return Redirect::route('pages.show', array('pages' => 'home'));
+    }
+
+    protected function checkUser($user) {
+        if (!$user) {
+            return App::abort(404, 'User Not Found');
+        }
     }
 
     /**
@@ -475,6 +470,7 @@ class AccountController extends BaseController {
                 $alt = 1;
             }
         }
+
         return $password;
     }
 }

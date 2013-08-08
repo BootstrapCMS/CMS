@@ -62,12 +62,12 @@ class PageController extends BaseController {
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
             return Redirect::route('pages.create')->withInput()->withErrors($v->errors());
-        } else {
-            $page = $this->page->create($input);
-
-            Session::flash('success', 'Your page has been created successfully.');
-            return Redirect::route('pages.show', array('pages' => $page->getSlug()));
         }
+
+        $page = $this->page->create($input);
+
+        Session::flash('success', 'Your page has been created successfully.');
+        return Redirect::route('pages.show', array('pages' => $page->getSlug()));
     }
 
     /**
@@ -78,14 +78,7 @@ class PageController extends BaseController {
      */
     public function show($slug) {
         $page = $this->page->findBySlug($slug);
-
-        if (!$page) {
-            if ($slug == 'home') {
-                App::abort(500, 'The Homepage Is Missing');
-            } else {
-                App::abort(404, 'Page Not Found');
-            }
-        }
+        $this->checkPage($page);
 
         return $this->viewMake('pages.show', array('page' => $page));
     }
@@ -98,14 +91,7 @@ class PageController extends BaseController {
      */
     public function edit($slug) {
         $page = $this->page->findBySlug($slug);
-
-        if (!$page) {
-            if ($slug == 'home') {
-                App::abort(500, 'The Homepage Is Missing');
-            } else {
-                App::abort(404, 'Page Not Found');
-            }
-        }
+        $this->checkPage($page);
 
         return $this->viewMake('pages.edit', array('page' => $page));
     }
@@ -132,33 +118,16 @@ class PageController extends BaseController {
         $v = Validator::make($input, $rules);
         if ($v->fails()) {
             return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($v->errors());
-        } else {
-            $page = $this->page->findBySlug($slug);
-
-            if (!$page) {
-                if ($slug == 'home') {
-                    App::abort(500, 'The Homepage Is Missing');
-                } else {
-                    App::abort(404, 'Page Not Found');
-                }
-            }
-
-            if ($slug == 'home') {
-                if ($slug != $input['slug']) {
-                    Session::flash('error', 'You cannot rename the homepage.');
-                    return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
-                }
-                if ($input['show_nav'] == false) {
-                    Session::flash('error', 'The homepage must be on the navigation bar.');
-                    return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
-                }
-            }
-
-            $page->update($input);
-            
-            Session::flash('success', 'Your page has been updated successfully.');
-            return Redirect::route('pages.show', array('pages' => $page->getSlug()));
         }
+
+        $page = $this->page->findBySlug($slug);
+        $this->checkPage($page);
+        $this->checkUpdate($slug, $input);
+
+        $page->update($input);
+        
+        Session::flash('success', 'Your page has been updated successfully.');
+        return Redirect::route('pages.show', array('pages' => $page->getSlug()));
     }
 
     /**
@@ -169,23 +138,43 @@ class PageController extends BaseController {
      */
     public function destroy($slug) {
         $page = $this->page->findBySlug($slug);
-
-        if (!$page) {
-            if ($slug == 'home') {
-                App::abort(500, 'The Homepage Is Missing');
-            } else {
-                App::abort(404, 'Page Not Found');
-            }
-        }
-
-        if ($slug == 'home') {
-            Session::flash('error', 'You cannot delete the homepage.');
-            return Redirect::route('pages.index');
-        }
+        $this->checkPage($page);
+        $this->checkDelete($slug);
 
         $page->delete();
 
         Session::flash('success', 'Your page has been deleted successfully.');
         return Redirect::route('pages.index');
+    }
+
+    protected function checkPage($page) {
+        if (!$page) {
+            if ($slug == 'home') {
+                return App::abort(500, 'The Homepage Is Missing');
+            }
+
+            return App::abort(404, 'Page Not Found');
+        }
+    }
+
+    protected function checkUpdate($slug, $input) {
+        if ($slug == 'home') {
+            if ($slug != $input['slug']) {
+                Session::flash('error', 'You cannot rename the homepage.');
+                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+            }
+
+            if ($input['show_nav'] == false) {
+                Session::flash('error', 'The homepage must be on the navigation bar.');
+                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+            }
+        }
+    }
+
+    protected function checkDelete($slug) {
+        if ($slug == 'home') {
+            Session::flash('error', 'You cannot delete the homepage.');
+            return Redirect::route('pages.index');
+        }
     }
 }

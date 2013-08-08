@@ -61,10 +61,7 @@ class UserController extends BaseController {
      */
     public function show($id) {
         $user = $this->user->find($id);
-
-        if (!$user) {
-            App::abort(404, 'User Not Found');
-        }
+        $this->checkUser($user);
 
         return $this->viewMake('users.show', array('user' => $user));
     }
@@ -77,10 +74,7 @@ class UserController extends BaseController {
      */
     public function edit($id) {
         $user = $this->user->find($id);
-
-        if (!$user) {
-            App::abort(404, 'User Not Found');
-        }
+        $this->checkUser($user);
 
         $groups = $this->group->get(array('id', 'name'));
 
@@ -105,14 +99,17 @@ class UserController extends BaseController {
      */
     public function destroy($id) {
         $user = $this->user->find($id);
-
-        if (!$user) {
-            App::abort(404, 'User Not Found');
-        }
+        $this->checkUser($user);
 
         $user->delete();
 
         Session::flash('success', 'The user has been deleted successfully.');
         return Redirect::route('users.index');
+    }
+
+    protected function checkUser($user) {
+        if (!$user) {
+            return App::abort(404, 'User Not Found');
+        }
     }
 }

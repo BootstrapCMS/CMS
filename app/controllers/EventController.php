@@ -90,4 +90,10 @@ class EventController extends BaseController {
     public function destroy($id) {
         return 'events destroy '.$id;
     }
+
+    protected function checkEvent($event) {
+        if (!$event) {
+            return App::abort(404, 'Event Not Found');
+        }
+    }
 }
