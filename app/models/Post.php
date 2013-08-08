@@ -2,7 +2,7 @@
 
 class Post extends BaseModel implements IHasManyComments {
 
-    use TraitHasManyComments;
+    use TraitTitleModel, TraitBodyModel, TraitHasManyComments;
 
     protected $table = 'posts';
 
@@ -21,16 +21,8 @@ class Post extends BaseModel implements IHasManyComments {
         'user_id' => 1,
     );
 
-    public function getTitle() {
-        return $this->title;
-    }
-
     public function getSummary() {
         return $this->summary;
-    }
-
-    public function getBody() {
-        return $this->body;
     }
 
     public function delete() {

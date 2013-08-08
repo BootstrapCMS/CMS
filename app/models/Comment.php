@@ -2,7 +2,7 @@
 
 class Comment extends BaseModel implements IBelongsToPost {
 
-    use TraitBelongsToPost;
+    use TraitBodyModel, TraitBelongsToPost;
 
     protected $table = 'comments';
 
@@ -18,8 +18,4 @@ class Comment extends BaseModel implements IBelongsToPost {
         'user_id' => 1,
         'post_id' => 1,
     );
-
-    public function getBody() {
-        return $this->body;
-    }
 }

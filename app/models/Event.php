@@ -2,6 +2,8 @@
 
 class Event extends BaseModel {
 
+    use TraitTitleModel, TraitBodyModel;
+
     protected $table = 'events';
 
     public $rules = array(
@@ -19,14 +21,6 @@ class Event extends BaseModel {
         'location' => 'text',
         'user_id'  => 1,
     );
-
-    public function getTitle() {
-        return $this->title;
-    }
-
-    public function getBody() {
-        return $this->body;
-    }
 
     public function getDate() {
         return $this->date;

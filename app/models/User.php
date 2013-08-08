@@ -2,13 +2,9 @@
 
 class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages, IHasManyPosts, IHasManyEvents, IHasManyComments {
 
-    use TraitHasManyPages, TraitHasManyPosts, TraitHasManyEvents, TraitHasManyComments;
+    use TraitBaseModel, TraitHasManyPages, TraitHasManyPosts, TraitHasManyEvents, TraitHasManyComments;
 
     protected $table = 'users';
-
-    public function getId() {
-        return $this->id;
-    }
 
     public function getFirstName() {
         return $this->first_name;
@@ -24,14 +20,6 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements IHasManyPages
 
     public function getEmail() {
         return $this->email;
-    }
-
-    public function getCreatedAt() {
-        return $this->created_at;
-    }
-
-    public function getUpdatedAt() {
-        return $this->updated_at;
     }
 
     public function delete() {
