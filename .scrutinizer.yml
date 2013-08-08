@@ -1,12 +1,18 @@
 filter:
-    excluded_paths: [vendor,vendor/*,app/config,app/config/*,app/libraries,app/libraries/*]
+    excluded_paths: [app/config,app/config/*,app/libraries,app/libraries/*]
 
 tools:
     php_mess_detector:
         enabled: true
+        config:
+            rulesets:
+                - codesize
+                - design
+                - naming
+                - unusedcode
     php_cpd:
         enabled: true
-        excluded_dirs: [vendor,vendor/*,app/config,app/config/*,app/libraries,app/libraries/*]
+        excluded_dirs: [,app/config,app/config/*,app/libraries,app/libraries/*]
     php_pdepend:
         enabled: true
-        excluded_dirs: [vendor,vendor/*,app/config,app/config/*,app/libraries,app/libraries/*]
+        excluded_dirs: [app/config,app/config/*,app/libraries,app/libraries/*]
