@@ -64,6 +64,19 @@ return array(
             $directory->apply('JsMin');
         },
 
+        'markdown' => function($collection) {
+            $directory = $collection->directory('css', function($collection) {
+                $collection->stylesheet('bootstrap-markdown.min.css');
+            });
+            $directory->apply('CssMin');
+            $directory->apply('UriRewriteFilter');
+
+            $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('bootstrap-markdown.js');
+            });
+            $directory->apply('JsMin');
+        },
+
         'switches' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-switch.css');

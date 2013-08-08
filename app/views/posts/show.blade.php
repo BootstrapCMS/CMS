@@ -47,7 +47,7 @@
 @stop
 
 @section('content')
-<?php eval('?>'.Markdown::string($post->getBody())); ?>
+{{ Markdown::string($post->getBody()) }}
 @stop
 
 @section('comments')

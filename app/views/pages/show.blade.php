@@ -34,7 +34,7 @@ if($page->getShowTitle() == false) {
 @stop
 
 @section('content')
-<?php eval('?>'.Markdown::string($page->getBody())); ?>
+<?php eval('?>'.$page->getBody()); ?>
 @stop
 
 @section('messages')
