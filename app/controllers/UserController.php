@@ -3,14 +3,16 @@
 class UserController extends BaseController {
 
     protected $user;
+    protected $group;
 
     /**
      * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page, User $user) {
+    public function __construct(Page $page, User $user, Group $group) {
         $this->page = $page;
         $this->user = $user;
+        $this->group = $group;
 
         $this->mods[] = 'index';
         $this->admins[] = 'create';
@@ -74,7 +76,15 @@ class UserController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        //
+        $user = $this->user->find($id);
+
+        if (!$user) {
+            App::abort(404, 'User Not Found');
+        }
+
+        $groups = $this->group->get(array('id', 'name'));
+
+        return $this->viewMake('users.edit', array('user' => $user, 'groups' => $groups));
     }
 
     /**

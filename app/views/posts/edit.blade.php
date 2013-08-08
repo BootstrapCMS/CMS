@@ -18,6 +18,7 @@ Edit {{ $post->getTitle() }}
             </div>
         </div>
     </div>
+</div>
 <hr>
 @stop
 

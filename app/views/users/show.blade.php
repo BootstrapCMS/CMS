@@ -27,7 +27,7 @@
 @stop
 
 @section('content')
-<h3>Account Profile</h3>
+<h3>User Profile</h3>
 <div class="well clearfix">
     <div class="span7">
         @if ($user->first_name)
@@ -44,9 +44,17 @@
     </div>
 </div>
 <hr>
-<h3>Group Memberships</h3>
+<h3>User Group Memberships</h3>
 <div class="well">
-    <pre>{{ var_dump($user->getGroups()) }}</pre>
+    <ul>
+    @if (count($user->getGroups()) >= 1)
+        @foreach ($user->getGroups() as $group)
+            <li>{{ $group['name'] }}</li>
+        @endforeach
+    @else
+        <li>No Group Memberships.</li>
+    @endif
+    </ul>
 </div>
 <hr>
 <h3>User Object</h3>
