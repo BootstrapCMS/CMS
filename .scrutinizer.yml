@@ -1,0 +1,12 @@
+filter:
+    excluded_paths: [vendor,vendor/*,app/config,app/config/*,app/libraries,app/libraries/*]
+
+tools:
+    php_mess_detector:
+        enabled: true
+    php_cpd:
+        enabled: true
+        excluded_dirs: [vendor,vendor/*,app/config,app/config/*,app/libraries,app/libraries/*]
+    php_pdepend:
+        enabled: true
+        excluded_dirs: [vendor,vendor/*,app/config,app/config/*,app/libraries,app/libraries/*]
