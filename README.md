@@ -47,7 +47,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 
 Bootstrap CMS was designed to run on a Linux machine with PHP 5.4 and MySQL 5.5.  
 
-* PHP 5.3.7+ or PHP 5.4+ is required. PHP 5.5+ may work, but is untested.  
+* PHP 5.4+ or PHP 5.5+ is required.
 * MySQL 5.1+, 5.5+, or 5.6+ is required. MySQL 5.7+ may work, but is untested.  
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Bootstrap CMS.  
 * You will need to configure the site in the app/config folder before production.  
