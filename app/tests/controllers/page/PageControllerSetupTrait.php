@@ -1,6 +1,6 @@
 <?php
 
-class PageControllerTest extends ResourcefulTestCase {
+trait PageControllerSetupTrait {
 
     protected $model = 'Page';
     protected $name = 'pages';
@@ -27,13 +27,5 @@ class PageControllerTest extends ResourcefulTestCase {
         $this->assertEquals($this->mock->getShowNav(), $this->attributes['show_nav']);
         $this->assertEquals($this->mock->getIcon(), $this->attributes['icon']);
         $this->assertEquals($this->mock->getUserId(), $this->attributes['user_id']);
-    }
-
-    protected function indexSetup() {
-        // overwritten to cancel it
-    }
-
-    protected function indexAssertions() {
-        $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram('home'));
     }
 }

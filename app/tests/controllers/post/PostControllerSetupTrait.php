@@ -1,6 +1,6 @@
 <?php
 
-class PostControllerTest extends ResourcefulTestCase {
+trait PostControllerSetupTrait {
 
     protected $model = 'Post';
     protected $name = 'posts';
@@ -21,19 +21,5 @@ class PostControllerTest extends ResourcefulTestCase {
         $this->assertEquals($this->mock->getSummary(), $this->attributes['summary']);
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);
         $this->assertEquals($this->mock->getUserId(), $this->attributes['user_id']);
-    }
-
-    protected function indexMocking() {
-        $this->mock->shouldReceive('orderBy')
-            ->once()->andReturn(Mockery::mock(array('get' => array($this->mock))));
-    }
-
-    protected function showMocking() {
-        $this->mock->shouldReceive($this->getFind())
-            ->with($this->getUid())->once()->andReturn($this->mock);
-        $this->mock->shouldReceive('getUserName')
-            ->once()->andReturn('name');
-        $this->mock->shouldReceive('getCommentsReversed')
-            ->once()->andReturn(array());
     }
 }
