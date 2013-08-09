@@ -55,14 +55,14 @@ class AccountController extends BaseController {
     public function patchDetails() {
         $input = array(
             'first_name' => Binput::get('first_name'),
-            'last_name' => Binput::get('last_name'),
-            'email' => Binput::get('email'),
+            'last_name'  => Binput::get('last_name'),
+            'email'      => Binput::get('email'),
         );
 
         $rules = array (
             'first_name' => 'required|min:2|max:32',
-            'last_name' => 'required|min:2|max:32',
-            'email' => 'required|min:4|max:32|email',
+            'last_name'  => 'required|min:2|max:32',
+            'email'      => 'required|min:4|max:32|email',
         );
 
         $val = Validator::make($input, $rules);
@@ -88,12 +88,12 @@ class AccountController extends BaseController {
      */
     public function patchPassword() {
         $input = array(
-            'password' => Binput::get('password'),
+            'password'              => Binput::get('password'),
             'password_confirmation' => Binput::get('password_confirmation'),
         );
 
         $rules = array (
-            'password' => 'required|min:6|confirmed',
+            'password'              => 'required|min:6|confirmed',
             'password_confirmation' => 'required',
         );
 

@@ -31,11 +31,11 @@ class ResetController extends BaseController {
     public function postReset() {
         $input = array(
             'email' => Binput::get('email'),
-            );
+        );
 
         $rules = array (
             'email' => 'required|min:4|max:32|email',
-            );
+        );
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
@@ -113,7 +113,7 @@ class ResetController extends BaseController {
      *
      * @return String
      */
-    protected function generatePassword($length=9, $strength=4) {
+    protected function generatePassword($length = 9, $strength = 4) {
         $vowels = 'aeiouy';
         $consonants = 'bcdfghjklmnpqrstvwxz';
         if ($strength & 1) {

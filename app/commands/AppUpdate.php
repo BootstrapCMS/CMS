@@ -2,8 +2,7 @@
 
 class AppUpdate extends AppCommand {
 
-    protected $name = 'app:update';
-
+    protected $name        = 'app:update';
     protected $description = 'Updates Bootstrap CMS';
 
     /**

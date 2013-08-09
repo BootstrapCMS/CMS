@@ -42,18 +42,18 @@ class RegistrationController extends BaseController {
         }
 
         $input = array(
-            'first_name' => Binput::get('first_name'),
-            'last_name' => Binput::get('last_name'),
-            'email' => Binput::get('email'),
-            'password' => Binput::get('password'),
+            'first_name'            => Binput::get('first_name'),
+            'last_name'             => Binput::get('last_name'),
+            'email'                 => Binput::get('email'),
+            'password'              => Binput::get('password'),
             'password_confirmation' => Binput::get('password_confirmation'),
         );
 
         $rules = array (
-            'first_name' => 'required|min:2|max:32',
-            'last_name' => 'required|min:2|max:32',
-            'email' => 'required|min:4|max:32|email',
-            'password' => 'required|min:6|confirmed',
+            'first_name'            => 'required|min:2|max:32',
+            'last_name'             => 'required|min:2|max:32',
+            'email'                 => 'required|min:4|max:32|email',
+            'password'              => 'required|min:6|confirmed',
             'password_confirmation' => 'required',
         );
 
@@ -79,9 +79,9 @@ class RegistrationController extends BaseController {
 
             try {
                 $data = array(
-                    'view' => 'emails.welcome',
-                    'link' => URL::route('account.activate', array('id' => $user->getId(), 'code' => $user->GetActivationCode())),
-                    'email' => $user->getLogin(),
+                    'view'    => 'emails.welcome',
+                    'link'    => URL::route('account.activate', array('id' => $user->getId(), 'code' => $user->GetActivationCode())),
+                    'email'   => $user->getLogin(),
                     'subject' => Config::get('cms.name').' - Welcome',
                 );
 

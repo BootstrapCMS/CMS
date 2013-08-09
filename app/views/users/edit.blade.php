@@ -33,9 +33,9 @@ Edit {{ $user->first_name.' '.$user->last_name }}
         'method' => 'PATCH',
         'button' => 'Save User',
         'defaults' => array(
-            'first_name' => Sentry::getUser()->first_name,
-            'last_name' => Sentry::getUser()->last_name,
-            'email' => Sentry::getUser()->email,
+            'first_name' => $user->getFirstName(),
+            'last_name' => $user->getLastName(),
+            'email' => $user->getEmail(),
     ));
     foreach($groups as $group) {
         $form['defaults']['group_'.$group->id] = ($user->inGroup($group));

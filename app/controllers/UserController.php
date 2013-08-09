@@ -10,8 +10,8 @@ class UserController extends BaseController {
      * Setup access permissions.
      */
     public function __construct(Page $page, User $user, Group $group) {
-        $this->page = $page;
-        $this->user = $user;
+        $this->page  = $page;
+        $this->user  = $user;
         $this->group = $group;
 
         $this->setPermissions(array(
@@ -43,7 +43,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function create() {
-        //
+        return $this->viewMake('users.create');
     }
 
     /**

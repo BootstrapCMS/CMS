@@ -106,12 +106,12 @@ class PageController extends BaseController {
      */
     public function update($slug) {
         $input = array(
-            'title' => Binput::get('title'),
-            'slug' => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
-            'body' => Input::get('body'), // use standard input method
+            'title'      => Binput::get('title'),
+            'slug'       => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
+            'body'       => Input::get('body'), // use standard input method
             'show_title' => (Binput::get('show_title') == 'on'),
-            'show_nav' => (Binput::get('show_nav') == 'on'),
-            'icon' => Binput::get('icon'),
+            'show_nav'   => (Binput::get('show_nav') == 'on'),
+            'icon'       => Binput::get('icon'),
         );
 
         $rules = $this->page->rules;

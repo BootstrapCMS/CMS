@@ -2,8 +2,7 @@
 
 class AppInstall extends AppCommand {
 
-    protected $name = 'app:install';
-
+    protected $name        = 'app:install';
     protected $description = 'Installs Bootstrap CMS';
 
     /**

@@ -9,7 +9,7 @@ class CommentController extends BaseController {
      * Setup access permissions.
      */
     public function __construct(Page $page, Comment $comment) {
-        $this->page = $page;
+        $this->page    = $page;
         $this->comment = $comment;
 
         $this->setPermissions(array(

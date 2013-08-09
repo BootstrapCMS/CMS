@@ -9,7 +9,7 @@ class EventController extends BaseController {
      * Setup access permissions.
      */
     public function __construct(Page $page, Event $event) {
-        $this->page = $page;
+        $this->page  = $page;
         $this->event = $event;
 
         $this->setPermissions(array(

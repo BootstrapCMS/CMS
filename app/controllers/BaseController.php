@@ -4,10 +4,10 @@ abstract class BaseController extends Controller {
 
     protected $page; // must be set in the extending class
 
-    private $users = array();
-    private $edits = array();
-    private $blogs = array();
-    private $mods = array();
+    private $users  = array();
+    private $edits  = array();
+    private $blogs  = array();
+    private $mods   = array();
     private $admins = array();
 
     /**

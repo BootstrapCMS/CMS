@@ -12,7 +12,7 @@ class LoginController extends BaseController {
         $this->page = $page;
 
         $this->setPermissions(array(
-            'getLogout'     => 'user',
+            'getLogout' => 'user',
         ));
 
         parent::__construct();
@@ -36,12 +36,12 @@ class LoginController extends BaseController {
         $remember = Binput::get('rememberMe');
 
         $input = array(
-            'email' => Binput::get('email'),
+            'email'    => Binput::get('email'),
             'password' => Binput::get('password'),
         );
 
         $rules = array(
-            'email' => 'required|min:4|max:32|email',
+            'email'    => 'required|min:4|max:32|email',
             'password' => 'required|min:6',
         );
 

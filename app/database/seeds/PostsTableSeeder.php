@@ -15,7 +15,7 @@ class PostsTableSeeder extends Seeder {
             'user_id'    => 1,
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
-            );
+        );
 
         DB::table('posts')->insert($post);
     }
