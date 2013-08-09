@@ -10,6 +10,7 @@ tools:
                 - design
                 - naming
                 - unusedcode
+                - phpmd.xml
     php_cpd:
         enabled: true
         excluded_dirs: [,app/config,app/config/*,app/libraries,app/libraries/*]
