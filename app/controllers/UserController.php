@@ -52,7 +52,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function store() {
-        //
+        return 'user store';
     }
 
     /**
@@ -90,7 +90,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        return 'user update '.$id;
     }
 
     /**
