@@ -69,10 +69,10 @@ class AccountController extends BaseController {
         }
 
         try {
-            $throttle = Sentry::getThrottleProvider()->findByUserId(Sentry::getUserProvider()->findByLogin($input['email'])->id);
+            $throttle = Sentry::getThrottleProvider()->findByUserLogin($input['email']);
             $throttle->check();
 
-            $user = Sentry::authenticate($input, $remember);
+            Sentry::authenticate($input, $remember);
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::notice($e);
             Session::flash('error', 'That user does not exist.');
