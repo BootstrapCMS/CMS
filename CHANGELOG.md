@@ -2,14 +2,16 @@ CHANGE LOG
 ==========
 
 
-## V0.2.1 Alpha (Upcoming)
+## V0.3 Alpha (Upcoming)
 #### Minor Release
 
 * Added native support for Cloudflare proxies
 * Added proper model deletion
 * Added an actual profile page
-* Added an admin/moderator interface with users (upcoming)
+* Added user management
 * Added more tests
+* Added the use of php traits
+* Added support for scrutinizer-ci
 * More test refactoring
 * Fixed bootstrap switch
 * Fixed the comment controller
