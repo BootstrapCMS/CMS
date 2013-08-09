@@ -2,6 +2,14 @@ CHANGE LOG
 ==========
 
 
+## V0.3.1 Alpha (Upcoming)
+#### Minor Release
+
+* Added More tests
+* Test refactoring
+* Now using phpunit 3.8
+
+
 ## V0.3 Alpha (09/08/2013)
 #### Minor Release
 
