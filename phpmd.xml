@@ -486,7 +486,7 @@ Detects when a field, local, or parameter has a very short name.
         <priority>3</priority>
         <properties>
             <property name="minimum" description="Minimum length for a variable, property or parameter name" value="3"/>
-            <property name="exceptions" description="Comma-separated list of exceptions" value="id"/>
+            <property name="exceptions" description="Comma-separated list of exceptions" value="id,up"/>
         </properties>
         <example>
             <![CDATA[
