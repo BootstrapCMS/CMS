@@ -245,7 +245,7 @@ order to reduce its complexity and find a way to have more fine grained objects.
         </description>
         <priority>3</priority>
         <properties>
-            <property name="maxmethods" description="The method count reporting threshold " value="15"/>
+            <property name="maxmethods" description="The method count reporting threshold " value="20"/>
         </properties>
     </rule>
 
@@ -437,7 +437,7 @@ maintainability and understandability
         </description>
         <priority>2</priority>
         <properties>
-            <property name="minimum" value="13" description="Maximum number of acceptable dependencies." />
+            <property name="minimum" value="16" description="Maximum number of acceptable dependencies." />
         </properties>
         <example>
             <![CDATA[
@@ -486,7 +486,7 @@ Detects when a field, local, or parameter has a very short name.
         <priority>3</priority>
         <properties>
             <property name="minimum" description="Minimum length for a variable, property or parameter name" value="3"/>
-            <property name="exceptions" description="Comma-separated list of exceptions" value="id,up"/>
+            <property name="exceptions" description="Comma-separated list of exceptions" value="id"/>
         </properties>
         <example>
             <![CDATA[
@@ -542,6 +542,7 @@ Detects when very short method names are used.
         <priority>3</priority>
         <properties>
             <property name="minimum" description="Minimum length for a method or function name" value="3"/>
+            <property name="exceptions" description="Comma-separated list of exceptions" value="up"/>
         </properties>
         <example>
             <![CDATA[
@@ -581,7 +582,7 @@ class MyClass {
           class="PHP_PMD_Rule_Naming_ConstantNamingConventions"
           externalInfoUrl="http://phpmd.org/rules/naming.html#constantnamingconventions">
         <description>
-Class/Interface constant nanmes should always be defined in uppercase.
+Class/Interface constant names should always be defined in uppercase.
         </description>
         <priority>4</priority>
         <properties />
