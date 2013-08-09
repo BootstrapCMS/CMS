@@ -2,8 +2,7 @@
 
 class AppReset extends AppCommand {
 
-    protected $name = 'app:reset';
-
+    protected $name        = 'app:reset';
     protected $description = 'Resets And Installs Bootstrap CMS';
 
     /**

@@ -9,14 +9,16 @@ class EventController extends BaseController {
      * Setup access permissions.
      */
     public function __construct(Page $page, Event $event) {
-        $this->page = $page;
+        $this->page  = $page;
         $this->event = $event;
 
-        $this->edits[] = 'create';
-        $this->edits[] = 'store';
-        $this->edits[] = 'edit';
-        $this->edits[] = 'update';
-        $this->edits[] = 'destroy';
+        $this->setPermissions(array(
+            'create'  => 'edit',
+            'store'   => 'edit',
+            'edit'    => 'edit',
+            'update'  => 'edit',
+            'destroy' => 'edit',
+        ));
 
         parent::__construct();
     }
@@ -27,7 +29,10 @@ class EventController extends BaseController {
      * @return Response
      */
     public function index() {
-        return $this->viewMake('events.index');
+        $events = array(); // temporary
+        //$events = $this->event->getUpcoming();
+
+        return $this->viewMake('events.index', array('events' => $events));
     }
 
     /**
@@ -86,5 +91,11 @@ class EventController extends BaseController {
      */
     public function destroy($id) {
         return 'events destroy '.$id;
+    }
+
+    protected function checkEvent($event) {
+        if (!$event) {
+            return App::abort(404, 'Event Not Found');
+        }
     }
 }

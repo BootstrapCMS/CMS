@@ -9,6 +9,13 @@ class HomeController extends BaseController {
     public function __construct(Page $page) {
         $this->page = $page;
 
+        $this->setPermissions(array(
+            'testQueue' => 'admin',
+            'testError' => 'admin',
+            'addValue'  => 'mod',
+            'getValue'  => 'user',
+        ));
+
         parent::__construct();
     }
 
@@ -23,10 +30,12 @@ class HomeController extends BaseController {
     }
 
     public function testQueue() {
-        $data = array('view' => 'emails.welcome',
-            'link' => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
-            'email' => 'graham@mineuk.com',
-            'subject' => Config::get('cms.name').' - Welcome');
+        $data = array(
+            'view'    => 'emails.welcome',
+            'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
+            'email'   => 'graham@mineuk.com',
+            'subject' => Config::get('cms.name').' - Welcome',
+        );
 
         Queue::push('MailHandler', $data);
         return 'done';

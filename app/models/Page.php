@@ -2,6 +2,8 @@
 
 class Page extends BaseModel {
 
+    use TraitTitleModel, TraitSlugModel, TraitBodyModel;
+
     protected $table = 'pages';
 
     public $rules = array(
@@ -24,18 +26,6 @@ class Page extends BaseModel {
         'user_id'    => 1,
     );
 
-    public function getTitle() {
-        return $this->title;
-    }
-
-    public function getSlug() {
-        return $this->slug;
-    }
-
-    public function getBody() {
-        return $this->body;
-    }
-
     public function getShowTitle() {
         return $this->show_title;
     }
@@ -51,9 +41,5 @@ class Page extends BaseModel {
     public function getNav() {
         // TODO: caching logic
         return $this->where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
-    }
-
-    public function findBySlug($slug, $columns = array('*')) {
-        return $this->where('slug', '=', $slug)->first($columns);
     }
 }

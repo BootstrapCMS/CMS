@@ -3,12 +3,10 @@
 <?php $name = 'Hello World'; ?>
 
 @section('title')
-@parent
 {{ ucwords(str_replace('-', ' ', $name)) }}
 @stop
 
 @section('content')
-
 <p class="lead">
     @if (Sentry::check())
        You are currently logged in.
@@ -16,5 +14,4 @@
        You are currently not logged in.
     @endif
 </p>
-
 @stop

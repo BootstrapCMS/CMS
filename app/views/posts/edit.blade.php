@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Edit {{ $post->getTitle() }}
 @stop
 
 @section('controls')
-
 <div class="row-fluid">
     <div class="span12">
         <div class="span6">
@@ -20,12 +18,11 @@ Edit {{ $post->getTitle() }}
             </div>
         </div>
     </div>
+</div>
 <hr>
-
 @stop
 
 @section('content')
-
 <div class="well">
     <?php
     $form = array('url' => URL::route('blog.posts.update', array('posts' => $post->getId())),
@@ -39,13 +36,10 @@ Edit {{ $post->getTitle() }}
     ?>
     @include('posts.form')
 </div>
-
 @stop
 
 @section('messages')
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     @include('posts.delete')
 @endif
-
 @stop

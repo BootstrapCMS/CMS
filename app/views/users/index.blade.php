@@ -1,42 +1,52 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Users
 @stop
 
 @section('controls')
-
-<p class="lead">Here is a list of all the current users:</p>
-
+<div class="row-fluid">
+    <div class="span12">
+        <div class="span6">
+            <p class="lead">Here is a list of all the current users:</p>
+        </div>
+        @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+            <div class="span6">
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="{{ URL::route('users.create') }}"><i class="icon-user"></i> New User</a>
+                </div>
+            </div>
+        @endif
+    </div>
+</div>
+<hr>
 @stop
 
 @section('content')
-
 <div class="well">
     <table class="table">
         <thead>
-            <th>User</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Status</th>
             <th>Options</th>
         </thead>
         <tbody>
             @foreach ($users as $user)
                 <tr>
-                    <td>{{ $user->first_name.' '.$user->last_name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $userStatus[$user->id] }} </td>
+                    <td>{{ $user->getName() }}</td>
+                    <td>{{ $user->getEmail() }}</td>
                     <td>
-                        <button class="btn" onClick="location.href='{{ URL::to('users/show') }}/{{ $user->id}}'">Show</button>
-                        <button class="btn" onClick="location.href='{{ URL::to('users/edit') }}/{{ $user->id}}'">Edit</button>
-                        <button class="btn" onClick="location.href='{{ URL::to('users/suspend') }}/{{ $user->id}}'">Suspend</button>
-                        <button class="btn action_confirm" href="{{ URL::to('users/delete') }}/{{ $user->id}}" data-token="{{ Session::getToken() }}" data-method="post">Delete</button>
+                        <a class="btn btn-success" href="{{ URL::route('users.show', array('users' => $user->getId())) }}"><i class="icon-file-text"></i> Show</a> <a class="btn btn-info" href="{{ URL::route('users.edit', array('users' => $user->getId())) }}"><i class="icon-edit"></i> Edit</a> <a class="btn btn-danger" href="#delete_user_{{ $user->getId() }}" data-toggle="modal" data-target="#delete_user_{{ $user->getId() }}"><i class="icon-remove"></i> Delete</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </div>
+@stop
 
+@section('messages')
+@if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+    @include('users.deletes')
+@endif
 @stop

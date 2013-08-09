@@ -1,17 +1,19 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Events
 @stop
 
 @section('controls')
-
 <div class="row-fluid">
     <div class="span12">
         <div class="span6">
             <p class="lead">
-                Here you may find our events:
+                @if (count($events) == 0)
+                    There are currently no events.
+                @else
+                    Here you may find our events:
+                @endif
             </p>
         </div>
         @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
@@ -23,7 +25,6 @@ Events
         @endif
     </div>
 <hr>
-
 @stop
 
 @section('content')

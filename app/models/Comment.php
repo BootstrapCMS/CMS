@@ -2,6 +2,8 @@
 
 class Comment extends BaseModel implements IBelongsToPost {
 
+    use TraitBodyModel, TraitBelongsToPost;
+
     protected $table = 'comments';
 
     public $rules = array(
@@ -11,24 +13,9 @@ class Comment extends BaseModel implements IBelongsToPost {
     );
 
     public $factory = array(
-        'body'    => 'text',
+        'id'      => 1,
+        'body'    => 'This a comment!',
         'user_id' => 1,
         'post_id' => 1,
     );
-
-    public function getBody() {
-        return $this->body;
-    }
-
-    public function post() {
-        return $this->belongsTo('Post');
-    }
-
-    public function getPost($columns = array('*')) {
-        return $this->post()->first($columns);
-    }
-
-    public function getPostId() {
-        return $this->post_id;
-    }
 }

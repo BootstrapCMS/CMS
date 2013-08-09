@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.7",
+        "php": ">=5.4.0",
         "laravel/framework": "4.0.*",
         "pda/pheanstalk": "2.1.*",
         "cartalyst/sentry": "2.0.*",
@@ -59,11 +59,6 @@
     },
     "config": {
         "preferred-install": "dist"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "develop"
-        }
     },
     "minimum-stability": "dev"
 }

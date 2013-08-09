@@ -7,9 +7,7 @@ class PageControllerTest extends ResourcefulTestCase {
     protected $base = 'pages';
     protected $uid = 'slug';
 
-    public function setUpLinks() {
-        parent::setUpLinks();
-
+    protected function extraLinks() {
         $this->addLinks(array(
             'getTitle'     => 'title',
             'getSlug'      => 'slug',
@@ -21,9 +19,7 @@ class PageControllerTest extends ResourcefulTestCase {
         ));
     }
 
-    public function testMocking() {
-        parent::testMocking();
-
+    protected function extraMockingTests() {
         $this->assertEquals($this->mock->getTitle(), $this->attributes['title']);
         $this->assertEquals($this->mock->getSlug(), $this->attributes['slug']);
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);
@@ -33,9 +29,11 @@ class PageControllerTest extends ResourcefulTestCase {
         $this->assertEquals($this->mock->getUserId(), $this->attributes['user_id']);
     }
 
-    public function testIndex() {
-        $this->call('GET', $this->getPath());
+    protected function indexSetup() {
+        // overwritten to cancel it
+    }
 
+    protected function indexAssertions() {
         $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram('home'));
     }
 }

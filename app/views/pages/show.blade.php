@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 {{ $page->getTitle() }}
 <?php 
 if($page->getShowTitle() == false) {
@@ -11,7 +10,6 @@ if($page->getShowTitle() == false) {
 @stop
 
 @section('controls')
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     <div class="well clearfix">
         <div class="span6">
@@ -33,19 +31,14 @@ if($page->getShowTitle() == false) {
     </div>
     <hr>
 @endif
-
 @stop
 
 @section('content')
-
-<?php eval('?>'.Markdown::string($page->getBody())); ?>
-
+<?php eval('?>'.$page->getBody()); ?>
 @stop
 
 @section('messages')
-
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     @include('pages.delete')
 @endif
-
 @stop

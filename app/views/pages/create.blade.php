@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Create Page
 @stop
 
 @section('content')
-
 <div class="well">
     <?php
     $form = array('url' => URL::route('pages.store'),
@@ -22,17 +20,12 @@ Create Page
     ?>
     @include('pages.form')
 </div>
-
 @stop
 
 @section('css')
-
 {{ Basset::show('switches.css') }}
-
 @stop
 
 @section('js')
-
 {{ Basset::show('switches.js') }}
-
 @stop

@@ -9,7 +9,9 @@
                 </div>
                 <div class="span4">
                     <?php global $timer_start; ?>
-                    <p class="muted pull-right">Generated in {{ round((microtime(1) - $timer_start), 4) }} sec.</p>
+                    <p class="muted pull-right">
+                        Generated in {{ round((microtime(1) - $timer_start), 4) }} sec.
+                    </p>
                 </div>
             </div>
         </div>

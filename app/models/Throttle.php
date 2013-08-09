@@ -2,8 +2,8 @@
 
 class Throttle extends Cartalyst\Sentry\Throttling\Eloquent\Throttle {
 
-    protected $table = 'throttle';
+    use TraitBaseModel;
 
-    public $factory = array();
+    protected $table = 'throttle';
 
 }

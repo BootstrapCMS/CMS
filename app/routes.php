@@ -39,19 +39,39 @@ if (Config::get('cms.blogging')) {
     }));
 }
 
+// send users to the profile page
+Route::get('account', array('as' => 'account', function() {
+    Session::flash('', ''); // work around laravel bug
+    Session::reflash();
+    Log::info('Redirecting from account to the profile page');
+    return Redirect::route('account.profile');
+}));
+
+
 // account routes
-Route::get('account', array('as' => 'account.index', 'uses' => 'AccountController@getIndex'));
-Route::get('account/login', array('as' => 'account.login', 'uses' => 'AccountController@getLogin'));
-Route::post('account/login', array('as' => 'account.login.post', 'uses' => 'AccountController@postLogin'));
-Route::get('account/register', array('as' => 'account.register', 'uses' => 'AccountController@getRegister'));
-Route::post('account/register', array('as' => 'account.register.post', 'uses' => 'AccountController@postRegister'));
 Route::get('account/profile', array('as' => 'account.profile', 'uses' => 'AccountController@getProfile'));
-Route::put('account/profile', array('as' => 'account.profile.put', 'uses' => 'AccountController@putProfile'));
-Route::get('account/reset', array('as' => 'account.reset', 'uses' => 'AccountController@getReset'));
-Route::post('account/reset', array('as' => 'account.reset.post', 'uses' => 'AccountController@postReset'));
-Route::get('account/password/{id}/{code}', array('as' => 'account.password', 'uses' => 'AccountController@getPassword'));
-Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'uses' => 'AccountController@getActivate'));
-Route::get('account/logout', array('as' => 'account.logout', 'uses' => 'AccountController@getLogout'));
+Route::delete('account/profile', array('as' => 'account.profile.delete', 'uses' => 'AccountController@deleteProfile'));
+Route::patch('account/details', array('as' => 'account.details.patch', 'uses' => 'AccountController@patchDetails'));
+Route::patch('account/password', array('as' => 'account.password.patch', 'uses' => 'AccountController@patchPassword'));
+
+
+// login routes
+Route::get('account/login', array('as' => 'account.login', 'uses' => 'LoginController@getLogin'));
+Route::post('account/login', array('as' => 'account.login.post', 'uses' => 'LoginController@postLogin'));
+Route::get('account/logout', array('as' => 'account.logout', 'uses' => 'LoginController@getLogout'));
+
+
+// reset route
+Route::get('account/reset', array('as' => 'account.reset', 'uses' => 'ResetController@getReset'));
+Route::post('account/reset', array('as' => 'account.reset.post', 'uses' => 'ResetController@postReset'));
+Route::get('account/password/{id}/{code}', array('as' => 'account.password', 'uses' => 'ResetController@getPassword'));
+
+
+// registration routes
+Route::get('account/register', array('as' => 'account.register', 'uses' => 'RegistrationController@getRegister'));
+Route::post('account/register', array('as' => 'account.register.post', 'uses' => 'RegistrationController@postRegister'));
+Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'uses' => 'RegistrationController@getActivate'));
+
 
 
 // user routes

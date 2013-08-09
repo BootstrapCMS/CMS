@@ -2,6 +2,8 @@
 
 class Post extends BaseModel implements IHasManyComments {
 
+    use TraitTitleModel, TraitBodyModel, TraitHasManyComments;
+
     protected $table = 'posts';
 
     public $rules = array(
@@ -19,31 +21,15 @@ class Post extends BaseModel implements IHasManyComments {
         'user_id' => 1,
     );
 
-    public function getTitle() {
-        return $this->title;
-    }
-
     public function getSummary() {
         return $this->summary;
     }
 
-    public function getBody() {
-        return $this->body;
-    }
+    public function delete() {
+        foreach($this->getComments(array('id')) as $comment) {
+            $comment->delete();
+        }
 
-    public function comments() {
-        return $this->hasMany('Comment');
-    }
-
-    public function getComments($columns = array('*')) {
-        return $this->comments()->get($columns);
-    }
-
-    public function getCommentsReversed($columns = array('*')) {
-        return $this->comments()->orderBy('id', 'desc')->get($columns);
-    }
-
-    public function findComment($id, $columns = array('*')) {
-        return $this->comments()->find($id, $columns);
+        return parent::delete();
     }
 }

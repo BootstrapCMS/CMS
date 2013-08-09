@@ -70,7 +70,7 @@ abstract class BaseHandler {
     /**
      * Called on success.
      */
-    protected function success($message = null) {
+    protected function success() {
         // set status to completed
         $this->status = false;
 

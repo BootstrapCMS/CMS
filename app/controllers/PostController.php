@@ -12,11 +12,13 @@ class PostController extends BaseController {
         $this->page = $page;
         $this->post = $post;
 
-        $this->blogs[] = 'create';
-        $this->blogs[] = 'store';
-        $this->blogs[] = 'edit';
-        $this->blogs[] = 'update';
-        $this->blogs[] = 'destroy';
+        $this->setPermissions(array(
+            'create'  => 'blog',
+            'store'   => 'blog',
+            'edit'    => 'blog',
+            'update'  => 'blog',
+            'destroy' => 'blog',
+        ));
 
         parent::__construct();
     }
@@ -55,15 +57,15 @@ class PostController extends BaseController {
 
         $rules = $this->post->rules;
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
-            return Redirect::route('blog.posts.create')->withInput()->withErrors($v->errors());
-        } else {
-            $post = $this->post->create($input);
-
-            Session::flash('success', 'Your post has been created successfully.');
-            return Redirect::route('blog.posts.show', array('posts' => $post->getId()));
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('blog.posts.create')->withInput()->withErrors($val->errors());
         }
+
+        $post = $this->post->create($input);
+
+        Session::flash('success', 'Your post has been created successfully.');
+        return Redirect::route('blog.posts.show', array('posts' => $post->getId()));
     }
 
     /**
@@ -74,10 +76,7 @@ class PostController extends BaseController {
      */
     public function show($id) {
         $post = $this->post->find($id);
-
-        if (!$post) {
-            App::abort(404, 'Post Not Found');
-        }
+        $this->checkPost($post);
 
         $comments = $post->getCommentsReversed();
 
@@ -92,10 +91,7 @@ class PostController extends BaseController {
      */
     public function edit($id) {
         $post = $this->post->find($id);
-
-        if (!$post) {
-            App::abort(404, 'Post Not Found');
-        }
+        $this->checkPost($post);
 
         return $this->viewMake('posts.edit', array('post' => $post));
     }
@@ -116,21 +112,18 @@ class PostController extends BaseController {
         $rules = $this->post->rules;
         unset($rules['user_id']);
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
-            return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($v->errors());
-        } else {
-            $post = $this->post->find($id);
-
-            if (!$post) {
-                App::abort(404, 'Post Not Found');
-            }
-
-            $post->update($input);
-            
-            Session::flash('success', 'Your post has been updated successfully.');
-            return Redirect::route('blog.posts.show', array('posts' => $post->getId()));
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
         }
+
+        $post = $this->post->find($id);
+        $this->checkPost($post);
+
+        $post->update($input);
+        
+        Session::flash('success', 'Your post has been updated successfully.');
+        return Redirect::route('blog.posts.show', array('posts' => $post->getId()));
     }
 
     /**
@@ -141,14 +134,17 @@ class PostController extends BaseController {
      */
     public function destroy($id) {
         $post = $this->post->find($id);
-
-        if (!$post) {
-            App::abort(404, 'Post Not Found');
-        }
+        $this->checkPost($post);
 
         $post->delete();
 
         Session::flash('success', 'Your post has been deleted successfully.');
         return Redirect::route('blog.posts.index');
+    }
+
+    protected function checkPost($post) {
+        if (!$post) {
+            return App::abort(404, 'Post Not Found');
+        }
     }
 }

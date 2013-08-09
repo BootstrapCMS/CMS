@@ -1,12 +1,10 @@
 @extends('layouts.default')
 
 @section('title')
-@parent
 Create Post
 @stop
 
 @section('content')
-
 <div class="well">
     <?php
     $form = array('url' => URL::route('blog.posts.store'),
@@ -20,5 +18,4 @@ Create Post
     ?>
     @include('posts.form')
 </div>
-
 @stop

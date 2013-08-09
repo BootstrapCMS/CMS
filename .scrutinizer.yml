@@ -1,0 +1,14 @@
+filter:
+    excluded_paths: [app/config,app/config/*,app/libraries,app/libraries/*]
+
+tools:
+    php_mess_detector:
+        enabled: true
+        config:
+            rulesets: [phpmd.xml]
+    php_cpd:
+        enabled: true
+        excluded_dirs: [,app/config,app/config/*,app/libraries,app/libraries/*]
+    php_pdepend:
+        enabled: true
+        excluded_dirs: [app/config,app/config/*,app/libraries,app/libraries/*]

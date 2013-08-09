@@ -4,9 +4,7 @@ class PageTest extends ModelTestCase {
 
     protected $model = 'Page';
 
-    public function testModel() {
-        parent::testModel();
-
+    protected function extraModelTests() {
         $this->assertInstanceOf('BaseModel', $this->object);
     }
 
@@ -53,6 +51,10 @@ class PageTest extends ModelTestCase {
 
     public function testRelationWithUserEmail() {
         $this->assertEquals($this->instance->getUserEmail(), $this->instance->getUser()->email);
+    }
+
+    public function testRelationWithUserName() {
+        $this->assertEquals($this->instance->getUserName(), $this->instance->getUser()->first_name.' '.$this->instance->getUser()->last_name);
     }
 
     // TODO: test nav menu logic

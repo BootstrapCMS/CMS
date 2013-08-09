@@ -2,10 +2,17 @@ Bootstrap-CMS
 =============
 
 
+[![Latest Stable Version](https://poser.pugx.org/gjc/bootstrap-cms/v/stable.png)](https://packagist.org/packages/gjc/bootstrap-cms)
+[![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png?branch=master)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
+[![Latest Unstable Version](https://poser.pugx.org/gjc/bootstrap-cms/v/unstable.png)](https://packagist.org/packages/gjc/bootstrap-cms)
+[![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png?branch=develop)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
+[![Total Downloads](https://poser.pugx.org/gjc/bootstrap-cms/downloads.png)](https://packagist.org/packages/gjc/bootstrap-cms)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/)
+[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
+
+
 Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013  
 
-
-[![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png?branch=master)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
@@ -14,10 +21,11 @@ Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013
 
 Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Sentry 2.0](http://docs.cartalyst.com/sentry-2).  
 
-* Bootstrap CMS, in its current form, is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
-* Bootstrap CMS will eventually use [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) to run tests to check if it's working as it should.  
+* Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
+* Bootstrap CMS uses [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) to run tests to check if it's working as it should.  
+* Bootstrap CMS uses [Scrutinizer CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) to run additional tests and checks.  
 * Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.  
-* Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md) and a set of [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases).  
+* Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), and a [wiki](https://github.com/GrahamCampbell/Bootstrap-CMS/wiki).  
 * Bootstrap CMS is licensed under the GNU AGPLv3, available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md).  
 
 
@@ -40,7 +48,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 
 Bootstrap CMS was designed to run on a Linux machine with PHP 5.4 and MySQL 5.5.  
 
-* PHP 5.3.7+ or PHP 5.4+ is required. PHP 5.5+ may work, but is untested.  
+* PHP 5.4+ or PHP 5.5+ is required.
 * MySQL 5.1+, 5.5+, or 5.6+ is required. MySQL 5.7+ may work, but is untested.  
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Bootstrap CMS.  
 * You will need to configure the site in the app/config folder before production.  
@@ -53,7 +61,8 @@ Please check the system requirements before installing Bootstrap CMS.
 
 1. You may install by cloning from github, or via composer.  
   * Github: "git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git"
-  * Composer: "composer create-project gjc/bootstrap-cms"
+  * Composer: "composer create-project gjc/bootstrap-cms cms dev-master"
+     * You can swap out "dev-master" for "dev-develop", or any release tag.
 2. From a command line open in the folder, run "composer install".  
 3. Navigate to app/config, and adjust the config accordingly.  
   * If you don't want Boostrap CMS to send emails, you can disable that in cms.php
