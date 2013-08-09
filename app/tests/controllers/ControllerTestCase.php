@@ -57,7 +57,7 @@ abstract class ControllerTestCase extends TestCase {
         Mockery::close();
     }
 
-    public function setAsPage() {
+    protected function setAsPage() {
         $nav = array(
             array(
                 'title' => 'Home',
@@ -114,7 +114,7 @@ abstract class ControllerTestCase extends TestCase {
         }
     }
 
-    public function getRoutePram($pram) {
+    protected function getRoutePram($pram) {
         return array($this->name => $pram);
     }
 
@@ -133,5 +133,6 @@ abstract class ControllerTestCase extends TestCase {
 
     protected function extraMockingTests() {
         // can be set in the extending class
+        // these tests are optional, so this function is not abstract
     }
 }

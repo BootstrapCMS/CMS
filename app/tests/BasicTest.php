@@ -8,9 +8,9 @@ class BasicTest extends TestCase {
         $this->assertRedirectedToRoute('pages.show', array('pages' => 'home'));
     }
 
-    public function testTest() {
-        $this->call('GET', 'test');
+    public function testBlog() {
+        $this->call('GET', 'blog');
 
-        $this->assertResponseOk();
+        $this->assertRedirectedToRoute('blog.posts.index');
     }
 }
