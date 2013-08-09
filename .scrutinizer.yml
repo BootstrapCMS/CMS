@@ -5,12 +5,7 @@ tools:
     php_mess_detector:
         enabled: true
         config:
-            rulesets:
-                - codesize
-                - design
-                - naming
-                - unusedcode
-                - phpmd.xml
+            rulesets: [phpmd.xml]
     php_cpd:
         enabled: true
         excluded_dirs: [,app/config,app/config/*,app/libraries,app/libraries/*]
