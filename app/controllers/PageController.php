@@ -61,9 +61,9 @@ class PageController extends BaseController {
 
         $rules = $this->page->rules;
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
-            return Redirect::route('pages.create')->withInput()->withErrors($v->errors());
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('pages.create')->withInput()->withErrors($val->errors());
         }
 
         $page = $this->page->create($input);
@@ -117,9 +117,9 @@ class PageController extends BaseController {
         $rules = $this->page->rules;
         unset($rules['user_id']);
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
-            return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($v->errors());
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($val->errors());
         }
 
         $page = $this->page->findBySlug($slug);

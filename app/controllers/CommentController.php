@@ -35,8 +35,8 @@ class CommentController extends BaseController {
 
         $rules = $this->comment->rules;
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
             Session::flash('error', 'Your comment was empty.');
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }
@@ -62,8 +62,8 @@ class CommentController extends BaseController {
         unset($rules['user_id']);
         unset($rules['post_id']);
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
             Session::flash('error', 'The comment was empty.');
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }

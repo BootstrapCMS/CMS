@@ -57,9 +57,9 @@ class PostController extends BaseController {
 
         $rules = $this->post->rules;
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
-            return Redirect::route('blog.posts.create')->withInput()->withErrors($v->errors());
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('blog.posts.create')->withInput()->withErrors($val->errors());
         }
 
         $post = $this->post->create($input);
@@ -112,9 +112,9 @@ class PostController extends BaseController {
         $rules = $this->post->rules;
         unset($rules['user_id']);
 
-        $v = Validator::make($input, $rules);
-        if ($v->fails()) {
-            return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($v->errors());
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
         }
 
         $post = $this->post->find($id);
