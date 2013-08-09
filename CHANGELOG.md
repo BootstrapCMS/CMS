@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.3 Alpha (Upcoming)
+## V0.3 Alpha (09/08/2013)
 #### Minor Release
 
 * Added native support for Cloudflare proxies
