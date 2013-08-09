@@ -80,7 +80,7 @@ class PageController extends BaseController {
      */
     public function show($slug) {
         $page = $this->page->findBySlug($slug);
-        $this->checkPage($page);
+        $this->checkPage($page, $slug);
 
         return $this->viewMake('pages.show', array('page' => $page));
     }
@@ -93,7 +93,7 @@ class PageController extends BaseController {
      */
     public function edit($slug) {
         $page = $this->page->findBySlug($slug);
-        $this->checkPage($page);
+        $this->checkPage($page, $slug);
 
         return $this->viewMake('pages.edit', array('page' => $page));
     }
@@ -123,8 +123,8 @@ class PageController extends BaseController {
         }
 
         $page = $this->page->findBySlug($slug);
-        $this->checkPage($page);
-        $this->checkUpdate($slug, $input);
+        $this->checkPage($page, $slug);
+        $this->checkUpdate($input, $slug);
 
         $page->update($input);
         
@@ -140,7 +140,7 @@ class PageController extends BaseController {
      */
     public function destroy($slug) {
         $page = $this->page->findBySlug($slug);
-        $this->checkPage($page);
+        $this->checkPage($page, $slug);
         $this->checkDelete($slug);
 
         $page->delete();
@@ -149,7 +149,7 @@ class PageController extends BaseController {
         return Redirect::route('pages.index');
     }
 
-    protected function checkPage($page) {
+    protected function checkPage($page, $slug) {
         if (!$page) {
             if ($slug == 'home') {
                 return App::abort(500, 'The Homepage Is Missing');
@@ -159,7 +159,7 @@ class PageController extends BaseController {
         }
     }
 
-    protected function checkUpdate($slug, $input) {
+    protected function checkUpdate($input, $slug) {
         if ($slug == 'home') {
             if ($slug != $input['slug']) {
                 Session::flash('error', 'You cannot rename the homepage.');
