@@ -75,27 +75,15 @@ class AccountController extends BaseController {
             $user = Sentry::authenticate($input, $remember);
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::notice($e);
-            Session::flash('error', 'Your details were invalid.');
-            return Redirect::route('account.login')->withErrors($v)->withInput();
-        } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
-            Log::notice($e);
-            Session::flash('error', 'Your details were invalid.');
-            return Redirect::route('account.login')->withErrors($v)->withInput();
-        } catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
-            Log::notice($e);
-            Session::flash('error', 'Your details were invalid.');
+            Session::flash('error', 'That user does not exist.');
             return Redirect::route('account.login')->withErrors($v)->withInput();
         } catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
             Log::notice($e);
             Session::flash('error', 'You have not yet activated this account.');
             return Redirect::route('account.login')->withErrors($v)->withInput();
-        } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            Log::notice($e);
-            Session::flash('error', 'Your details were invalid.');
-            return Redirect::route('account.login')->withErrors($v)->withInput();
         } catch (Cartalyst\Sentry\Users\WrongPasswordException $e) {
             Log::notice($e);
-            Session::flash('error', 'Your details were invalid.');
+            Session::flash('error', 'Your password was incorrect.');
             return Redirect::route('account.login')->withErrors($v)->withInput();
         } catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
             Log::notice($e);
@@ -104,7 +92,7 @@ class AccountController extends BaseController {
             return Redirect::route('account.login')->withErrors($v)->withInput();
         } catch (Cartalyst\Sentry\Throttling\UserBannedException $e) {
             Log::notice($e);
-            Session::flash('error', 'You have been banned.');
+            Session::flash('error', 'You have been banned. Please contact support.');
             return Redirect::route('account.login')->withErrors($v)->withInput();
         }
 
@@ -194,10 +182,6 @@ class AccountController extends BaseController {
             Log::info('Registration successful, activation required', array('Email' => $input['email']));
             Session::flash('success', 'Your account has been created. Check your email for the confirmation link.');
             return Redirect::route('pages.show', array('pages' => 'home'));
-        } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
-            Log::notice($e);
-            Session::flash('error', 'Login field required.');
-            return Redirect::route('account.register')->withErrors($v)->withInput();
         } catch (Cartalyst\Sentry\Users\UserExistsException $e) {
             Log::notice($e);
             Session::flash('error', 'User already exists.');
@@ -412,16 +396,16 @@ class AccountController extends BaseController {
             $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
 
             Log::info('Activation successful', array('Email' => $user->email));
-            Session::flash('success', 'Your account has been activated successfully.');
-            return Redirect::route('pages.show', array('pages' => 'home'));
+            Session::flash('success', 'Your account has been activated successfully. You may now login.');
+            return Redirect::route('account.login', array('pages' => 'home'));
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::error($e);
             Session::flash('error', 'There was a problem activating this account. Please contact support.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         } catch (Cartalyst\SEntry\Users\UserAlreadyActivatedException $e) {
             Log::notice($e);
-            Session::flash('error', 'You have already activated this account.');
-            return Redirect::route('pages.show', array('pages' => 'home'));
+            Session::flash('warning', 'You have already activated this account. You may want to login.');
+            return Redirect::route('account.login', array('pages' => 'home'));
         }
     }
 
