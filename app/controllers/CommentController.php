@@ -41,7 +41,7 @@ class CommentController extends BaseController {
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }
 
-        $post = $this->comment->create($input);
+        $this->comment->create($input);
 
         Session::flash('success', 'Your post has been created successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post_id));
