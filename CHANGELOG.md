@@ -13,10 +13,15 @@ CHANGE LOG
 * Added the use of php traits
 * Added support for scrutinizer-ci
 * More test refactoring
+* Major refactor of the Account Controller
+* Improved the controller permissions system
 * Fixed bootstrap switch
 * Fixed the comment controller
 * Fixed some account bugs
 * Fixed some form errors
+* Fixed some code complexity
+* Fixed some unused variables
+* Tweaked markdown support
 * Registration now requires names
 * Some css tweaks
 * Some minor model tweaks
