@@ -12,11 +12,11 @@ class CommentController extends BaseController {
         $this->page = $page;
         $this->comment = $comment;
 
-        $this->users[] = 'create';
-        $this->users[] = 'store';
-        $this->mods[] = 'edit';
-        $this->mods[] = 'update';
-        $this->mods[] = 'destroy';
+        $this->setPermissions(array(
+            'store'   => 'user',
+            'update'  => 'mod',
+            'destroy' => 'mod',
+        ));
 
         parent::__construct();
     }

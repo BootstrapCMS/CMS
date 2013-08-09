@@ -11,11 +11,13 @@ class PageController extends BaseController {
     public function __construct(Page $page) {
         $this->page = $page;
 
-        $this->edits[] = 'create';
-        $this->edits[] = 'store';
-        $this->edits[] = 'edit';
-        $this->edits[] = 'update';
-        $this->edits[] = 'destroy';
+        $this->setPermissions(array(
+            'create'  => 'edit',
+            'store'   => 'edit',
+            'edit'    => 'edit',
+            'update'  => 'edit',
+            'destroy' => 'edit',
+        ));
 
         parent::__construct();
     }

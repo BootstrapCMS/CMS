@@ -12,9 +12,13 @@ class AccountController extends BaseController {
         $this->page = $page;
         $this->user = $user;
 
-        $this->users[] = 'getProfile';
-        $this->users[] = 'putProfile';
-        $this->users[] = 'getLogout';
+        $this->setPermissions(array(
+            'getProfile'    => 'user',
+            'deleteProfile' => 'user',
+            'patchDetails'  => 'user',
+            'patchPassword' => 'user',
+            'getLogout'     => 'user',
+        ));
 
         parent::__construct();
     }

@@ -14,13 +14,15 @@ class UserController extends BaseController {
         $this->user = $user;
         $this->group = $group;
 
-        $this->mods[] = 'index';
-        $this->admins[] = 'create';
-        $this->admins[] = 'store';
-        $this->mods[] = 'show';
-        $this->admins[] = 'edit';
-        $this->admins[] = 'update';
-        $this->admins[] = 'destroy';
+        $this->setPermissions(array(
+            'index'   => 'mod',
+            'create'  => 'admin',
+            'store'   => 'admin',
+            'index'   => 'mod',
+            'edit'    => 'admin',
+            'update'  => 'admin',
+            'destroy' => 'admin',
+        ));
 
         parent::__construct();
     }

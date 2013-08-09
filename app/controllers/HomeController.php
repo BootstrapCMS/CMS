@@ -9,6 +9,13 @@ class HomeController extends BaseController {
     public function __construct(Page $page) {
         $this->page = $page;
 
+        $this->setPermissions(array(
+            'testQueue' => 'admin',
+            'testError' => 'admin',
+            'addValue'  => 'mod',
+            'getValue'  => 'user',
+        ));
+
         parent::__construct();
     }
 

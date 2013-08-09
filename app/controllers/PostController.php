@@ -12,11 +12,13 @@ class PostController extends BaseController {
         $this->page = $page;
         $this->post = $post;
 
-        $this->blogs[] = 'create';
-        $this->blogs[] = 'store';
-        $this->blogs[] = 'edit';
-        $this->blogs[] = 'update';
-        $this->blogs[] = 'destroy';
+        $this->setPermissions(array(
+            'create'  => 'blog',
+            'store'   => 'blog',
+            'edit'    => 'blog',
+            'update'  => 'blog',
+            'destroy' => 'blog',
+        ));
 
         parent::__construct();
     }
