@@ -13,7 +13,7 @@
                     </li>
                     @if (Config::get('cms.blogging'))
                         <li{{ ((Request::is('blog') || Request::is('blog/*')) ? ' class="active"' : '') }}>
-                            <a href="{{ URL::route('blog') }}">
+                            <a href="{{ URL::route('blog.posts.index') }}">
                                 <i class="icon-book"></i> Blog
                             </a>
                         </li>
