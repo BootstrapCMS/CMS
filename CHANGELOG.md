@@ -8,6 +8,10 @@ CHANGE LOG
 * Added More tests
 * Test refactoring
 * Now using phpunit 3.8
+* Cleaned up model deletion
+* Minor controller refactoring
+* Tweaks to the account related controllers
+* Other minor fixes
 
 
 ## V0.3 Alpha (09/08/2013)
@@ -36,6 +40,7 @@ CHANGE LOG
 * Cleaned up the views
 * Fixed composer.json
 * Updated seeding
+* Other minor fixes
 
 
 ## V0.2 Alpha (05/08/2013)
