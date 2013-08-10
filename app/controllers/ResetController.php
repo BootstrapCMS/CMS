@@ -91,12 +91,20 @@ class ResetController extends BaseController {
                 return Redirect::route('base');
             }
 
-            $data = array(
-                'view' => 'emails.password',
-                'password' => $password,
-                'email' => $user->getLogin(),
-                'subject' => Config::get('cms.name').' - New Password Information',
-            );
+            try {
+                $data = array(
+                    'view' => 'emails.password',
+                    'password' => $password,
+                    'email' => $user->getLogin(),
+                    'subject' => Config::get('cms.name').' - New Password Information',
+                );
+
+                Queue::push('MailHandler', $data);
+            } catch (Exception $e) {
+                Log::alert($e);
+                Session::flash('error', 'We were unable to send you your password. Please contact support.');
+                return Redirect::route('pages.show', array('pages' => 'home'));
+            }
 
             Log::info('Password reset successfully', array('Email' => $data['email']));
             Session::flash('success', 'Your password has been changed. Check your email for the new password.');

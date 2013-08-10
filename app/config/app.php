@@ -151,7 +151,6 @@ return array(
 
         'App'             => 'Illuminate\Support\Facades\App',
         'Artisan'         => 'Illuminate\Support\Facades\Artisan',
-        'Auth'            => 'Illuminate\Support\Facades\Auth',
         'Blade'           => 'Illuminate\Support\Facades\Blade',
         'Cache'           => 'Illuminate\Support\Facades\Cache',
         'ClassLoader'     => 'Illuminate\Support\ClassLoader',
@@ -171,7 +170,6 @@ return array(
         'Log'             => 'Illuminate\Support\Facades\Log',
         'Mail'            => 'Illuminate\Support\Facades\Mail',
         'Paginator'       => 'Illuminate\Support\Facades\Paginator',
-        'Password'        => 'Illuminate\Support\Facades\Password',
         'Queue'           => 'Illuminate\Support\Facades\Queue',
         'Redirect'        => 'Illuminate\Support\Facades\Redirect',
         'Redis'           => 'Illuminate\Support\Facades\Redis',
