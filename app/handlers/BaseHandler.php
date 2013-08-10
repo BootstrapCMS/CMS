@@ -39,7 +39,7 @@ abstract class BaseHandler {
         $this->data = $data;
 
         // abort if we have retried too many times
-        if ($this->job->attempts() == 3) {
+        if ($this->job->attempts() > 3) {
             $this->abort(get_class($this).' has aborted after failing 3 times');
         }
 
