@@ -13,4 +13,10 @@ trait TraitHasManyEvents {
     public function findEvent($id, $columns = array('*')) {
         return $this->events()->find($id, $columns);
     }
+
+    public function deleteEvents() {
+        foreach($this->getEvents(array('id')) as $event) {
+            $event->delete();
+        }
+    }
 }

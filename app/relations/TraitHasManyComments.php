@@ -17,4 +17,10 @@ trait TraitHasManyComments {
     public function findComment($id, $columns = array('*')) {
         return $this->comments()->find($id, $columns);
     }
+
+    public function deleteComments() {
+        foreach($this->getComments(array('id')) as $comment) {
+            $comment->delete();
+        }
+    }
 }

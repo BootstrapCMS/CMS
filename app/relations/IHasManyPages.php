@@ -10,4 +10,6 @@ interface IHasManyPages {
 
     public function findPageBySlug($slug, $columns = array('*'));
 
+    public function deletePages();
+
 }

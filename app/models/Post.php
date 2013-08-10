@@ -26,9 +26,7 @@ class Post extends BaseModel implements IHasManyComments {
     }
 
     public function delete() {
-        foreach($this->getComments(array('id')) as $comment) {
-            $comment->delete();
-        }
+        $this->deleteComments();
 
         return parent::delete();
     }

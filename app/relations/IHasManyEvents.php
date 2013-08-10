@@ -8,4 +8,6 @@ interface IHasManyEvents {
 
     public function findEvent($id, $columns = array('*'));
 
+    public function deleteEvents();
+
 }

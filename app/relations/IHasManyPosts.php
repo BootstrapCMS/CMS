@@ -8,4 +8,6 @@ interface IHasManyPosts {
 
     public function findPost($id, $columns = array('*'));
 
+    public function deletePosts();
+
 }

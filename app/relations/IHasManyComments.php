@@ -10,4 +10,6 @@ interface IHasManyComments {
 
     public function findComment($id, $columns = array('*'));
 
+    public function deleteComments();
+
 }

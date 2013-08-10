@@ -17,4 +17,10 @@ trait TraitHasManyPages {
     public function findPageBySlug($slug, $columns = array('*')) {
         return $this->pages()->where('slug', '=', $slug)->first($columns);
     }
+
+    public function deletePages() {
+        foreach($this->getPages(array('id')) as $page) {
+            $page->delete();
+        }
+    }
 }
