@@ -6,7 +6,7 @@
     {{ Config::get('cms.error') }} - Error {{ $code }}
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ Config::get('cms.error') }}}">
+<meta name="description" content="{{ Config::get('cms.error') }}">
 <meta name="author" content="Graham Campbell">
 <style type="text/css">
     @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
@@ -107,7 +107,7 @@
                 work hard to get this resolved as soon as possible.
             </p>
             <p>
-                Perhaps you would like to go to our <a href="/">home page</a>?
+                Perhaps you would like to go to our <a href="{{ asset('/') }}">home page</a>?
             </p>
         </div>
     </div>
