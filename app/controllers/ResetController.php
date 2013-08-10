@@ -83,7 +83,7 @@ class ResetController extends BaseController {
         try {
             $user = Sentry::getUserProvider()->findById($id);
 
-            $password = $this->generatePassword(12,8);
+            $password = Password::generate(12,8);
 
             if (!$user->attemptResetPassword($code, $password)) {
                 Log::error('There was a problem resetting a password', array('Id' => $id));
@@ -106,41 +106,5 @@ class ResetController extends BaseController {
             Session::flash('error', 'There was a problem resetting your password. Please contact support.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
-    }
-
-    /**
-     * Generate a random password.
-     *
-     * @return String
-     */
-    protected function generatePassword($length = 9, $strength = 4) {
-        $vowels = 'aeiouy';
-        $consonants = 'bcdfghjklmnpqrstvwxz';
-        if ($strength & 1) {
-            $consonants .= 'BCDFGHJKLMNPQRSTVWXZ';
-        }
-        if ($strength & 2) {
-            $vowels .= "AEIOUY";
-        }
-        if ($strength & 4) {
-            $consonants .= '23456789';
-        }
-        if ($strength & 8) {
-            $consonants .= '@#$%';
-        }
-
-        $password = '';
-        $alt = time() % 2;
-        for ($i = 0; $i < $length; $i++) {
-            if ($alt == 1) {
-                $password .= $consonants[(rand() % strlen($consonants))];
-                $alt = 0;
-            } else {
-                $password .= $vowels[(rand() % strlen($vowels))];
-                $alt = 1;
-            }
-        }
-
-        return $password;
     }
 }
