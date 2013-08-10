@@ -11,6 +11,8 @@ CHANGE LOG
 * Cleaned up model deletion
 * Minor controller refactoring
 * Tweaks to the account related controllers
+* Fixed some issues with the error pages
+* Tweaked the maintenance page
 * Other minor fixes
 
 
