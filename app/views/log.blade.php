@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div class="navbar{{ (Config::get('cms.inverse') == true) ? ' navbar-inverse' : ''}} navbar-fixed-top">
+<div class="navbar{{ (Config::get('theme.inverse') == true) ? ' navbar-inverse' : ''}} navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
             {{ HTML::link($url, Lang::get('logviewer::logviewer.title'), array('class' => 'brand')) }}
