@@ -21,7 +21,7 @@ return array(
     |--------------------------------------------------------------------------
     |
     | This is the header that will appear on all error pages. It will appear in
-    | the title head element of every error page.
+    | the title head element of every error page and the maintenance page.
     |
     */
 
