@@ -13,6 +13,7 @@ CHANGE LOG
 * Tweaks to the account related controllers
 * Fixed some issues with the error pages
 * Tweaked the maintenance page
+* Config changes
 * Other minor fixes
 
 
