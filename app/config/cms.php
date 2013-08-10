@@ -8,12 +8,24 @@ return array(
     |--------------------------------------------------------------------------
     |
     | This is the name of your site. It will appear in the title head element
-    | of every page and on the navigation bar. Additionally, it will appear on
-    | all error pages and in emails.
+    | of every page and on the navigation bar except for error pages. You can,
+    | of course, set the Error Page Header the same as the Site Name.
     |
     */
 
     'name' => 'Bootstrap CMS',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Error Page Header
+    |--------------------------------------------------------------------------
+    |
+    | This is the header that will appear on all error pages. It will appear in
+    | the title head element of every error page.
+    |
+    */
+
+    'error' => 'CMS Web Services',
 
     /*
     |--------------------------------------------------------------------------
