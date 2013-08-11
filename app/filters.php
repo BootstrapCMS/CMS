@@ -13,7 +13,7 @@
 
 App::before(function($request) {
     if (!$request->is('logviewer/*')) {
-        Log::debug('Page load event occurred', array('URL' => Request::url(), 'Headers' => Request::header()));
+        Event::fire('page.load', array(array('URL' => Request::url(), 'Headers' => Request::header())));
     } else {
         $value = 'admin';
 
