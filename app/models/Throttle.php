@@ -1,6 +1,6 @@
 <?php
 
-class Throttle extends Cartalyst\Sentry\Throttling\Eloquent\Throttle {
+class Throttle extends Cartalyst\Sentry\Throttling\Eloquent\Throttle implements IBaseModel {
 
     use TraitBaseModel;
 
