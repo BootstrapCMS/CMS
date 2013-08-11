@@ -9,10 +9,12 @@ CHANGE LOG
 * Test refactoring
 * Added Google Analytics support
 * Cleaned up model deletion
+* Improved user management
 * Minor controller refactoring
 * Tweaks to the account related controllers
 * Some trait and interface organization
 * Fixed some issues with the error pages
+* Fixed an issue with homepage editing
 * Tweaked the log viewer
 * Tweaked the maintenance page
 * Tweaked the base handler
