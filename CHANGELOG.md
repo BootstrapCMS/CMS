@@ -7,12 +7,14 @@ CHANGE LOG
 
 * Added More tests
 * Test refactoring
-* Now using phpunit 3.8
+* Added Google Analytics support
 * Cleaned up model deletion
 * Minor controller refactoring
 * Tweaks to the account related controllers
 * Fixed some issues with the error pages
+* Tweaked the log viewer
 * Tweaked the maintenance page
+* Moved the raw assets out of public
 * Config changes
 * Other minor fixes
 
