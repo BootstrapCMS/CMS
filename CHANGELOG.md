@@ -11,9 +11,12 @@ CHANGE LOG
 * Cleaned up model deletion
 * Minor controller refactoring
 * Tweaks to the account related controllers
+* Some trait and interface organization
 * Fixed some issues with the error pages
 * Tweaked the log viewer
 * Tweaked the maintenance page
+* Tweaked the base handler
+* Some logging improvements
 * Config changes
 * Other minor fixes
 
