@@ -14,7 +14,6 @@ CHANGE LOG
 * Fixed some issues with the error pages
 * Tweaked the log viewer
 * Tweaked the maintenance page
-* Moved the raw assets out of public
 * Config changes
 * Other minor fixes
 
