@@ -80,6 +80,7 @@ class RegistrationController extends BaseController {
             try {
                 $data = array(
                     'view'    => 'emails.welcome',
+                    'url'     => URL::route('pages.show', array('pages' => 'home')),
                     'link'    => URL::route('account.activate', array('id' => $user->getId(), 'code' => $user->GetActivationCode())),
                     'email'   => $user->getLogin(),
                     'subject' => Config::get('cms.name').' - Welcome',
