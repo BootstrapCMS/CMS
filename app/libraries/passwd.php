@@ -1,6 +1,6 @@
 <?php
 
-class Password {
+class Passwd {
 
     public static function generate($length = 9, $strength = 4) {
         $vowels = 'aeiouy';

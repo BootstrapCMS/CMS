@@ -83,7 +83,7 @@ class ResetController extends BaseController {
         try {
             $user = Sentry::getUserProvider()->findById($id);
 
-            $password = Password::generate(12,8);
+            $password = Passwd::generate(12,8);
 
             if (!$user->attemptResetPassword($code, $password)) {
                 Log::error('There was a problem resetting a password', array('Id' => $id));
