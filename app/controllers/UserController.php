@@ -90,7 +90,44 @@ class UserController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        return 'user update '.$id;
+        $input = array(
+            'first_name' => Binput::get('first_name'),
+            'last_name'  => Binput::get('last_name'),
+            'email'      => Binput::get('email'),
+        );
+
+        $rules = array(
+            'first_name' => 'required|min:2|max:32',
+            'last_name'  => 'required|min:2|max:32',
+            'email'      => 'required|min:4|max:32|email',
+        );
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('users.edit', array('users' => $id))->withInput()->withErrors($val->errors());
+        }
+
+        $user = $this->user->find($id);
+        $this->checkUser($user);
+
+        $user->update($input);
+
+        $groups = $this->group->get(array('id', 'name'));
+
+        foreach($groups as $group) {
+            if ($user->inGroup($group)) {
+                if (Binput::get('group_'.$group->id) === 'off') {
+                    $user->removeGroup($group);
+                }
+            } else {
+                if (Binput::get('group_'.$group->id) === 'on') {
+                    $user->addGroup($group);
+                }
+            }
+        }
+
+        Session::flash('success', 'The user has been updated successfully.');
+        return Redirect::route('users.show', array('users' => $user->getId()));
     }
 
     /**
