@@ -29,7 +29,7 @@ return array(
     'collections' => array(
 
         'main' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
+            $directory = $collection->directory('../assets/css', function($collection) {
                 $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
@@ -38,7 +38,7 @@ return array(
             });
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('js', function($collection) {
+            $directory = $collection->directory('../assets/js', function($collection) {
                 $collection->javascript('jquery-1.10.2.min.js');
                 $collection->javascript('respond.min.js');
                 $collection->javascript('bootstrap.min.js');
@@ -50,13 +50,13 @@ return array(
         },
 
         'editor' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
+            $directory = $collection->directory('../assets/css', function($collection) {
                 $collection->stylesheet('edit.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('js', function($collection) {
+            $directory = $collection->directory('../assets/js', function($collection) {
                 $collection->javascript('jquery.hotkeys.js');
                 $collection->javascript('bootstrap-wysiwyg.js');
                 $collection->javascript('edit.js');
@@ -65,39 +65,39 @@ return array(
         },
 
         'markdown' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
+            $directory = $collection->directory('../assets/css', function($collection) {
                 $collection->stylesheet('bootstrap-markdown.min.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('js', function($collection) {
+            $directory = $collection->directory('../assets/js', function($collection) {
                 $collection->javascript('bootstrap-markdown.js');
             });
             $directory->apply('JsMin');
         },
 
         'switches' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
+            $directory = $collection->directory('../assets/css', function($collection) {
                 $collection->stylesheet('bootstrap-switch.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('js', function($collection) {
+            $directory = $collection->directory('../assets/js', function($collection) {
                 $collection->javascript('bootstrap-switch.min.js');
             });
             $directory->apply('JsMin');
         },
 
         'images' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
+            $directory = $collection->directory('../assets/css', function($collection) {
                 $collection->stylesheet('bootstrap-lightbox.min.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('js', function($collection) {
+            $directory = $collection->directory('../assets/js', function($collection) {
                 $collection->javascript('jquery.lazyload.min.js');
                 $collection->javascript('bootstrap-lightbox.min.js');
             });
@@ -105,26 +105,26 @@ return array(
         },
 
         'logviewer' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
+            $directory = $collection->directory('../assets/css', function($collection) {
                 $collection->stylesheet('logviewer.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('js', function($collection) {
+            $directory = $collection->directory('../assets/js', function($collection) {
                 $collection->javascript('logviewer.js');
             });
             $directory->apply('JsMin');
         },
 
         'extra' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
+            $directory = $collection->directory('../assets/css', function($collection) {
                 $collection->stylesheet('extra.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('js', function($collection) {
+            $directory = $collection->directory('../assets/js', function($collection) {
                 $collection->javascript('extra.js');
             });
             $directory->apply('JsMin');
