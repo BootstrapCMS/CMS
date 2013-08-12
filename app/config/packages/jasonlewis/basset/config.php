@@ -30,7 +30,7 @@ return array(
 
         'main' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('bootstrap.'.Config::get('cms.theme').'.min.css');
+                $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('bootstrap-select.min.css');
@@ -85,7 +85,7 @@ return array(
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('bootstrap-switch.min.js');
+                $collection->javascript('bootstrap-switch.js');
             });
             $directory->apply('JsMin');
         },

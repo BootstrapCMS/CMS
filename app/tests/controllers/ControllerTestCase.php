@@ -4,10 +4,10 @@ use Carbon\Carbon;
 
 abstract class ControllerTestCase extends TestCase {
 
-    protected $model; // must be set in the extending class
-    protected $name; // must be set in the extending class
-    protected $base; // must be set in the extending class
-    protected $uid; // must be set in the extending class
+    // protected $model; // must be set in the extending class
+    // protected $name; // must be set in the extending class
+    // protected $base; // must be set in the extending class
+    // protected $uid; // must be set in the extending class
 
     protected $mock;
     protected $pagemock;

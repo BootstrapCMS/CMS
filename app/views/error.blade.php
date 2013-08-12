@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <title>
-    {{ Config::get('cms.name') }} - Error {{ $code }}
+    {{ Config::get('cms.error') }} - Error {{ $code }}
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ Config::get('cms.name') }}">
+<meta name="description" content="{{ Config::get('cms.error') }}">
 <meta name="author" content="Graham Campbell">
 <style type="text/css">
     @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
@@ -73,6 +73,7 @@
     .row-fluid .span1{width:6.3297872340426%;}
     .pull-right{float:right;}
     .pull-left{float:left;}
+    .ellipsis{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;}
     audio:not([controls]),[hidden]{display:none;}
     ::-moz-selection,::selection{background:#E37B52;color:#fff;text-shadow:none;}
     svg:not(:root),.main{overflow:hidden;}
@@ -86,29 +87,29 @@
     <div role="main" class="main">
         <div class="row-fluid">
             <div class="span12">
-                <div class="span4">
-                    <h1>{{ Config::get('cms.name') }}</h1>
+                <div class="span5 ellipsis">
+                    <h1>{{ Config::get('cms.error') }}</h1>
                 </div>
-                <div class="span8">
-                    <?php global $timer_start; ?>
-                    <h2 class="pull-right">{{ $extra }}</h2>
+                <div class="span7 ellipsis">
+                    <h2 class="pull-right">{{ (!$extra || strlen($extra) > 35 || strlen($extra) < 5) ? 'Houston, We Have A Problem' : $extra }}</h2>
                 </div>
             </div>
-        <h2>Error: {{ $code }} ({{ $name }})</h2>
-        <hr>
+            <h2>Error: {{ $code }} ({{ $name }})</h2>
+            <hr>
 
-        <h3>What does this mean?</h3>
+            <h3>What does this mean?</h3>
 
-        <p>
-            Something went wrong on our servers while we were processing your request.
-            {{ $message }}
-            This occurrence has been logged, and a highly trained team of monkeys has been
-            dispatched to deal with your problem. We're really sorry about this, and will
-            work hard to get this resolved as soon as possible.
-        </p>
-        <p>
-            Perhaps you would like to go to our <a href="{{{ URL::route('pages.show', array('pages' => 'home')) }}}">home page</a>?
-        </p>
+            <p>
+                Something went wrong on our servers while we were processing your request.
+                {{ $message }}
+                This occurrence has been logged, and a highly trained team of monkeys has been
+                dispatched to deal with your problem. We're really sorry about this, and will
+                work hard to get this resolved as soon as possible.
+            </p>
+            <p>
+                Perhaps you would like to go to our <a href="{{ asset('/') }}">home page</a>?
+            </p>
+        </div>
     </div>
 </div>
 </body>

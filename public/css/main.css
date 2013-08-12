@@ -1,5 +1,5 @@
 body {
-    padding-top: 60px;
+    padding-top: 64px;
 }
 
 @media ( max-width : 979px) {
@@ -26,10 +26,6 @@ body {
 .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
-}
-
-.marketing {
-    margin: 60px 0;
 }
 
 .comment-box {

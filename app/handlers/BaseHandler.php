@@ -38,11 +38,6 @@ abstract class BaseHandler {
         $this->job = $job;
         $this->data = $data;
 
-        // abort if we have retried too many times
-        if ($this->job->attempts() == 3) {
-            $this->abort(get_class($this).' has aborted after failing 3 times');
-        }
-
         // run the before method
         if ($this->status) {
             try {
@@ -113,12 +108,17 @@ abstract class BaseHandler {
             Log::error($e);
         }
 
-        // wait x seconds, then push back to queue, or abort if that fails
-        try {
-            $this->job->release($this->job->attempts());
-        } catch (Exception $e) {
-            Log::error($e);
-            $this->abort(get_class($this).' has aborted after failing to repush to the queue');
+        // abort if we have retried too many times
+        if ($this->job->attempts() >= 3) {
+            $this->abort(get_class($this).' has aborted after failing 3 times');
+        } else {
+            // wait x seconds, then push back to queue, or abort if that fails
+            try {
+                $this->job->release(2*$this->job->attempts());
+            } catch (Exception $e) {
+                Log::error($e);
+                $this->abort(get_class($this).' has aborted after failing to repush to the queue');
+            }
         }
     }
 

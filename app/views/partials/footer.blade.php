@@ -21,4 +21,7 @@
 {{ Basset::show('main.js') }}
 @section('js')
 @show
+@if (Config::get('analytics.google'))
+    @include('partials.analytics')
+@endif
 {{ Basset::show('extra.js') }}

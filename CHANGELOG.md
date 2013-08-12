@@ -2,6 +2,28 @@ CHANGE LOG
 ==========
 
 
+## V0.3.1 Alpha (12/08/2013)
+#### Minor Release
+
+* Added More tests
+* Test refactoring
+* Added Google Analytics support
+* Cleaned up model deletion
+* Improved user management
+* Minor controller refactoring
+* Tweaks to the account related controllers
+* Some trait and interface organization
+* Fixed some issues with the error pages
+* Fixed an issue with homepage editing
+* Tweaked the log viewer
+* Tweaked the maintenance page
+* Tweaked the base handler
+* Tweaked composer.json
+* Some logging improvements
+* Config changes
+* Other minor fixes
+
+
 ## V0.3 Alpha (09/08/2013)
 #### Minor Release
 
@@ -28,6 +50,7 @@ CHANGE LOG
 * Cleaned up the views
 * Fixed composer.json
 * Updated seeding
+* Other minor fixes
 
 
 ## V0.2 Alpha (05/08/2013)

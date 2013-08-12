@@ -124,7 +124,11 @@ class PageController extends BaseController {
 
         $page = $this->page->findBySlug($slug);
         $this->checkPage($page, $slug);
-        $this->checkUpdate($input, $slug);
+
+        $checkupdate = $this->checkUpdate($input, $slug);
+        if ($checkupdate) {
+            return $checkupdate;
+        }
 
         $page->update($input);
         
@@ -141,7 +145,11 @@ class PageController extends BaseController {
     public function destroy($slug) {
         $page = $this->page->findBySlug($slug);
         $this->checkPage($page, $slug);
-        $this->checkDelete($slug);
+
+        $checkdelete = $this->checkDelete($slug);
+        if ($checkdelete) {
+            return $checkdelete;
+        }
 
         $page->delete();
 

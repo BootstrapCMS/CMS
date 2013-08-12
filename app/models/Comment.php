@@ -1,8 +1,8 @@
 <?php
 
-class Comment extends BaseModel implements IBelongsToPost {
+class Comment extends BaseModel implements IBodyModel, IBelongsToPost, IBelongsToUser {
 
-    use TraitBodyModel, TraitBelongsToPost;
+    use TraitBodyModel, TraitBelongsToPost, TraitBelongsToUser;
 
     protected $table = 'comments';
 

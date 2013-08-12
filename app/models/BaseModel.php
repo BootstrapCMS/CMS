@@ -1,8 +1,8 @@
 <?php
 
-abstract class BaseModel extends Eloquent implements IBelongsToUser {
+abstract class BaseModel extends Eloquent implements IBaseModel {
 
-    use TraitBaseModel, TraitBelongsToUser;
+    use TraitBaseModel;
 
     protected $guarded = array('_token', '_method', 'id');
 }

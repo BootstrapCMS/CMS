@@ -18,7 +18,7 @@ class UserController extends BaseController {
             'index'   => 'mod',
             'create'  => 'admin',
             'store'   => 'admin',
-            'index'   => 'mod',
+            'show'    => 'mod',
             'edit'    => 'admin',
             'update'  => 'admin',
             'destroy' => 'admin',
@@ -43,7 +43,9 @@ class UserController extends BaseController {
      * @return Response
      */
     public function create() {
-        return $this->viewMake('users.create');
+        $groups = $this->group->get(array('id', 'name'));
+
+        return $this->viewMake('users.create', array('groups' => $groups));
     }
 
     /**
@@ -52,7 +54,56 @@ class UserController extends BaseController {
      * @return Response
      */
     public function store() {
-        return 'user store';
+        $password = Passwd::generate(12,8);
+
+        $input = array(
+            'first_name' => Binput::get('first_name'),
+            'last_name'  => Binput::get('last_name'),
+            'email'      => Binput::get('email'),
+            'password'   => $password,
+        );
+
+        $rules = array(
+            'first_name' => 'required|min:2|max:32',
+            'last_name'  => 'required|min:2|max:32',
+            'email'      => 'required|min:4|max:32|email',
+            'password'   => 'required|min:6',
+        );
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('users.create')->withInput()->withErrors($val->errors());
+        }
+
+        $user = $this->user->create($input);
+
+        $groups = $this->group->get(array('id', 'name'));
+
+        foreach($groups as $group) {
+            if (Binput::get('group_'.$group->id) === 'on') {
+                $user->addGroup($group);
+            }
+        }
+
+        try {
+            $data = array(
+                'view'     => 'emails.newuser',
+                'url'      => URL::route('pages.show', array('pages' => 'home')),
+                'password' => $password,
+                'email'    => $user->getLogin(),
+                'subject'  => Config::get('cms.name').' - New Account Information',
+            );
+
+            Queue::push('MailHandler', $data);
+        } catch (Exception $e) {
+            Log::alert($e);
+            $user->delete();
+            Session::flash('error', 'We were unable to create the user. Please contact support.');
+            return Redirect::route('pages.show', array('pages' => 'home'));
+        }
+
+        Session::flash('success', 'The user has been created successfully.');
+        return Redirect::route('users.show', array('users' => $user->getId()));
     }
 
     /**
@@ -90,7 +141,44 @@ class UserController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        return 'user update '.$id;
+        $input = array(
+            'first_name' => Binput::get('first_name'),
+            'last_name'  => Binput::get('last_name'),
+            'email'      => Binput::get('email'),
+        );
+
+        $rules = array(
+            'first_name' => 'required|min:2|max:32',
+            'last_name'  => 'required|min:2|max:32',
+            'email'      => 'required|min:4|max:32|email',
+        );
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('users.edit', array('users' => $id))->withInput()->withErrors($val->errors());
+        }
+
+        $user = $this->user->find($id);
+        $this->checkUser($user);
+
+        $user->update($input);
+
+        $groups = $this->group->get(array('id', 'name'));
+
+        foreach($groups as $group) {
+            if ($user->inGroup($group)) {
+                if (Binput::get('group_'.$group->id) !== 'on') {
+                    $user->removeGroup($group);
+                }
+            } else {
+                if (Binput::get('group_'.$group->id) === 'on') {
+                    $user->addGroup($group);
+                }
+            }
+        }
+
+        Session::flash('success', 'The user has been updated successfully.');
+        return Redirect::route('users.show', array('users' => $user->getId()));
     }
 
     /**

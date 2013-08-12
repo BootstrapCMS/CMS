@@ -1,8 +1,8 @@
 <?php
 
-class Post extends BaseModel implements IHasManyComments {
+class Post extends BaseModel implements ITitleModel, IBodyModel, IHasManyComments, IBelongsToUser {
 
-    use TraitTitleModel, TraitBodyModel, TraitHasManyComments;
+    use TraitTitleModel, TraitBodyModel, TraitHasManyComments, TraitBelongsToUser;
 
     protected $table = 'posts';
 
@@ -26,9 +26,7 @@ class Post extends BaseModel implements IHasManyComments {
     }
 
     public function delete() {
-        foreach($this->getComments(array('id')) as $comment) {
-            $comment->delete();
-        }
+        $this->deleteComments();
 
         return parent::delete();
     }

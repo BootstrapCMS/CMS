@@ -83,7 +83,7 @@ class ResetController extends BaseController {
         try {
             $user = Sentry::getUserProvider()->findById($id);
 
-            $password = $this->generatePassword(12,8);
+            $password = Passwd::generate(12,8);
 
             if (!$user->attemptResetPassword($code, $password)) {
                 Log::error('There was a problem resetting a password', array('Id' => $id));
@@ -91,12 +91,20 @@ class ResetController extends BaseController {
                 return Redirect::route('base');
             }
 
-            $data = array(
-                'view' => 'emails.password',
-                'password' => $password,
-                'email' => $user->getLogin(),
-                'subject' => Config::get('cms.name').' - New Password Information',
-            );
+            try {
+                $data = array(
+                    'view' => 'emails.password',
+                    'password' => $password,
+                    'email' => $user->getLogin(),
+                    'subject' => Config::get('cms.name').' - New Password Information',
+                );
+
+                Queue::push('MailHandler', $data);
+            } catch (Exception $e) {
+                Log::alert($e);
+                Session::flash('error', 'We were unable to send you your password. Please contact support.');
+                return Redirect::route('pages.show', array('pages' => 'home'));
+            }
 
             Log::info('Password reset successfully', array('Email' => $data['email']));
             Session::flash('success', 'Your password has been changed. Check your email for the new password.');
@@ -106,41 +114,5 @@ class ResetController extends BaseController {
             Session::flash('error', 'There was a problem resetting your password. Please contact support.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
-    }
-
-    /**
-     * Generate a random password.
-     *
-     * @return String
-     */
-    protected function generatePassword($length = 9, $strength = 4) {
-        $vowels = 'aeiouy';
-        $consonants = 'bcdfghjklmnpqrstvwxz';
-        if ($strength & 1) {
-            $consonants .= 'BCDFGHJKLMNPQRSTVWXZ';
-        }
-        if ($strength & 2) {
-            $vowels .= "AEIOUY";
-        }
-        if ($strength & 4) {
-            $consonants .= '23456789';
-        }
-        if ($strength & 8) {
-            $consonants .= '@#$%';
-        }
-
-        $password = '';
-        $alt = time() % 2;
-        for ($i = 0; $i < $length; $i++) {
-            if ($alt == 1) {
-                $password .= $consonants[(rand() % strlen($consonants))];
-                $alt = 0;
-            } else {
-                $password .= $vowels[(rand() % strlen($vowels))];
-                $alt = 1;
-            }
-        }
-
-        return $password;
     }
 }

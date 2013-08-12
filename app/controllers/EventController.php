@@ -41,7 +41,7 @@ class EventController extends BaseController {
      * @return Response
      */
     public function create() {
-        return 'events create';
+        return $this->viewMake('events.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class EventController extends BaseController {
      * @return Response
      */
     public function store() {
-        return 'events store';
+        return App::abort(500, 'Events Not Available'); // temporary
     }
 
     /**
@@ -60,7 +60,11 @@ class EventController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        return 'events show '.$id;
+        $event = null; // temporary
+        // $event = $this->event->find($id);
+        $this->checkEvent($event);
+
+        return $this->viewMake('events.show', array('event' => $event));
     }
 
     /**
@@ -70,7 +74,11 @@ class EventController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        return 'events edit '.$id;
+        $event = null; // temporary
+        // $event = $this->event->find($id);
+        $this->checkEvent($event);
+
+        return $this->viewMake('events.edit', array('event' => $event));
     }
 
     /**
@@ -80,7 +88,7 @@ class EventController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        return 'events update '.$id;
+       return App::abort(500, 'Events Not Available'); // temporary
     }
 
     /**
@@ -90,7 +98,7 @@ class EventController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        return 'events destroy '.$id;
+        return App::abort(500, 'Events Not Available'); // temporary
     }
 
     protected function checkEvent($event) {

@@ -1,8 +1,8 @@
 <?php
 
-class Page extends BaseModel {
+class Page extends BaseModel implements ITitleModel, ISlugModel, IBodyModel, IBelongsToUser {
 
-    use TraitTitleModel, TraitSlugModel, TraitBodyModel;
+    use TraitTitleModel, TraitSlugModel, TraitBodyModel, TraitBelongsToUser;
 
     protected $table = 'pages';
 

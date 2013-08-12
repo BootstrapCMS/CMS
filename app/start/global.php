@@ -43,6 +43,26 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 |
 */
 
+App::fatal(function($exception) {
+    try {
+        Log::alert($exception);
+    } catch (Exception $e) {
+        // life's a bitch...
+    }
+    try {
+        $details = array(
+            'exception' => $exception,
+            'code' => 500,
+            'name' => 'Internal Server Error',
+            'message' => 'An error has occurred and this page cannot be displayed.',
+            'extra' => 'Fatal Error',
+        );
+        return Response::view('error', $details, 500);
+    } catch (Exception $e) {
+        echo 'Fatal Error';
+    }
+});
+
 App::error(function(Exception $exception, $code) {
     switch ($code) {
         case 404:
@@ -59,97 +79,127 @@ App::error(function(Exception $exception, $code) {
         try {
             switch ($code) {
                 case 400:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Bad Request',
                         'message' => 'The request cannot be fulfilled due to bad syntax.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 401:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Unauthorized',
                         'message' => 'Authentication is required and has failed or has not yet been provided.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 403:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Forbidden',
                         'message' => 'The request was a valid request, but the server is refusing to respond to it.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 404:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Not Found',
                         'message' => 'The requested resource could not be found but may be available again in the future.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 405:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Method Not Allowed',
                         'message' => 'A request was made of a resource using a request method not supported by that resource.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 500:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Internal Server Error',
                         'message' => 'An error has occurred and this page cannot be displayed.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 501:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Not Implemented',
                         'message' => 'The server either does not recognize the request method, or it lacks the ability to fulfill the request.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 502:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Bad Gateway',
                         'message' => 'The server was acting as a gateway or proxy and received an invalid response from the upstream server.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 503:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Service Unavailable',
                         'message' => 'The server is currently unavailable. It may be overloaded or down for maintenance.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 504:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Gateway Timeout',
                         'message' => 'The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 case 505:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'HTTP Version Not Supported',
                         'message' => 'The server does not support the HTTP protocol version used in the request.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, $code);
                 default:
-                    $details = array('exception' => $exception,
+                    $details = array(
+                        'exception' => $exception,
                         'code' => $code,
                         'name' => 'Unknown Error',
                         'message' => 'An unknown error has occurred and this page cannot be displayed.',
-                        'extra' => $exception->getMessage());
+                        'extra' => $exception->getMessage(),
+                    );
                     return Response::view('error', $details, 500);
             }
         } catch (Exception $e) {
-            $details = array('exception' => $exception,
-                'code' => 500,
-                'name' => 'Internal Server Error',
-                'message' => 'An error has occurred and this page cannot be displayed.',
-                'extra' => $exception->getMessage());
-            return Response::view('error', $details, 500);
+            try {
+                $details = array(
+                    'exception' => $exception,
+                    'code' => 500,
+                    'name' => 'Internal Server Error',
+                    'message' => 'An error has occurred and this page cannot be displayed.',
+                    'extra' => 'Fatal Error',
+                );
+                return Response::view('error', $details, 500);
+            } catch (Exception $e) {
+                echo 'Fatal Error';
+            }
         }
     }
 });

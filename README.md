@@ -48,7 +48,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 
 Bootstrap CMS was designed to run on a Linux machine with PHP 5.4 and MySQL 5.5.  
 
-* PHP 5.4+ or PHP 5.5+ is required.
+* PHP 5.4.7+ or PHP 5.5+ is required.
 * MySQL 5.1+, 5.5+, or 5.6+ is required. MySQL 5.7+ may work, but is untested.  
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Bootstrap CMS.  
 * You will need to configure the site in the app/config folder before production.  
@@ -61,7 +61,7 @@ Please check the system requirements before installing Bootstrap CMS.
 
 1. You may install by cloning from github, or via composer.  
   * Github: "git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git"
-  * Composer: "composer create-project gjc/bootstrap-cms cms dev-master"
+  * Composer: "composer create-project graham-campbell/bootstrap-cms cms dev-master"
      * You can swap out "dev-master" for "dev-develop", or any release tag.
 2. From a command line open in the folder, run "composer install".  
 3. Navigate to app/config, and adjust the config accordingly.  

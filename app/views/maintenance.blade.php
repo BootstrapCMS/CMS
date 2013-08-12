@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <title>
-    {{ Config::get('cms.name') }} - Site Maintenance
+    {{ Config::get('cms.error') }} - Site Maintenance
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ Config::get('cms.name') }}">
+<meta name="description" content="{{ Config::get('cms.error') }}">
 <meta name="author" content="Graham Campbell">
 <style type="text/css">
     body{text-align:center;font:20px Helvetica, sans-serif;color:#333;padding:150px;}
@@ -17,7 +17,6 @@
 </style>
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 </head>
-
 <body>
 <article>
     <h1>We'll be back soon!</h1>
@@ -28,7 +27,7 @@
             expect us to be back online shortly!
         </p>
         <p>
-            — {{ Config::get('cms.name') }}
+            — {{ Config::get('cms.error') }}
         </p>
     </div>
 </article>

@@ -1,8 +1,8 @@
 <?php
 
-class Event extends BaseModel {
+class Event extends BaseModel implements ITitleModel, IBodyModel, IDateModel, ILocationModel, IBelongsToUser {
 
-    use TraitTitleModel, TraitBodyModel;
+    use TraitTitleModel, TraitBodyModel, TraitDateModel, TraitLocationModel, TraitBelongsToUser;
 
     protected $table = 'events';
 
@@ -21,12 +21,4 @@ class Event extends BaseModel {
         'location' => 'text',
         'user_id'  => 1,
     );
-
-    public function getDate() {
-        return $this->date;
-    }
-
-    public function getLocation() {
-        return $this->location;
-    }
 }
