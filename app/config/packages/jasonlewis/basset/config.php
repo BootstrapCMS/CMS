@@ -85,7 +85,7 @@ return array(
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('bootstrap-switch.min.js');
+                $collection->javascript('bootstrap-switch.js');
             });
             $directory->apply('JsMin');
         },
