@@ -61,7 +61,7 @@ Please check the system requirements before installing Bootstrap CMS.
 
 1. You may install by cloning from github, or via composer.  
   * Github: "git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git"
-  * Composer: "composer create-project gjc/bootstrap-cms cms dev-master"
+  * Composer: "composer create-project graham-campbell/bootstrap-cms cms dev-master"
      * You can swap out "dev-master" for "dev-develop", or any release tag.
 2. From a command line open in the folder, run "composer install".  
 3. Navigate to app/config, and adjust the config accordingly.  
