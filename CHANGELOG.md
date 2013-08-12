@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.3.1 Alpha (Upcoming)
+## V0.3.1 Alpha (12/08/2013)
 #### Minor Release
 
 * Added More tests
