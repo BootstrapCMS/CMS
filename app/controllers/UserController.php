@@ -80,14 +80,8 @@ class UserController extends BaseController {
         $groups = $this->group->get(array('id', 'name'));
 
         foreach($groups as $group) {
-            if ($user->inGroup($group)) {
-                if (Binput::get('group_'.$group->id) === 'off') {
-                    $user->removeGroup($group);
-                }
-            } else {
-                if (Binput::get('group_'.$group->id) === 'on') {
-                    $user->addGroup($group);
-                }
+            if (Binput::get('group_'.$group->id) === 'on') {
+                $user->addGroup($group);
             }
         }
 
