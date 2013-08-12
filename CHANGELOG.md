@@ -18,6 +18,7 @@ CHANGE LOG
 * Tweaked the log viewer
 * Tweaked the maintenance page
 * Tweaked the base handler
+* Tweaked composer.json
 * Some logging improvements
 * Config changes
 * Other minor fixes
