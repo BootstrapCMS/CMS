@@ -5,8 +5,8 @@ php:
   - 5.5
 
 before_script:
-  - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --dev
   - php artisan basset:build --production
 
 script: phpunit
