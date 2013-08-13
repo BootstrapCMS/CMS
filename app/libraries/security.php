@@ -1,8 +1,4 @@
 <?php
-/**
- *  From Alex: http://forums.laravel.io/viewtopic.php?id=3765
- */
-
 
 class Security {
 
@@ -10,13 +6,6 @@ class Security {
     /**
      * XSS Clean
      *
-     * **************************************************************
-     * *********** This function and other functions that it uses
-     * *********** are taken from Codeigniter 2.1.3 and modified
-     * *********** them to our needs.
-     ***************************************************************
-     *
-     * 
      * Sanitizes data so that Cross Site Scripting Hacks can be
      * prevented.  This function does a fair amount of work but
      * it is extremely thorough, designed to prevent even the
@@ -40,25 +29,15 @@ class Security {
      * @param   bool
      * @return  string
      */
-    public static function xss_clean($str, $is_image = FALSE)
-    {
-        /*
-         * Is the string an array?
-         *
-         */
-        if (is_array($str))
-        {
-            while (list($key) = each($str))
-            {
+    public static function xss_clean($str, $is_image = FALSE) {
+        if (is_array($str)) {
+            while (list($key) = each($str)) {
                 $str[$key] = $this->xss_clean($str[$key]);
             }
-
             return $str;
         }
 
-        /*
-         * Remove Invisible Characters
-         */
+        // Remove Invisible Characters
         $str = self::remove_invisible_characters($str);
 
         // Validate Entities in URLs
