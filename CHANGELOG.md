@@ -2,6 +2,17 @@ CHANGE LOG
 ==========
 
 
+## V0.4 Alpha (Upcoming)
+#### Major Release
+
+* PSR-0 style autoloading
+* Refactored off the libs to other packages
+* Improved user management
+* Added events functionality
+* Major logging and events improvements
+* Other minor fixes
+
+
 ## V0.3.1 Alpha (12/08/2013)
 #### Minor Release
 
