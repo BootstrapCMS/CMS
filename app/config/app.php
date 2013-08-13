@@ -114,6 +114,8 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'GrahamCampbell\Passwd\PasswdServiceProvider',
+        'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
@@ -186,6 +188,8 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Passwd'          => 'GrahamCampbell\Passwd\Facades\Passwd',
+        'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
 
