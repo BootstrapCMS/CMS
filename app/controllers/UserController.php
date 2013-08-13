@@ -102,7 +102,7 @@ class UserController extends BaseController {
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
 
-        Session::flash('success', 'The user has been created successfully.');
+        Session::flash('success', 'The user has been created successfully. Their password has been emailed to them.');
         return Redirect::route('users.show', array('users' => $user->getId()));
     }
 
