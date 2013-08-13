@@ -1,4 +1,4 @@
-Bootstrap-CMS
+Bootstrap CMS
 =============
 
 
