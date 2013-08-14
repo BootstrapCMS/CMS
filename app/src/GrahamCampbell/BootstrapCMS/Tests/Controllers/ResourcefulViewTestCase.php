@@ -70,7 +70,7 @@ abstract class ResourcefulViewTestCase extends ControllerTestCase {
 
     protected function showAssertions() {
         $this->assertResponseOk();
-        $this->assertViewHas(strtolower($this->model));
+        $this->assertViewHas($this->view);
     }
 
     public function testEdit() {
@@ -95,6 +95,6 @@ abstract class ResourcefulViewTestCase extends ControllerTestCase {
 
     protected function editAssertions() {
         $this->assertResponseOk();
-        $this->assertViewHas(strtolower($this->model));
+        $this->assertViewHas($this->view);
     }
 }

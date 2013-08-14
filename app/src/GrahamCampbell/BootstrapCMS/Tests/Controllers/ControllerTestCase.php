@@ -10,6 +10,7 @@ use GrahamCampbell\BootstrapCMS\Tests\TestCase;
 abstract class ControllerTestCase extends TestCase {
 
     // protected $model; // must be set in the extending class
+    // protected $view; // must be set in the extending class
     // protected $name; // must be set in the extending class
     // protected $base; // must be set in the extending class
     // protected $uid; // must be set in the extending class
@@ -76,9 +77,9 @@ abstract class ControllerTestCase extends TestCase {
             ),
         );
 
-        if ($this->model != 'Page') {
-            $this->pagemock = Mockery::mock('Page');
-            $this->app->instance('Page', $this->pagemock);
+        if ($this->model != 'GrahamCampbell\BootstrapCMS\Models\Page') {
+            $this->pagemock = Mockery::mock('GrahamCampbell\BootstrapCMS\Models\Page');
+            $this->app->instance('GrahamCampbell\BootstrapCMS\Models\Page', $this->pagemock);
 
             $this->pagemock->shouldReceive('getNav')->once()->andReturn($nav);
         } else {

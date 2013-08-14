@@ -3,6 +3,7 @@
 trait PostControllerSetupTrait {
 
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Post';
+    protected $view = 'post';
     protected $name = 'posts';
     protected $base = 'blog.posts';
     protected $uid = 'id';

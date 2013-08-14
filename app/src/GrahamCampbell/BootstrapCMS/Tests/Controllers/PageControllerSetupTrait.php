@@ -3,6 +3,7 @@
 trait PageControllerSetupTrait {
 
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Page';
+    protected $view = 'page';
     protected $name = 'pages';
     protected $base = 'pages';
     protected $uid = 'slug';

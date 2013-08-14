@@ -7,6 +7,7 @@ trait HomeControllerSetupTrait {
     // we will set the base url as an empty string so we can request any page
 
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Page';
+    protected $view = 'page';
     protected $name = 'pages';
     protected $base = '';
     protected $uid = 'slug';
