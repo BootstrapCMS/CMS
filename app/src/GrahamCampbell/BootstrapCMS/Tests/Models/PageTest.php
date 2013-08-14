@@ -7,7 +7,7 @@ class PageTest extends ModelTestCase implements Relations\Interfaces\IBelongsToU
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Page';
 
     protected function extraModelTests() {
-        $this->assertInstanceOf('BaseModel', $this->object);
+        $this->assertInstanceOf('GrahamCampbell\BootstrapCMS\Models\BaseModel', $this->object);
     }
 
     public function testFindBySlug() {
