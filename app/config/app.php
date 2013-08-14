@@ -190,7 +190,7 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-        'Security'        => 'GrahamCampbell\Security\Facades\Security'
+        'Security'        => 'GrahamCampbell\Security\Facades\Security',
         'Binput'          => 'GrahamCampbell\Binput\Facades\Binput',
         'Passwd'          => 'GrahamCampbell\Passwd\Facades\Passwd',
         'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
