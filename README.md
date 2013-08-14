@@ -63,18 +63,18 @@ Bootstrap CMS was designed to run on a Linux machine with PHP 5.4 and MySQL 5.5.
 Please check the system requirements before installing Bootstrap CMS.  
 
 1. You may install by cloning from github, or via composer.  
-  * Github: "git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git"
-  * Composer: "composer create-project graham-campbell/bootstrap-cms cms dev-master"
-     * You can swap out "dev-master" for "dev-develop", or any release tag.
-2. From a command line open in the folder, run "composer install".  
-3. Navigate to app/config, and adjust the config accordingly.  
+  * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
+  * Composer: `composer create-project graham-campbell/bootstrap-cms cms dev-master --prefer-dist`
+     * You can swap out `dev-master` for `dev-develop`, or any release tag.
+2. From a command line open in the folder, run `composer install`.  
+3. Navigate to `app/config`, and adjust the config accordingly.  
   * If you don't want Boostrap CMS to send emails, you can disable that in cms.php
   * If you don't have a cache server like [Redis](http://redis.io), disable caching in cms.php
   * If you don't have a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd), set queue.php to use "sync"
-4. You can run "php artisan app:install" to setup and seed your database.  
+4. You can run `php artisan app:install` to setup and seed your database.  
   * Make sure you setup your database config in database.php. 
 5. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
-  * For development, you can simply run "php artisan serve"
+  * For development, you can simply run `php artisan serve`
 
 
 ## Updating Your Fork
