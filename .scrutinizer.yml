@@ -1,5 +1,5 @@
 filter:
-    excluded_paths: [app/config,app/config/*,app/libraries,app/libraries/*]
+    excluded_paths: [app/config,app/config/*]
 
 tools:
     php_mess_detector:
@@ -8,7 +8,7 @@ tools:
             rulesets: [phpmd.xml]
     php_cpd:
         enabled: true
-        excluded_dirs: [,app/config,app/config/*,app/libraries,app/libraries/*]
+        excluded_dirs: [,app/config,app/config/*]
     php_pdepend:
         enabled: true
-        excluded_dirs: [app/config,app/config/*,app/libraries,app/libraries/*]
+        excluded_dirs: [app/config,app/config/*]

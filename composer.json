@@ -14,6 +14,8 @@
         "laravel/framework": "4.0.*",
         "pda/pheanstalk": "2.1.*",
         "cartalyst/sentry": "2.0.*",
+        "graham-campbell/security": "dev-master",
+        "graham-campbell/binput": "dev-master",
         "graham-campbell/passwd": "dev-master",
         "graham-campbell/htmlmin": "dev-master",
         "vtalbot/markdown": "1.4.*",
@@ -30,7 +32,6 @@
     },
     "autoload": {
         "classmap": [
-            "app/libraries",
             "app/relations",
             "app/models",
             "app/controllers",
