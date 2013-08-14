@@ -115,7 +115,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'GrahamCampbell\Security\SecurityServiceProvider',
-        'GrahamCampbell\Binput\BinputServiceProvider'
+        'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Passwd\PasswdServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
