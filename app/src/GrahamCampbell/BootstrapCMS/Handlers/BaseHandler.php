@@ -1,5 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Handlers;
 
+use Log;
+
 abstract class BaseHandler {
 
     private $status = true;
