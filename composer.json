@@ -32,15 +32,12 @@
     },
     "autoload": {
         "classmap": [
-            "app/relations",
-            "app/models",
-            "app/controllers",
-            "app/handlers",
-            "app/commands",
             "app/database/migrations",
-            "app/database/seeds",
-            "app/tests"
-        ]
+            "app/database/seeds"
+        ],
+        "psr-0": {
+            "GrahamCampbell\\BootstrapCMS": "app/src/"
+        }
     },
     "scripts": {
         "post-install-cmd": [

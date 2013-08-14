@@ -95,7 +95,7 @@ return array(
 		|
 		*/
 
-		'model' => 'Group',
+		'model' => 'GrahamCampbell\BootstrapCMS\Models\Group',
 
 	),
 
@@ -120,7 +120,7 @@ return array(
 		|
 		*/
 
-		'model' => 'User',
+		'model' => 'GrahamCampbell\BootstrapCMS\Models\User',
 
 		/*
 		|--------------------------------------------------------------------------
@@ -172,7 +172,7 @@ return array(
 		|
 		*/
 
-		'model' => 'Throttle',
+		'model' => 'GrahamCampbell\BootstrapCMS\Models\Throttle',
 
 		/*
 		|--------------------------------------------------------------------------
