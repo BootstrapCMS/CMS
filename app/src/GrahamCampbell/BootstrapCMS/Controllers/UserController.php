@@ -110,7 +110,7 @@ class UserController extends BaseController {
                 'subject'  => Config::get('cms.name').' - New Account Information',
             );
 
-            Queue::push('MailHandler', $data);
+            Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data);
         } catch (\Exception $e) {
             Log::alert($e);
             $user->delete();

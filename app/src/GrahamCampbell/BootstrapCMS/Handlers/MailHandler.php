@@ -1,5 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Handlers;
 
+use Mail;
+
 class MailHandler extends BaseHandler {
 
     /**

@@ -46,12 +46,12 @@ class HomeController extends BaseController {
             'subject' => Config::get('cms.name').' - Welcome',
         );
 
-        Queue::push('MailHandler', $data);
+        Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data);
         return 'done';
     }
 
     public function testError() {
-        Queue::push('TestHandler', array());
+        Queue::push('GrahamCampbell\BootstrapCMS\Handlers\TestHandler', array());
         return 'done';
     }
 

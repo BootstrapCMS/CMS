@@ -101,7 +101,7 @@ class RegistrationController extends BaseController {
                     'subject' => Config::get('cms.name').' - Welcome',
                 );
 
-                Queue::push('MailHandler', $data);
+                Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data);
             } catch (\Exception $e) {
                 Log::alert($e);
                 $user->delete();

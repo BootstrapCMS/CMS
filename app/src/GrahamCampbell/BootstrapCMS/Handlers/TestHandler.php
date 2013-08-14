@@ -7,6 +7,6 @@ class TestHandler extends BaseHandler {
      * Called by BaseHandler.
      */
     protected function run() {
-        throw new Exception('TestHandler Error Test!');
+        throw new \Exception('TestHandler Error Test!');
     }
 }
