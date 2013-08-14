@@ -6,24 +6,6 @@
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
 
-
-/*
-|--------------------------------------------------------------------------
-| Setup Timer And File Permissions
-|--------------------------------------------------------------------------
-|
-| This will allow us to see the page generation time.
-| Simply execute:
-| <?php global $timer_start; ?>
-| Generated in {{ round((microtime(1) - $timer_start), 4) }} sec.
-|
-| Setup file permissions.
-|
-*/
-
-$timer_start = microtime(1);
-umask(0);
-
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
