@@ -7,7 +7,7 @@ Bootstrap CMS
 [![Latest Unstable Version](https://poser.pugx.org/graham-campbell/bootstrap-cms/v/unstable.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
 [![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png?branch=develop)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
 [![Total Downloads](https://poser.pugx.org/graham-campbell/bootstrap-cms/downloads.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
 [![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
 
 
@@ -64,8 +64,7 @@ Please check the system requirements before installing Bootstrap CMS.
 
 1. You may install by cloning from github, or via composer.  
   * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
-  * Composer: `composer create-project graham-campbell/bootstrap-cms cms dev-master --prefer-dist`
-     * You can swap out `dev-master` for `dev-develop`, or any release tag.
+  * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist`
 2. From a command line open in the folder, run `composer install`.  
 3. Navigate to `app/config`, and adjust the config accordingly.  
   * If you don't want Boostrap CMS to send emails, you can disable that in cms.php
