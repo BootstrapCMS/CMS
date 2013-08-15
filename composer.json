@@ -53,6 +53,11 @@
             "php artisan key:generate"
         ]
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.3.x-dev"
+        }
+    },
     "config": {
         "preferred-install": "dist"
     },
