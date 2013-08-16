@@ -1,14 +1,14 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Handlers;
 
-use Navigation;
+use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
 
-class NavHandler extends BaseHandler {
+class PageCacheHandler extends BaseHandler {
 
     /**
      * Run the task.
      * Called by BaseHandler.
      */
     protected function run() {
-        Navigation::reset();
+        PageProvider::refresh();
     }
 }

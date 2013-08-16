@@ -59,15 +59,15 @@ Event::listen('locale.changed', function($pram1, $pram2 = null) {
 
 Event::listen('page.updated', function($pram1, $pram2 = null) {
     // refresh the navigation cache
-    Queue::push('GrahamCampbell\BootstrapCMS\Handlers\NavHandler', array('test' => 'hello'));
+    Navigation::refresh()
 });
 
 Event::listen('page.created', function($pram1, $pram2 = null) {
     // refresh the navigation cache
-    Queue::push('GrahamCampbell\BootstrapCMS\Handlers\NavHandler', array('test' => 'hello'));
+    Navigation::refresh()
 });
 
 Event::listen('page.deleted', function($pram1, $pram2 = null) {
     // refresh the navigation cache
-    Queue::push('GrahamCampbell\BootstrapCMS\Handlers\NavHandler', array('test' => 'hello'));
+    Navigation::refresh()
 });
