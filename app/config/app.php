@@ -199,6 +199,11 @@ return array(
         'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
         'CoreAPI'         => 'GrahamCampbell\CoreAPI\Facades\CoreAPI',
         'CloudFlareAPI'   => 'GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI',
+        'CommentProvider' => 'GrahamCampbell\BootstrapCMS\Facades\CommentProvider',
+        'EventProvider'   => 'GrahamCampbell\BootstrapCMS\Facades\EventProvider',
+        'PageProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PageProvider',
+        'PostProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PostProvider',
+        'Navigation'      => 'GrahamCampbell\BootstrapCMS\Facades\Navigation',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
 
