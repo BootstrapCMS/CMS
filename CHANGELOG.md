@@ -10,6 +10,7 @@ CHANGE LOG
 * Improved user management
 * Added events functionality
 * Major logging and events improvements
+* Basic CloudFlare api integration
 * Other minor fixes
 
 
