@@ -3,6 +3,7 @@
 use Log; // depreciated - use events
 
 use App;
+use Event;
 use Redirect;
 use Session;
 use Validator;
@@ -79,6 +80,9 @@ class PageController extends BaseController {
 
         $page = $this->page->create($input);
 
+        // fire event
+        Event::fire('page.created');
+        // write flash message and redirect
         Session::flash('success', 'Your page has been created successfully.');
         return Redirect::route('pages.show', array('pages' => $page->getSlug()));
     }
@@ -143,6 +147,9 @@ class PageController extends BaseController {
 
         $page->update($input);
         
+        // fire event
+        Event::fire('page.updated');
+        // write flash message and redirect
         Session::flash('success', 'Your page has been updated successfully.');
         return Redirect::route('pages.show', array('pages' => $page->getSlug()));
     }
@@ -164,6 +171,9 @@ class PageController extends BaseController {
 
         $page->delete();
 
+        // fire event
+        Event::fire('page.deleted');
+        // write flash message and redirect
         Session::flash('success', 'Your page has been deleted successfully.');
         return Redirect::route('pages.index');
     }

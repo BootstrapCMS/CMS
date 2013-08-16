@@ -8,6 +8,8 @@ use View;
 
 use Sentry;
 
+use GrahamCampbell\BootstrapCMS\Facades\Navigation;
+
 abstract class BaseController extends Controller {
 
     protected $page; // must be set in the extending class
@@ -46,7 +48,8 @@ abstract class BaseController extends Controller {
 
     protected function viewMake($view, $data = array()) {
         // append the navigation data to the view data
-        $data['nav_pages'] = $this->page->getNav();
+        $data['nav_pages'] = Navigation::get();
+        //return var_dump($data['nav_pages']);
         return View::make($view, $data);
     }
 

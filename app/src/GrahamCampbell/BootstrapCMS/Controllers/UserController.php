@@ -7,6 +7,7 @@ use Config;
 use Queue;
 use Redirect;
 use Session;
+use URL;
 use Validator;
 
 use Binput;

@@ -1,5 +1,8 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
+use Cache;
+use Config;
+
 class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlugModel, Interfaces\IBodyModel, Relations\Interfaces\IBelongsToUser {
 
     use Common\TraitTitleModel, Common\TraitSlugModel, Common\TraitBodyModel, Relations\Common\TraitBelongsToUser;
@@ -36,10 +39,5 @@ class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlug
 
     public function getIcon() {
         return $this->icon;
-    }
-
-    public function getNav() {
-        // TODO: caching logic
-        return $this->where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
     }
 }

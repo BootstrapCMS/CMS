@@ -13,7 +13,7 @@ return array(
     |
     */
 
-    'debug' => false,
+    'debug' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -120,6 +120,7 @@ return array(
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'GrahamCampbell\CoreAPI\CoreAPIServiceProvider',
         'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider',
+        'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',

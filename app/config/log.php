@@ -39,7 +39,7 @@ return array(
     |
     */
 
-    'illuminatequery' => false,
+    'illuminatequery' => true,
 
     /*
     |--------------------------------------------------------------------------
