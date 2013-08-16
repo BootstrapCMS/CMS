@@ -54,6 +54,13 @@
                                         </a>
                                     </li>
                                 @endif
+                                @if (Sentry::getUser()->hasAccess('admin'))
+                                    <li>
+                                        <a href="{{ URL::to('cloudflare') }}">
+                                            <i class="icon-cloud"></i> Cloudflare
+                                        </a>
+                                    </li>
+                                @endif
                                 @if (Sentry::getUser()->hasAccess('mod'))
                                     <li>
                                         <a href="{{ URL::route('users.index') }}">

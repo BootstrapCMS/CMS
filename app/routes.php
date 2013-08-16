@@ -73,20 +73,24 @@ Route::post('account/register', array('as' => 'account.register.post', 'uses' =>
 Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@getActivate'));
 
 
-
 // user routes
 Route::resource('users', 'GrahamCampbell\BootstrapCMS\Controllers\UserController');
 
+
 // page routes
 Route::resource('pages', 'GrahamCampbell\BootstrapCMS\Controllers\PageController');
-
-// event routes
-if (Config::get('cms.events')) {
-    Route::resource('events', 'GrahamCampbell\BootstrapCMS\Controllers\EventController');
-}
 
 // blog routes
 if (Config::get('cms.blogging')) {
     Route::resource('blog/posts', 'GrahamCampbell\BootstrapCMS\Controllers\PostController');
     Route::resource('blog/posts.comments', 'GrahamCampbell\BootstrapCMS\Controllers\CommentController');
 }
+
+// event routes
+if (Config::get('cms.events')) {
+    Route::resource('events', 'GrahamCampbell\BootstrapCMS\Controllers\EventController');
+}
+
+
+// cloudflare routes
+Route::get('cloudflare', array('as' => 'cloudflare.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudflareController@getIndex'));
