@@ -18,6 +18,8 @@
         "graham-campbell/binput": "dev-master",
         "graham-campbell/passwd": "dev-master",
         "graham-campbell/htmlmin": "dev-master",
+        "graham-campbell/core-api": "dev-master",
+        "graham-campbell/cloudflare-api": "dev-master",
         "vtalbot/markdown": "1.4.*",
         "kmd/logviewer": "dev-master",
         "fideloper/proxy": "dev-master",

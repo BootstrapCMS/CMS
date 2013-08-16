@@ -118,6 +118,8 @@ return array(
         'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Passwd\PasswdServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
+        'GrahamCampbell\CoreAPI\CoreAPIServiceProvider',
+        'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
@@ -194,6 +196,8 @@ return array(
         'Binput'          => 'GrahamCampbell\Binput\Facades\Binput',
         'Passwd'          => 'GrahamCampbell\Passwd\Facades\Passwd',
         'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
+        'CoreAPI'         => 'GrahamCampbell\CoreAPI\Facades\CoreAPI',
+        'CloudFlareAPI'   => 'GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
 
