@@ -15,8 +15,9 @@ abstract class ControllerTestCase extends TestCase {
     // protected $base; // must be set in the extending class
     // protected $uid; // must be set in the extending class
 
+    protected $provider;
+
     protected $mock;
-    protected $pagemock;
 
     protected $attributes;
 
@@ -24,10 +25,9 @@ abstract class ControllerTestCase extends TestCase {
         parent::setUp();
 
         $this->mock = Mockery::mock($this->model);
-        $this->app->instance($this->model, $this->mock);
+        $this->provider = $this->model.'Provider';
 
-        $model = new $this->model;
-        $this->attributes = $model->factory;
+        $this->attributes = $this->model::$factory;
         $this->attributes['created_at'] = Carbon::createFromTimeStamp(1234567890);
         $this->attributes['updated_at'] = Carbon::createFromTimeStamp(1234567890);
 
@@ -64,27 +64,11 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function setAsPage() {
-        $nav = array(
-            array(
-                'title' => 'Home',
-                'slug' => 'home',
-                'icon' => 'icon-home',
-            ),
-            array(
-                'title' => 'About',
-                'slug' => 'about',
-                'icon' => 'icon-info-sign',
-            ),
-        );
-
-        if ($this->model != 'GrahamCampbell\BootstrapCMS\Models\Page') {
-            $this->pagemock = Mockery::mock('GrahamCampbell\BootstrapCMS\Models\Page');
-            $this->app->instance('GrahamCampbell\BootstrapCMS\Models\Page', $this->pagemock);
-
-            $this->pagemock->shouldReceive('getNav')->once()->andReturn($nav);
-        } else {
-            $this->mock->shouldReceive('getNav')->once()->andReturn($nav);
-        }
+        Navigation::shouldReceive('get')->once
+            ->andReturn(array(
+                array('slug' => 'pages/home', 'Title' => 'Home', 'icon' => 'icon-home', 'active' => true),
+                array('slug' => 'pages/about', 'Title' => 'About', 'icon' => 'icon-info-sign', 'active' => false),
+        ));
     }
 
     protected function validate($bool) {

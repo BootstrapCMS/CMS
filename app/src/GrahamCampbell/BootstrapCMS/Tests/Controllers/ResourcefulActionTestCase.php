@@ -14,7 +14,7 @@ abstract class ResourcefulActionTestCase extends ControllerTestCase {
     }
 
     protected function storeMocking() {
-        $this->mock->shouldReceive('create')
+        $this->provider::shouldReceive('create')
             ->once()->andReturn($this->mock);
     }
 
@@ -63,7 +63,7 @@ abstract class ResourcefulActionTestCase extends ControllerTestCase {
     }
 
     protected function updateMocking() {
-        $this->mock->shouldReceive($this->getFind())
+        $this->provider::shouldReceive($this->getFind())
             ->with($this->getUid())->once()->andReturn($this->mock);
         $this->mock->shouldReceive('update')->once();
     }
@@ -113,7 +113,7 @@ abstract class ResourcefulActionTestCase extends ControllerTestCase {
     }
 
     protected function destroyMocking() {
-        $this->mock->shouldReceive($this->getFind())
+        $this->provider::shouldReceive($this->getFind())
             ->with($this->getUid())->once()->andReturn($this->mock);
         $this->mock->shouldReceive('delete')->once();
     }
