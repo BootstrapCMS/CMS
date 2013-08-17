@@ -1,4 +1,4 @@
-Bootstrap CMS [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Bootstrap-CMS/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Bootstrap CMS <div style="float: right"><img src="https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Bootstrap-CMS/trend.png" /></div>
 =============
 
 
