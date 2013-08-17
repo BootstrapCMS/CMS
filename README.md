@@ -1,12 +1,10 @@
-Bootstrap CMS <div style="float: right"><img src="https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Bootstrap-CMS/trend.png" /></div>
-=============
+<h1>Bootstrap CMS <div style="float: right"><img src="https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Bootstrap-CMS/trend.png" /></div></h1>
 
 
 [![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png?branch=master)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
 [![Latest Version](https://poser.pugx.org/graham-campbell/bootstrap-cms/v/stable.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
 [![Total Downloads](https://poser.pugx.org/graham-campbell/bootstrap-cms/downloads.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
-
 [![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
 
 
