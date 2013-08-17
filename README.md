@@ -10,9 +10,6 @@ Bootstrap CMS
 [![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
 
 
-
-
-
 Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013  
 
 
