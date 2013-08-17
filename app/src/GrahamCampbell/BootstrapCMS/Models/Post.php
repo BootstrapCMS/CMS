@@ -25,9 +25,22 @@ class Post extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBody
         return $this->summary;
     }
 
+    public static function create(array $input) {
+        $return = parent::create($input);
+        \Event::fire('page.created');
+        return $return;
+    }
+
+    public function update(array $input = array()) {
+        $return = parent::update($input);
+        \Event::fire('page.updated');
+        return $return;
+    }
+
     public function delete() {
         $this->deleteComments();
-
-        return parent::delete();
+        $return = parent::delete();
+        \Event::fire('page.deleted');
+        return $return;
     }
 }

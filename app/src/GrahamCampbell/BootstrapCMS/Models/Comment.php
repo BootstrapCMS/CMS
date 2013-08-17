@@ -6,16 +6,34 @@ class Comment extends BaseModel implements Interfaces\IBodyModel, Relations\Inte
 
     protected $table = 'comments';
 
-    public $rules = array(
+    public static $rules = array(
         'body'    => 'required',
         'user_id' => 'required',
         'post_id' => 'required',
     );
 
-    public $factory = array(
+    public static $factory = array(
         'id'      => 1,
         'body'    => 'This a comment!',
         'user_id' => 1,
         'post_id' => 1,
     );
+
+    public static function create(array $input) {
+        $return = parent::create($input);
+        \Event::fire('comment.created');
+        return $return;
+    }
+
+    public function update(array $input = array()) {
+        $return = parent::update($input);
+        \Event::fire('comment.updated');
+        return $return;
+    }
+
+    public function delete() {
+        $return = parent::delete();
+        \Event::fire('comment.deleted');
+        return $return;
+    }
 }

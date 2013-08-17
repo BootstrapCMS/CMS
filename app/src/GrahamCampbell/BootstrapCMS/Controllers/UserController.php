@@ -13,24 +13,16 @@ use Validator;
 use Binput;
 use Passwd;
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
+use UserProvider;
 use GrahamCampbell\BootstrapCMS\Models\User;
 use GrahamCampbell\BootstrapCMS\Models\Group;
 
 class UserController extends BaseController {
 
-    protected $user;
-    protected $group;
-
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page, User $user, Group $group) {
-        $this->page  = $page;
-        $this->user  = $user;
-        $this->group = $group;
-
+    public function __construct() {
         $this->setPermissions(array(
             'index'   => 'mod',
             'create'  => 'admin',
@@ -50,6 +42,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function index() {
+        //TODO - use the UserProvider
         $users = $this->user->orderBy('first_name')->get(array('id', 'first_name', 'last_name', 'email'));
         return $this->viewMake('users.index', array('users' => $users));
     }
@@ -60,7 +53,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function create() {
-        $groups = $this->group->get(array('id', 'name'));
+        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
 
         return $this->viewMake('users.create', array('groups' => $groups));
     }
@@ -92,9 +85,9 @@ class UserController extends BaseController {
             return Redirect::route('users.create')->withInput()->withErrors($val->errors());
         }
 
-        $user = $this->user->create($input);
+        $user = UserProvider::create($input);
 
-        $groups = $this->group->get(array('id', 'name'));
+        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
 
         foreach($groups as $group) {
             if (Binput::get('group_'.$group->id) === 'on') {
@@ -130,7 +123,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $user = $this->user->find($id);
+        $user = UserProvider::findById($id);
         $this->checkUser($user);
 
         return $this->viewMake('users.show', array('user' => $user));
@@ -143,10 +136,10 @@ class UserController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        $user = $this->user->find($id);
+        $user = UserProvider::findById($id);
         $this->checkUser($user);
 
-        $groups = $this->group->get(array('id', 'name'));
+        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
 
         return $this->viewMake('users.edit', array('user' => $user, 'groups' => $groups));
     }
@@ -175,12 +168,12 @@ class UserController extends BaseController {
             return Redirect::route('users.edit', array('users' => $id))->withInput()->withErrors($val->errors());
         }
 
-        $user = $this->user->find($id);
+        $user = UserProvider::findById($id);
         $this->checkUser($user);
 
         $user->update($input);
 
-        $groups = $this->group->get(array('id', 'name'));
+        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
 
         foreach($groups as $group) {
             if ($user->inGroup($group)) {
@@ -205,7 +198,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        $user = $this->user->find($id);
+        $user = UserProvider::findById($id);
         $this->checkUser($user);
 
         $user->delete();

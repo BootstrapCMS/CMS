@@ -13,19 +13,12 @@ use Validator;
 use Binput;
 use Sentry;
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
-
 class RegistrationController extends BaseController {
 
-    protected $user;
-
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page) {
-        $this->page = $page;
-
+    public function __construct() {
         parent::__construct();
     }
 

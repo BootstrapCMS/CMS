@@ -15,12 +15,9 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 class LoginController extends BaseController {
 
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page) {
-        $this->page = $page;
-
+    public function __construct() {
         $this->setPermissions(array(
             'getLogout' => 'user',
         ));

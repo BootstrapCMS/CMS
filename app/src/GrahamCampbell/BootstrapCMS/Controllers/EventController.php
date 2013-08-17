@@ -2,21 +2,15 @@
 
 use App;
 
+use EventProvider;
 use GrahamCampbell\BootstrapCMS\Models\Event;
-use GrahamCampbell\BootstrapCMS\Models\Page;
 
 class EventController extends BaseController {
 
-    protected $event;
-
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page, Event $event) {
-        $this->page  = $page;
-        $this->event = $event;
-
+    public function __construct() {
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -35,7 +29,7 @@ class EventController extends BaseController {
      */
     public function index() {
         $events = array(); // temporary
-        //$events = $this->event->getUpcoming();
+        //$events = EventProvider::getUpcoming();
 
         return $this->viewMake('events.index', array('events' => $events));
     }
@@ -66,7 +60,7 @@ class EventController extends BaseController {
      */
     public function show($id) {
         $event = null; // temporary
-        // $event = $this->event->find($id);
+        // $event = EventProvider::findById($id);
         $this->checkEvent($event);
 
         return $this->viewMake('events.show', array('event' => $event));
@@ -80,7 +74,7 @@ class EventController extends BaseController {
      */
     public function edit($id) {
         $event = null; // temporary
-        // $event = $this->event->find($id);
+        // $event = EventProvider::findById($id);
         $this->checkEvent($event);
 
         return $this->viewMake('events.edit', array('event' => $event));

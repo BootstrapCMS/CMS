@@ -12,15 +12,10 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 
 class AccountController extends BaseController {
 
-    protected $user;
-
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page) {
-        $this->page = $page;
-
+    public function __construct() {
         $this->setPermissions(array(
             'getProfile'    => 'user',
             'deleteProfile' => 'user',

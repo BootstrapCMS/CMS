@@ -12,12 +12,25 @@ class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\IName
         return $this->email;
     }
 
+    public static function create(array $input) {
+        $return = parent::create($input);
+        \Event::fire('page.created');
+        return $return;
+    }
+
+    public function update(array $input = array()) {
+        $return = parent::update($input);
+        \Event::fire('page.updated');
+        return $return;
+    }
+
     public function delete() {
         $this->deletePages();
         $this->deletePosts();
         $this->deleteEvents();
         $this->deleteComments();
-
-        return parent::delete();
+        $return = parent::delete();
+        \Event::fire('page.deleted');
+        return $return;
     }
 }

@@ -23,6 +23,9 @@ Event::subscribe($subscriber);
 $subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber;
 Event::subscribe($subscriber);
 
+$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber;
+Event::subscribe($subscriber);
+
 $subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber;
 Event::subscribe($subscriber);
 

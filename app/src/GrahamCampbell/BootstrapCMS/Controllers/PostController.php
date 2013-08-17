@@ -7,21 +7,15 @@ use Validator;
 
 use Binput;
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
+use PostProvider;
 use GrahamCampbell\BootstrapCMS\Models\Post;
 
 class PostController extends BaseController {
 
-    protected $post;
-
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page, Post $post) {
-        $this->page = $page;
-        $this->post = $post;
-
+    public function __construct() {
         $this->setPermissions(array(
             'create'  => 'blog',
             'store'   => 'blog',
@@ -39,7 +33,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function index() {
-        $posts = $this->post->orderBy('id', 'desc')->get(array('id', 'title', 'summary', 'body'));
+        $posts = PostProvider::index();
         return $this->viewMake('posts.index', array('posts' => $posts));
     }
 
@@ -65,14 +59,14 @@ class PostController extends BaseController {
             'user_id' => $this->getUserId(),
         );
 
-        $rules = $this->post->rules;
+        $rules = Post::$rules;
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
             return Redirect::route('blog.posts.create')->withInput()->withErrors($val->errors());
         }
 
-        $post = $this->post->create($input);
+        $post = PostProvider::create($input);
 
         Session::flash('success', 'Your post has been created successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post->getId()));
@@ -85,7 +79,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $post = $this->post->find($id);
+        $post = PostProvider::findById($id);
         $this->checkPost($post);
 
         $comments = $post->getCommentsReversed();
@@ -100,7 +94,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        $post = $this->post->find($id);
+        $post = PostProvider::findById($id);
         $this->checkPost($post);
 
         return $this->viewMake('posts.edit', array('post' => $post));
@@ -119,7 +113,7 @@ class PostController extends BaseController {
             'body'    => Binput::get('body', null, true, false), // no xss protection please
         );
 
-        $rules = $this->post->rules;
+        $rules = Post::$rules;
         unset($rules['user_id']);
 
         $val = Validator::make($input, $rules);
@@ -127,7 +121,7 @@ class PostController extends BaseController {
             return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
         }
 
-        $post = $this->post->find($id);
+        $post = PostProvider::findById($id);
         $this->checkPost($post);
 
         $post->update($input);
@@ -143,7 +137,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        $post = $this->post->find($id);
+        $post = PostProvider::findById($id);
         $this->checkPost($post);
 
         $post->delete();

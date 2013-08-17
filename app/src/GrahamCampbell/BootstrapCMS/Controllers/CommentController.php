@@ -7,21 +7,15 @@ use Validator;
 
 use Binput;
 
+use CommentProvider;
 use GrahamCampbell\BootstrapCMS\Models\Comment;
-use GrahamCampbell\BootstrapCMS\Models\Page;
 
 class CommentController extends BaseController {
 
-    protected $comment;
-
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page, Comment $comment) {
-        $this->page    = $page;
-        $this->comment = $comment;
-
+    public function __construct() {
         $this->setPermissions(array(
             'store'   => 'user',
             'update'  => 'mod',
@@ -43,7 +37,7 @@ class CommentController extends BaseController {
             'post_id' => $post_id,
         );
 
-        $rules = $this->comment->rules;
+        $rules = Comment::$rules;
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
@@ -51,7 +45,7 @@ class CommentController extends BaseController {
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }
 
-        $this->comment->create($input);
+        CommentProvider::create($input);
 
         Session::flash('success', 'Your post has been created successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post_id));
@@ -68,7 +62,7 @@ class CommentController extends BaseController {
             'body' => Binput::get('body', null, true, false), // no xss protection please
         );
 
-        $rules = $this->comment->rules;
+        $rules = Comment::$rules;
         unset($rules['user_id']);
         unset($rules['post_id']);
 
@@ -78,7 +72,7 @@ class CommentController extends BaseController {
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }
 
-        $comment = $this->comment->find($id);
+        $comment = CommentProvider::findById($id);
         $this->checkComment($comment);
 
         $comment->update($input);
@@ -94,7 +88,7 @@ class CommentController extends BaseController {
      * @return Response
      */
     public function destroy($post_id, $id) {
-        $comment = $this->comment->find($id);
+        $comment = CommentProvider::findById($id);
         $this->checkComment($comment);
 
         $comment->delete();

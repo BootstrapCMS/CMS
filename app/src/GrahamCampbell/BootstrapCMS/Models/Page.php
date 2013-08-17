@@ -1,7 +1,5 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
-use Event;
-
 class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlugModel, Interfaces\IBodyModel, Relations\Interfaces\IBelongsToUser {
 
     use Common\TraitTitleModel, Common\TraitSlugModel, Common\TraitBodyModel, Relations\Common\TraitBelongsToUser;
@@ -42,19 +40,19 @@ class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlug
 
     public static function create(array $input) {
         $return = parent::create($input);
-        Event::fire('page.created');
+        \Event::fire('page.created');
         return $return;
     }
 
     public function update(array $input = array()) {
         $return = parent::update($input);
-        Event::fire('page.updated');
+        \Event::fire('page.updated');
         return $return;
     }
 
     public function delete() {
         $return = parent::delete();
-        Event::fire('page.deleted');
+        \Event::fire('page.deleted');
         return $return;
     }
 }

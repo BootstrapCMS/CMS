@@ -21,4 +21,22 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
         'location' => 'text',
         'user_id'  => 1,
     );
+
+    public static function create(array $input) {
+        $return = parent::create($input);
+        \Event::fire('event.created');
+        return $return;
+    }
+
+    public function update(array $input = array()) {
+        $return = parent::update($input);
+        \Event::fire('event.updated');
+        return $return;
+    }
+
+    public function delete() {
+        $return = parent::delete();
+        \Event::fire('event.deleted');
+        return $return;
+    }
 }

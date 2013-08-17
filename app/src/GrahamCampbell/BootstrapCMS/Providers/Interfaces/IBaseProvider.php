@@ -2,6 +2,8 @@
 
 interface IBaseProvider {
 
-    public function findById($id, $columns);
+    public function findById($id, array $columns = array('*'));
+
+    public function create(array $input);
 
 }

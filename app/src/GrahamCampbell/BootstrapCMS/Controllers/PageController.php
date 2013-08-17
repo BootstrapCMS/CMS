@@ -13,7 +13,6 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 class PageController extends BaseController {
 
     /**
-     * Load the injected models.
      * Setup access permissions.
      */
     public function __construct() {
@@ -34,9 +33,8 @@ class PageController extends BaseController {
      * @return Response
      */
     public function index() {
-        Session::flash('', ''); // work around laravel bug
+        Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
-        Log::info('Redirecting from pages to the home page');
         return Redirect::route('pages.show', array('pages' => 'home'));
     }
 
@@ -163,7 +161,7 @@ class PageController extends BaseController {
 
         // write flash message and redirect
         Session::flash('success', 'Your page has been deleted successfully.');
-        return Redirect::route('pages.index');
+        return Redirect::route('pages.show', array('pages' => 'home'));
     }
 
     protected function checkPage($page, $slug) {
@@ -193,7 +191,7 @@ class PageController extends BaseController {
     protected function checkDelete($slug) {
         if ($slug == 'home') {
             Session::flash('error', 'You cannot delete the homepage.');
-            return Redirect::route('pages.index');
+            return Redirect::route('pages.show', array('pages' => 'home'));
         }
     }
 }

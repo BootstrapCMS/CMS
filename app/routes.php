@@ -23,27 +23,24 @@ Route::get('get', array('as' => 'get', 'uses' => 'GrahamCampbell\BootstrapCMS\Co
 
 // send users to the home page
 Route::get('/', array('as' => 'base', function() {
-    Session::flash('', ''); // work around laravel bug
+    Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
-    Log::info('Redirecting from / to the home page');
     return Redirect::route('pages.show', array('pages' => 'home'));
 }));
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
     Route::get('blog', array('as' => 'blog', function() {
-        Session::flash('', ''); // work around laravel bug
+        Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
-        Log::info('Redirecting from blog to the posts page');
         return Redirect::route('blog.posts.index');
     }));
 }
 
 // send users to the profile page
 Route::get('account', array('as' => 'account', function() {
-    Session::flash('', ''); // work around laravel bug
+    Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
-    Log::info('Redirecting from account to the profile page');
     return Redirect::route('account.profile');
 }));
 
