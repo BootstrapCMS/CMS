@@ -1,6 +1,8 @@
-<h1>Bootstrap CMS <div style="float: right"><img src="https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Bootstrap-CMS/trend.png" /></div></h1>
+Bootstrap CMS
+=============
 
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Bootstrap-CMS/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png?branch=master)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
 [![Latest Version](https://poser.pugx.org/graham-campbell/bootstrap-cms/v/stable.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
 [![Total Downloads](https://poser.pugx.org/graham-campbell/bootstrap-cms/downloads.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
