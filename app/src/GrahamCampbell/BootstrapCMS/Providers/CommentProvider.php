@@ -4,6 +4,6 @@ use Config;
 
 use GrahamCampbell\BootstrapCMS\Models\Page;
 
-class CommentProvider {
+class CommentProvider implements Interfaces\IBaseProvider {
 
 }

@@ -4,6 +4,6 @@ use Config;
 
 use GrahamCampbell\BootstrapCMS\Models\Page;
 
-class EventProvider {
+class EventProvider implements Interfaces\IBaseProvider {
 
 }

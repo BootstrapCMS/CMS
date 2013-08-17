@@ -4,6 +4,6 @@ use Config;
 
 use GrahamCampbell\BootstrapCMS\Models\Page;
 
-class PostProvider {
+class PostProvider implements Interfaces\IBaseProvider {
 
 }

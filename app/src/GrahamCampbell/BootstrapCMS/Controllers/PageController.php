@@ -1,28 +1,22 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Log; // depreciated - use events
-
 use App;
-use Event;
 use Redirect;
 use Session;
 use Validator;
 
 use Binput;
 
+use PageProvider;
 use GrahamCampbell\BootstrapCMS\Models\Page;
 
 class PageController extends BaseController {
-
-    protected $page;
 
     /**
      * Load the injected models.
      * Setup access permissions.
      */
-    public function __construct(Page $page) {
-        $this->page = $page;
-
+    public function __construct() {
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -71,17 +65,15 @@ class PageController extends BaseController {
             'user_id'    => $this->getUserId(),
         );
 
-        $rules = $this->page->rules;
+        $rules = Page::$rules;
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
             return Redirect::route('pages.create')->withInput()->withErrors($val->errors());
         }
 
-        $page = $this->page->create($input);
+        $page = PageProvider::create($input);
 
-        // fire event
-        Event::fire('page.created');
         // write flash message and redirect
         Session::flash('success', 'Your page has been created successfully.');
         return Redirect::route('pages.show', array('pages' => $page->getSlug()));
@@ -94,7 +86,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function show($slug) {
-        $page = $this->page->findBySlug($slug);
+        $page = PageProvider::findBySlug($slug);
         $this->checkPage($page, $slug);
 
         return $this->viewMake('pages.show', array('page' => $page));
@@ -107,7 +99,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function edit($slug) {
-        $page = $this->page->findBySlug($slug);
+        $page = PageProvider::findBySlug($slug);
         $this->checkPage($page, $slug);
 
         return $this->viewMake('pages.edit', array('page' => $page));
@@ -129,7 +121,7 @@ class PageController extends BaseController {
             'icon'       => Binput::get('icon'),
         );
 
-        $rules = $this->page->rules;
+        $rules = Page::$rules;
         unset($rules['user_id']);
 
         $val = Validator::make($input, $rules);
@@ -137,7 +129,7 @@ class PageController extends BaseController {
             return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($val->errors());
         }
 
-        $page = $this->page->findBySlug($slug);
+        $page = PageProvider::findBySlug($slug);
         $this->checkPage($page, $slug);
 
         $checkupdate = $this->checkUpdate($input, $slug);
@@ -146,9 +138,7 @@ class PageController extends BaseController {
         }
 
         $page->update($input);
-        
-        // fire event
-        Event::fire('page.updated');
+
         // write flash message and redirect
         Session::flash('success', 'Your page has been updated successfully.');
         return Redirect::route('pages.show', array('pages' => $page->getSlug()));
@@ -161,7 +151,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function destroy($slug) {
-        $page = $this->page->findBySlug($slug);
+        $page = PageProvider::findBySlug($slug);
         $this->checkPage($page, $slug);
 
         $checkdelete = $this->checkDelete($slug);
@@ -171,8 +161,6 @@ class PageController extends BaseController {
 
         $page->delete();
 
-        // fire event
-        Event::fire('page.deleted');
         // write flash message and redirect
         Session::flash('success', 'Your page has been deleted successfully.');
         return Redirect::route('pages.index');

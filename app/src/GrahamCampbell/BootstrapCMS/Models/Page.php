@@ -1,7 +1,6 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
-use Cache;
-use Config;
+use Event;
 
 class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlugModel, Interfaces\IBodyModel, Relations\Interfaces\IBelongsToUser {
 
@@ -9,7 +8,7 @@ class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlug
 
     protected $table = 'pages';
 
-    public $rules = array(
+    public static $rules = array(
         'title'      => 'required',
         'slug'       => 'required',
         'body'       => 'required',
@@ -18,7 +17,7 @@ class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlug
         'user_id'    => 'required',
     );
 
-    public $factory = array(
+    public static $factory = array(
         'id'         => 1,
         'title'      => 'Page Title',
         'slug'       => 'page-title',
@@ -39,5 +38,23 @@ class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlug
 
     public function getIcon() {
         return $this->icon;
+    }
+
+    public static function create(array $input) {
+        $return = parent::create($input);
+        Event::fire('page.created');
+        return $return;
+    }
+
+    public function update(array $input = array()) {
+        $return = parent::update($input);
+        Event::fire('page.updated');
+        return $return;
+    }
+
+    public function delete() {
+        $return = parent::delete();
+        Event::fire('page.deleted');
+        return $return;
     }
 }

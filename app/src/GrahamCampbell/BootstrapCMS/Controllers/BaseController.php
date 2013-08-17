@@ -8,11 +8,9 @@ use View;
 
 use Sentry;
 
-use GrahamCampbell\BootstrapCMS\Facades\Navigation;
+use Navigation;
 
 abstract class BaseController extends Controller {
-
-    protected $page; // must be set in the extending class
 
     private $users  = array();
     private $edits  = array();
