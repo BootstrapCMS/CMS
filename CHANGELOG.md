@@ -9,6 +9,7 @@ CHANGE LOG
 * Refactored off the libs to other packages
 * Improved user management
 * Added events functionality
+* Added out of the box iron support
 * Major logging and events improvements
 * Basic CloudFlare api integration
 * Other minor fixes
