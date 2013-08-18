@@ -43,7 +43,7 @@ class UserController extends BaseController {
      */
     public function index() {
         //TODO - use the UserProvider
-        $users = $this->user->orderBy('first_name')->get(array('id', 'first_name', 'last_name', 'email'));
+        $users = UserProvider::index();
         return $this->viewMake('users.index', array('users' => $users));
     }
 
