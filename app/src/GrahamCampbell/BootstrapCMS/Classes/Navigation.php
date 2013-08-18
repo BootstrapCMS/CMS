@@ -166,7 +166,7 @@ class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
     }
 
     protected function validValue($value) {
-        return (is_null($value) || !is_array($value) || !($value instanceof Iterator));
+        return (is_null($value) || !is_array($value));
     }
 
     public function flush() {
