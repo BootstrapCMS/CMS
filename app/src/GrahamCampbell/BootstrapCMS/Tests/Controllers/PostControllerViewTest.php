@@ -7,8 +7,9 @@ class PostControllerViewTest extends ResourcefulViewTestCase {
     use PostControllerSetupTrait;
 
     protected function indexMocking() {
-        $this->mock->shouldReceive('orderBy')
-            ->once()->andReturn(Mockery::mock(array('get' => array($this->mock))));
+        $provider = $this->provider;
+        $provider::shouldReceive('index')
+            ->once()->andReturn(array($this->mock));
     }
 
     protected function showMocking() {
