@@ -10,10 +10,6 @@ class PageTest extends ModelTestCase implements Relations\Interfaces\IBelongsToU
         $this->assertInstanceOf('GrahamCampbell\BootstrapCMS\Models\BaseModel', $this->object);
     }
 
-    public function testFindBySlug() {
-        $this->assertEquals($this->object->findBySlug($this->instance->slug), $this->instance);
-    }
-
     public function testGetTitle() {
         $this->assertEquals($this->instance->getTitle(), $this->instance->title);
     }
