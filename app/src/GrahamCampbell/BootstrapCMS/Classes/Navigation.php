@@ -8,8 +8,39 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 
 class Navigation {
 
-    public function get() {
-        $raw = $this->goGet();
+    public function get($name = 'main') {
+        switch ($name) {
+            case 'main':
+                $nav = $this->getMain();
+                break;
+            case 'bar':
+                $nav = $this->getBar();
+                break;
+            case 'admin':
+                $nav = $this->getAdmin();
+                break;
+            default:
+                throw new \InvalidArgumentException($name.' is not a valid item');
+        }
+
+        // check if each item is active
+        foreach ($nav as $key => $value) {
+            // if the request starts with the slug
+            if (Request::is($value['slug']) || Request::is($value['slug'].'/*')) {
+                // then the navigation item is active, or selected
+                $nav[$key]['active'] = true;
+            } else {
+                // then the navigation item is not active or selected
+                $nav[$key]['active'] = false;
+            }
+        }
+
+        // spit out the nav bar array at the end
+        return $nav;
+    }
+
+    protected function getMain() {
+        $raw = $this->goGet('main');
 
         // separate the first page
         $value = $raw[0];
@@ -35,77 +66,112 @@ class Navigation {
             $value['slug'] = 'pages/'.$raw[$key]['slug'];
             $nav[] = $value;
         }
-        
-        // check if each item is active
-        foreach ($nav as $key => $value) {
-            // if the request starts with the slug
-            if (Request::is($value['slug']) || Request::is($value['slug'].'/*')) {
-                // then the navigation item is active, or selected
-                $nav[$key]['active'] = true;
-            } else {
-                // then the navigation item is not active or selected
-                $nav[$key]['active'] = false;
-            }
-        }
 
         // spit out the nav bar array at the end
         return $nav;
     }
 
-    protected function goGet() {
+    protected function getBar() {
+        return array(); // TODO
+    }
+
+    protected function getAdmin() {
+        // set the admin home route
+        $nav = goGet('admin');
+
+        // spit out the nav bar array at the end
+        return $nav;
+    }
+
+    protected function goGet($name) {
         // if caching is enabled
         if (Config::get('cms.cache') === true) {
             // check if the cache needs regenerating
-            if ($this->validCache()) {
+            if ($this->validCache($name)) {
                 // if not, then pull from the cache
-                $value = $this->getCache();
+                $value = $this->getCache($name);
             } else {
                 // if regeneration is needed, do the work
-                $value = $this->sendGet();
+                $value = $this->sendGet($name);
                 // add the value from the work to the cache
-                $this->setCache($value);
+                $this->setCache($name, $value);
             }
         } else {
             // do the work because caching is disabled
-            $value = $this->sendGet();
+            $value = $this->sendGet($name);
         }
 
         // spit out the value
         return $value;
     }
 
-    protected function sendGet() {
+    protected function sendGet($name) {
+        switch ($name) {
+            case 'main':
+                $nav = $this->sendGetMain();
+                break;
+            case 'bar':
+                $nav = $this->sendGetBar();
+                break;
+            case 'admin':
+                $nav = $this->sendGetAdmin();
+                break;
+            default:
+                throw new \InvalidArgumentException($name.' is not a valid item');
+        }
+    }
+
+    protected function sendGetMain() {
         // do the work needed to generate the nav bar
         return Page::where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
     }
 
-    protected function getCache() {
+    protected function sendGetBar() {
+        // TODO
+        return array();
+    }
+
+    protected function sendGetAdmin() {
+        // TODO
+        return array(array('title' => 'Admin', 'slug' => 'admin', 'icon' => '', 'active' => false));
+    }
+
+    protected function getCache($name) {
         // pull from nav bar from the cache
-        return json_decode(Cache::get('nav'), true);
+        return json_decode(Cache::section('nav')->get($name), true);
     }
 
-    protected function setCache($array) {
+    protected function setCache($name, $value) {
         // cache the nav bar until another event resets it
-        return Cache::forever('nav', json_encode($array));
+        return Cache::section('nav')->forever($name, json_encode($value));
     }
 
-    protected function purgeCache() {
+    protected function flushCache() {
+        // actually purge the entire section
+        return Cache::section('nav')->flush();
+    }
+
+    protected function purgeCache($name) {
         // actually purge the nav bar cache
-        return Cache::forget('nav');
+        return Cache::section('nav')->forget($name);
     }
 
-    protected function validCache($name = 'main') {
+    protected function validCache($name) {
         // check if the cache needs regenerating
-        return Cache::has('nav');
+        return Cache::section('nav')->has($name);
     }
 
-    public function purge() {
+    public function flush() {
+        return $this->flushCache();
+    }
+
+    public function purge($name = 'main') {
         // call the purge cache method
-        return $this->purgeCache();
+        return $this->purgeCache($name);
     }
 
-    public function refresh() {
+    public function refresh($name = 'main') {
         // update the nav bar cache
-        return $this->setCache($this->sendGet());
+        return $this->setCache($this->sendGet($name));
     }
 }
