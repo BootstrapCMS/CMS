@@ -5,17 +5,17 @@ use Validator;
 use Carbon\Carbon;
 use Mockery;
 
+use Navigation;
 use GrahamCampbell\BootstrapCMS\Tests\TestCase;
 
 abstract class ControllerTestCase extends TestCase {
 
     // protected $model; // must be set in the extending class
+    // protected $provider; // must be set in the extending class
     // protected $view; // must be set in the extending class
     // protected $name; // must be set in the extending class
     // protected $base; // must be set in the extending class
     // protected $uid; // must be set in the extending class
-
-    protected $provider;
 
     protected $mock;
 
@@ -24,10 +24,12 @@ abstract class ControllerTestCase extends TestCase {
     public function setUp() {
         parent::setUp();
 
-        $this->mock = Mockery::mock($this->model);
-        $this->provider = $this->model.'Provider';
+        $model = $this->model;
 
-        $this->attributes = $this->model::$factory;
+        $this->mock = Mockery::mock($model);
+        $this->app->instance($model, $this->mock);
+
+        $this->attributes = $model::$factory;
         $this->attributes['created_at'] = Carbon::createFromTimeStamp(1234567890);
         $this->attributes['updated_at'] = Carbon::createFromTimeStamp(1234567890);
 
@@ -64,10 +66,10 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function setAsPage() {
-        Navigation::shouldReceive('get')->once
+        Navigation::shouldReceive('get')->once()
             ->andReturn(array(
-                array('slug' => 'pages/home', 'Title' => 'Home', 'icon' => 'icon-home', 'active' => true),
-                array('slug' => 'pages/about', 'Title' => 'About', 'icon' => 'icon-info-sign', 'active' => false),
+                array('slug' => 'pages/home', 'title' => 'Home', 'icon' => 'icon-home', 'active' => true),
+                array('slug' => 'pages/about', 'title' => 'About', 'icon' => 'icon-info-sign', 'active' => false),
         ));
     }
 

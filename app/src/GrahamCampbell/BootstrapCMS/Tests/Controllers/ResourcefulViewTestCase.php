@@ -60,7 +60,8 @@ abstract class ResourcefulViewTestCase extends ControllerTestCase {
     }
 
     protected function showMocking() {
-        $this->provider::shouldReceive($this->getFind())
+        $provider = $this->provider;
+        $provider::shouldReceive($this->getFind())
             ->with($this->getUid())->once()->andReturn($this->mock);
     }
 
@@ -85,7 +86,8 @@ abstract class ResourcefulViewTestCase extends ControllerTestCase {
     }
 
     protected function editMocking() {
-        $this->provider::shouldReceive($this->getFind())
+        $provider = $this->provider;
+        $provider::shouldReceive($this->getFind())
             ->with($this->getUid())->once()->andReturn($this->mock);
     }
 

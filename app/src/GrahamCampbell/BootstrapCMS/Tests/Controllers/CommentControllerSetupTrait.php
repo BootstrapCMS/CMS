@@ -3,6 +3,7 @@
 trait CommentControllerSetupTrait {
 
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Comment';
+    protected $provider = 'GrahamCampbell\BootstrapCMS\Facades\CommentProvider';
     protected $view = 'comment';
     protected $name = 'posts'; // yes, that's right - we should redirect to the posts routes
     protected $base = 'blog.posts'; // yes, that's right - we should redirect to the posts routes
