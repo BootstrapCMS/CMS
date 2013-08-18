@@ -14,7 +14,7 @@ use Binput;
 use Passwd;
 
 use UserProvider;
-use GrahamCampbell\BootstrapCMS\Models\Group;
+use GroupProvider;
 
 class UserController extends BaseController {
 
@@ -52,7 +52,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function create() {
-        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
+        $groups = GroupProvider::index();
 
         return $this->viewMake('users.create', array('groups' => $groups));
     }
@@ -86,7 +86,7 @@ class UserController extends BaseController {
 
         $user = UserProvider::create($input);
 
-        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
+        $groups = GroupProvider::index();
 
         foreach($groups as $group) {
             if (Binput::get('group_'.$group->id) === 'on') {
@@ -138,7 +138,7 @@ class UserController extends BaseController {
         $user = UserProvider::findById($id);
         $this->checkUser($user);
 
-        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
+        $groups = GroupProvider::index();
 
         return $this->viewMake('users.edit', array('user' => $user, 'groups' => $groups));
     }
@@ -172,7 +172,7 @@ class UserController extends BaseController {
 
         $user->update($input);
 
-        $groups = Group::get(array('id', 'name')); // TODO - use the GroupProvider
+        $groups = GroupProvider::index();
 
         foreach($groups as $group) {
             if ($user->inGroup($group)) {
