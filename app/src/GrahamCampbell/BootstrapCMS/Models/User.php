@@ -14,13 +14,13 @@ class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\IName
 
     public static function create(array $input) {
         $return = parent::create($input);
-        \Event::fire('page.created');
+        \Event::fire('user.created');
         return $return;
     }
 
     public function update(array $input = array()) {
         $return = parent::update($input);
-        \Event::fire('page.updated');
+        \Event::fire('user.updated');
         return $return;
     }
 
@@ -30,7 +30,7 @@ class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\IName
         $this->deleteEvents();
         $this->deleteComments();
         $return = parent::delete();
-        \Event::fire('page.deleted');
+        \Event::fire('user.deleted');
         return $return;
     }
 }
