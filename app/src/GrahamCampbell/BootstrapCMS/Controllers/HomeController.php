@@ -36,8 +36,9 @@ class HomeController extends BaseController {
     public function testQueue() {
         $data = array(
             'view'    => 'emails.welcome',
+            'url'     => URL::route('pages.show', array('pages' => 'home')),
             'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
-            'email'   => 'graham@mineuk.com',
+            'email'   => Config::get('workbench.email'),
             'subject' => Config::get('cms.name').' - Welcome',
         );
 
