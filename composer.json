@@ -13,6 +13,7 @@
         "php": ">=5.4.7",
         "laravel/framework": "4.0.*",
         "pda/pheanstalk": "2.1.*",
+        "iron-io/iron_mq": "1.4.*",
         "cartalyst/sentry": "2.0.*",
         "graham-campbell/security": "dev-0.2.x-dev",
         "graham-campbell/binput": "dev-0.2.x-dev",
