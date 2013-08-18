@@ -1,14 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Providers;
 
-use GrahamCampbell\BootstrapCMS\Models\Event;
+class EventProvider extends BaseProvider {
 
-class EventProvider implements Interfaces\IBaseProvider {
+    protected $model = 'GrahamCampbell\BootstrapCMS\Models\Event';
 
-    public function findById($id, array $columns = array('*')) {
-        return Event::find($id, $columns);
-    }
-
-    public function create(array $input) {
-        return Event::create($input);
-    }
 }

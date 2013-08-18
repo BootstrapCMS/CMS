@@ -1,14 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Providers;
 
-use GrahamCampbell\BootstrapCMS\Models\Comment;
+class CommentProvider extends BaseProvider {
 
-class CommentProvider implements Interfaces\IBaseProvider {
+    protected $model = 'GrahamCampbell\BootstrapCMS\Models\Comment';
 
-    public function findById($id, array $columns = array('*')) {
-        return Comment::find($id, $columns);
-    }
-
-    public function create(array $input) {
-        return Comment::create($input);
-    }
 }

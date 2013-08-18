@@ -6,7 +6,7 @@ use Request;
 
 use GrahamCampbell\BootstrapCMS\Models\Page;
 
-class Navigation {
+class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
 
     public function get($name = 'main') {
         switch ($name) {
