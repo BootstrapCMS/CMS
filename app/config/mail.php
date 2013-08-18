@@ -19,6 +19,22 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
+    | Mail Queue
+    |--------------------------------------------------------------------------
+    |
+    | This specifies the name of the queue you want to push the email sending
+    | on to. If set to null, it will use the same queue as set in the queue
+    | config for the selected connector. Note that if you are using the "sync"
+    | queue connector, the mail will just be sent as normal.
+    |
+    | Default: null
+    |
+    */
+
+    'queue' => null,
+
+    /*
+    |--------------------------------------------------------------------------
     | SMTP Host Address
     |--------------------------------------------------------------------------
     |

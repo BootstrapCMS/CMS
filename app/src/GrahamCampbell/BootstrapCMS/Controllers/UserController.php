@@ -14,7 +14,6 @@ use Binput;
 use Passwd;
 
 use UserProvider;
-use GrahamCampbell\BootstrapCMS\Models\User;
 use GrahamCampbell\BootstrapCMS\Models\Group;
 
 class UserController extends BaseController {
@@ -104,7 +103,7 @@ class UserController extends BaseController {
                 'subject'  => Config::get('cms.name').' - New Account Information',
             );
 
-            Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data);
+            Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
         } catch (\Exception $e) {
             Log::alert($e);
             $user->delete();
