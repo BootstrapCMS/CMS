@@ -22,7 +22,7 @@ Route::get('get', array('as' => 'get', 'uses' => 'GrahamCampbell\BootstrapCMS\Co
 
 
 // iron queue push route
-if (Config::get('queue.default' === 'iron')) {
+if (Config::get('queue.default') === 'iron') {
     Route::post('queue/receive', function() {
         return Queue::marshal();
     });
