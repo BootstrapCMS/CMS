@@ -90,6 +90,13 @@ class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
             if ($this->validCache($name)) {
                 // if not, then pull from the cache
                 $value = $this->getCache($name);
+                // check if the value is valid
+                if ($this->validValue($value)) {
+                    // if is invalid, do the work
+                    $value = $this->sendGet($name);
+                    // add the value from the work to the cache
+                    $this->setCache($name, $value);
+                }
             } else {
                 // if regeneration is needed, do the work
                 $value = $this->sendGet($name);
@@ -156,6 +163,10 @@ class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
     protected function validCache($name) {
         // check if the cache needs regenerating
         return Cache::section('nav')->has($name);
+    }
+
+    protected function validValue($value) {
+        return (!is_null($value) && (is_array($value) || $value instanceof Iterator) == false);
     }
 
     public function flush() {
