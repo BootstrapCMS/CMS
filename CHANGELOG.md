@@ -5,13 +5,17 @@ CHANGE LOG
 ## V0.4 Alpha (Upcoming)
 #### Major Release
 
-* PSR-0 style autoloading
+* Made it PSR-0 compliant
 * Refactored off the libs to other packages
 * Improved user management
+* Added model providers
 * Added events functionality
 * Added out of the box iron support
+* Allow specifying a separate mail queue
 * Major logging and events improvements
 * Basic CloudFlare api integration
+* Added more tests
+* Minor clean ups
 * Other minor fixes
 
 
