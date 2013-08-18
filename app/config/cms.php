@@ -108,10 +108,10 @@ return array(
     |
     | Requires a caching server like Redis and cache.php to be configured.
     |
-    | Default to true.
+    | Default to false.
     |
     */
 
-    'cache' => true,
+    'cache' => false,
 
 );
