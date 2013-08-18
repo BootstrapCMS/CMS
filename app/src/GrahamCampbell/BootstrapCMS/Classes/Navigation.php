@@ -108,14 +108,11 @@ class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
     protected function sendGet($name) {
         switch ($name) {
             case 'main':
-                $nav = $this->sendGetMain();
-                break;
+                return $this->sendGetMain();
             case 'bar':
-                $nav = $this->sendGetBar();
-                break;
+                return $this->sendGetBar();
             case 'admin':
-                $nav = $this->sendGetAdmin();
-                break;
+                return $this->sendGetAdmin();
             default:
                 throw new \InvalidArgumentException($name.' is not a valid item');
         }
