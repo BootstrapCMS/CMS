@@ -141,7 +141,7 @@ class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
     }
 
     protected function getCache($name) {
-        // pull from nav bar from the cache
+        // pull the nav bar from the cache
         return json_decode(Cache::section('nav')->get($name), true);
     }
 
@@ -170,16 +170,20 @@ class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
     }
 
     public function flush() {
-        return $this->flushCache();
+        if (Config::get('cms.cache') === true) {
+            return $this->flushCache();
+        }
     }
 
     public function purge($name = 'main') {
-        // call the purge cache method
-        return $this->purgeCache($name);
+        if (Config::get('cms.cache') === true) {
+            return $this->purgeCache($name);
+        }
     }
 
     public function refresh($name = 'main') {
-        // update the nav bar cache
-        return $this->setCache($this->sendGet($name));
+        if (Config::get('cms.cache') === true) {
+            return $this->setCache($name, $this->sendGet($name));
+        }
     }
 }

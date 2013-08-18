@@ -35,12 +35,12 @@ trait TraitBaseProvider {
     }
 
     protected function getCache($name) {
-        // pull from nav bar from the cache
+        // pull from model(s) from the cache
         return json_decode(Cache::section(md5($this->model))->get($name), true);
     }
 
     protected function setCache($name, $value) {
-        // cache the nav bar until another event resets it
+        // cache the model(s) until another event resets it
         return Cache::section(md5($this->model))->forever($name, json_encode($value));
     }
 
@@ -50,7 +50,7 @@ trait TraitBaseProvider {
     }
 
     protected function purgeCache($name) {
-        // actually purge the nav bar cache
+        // actually purge the model cache
         return Cache::section(md5($this->model))->forget($name);
     }
 
@@ -60,16 +60,20 @@ trait TraitBaseProvider {
     }
 
     public function flush() {
-        return $this->flushCache();
+        if (Config::get('cms.cache') === true) {
+            return $this->flushCache();
+        }
     }
 
     public function purge($name = 'index') {
-        // call the purge cache method
-        return $this->purgeCache($name);
+        if (Config::get('cms.cache') === true) {
+            return $this->purgeCache($name);
+        }
     }
 
     public function refresh($name = 'index') {
-        // update the nav bar cache
-        return $this->setCache($this->sendGet($name));
+        if (Config::get('cms.cache') === true) {
+            return $this->setCache($name, $this->sendGet($name));
+        }
     }
 }
