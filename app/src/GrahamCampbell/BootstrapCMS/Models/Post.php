@@ -6,14 +6,14 @@ class Post extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBody
 
     protected $table = 'posts';
 
-    public $rules = array(
+    public static $rules = array(
         'title'   => 'required',
         'summary'    => 'required',
         'body'    => 'required',
         'user_id' => 'required',
     );
 
-    public $factory = array(
+    public static $factory = array(
         'id'      => 1,
         'title'   => 'String',
         'summary'   => 'Summary of a post.',

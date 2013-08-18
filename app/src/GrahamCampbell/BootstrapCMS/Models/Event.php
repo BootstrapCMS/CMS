@@ -6,7 +6,7 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
 
     protected $table = 'events';
 
-    public $rules = array(
+    public static $rules = array(
         'title'    => 'required',
         'body'     => 'required',
         'date'     => 'required',
@@ -14,7 +14,7 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
         'user_id'  => 'required',
     );
 
-    public $factory = array(
+    public static $factory = array(
         'title'    => 'String',
         'body'     => 'text',
         'date'     => '????',
