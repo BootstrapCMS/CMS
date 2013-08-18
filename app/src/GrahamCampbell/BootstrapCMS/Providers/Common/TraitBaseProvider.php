@@ -1,5 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Providers\Common;
 
+use Cache;
+
 trait TraitBaseProvider {
 
     public function create(array $input) {

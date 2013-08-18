@@ -4,7 +4,7 @@ class GroupProvider extends BaseProvider {
 
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Group';
 
-    // temp function that works
+    // TODO: caching logic
     public function index() {
         $model = $this->model;
         return $model::get(array('id', 'name'));

@@ -4,7 +4,7 @@ class PostProvider extends BaseProvider {
 
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Post';
 
-    // temp function that works
+    // TODO: caching logic
     public function index() {
         $model = $this->model;
         return $model::orderBy('id', 'desc')->get(array('id', 'title', 'summary', 'body'));
