@@ -83,11 +83,7 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function getFind() {
-        if ($this->uid == 'id') {
-            return 'find';
-        } else {
-            return 'findBy'.ucfirst($this->uid);
-        }
+        return 'findBy'.ucfirst($this->uid);
     }
 
     protected function getPath($path = null) {
