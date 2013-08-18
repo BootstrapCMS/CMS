@@ -10,7 +10,7 @@ Cloudflare
 @stop
 
 @section('content')
-<?php $traffic = json_decode($stats, true)['response']['result']['objs']['0']['trafficBreakdown']; ?>
+<?php $traffic = $stats['response']['result']['objs']['0']['trafficBreakdown']; ?>
 <div class="well">
     <table class="table">
         <thead>
