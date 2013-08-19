@@ -11,6 +11,7 @@ use URL;
 use Validator;
 
 use Binput;
+use DateTime;
 use Passwd;
 
 use UserProvider;
@@ -66,17 +67,22 @@ class UserController extends BaseController {
         $password = Passwd::generate(12,8);
 
         $input = array(
-            'first_name' => Binput::get('first_name'),
-            'last_name'  => Binput::get('last_name'),
-            'email'      => Binput::get('email'),
-            'password'   => $password,
+            'first_name'      => Binput::get('first_name'),
+            'last_name'       => Binput::get('last_name'),
+            'email'           => Binput::get('email'),
+            'password'        => $password,
+            'activation_code' => null;
+            'activated'       => true;
+            'activated_at'    => new DateTime;
         );
 
         $rules = array(
-            'first_name' => 'required|min:2|max:32',
-            'last_name'  => 'required|min:2|max:32',
-            'email'      => 'required|min:4|max:32|email',
-            'password'   => 'required|min:6',
+            'first_name'   => 'required|min:2|max:32',
+            'last_name'    => 'required|min:2|max:32',
+            'email'        => 'required|min:4|max:32|email',
+            'password'     => 'required|min:6',
+            'activated'    => 'required',
+            'activated_at' => 'required',
         );
 
         $val = Validator::make($input, $rules);
