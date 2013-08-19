@@ -108,7 +108,7 @@ class UserController extends BaseController {
             Log::alert($e);
             $user->delete();
             Session::flash('error', 'We were unable to create the user. Please contact support.');
-            return Redirect::route('pages.show', array('pages' => 'home'));
+            return Redirect::route('users.create')->withInput();
         }
 
         Session::flash('success', 'The user has been created successfully. Their password has been emailed to them.');
