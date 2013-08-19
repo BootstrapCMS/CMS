@@ -142,12 +142,12 @@ class Navigation implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable {
 
     protected function getCache($name) {
         // pull the nav bar from the cache
-        return json_decode(Cache::section('nav')->get($name), true);
+        return Cache::section('nav')->get($name);
     }
 
     protected function setCache($name, $value) {
         // cache the nav bar until another event resets it
-        return Cache::section('nav')->forever($name, json_encode($value));
+        return Cache::section('nav')->forever($name, $value);
     }
 
     protected function flushCache() {

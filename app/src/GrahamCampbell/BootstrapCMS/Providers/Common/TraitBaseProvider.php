@@ -1,5 +1,6 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Providers\Common;
 
+use Config;
 use Cache;
 
 trait TraitBaseProvider {
@@ -38,12 +39,12 @@ trait TraitBaseProvider {
 
     protected function getCache($name) {
         // pull from model(s) from the cache
-        return json_decode(Cache::section(md5($this->model))->get($name), true);
+        return Cache::section(md5($this->model))->get($name);
     }
 
     protected function setCache($name, $value) {
         // cache the model(s) until another event resets it
-        return Cache::section(md5($this->model))->forever($name, json_encode($value));
+        return Cache::section(md5($this->model))->forever($name, $value);
     }
 
     protected function flushCache() {
