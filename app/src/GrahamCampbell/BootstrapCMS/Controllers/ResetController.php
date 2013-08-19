@@ -11,6 +11,7 @@ use URL;
 use Validator;
 
 use Binput;
+use Passwd;
 use Sentry;
 
 class ResetController extends BaseController {
