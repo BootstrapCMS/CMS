@@ -1,6 +1,6 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Providers;
 
-abstract class BaseProvider implements \GrahamCampbell\BootstrapCMS\Interfaces\ICacheable, Interfaces\IBaseProvider {
+abstract class BaseProvider implements Interfaces\IBaseProvider {
 
     use Common\TraitBaseProvider;
 
