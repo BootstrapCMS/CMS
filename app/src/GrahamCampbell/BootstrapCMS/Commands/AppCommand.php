@@ -1,6 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Commands;
 
-use Illuminate\Console\Command as Command;
+use Illuminate\Console\Command;
+use Navigation;
 
 abstract class AppCommand extends Command {
 
@@ -23,5 +24,9 @@ abstract class AppCommand extends Command {
 
     protected function genAssets() {
         $this->call('basset:build', array('--production' => true));
+    }
+
+    protected function updateCache() {
+        Navigation::refresh();
     }
 }
