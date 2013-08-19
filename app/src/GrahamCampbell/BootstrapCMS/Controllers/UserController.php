@@ -71,8 +71,8 @@ class UserController extends BaseController {
             'last_name'       => Binput::get('last_name'),
             'email'           => Binput::get('email'),
             'password'        => $password,
-            'activation_code' => null;
-            'activated'       => true;
+            'activation_code' => null,
+            'activated'       => true,
             'activated_at'    => new DateTime;
         );
 
