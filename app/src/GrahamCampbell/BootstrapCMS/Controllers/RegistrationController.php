@@ -99,7 +99,7 @@ class RegistrationController extends BaseController {
                 Log::alert($e);
                 $user->delete();
                 Session::flash('error', 'We were unable to create your account. Please contact support.');
-                return Redirect::route('account.register');
+                return Redirect::route('account.register')->withInput();
             }
 
             Log::info('Registration successful, activation required', array('Email' => $input['email']));
@@ -108,7 +108,7 @@ class RegistrationController extends BaseController {
         } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
             Log::notice($e);
             Session::flash('error', 'User already exists.');
-            return Redirect::route('account.register')->withErrors($val)->withInput();
+            return Redirect::route('account.register')->withInput()->withErrors($val);
         }
     }
 

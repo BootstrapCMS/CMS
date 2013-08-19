@@ -64,7 +64,7 @@ class ResetController extends BaseController {
             } catch (\Exception $e) {
                 Log::alert($e);
                 Session::flash('error', 'We were unable to reset your password. Please contact support.');
-                return Redirect::route('account.reset');
+                return Redirect::route('account.reset')->withInput();
             }
 
             Log::info('Reset email sent', array('Email' => $input['email']));
@@ -95,7 +95,7 @@ class ResetController extends BaseController {
             if (!$user->attemptResetPassword($code, $password)) {
                 Log::error('There was a problem resetting a password', array('Id' => $id));
                 Session::flash('error', 'There was a problem resetting your password. Please contact support.');
-                return Redirect::route('base');
+                return Redirect::route('pages.show', array('pages' => 'home'));
             }
 
             try {

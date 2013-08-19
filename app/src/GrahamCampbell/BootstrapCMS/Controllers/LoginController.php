@@ -55,7 +55,7 @@ class LoginController extends BaseController {
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
             Log::info('Login failed because validation failed', array('Email' => $input['email'], 'Messages' => $val->messages()->all()));
-            return Redirect::route('account.login')->withErrors($val)->withInput();
+            return Redirect::route('account.login')->withInput()->withErrors($val);
         }
 
         try {
