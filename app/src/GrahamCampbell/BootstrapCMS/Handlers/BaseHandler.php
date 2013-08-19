@@ -110,17 +110,23 @@ abstract class BaseHandler {
             Log::error($e);
         }
 
-        // abort if we have retried too many times
-        if ($this->job->attempts() >= 3) {
-            $this->abort(get_class($this).' has aborted after failing 3 times');
-        } else {
-            // wait x seconds, then push back to queue, or abort if that fails
-            try {
-                $this->job->release(2*$this->job->attempts());
-            } catch (\Exception $e) {
-                Log::error($e);
-                $this->abort(get_class($this).' has aborted after failing to repush to the queue');
+        // if can handle retrying
+        if (get_class($this->job) == 'Illuminate\Queue\Jobs\BeanstalkdJob') {
+            // abort if we have retried too many times
+            if ($this->job->attempts() >= 3) {
+                $this->abort(get_class($this).' has aborted after failing 3 times');
+            } else {
+                // wait x seconds, then push back to queue, or abort if that fails
+                try {
+                    $this->job->release(4*$this->job->attempts());
+                } catch (\Exception $e) {
+                    Log::critical($e);
+                    $this->abort(get_class($this).' has aborted after failing to repush to the queue');
+                }
             }
+        } else {
+            // throw an exception
+            throw new \Exception(get_class($this).' has failed with '.get_class($this->job));
         }
     }
 
@@ -135,7 +141,7 @@ abstract class BaseHandler {
         if ($message) {
             Log::error($message); 
         } else {
-            Log::error(get_class($this).' has failed without a message to log');
+            Log::error(get_class($this).' has aborted without a message');
         }
 
         // run the afterAbortion method
