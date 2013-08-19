@@ -84,7 +84,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function show($slug) {
-        $page = PageProvider::findBySlug($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
         return $this->viewMake('pages.show', array('page' => $page));
@@ -97,7 +97,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function edit($slug) {
-        $page = PageProvider::findBySlug($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
         return $this->viewMake('pages.edit', array('page' => $page));
@@ -127,7 +127,7 @@ class PageController extends BaseController {
             return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($val->errors());
         }
 
-        $page = PageProvider::findBySlug($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
         $checkupdate = $this->checkUpdate($input, $slug);
@@ -149,7 +149,7 @@ class PageController extends BaseController {
      * @return Response
      */
     public function destroy($slug) {
-        $page = PageProvider::findBySlug($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
         $checkdelete = $this->checkDelete($slug);

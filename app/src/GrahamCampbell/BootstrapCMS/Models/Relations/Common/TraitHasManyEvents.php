@@ -6,8 +6,14 @@ trait TraitHasManyEvents {
         return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Event');
     }
 
-    public function getEvents($columns = array('*')) {
-        return $this->events()->get($columns);
+    public function getEvents() {
+        $model = 'GrahamCampbell\BootstrapCMS\Models\Event';
+
+        if (property_exists($model, 'order')) {
+            return $this->events()->orderBy($model::$order, $model::$sort)->get($model::$index);
+        }
+
+        return $this->events()->get($model::$index);
     }
 
     public function findEvent($id, $columns = array('*')) {

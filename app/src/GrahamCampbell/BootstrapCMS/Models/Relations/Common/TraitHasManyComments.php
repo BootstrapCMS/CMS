@@ -6,12 +6,14 @@ trait TraitHasManyComments {
         return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Comment');
     }
 
-    public function getComments($columns = array('*')) {
-        return $this->comments()->get($columns);
-    }
+    public function getComments() {
+        $model = 'GrahamCampbell\BootstrapCMS\Models\Comment';
 
-    public function getCommentsReversed($columns = array('*')) {
-        return $this->comments()->orderBy('id', 'desc')->get($columns);
+        if (property_exists($model, 'order')) {
+            return $this->comments()->orderBy($model::$order, $model::$sort)->get($model::$index);
+        }
+
+        return $this->comments()->get($model::$index);
     }
 
     public function findComment($id, $columns = array('*')) {

@@ -82,10 +82,6 @@ abstract class ControllerTestCase extends TestCase {
         return $this->attributes[$this->uid];
     }
 
-    protected function getFind() {
-        return 'findBy'.ucfirst($this->uid);
-    }
-
     protected function getPath($path = null) {
         if (!$path) {
             return str_replace('.', '/', $this->base);

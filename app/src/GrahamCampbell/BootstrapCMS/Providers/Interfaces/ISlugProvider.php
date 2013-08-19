@@ -2,6 +2,6 @@
 
 interface ISlugProvider {
 
-    public function findBySlug($slug, array $columns = array('*'));
+    public function find($slug, array $columns = array('*'));
 
 }

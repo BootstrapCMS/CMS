@@ -1,5 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
+use Event;
+
 use Cartalyst\Sentry\Users\Eloquent\User as SentryUser;
 
 class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\INameModel, Relations\Interfaces\IHasManyPages, Relations\Interfaces\IHasManyPosts, Relations\Interfaces\IHasManyEvents, Relations\Interfaces\IHasManyComments {
@@ -8,19 +10,25 @@ class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\IName
 
     protected $table = 'users';
 
+    public static $index = array('id', 'email', 'first_name', 'last_name');
+    public static $paginate = 20;
+
+    public static $order = 'email';
+    public static $sort = 'asc';
+
     public function getEmail() {
         return $this->email;
     }
 
     public static function create(array $input) {
         $return = parent::create($input);
-        \Event::fire('user.created');
+        Event::fire('user.created');
         return $return;
     }
 
     public function update(array $input = array()) {
         $return = parent::update($input);
-        \Event::fire('user.updated');
+        Event::fire('user.updated');
         return $return;
     }
 
@@ -30,7 +38,7 @@ class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\IName
         $this->deleteEvents();
         $this->deleteComments();
         $return = parent::delete();
-        \Event::fire('user.deleted');
+        Event::fire('user.deleted');
         return $return;
     }
 }

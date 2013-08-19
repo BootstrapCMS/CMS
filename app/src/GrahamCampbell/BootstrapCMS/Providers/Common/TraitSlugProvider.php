@@ -2,7 +2,7 @@
 
 trait TraitSlugProvider {
 
-    public function findBySlug($slug, array $columns = array('*')) {
+    public function find($slug, array $columns = array('*')) {
         $model = $this->model;
         return $model::where('slug', '=', $slug)->first($columns);
     }

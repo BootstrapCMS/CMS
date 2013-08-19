@@ -79,10 +79,10 @@ class PostController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $post = PostProvider::findById($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
-        $comments = $post->getCommentsReversed();
+        $comments = $post->getComments();
 
         return $this->viewMake('posts.show', array('post' => $post, 'comments' => $comments));
     }
@@ -94,7 +94,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        $post = PostProvider::findById($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
         return $this->viewMake('posts.edit', array('post' => $post));
@@ -121,7 +121,7 @@ class PostController extends BaseController {
             return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
         }
 
-        $post = PostProvider::findById($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
         $post->update($input);
@@ -137,7 +137,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        $post = PostProvider::findById($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
         $post->delete();

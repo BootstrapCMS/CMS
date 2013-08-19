@@ -72,7 +72,7 @@ class CommentController extends BaseController {
             return Redirect::route('blog.posts.show', array('posts' => $post_id));
         }
 
-        $comment = CommentProvider::findById($id);
+        $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
         $comment->update($input);
@@ -88,7 +88,7 @@ class CommentController extends BaseController {
      * @return Response
      */
     public function destroy($post_id, $id) {
-        $comment = CommentProvider::findById($id);
+        $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
         $comment->delete();

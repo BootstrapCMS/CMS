@@ -127,7 +127,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $user = UserProvider::findById($id);
+        $user = UserProvider::find($id);
         $this->checkUser($user);
 
         return $this->viewMake('users.show', array('user' => $user));
@@ -140,7 +140,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        $user = UserProvider::findById($id);
+        $user = UserProvider::find($id);
         $this->checkUser($user);
 
         $groups = GroupProvider::index();
@@ -172,7 +172,7 @@ class UserController extends BaseController {
             return Redirect::route('users.edit', array('users' => $id))->withInput()->withErrors($val->errors());
         }
 
-        $user = UserProvider::findById($id);
+        $user = UserProvider::find($id);
         $this->checkUser($user);
 
         $user->update($input);
@@ -202,7 +202,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        $user = UserProvider::findById($id);
+        $user = UserProvider::find($id);
         $this->checkUser($user);
 
         $user->delete();

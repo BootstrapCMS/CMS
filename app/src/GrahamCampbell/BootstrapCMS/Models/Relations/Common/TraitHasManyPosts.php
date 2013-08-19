@@ -7,7 +7,12 @@ trait TraitHasManyPosts {
     }
 
     public function getPosts($columns = array('*')) {
-        return $this->posts()->get($columns);
+        $model = 'GrahamCampbell\BootstrapCMS\Models\Post';
+
+        if (property_exists($model, 'order')) {
+            return $this->posts()->orderBy($model::$order, $model::$sort)->get($model::$index);
+        }        
+        return $this->posts()->get($model::$index);
     }
 
     public function findPost($id, $columns = array('*')) {

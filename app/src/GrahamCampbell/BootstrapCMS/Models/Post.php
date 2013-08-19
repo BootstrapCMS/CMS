@@ -1,14 +1,22 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
+use Event;
+
 class Post extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBodyModel, Relations\Interfaces\IHasManyComments, Relations\Interfaces\IBelongsToUser {
 
     use Common\TraitTitleModel, Common\TraitBodyModel, Relations\Common\TraitHasManyComments, Relations\Common\TraitBelongsToUser;
 
     protected $table = 'posts';
 
+    public static $index = array('id', 'title', 'summary');
+    public static $paginate = 10;
+
+    public static $order = 'id';
+    public static $sort = 'desc';
+
     public static $rules = array(
         'title'   => 'required',
-        'summary'    => 'required',
+        'summary' => 'required',
         'body'    => 'required',
         'user_id' => 'required',
     );
@@ -16,7 +24,7 @@ class Post extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBody
     public static $factory = array(
         'id'      => 1,
         'title'   => 'String',
-        'summary'   => 'Summary of a post.',
+        'summary' => 'Summary of a post.',
         'body'    => 'The body of a post.',
         'user_id' => 1,
     );
@@ -27,20 +35,20 @@ class Post extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBody
 
     public static function create(array $input) {
         $return = parent::create($input);
-        \Event::fire('post.created');
+        Event::fire('post.created');
         return $return;
     }
 
     public function update(array $input = array()) {
         $return = parent::update($input);
-        \Event::fire('post.updated');
+        Event::fire('post.updated');
         return $return;
     }
 
     public function delete() {
         $this->deleteComments();
         $return = parent::delete();
-        \Event::fire('post.deleted');
+        Event::fire('post.deleted');
         return $return;
     }
 }

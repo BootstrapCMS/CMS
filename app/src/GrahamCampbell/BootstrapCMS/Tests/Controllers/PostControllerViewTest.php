@@ -14,11 +14,11 @@ class PostControllerViewTest extends ResourcefulViewTestCase {
 
     protected function showMocking() {
         $provider = $this->provider;
-        $provider::shouldReceive($this->getFind())
+        $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
         $this->mock->shouldReceive('getUserName')
             ->once()->andReturn('name');
-        $this->mock->shouldReceive('getCommentsReversed')
+        $this->mock->shouldReceive('getComments')
             ->once()->andReturn(array());
     }
 }

@@ -60,7 +60,7 @@ class EventController extends BaseController {
      */
     public function show($id) {
         $event = null; // temporary
-        // $event = EventProvider::findById($id);
+        // $event = EventProvider::find($id);
         $this->checkEvent($event);
 
         return $this->viewMake('events.show', array('event' => $event));
@@ -74,7 +74,7 @@ class EventController extends BaseController {
      */
     public function edit($id) {
         $event = null; // temporary
-        // $event = EventProvider::findById($id);
+        // $event = EventProvider::find($id);
         $this->checkEvent($event);
 
         return $this->viewMake('events.edit', array('event' => $event));
