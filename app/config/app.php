@@ -204,7 +204,7 @@ return array(
         'GroupProvider'   => 'GrahamCampbell\BootstrapCMS\Facades\GroupProvider',
         'PageProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PageProvider',
         'PostProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PostProvider',
-        'UserProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\userProvider',
+        'UserProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\UserProvider',
         'Navigation'      => 'GrahamCampbell\BootstrapCMS\Facades\Navigation',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
