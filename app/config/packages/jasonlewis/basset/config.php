@@ -72,6 +72,8 @@ return array(
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('markdown.js');
+                $collection->javascript('to-markdown.js');
                 $collection->javascript('bootstrap-markdown.js');
             });
             $directory->apply('JsMin');
