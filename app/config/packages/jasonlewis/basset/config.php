@@ -58,6 +58,7 @@ return array(
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('bootstrap-select.min.js');
                 $collection->javascript('bootstrap-datetimepicker.min.js');
+                $collection->javascript('datetimepicker1.js');
             });
             $directory->apply('JsMin');
         },

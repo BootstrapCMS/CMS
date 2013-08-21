@@ -1,6 +1,11 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use App;
+use Redirect;
+use Session;
+use Validator;
+
+use Binput;
 
 use EventProvider;
 use GrahamCampbell\BootstrapCMS\Models\Event;
@@ -28,10 +33,10 @@ class EventController extends BaseController {
      * @return Response
      */
     public function index() {
-        $events = array(); // temporary
-        //$events = EventProvider::getUpcoming();
+        $events = EventProvider::paginate();
+        $links = EventProvider::links();
 
-        return $this->viewMake('events.index', array('events' => $events));
+        return $this->viewMake('events.index', array('events' => $events, 'links' => $links));
     }
 
     /**
@@ -49,7 +54,25 @@ class EventController extends BaseController {
      * @return Response
      */
     public function store() {
-        return App::abort(500, 'Events Not Available'); // temporary
+        $input = array(
+            'title'    => Binput::get('title'),
+            'location' => Binput::get('location'),
+            'date'     => Binput::get('date'),
+            'body'     => Binput::get('body'),
+            'user_id'  => $this->getUserId(),
+        );
+
+        $rules = Event::$rules;
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('events.create')->withInput()->withErrors($val->errors());
+        }
+
+        $event = EventProvider::create($input);
+
+        Session::flash('success', 'Your event has been created successfully.');
+        return Redirect::route('events.show', array('events' => $event->getId()));
     }
 
     /**
@@ -59,8 +82,7 @@ class EventController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $event = null; // temporary
-        // $event = EventProvider::find($id);
+        $event = EventProvider::find($id);
         $this->checkEvent($event);
 
         return $this->viewMake('events.show', array('event' => $event));
@@ -73,8 +95,7 @@ class EventController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        $event = null; // temporary
-        // $event = EventProvider::find($id);
+        $event = EventProvider::find($id);
         $this->checkEvent($event);
 
         return $this->viewMake('events.edit', array('event' => $event));
@@ -87,7 +108,29 @@ class EventController extends BaseController {
      * @return Response
      */
     public function update($id) {
-       return App::abort(500, 'Events Not Available'); // temporary
+       $input = array(
+            'title'    => Binput::get('title'),
+            'location' => Binput::get('location'),
+            'date'     => Binput::get('date'),
+            'body'     => Binput::get('body'),
+            'user_id'  => $this->getUserId(),
+        );
+
+        $rules = Event::$rules;
+        unset($rules['user_id']);
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('events.edit', array('events' => $id))->withInput()->withErrors($val->errors());
+        }
+
+        $event = EventProvider::find($id);
+        $this->checkEvent($event);
+
+        $event->update($input);
+        
+        Session::flash('success', 'Your event has been updated successfully.');
+        return Redirect::route('events.show', array('events' => $event->getId()));
     }
 
     /**
@@ -97,7 +140,13 @@ class EventController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        return App::abort(500, 'Events Not Available'); // temporary
+        $event = EventProvider::find($id);
+        $this->checkEvent($event);
+
+        $event->delete();
+
+        Session::flash('success', 'Your event has been deleted successfully.');
+        return Redirect::route('events.index');
     }
 
     protected function checkEvent($event) {

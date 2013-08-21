@@ -24,9 +24,30 @@ Events
             </div>
         @endif
     </div>
-<hr>
+</div>
 @stop
 
 @section('content')
+@foreach($events as $event)
+    <h2>{{ $event->getTitle() }}</h2>
+    <p>
+        <strong>{{ $event->getDate()->format('l jS F Y \\- H:i:s') }}</strong>
+    </p>
+    <p>
+        <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="icon-file-text"></i> Show Event</a>
+        @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+             <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->getId())) }}"><i class="icon-edit"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event_{{ $event->getId() }}" data-toggle="modal" data-target="#delete_event_{{ $event->getId() }}"><i class="icon-remove"></i> Delete Event</a>
+        @endif
+    </p>
+    <br>
+@endforeach
+@if (count($events) != 0)
+    {{ $events->links() }}
+@endif
+@stop
 
+@section('messages')
+@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+    @include('events.deletes')
+@endif
 @stop
