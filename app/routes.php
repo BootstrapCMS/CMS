@@ -80,7 +80,7 @@ Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'us
 
 // user routes
 Route::resource('users', 'GrahamCampbell\BootstrapCMS\Controllers\UserController');
-Route::put('users/{users}/suspend', array('as' => 'users.suspend', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\UserController@suspend'));
+Route::post('users/{users}/suspend', array('as' => 'users.suspend', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\UserController@suspend'));
 
 
 // page routes

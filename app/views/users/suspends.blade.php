@@ -8,7 +8,7 @@
             <p>Are you sure you want to suspend this user?</p>
         </div>
         <div class="modal-footer">
-            <a class="btn btn-success" href="{{ URL::route('users.suspend', array('users' => $user->getId())) }}" data-token="{{ Session::getToken() }}" data-method="PUT">Yes</a>
+            <a class="btn btn-success" href="{{ URL::route('users.suspend', array('users' => $user->getId())) }}" data-token="{{ Session::getToken() }}" data-method="POST">Yes</a>
             <button class="btn btn-danger" data-dismiss="modal">No</button>
         </div>
     </div>
