@@ -10,7 +10,7 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
 
     protected $table = 'events';
 
-    public static $index = array('id', 'title', 'summary', 'date');
+    public static $index = array('id', 'title', 'date');
     public static $paginate = 10;
 
     public static $order = 'id';
