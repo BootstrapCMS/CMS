@@ -45,7 +45,9 @@ class UserController extends BaseController {
      */
     public function index() {
         $users = UserProvider::paginate();
-        return $this->viewMake('users.index', array('users' => $users));
+        $links = UserProvider::links();
+
+        return $this->viewMake('users.index', array('users' => $users, 'links' => $links));
     }
 
     /**

@@ -50,9 +50,7 @@ Users
         </tbody>
     </table>
 </div>
-@if (count($events) != 0)
-    {{ $users->links() }}
-@endif
+{{ $links }}
 @stop
 
 @section('messages')

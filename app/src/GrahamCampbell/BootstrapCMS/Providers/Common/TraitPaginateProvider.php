@@ -5,13 +5,27 @@ use Cache;
 
 trait TraitPaginateProvider {
 
+    protected $paginatelinks;
+
     public function paginate() {
         $model = $this->model;
 
         if (property_exists($model, 'order')) {
-            return $model::orderBy($model::$order, $model::$sort)->paginate($model::$paginate, $model::$index);
+            $values = $model::orderBy($model::$order, $model::$sort)->paginate($model::$paginate, $model::$index);
+        } else {
+            $values = $model::paginate($model::$paginate, $model::$index);
         }
 
-        return $model::paginate($model::$paginate, $model::$index);
+        if (count($values) != 0) {
+            $this->paginatelinks = $values->links();
+        } else {
+            $this->paginatelinks = '';
+        }
+
+        return $values;
+    }
+
+    public function links() {
+        return $this->paginatelinks;
     }
 }

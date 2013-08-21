@@ -34,7 +34,9 @@ class PostController extends BaseController {
      */
     public function index() {
         $posts = PostProvider::paginate();
-        return $this->viewMake('posts.index', array('posts' => $posts));
+        $links = PostProvider::links();
+
+        return $this->viewMake('posts.index', array('posts' => $posts, 'links' => $links));
     }
 
     /**
@@ -55,7 +57,7 @@ class PostController extends BaseController {
         $input = array(
             'title'   => Binput::get('title'),
             'summary' => Binput::get('summary'),
-            'body'    => Binput::get('body', null, true, false), // no xss protection please
+            'body'    => Binput::get('body'),
             'user_id' => $this->getUserId(),
         );
 
