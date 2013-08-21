@@ -40,6 +40,7 @@ Blog
         @endif
     </p>
     <br>
+@endforeach
 @if (count($posts) != 0)
     {{ $posts->links() }}
 @endif

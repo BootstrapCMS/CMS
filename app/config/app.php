@@ -208,6 +208,7 @@ return array(
         'Navigation'      => 'GrahamCampbell\BootstrapCMS\Facades\Navigation',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
+        'Carbon'          => 'Carbon\Carbon',
 
     ),
 

@@ -2,7 +2,7 @@
 
 use Validator;
 
-use Carbon\Carbon;
+use Carbon;
 use Mockery;
 
 use Navigation;
