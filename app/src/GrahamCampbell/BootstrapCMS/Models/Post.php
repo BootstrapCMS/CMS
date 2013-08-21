@@ -1,6 +1,6 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
-use Event;
+use Event as LaravelEvent;
 
 class Post extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBodyModel, Relations\Interfaces\IHasManyComments, Relations\Interfaces\IBelongsToUser {
 
@@ -35,20 +35,20 @@ class Post extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBody
 
     public static function create(array $input) {
         $return = parent::create($input);
-        Event::fire('post.created');
+        LaravelEvent::fire('post.created');
         return $return;
     }
 
     public function update(array $input = array()) {
         $return = parent::update($input);
-        Event::fire('post.updated');
+        LaravelEvent::fire('post.updated');
         return $return;
     }
 
     public function delete() {
         $this->deleteComments();
         $return = parent::delete();
-        Event::fire('post.deleted');
+        LaravelEvent::fire('post.deleted');
         return $return;
     }
 }

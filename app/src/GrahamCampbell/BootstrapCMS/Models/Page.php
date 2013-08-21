@@ -1,6 +1,6 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
-use Event;
+use Event as LaravelEvent;
 
 class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlugModel, Interfaces\IBodyModel, Relations\Interfaces\IBelongsToUser {
 
@@ -45,19 +45,19 @@ class Page extends BaseModel implements Interfaces\ITitleModel, Interfaces\ISlug
 
     public static function create(array $input) {
         $return = parent::create($input);
-        Event::fire('page.created');
+        LaravelEvent::fire('page.created');
         return $return;
     }
 
     public function update(array $input = array()) {
         $return = parent::update($input);
-        Event::fire('page.updated');
+        LaravelEvent::fire('page.updated');
         return $return;
     }
 
     public function delete() {
         $return = parent::delete();
-        Event::fire('page.deleted');
+        LaravelEvent::fire('page.deleted');
         return $return;
     }
 }

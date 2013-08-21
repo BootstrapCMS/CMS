@@ -1,6 +1,6 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Models;
 
-use Event;
+use Event as LaravelEvent;
 
 use Cartalyst\Sentry\Users\Eloquent\User as SentryUser;
 
@@ -22,13 +22,13 @@ class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\IName
 
     public static function create(array $input) {
         $return = parent::create($input);
-        Event::fire('user.created');
+        LaravelEvent::fire('user.created');
         return $return;
     }
 
     public function update(array $input = array()) {
         $return = parent::update($input);
-        Event::fire('user.updated');
+        LaravelEvent::fire('user.updated');
         return $return;
     }
 
@@ -38,7 +38,7 @@ class User extends SentryUser implements Interfaces\IBaseModel, Interfaces\IName
         $this->deleteEvents();
         $this->deleteComments();
         $return = parent::delete();
-        Event::fire('user.deleted');
+        LaravelEvent::fire('user.deleted');
         return $return;
     }
 }
