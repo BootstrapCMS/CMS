@@ -40,8 +40,9 @@ Blog
         @endif
     </p>
     <br>
-@endforeach
-{{ $posts->links() }}
+@if (count($posts) != 0)
+    {{ $posts->links() }}
+@endif
 @stop
 
 @section('messages')

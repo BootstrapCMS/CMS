@@ -10,7 +10,7 @@ Users
         <div class="span6">
             <p class="lead">Here is a list of all the current users:</p>
         </div>
-        @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+        @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
             <div class="span6">
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{ URL::route('users.create') }}"><i class="icon-user"></i> New User</a>
@@ -50,7 +50,9 @@ Users
         </tbody>
     </table>
 </div>
-{{ $users->links() }}
+@if (count($events) != 0)
+    {{ $users->links() }}
+@endif
 @stop
 
 @section('messages')
