@@ -13,6 +13,7 @@ use Validator;
 use Binput;
 use DateTime;
 use Passwd;
+use Sentry;
 
 use UserProvider;
 use GroupProvider;
@@ -30,6 +31,7 @@ class UserController extends BaseController {
             'show'    => 'mod',
             'edit'    => 'admin',
             'update'  => 'admin',
+            'suspend' => 'mod',
             'destroy' => 'admin',
         ));
 
@@ -42,8 +44,7 @@ class UserController extends BaseController {
      * @return Response
      */
     public function index() {
-        //TODO - use the UserProvider
-        $users = UserProvider::index();
+        $users = UserProvider::paginate();
         return $this->viewMake('users.index', array('users' => $users));
     }
 
@@ -193,6 +194,34 @@ class UserController extends BaseController {
 
         Session::flash('success', 'The user has been updated successfully.');
         return Redirect::route('users.show', array('users' => $user->getId()));
+    }
+
+    /**
+     * Suspend the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function suspend($id) {
+        try {
+            $throttle = Sentry::getThrottleProvider()->findByUserId($id);
+            $throttle->suspend();
+        } catch (\Cartalyst\Sentry\Users\UserNotFoundException $e) {
+            Log::notice($e);
+            return App::abort(404, 'User Not Found');
+        } catch (\Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
+            Log::notice($e);
+            $time = $throttle->getSuspensionTime();
+            Session::flash('error', "This user is already suspended for $time minutes.");
+            return Redirect::route('users.suspend', array('users' => $user->getId()))->withErrors($val)->withInput();
+        } catch (\Cartalyst\Sentry\Throttling\UserBannedException $e) {
+            Log::notice($e);
+            Session::flash('error', 'This user has already been banned.');
+            return Redirect::route('users.suspend', array('users' => $user->getId()))->withErrors($val)->withInput();
+        }
+
+        Session::flash('success', 'The user has been suspended successfully.');
+        return Redirect::route('users.show', array('users' => $id));
     }
 
     /**
