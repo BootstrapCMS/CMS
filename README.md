@@ -62,14 +62,48 @@ Please check the system requirements before installing Bootstrap CMS.
   * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
   * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist`
 2. From a command line open in the folder, run `composer install`.  
-3. Navigate to `app/config`, and adjust the config accordingly.  
-  * If you don't want Boostrap CMS to send emails, you can disable that in cms.php
-  * If you don't have a cache server like [Redis](http://redis.io), disable caching in cms.php
-  * If you don't have a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd), set queue.php to use "sync"
+3. Enter your database details into `app/config/databse.php`.  
 4. You can run `php artisan app:install` to setup and seed your database.  
   * Make sure you setup your database config in database.php. 
 5. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
+6. Additionally, you may to setup queuing and/or caching (see below).  
+
+
+## Getting Queuing Working
+
+Note that `beanstalkd` requires a local queuing server and `sqs` and `iron` are remote.  
+
+1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).  
+2. Enter your queuing server details into `app/config/queue.php`.  
+3. You can also set a separate mail queue in `app/config/mail.php`.  
+
+
+## Getting Caching Working
+
+Note that caching will not work with Laravel's `file` or `database` cache drivers.  
+
+1. Choose your poison - I'd recommend [Redis](http://redis.io).  
+2. Enter your cache server details into `app/config/cache.php`.  
+3. Enable Bootstrap CMS's caching in `app/config/cms.php`.  
+
+
+## Getting Google Analytics Working
+
+Bootstrap CMS natively supports Google Analytics.  
+
+1. Setup a web property on Google Anaytics.  
+2. Enter your tracking id into `app/config/analytics.php`.  
+3. Enable Google Analytics in `app/config/analytics.php`.  
+
+
+## Getting Themes Working
+
+Bootstrap CMS also ships with 13 themes from Bootswatch.  
+
+1. You can set your theme in `app/config/theme.php`.  
+2. You can also set your nav bar style in `app/config/theme.php`.  
+3. After making theme changes, you will have to run `php artisan app:update`.  
 
 
 ## Updating Your Fork
