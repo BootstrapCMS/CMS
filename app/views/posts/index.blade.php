@@ -31,7 +31,7 @@ Blog
 @foreach($posts as $post)
     <h2>{{ $post->getTitle() }}</h2>
     <p>
-        {{ $post->getSummary() }}
+        <strong>{{ $post->getSummary() }}</strong>
     </p>
     <p>
         <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a>
