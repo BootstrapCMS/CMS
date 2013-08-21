@@ -13,8 +13,8 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
     public static $index = array('id', 'title', 'date');
     public static $paginate = 10;
 
-    public static $order = 'id';
-    public static $sort = 'desc';
+    public static $order = 'date';
+    public static $sort = 'asc';
 
     public static $rules = array(
         'title'    => 'required',
