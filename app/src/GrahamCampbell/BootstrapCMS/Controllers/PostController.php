@@ -33,7 +33,7 @@ class PostController extends BaseController {
      * @return Response
      */
     public function index() {
-        $posts = PostProvider::index();
+        $posts = PostProvider::paginate();
         return $this->viewMake('posts.index', array('posts' => $posts));
     }
 
