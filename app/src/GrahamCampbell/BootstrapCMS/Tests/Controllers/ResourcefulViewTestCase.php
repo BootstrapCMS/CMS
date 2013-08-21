@@ -14,7 +14,9 @@ abstract class ResourcefulViewTestCase extends ControllerTestCase {
     }
 
     protected function indexMocking() {
-        //
+        $provider = $this->provider;
+        $provider::shouldReceive('paginate')
+            ->with($this->getUid())->once()->andReturn(array($this->mock));
     }
 
     protected function indexCall() {

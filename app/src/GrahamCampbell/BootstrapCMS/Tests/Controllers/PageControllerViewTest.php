@@ -8,8 +8,11 @@ class PageControllerViewTest extends ResourcefulViewTestCase {
         // overwritten to cancel it
     }
 
+    protected function indexMocking() {
+        // overwritten to cancel it
+    }
+
     protected function indexAssertions() {
         $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram('home'));
     }
-
 }
