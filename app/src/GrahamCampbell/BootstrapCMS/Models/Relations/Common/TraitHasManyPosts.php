@@ -6,7 +6,7 @@ trait TraitHasManyPosts {
         return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Post');
     }
 
-    public function getPosts($columns = array('*')) {
+    public function getPosts() {
         $model = 'GrahamCampbell\BootstrapCMS\Models\Post';
 
         if (property_exists($model, 'order')) {
