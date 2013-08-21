@@ -72,7 +72,7 @@ Please check the system requirements before installing Bootstrap CMS.
 
 ## Getting Queuing Working
 
-Note that `beanstalkd` requires a local queuing server and `sqs` and `iron` are remote.  
+Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud based.  
 
 1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).  
 2. Enter your queuing server details into `app/config/queue.php`.  
