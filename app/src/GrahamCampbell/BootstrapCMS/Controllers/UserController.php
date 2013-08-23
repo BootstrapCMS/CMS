@@ -268,7 +268,7 @@ class UserController extends BaseController {
         }
 
         Log::info('Password reset successfully', array('Email' => $data['email']));
-        Session::flash('success', 'The user\'s password has been successfully reset.');
+        Session::flash('success', 'The user\'s password has been successfully reset. Their new password has been emailed to them.');
         return Redirect::route('users.show', array('users' => $id));
     }
 
