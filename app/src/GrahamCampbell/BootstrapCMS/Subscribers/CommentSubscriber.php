@@ -9,9 +9,9 @@ class CommentSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('post.created', 'GrahamCampbell\BootstrapCMS\Subscribers\CommentSubscriber@onCommentCreated');
-        $events->listen('post.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\CommentSubscriber@onCommentUpdated');
-        $events->listen('post.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\CommentSubscriber@onCommentDeleted');
+        $events->listen('comment.created', 'GrahamCampbell\BootstrapCMS\Subscribers\CommentSubscriber@onCommentCreated');
+        $events->listen('comment.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\CommentSubscriber@onCommentUpdated');
+        $events->listen('comment.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\CommentSubscriber@onCommentDeleted');
     }
 
     public function onCommentCreated($event) {

@@ -9,9 +9,9 @@ class UserSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('post.created', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserCreated');
-        $events->listen('post.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserUpdated');
-        $events->listen('post.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserDeleted');
+        $events->listen('user.created', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserCreated');
+        $events->listen('user.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserUpdated');
+        $events->listen('user.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserDeleted');
     }
 
     public function onUserCreated($event) {

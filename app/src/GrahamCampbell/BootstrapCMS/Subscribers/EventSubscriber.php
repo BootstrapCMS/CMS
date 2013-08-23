@@ -9,9 +9,9 @@ class EventSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('post.created', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventCreated');
-        $events->listen('post.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventUpdated');
-        $events->listen('post.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventDeleted');
+        $events->listen('event.created', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventCreated');
+        $events->listen('event.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventUpdated');
+        $events->listen('event.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventDeleted');
     }
 
     public function onEventCreated($event) {

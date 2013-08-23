@@ -9,9 +9,9 @@ class GroupSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('post.created', 'GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber@onGroupCreated');
-        $events->listen('post.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber@onGroupUpdated');
-        $events->listen('post.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber@onGroupDeleted');
+        $events->listen('group.created', 'GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber@onGroupCreated');
+        $events->listen('group.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber@onGroupUpdated');
+        $events->listen('group.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber@onGroupDeleted');
     }
 
     public function onGroupCreated($event) {
