@@ -14,8 +14,8 @@ class ExtraUserSubscriber {
         $events->listen('user.loginsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLoginSuccessful');
         $events->listen('user.loginfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLoginFailed');
         $events->listen('user.logout', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLogout');
-        $events->listen('user.registraionsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistraionSuccessful');
-        $events->listen('user.registraionfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistraionFailed');
+        $events->listen('user.registrationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistrationSuccessful');
+        $events->listen('user.registrationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistrationFailed');
         $events->listen('user.activationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserActivationSuccessful');
         $events->listen('user.activationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserActivationFailed');
     }
@@ -41,7 +41,7 @@ class ExtraUserSubscriber {
         Log::info('User logged out', $event);
     }
 
-    public function onUserRegistraionSuccessful($event) {
+    public function onUserRegistrationSuccessful($event) {
         if (!is_array($event)) {
             $event = array($event);
         }
