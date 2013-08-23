@@ -1,7 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Log; // depreciated - use events
-
+use Event;
+use Log;
 use Redirect;
 use Session;
 use URL;
@@ -54,7 +54,7 @@ class LoginController extends BaseController {
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
-            Log::info('Login failed because validation failed', array('Email' => $input['email'], 'Messages' => $val->messages()->all()));
+            Event::fire('user.loginfailed', array('Email' => $input['email'], 'Messages' => $val->messages()->all()));
             return Redirect::route('account.login')->withInput()->withErrors($val);
         }
 
@@ -65,28 +65,33 @@ class LoginController extends BaseController {
             Sentry::authenticate($input, $remember);
         } catch (\Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::notice($e);
+            Event::fire('user.loginfailed', array('Email' => $input['email']));
             Session::flash('error', 'Your details were incorrect.');
             return Redirect::route('account.login')->withErrors($val)->withInput();
         } catch (\Cartalyst\Sentry\Users\WrongPasswordException $e) {
             Log::notice($e);
+            Event::fire('user.loginfailed', array('Email' => $input['email']));
             Session::flash('error', 'Your password was incorrect.');
             return Redirect::route('account.login')->withErrors($val)->withInput();
         } catch (\Cartalyst\Sentry\Users\UserNotActivatedException $e) {
             Log::notice($e);
+            Event::fire('user.loginfailed', array('Email' => $input['email']));
             Session::flash('error', 'You have not yet activated this account.');
             return Redirect::route('account.login')->withErrors($val)->withInput();
         } catch (\Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
             Log::notice($e);
+            Event::fire('user.loginfailed', array('Email' => $input['email']));
             $time = $throttle->getSuspensionTime();
             Session::flash('error', "Your account has been suspended for $time minutes.");
             return Redirect::route('account.login')->withErrors($val)->withInput();
         } catch (\Cartalyst\Sentry\Throttling\UserBannedException $e) {
             Log::notice($e);
+            Event::fire('user.loginfailed', array('Email' => $input['email']));
             Session::flash('error', 'You have been banned. Please contact support.');
             return Redirect::route('account.login')->withErrors($val)->withInput();
         }
 
-        Log::info('Login successful', array('Email' => $input['email']));
+        Event::fire('user.loginsuccessful', array('Email' => $input['email']));
         return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
     }
 
@@ -96,7 +101,7 @@ class LoginController extends BaseController {
      * @return Response
      */
     public function getLogout() {
-        Log::info('User logged out', array('Email' => Sentry::getUser()->email));
+        Event::fire('user.logout', array('Email' => Sentry::getUser()->email));
         Sentry::logout();
         return Redirect::route('pages.show', array('pages' => 'home'));
     }

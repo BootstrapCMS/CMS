@@ -1,6 +1,7 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use App;
+use Event;
 use Redirect;
 use Session;
 use Validator;
@@ -44,6 +45,7 @@ class AccountController extends BaseController {
         $user = Sentry::getUser();
         $this->checkUser($user);
 
+        Event::fire('user.logout', array('Email' => $user->email));
         Sentry::logout();
 
         $user->delete();

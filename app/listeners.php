@@ -34,3 +34,6 @@ Event::subscribe($subscriber);
 
 $subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber;
 Event::subscribe($subscriber);
+
+$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber;
+Event::subscribe($subscriber);

@@ -1,9 +1,9 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Log; // depreciated - use events
-
 use App;
 use Config;
+use Event;
+use Log;
 use Queue;
 use Redirect;
 use Session;
@@ -29,7 +29,6 @@ class RegistrationController extends BaseController {
      */
     public function getRegister() {
         if (!Config::get('cms.regallowed')) {
-            Log::notice('Registration disabled');
             Session::flash('error', 'Registration is currently disabled.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
@@ -44,7 +43,6 @@ class RegistrationController extends BaseController {
      */
     public function postRegister() {
         if (!Config::get('cms.regallowed')) {
-            Log::notice('Registration disabled');
             Session::flash('error', 'Registration is currently disabled.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         }
@@ -67,7 +65,7 @@ class RegistrationController extends BaseController {
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
-            Log::info('Registration failed because validation failed', array('Email' => $input['email'], 'Messages' => $val->messages()->all()));
+            Event::fire('user.registrationfailed', array('Email' => $input['email'], 'Messages' => $val->messages()->all()));
             return Redirect::route('account.register')->withErrors($val)->withInput();
         }
 
@@ -80,7 +78,7 @@ class RegistrationController extends BaseController {
                 $user->attemptActivation($user->GetActivationCode());
                 $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
 
-                Log::info('Registration successful, activation not required', array('Email' => $input['email']));
+                Event::fire('user.registrationsuccessful', array('Email' => $input['email'], 'Activated' => true));
                 Session::flash('success', 'Your account has been created successfully.');
                 return Redirect::route('pages.show', array('pages' => 'home'));
             }
@@ -97,16 +95,18 @@ class RegistrationController extends BaseController {
                 Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
             } catch (\Exception $e) {
                 Log::alert($e);
+                Event::fire('user.registrationfailed', array('Email' => $input['email']));
                 $user->delete();
                 Session::flash('error', 'We were unable to create your account. Please contact support.');
                 return Redirect::route('account.register')->withInput();
             }
 
-            Log::info('Registration successful, activation required', array('Email' => $input['email']));
+            Event::fire('user.registrationsuccessful', array('Email' => $input['email'], 'Activated' => false));
             Session::flash('success', 'Your account has been created. Check your email for the confirmation link.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
             Log::notice($e);
+            Event::fire('user.registrationfailed', array('Email' => $input['email']));
             Session::flash('error', 'User already exists.');
             return Redirect::route('account.register')->withInput()->withErrors($val);
         }
@@ -132,15 +132,17 @@ class RegistrationController extends BaseController {
 
             $user->addGroup(Sentry::getGroupProvider()->findByName('Users'));
 
-            Log::info('Activation successful', array('Email' => $user->email));
+            Event::fire('user.activationsuccessful', array('Email' => $user->email));
             Session::flash('success', 'Your account has been activated successfully. You may now login.');
             return Redirect::route('account.login', array('pages' => 'home'));
         } catch (\Cartalyst\Sentry\Users\UserNotFoundException $e) {
             Log::error($e);
+            Event::fire('user.activationfailed');
             Session::flash('error', 'There was a problem activating this account. Please contact support.');
             return Redirect::route('pages.show', array('pages' => 'home'));
         } catch (\Cartalyst\SEntry\Users\UserAlreadyActivatedException $e) {
             Log::notice($e);
+            Event::fire('user.activationfailed', array('Email' => $user->email));
             Session::flash('warning', 'You have already activated this account. You may want to login.');
             return Redirect::route('account.login', array('pages' => 'home'));
         }

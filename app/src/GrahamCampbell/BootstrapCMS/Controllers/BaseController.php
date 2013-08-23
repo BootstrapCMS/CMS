@@ -1,9 +1,8 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Log; // depreciated - use events
-
 use App;
 use Controller;
+use Log;
 use View;
 
 use Sentry;

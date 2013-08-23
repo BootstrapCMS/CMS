@@ -1,9 +1,8 @@
 <?php namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Log; // depreciated - use events
-
 use App;
 use Config;
+use Log;
 use Queue;
 use Redirect;
 use Session;
