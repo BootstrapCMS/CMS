@@ -227,6 +227,52 @@ class UserController extends BaseController {
     }
 
     /**
+     * Reset the password of the specified resource in storage.
+     *
+     * @return Response
+     */
+    public function reset($id) {
+        $password = Passwd::generate(12,8);
+
+        $input = array(
+            'password' => $password,
+        );
+
+        $rules = array(
+            'password'     => 'required|min:6',
+        );
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('users.show', array('users' => $id))->withErrors($val->errors());
+        }
+
+        $user = UserProvider::find($id);
+        $this->checkUser($user);
+
+        $user->update($input);
+
+        try {
+            $data = array(
+                'view' => 'emails.password',
+                'password' => $password,
+                'email' => $user->getLogin(),
+                'subject' => Config::get('cms.name').' - New Password Information',
+            );
+
+            Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+        } catch (\Exception $e) {
+            Log::alert($e);
+            Session::flash('error', 'We were unable to send the password to the user.');
+            return Redirect::route('users.show', array('users' => $id));
+        }
+
+        Log::info('Password reset successfully', array('Email' => $data['email']));
+        Session::flash('success', 'The user\'s password has been successfully reset.');
+        return Redirect::route('users.show', array('users' => $id));
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

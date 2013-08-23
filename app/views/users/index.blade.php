@@ -42,6 +42,7 @@ Users
                         @endif
                         &nbsp;<a class="btn btn-warning" href="#suspend_user_{{ $user->getId() }}" data-toggle="modal" data-target="#suspend_user_{{ $user->getId() }}"><i class="icon-ban-circle"></i> Suspend</a>
                         @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+                            &nbsp;<a class="btn btn-inverse" href="#reset_user_{{ $user->getId() }}" data-toggle="modal" data-target="#reset_user_{{ $user->getId() }}"><i class="icon-lock"></i> Reset Password</a>
                             &nbsp;<a class="btn btn-danger" href="#delete_user_{{ $user->getId() }}" data-toggle="modal" data-target="#delete_user_{{ $user->getId() }}"><i class="icon-remove"></i> Delete</a>
                         @endif
                     </td>
@@ -56,6 +57,7 @@ Users
 @section('messages')
 @include('users.suspends')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+    @include('users.resets')
     @include('users.deletes')
 @endif
 @stop
