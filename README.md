@@ -15,7 +15,7 @@ Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
-### I'd appriciate it if you'd leave my name in the footer unless you have changed my source significatly. If you do feel you have changed it significantly, i'd still appreciate some kind of link back. Thank you!
+#### I'd appriciate it if you'd leave my name in the footer unless you have changed my source significatly. If you do feel you have changed it significantly, i'd still appreciate some kind of link back. Thank you, and enjoy!
 
 
 ## What Is Bootstrap CMS?
@@ -65,14 +65,19 @@ Please check the system requirements before installing Bootstrap CMS.
   * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist`
 2. From a command line open in the folder, run `composer install`.  
 3. Enter your database details into `app/config/databse.php`.  
-4. You can run `php artisan app:install` to setup and seed your database.  
-  * Make sure you setup your database config in database.php. 
-5. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
+4. Run `php artisan app:install` to setup and seed your database.  
+5. You will need to enter your mail server details into `app/config/mail.php`.  
+  * You can disable verification emails on registration in `app/config/cms.php`
+  * Mail is still required for other functions like password resets
+  * I'd recommend queuing email sending for greater performance (see below)
+6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
-6. Additionally, you may to setup queuing and/or caching (see below).  
+7. Additionally, you may to setup some of Bootstrap CMS's other features (see below).  
+  * Some things, like caching and queuing, are disabled out of the box
+  * This is to allow Bootstrap CMS to work with minimal setup
 
 
-## Getting Queuing Working
+## Setting Up Queuing
 
 Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud based.  
 
@@ -83,7 +88,7 @@ Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud
 5. You can find out more about queuing by heading over to the [Laravel Docs](http://laravel.com/docs/queues).  
 
 
-## Getting Caching Working
+## Setting Up Caching
 
 Note that caching will not work with Laravel's `file` or `database` cache drivers.  
 
@@ -92,16 +97,16 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 3. Enable Bootstrap CMS's caching in `app/config/cms.php`.  
 
 
-## Getting Google Analytics Working
+## Setting Up Analytics
 
-Bootstrap CMS natively supports Google Analytics.  
+Bootstrap CMS natively supports Google Analytics (other services to come later).  
 
 1. Setup a web property on Google Anaytics.  
 2. Enter your tracking id into `app/config/analytics.php`.  
 3. Enable Google Analytics in `app/config/analytics.php`.  
 
 
-## Getting Themes Working
+## Setting Up Themes
 
 Bootstrap CMS also ships with 13 themes from [Bootswatch](http://bootswatch.com/2).  
 
