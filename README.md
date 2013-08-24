@@ -69,11 +69,11 @@ Please check the system requirements before installing Bootstrap CMS.
 5. You will need to enter your mail server details into `app/config/mail.php`.  
   * You can disable verification emails on registration in `app/config/cms.php`
   * Mail is still required for other functions like password resets
-  * I'd recommend queuing email sending for greater performance (see below)
+  * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
 6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
 7. Additionally, you may to setup some of Bootstrap CMS's other features (see below).  
-  * Some things, like caching and queuing, are disabled out of the box
+  * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
 
 
@@ -84,7 +84,7 @@ Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud
 1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).  
 2. Enter your queuing server details into `app/config/queue.php`.  
 3. You can also set a separate mail queue in `app/config/mail.php`.  
-4. For IronMQ, the queue subscription path is `/queue/receive`.  
+4. For [IronMQ](http://www.iron.io/mq), the queue subscription path is `/queue/receive`.  
 5. You can find out more about queuing by heading over to the [Laravel Docs](http://laravel.com/docs/queues).  
 
 
@@ -99,9 +99,9 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 
 ## Setting Up Analytics
 
-Bootstrap CMS natively supports Google Analytics (other services to come later).  
+Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analytics) (other services to come later).  
 
-1. Setup a web property on Google Anaytics.  
+1. Setup a web property on [Google Analytics](http://www.google.com/analytics).  
 2. Enter your tracking id into `app/config/analytics.php`.  
 3. Enable Google Analytics in `app/config/analytics.php`.  
 
