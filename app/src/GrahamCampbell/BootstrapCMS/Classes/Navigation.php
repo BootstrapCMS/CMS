@@ -12,7 +12,7 @@ class Navigation {
      * Get the processed nav var by name.
      *
      * @param  string  $name
-     * @return string
+     * @return array
      */
     public function get($name = 'main') {
         switch ($name) {
@@ -48,7 +48,7 @@ class Navigation {
     /**
      * Get the processed main nav var.
      *
-     * @return string
+     * @return array
      */
     protected function getMain() {
         $raw = $this->goGet('main');
@@ -85,7 +85,7 @@ class Navigation {
     /**
      * Get the processed bar nav var.
      *
-     * @return string
+     * @return array
      */
     protected function getBar() {
         return array(); // TODO
@@ -94,7 +94,7 @@ class Navigation {
     /**
      * Get the processed admin nav var.
      *
-     * @return string
+     * @return array
      */
     protected function getAdmin() {
         // set the admin home route
@@ -108,7 +108,7 @@ class Navigation {
      * Get the raw nav var by name.
      *
      * @param  string  $name
-     * @return string
+     * @return array
      */
     protected function goGet($name) {
         // if caching is enabled
@@ -143,7 +143,7 @@ class Navigation {
      * Get the raw nav var by name by working.
      *
      * @param  string  $name
-     * @return string
+     * @return array
      */
     protected function sendGet($name) {
         switch ($name) {
@@ -161,7 +161,7 @@ class Navigation {
     /**
      * Get the raw main nav var by working.
      *
-     * @return string
+     * @return array
      */
     protected function sendGetMain() {
         return Page::where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
@@ -170,7 +170,7 @@ class Navigation {
     /**
      * Get the raw bar nav var by working.
      *
-     * @return string
+     * @return array
      */
     protected function sendGetBar() {
         // TODO
@@ -191,7 +191,7 @@ class Navigation {
      * Get the raw nav var by name from the cache.
      *
      * @param  string  $name
-     * @return string
+     * @return array
      */
     protected function getCache($name) {
         return Cache::section('nav')->get($name);
@@ -211,10 +211,10 @@ class Navigation {
     /**
      * Flush all nav vars from the cache.
      *
-     * @return string
+     * @return void
      */
     protected function flushCache() {
-        return Cache::section('nav')->flush();
+        Cache::section('nav')->flush();
     }
 
     /**
@@ -250,11 +250,11 @@ class Navigation {
     /**
      * Flush all nav vars from the cache if the cache in enabled.
      *
-     * @return string
+     * @return void
      */
     public function flush() {
         if (Config::get('cms.cache') === true) {
-            return $this->flushCache();
+            $this->flushCache();
         }
     }
 
@@ -266,7 +266,7 @@ class Navigation {
      */
     public function purge($name = 'main') {
         if (Config::get('cms.cache') === true) {
-            return $this->purgeCache($name);
+            $this->purgeCache($name);
         }
     }
 
@@ -279,7 +279,7 @@ class Navigation {
      */
     public function refresh($name = 'main') {
         if (Config::get('cms.cache') === true) {
-            return $this->setCache($name, $this->sendGet($name));
+            $this->setCache($name, $this->sendGet($name));
         }
     }
 }
