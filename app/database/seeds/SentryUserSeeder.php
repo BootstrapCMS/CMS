@@ -4,6 +4,8 @@ class SentryUserSeeder extends Seeder {
 
     /**
      * Run the database seeding.
+     *
+     * @return void
      */
     public function run() {
         DB::table('users')->delete();

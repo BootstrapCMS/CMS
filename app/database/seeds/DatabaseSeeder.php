@@ -4,6 +4,8 @@ class DatabaseSeeder extends Seeder {
 
     /**
      * Run the database seeding.
+     *
+     * @return void
      */
     public function run() {
         Eloquent::unguard();

@@ -4,6 +4,8 @@ class SentryUserGroupSeeder extends Seeder {
 
     /**
      * Run the database seeding.
+     *
+     * @return void
      */
     public function run() {
         DB::table('users_groups')->delete();
@@ -18,6 +20,13 @@ class SentryUserGroupSeeder extends Seeder {
         $this->matchUser('user@dsmg.co.uk', 'Users');
     }
 
+    /**
+     * Add the user by email to a group.
+     *
+     * @param  string  $email
+     * @param  string  $group
+     * @return void
+     */
     protected function matchUser($email, $group) {
         return Sentry::getUserProvider()->findByLogin($email)->addGroup(Sentry::getGroupProvider()->findByName($group));
     }

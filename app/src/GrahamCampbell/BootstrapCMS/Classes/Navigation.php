@@ -8,6 +8,12 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 
 class Navigation {
 
+    /**
+     * Get the processed nav var by name.
+     *
+     * @param  string  $name
+     * @return string
+     */
     public function get($name = 'main') {
         switch ($name) {
             case 'main':
@@ -39,6 +45,11 @@ class Navigation {
         return $nav;
     }
 
+    /**
+     * Get the processed main nav var.
+     *
+     * @return string
+     */
     protected function getMain() {
         $raw = $this->goGet('main');
 
@@ -71,10 +82,20 @@ class Navigation {
         return $nav;
     }
 
+    /**
+     * Get the processed bar nav var.
+     *
+     * @return string
+     */
     protected function getBar() {
         return array(); // TODO
     }
 
+    /**
+     * Get the processed admin nav var.
+     *
+     * @return string
+     */
     protected function getAdmin() {
         // set the admin home route
         $nav = goGet('admin');
@@ -83,6 +104,12 @@ class Navigation {
         return $nav;
     }
 
+    /**
+     * Get the raw nav var by name.
+     *
+     * @param  string  $name
+     * @return string
+     */
     protected function goGet($name) {
         // if caching is enabled
         if (Config::get('cms.cache') === true) {
@@ -112,6 +139,12 @@ class Navigation {
         return $value;
     }
 
+    /**
+     * Get the raw nav var by name by working.
+     *
+     * @param  string  $name
+     * @return string
+     */
     protected function sendGet($name) {
         switch ($name) {
             case 'main':
@@ -125,62 +158,125 @@ class Navigation {
         }
     }
 
+    /**
+     * Get the raw main nav var by working.
+     *
+     * @return string
+     */
     protected function sendGetMain() {
-        // do the work needed to generate the nav bar
         return Page::where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
     }
 
+    /**
+     * Get the raw bar nav var by working.
+     *
+     * @return string
+     */
     protected function sendGetBar() {
         // TODO
         return array();
     }
 
+    /**
+     * Get the raw admin nav var by working.
+     *
+     * @return array
+     */
     protected function sendGetAdmin() {
         // TODO
         return array(array('title' => 'Admin', 'slug' => 'admin', 'icon' => '', 'active' => false));
     }
 
+    /**
+     * Get the raw nav var by name from the cache.
+     *
+     * @param  string  $name
+     * @return string
+     */
     protected function getCache($name) {
-        // pull the nav bar from the cache
         return Cache::section('nav')->get($name);
     }
 
+    /**
+     * Set the raw nav var by name in the cache.
+     *
+     * @param  string  $name
+     * @param  string  $value
+     * @return void
+     */
     protected function setCache($name, $value) {
-        // cache the nav bar until another event resets it
-        return Cache::section('nav')->forever($name, $value);
+        Cache::section('nav')->forever($name, $value);
     }
 
+    /**
+     * Flush all nav vars from the cache.
+     *
+     * @return string
+     */
     protected function flushCache() {
-        // actually purge the entire section
         return Cache::section('nav')->flush();
     }
 
+    /**
+     * Purge the nav var by name in the cache.
+     *
+     * @param  string  $name
+     * @return void
+     */
     protected function purgeCache($name) {
-        // actually purge the nav bar cache
-        return Cache::section('nav')->forget($name);
+        Cache::section('nav')->forget($name);
     }
 
+    /**
+     * Check of the nav var by name is cached and is current.
+     *
+     * @param  string  $name
+     * @return boolean
+     */
     protected function validCache($name) {
-        // check if the cache needs regenerating
         return Cache::section('nav')->has($name);
     }
 
+    /**
+     * Check of the nav var by name is not corrupt.
+     *
+     * @param  string  $value
+     * @return boolean
+     */
     protected function validValue($value) {
         return (is_null($value) || !is_array($value));
     }
 
+    /**
+     * Flush all nav vars from the cache if the cache in enabled.
+     *
+     * @return string
+     */
     public function flush() {
         if (Config::get('cms.cache') === true) {
             return $this->flushCache();
         }
     }
 
+    /**
+     * Purge the nav var by name in the cache if the cache in enabled.
+     *
+     * @param  string  $name
+     * @return void
+     */
     public function purge($name = 'main') {
         if (Config::get('cms.cache') === true) {
             return $this->purgeCache($name);
         }
     }
 
+    /**
+     * Refresh the raw nav var by name in the cache if the cache in enabled.
+     *
+     * @param  string  $name
+     * @param  string  $value
+     * @return void
+     */
     public function refresh($name = 'main') {
         if (Config::get('cms.cache') === true) {
             return $this->setCache($name, $this->sendGet($name));

@@ -4,6 +4,8 @@ class CommentsTableSeeder extends Seeder {
 
     /**
      * Run the database seeding.
+     *
+     * @return void
      */
     public function run() {
         DB::table('comments')->delete();
