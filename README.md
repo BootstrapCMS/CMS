@@ -15,6 +15,8 @@ Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
+### I'd appriciate it if you'd leave my name in the footer unless you have changed my source significatly. If you do feel you have changed it significantly, i'd still appreciate some kind of link back. Thank you!
+
 
 ## What Is Bootstrap CMS?
 
@@ -77,6 +79,8 @@ Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud
 1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).  
 2. Enter your queuing server details into `app/config/queue.php`.  
 3. You can also set a separate mail queue in `app/config/mail.php`.  
+4. For IronMQ, the queue subscription path is `/queue/receive`.  
+5. You can find out more about queuing by heading over to the [Laravel Docs](http://laravel.com/docs/queues).  
 
 
 ## Getting Caching Working
@@ -99,7 +103,7 @@ Bootstrap CMS natively supports Google Analytics.
 
 ## Getting Themes Working
 
-Bootstrap CMS also ships with 13 themes from Bootswatch.  
+Bootstrap CMS also ships with 13 themes from [Bootswatch](http://bootswatch.com/2).  
 
 1. You can set your theme in `app/config/theme.php`.  
 2. You can also set your nav bar style in `app/config/theme.php`.  
