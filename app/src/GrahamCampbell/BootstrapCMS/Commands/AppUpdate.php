@@ -2,11 +2,24 @@
 
 class AppUpdate extends AppCommand {
 
-    protected $name        = 'app:update';
+    /**
+     * The command name.
+     *
+     * @var string
+     */
+    protected $name = 'app:update';
+
+    /**
+     * The command description.
+     *
+     * @var string
+     */
     protected $description = 'Updates Bootstrap CMS';
 
     /**
-     * Run the command.
+     * Run the commend.
+     *
+     * @return void
      */
     public function fire() {
         $this->runMigrations();

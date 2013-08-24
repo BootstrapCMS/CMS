@@ -2,11 +2,24 @@
 
 class AppReset extends AppCommand {
 
-    protected $name        = 'app:reset';
+    /**
+     * The command name.
+     *
+     * @var string
+     */
+    protected $name = 'app:reset';
+
+    /**
+     * The command description.
+     *
+     * @var string
+     */
     protected $description = 'Resets And Installs Bootstrap CMS';
 
     /**
-     * Run the command.
+     * Run the commend.
+     *
+     * @return void
      */
     public function fire() {
         $this->genAppKey();
