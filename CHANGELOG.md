@@ -14,8 +14,10 @@ CHANGE LOG
 * Allow specifying a separate mail queue
 * Major logging and events improvements
 * Basic CloudFlare api integration
+* Improved commenting
 * Added more tests
 * Minor clean ups
+* Fixed some dodgie permissions
 * Other minor fixes
 
 
