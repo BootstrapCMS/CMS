@@ -8,14 +8,46 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
 
     use Common\TraitTitleModel, Common\TraitBodyModel, Common\TraitDateModel, Common\TraitLocationModel, Relations\Common\TraitBelongsToUser;
 
+    /**
+     * The table the events are stored in.
+     *
+     * @var string
+     */
     protected $table = 'events';
 
+    /**
+     * The columns to select when displaying an index.
+     *
+     * @var array
+     */
     public static $index = array('id', 'title', 'date');
+
+    /**
+     * The max events per page when displaying a paginated index.
+     *
+     * @var int
+     */
     public static $paginate = 10;
 
+    /**
+     * The columns to order by when displaying an index.
+     *
+     * @var string
+     */
     public static $order = 'date';
+
+    /**
+     * The direction to order by when displaying an index.
+     *
+     * @var string
+     */
     public static $sort = 'asc';
 
+    /**
+     * The event validation rules.
+     *
+     * @var array
+     */
     public static $rules = array(
         'title'    => 'required',
         'location' => 'required',
@@ -24,6 +56,11 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
         'user_id'  => 'required',
     );
 
+    /**
+     * The event factory.
+     *
+     * @var array
+     */
     public static $factory = array(
         'id'       => 1,
         'title'    => 'String',
@@ -33,22 +70,46 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
         'user_id'  => 1,
     );
 
+
+    /**
+     * Get the date.
+     *
+     * @return \Carbon\Carbon
+     */
     public function getDate() {
         return new Carbon($this->date);
     }
 
+    /**
+     * Create a new event.
+     *
+     * @param  array  $input
+     * @return \GrahamCampbell\BootstrapCMS\Models\Event
+     */
     public static function create(array $input) {
         $return = parent::create($input);
         LaravelEvent::fire('event.created');
         return $return;
     }
 
+    /**
+     * Update an existing event.
+     *
+     * @param  array  $input
+     * @return \GrahamCampbell\BootstrapCMS\Models\Event
+     */
     public function update(array $input = array()) {
         $return = parent::update($input);
         LaravelEvent::fire('event.updated');
         return $return;
     }
 
+    /**
+     * Delete an existing event.
+     *
+     * @param  array  $input
+     * @return void
+     */
     public function delete() {
         $return = parent::delete();
         LaravelEvent::fire('event.deleted');

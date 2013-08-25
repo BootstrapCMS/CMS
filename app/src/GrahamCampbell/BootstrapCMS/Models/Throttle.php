@@ -6,6 +6,11 @@ class Throttle extends SentryThrottle implements Interfaces\IBaseModel {
 
     use Common\TraitBaseModel;
 
+    /**
+     * The table the throttles are stored in.
+     *
+     * @var string
+     */
     protected $table = 'throttle';
 
 }

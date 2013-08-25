@@ -11,10 +11,39 @@ use Navigation;
 
 abstract class BaseController extends Controller {
 
+    /**
+     * A list of methods protected by user permissions.
+     *
+     * @var array
+     */
     private $users  = array();
+
+    /**
+     * A list of methods protected by edit permissions.
+     *
+     * @var array
+     */
     private $edits  = array();
+
+    /**
+     * A list of methods protected by blog permissions.
+     *
+     * @var array
+     */
     private $blogs  = array();
+
+    /**
+     * A list of methods protected by mod permissions.
+     *
+     * @var array
+     */
     private $mods   = array();
+
+    /**
+     * A list of methods protected by admin permissions.
+     *
+     * @var array
+     */
     private $admins = array();
 
     /**
