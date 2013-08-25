@@ -4,33 +4,91 @@ use Log;
 
 abstract class BaseHandler {
 
+    /**
+     * The handler status.
+     *
+     * @var boolean
+     */
     private $status = true;
+
+    /**
+     * The handler job.
+     *
+     * @var mixed
+     */
+    protected $job;
+
+     /**
+     * The handler data.
+     *
+     * @var array
+     */
+    protected $data;
+
+    /**
+     * Run the job.
+     *
+     * @return void
+     */
+    abstract protected function run();
+
+    /**
+     * Initialisation for the job.
+     *
+     * @return void
+     */
+    protected function init() {}
+
+    /**
+     * Run on construction.
+     *
+     * @return void
+     */
+    protected function before() {}
+
+    /**
+     * Run after a job success.
+     *
+     * @return void
+     */
+    protected function afterSuccess() {}
+
+    /**
+     * Run after a job failure.
+     *
+     * @return void
+     */
+    protected function afterFailure() {}
+
+    /**
+     * Run after a job abortion.
+     *
+     * @return void
+     */
+    protected function afterAbortion() {}
+
+    /**
+     * Constructor. Runs the init method.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->init(); // unprotected against exceptions
+    }
+
+    /**
+     * Get the handler status.
+     *
+     * @return boolean
+     */
     protected function getStatus() {
         return $this->status;
     }
 
-    protected $job;
-    protected $data;
-
-    abstract protected function run();
-
-    protected function init() {}
-    protected function before() {}
-    protected function afterSuccess() {}
-    protected function afterFailure() {}
-    protected function afterAbortion() {}
-
     /**
-     * Constructor.
-     */
-    public function __construct() {
-        // unprotected against exceptions
-        $this->init();
-    }
-
-    /**
-     * Fire method.
-     * Called by Laravel.
+     * Fire method (called by Laravel).
+     *
+     * @return void
      */
     public function fire($job, $data) {
         // log the job start
@@ -65,7 +123,9 @@ abstract class BaseHandler {
     }
 
     /**
-     * Called on success.
+     * Success method (called on success).
+     *
+     * @return void
      */
     protected function success() {
         // set status to completed
@@ -90,7 +150,9 @@ abstract class BaseHandler {
     }
 
     /**
-     * Called on failure.
+     * Failure method (called on failure).
+     *
+     * @return void
      */
     protected function fail($exception = null) {
         // set status to completed
@@ -131,7 +193,9 @@ abstract class BaseHandler {
     }
 
     /**
-     * Called on abortion.
+     * Abortion method (called on abortion).
+     *
+     * @return void
      */
     protected function abort($message = null) {
         // set status to completed
