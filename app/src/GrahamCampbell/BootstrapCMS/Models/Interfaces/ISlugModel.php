@@ -2,6 +2,11 @@
 
 interface ISlugModel {
 
+    /**
+     * Get slug.
+     *
+     * @return string
+     */
     public function getSlug();
 
 }

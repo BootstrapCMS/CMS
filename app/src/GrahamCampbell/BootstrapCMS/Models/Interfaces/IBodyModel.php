@@ -2,6 +2,11 @@
 
 interface IBodyModel {
 
+    /**
+     * Get body.
+     *
+     * @return string
+     */
     public function getBody();
 
 }

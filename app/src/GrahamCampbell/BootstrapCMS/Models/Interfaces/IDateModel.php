@@ -2,6 +2,11 @@
 
 interface IDateModel {
 
+    /**
+     * Get the date.
+     *
+     * @return \Carbon\Carbon
+     */
     public function getDate();
 
 }

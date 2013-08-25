@@ -2,6 +2,11 @@
 
 trait TraitBodyModel {
 
+    /**
+     * Get body.
+     *
+     * @return string
+     */
     public function getBody() {
         return $this->body;
     }

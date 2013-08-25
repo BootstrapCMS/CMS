@@ -2,8 +2,6 @@
 
 use Event as LaravelEvent;
 
-use Carbon;
-
 class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBodyModel, Interfaces\IDateModel, Interfaces\ILocationModel, Relations\Interfaces\IBelongsToUser {
 
     use Common\TraitTitleModel, Common\TraitBodyModel, Common\TraitDateModel, Common\TraitLocationModel, Relations\Common\TraitBelongsToUser;
@@ -69,16 +67,6 @@ class Event extends BaseModel implements Interfaces\ITitleModel, Interfaces\IBod
         'body'     => 'The body of a post.',
         'user_id'  => 1,
     );
-
-
-    /**
-     * Get the date.
-     *
-     * @return \Carbon\Carbon
-     */
-    public function getDate() {
-        return new Carbon($this->date);
-    }
 
     /**
      * Create a new event.

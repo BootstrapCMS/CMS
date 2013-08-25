@@ -2,6 +2,11 @@
 
 interface ITitleModel {
 
+    /**
+     * Get title.
+     *
+     * @return string
+     */
     public function getTitle();
 
 }

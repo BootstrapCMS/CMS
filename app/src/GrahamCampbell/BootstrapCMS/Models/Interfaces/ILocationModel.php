@@ -2,6 +2,11 @@
 
 interface ILocationModel {
 
+    /**
+     * Get location.
+     *
+     * @return string
+     */
     public function getLocation();
 
 }
