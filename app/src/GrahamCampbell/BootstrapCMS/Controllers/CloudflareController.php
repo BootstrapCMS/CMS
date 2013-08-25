@@ -7,7 +7,9 @@ use CloudFlareAPI;
 class CloudflareController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -20,11 +22,10 @@ class CloudflareController extends BaseController {
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getIndex() {
         $stats = CloudFlareAPI::api_stats();
         return $this->viewMake('cloudflare.index', array('stats' => $stats));
     }
-
 }

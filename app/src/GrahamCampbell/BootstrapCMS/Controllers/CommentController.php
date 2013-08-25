@@ -13,7 +13,9 @@ use GrahamCampbell\BootstrapCMS\Models\Comment;
 class CommentController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -26,9 +28,9 @@ class CommentController extends BaseController {
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new comment.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function store($post_id) {
         $input = array(
@@ -52,10 +54,10 @@ class CommentController extends BaseController {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an existing comment.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function update($post_id, $id) {
         $input = array(
@@ -82,10 +84,10 @@ class CommentController extends BaseController {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete an existing comment.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($post_id, $id) {
         $comment = CommentProvider::find($id);
@@ -97,6 +99,11 @@ class CommentController extends BaseController {
         return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
+    /**
+     * Check the comment model.
+     *
+     * @return mixed
+     */
     protected function checkComment($comment) {
         if (!$comment) {
             return App::abort(404, 'Comment Not Found');

@@ -18,9 +18,9 @@ abstract class BaseController extends Controller {
     private $admins = array();
 
     /**
-     * Setup scrf protection.
-     * Setup brute force protection.
-     * Setup access permissions.
+     * Constructor (setup protection and permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->beforeFilter('csrf', array('on' => 'post'));
@@ -36,6 +36,8 @@ abstract class BaseController extends Controller {
 
     /**
      * Setup the layout used by the controller.
+     *
+     * @return void
      */
     protected function setupLayout() {
         if (!is_null($this->layout)) {
@@ -43,6 +45,11 @@ abstract class BaseController extends Controller {
         }
     }
 
+    /**
+     * Make a page view.
+     *
+     * @return \Illuminate\View\View
+     */
     protected function viewMake($view, $data = array()) {
         // append the navigation data to the view data
         $data['nav_pages'] = Navigation::get();
@@ -50,16 +57,34 @@ abstract class BaseController extends Controller {
         return View::make($view, $data);
     }
 
+    /**
+     * Set the permission.
+     *
+     * @pram  string  $action
+     * @pram  string  $permission
+     * @return void
+     */
     protected function setPermission($action, $permission) {
         $this->{$permission.'s'}[] = $action;
     }
 
+    /**
+     * Set the permissions.
+     *
+     * @pram  array  $permissions
+     * @return void
+     */
     protected function setPermissions($permissions) {
         foreach ($permissions as $action => $permission) {
             $this->setPermission($action, $permission);
         }
     }
 
+    /**
+     * Set the user id.
+     *
+     * @return int
+     */
     protected function getUserId() {
         if (Sentry::getUser()) {
             return Sentry::getUser()->getId();
@@ -70,9 +95,8 @@ abstract class BaseController extends Controller {
 
     /**
      * Handle missing methods with a catch all statement.
-     * Used for more useful debugging and logging.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function missingMethod($parameters) {
         Log::notice('Missing method exception occurred in '.get_class($this), array('parameters' => $parameters));

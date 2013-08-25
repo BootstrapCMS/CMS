@@ -9,7 +9,9 @@ use URL;
 class HomeController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -22,16 +24,31 @@ class HomeController extends BaseController {
         parent::__construct();
     }
 
+    /**
+     * Show the hello world page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function showWelcome() {
         Log::notice('Hello World');
         return $this->viewMake('hello');
     }
 
+    /**
+     * Show the test page.
+     *
+     * @return string
+     */
     public function showTest() {
         Log::notice('Test 123');
         return 'Test 123';
     }
 
+    /**
+     * Send a test activation email.
+     *
+     * @return string
+     */
     public function testQueue() {
         $data = array(
             'view'    => 'emails.welcome',
@@ -45,15 +62,31 @@ class HomeController extends BaseController {
         return 'done';
     }
 
+    /**
+     * Queue a task that will fail.
+     *
+     * @return string
+     */
     public function testError() {
         Queue::push('GrahamCampbell\BootstrapCMS\Handlers\TestHandler', array());
         return 'done';
     }
 
+    /**
+     * Add a value to the cache.
+     *
+     * @return string
+     */
     public function addValue($value) {
         Cache::put('cachetest', $value, 10);
+        return 'done';
     }
 
+    /**
+     * Pull a value from the cache.
+     *
+     * @return string
+     */
     public function getValue() {
         return Cache::get('cachetest');
     }

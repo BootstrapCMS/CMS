@@ -13,7 +13,9 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 class PageController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -28,9 +30,9 @@ class PageController extends BaseController {
     }
 
     /**
-     * Display a listing of the resource.
+     * Redirect to the homepage.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index() {
         Session::flash('', ''); // work around laravel bug if there is no session yet
@@ -39,18 +41,18 @@ class PageController extends BaseController {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new page.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create() {
         return $this->viewMake('pages.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new page.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function store() {
         $input = array(
@@ -78,10 +80,10 @@ class PageController extends BaseController {
     }
 
     /**
-     * Display the specified resource.
+     * Show the specified page.
      *
      * @param  string  $slug
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function show($slug) {
         $page = PageProvider::find($slug);
@@ -91,10 +93,10 @@ class PageController extends BaseController {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified page.
      *
      * @param  string  $slug
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function edit($slug) {
         $page = PageProvider::find($slug);
@@ -104,10 +106,10 @@ class PageController extends BaseController {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an existing page.
      *
      * @param  string  $slug
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function update($slug) {
         $input = array(
@@ -143,10 +145,10 @@ class PageController extends BaseController {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete an existing page.
      *
      * @param  string  $slug
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($slug) {
         $page = PageProvider::find($slug);
@@ -164,6 +166,11 @@ class PageController extends BaseController {
         return Redirect::route('pages.show', array('pages' => 'home'));
     }
 
+    /**
+     * Check the page model.
+     *
+     * @return mixed
+     */
     protected function checkPage($page, $slug) {
         if (!$page) {
             if ($slug == 'home') {
@@ -174,6 +181,11 @@ class PageController extends BaseController {
         }
     }
 
+    /**
+     * Check the update input.
+     *
+     * @return mixed
+     */
     protected function checkUpdate($input, $slug) {
         if ($slug == 'home') {
             if ($slug != $input['slug']) {
@@ -188,6 +200,11 @@ class PageController extends BaseController {
         }
     }
 
+    /**
+     * Check the delete input.
+     *
+     * @return mixed
+     */
     protected function checkDelete($slug) {
         if ($slug == 'home') {
             Session::flash('error', 'You cannot delete the homepage.');

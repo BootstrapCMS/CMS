@@ -7,7 +7,7 @@ abstract class TestCase extends LaravelTestCase {
     /**
      * Creates the application.
      *
-     * @return Symfony\Component\HttpKernel\HttpKernelInterface
+     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
      */
     public function createApplication() {
         $unitTesting = true;

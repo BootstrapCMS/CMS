@@ -13,7 +13,9 @@ use GrahamCampbell\BootstrapCMS\Models\Event;
 class EventController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -28,9 +30,9 @@ class EventController extends BaseController {
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the events.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index() {
         $events = EventProvider::paginate();
@@ -40,18 +42,18 @@ class EventController extends BaseController {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new event.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create() {
         return $this->viewMake('events.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new event.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function store() {
         $input = array(
@@ -76,10 +78,10 @@ class EventController extends BaseController {
     }
 
     /**
-     * Display the specified resource.
+     * Show the specified event.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function show($id) {
         $event = EventProvider::find($id);
@@ -89,10 +91,10 @@ class EventController extends BaseController {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified event.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function edit($id) {
         $event = EventProvider::find($id);
@@ -102,10 +104,10 @@ class EventController extends BaseController {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an existing event.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function update($id) {
        $input = array(
@@ -134,10 +136,10 @@ class EventController extends BaseController {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete an existing event.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
         $event = EventProvider::find($id);
@@ -149,6 +151,11 @@ class EventController extends BaseController {
         return Redirect::route('events.index');
     }
 
+    /**
+     * Check the comment model.
+     *
+     * @return mixed
+     */
     protected function checkEvent($event) {
         if (!$event) {
             return App::abort(404, 'Event Not Found');

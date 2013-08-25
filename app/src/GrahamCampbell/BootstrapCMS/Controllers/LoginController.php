@@ -15,7 +15,9 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 class LoginController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -26,18 +28,18 @@ class LoginController extends BaseController {
     }
 
     /**
-     * Display the login page.
+     * Display the login form.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getLogin() {
         return $this->viewMake('account.login');
     }
 
     /**
-     * Try to log the user in.
+     * Attempt to login the specified user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function postLogin() {
         $remember = Binput::get('rememberMe');
@@ -96,9 +98,9 @@ class LoginController extends BaseController {
     }
 
     /**
-     * Log the user out.
+     * Logout the specified user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getLogout() {
         Event::fire('user.logout', array('Email' => Sentry::getUser()->email));

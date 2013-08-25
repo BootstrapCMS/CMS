@@ -16,16 +16,18 @@ use Sentry;
 class RegistrationController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         parent::__construct();
     }
 
     /**
-     * Display the registration page.
+     * Display the registration form.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getRegister() {
         if (!Config::get('cms.regallowed')) {
@@ -37,9 +39,9 @@ class RegistrationController extends BaseController {
     }
 
     /**
-     * Try to register the user.
+     * Attempt to register a new user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function postRegister() {
         if (!Config::get('cms.regallowed')) {
@@ -113,9 +115,9 @@ class RegistrationController extends BaseController {
     }
 
     /**
-     * Activate the user.
+     * Activate an existing user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getActivate($id = null, $code = null) {
         if ($id === null || $code === null) {

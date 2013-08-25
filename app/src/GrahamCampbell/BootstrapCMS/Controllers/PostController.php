@@ -13,7 +13,9 @@ use GrahamCampbell\BootstrapCMS\Models\Post;
 class PostController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -28,9 +30,9 @@ class PostController extends BaseController {
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the posts.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index() {
         $posts = PostProvider::paginate();
@@ -40,18 +42,18 @@ class PostController extends BaseController {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new post.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create() {
         return $this->viewMake('posts.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new post.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function store() {
         $input = array(
@@ -75,10 +77,10 @@ class PostController extends BaseController {
     }
 
     /**
-     * Display the specified resource.
+     * Show the specified post.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function show($id) {
         $post = PostProvider::find($id);
@@ -90,10 +92,10 @@ class PostController extends BaseController {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified post.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function edit($id) {
         $post = PostProvider::find($id);
@@ -103,10 +105,10 @@ class PostController extends BaseController {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an existing post.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function update($id) {
         $input = array(
@@ -133,10 +135,10 @@ class PostController extends BaseController {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete an existing post.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
         $post = PostProvider::find($id);
@@ -148,6 +150,11 @@ class PostController extends BaseController {
         return Redirect::route('blog.posts.index');
     }
 
+    /**
+     * Check the post model.
+     *
+     * @return mixed
+     */
     protected function checkPost($post) {
         if (!$post) {
             return App::abort(404, 'Post Not Found');

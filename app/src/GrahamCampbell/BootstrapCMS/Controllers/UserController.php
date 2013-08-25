@@ -20,7 +20,9 @@ use GroupProvider;
 class UserController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -38,9 +40,9 @@ class UserController extends BaseController {
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the users.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index() {
         $users = UserProvider::paginate();
@@ -50,9 +52,9 @@ class UserController extends BaseController {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create() {
         $groups = GroupProvider::index();
@@ -61,9 +63,9 @@ class UserController extends BaseController {
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function store() {
         $password = Passwd::generate(12,8);
@@ -123,10 +125,10 @@ class UserController extends BaseController {
     }
 
     /**
-     * Display the specified resource.
+     * Show the specified user.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function show($id) {
         $user = UserProvider::find($id);
@@ -136,10 +138,10 @@ class UserController extends BaseController {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified user.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function edit($id) {
         $user = UserProvider::find($id);
@@ -151,10 +153,10 @@ class UserController extends BaseController {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an existing user.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function update($id) {
         $input = array(
@@ -198,10 +200,10 @@ class UserController extends BaseController {
     }
 
     /**
-     * Suspend the specified resource in storage.
+     * Suspend an existing user.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function suspend($id) {
         try {
@@ -226,9 +228,9 @@ class UserController extends BaseController {
     }
 
     /**
-     * Reset the password of the specified resource in storage.
+     * Reset the password of an existing user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function reset($id) {
         $password = Passwd::generate(12,8);
@@ -238,7 +240,7 @@ class UserController extends BaseController {
         );
 
         $rules = array(
-            'password'     => 'required|min:6',
+            'password' => 'required|min:6',
         );
 
         $val = Validator::make($input, $rules);
@@ -272,10 +274,10 @@ class UserController extends BaseController {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete an existing user.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
         $user = UserProvider::find($id);
@@ -287,6 +289,11 @@ class UserController extends BaseController {
         return Redirect::route('users.index');
     }
 
+    /**
+     * Check the user model.
+     *
+     * @return mixed
+     */
     protected function checkUser($user) {
         if (!$user) {
             return App::abort(404, 'User Not Found');

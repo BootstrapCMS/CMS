@@ -14,7 +14,9 @@ use GrahamCampbell\BootstrapCMS\Models\Page;
 class AccountController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         $this->setPermissions(array(
@@ -30,7 +32,7 @@ class AccountController extends BaseController {
     /**
      * Display the user's profile.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getProfile() {
         return $this->viewMake('account.profile');
@@ -39,7 +41,7 @@ class AccountController extends BaseController {
     /**
      * Delete the user's profile.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function deleteProfile() {
         $user = Sentry::getUser();
@@ -57,7 +59,7 @@ class AccountController extends BaseController {
     /**
      * Update the user's details.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function patchDetails() {
         $input = array(
@@ -91,7 +93,7 @@ class AccountController extends BaseController {
     /**
      * Update the user's password.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function patchPassword() {
         $input = array(
@@ -120,6 +122,11 @@ class AccountController extends BaseController {
         return Redirect::route('account.profile');
     }
 
+    /**
+     * Check the user model.
+     *
+     * @return mixed
+     */
     protected function checkUser($user) {
         if (!$user) {
             return App::abort(404, 'User Not Found');

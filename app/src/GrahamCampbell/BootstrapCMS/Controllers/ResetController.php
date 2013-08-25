@@ -16,16 +16,18 @@ use Sentry;
 class ResetController extends BaseController {
 
     /**
-     * Setup access permissions.
+     * Constructor (setup access permissions).
+     *
+     * @return void
      */
     public function __construct() {
         parent::__construct();
     }
 
     /**
-     * Display the password reset page.
+     * Display the password reset form.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getReset() {
         return $this->viewMake('account.reset');
@@ -34,7 +36,7 @@ class ResetController extends BaseController {
     /**
      * Queue the sending of the password reset email.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function postReset() {
         $input = array(
@@ -79,9 +81,9 @@ class ResetController extends BaseController {
     }
 
     /**
-     * Reset the user's passowrd.
+     * Reset the user's password.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function getPassword($id = null, $code = null) {
         if ($id === null || $code === null) {
