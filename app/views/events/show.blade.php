@@ -32,7 +32,7 @@
 <div class="well clearfix">
     <div class="span6">
         <p class="lead">
-            Date: {{ $event->getDate()->format('l jS F Y \\- H:i:s') }}
+            Date: {{ $event->getFormattedDate() }}
         </p>
     </div>
     <div class="span5">

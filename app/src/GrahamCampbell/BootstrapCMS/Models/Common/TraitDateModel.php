@@ -10,6 +10,17 @@ trait TraitDateModel {
      * @return \Carbon\Carbon
      */
     public function getDate() {
-        return new Carbon($this->date);
+        $date = new Carbon($this->date);
+        return $date;
+    }
+
+    /**
+     * Get the formatted date.
+     *
+     * @return string
+     */
+    public function getFormattedDate() {
+        $date = new Carbon($this->date);
+        return $date->format('l jS F Y \\- H:i:s');
     }
 }

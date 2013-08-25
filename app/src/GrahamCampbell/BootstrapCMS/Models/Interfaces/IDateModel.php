@@ -9,4 +9,11 @@ interface IDateModel {
      */
     public function getDate();
 
+    /**
+     * Get the formatted date.
+     *
+     * @return string
+     */
+    public function getFormattedDate();
+
 }

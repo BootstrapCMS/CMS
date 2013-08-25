@@ -31,7 +31,7 @@ Events
 @foreach($events as $event)
     <h2>{{ $event->getTitle() }}</h2>
     <p>
-        <strong>{{ $event->getDate()->format('l jS F Y \\- H:i:s') }}</strong>
+        <strong>{{ $event->getFormattedDate() }}</strong>
     </p>
     <p>
         <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="icon-file-text"></i> Show Event</a>
@@ -41,9 +41,7 @@ Events
     </p>
     <br>
 @endforeach
-@if (count($events) != 0)
-    {{ $events->links() }}
-@endif
+{{ $links }}
 @stop
 
 @section('messages')
