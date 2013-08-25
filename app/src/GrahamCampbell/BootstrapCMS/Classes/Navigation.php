@@ -231,7 +231,7 @@ class Navigation {
      * Check of the nav var by name is cached and is current.
      *
      * @param  string  $name
-     * @return boolean
+     * @return bool
      */
     protected function validCache($name) {
         return Cache::section('nav')->has($name);
@@ -241,7 +241,7 @@ class Navigation {
      * Check of the nav var by name is not corrupt.
      *
      * @param  string  $value
-     * @return boolean
+     * @return bool
      */
     protected function validValue($value) {
         return (is_null($value) || !is_array($value));

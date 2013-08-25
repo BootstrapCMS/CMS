@@ -7,7 +7,7 @@ abstract class BaseHandler {
     /**
      * The handler status.
      *
-     * @var boolean
+     * @var bool
      */
     private $status = true;
 
@@ -79,7 +79,7 @@ abstract class BaseHandler {
     /**
      * Get the handler status.
      *
-     * @return boolean
+     * @return bool
      */
     protected function getStatus() {
         return $this->status;
