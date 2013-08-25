@@ -4,6 +4,11 @@ class PageProvider extends BaseProvider implements Interfaces\IPaginateProvider,
 
     use Common\TraitPaginateProvider, Common\TraitSlugProvider;
 
+    /**
+     * The name of the model to provide.
+     *
+     * @var string
+     */
     protected $model = 'GrahamCampbell\BootstrapCMS\Models\Page';
 
 }
