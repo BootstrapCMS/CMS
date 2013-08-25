@@ -44,7 +44,7 @@ CHANGE LOG
 
 
 ## V0.3 Alpha (09/08/2013)
-#### Minor Release
+#### Major Release
 
 * Added native support for Cloudflare proxies
 * Added proper model deletion
