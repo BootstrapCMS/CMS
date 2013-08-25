@@ -7,18 +7,23 @@ CHANGE LOG
 
 * Made it PSR-0 compliant
 * Refactored off the libs to other packages
-* Improved user management
 * Added model providers
 * Added events functionality
-* Added out of the box iron support
+* Added wysiwyg to posts and events
+* Added out of the box IronMQ support
+* Added more tests
+* Added caching
+* Improved models
+* Improved queuing
+* Improved user management
+* Improved commenting
 * Allow specifying a separate mail queue
 * Major logging and events improvements
 * Basic CloudFlare api integration
-* Improved commenting
-* Added more tests
-* Minor clean ups
+* Updated the emails
+* Minor cleanups
 * Fixed some dodgie permissions
-* Other minor fixes
+* Many other minor fixes
 
 
 ## V0.3.1 Alpha (12/08/2013)
