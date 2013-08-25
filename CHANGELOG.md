@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.4 Alpha (Upcoming)
+## V0.4 Alpha (25/08/2013)
 #### Major Release
 
 * Made it PSR-0 compliant
