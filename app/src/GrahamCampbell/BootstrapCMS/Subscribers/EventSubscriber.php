@@ -14,14 +14,32 @@ class EventSubscriber {
         $events->listen('event.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventDeleted');
     }
 
+    /**
+     * Handle an event.created event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onEventCreated($event) {
         //
     }
 
+    /**
+     * Handle an event.updated event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onEventUpdated($event) {
         //
     }
 
+    /**
+     * Handle an event.deleted event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onEventDeleted($event) {
         //
     }

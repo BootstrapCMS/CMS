@@ -14,14 +14,32 @@ class GroupSubscriber {
         $events->listen('group.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\GroupSubscriber@onGroupDeleted');
     }
 
+    /**
+     * Handle a group.created event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onGroupCreated($event) {
         //
     }
 
+    /**
+     * Handle a group.updated event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onGroupUpdated($event) {
         //
     }
 
+    /**
+     * Handle a group.deleted event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onGroupDeleted($event) {
         //
     }

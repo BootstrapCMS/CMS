@@ -14,14 +14,32 @@ class CommentSubscriber {
         $events->listen('comment.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\CommentSubscriber@onCommentDeleted');
     }
 
+    /**
+     * Handle a comment.created event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onCommentCreated($event) {
         //
     }
 
+    /**
+     * Handle a comment.updated event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onCommentUpdated($event) {
         //
     }
 
+    /**
+     * Handle a comment.deleted event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onCommentDeleted($event) {
         //
     }

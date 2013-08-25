@@ -18,6 +18,12 @@ class CoreSubscriber {
         $events->listen('locale.changed', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onLocaleChanged');
     }
 
+    /**
+     * Handle a page.load event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onPageLoad($event) {
         if (Config::get('log.pageload') == true) {
             if (!is_array($event)) {
@@ -27,6 +33,12 @@ class CoreSubscriber {
         }
     }
 
+    /**
+     * Handle an artisan.start event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onArtisanStart($event) {
         if (Config::get('log.artisanstart') == true) {
             if (!is_array($event)) {
@@ -36,6 +48,12 @@ class CoreSubscriber {
         }
     }
 
+    /**
+     * Handle a illuminate.query event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onIlluminateQuery($event) {
         if (Config::get('log.illuminatequery') == true) {
             if (!is_array($event)) {
@@ -45,6 +63,12 @@ class CoreSubscriber {
         }
     }
 
+    /**
+     * Handle a locale.changed event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onLocaleChanged($event) {
         if (Config::get('log.localechanged') == true) {
             if (!is_array($event)) {

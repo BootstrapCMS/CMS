@@ -16,16 +16,34 @@ class PageSubscriber {
         $events->listen('page.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber@onPageDeleted');
     }
 
+    /**
+     * Handle a page.created event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onPageCreated($event) {
         // refresh the navigation cache
         Navigation::refresh();
     }
 
+    /**
+     * Handle a page.updated event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onPageUpdated($event) {
         // refresh the navigation cache
         Navigation::refresh();
     }
 
+    /**
+     * Handle a page.deleted event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
     public function onPageDeleted($event) {
         // refresh the navigation cache
         Navigation::refresh();
