@@ -19,7 +19,7 @@
     <div class="control-group{{ ($errors->has('body')) ? ' error' : '' }}">
         <label class="control-label" for="body">Post Body</label>
         <div class="controls">
-            <textarea name="body" type="text" class="input-xlarge" placeholder="Post Body" rows="8">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
+            <textarea name="body" type="text" class="input-xlarge" data-provide="markdown" placeholder="Post Body" rows="10">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
             {{ ($errors->has('body') ? $errors->first('body') : '') }}
         </div>
     </div>

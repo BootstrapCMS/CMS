@@ -4,6 +4,8 @@ class DatabaseSeeder extends Seeder {
 
     /**
      * Run the database seeding.
+     *
+     * @return void
      */
     public function run() {
         Eloquent::unguard();
@@ -15,5 +17,6 @@ class DatabaseSeeder extends Seeder {
         $this->call('PagesTableSeeder');
         $this->call('PostsTableSeeder');
         $this->call('CommentsTableSeeder');
+        $this->call('EventsTableSeeder');
     }
 }

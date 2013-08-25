@@ -28,10 +28,10 @@ Blog
 @stop
 
 @section('content')
-@foreach($posts as $key => $post)
+@foreach($posts as $post)
     <h2>{{ $post->getTitle() }}</h2>
     <p>
-        {{ $post->getSummary() }}
+        <strong>{{ $post->getSummary() }}</strong>
     </p>
     <p>
         <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a>
@@ -39,10 +39,9 @@ Blog
              <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post_{{ $post->getId() }}" data-toggle="modal" data-target="#delete_post_{{ $post->getId() }}"><i class="icon-remove"></i> Delete Post</a>
         @endif
     </p>
-    @if (!$key == count($posts)-1)
     <br>
-@endif
 @endforeach
+{{ $links }}
 @stop
 
 @section('messages')

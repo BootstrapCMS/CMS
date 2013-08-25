@@ -13,7 +13,15 @@
         "php": ">=5.4.7",
         "laravel/framework": "4.0.*",
         "pda/pheanstalk": "2.1.*",
+        "aws/aws-sdk-php": "2.4.*",
+        "iron-io/iron_mq": "1.4.*",
         "cartalyst/sentry": "2.0.*",
+        "graham-campbell/security": "dev-master",
+        "graham-campbell/binput": "dev-master",
+        "graham-campbell/passwd": "dev-master",
+        "graham-campbell/htmlmin": "dev-master",
+        "graham-campbell/core-api": "dev-master",
+        "graham-campbell/cloudflare-api": "dev-master",
         "vtalbot/markdown": "1.4.*",
         "kmd/logviewer": "dev-master",
         "fideloper/proxy": "dev-master",
@@ -23,22 +31,17 @@
         "way/generators": "dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*",
         "mockery/mockery": "dev-master",
-        "way/laravel-test-helpers": "dev-master"
+        "phpunit/phpunit": "dev-master"
     },
     "autoload": {
         "classmap": [
-            "app/libraries",
-            "app/relations",
-            "app/models",
-            "app/controllers",
-            "app/handlers",
-            "app/commands",
             "app/database/migrations",
-            "app/database/seeds",
-            "app/tests"
-        ]
+            "app/database/seeds"
+        ],
+        "psr-0": {
+            "GrahamCampbell\\BootstrapCMS": "app/src/"
+        }
     },
     "scripts": {
         "post-install-cmd": [
@@ -53,11 +56,6 @@
         "post-create-project-cmd": [
             "php artisan key:generate"
         ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.3.x-dev"
-        }
     },
     "config": {
         "preferred-install": "dist"

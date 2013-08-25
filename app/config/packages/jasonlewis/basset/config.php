@@ -33,7 +33,6 @@ return array(
                 $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
                 $collection->stylesheet('bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
-                $collection->stylesheet('bootstrap-select.min.css');
                 $collection->stylesheet('main.css')->apply('CssMin');
             });
             $directory->apply('UriRewriteFilter');
@@ -43,8 +42,23 @@ return array(
                 $collection->javascript('respond.min.js');
                 $collection->javascript('bootstrap.min.js');
                 $collection->javascript('restfulizer.js');
-                $collection->javascript('bootstrap-select.min.js');
                 $collection->javascript('main.js');
+            });
+            $directory->apply('JsMin');
+        },
+
+        'select' => function($collection) {
+            $directory = $collection->directory('css', function($collection) {
+                $collection->stylesheet('bootstrap-select.min.css');
+                $collection->stylesheet('bootstrap-datetimepicker.min.css');
+            });
+            $directory->apply('CssMin');
+            $directory->apply('UriRewriteFilter');
+
+            $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('bootstrap-select.min.js');
+                $collection->javascript('bootstrap-datetimepicker.min.js');
+                $collection->javascript('datetimepicker1.js');
             });
             $directory->apply('JsMin');
         },
@@ -72,6 +86,8 @@ return array(
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('markdown.js');
+                $collection->javascript('to-markdown.js');
                 $collection->javascript('bootstrap-markdown.js');
             });
             $directory->apply('JsMin');

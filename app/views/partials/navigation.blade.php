@@ -6,29 +6,9 @@
             <div class="nav-collapse collapse">
 
                 <ul class="nav">
-                    <li{{ ((Request::is('pages/'.$nav_pages[0]['slug']) || Request::is('pages/'.$nav_pages[0]['slug'].'/edit')) ? ' class="active"' : '') }}>
-                        <a href="{{ URL::route('pages.show', array('pages' => $nav_pages[0]['slug'])) }}">
-                            {{ ((!$nav_pages[0]['icon'] == '') ? '<i class="'.$nav_pages[0]['icon'].' icon-white"></i> ' : '') }}{{ $nav_pages[0]['title'] }}
-                        </a>
-                    </li>
-                    @if (Config::get('cms.blogging'))
-                        <li{{ ((Request::is('blog') || Request::is('blog/*')) ? ' class="active"' : '') }}>
-                            <a href="{{ URL::route('blog.posts.index') }}">
-                                <i class="icon-book"></i> Blog
-                            </a>
-                        </li>
-                    @endif
-                    @if (Config::get('cms.events'))
-                        <li{{ ((Request::is('events') || Request::is('events/*')) ? ' class="active"' : '') }}>
-                            <a href="{{ URL::route('events.index') }}">
-                                <i class="icon-calendar"></i> Events
-                            </a>
-                        </li>
-                    @endif
-                    <?php unset($nav_pages[0]); ?>
                     @foreach($nav_pages as $item)
-                        <li{{ ((Request::is('pages/'.$item['slug']) || Request::is('pages/'.$item['slug'].'/edit')) ? ' class="active"' : '') }}>
-                            <a href="{{ URL::route('pages.show', array('pages' => $item['slug'])) }}">
+                        <li{{ ($item['active'] ? ' class="active"' : '') }}>
+                            <a href="{{ URL::to($item['slug']) }}">
                                 {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
                             </a>
                         </li>
@@ -51,6 +31,13 @@
                                     <li>
                                         <a href="{{ URL::to('logviewer') }}">
                                             <i class="icon-wrench"></i> View Logs
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Sentry::getUser()->hasAccess('admin'))
+                                    <li>
+                                        <a href="{{ URL::to('cloudflare') }}">
+                                            <i class="icon-cloud"></i> Cloudflare
                                         </a>
                                     </li>
                                 @endif

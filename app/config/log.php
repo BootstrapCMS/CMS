@@ -43,58 +43,6 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Log Eloquent Updating
-    |--------------------------------------------------------------------------
-    |
-    | This defines if eloquent updating events are logged.
-    |
-    | Default to true. 
-    |
-    */
-
-    'eloquentupdating' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Log Eloquent Updated
-    |--------------------------------------------------------------------------
-    |
-    | This defines if eloquent updated events are logged.
-    |
-    | Default to true. 
-    |
-    */
-
-    'eloquentupdated' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Log Eloquent Creating
-    |--------------------------------------------------------------------------
-    |
-    | This defines if eloquent creating events are logged.
-    |
-    | Default to true. 
-    |
-    */
-
-    'eloquentcreating' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Log Eloquent Created
-    |--------------------------------------------------------------------------
-    |
-    | This defines if eloquent created events are logged.
-    |
-    | Default to true. 
-    |
-    */
-
-    'eloquentcreated' => true,
-
-    /*
-    |--------------------------------------------------------------------------
     | Log Locale Changed
     |--------------------------------------------------------------------------
     |
@@ -105,5 +53,31 @@ return array(
     */
 
     'localechanged' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log Eloquent Ing Events
+    |--------------------------------------------------------------------------
+    |
+    | This defines if eloquent ing events are logged.
+    |
+    | Default to false. 
+    |
+    */
+
+    'eloquenting' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log Eloquent Ed Events
+    |--------------------------------------------------------------------------
+    |
+    | This defines if eloquent ed events are logged.
+    |
+    | Default to true. 
+    |
+    */
+
+    'eloquented' => true,
 
 );

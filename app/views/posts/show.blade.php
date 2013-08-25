@@ -92,7 +92,7 @@
                             <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
                         </p>
                         <p>
-                            {{{ $comment->getBody() }}}
+                            {{ nl2br(e($comment->getBody())) }}
                         </p>
                     </div>
                     <div class="span3">

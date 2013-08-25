@@ -2,6 +2,30 @@ CHANGE LOG
 ==========
 
 
+## V0.4 Alpha (25/08/2013)
+#### Major Release
+
+* Made it PSR-0 compliant
+* Refactored off the libs to other packages
+* Added model providers
+* Added events functionality
+* Added wysiwyg to posts and events
+* Added out of the box IronMQ support
+* Added more tests
+* Added caching
+* Improved models
+* Improved queuing
+* Improved user management
+* Improved commenting
+* Allow specifying a separate mail queue
+* Major logging and events improvements
+* Basic CloudFlare api integration
+* Updated the emails
+* Minor cleanups
+* Fixed some dodgie permissions
+* Many other minor fixes
+
+
 ## V0.3.1 Alpha (12/08/2013)
 #### Minor Release
 
@@ -25,7 +49,7 @@ CHANGE LOG
 
 
 ## V0.3 Alpha (09/08/2013)
-#### Minor Release
+#### Major Release
 
 * Added native support for Cloudflare proxies
 * Added proper model deletion

@@ -4,6 +4,8 @@ class SentryGroupSeeder extends Seeder {
 
     /**
      * Run the database seeding.
+     *
+     * @return void
      */
     public function run() {
         DB::table('groups')->delete();

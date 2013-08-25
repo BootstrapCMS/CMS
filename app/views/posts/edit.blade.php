@@ -43,3 +43,11 @@ Edit {{ $post->getTitle() }}
     @include('posts.delete')
 @endif
 @stop
+
+@section('css')
+{{ Basset::show('markdown.css') }}
+@stop
+
+@section('js')
+{{ Basset::show('markdown.js') }}
+@stop

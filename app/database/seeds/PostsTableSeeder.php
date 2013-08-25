@@ -4,6 +4,8 @@ class PostsTableSeeder extends Seeder {
 
     /**
      * Run the database seeding.
+     *
+     * @return void
      */
     public function run() {
         DB::table('posts')->delete();

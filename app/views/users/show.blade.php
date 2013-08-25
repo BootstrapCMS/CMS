@@ -18,7 +18,14 @@
         </div>
         <div class="span6">
             <div class="pull-right">
-                <a class="btn btn-info" href="{{ URL::route('users.edit', array('users' => $user->getId())) }}"><i class="icon-edit"></i> Edit User</a> <a class="btn btn-danger" href="#delete_user" data-toggle="modal" data-target="#delete_user"><i class="icon-remove"></i> Delete User</a>
+                @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+                    &nbsp;<a class="btn btn-info" href="{{ URL::route('users.edit', array('users' => $user->getId())) }}"><i class="icon-edit"></i> Edit User</a>
+                @endif
+                &nbsp;<a class="btn btn-warning" href="#suspend_user" data-toggle="modal" data-target="#suspend_user"><i class="icon-ban-circle"></i> Suspend User</a>
+                @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+                    &nbsp;<a class="btn btn-inverse" href="#reset_user" data-toggle="modal" data-target="#reset_user"><i class="icon-lock"></i> Reset Password</a>
+                    &nbsp;<a class="btn btn-danger" href="#delete_user" data-toggle="modal" data-target="#delete_user"><i class="icon-remove"></i> Delete</a>
+                @endif
             </div>
         </div>
     </div>
@@ -64,7 +71,9 @@
 @stop
 
 @section('messages')
+@include('users.suspend')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+    @include('users.reset')
     @include('users.delete')
 @endif
 @stop
