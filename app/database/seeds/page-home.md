@@ -26,7 +26,7 @@
 
     <div class="span4">
         <h2>More</h2>
-        <p>The back-end leverages queuing and caching to keep it fast and smooth, while the front-end would also not be possible without <a href="http://getbootstrap.com">Bootstrap</a> and <a href"http://jquery.com">jQuery</a>.</p>
+        <p>The back-end leverages queuing and caching to keep it fast and smooth, while the front-end would also not be possible without <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://jquery.com">jQuery</a>.</p>
         <p>
             <a class="btn" href="<?php echo URL::route("pages.show", array("pages" => "about")); ?>">View details &raquo;</a>
         </p>
