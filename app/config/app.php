@@ -125,7 +125,6 @@ return array(
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
         'Kmd\Logviewer\LogviewerServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
 
 
     ),
