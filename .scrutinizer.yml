@@ -1,14 +1,27 @@
 filter:
-    excluded_paths: [app/config,app/config/*]
+    excluded_paths: [app/config,app/config/*,vendor,vendor/*]
+
+before_commands:
+    - "curl -s http://getcomposer.org/installer | php"
+    - "php composer.phar install --dev --prefer-source"
+    - "php artisan basset:build --production"
 
 tools:
+    php_code_coverage:
+        enabled: true
+        filter:
+            excluded_paths: [app/config,app/config/*,vendor,vendor/*]
+    php_cpd:
+        enabled: true
+        excluded_dirs: [app/config,app/config/*,vendor,vendor/*]
+    php_loc:
+        enabled: true
     php_mess_detector:
         enabled: true
         config:
             rulesets: [phpmd.xml]
-    php_cpd:
-        enabled: true
-        excluded_dirs: [,app/config,app/config/*]
+        filter:
+            excluded_paths: [app/config,app/config/*,vendor,vendor/*]
     php_pdepend:
         enabled: true
-        excluded_dirs: [app/config,app/config/*]
+        excluded_dirs: [app/config,app/config/*,vendor,vendor/*]
