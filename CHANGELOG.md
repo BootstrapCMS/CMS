@@ -2,6 +2,15 @@ CHANGE LOG
 ==========
 
 
+## V0.5 Alpha (Upcoming)
+#### Major Release
+
+* Added extendibility
+* Moved events to another package
+* Moved the CloudFlare integration to another package
+* Other minor fixes
+
+
 ## V0.4 Alpha (25/08/2013)
 #### Major Release
 
