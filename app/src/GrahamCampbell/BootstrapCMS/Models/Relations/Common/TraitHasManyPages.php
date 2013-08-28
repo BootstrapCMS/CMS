@@ -17,7 +17,7 @@ trait TraitHasManyPages {
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getPages() {
-        $model = 'GrahamCampbell\BootstrapCMS\Models\Comment';
+        $model = 'GrahamCampbell\BootstrapCMS\Models\Page';
 
         if (property_exists($model, 'order')) {
             return $this->pages()->orderBy($model::$order, $model::$sort)->get($model::$index);
