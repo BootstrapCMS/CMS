@@ -10,32 +10,22 @@ Cloudflare
 @stop
 
 @section('content')
-<?php $traffic = $stats['response']['result']['objs']['0']['trafficBreakdown']; ?>
-<div class="well">
-    <table class="table">
-        <thead>
-            <th>Type</th>
-            <th>Regular</th>
-            <th>Threat</th>
-            <th>Crawler</th>
-            <th>Total</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Page Views</td>
-                <td>{{ $traffic['pageviews']['regular'] }}</td>
-                <td>{{ $traffic['pageviews']['threat'] }}</td>
-                <td>{{ $traffic['pageviews']['crawler'] }}</td>
-                <td>{{ $traffic['pageviews']['regular']+$traffic['pageviews']['threat']+$traffic['pageviews']['crawler'] }}</td>
-            </tr>
-            <tr>
-                <td>Unique Visitors</td>
-                <td>{{ $traffic['uniques']['regular'] }}</td>
-                <td>{{ $traffic['uniques']['threat'] }}</td>
-                <td>{{ $traffic['uniques']['crawler'] }}</td>
-                <td>{{ $traffic['uniques']['regular']+$traffic['uniques']['threat']+$traffic['uniques']['crawler'] }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div id="data">
+    <p class="lead"><i class="icon-refresh"></i> Loading...</p>
 </div>
+@stop
+
+@section('js')
+<script>
+    $(function(){
+        var request = $.get('{{ URL::route('cloudflare.data') }}');
+        request.success(function(result) {
+            $('#data').addClass('well');
+            $('#data').html(data);
+        });
+        request.error(function(jqXHR, textStatus, errorThrown) {
+            $('#data').html('<p class="lead">There was an error getting the data</p>');
+        });
+    });
+</script>
 @stop

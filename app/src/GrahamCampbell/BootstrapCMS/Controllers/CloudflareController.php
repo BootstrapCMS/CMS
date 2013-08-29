@@ -20,12 +20,22 @@ class CloudflareController extends BaseController {
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the index page.
      *
      * @return \Illuminate\Http\Response
      */
     public function getIndex() {
+        return $this->viewMake('cloudflare.index');
+    }
+
+    /**
+     * Display a data.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getData() {
         $stats = CloudFlareAPI::api_stats();
-        return $this->viewMake('cloudflare.index', array('stats' => $stats));
+        $data = $stats['response']['result']['objs']['0']['trafficBreakdown'];
+        return $this->viewMake('cloudflare.data', array('data' => $data));
     }
 }
