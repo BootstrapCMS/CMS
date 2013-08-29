@@ -63,6 +63,9 @@ class Navigation {
                     // then the navigation item is not active or selected
                     $nav[$key]['active'] = false;
                 }
+            } else {
+                // then the navigation item is not active or selected
+                $nav[$key]['active'] = false;
             }
         }
 
