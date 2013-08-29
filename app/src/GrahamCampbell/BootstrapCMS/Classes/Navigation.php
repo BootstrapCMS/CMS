@@ -14,21 +14,21 @@ class Navigation {
      *
      * @var array
      */
-    protected $main;
+    protected $main = array();
 
     /**
      * An extra array of items to be added to the bar nav bar.
      *
      * @var array
      */
-    protected $bar;
+    protected $bar = array();
 
     /**
      * An extra array of items to be added to the admin nav bar.
      *
      * @var array
      */
-    protected $admin;
+    protected $admin = array();
 
     /**
      * Get the processed nav var by name.
@@ -95,8 +95,7 @@ class Navigation {
         $nav[] = $value;
 
         // add the extra items to the nav bar
-        $extra = $this->main;
-        foreach ($extra as $item) {
+        foreach ($this->main as $item) {
             $nav[] = $item;
         }
 
@@ -131,8 +130,7 @@ class Navigation {
         $nav = goGet('bar');
 
         // add the extra items to the nav bar
-        $extra = $this->bar;
-        foreach ($extra as $item) {
+        foreach ($this->bar as $item) {
             $nav[] = $item;
         }
 
@@ -150,8 +148,7 @@ class Navigation {
         $nav = goGet('admin');
 
         // add the extra items to the nav bar
-        $extra = $this->admin;
-        foreach ($extra as $item) {
+        foreach ($this->admin as $item) {
             $nav[] = $item;
         }
 
