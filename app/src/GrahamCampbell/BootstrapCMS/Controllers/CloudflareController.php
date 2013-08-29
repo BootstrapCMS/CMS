@@ -13,7 +13,8 @@ class CloudflareController extends BaseController {
      */
     public function __construct() {
         $this->setPermissions(array(
-            'getIndex'   => 'admin',
+            'getIndex' => 'admin',
+            'getData'  => 'admin',
         ));
 
         parent::__construct();
