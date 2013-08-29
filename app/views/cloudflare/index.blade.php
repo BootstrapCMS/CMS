@@ -21,7 +21,7 @@ Cloudflare
         var request = $.get('{{ URL::route('cloudflare.data') }}');
         request.success(function(result) {
             $('#data').addClass('well');
-            $('#data').html(data);
+            $('#data').html(result);
         });
         request.error(function(jqXHR, textStatus, errorThrown) {
             $('#data').html('<p class="lead">There was an error getting the data</p>');
