@@ -8,7 +8,7 @@
                 <ul class="nav">
                     @foreach($nav_pages as $item)
                         <li{{ ($item['active'] ? ' class="active"' : '') }}>
-                            <a href="{{ URL::to($item['slug']) }}">
+                            <a href="{{ $item['url'] }}">
                                 {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
                             </a>
                         </li>

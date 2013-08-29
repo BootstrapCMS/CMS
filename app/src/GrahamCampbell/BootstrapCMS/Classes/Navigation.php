@@ -3,10 +3,32 @@
 use Cache;
 use Config;
 use Request;
+use URL;
 
 use GrahamCampbell\BootstrapCMS\Models\Page;
 
 class Navigation {
+
+    /**
+     * An extra array of items to be added to the main nav bar.
+     *
+     * @var array
+     */
+    protected $main;
+
+    /**
+     * An extra array of items to be added to the bar nav bar.
+     *
+     * @var array
+     */
+    protected $bar;
+
+    /**
+     * An extra array of items to be added to the admin nav bar.
+     *
+     * @var array
+     */
+    protected $admin;
 
     /**
      * Get the processed nav var by name.
@@ -41,6 +63,17 @@ class Navigation {
             }
         }
 
+        // convert slugs to urls
+        foreach ($nav as $key => $value) {
+            // if the url is not set
+            if ($value['slug'] === 'url') {
+                // set the url based on the slug
+                $nav[$key]['url'] = URL::to($value['slug']);
+            }
+            // remove any remaining slugs
+            unset($nav[$key]['slug']);
+        }
+
         // spit out the nav bar array at the end
         return $nav;
     }
@@ -60,6 +93,11 @@ class Navigation {
         $value['slug'] = 'pages/'.$value['slug'];
         // make sure it is at the very start of the nav bar
         $nav[] = $value;
+
+        // add the extra items to the nav bar
+        foreach ($this->main as $item) {
+            $nav[] = $item;
+        }
 
         // add the blog page after the fist page if blogging is enabled
         if (Config::get('cms.blogging')) {
@@ -88,7 +126,16 @@ class Navigation {
      * @return array
      */
     protected function getBar() {
-        return array(); // TODO
+        // set the bar home route
+        $nav = goGet('bar');
+
+        // add the extra items to the nav bar
+        foreach ($this->bar as $item) {
+            $nav[] = $item;
+        }
+
+        // spit out the nav bar array at the end
+        return $nav;
     }
 
     /**
@@ -99,6 +146,11 @@ class Navigation {
     protected function getAdmin() {
         // set the admin home route
         $nav = goGet('admin');
+
+        // add the extra items to the nav bar
+        foreach ($this->admin as $item) {
+            $nav[] = $item;
+        }
 
         // spit out the nav bar array at the end
         return $nav;
@@ -274,12 +326,64 @@ class Navigation {
      * Refresh the raw nav var by name in the cache if the cache in enabled.
      *
      * @param  string  $name
-     * @param  string  $value
      * @return void
      */
     public function refresh($name = 'main') {
         if (Config::get('cms.cache') === true) {
             $this->setCache($name, $this->sendGet($name));
         }
+    }
+
+    /**
+     * Add an extra item to the nav bar.
+     *
+     * @param  string  $name
+     * @param  array   $item
+     * @return void
+     */
+    public function addItem($name, array $item) {
+        switch ($name) {
+            case 'main':
+                $nav = $this->addMain($item);
+                break;
+            case 'bar':
+                $nav = $this->addBar($item);
+                break;
+            case 'admin':
+                $nav = $this->addAdmin($item);
+                break;
+            default:
+                throw new \InvalidArgumentException($name.' is not a valid item');
+        }
+    }
+
+    /**
+     * Add an extra item to the main nav bar.
+     *
+     * @param  array  $item
+     * @return void
+     */
+    protected function addMain(array $item) {
+        $this->main[] = $item;
+    }
+
+    /**
+     * Add an extra item to the bar nav bar.
+     *
+     * @param  array  $item
+     * @return void
+     */
+    protected function addBar(array $item) {
+        $this->bar[] = $item;
+    }
+
+    /**
+     * Add an extra item to the admin nav bar.
+     *
+     * @param  array  $item
+     * @return void
+     */
+    protected function addAdmin(array $item) {
+        $this->admin[] = $item;
     }
 }
