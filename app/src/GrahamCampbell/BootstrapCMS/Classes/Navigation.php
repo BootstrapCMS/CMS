@@ -66,7 +66,7 @@ class Navigation {
         // convert slugs to urls
         foreach ($nav as $key => $value) {
             // if the url is not set
-            if (!isset($value['slug'])) {
+            if (!isset($value['url'])) {
                 // set the url based on the slug
                 $nav[$key]['url'] = URL::to($value['slug']);
             }
