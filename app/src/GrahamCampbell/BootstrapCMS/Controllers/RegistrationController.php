@@ -30,11 +30,6 @@ class RegistrationController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function getRegister() {
-        if (!Config::get('cms.regallowed')) {
-            Session::flash('error', 'Registration is currently disabled.');
-            return Redirect::route('pages.show', array('pages' => 'home'));
-        }
-
         return $this->viewMake('account.register');
     }
 
@@ -45,8 +40,7 @@ class RegistrationController extends BaseController {
      */
     public function postRegister() {
         if (!Config::get('cms.regallowed')) {
-            Session::flash('error', 'Registration is currently disabled.');
-            return Redirect::route('pages.show', array('pages' => 'home'));
+            return Redirect::route('account.register');
         }
 
         $input = array(
