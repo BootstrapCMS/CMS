@@ -19,8 +19,6 @@
 {{ HTMLMin::render($__env->yieldSection()) }}
 @section('messages')
 {{ HTMLMin::render($__env->yieldSection()) }}
-<br><hr>
-</div>
 {{ HTMLMin::render($__env->make('partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
 </body>
 </html>
