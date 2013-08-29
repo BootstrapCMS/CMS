@@ -66,7 +66,7 @@ class Navigation {
         // convert slugs to urls
         foreach ($nav as $key => $value) {
             // if the url is not set
-            if ($value['slug'] === 'url') {
+            if (!isset($value['slug'])) {
                 // set the url based on the slug
                 $nav[$key]['url'] = URL::to($value['slug']);
             }
@@ -95,7 +95,8 @@ class Navigation {
         $nav[] = $value;
 
         // add the extra items to the nav bar
-        foreach ($this->main as $item) {
+        $extra = $this->main;
+        foreach ($extra as $item) {
             $nav[] = $item;
         }
 
@@ -130,7 +131,8 @@ class Navigation {
         $nav = goGet('bar');
 
         // add the extra items to the nav bar
-        foreach ($this->bar as $item) {
+        $extra = $this->bar;
+        foreach ($extra as $item) {
             $nav[] = $item;
         }
 
@@ -148,7 +150,8 @@ class Navigation {
         $nav = goGet('admin');
 
         // add the extra items to the nav bar
-        foreach ($this->admin as $item) {
+        $extra = $this->admin;
+        foreach ($extra as $item) {
             $nav[] = $item;
         }
 
