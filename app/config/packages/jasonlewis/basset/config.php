@@ -25,13 +25,15 @@ return array(
     | You can overwrite this collection or remove it by publishing the config.
     |
     */
-    
+
     'collections' => array(
 
         'main' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
+                $collection->stylesheet('jasny-bootstrap.min.css');
                 $collection->stylesheet('bootstrap-responsive.min.css');
+                $collection->stylesheet('jasny-bootstrap-responsive.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('main.css')->apply('CssMin');
             });
@@ -41,6 +43,7 @@ return array(
                 $collection->javascript('jquery-1.10.2.min.js');
                 $collection->javascript('respond.min.js');
                 $collection->javascript('bootstrap.min.js');
+                $collection->javascript('jasny-bootstrap.min.js');
                 $collection->javascript('restfulizer.js');
                 $collection->javascript('main.js');
             });
