@@ -53,13 +53,16 @@ class Navigation {
 
         // check if each item is active
         foreach ($nav as $key => $value) {
-            // if the request starts with the slug
-            if (Request::is($value['slug']) || Request::is($value['slug'].'/*')) {
-                // then the navigation item is active, or selected
-                $nav[$key]['active'] = true;
-            } else {
-                // then the navigation item is not active or selected
-                $nav[$key]['active'] = false;
+            // check if it is local
+            if (isset($value['slug'])) {
+                // if the request starts with the slug
+                if (Request::is($value['slug']) || Request::is($value['slug'].'/*')) {
+                    // then the navigation item is active, or selected
+                    $nav[$key]['active'] = true;
+                } else {
+                    // then the navigation item is not active or selected
+                    $nav[$key]['active'] = false;
+                }
             }
         }
 
