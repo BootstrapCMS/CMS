@@ -68,8 +68,8 @@ abstract class ControllerTestCase extends TestCase {
     protected function setAsPage() {
         Navigation::shouldReceive('get')->once()
             ->andReturn(array(
-                array('slug' => 'pages/home', 'title' => 'Home', 'icon' => 'icon-home', 'active' => true),
-                array('slug' => 'pages/about', 'title' => 'About', 'icon' => 'icon-info-sign', 'active' => false),
+                array('url' => 'http://localhost/pages/home', 'title' => 'Home', 'icon' => 'icon-home', 'active' => true),
+                array('url' => 'http://localhost/pages/about', 'title' => 'About', 'icon' => 'icon-info-sign', 'active' => false),
         ));
     }
 
