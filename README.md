@@ -15,7 +15,7 @@ Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
-#### I'd appriciate it if you'd leave my name in the footer unless you have changed my source significatly. If you do feel you have changed it significantly, i'd still appreciate some kind of link back. Thank you, and enjoy!
+#### I'd appreciate it if you'd leave my name in the footer unless you have changed my source significantly. If you do feel you have changed it significantly, I'd still appreciate some kind of link back. Thank you, and enjoy!
 
 
 ## What Is Bootstrap CMS?
@@ -28,6 +28,7 @@ Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Se
 * Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.  
 * Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), and a [wiki](https://github.com/GrahamCampbell/Bootstrap-CMS/wiki).  
 * Bootstrap CMS is licensed under the GNU AGPLv3, available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md).  
+* Licenses for included components are available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/tree/master/licenses), excluding [Composer](https://getcomposer.org) installed components.  
 
 
 ## What Does Testing Release Mean?
@@ -128,10 +129,19 @@ The first command is only necessary the first time. If you have issues merging, 
 
 You can then update the branch:  
 
-    git pull --rebase upstream master
+    git pull --rebase upstream develop
     git push --force origin <branch_name>
 
 Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git rebase --continue`, and `git push --force origin <branch_name>`.  
+
+
+## Pull Requests
+
+Please submit pull requests against my develop branch.  
+  * I will never accept pull requests into the master branch.  
+  * If you plan to fix a bug, please create a branch called 'fix-', followed by an appropriate name.  
+  * If you plan to add a feature, please create a branch called 'feature-', followed by an appropriate name.  
+  * Please indent with 4 spaces rather than tabs, and make sure your code is commented.
 
 
 ## License
