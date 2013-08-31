@@ -10,9 +10,6 @@ Bootstrap CMS
 [![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
 
 
-Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013  
-
-
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
 #### I'd appreciate it if you'd leave my name in the footer unless you have changed my source significantly. If you do feel you have changed it significantly, I'd still appreciate some kind of link back. Thank you, and enjoy!
@@ -146,11 +143,20 @@ Please submit pull requests against my develop branch.
 
 ## License
 
-Bootstrap CMS - A CMS Powered By Laravel 4  
-Copyright (C) 2013  Graham Campbell  
+GNU AFFERO GENERAL PUBLIC LICENSE
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.  
+Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With Sentry 2.0
+Copyright (C) 2013  Graham Campbell
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.  
-  
-You should have received a copy of the GNU Affero General Public License along with this program.  If not, see http://www.gnu.org/licenses/.  
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
