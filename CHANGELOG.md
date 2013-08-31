@@ -6,6 +6,8 @@ CHANGE LOG
 #### Major Release
 
 * Added extendibility
+* Navigation improvements
+* Moved some stuff to a core package
 * Moved events to another package
 * Moved the CloudFlare integration to another package
 * Other minor fixes
@@ -136,7 +138,7 @@ CHANGE LOG
 * Added a base model
 * Added the db tables for the models
 * Added a simple in-browser cache test
-* Added basic use of apache 
+* Added basic use of apache
 * Updated travis config
 * Some composer tweaks
 * Use unsigned values in the db where possible
