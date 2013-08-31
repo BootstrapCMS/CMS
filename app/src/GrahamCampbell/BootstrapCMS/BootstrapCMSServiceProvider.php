@@ -55,6 +55,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider {
      * @return array
      */
     public function provides() {
-        return array('commentprovider', 'eventprovider', 'pageprovider', 'postprovider', 'navigation');
+        return array('commentprovider', 'eventprovider', 'groupprovider', 'pageprovider', 'postprovider', 'userprovider', 'navigation');
     }
 }
