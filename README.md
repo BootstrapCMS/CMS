@@ -143,7 +143,7 @@ Please submit pull requests against my develop branch.
 
 ## License
 
-GNU AFFERO GENERAL PUBLIC LICENSE
+GNU AFFERO GENERAL PUBLIC LICENSE  
 
 Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With Sentry 2.0  
 Copyright (C) 2013  Graham Campbell  
