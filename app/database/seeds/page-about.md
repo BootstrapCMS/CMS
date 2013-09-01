@@ -1,10 +1,6 @@
-Copyright © [Graham Campbell](https://github.com/GrahamCampbell) 2013  
-
-<br>
-
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
-#### I'd appriciate it if you'd leave my name in the footer unless you have changed my source significatly. If you do feel you have changed it significantly, i'd still appreciate some kind of link back. Thank you, and enjoy!
+#### I'd appreciate it if you'd leave my name in the footer unless you have changed my source significantly. If you do feel you have changed it significantly, I'd still appreciate some kind of link back. Thank you, and enjoy!
 
 <br>
 
@@ -18,6 +14,7 @@ Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Se
 * Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.  
 * Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), and a [wiki](https://github.com/GrahamCampbell/Bootstrap-CMS/wiki).  
 * Bootstrap CMS is licensed under the GNU AGPLv3, available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md).  
+* Licenses for included components are available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/tree/master/licenses), excluding [Composer](https://getcomposer.org) installed components.  
 
 <br>
 
@@ -126,20 +123,39 @@ The first command is only necessary the first time. If you have issues merging, 
 
 You can then update the branch:  
 
-    git pull --rebase upstream master
+    git pull --rebase upstream develop
     git push --force origin <branch_name>
 
 Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git rebase --continue`, and `git push --force origin <branch_name>`.  
 
 <br>
 
+## Pull Requests
+
+Please submit pull requests against my develop branch.  
+  * I will never accept pull requests into the master branch.  
+  * If you plan to fix a bug, please create a branch called `fix-`, followed by an appropriate name.  
+  * If you plan to add a feature, please create a branch called `feature-`, followed by an appropriate name.  
+  * Please indent with 4 spaces rather than tabs, and make sure your code is commented.  
+
+<br>
+
 ## License
 
-Bootstrap CMS - A CMS Powered By Laravel 4  
+GNU AFFERO GENERAL PUBLIC LICENSE  
+
+Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With Sentry 2.0  
 Copyright (C) 2013  Graham Campbell  
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.  
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.  
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.  
-  
-You should have received a copy of the GNU Affero General Public License along with this program.  If not, see http://www.gnu.org/licenses/.  
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.  
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.  
