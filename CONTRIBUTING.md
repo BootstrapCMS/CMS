@@ -19,8 +19,9 @@ Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git r
 
 ## Pull Requests
 
-Please submit pull requests against my develop branch.  
-  * I will never accept pull requests into the master branch.  
-  * If you plan to fix a bug, please create a branch called `fix-`, followed by an appropriate name.  
-  * If you plan to add a feature, please create a branch called `feature-`, followed by an appropriate name.  
-  * Please indent with 4 spaces rather than tabs, and make sure your code is commented.
+Please submit pull requests against the develop branch.  
+
+* Any pull requests made against the master branch will be closed immediately.  
+* If you plan to fix a bug, please create a branch called `fix-`, followed by an appropriate name.  
+* If you plan to add a feature, please create a branch called `feature-`, followed by an appropriate name.  
+* Please indent with 4 spaces rather than tabs, and make sure your code is commented.  
