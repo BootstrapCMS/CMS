@@ -5,7 +5,7 @@ Cloudflare
 @stop
 
 @section('controls')
-<p class="lead">Here is your visitor stats:</p>
+<p class="lead">Here are your visitor statistics from CloudFlare:</p>
 <hr>
 @stop
 
