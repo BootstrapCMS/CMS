@@ -27,7 +27,7 @@ trait HomeControllerSetupTrait {
     // we will set the base url as an empty string so we can request any page
 
     protected $model = 'GrahamCampbell\CMSCore\Models\Page';
-    protected $provider = 'GrahamCampbell\BootstrapCMS\Facades\PageProvider';
+    protected $provider = 'GrahamCampbell\CMSCore\Facades\PageProvider';
     protected $view = 'page';
     protected $name = 'pages';
     protected $base = '';

@@ -23,7 +23,7 @@
 trait PostControllerSetupTrait {
 
     protected $model = 'GrahamCampbell\CMSCore\Models\Post';
-    protected $provider = 'GrahamCampbell\BootstrapCMS\Facades\PostProvider';
+    protected $provider = 'GrahamCampbell\CMSCore\Facades\PostProvider';
     protected $view = 'post';
     protected $name = 'posts';
     protected $base = 'blog.posts';
