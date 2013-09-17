@@ -24,7 +24,7 @@ use Carbon;
 
 trait EventControllerSetupTrait {
 
-    protected $model = 'GrahamCampbell\BootstrapCMS\Models\Event';
+    protected $model = 'GrahamCampbell\CMSCore\Models\Event';
     protected $provider = 'GrahamCampbell\BootstrapCMS\Facades\EventProvider';
     protected $view = 'event';
     protected $name = 'events';

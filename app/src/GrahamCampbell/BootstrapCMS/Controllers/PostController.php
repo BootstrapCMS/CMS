@@ -28,7 +28,7 @@ use Validator;
 use Binput;
 
 use PostProvider;
-use GrahamCampbell\BootstrapCMS\Models\Post;
+use GrahamCampbell\CMSCore\Models\Post;
 
 class PostController extends BaseController {
 

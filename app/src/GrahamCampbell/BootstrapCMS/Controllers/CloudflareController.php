@@ -20,7 +20,7 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
+use GrahamCampbell\CMSCore\Models\Page;
 
 use CloudFlareAPI;
 

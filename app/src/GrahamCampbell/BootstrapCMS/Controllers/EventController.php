@@ -28,7 +28,7 @@ use Validator;
 use Binput;
 
 use EventProvider;
-use GrahamCampbell\BootstrapCMS\Models\Event;
+use GrahamCampbell\CMSCore\Models\Event;
 
 class EventController extends BaseController {
 

@@ -28,7 +28,7 @@ use Validator;
 use Binput;
 
 use CommentProvider;
-use GrahamCampbell\BootstrapCMS\Models\Comment;
+use GrahamCampbell\CMSCore\Models\Comment;
 
 class CommentController extends BaseController {
 

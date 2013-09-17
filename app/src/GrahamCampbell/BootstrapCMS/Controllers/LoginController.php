@@ -30,7 +30,7 @@ use Validator;
 use Binput;
 use Sentry;
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
+use GrahamCampbell\CMSCore\Models\Page;
 
 class LoginController extends BaseController {
 

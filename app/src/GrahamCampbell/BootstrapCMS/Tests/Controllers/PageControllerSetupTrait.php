@@ -22,7 +22,7 @@
 
 trait PageControllerSetupTrait {
 
-    protected $model = 'GrahamCampbell\BootstrapCMS\Models\Page';
+    protected $model = 'GrahamCampbell\CMSCore\Models\Page';
     protected $provider = 'GrahamCampbell\BootstrapCMS\Facades\PageProvider';
     protected $view = 'page';
     protected $name = 'pages';

@@ -29,7 +29,7 @@ use Validator;
 use Sentry;
 use Binput;
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
+use GrahamCampbell\CMSCore\Models\Page;
 
 class AccountController extends BaseController {
 

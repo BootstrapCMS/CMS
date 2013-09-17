@@ -28,7 +28,7 @@ use Validator;
 use Binput;
 
 use PageProvider;
-use GrahamCampbell\BootstrapCMS\Models\Page;
+use GrahamCampbell\CMSCore\Models\Page;
 
 class PageController extends BaseController {
 
