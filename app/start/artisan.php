@@ -31,8 +31,4 @@
 |
 */
 
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppUpdate);
-
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppInstall);
-
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppReset);
+ //
