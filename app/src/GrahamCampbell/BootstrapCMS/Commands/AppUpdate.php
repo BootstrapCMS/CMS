@@ -1,4 +1,4 @@
-<?php
+<?php namespace GrahamCampbell\BootstrapCMS\Commands;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,19 +20,30 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-/*
-|--------------------------------------------------------------------------
-| Register The Artisan Commands
-|--------------------------------------------------------------------------
-|
-| Each available Artisan command must be registered with the console so
-| that it is available to be called. We'll register every command so
-| the console gets access to each of the command object instances.
-|
-*/
+class AppUpdate extends AppCommand {
 
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppUpdate);
+    /**
+     * The command name.
+     *
+     * @var string
+     */
+    protected $name = 'app:update';
 
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppInstall);
+    /**
+     * The command description.
+     *
+     * @var string
+     */
+    protected $description = 'Updates The CMS';
 
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppReset);
+    /**
+     * Run the commend.
+     *
+     * @return void
+     */
+    public function fire() {
+        $this->runMigrations();
+        $this->genAssets();
+        $this->updateCache();
+    }
+}
