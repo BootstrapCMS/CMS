@@ -60,7 +60,7 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function runSeeding() {
-        $this->call('db:seed',  array('class' => 'GrahamCampbell\CMSCore\Seeds\DatabaseSeeder'));
+        $this->call('db:seed',  array('--class' => 'GrahamCampbell\CMSCore\Seeds\DatabaseSeeder'));
         $this->call('db:seed');
     }
 
