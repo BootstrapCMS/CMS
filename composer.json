@@ -13,7 +13,6 @@
         "php": ">=5.4.7",
         "graham-campbell/cms-core": "dev-master",
         "graham-campbell/cloudflare-api": "dev-develop",
-        "vtalbot/markdown": "1.4.*",
         "kmd/logviewer": "dev-master",
         "fideloper/proxy": "dev-master",
         "jasonlewis/basset": "dev-develop",
