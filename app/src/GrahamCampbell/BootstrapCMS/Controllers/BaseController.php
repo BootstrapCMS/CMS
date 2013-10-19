@@ -102,7 +102,13 @@ abstract class BaseController extends Controller {
     protected function viewMake($view, $data = array()) {
         // append the navigation data to the view data
         $data['nav_main'] = Navigation::get('main');
-        $data['nav_bar'] = Navigation::get('bar');
+
+        if (Sentry::check()) {
+            $data['nav_bar'] = Navigation::get('bar');
+        } else {
+            $data['nav_bar'] = array();
+        }
+        
 
         return View::make($view, $data);
     }
