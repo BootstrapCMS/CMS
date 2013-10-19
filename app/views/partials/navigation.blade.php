@@ -19,7 +19,7 @@
 
                 <div id="bar-nav">
                     <ul class="nav pull-right">
-                        @if (empty($nav_bar))
+                        @if (!empty($nav_bar))
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     {{ Sentry::getUser()->email }} <b class="caret"></b>
