@@ -7,7 +7,7 @@
 
                 <div id="main-nav">
                     <ul class="nav">
-                        @foreach($nav_pages as $item)
+                        @foreach($nav_main as $item)
                             <li{{ ($item['active'] ? ' class="active"' : '') }}>
                                 <a href="{{ $item['url'] }}">
                                     {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
@@ -25,7 +25,7 @@
                                     {{ Sentry::getUser()->email }} <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    @foreach($nav_pages as $item)
+                                    @foreach($nav_bar as $item)
                                         <li>
                                             <a href="{{ $item['url'] }}">
                                                 {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].'></i> ' : '') }}{{ $item['title'] }}

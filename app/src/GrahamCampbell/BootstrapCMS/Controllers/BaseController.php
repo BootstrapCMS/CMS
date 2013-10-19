@@ -101,8 +101,9 @@ abstract class BaseController extends Controller {
      */
     protected function viewMake($view, $data = array()) {
         // append the navigation data to the view data
-        $data['nav_pages'] = Navigation::get();
-        //return var_dump($data['nav_pages']);
+        $data['nav_main'] = Navigation::get('main');
+        $data['nav_bar'] = Navigation::get('bar');
+
         return View::make($view, $data);
     }
 
