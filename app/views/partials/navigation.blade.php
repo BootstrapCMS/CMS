@@ -25,64 +25,13 @@
                                     {{ Sentry::getUser()->email }} <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ URL::route('account.profile') }}">
-                                            <i class="icon-cog"></i> View Profile
-                                        </a>
-                                    </li>
-                                    @if (Sentry::getUser()->hasAccess('admin'))
+                                    @foreach($nav_pages as $item)
                                         <li>
-                                            <a href="{{ URL::to('logviewer') }}">
-                                                <i class="icon-wrench"></i> View Logs
+                                            <a href="{{ $item['url'] }}">
+                                                {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].'></i> ' : '') }}{{ $item['title'] }}
                                             </a>
                                         </li>
-                                    @endif
-                                    @if (Sentry::getUser()->hasAccess('admin'))
-                                        <li>
-                                            <a href="{{ URL::to('cloudflare') }}">
-                                                <i class="icon-cloud"></i> Cloudflare
-                                            </a>
-                                        </li>
-                                    @endif
-                                    @if (Sentry::getUser()->hasAccess('mod'))
-                                        <li>
-                                            <a href="{{ URL::route('users.index') }}">
-                                                <i class="icon-user"></i> View Users
-                                            </a>
-                                        </li>
-                                    @endif
-                                    @if (Sentry::getUser()->hasAccess('admin'))
-                                        <li>
-                                            <a href="{{ URL::route('users.create') }}">
-                                                <i class="icon-star"></i> Create User
-                                            </a>
-                                        </li>
-                                    @endif
-                                    @if (Sentry::getUser()->hasAccess('edit'))
-                                        <li>
-                                            <a href="{{ URL::route('pages.create') }}">
-                                                <i class="icon-pencil"></i> Create Page
-                                            </a>
-                                        </li>
-                                    @endif
-                                    @if (Config::get('cms.blogging'))
-                                        @if (Sentry::getUser()->hasAccess('blog'))
-                                            <li>
-                                                <a href="{{ URL::route('blog.posts.create') }}">
-                                                    <i class="icon-book"></i> Create Post
-                                                </a>
-                                            </li>
-                                        @endif
-                                    @endif
-                                    @if (Config::get('cms.events'))
-                                        @if (Sentry::getUser()->hasAccess('edit'))
-                                            <li>
-                                                <a href="{{ URL::route('events.create') }}">
-                                                    <i class="icon-calendar"></i> Create Event
-                                                </a>
-                                            </li>
-                                        @endif
-                                    @endif
+                                    @endforeach
                                     <li>
                                         <a href="#">
                                             <i class="icon-envelope"></i> Contact Support
