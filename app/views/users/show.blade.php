@@ -36,7 +36,7 @@
 @section('content')
 <h3>User Profile</h3>
 <div class="well clearfix">
-    <div class="span7">
+    <div class="span6">
         @if ($user->first_name)
             <p><strong>First Name:</strong> {{ $user->getFirstName() }} </p>
         @endif
@@ -45,9 +45,16 @@
         @endif
         <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
     </div>
-    <div class="span4">
-        <p><em>Account created: {{ $user->getCreatedAt() }}</em></p>
-        <p><em>Last Updated: {{ $user->getUpdatedAt() }}</em></p>
+    <div class="span5">
+        <div class="pull-right">
+            <p><em>Account Created: {{ $user->getCreatedAt()->diffForHumans() }}</em></p>
+            <p><em>Account Updated: {{ $user->getUpdatedAt()->diffForHumans() }}</em></p>
+            @if ($user->getActivatedAt() != 'Not Activated')
+                <p><em>Account Activated: {{ $user->getActivatedAt()->diffForHumans() }}</em></p>
+            @else
+                <p><em>Account Activated: {{ $user->getActivatedAt() }}</em></p>
+            @endif
+        </div>
     </div>
 </div>
 <hr>
