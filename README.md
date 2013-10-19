@@ -61,7 +61,7 @@ Please check the system requirements before installing Bootstrap CMS.
 
 1. You may install by cloning from github, or via composer.  
   * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
-  * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist`
+  * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
 2. From a command line open in the folder, run `composer install`.  
 3. Enter your database details into `app/config/databse.php`.  
 4. Run `php artisan app:install` to setup and seed your database.  
