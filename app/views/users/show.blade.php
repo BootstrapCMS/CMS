@@ -49,7 +49,7 @@
         <div class="pull-right">
             <p><em>Account Created: {{ $user->getCreatedAt()->diffForHumans() }}</em></p>
             <p><em>Account Updated: {{ $user->getUpdatedAt()->diffForHumans() }}</em></p>
-            @if ($user->getActivatedAt() != 'Not Activated')
+            @if ($user->getActivatedAt())
                 <p><em>Account Activated: {{ $user->getActivatedAt()->diffForHumans() }}</em></p>
             @else
                 <p><em>Account Activated: {{ $user->getActivatedAt() }}</em></p>
