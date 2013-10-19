@@ -28,7 +28,7 @@
                                     @foreach($nav_bar as $item)
                                         <li>
                                             <a href="{{ $item['url'] }}">
-                                                {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].'></i> ' : '') }}{{ $item['title'] }}
+                                                {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].'"></i> ' : '') }}{{ $item['title'] }}
                                             </a>
                                         </li>
                                     @endforeach
