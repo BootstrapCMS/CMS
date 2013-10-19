@@ -52,7 +52,7 @@
             @if ($user->getActivatedAt())
                 <p><em>Account Activated: {{ $user->getActivatedAt()->diffForHumans() }}</em></p>
             @else
-                <p><em>Account Activated: {{ $user->getActivatedAt() }}</em></p>
+                <p><em>Account Activated: Not Activated</em></p>
             @endif
         </div>
     </div>
