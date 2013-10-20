@@ -68,7 +68,7 @@ class UserController extends BaseController {
         $users = UserProvider::paginate();
         $links = UserProvider::links();
 
-        return $this->viewMake('users.index', array('users' => $users, 'links' => $links));
+        return $this->viewMake('users.index', array('users' => $users, 'links' => $links), true);
     }
 
     /**
@@ -79,7 +79,7 @@ class UserController extends BaseController {
     public function create() {
         $groups = GroupProvider::index();
 
-        return $this->viewMake('users.create', array('groups' => $groups));
+        return $this->viewMake('users.create', array('groups' => $groups), true);
     }
 
     /**
@@ -154,7 +154,7 @@ class UserController extends BaseController {
         $user = UserProvider::find($id);
         $this->checkUser($user);
 
-        return $this->viewMake('users.show', array('user' => $user));
+        return $this->viewMake('users.show', array('user' => $user), true);
     }
 
     /**
@@ -169,7 +169,7 @@ class UserController extends BaseController {
 
         $groups = GroupProvider::index();
 
-        return $this->viewMake('users.edit', array('user' => $user, 'groups' => $groups));
+        return $this->viewMake('users.edit', array('user' => $user, 'groups' => $groups), true);
     }
 
     /**
