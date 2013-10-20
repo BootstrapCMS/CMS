@@ -22,6 +22,7 @@
 
 use App;
 use Controller;
+use Config;
 use Log;
 use View;
 
