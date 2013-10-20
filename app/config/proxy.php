@@ -30,7 +30,7 @@ return array(
     | Set an array of trusted proxies, so Laravel knows to grab the client's
     | IP address via the HTTP_X_FORWARDED_FOR header.
     |
-    | By default, we are trusting Cloudflare only.
+    | By default, we are trusting CloudFlare only.
     |
     | To trust all proxies, use the value '*':
     |

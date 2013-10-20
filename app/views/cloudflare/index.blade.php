@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Cloudflare
+CloudFlare
 @stop
 
 @section('controls')

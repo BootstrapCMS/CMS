@@ -24,7 +24,7 @@ use GrahamCampbell\CMSCore\Models\Page;
 
 use CloudFlareAPI;
 
-class CloudflareController extends BaseController {
+class CloudFlareController extends BaseController {
 
     /**
      * Constructor (setup access permissions).

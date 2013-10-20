@@ -120,5 +120,5 @@ if (Config::get('cms.events')) {
 
 
 // cloudflare routes
-Route::get('cloudflare', array('as' => 'cloudflare.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudflareController@getIndex'));
-Route::get('cloudflare/data', array('as' => 'cloudflare.data', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudflareController@getData'));
+Route::get('cloudflare', array('as' => 'cloudflare.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudFlareController@getIndex'));
+Route::get('cloudflare/data', array('as' => 'cloudflare.data', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudFlareController@getData'));
