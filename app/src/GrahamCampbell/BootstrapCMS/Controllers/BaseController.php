@@ -103,7 +103,7 @@ abstract class BaseController extends Controller {
         // append the navigation data to the view data
 
         if ($admin) {
-            $data['nav_admin'] = Navigation::get('main');
+            $data['nav_main'] = Navigation::get('main');
         } else {
             $data['nav_main'] = Navigation::get('main');
         }
