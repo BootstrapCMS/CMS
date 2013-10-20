@@ -99,9 +99,14 @@ abstract class BaseController extends Controller {
      *
      * @return \Illuminate\View\View
      */
-    protected function viewMake($view, $data = array()) {
+    protected function viewMake($view, $data = array(), $admin = false) {
         // append the navigation data to the view data
-        $data['nav_main'] = Navigation::get('main');
+
+        if ($admin) {
+            $data['nav_admin'] = Navigation::get('main');
+        } else {
+            $data['nav_main'] = Navigation::get('main');
+        }
 
         if (Sentry::check()) {
             $data['nav_bar'] = Navigation::get('bar');
