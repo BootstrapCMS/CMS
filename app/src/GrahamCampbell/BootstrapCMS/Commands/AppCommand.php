@@ -79,6 +79,6 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function updateCache() {
-        Navigation::refresh();
+        Navigation::regen();
     }
 }
