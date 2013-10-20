@@ -105,16 +105,20 @@ abstract class BaseController extends Controller {
         if (Sentry::check()) {
             if ($admin) {
                 if (Sentry::getUser()->hasAccess('admin')) {
+                    $data['site_name'] = 'Admin Panel';
                     $data['nav_main'] = Navigation::get('admin');
                 } else {
+                    $data['site_name'] = Config::get('cms.name');
                     $data['nav_main'] = Navigation::get('main');
                 }
             } else {
+                $data['site_name'] = Config::get('cms.name');
                 $data['nav_main'] = Navigation::get('main');
             }
 
             $data['nav_bar'] = Navigation::get('bar');
         } else {
+            $data['site_name'] = Config::get('cms.name');
             $data['nav_main'] = Navigation::get('main');
             $data['nav_bar'] = array();
         }

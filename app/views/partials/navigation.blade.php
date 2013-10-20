@@ -2,7 +2,7 @@
     <div class="navbar-inner">
         <div class="container-fluid">
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="brand" href="{{ URL::route('pages.show', array('pages' => 'home')) }}">{{ Config::get('cms.name') }}</a>
+            <a class="brand" href="{{ URL::route('pages.show', array('pages' => 'home')) }}">{{ $site_name }}</a>
             <div class="nav-collapse collapse">
 
                 <div id="main-nav">
