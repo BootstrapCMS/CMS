@@ -20,7 +20,6 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Artisan;
 use Config;
 use Navigation;
 Use Sentry;
@@ -34,7 +33,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider {
      *
      * @var bool
      */
-    protected $defer = false;
+    protected $defer = true;
 
     /**
      * Bootstrap the application events.
