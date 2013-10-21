@@ -144,7 +144,6 @@ class UserController extends BaseController {
                 return Redirect::route('users.show', array('users' => $user->getId()));
             } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
                 Log::notice($e);
-                Event::fire('user.registrationfailed', array(array('Email' => $input['email'])));
                 Session::flash('error', 'That email address is taken.');
                 return Redirect::route('account.register')->withInput()->withErrors($val);
         }
