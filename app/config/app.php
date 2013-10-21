@@ -145,7 +145,7 @@ return array(
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
         'Kmd\Logviewer\LogviewerServiceProvider',
-
+        'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider'
 
     ),
 
@@ -227,7 +227,7 @@ return array(
         'Navigation'      => 'GrahamCampbell\CMSCore\Facades\Navigation',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
-        'Carbon'          => 'Carbon\Carbon',
+        'Carbon'          => 'Carbon\Carbon'
 
     ),
 
