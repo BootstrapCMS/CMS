@@ -68,7 +68,7 @@ class RegistrationController extends BaseController {
             'last_name'             => Binput::get('last_name'),
             'email'                 => Binput::get('email'),
             'password'              => Binput::get('password'),
-            'password_confirmation' => Binput::get('password_confirmation'),
+            'password_confirmation' => Binput::get('password_confirmation')
         );
 
         $rules = array (
@@ -76,7 +76,7 @@ class RegistrationController extends BaseController {
             'last_name'             => 'required|min:2|max:32',
             'email'                 => 'required|min:4|max:32|email',
             'password'              => 'required|min:6|confirmed',
-            'password_confirmation' => 'required',
+            'password_confirmation' => 'required'
         );
 
         $val = Validator::make($input, $rules);
@@ -123,7 +123,7 @@ class RegistrationController extends BaseController {
         } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
             Log::notice($e);
             Event::fire('user.registrationfailed', array(array('Email' => $input['email'])));
-            Session::flash('error', 'User already exists.');
+            Session::flash('error', 'That email address is taken.');
             return Redirect::route('account.register')->withInput()->withErrors($val);
         }
     }

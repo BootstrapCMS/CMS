@@ -96,7 +96,7 @@ class UserController extends BaseController {
             'email'           => Binput::get('email'),
             'password'        => $password,
             'activated'       => true,
-            'activated_at'    => new DateTime,
+            'activated_at'    => new DateTime
         );
 
         $rules = array(
@@ -105,7 +105,7 @@ class UserController extends BaseController {
             'email'        => 'required|min:4|max:32|email',
             'password'     => 'required|min:6',
             'activated'    => 'required',
-            'activated_at' => 'required',
+            'activated_at' => 'required'
         );
 
         $val = Validator::make($input, $rules);
@@ -113,35 +113,41 @@ class UserController extends BaseController {
             return Redirect::route('users.create')->withInput()->withErrors($val->errors());
         }
 
-        $user = UserProvider::create($input);
-
-        $groups = GroupProvider::index();
-
-        foreach($groups as $group) {
-            if (Binput::get('group_'.$group->id) === 'on') {
-                $user->addGroup($group);
-            }
-        }
-
         try {
-            $data = array(
-                'view'     => 'emails.newuser',
-                'url'      => URL::route('pages.show', array('pages' => 'home')),
-                'password' => $password,
-                'email'    => $user->getLogin(),
-                'subject'  => Config::get('cms.name').' - New Account Information',
-            );
+            $user = UserProvider::create($input);
 
-            Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
-        } catch (\Exception $e) {
-            Log::alert($e);
-            $user->delete();
-            Session::flash('error', 'We were unable to create the user. Please contact support.');
-            return Redirect::route('users.create')->withInput();
+            $groups = GroupProvider::index();
+            foreach($groups as $group) {
+                if (Binput::get('group_'.$group->id) === 'on') {
+                    $user->addGroup($group);
+                }
+            }
+
+            try {
+                $data = array(
+                    'view'     => 'emails.newuser',
+                    'url'      => URL::route('pages.show', array('pages' => 'home')),
+                    'password' => $password,
+                    'email'    => $user->getLogin(),
+                    'subject'  => Config::get('cms.name').' - New Account Information'
+                );
+
+                Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+                } catch (\Exception $e) {
+                    Log::alert($e);
+                    $user->delete();
+                    Session::flash('error', 'We were unable to create the user. Please contact support.');
+                    return Redirect::route('users.create')->withInput();
+                }
+
+                Session::flash('success', 'The user has been created successfully. Their password has been emailed to them.');
+                return Redirect::route('users.show', array('users' => $user->getId()));
+            } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
+                Log::notice($e);
+                Event::fire('user.registrationfailed', array(array('Email' => $input['email'])));
+                Session::flash('error', 'That email address is taken.');
+                return Redirect::route('account.register')->withInput()->withErrors($val);
         }
-
-        Session::flash('success', 'The user has been created successfully. Their password has been emailed to them.');
-        return Redirect::route('users.show', array('users' => $user->getId()));
     }
 
     /**
@@ -182,13 +188,13 @@ class UserController extends BaseController {
         $input = array(
             'first_name' => Binput::get('first_name'),
             'last_name'  => Binput::get('last_name'),
-            'email'      => Binput::get('email'),
+            'email'      => Binput::get('email')
         );
 
         $rules = array(
             'first_name' => 'required|min:2|max:32',
             'last_name'  => 'required|min:2|max:32',
-            'email'      => 'required|min:4|max:32|email',
+            'email'      => 'required|min:4|max:32|email'
         );
 
         $val = Validator::make($input, $rules);
