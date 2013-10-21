@@ -144,8 +144,7 @@ return array(
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
-        'Kmd\Logviewer\LogviewerServiceProvider',
-
+        'Kmd\Logviewer\LogviewerServiceProvider'
 
     ),
 
@@ -227,8 +226,8 @@ return array(
         'Navigation'      => 'GrahamCampbell\CMSCore\Facades\Navigation',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
-        'Carbon'          => 'Carbon\Carbon',
+        'Carbon'          => 'Carbon\Carbon'
 
-    ),
+    )
 
 );
