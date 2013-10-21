@@ -102,9 +102,9 @@ abstract class BaseController extends Controller {
      * @return \Illuminate\View\View
      */
     protected function viewMake($view, $data = array(), $admin = false) {
-        Event::fire('view.make', array('View' => $view));
-
         if (Sentry::check()) {
+            Event::fire('view.make', array('View' => $view, 'User' => true));
+
             if ($admin) {
                 if (Sentry::getUser()->hasAccess('admin')) {
                     $data['site_name'] = 'Admin Panel';
@@ -120,6 +120,8 @@ abstract class BaseController extends Controller {
 
             $data['nav_bar'] = Navigation::get('bar');
         } else {
+            Event::fire('view.make', array('View' => $view, 'User' => false));
+
             $data['site_name'] = Config::get('cms.name');
             $data['nav_main'] = Navigation::get('main');
             $data['nav_bar'] = array();

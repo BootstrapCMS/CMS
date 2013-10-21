@@ -63,7 +63,7 @@ class CoreSubscriber {
      * @return void
      */
     public function onViewMake($event) {
-        if (Config::get('log.pagemake') == true) {
+        if (Config::get('log.viewmake') == true) {
             if (!is_array($event)) {
                 $event = array($event);
             }
@@ -79,48 +79,50 @@ class CoreSubscriber {
             Navigation::addItem('main', array('title' => 'Events', 'slug' => 'events', 'icon' => 'icon-calendar'));
         }
 
-        // add the profile links
-        Navigation::addItem('bar', array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'icon-cog'));
-        // add the admin links
-        if (Sentry::getUser()->hasAccess('admin')) {
-            Navigation::addItem('bar', array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'icon-wrench'));
-            Navigation::addItem('bar', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'icon-dashboard'));
-            Navigation::addItem('bar', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'icon-cloud'));
-        }
-        // add the view users link
-        if (Sentry::getUser()->hasAccess('mod')) {
-            Navigation::addItem('bar', array('title' => 'View Users', 'slug' => 'users', 'icon' => 'icon-user'));
-        }
-        // add the create user link
-        if (Sentry::getUser()->hasAccess('admin')) {
-            Navigation::addItem('bar', array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'icon-star'));
-        }
-        // add the create page link
-        if (Sentry::getUser()->hasAccess('edit')) {
-            Navigation::addItem('bar', array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'icon-pencil'));
-        }
-        // add the create post link
-        if (Config::get('cms.blogging')) {
-            if (Sentry::getUser()->hasAccess('blog')) {
-                Navigation::addItem('bar', array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'icon-book'));
+        if ($event['User']) {
+            // add the profile links
+            Navigation::addItem('bar', array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'icon-cog'));
+            // add the admin links
+            if (Sentry::getUser()->hasAccess('admin')) {
+                Navigation::addItem('bar', array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'icon-wrench'));
+                Navigation::addItem('bar', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'icon-dashboard'));
+                Navigation::addItem('bar', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'icon-cloud'));
             }
-        }
-        // add the create event link
-        if (Config::get('cms.events')) {
+            // add the view users link
+            if (Sentry::getUser()->hasAccess('mod')) {
+                Navigation::addItem('bar', array('title' => 'View Users', 'slug' => 'users', 'icon' => 'icon-user'));
+            }
+            // add the create user link
+            if (Sentry::getUser()->hasAccess('admin')) {
+                Navigation::addItem('bar', array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'icon-star'));
+            }
+            // add the create page link
             if (Sentry::getUser()->hasAccess('edit')) {
-                Navigation::addItem('bar', array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'icon-calendar'));
+                Navigation::addItem('bar', array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'icon-pencil'));
             }
-        }
+            // add the create post link
+            if (Config::get('cms.blogging')) {
+                if (Sentry::getUser()->hasAccess('blog')) {
+                    Navigation::addItem('bar', array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'icon-book'));
+                }
+            }
+            // add the create event link
+            if (Config::get('cms.events')) {
+                if (Sentry::getUser()->hasAccess('edit')) {
+                    Navigation::addItem('bar', array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'icon-calendar'));
+                }
+            }
 
-        // add the admin links
-        if (Sentry::getUser()->hasAccess('admin')) {
-            Navigation::addItem('admin', array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'icon-wrench'));
-            Navigation::addItem('admin', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'icon-dashboard'));
-            Navigation::addItem('admin', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'icon-cloud'));
-        }
-        // add the view users link
-        if (Sentry::getUser()->hasAccess('mod')) {
-            Navigation::addItem('admin', array('title' => 'Users', 'slug' => 'users', 'icon' => 'icon-user'));
+            // add the admin links
+            if (Sentry::getUser()->hasAccess('admin')) {
+                Navigation::addItem('admin', array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'icon-wrench'));
+                Navigation::addItem('admin', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'icon-dashboard'));
+                Navigation::addItem('admin', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'icon-cloud'));
+            }
+            // add the view users link
+            if (Sentry::getUser()->hasAccess('mod')) {
+                Navigation::addItem('admin', array('title' => 'Users', 'slug' => 'users', 'icon' => 'icon-user'));
+            }
         }
     }
 
