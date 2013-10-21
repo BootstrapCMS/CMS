@@ -103,7 +103,7 @@ abstract class BaseController extends Controller {
      */
     protected function viewMake($view, $data = array(), $admin = false) {
         if (Sentry::check()) {
-            Event::fire('view.make', array('View' => $view, 'User' => true));
+            Event::fire('view.make', array(array('View' => $view, 'User' => true)));
 
             if ($admin) {
                 if (Sentry::getUser()->hasAccess('admin')) {
@@ -120,7 +120,7 @@ abstract class BaseController extends Controller {
 
             $data['nav_bar'] = Navigation::get('bar');
         } else {
-            Event::fire('view.make', array('View' => $view, 'User' => false));
+            Event::fire('view.make', array(array('View' => $view, 'User' => false)));
 
             $data['site_name'] = Config::get('cms.name');
             $data['nav_main'] = Navigation::get('main');

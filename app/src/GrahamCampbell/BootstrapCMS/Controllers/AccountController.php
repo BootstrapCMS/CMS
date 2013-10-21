@@ -67,7 +67,7 @@ class AccountController extends BaseController {
         $user = Sentry::getUser();
         $this->checkUser($user);
 
-        Event::fire('user.logout', array('Email' => $user->email));
+        Event::fire('user.logout', array(array('Email' => $user->email)));
         Sentry::logout();
 
         $user->delete();
