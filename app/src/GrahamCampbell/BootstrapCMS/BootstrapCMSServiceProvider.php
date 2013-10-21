@@ -20,6 +20,10 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use Config;
+use Navigation;
+Use Sentry;
+
 use Illuminate\Support\ServiceProvider;
 
 class BootstrapCMSServiceProvider extends ServiceProvider {
