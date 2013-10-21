@@ -23,6 +23,7 @@
 use App;
 use Controller;
 use Config;
+use Event;
 use Log;
 use View;
 
@@ -101,7 +102,7 @@ abstract class BaseController extends Controller {
      * @return \Illuminate\View\View
      */
     protected function viewMake($view, $data = array(), $admin = false) {
-        // append the navigation data to the view data
+        Event::fire('view.make', array('View' => $view));
 
         if (Sentry::check()) {
             if ($admin) {
