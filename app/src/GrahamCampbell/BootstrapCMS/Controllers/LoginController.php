@@ -85,15 +85,15 @@ class LoginController extends BaseController {
             $throttle->check();
 
             Sentry::authenticate($input, $remember);
-        } catch (\Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            Log::notice($e);
-            Event::fire('user.loginfailed', array(array('Email' => $input['email'])));
-            Session::flash('error', 'Your details were incorrect.');
-            return Redirect::route('account.login')->withErrors($val)->withInput();
         } catch (\Cartalyst\Sentry\Users\WrongPasswordException $e) {
             Log::notice($e);
             Event::fire('user.loginfailed', array(array('Email' => $input['email'])));
             Session::flash('error', 'Your password was incorrect.');
+            return Redirect::route('account.login')->withErrors($val)->withInput();
+        } catch (\Cartalyst\Sentry\Users\UserNotFoundException $e) {
+            Log::notice($e);
+            Event::fire('user.loginfailed', array(array('Email' => $input['email'])));
+            Session::flash('error', 'That user does not exist.');
             return Redirect::route('account.login')->withErrors($val)->withInput();
         } catch (\Cartalyst\Sentry\Users\UserNotActivatedException $e) {
             Log::notice($e);
