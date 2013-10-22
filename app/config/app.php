@@ -142,6 +142,7 @@ return array(
         'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider',
         'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
+        'Philf\Setting\SettingServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
         'Kmd\Logviewer\LogviewerServiceProvider'
