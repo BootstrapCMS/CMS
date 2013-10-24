@@ -30,8 +30,8 @@ return array(
     | This defines what theme of Bootstrap to use from bootswatch.com.
     |
     | Supported: "amelia", "cerulean", "cosmo", "cyborg", "default", "flatly",
-    |            "journal", "readable", "simplex", "slate", "spacelab", "spruce",
-    |            "superhero", "united"
+    |            "journal", "readable", "simplex", "slate", "spacelab", "theme",
+    |            "united"
     |
     | Default to 'default'.
     |

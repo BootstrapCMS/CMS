@@ -26,4 +26,3 @@
 @if (Config::get('analytics.google'))
     @include('partials.analytics')
 @endif
-{{ Basset::show('extra.js') }}

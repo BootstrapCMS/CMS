@@ -107,7 +107,7 @@ Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analyti
 
 ## Setting Up Themes
 
-Bootstrap CMS also ships with 13 themes from [Bootswatch](http://bootswatch.com/2).  
+Bootstrap CMS also ships with 13 themes, 11 from [Bootswatch](http://bootswatch.com/2).  
 
 1. You can set your theme in `app/config/theme.php`.  
 2. You can also set your nav bar style in `app/config/theme.php`.  

@@ -28,12 +28,17 @@ return array(
 
     'collections' => array(
 
+        'pre' => function($collection) {
+            $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('modernizr-2.6.2-respond-1.1.0.min.js');
+            });
+            $directory->apply('JsMin');
+        },
+
         'main' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
-                $collection->stylesheet('jasny-bootstrap.min.css');
-                $collection->stylesheet('bootstrap-responsive.min.css');
-                $collection->stylesheet('jasny-bootstrap-responsive.min.css');
+                // $collection->stylesheet('jasny-bootstrap.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('main.css')->apply('CssMin');
             });
@@ -42,11 +47,8 @@ return array(
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('jquery-1.10.2.min.js');
                 $collection->javascript('jquery.form.min.js');
-                $collection->javascript('respond.min.js');
                 $collection->javascript('bootstrap.min.js');
-                $collection->javascript('jasny-bootstrap.min.js');
-                $collection->javascript('restfulizer.js');
-                $collection->javascript('main.js');
+                // $collection->javascript('jasny-bootstrap.min.js');
             });
             $directory->apply('JsMin');
         },
@@ -75,8 +77,6 @@ return array(
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('markdown.js');
-                $collection->javascript('to-markdown.js');
                 $collection->javascript('bootstrap-markdown.js');
             });
             $directory->apply('JsMin');
@@ -121,19 +121,6 @@ return array(
             });
             $directory->apply('JsMin');
         },
-
-        'extra' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('extra.css');
-            });
-            $directory->apply('CssMin');
-            $directory->apply('UriRewriteFilter');
-
-            $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('extra.js');
-            });
-            $directory->apply('JsMin');
-        }
 
     ),
 
