@@ -67,21 +67,6 @@ return array(
             $directory->apply('JsMin');
         },
 
-        'editor' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('edit.css');
-            });
-            $directory->apply('CssMin');
-            $directory->apply('UriRewriteFilter');
-
-            $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('jquery.hotkeys.js');
-                $collection->javascript('bootstrap-wysiwyg.js');
-                $collection->javascript('edit.js');
-            });
-            $directory->apply('JsMin');
-        },
-
         'markdown' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-markdown.min.css');
