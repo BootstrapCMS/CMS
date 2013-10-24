@@ -11,7 +11,7 @@
             <p>
                 <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
             </p>
-            <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="icon-edit"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="icon-remove"></i> Delete Post</a>
+            <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
         </div>
         <div class="span5">
             <div class="pull-right">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <button id="contact-submit" type="submit" class="btn btn-primary"><i class="icon-comment"></i> Post Comment</button>
+                        <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
                     </div>
                 </div>
             {{ Form::close() }}
@@ -98,7 +98,7 @@
                     <div class="span3">
                         @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
                             <div class="pull-right">
-                                <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="icon-edit"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="icon-remove"></i> Delete</a>
+                                <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
                             </div>
                         @endif
                     </div>

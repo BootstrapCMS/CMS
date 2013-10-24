@@ -87,7 +87,7 @@
                         @foreach ($log as $l)
                             @if (strlen($l['stack']) > 1)
                                 <div class="alert alert-block alert-{{ $l['level'] }}">
-                                    <span title="Click to toggle stack trace" class="toggle-stack"><i class="icon-expand-alt"></i></span>
+                                    <span title="Click to toggle stack trace" class="toggle-stack"><i class="fa fa-expand-o"></i></span>
                                     <span class="stack-header">{{ $l['header'] }}</span>
                                     <pre class="stack-trace">{{ $l['stack'] }}</pre>
                                 </div>

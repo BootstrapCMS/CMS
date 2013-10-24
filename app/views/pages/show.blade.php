@@ -16,7 +16,7 @@ if($page->getShowTitle() == false) {
             <p>
                 <strong>Page Creator:</strong> {{ $page->getUserEmail() }}
             </p>
-            <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->getSlug())) }}"><i class="icon-edit"></i> Edit Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="icon-remove"></i> Delete Page</a>
+            <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->getSlug())) }}"><i class="fa fa-pencil-square-o"></i> Edit Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="fa fa-times"></i> Delete Page</a>
         </div>
         <div class="span5">
             <div class="pull-right">

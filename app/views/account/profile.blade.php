@@ -14,7 +14,7 @@ Profile
         </div>
         <div class="span6">
             <div class="pull-right">
-                <a class="btn btn-danger" href="#delete_account" data-toggle="modal" data-target="#delete_account"><i class="icon-remove"></i> Delete Account</a>
+                <a class="btn btn-danger" href="#delete_account" data-toggle="modal" data-target="#delete_account"><i class="fa fa-times"></i> Delete Account</a>
             </div>
         </div>
     </div>

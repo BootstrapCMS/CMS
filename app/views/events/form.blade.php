@@ -22,7 +22,7 @@
             <div id="datetimepicker1" class="input-append date">
                 <input name="date" value="{{ Request::old('date', $form['defaults']['date']) }}" type="text" class="input-xlarge" placeholder="Event Date" data-format="yyyy-MM-dd hh:mm:ss"></input>
                 <span class="add-on">
-                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                    <i data-time-icon="fa fa-clock-o" data-date-icon="fa fa-calendar"></i>
                 </span>
                 {{ ($errors->has('date') ? $errors->first('date') : '') }}
             </div>
@@ -38,6 +38,6 @@
     </div>
 
     <div class="form-actions">
-        <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> {{ $form['button'] }}</button>
+        <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> {{ $form['button'] }}</button>
     </div>
 {{ Form::close() }}

@@ -11,7 +11,7 @@
             <p>
                 <strong>Event Creator:</strong> {{ $event->getUserEmail() }}
             </p>
-            <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->getId())) }}"><i class="icon-edit"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="icon-remove"></i> Delete Event</a>
+            <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="fa fa-times"></i> Delete Event</a>
         </div>
         <div class="span5">
             <div class="pull-right">

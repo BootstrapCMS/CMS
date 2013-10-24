@@ -27,7 +27,7 @@
     <div class="control-group{{ ($errors->has('show_title')) ? ' error' : '' }}">
         <label class="control-label" for="show_title">Show Title</label>
         <div class="controls">
-            <div class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'>">
+            <div class="make-switch" data-on-label="<i class='fa fa-check fa-inverse'></i>" data-off-label="<i class='fa fa-times'>">
                 <input name="show_title" id="show_title" type="checkbox"{{ (Request::old('show_title', $form['defaults']['show_title']) == true) ? ' checked' : '' }}>
             </div>
             {{ ($errors->has('show_title') ? $errors->first('show_title') : '') }}
@@ -37,7 +37,7 @@
     <div class="control-group{{ ($errors->has('show_nav')) ? ' error' : '' }}">
         <label class="control-label" for="show_nav">Show On Nav</label>
         <div class="controls">
-            <div class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'>">
+            <div class="make-switch" data-on-label="<i class='fa fa-check fa-inverse'></i>" data-off-label="<i class='fa fa-times'>">
                 <input name="show_nav" id="show_nav" type="checkbox"{{ (Request::old('show_nav', $form['defaults']['show_nav']) == true) ? ' checked' : '' }}>
             </div>
             {{ ($errors->has('show_nav') ? $errors->first('show_nav') : '') }}
@@ -45,6 +45,6 @@
     </div>
 
     <div class="form-actions">
-        <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> {{ $form['button'] }}</button>
+        <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> {{ $form['button'] }}</button>
     </div>
 {{ Form::close() }}

@@ -13,7 +13,7 @@
                 @foreach($nav_main as $item)
                     <li{{ ($item['active'] ? ' class="active"' : '') }}>
                         <a href="{{ $item['url'] }}">
-                            {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
+                            {{ ((!$item['icon'] == '') ? '<i class="fa fa-'.$item['icon'].' fa-inverse fa-fw"></i> ' : '') }}{{ $item['title'] }}
                         </a>
                     </li>
                 @endforeach
@@ -30,19 +30,19 @@
                             @foreach($nav_bar as $item)
                                 <li>
                                     <a href="{{ $item['url'] }}">
-                                        {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].'"></i> ' : '') }}{{ $item['title'] }}
+                                        {{ ((!$item['icon'] == '') ? '<i class="fa fa-'.$item['icon'].' fa-fw"></i> ' : '') }}{{ $item['title'] }}
                                     </a>
                                 </li>
                             @endforeach
                             <li>
                                 <a href="#">
-                                    <i class="icon-envelope"></i> Contact Support
+                                    <i class="fa fa-envelope fa-fw"></i> Contact Support
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="{{ URL::route('account.logout') }}">
-                                    <i class="icon-off"></i> Logout
+                                    <i class="fa fa-power-off fa-fw"></i> Logout
                                 </a>
                             </li>
                         </ul>

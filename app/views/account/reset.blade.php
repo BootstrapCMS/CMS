@@ -21,7 +21,7 @@ Reset Password
         </div>
 
         <div class="form-actions">
-            <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> Reset Password</button>
+            <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> Reset Password</button>
         </div>
     {{ Form::close() }}
 </div>

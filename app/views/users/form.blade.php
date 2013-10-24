@@ -28,7 +28,7 @@
         <div class="control-group">
             <label class="control-label" for="email">{{ $group->name }}</label>
             <div class="controls">
-                <div class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'>">
+                <div class="make-switch" data-on-label="<i class='fa fa-check fa-inverse'></i>" data-off-label="<i class='fa fa-times'>">
                     <input name="group_{{ $group->id }}" id="group_{{ $group->id }}" type="checkbox"{{ (Request::old('group_'.$group->id, $form['defaults']['group_'.$group->id]) == true) ? ' checked' : '' }}>
                 </div>
             </div>
@@ -36,6 +36,6 @@
     @endforeach
 
     <div class="form-actions">
-        <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> {{ $form['button'] }}</button>
+        <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> {{ $form['button'] }}</button>
     </div>
 {{ Form::close() }}

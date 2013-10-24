@@ -25,6 +25,6 @@
     </div>
 
     <div class="form-actions">
-        <button class="btn btn-primary" type="submit"><i class="icon-rocket"></i> {{ $form['button'] }}</button>
+        <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> {{ $form['button'] }}</button>
     </div>
 {{ Form::close() }}

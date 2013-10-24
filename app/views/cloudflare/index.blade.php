@@ -11,7 +11,7 @@ CloudFlare
 
 @section('content')
 <div id="data">
-    <p class="lead"><i class="icon-refresh icon-spin icon-large"></i> Loading...</p>
+    <p class="lead"><i class="fa fa-refresh fa-spin fa-lg"></i> Loading...</p>
 </div>
 @stop
 
