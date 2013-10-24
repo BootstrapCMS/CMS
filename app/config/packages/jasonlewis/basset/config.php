@@ -37,7 +37,14 @@ return array(
 
         'main' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
+                if (Config::get('theme.name') == 'default') {
+                    $collection->stylesheet('bootstrap.min.css');
+                } elseif (Config::get('theme.name') == 'legacy') {
+                    $collection->stylesheet('bootstrap.min.css');
+                    $collection->stylesheet('bootstrap-theme.min.css');
+                } else {
+                    $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
+                }
                 // $collection->stylesheet('jasny-bootstrap.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('main.css')->apply('CssMin');
