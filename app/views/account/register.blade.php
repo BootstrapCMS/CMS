@@ -61,7 +61,6 @@ Register
             <div class="form-group">
             <div class="col-lg-offset-2 col-lg-6">
                 <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> Register</button>
-                <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> Log In</button>
                 <button class="btn btn-inverse" type="reset">Reset</button>
             </div>
         </div>
