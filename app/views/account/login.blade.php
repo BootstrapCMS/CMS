@@ -12,7 +12,7 @@ Login
 <div class="well">
     {{ Form::open(array('url' => URL::route('account.login.post'), 'method' => 'POST', 'class' => 'form-horizontal')) }}
 
-        <div class="form-group{{ ($errors->has('email')) ? ' error' : '' }}">
+        <div class="form-group{{ ($errors->has('email')) ? ' danger' : '' }}">
             <label class="col-lg-2 control-label" for="email">Email</label>
             <div class="col-lg-4">
                 <input name="email" id="email" value="{{ Request::old('email') }}" type="text" class="form-control" placeholder="Email">
@@ -20,7 +20,7 @@ Login
             </div>
         </div>
     
-       <div class="form-group{{ ($errors->has('password')) ? ' error' : '' }}">
+       <div class="form-group{{ ($errors->has('password')) ? ' danger' : '' }}">
             <label class="col-lg-2 control-label" for="password">Password</label>
             <div class="col-lg-4">
                 <input name="password" id="password" value="" type="password" class="form-control" placeholder="Password">
