@@ -17,10 +17,10 @@
             <div class="col-sm-6">
                 <div class="pull-right">
                     <p>
-                        <em>Post Created: {{ $post->getCreatedAt()->diffForHumans() }}</em>
+                        <em>Post Created: <abbr class="timeago" title="{{ $post->getCreatedAt()->toISO8601String() }}">{{ $post->getCreatedAt()->diffForHumans() }}</abbr></em>
                     </p>
                     <p>
-                        <em>Last Updated: {{ $post->getUpdatedAt()->diffForHumans() }}</em>
+                        <em>Last Updated: <abbr class="timeago" title="{{ $post->getUpdatedAt()->toISO8601String() }}">{{ $post->getUpdatedAt()->diffForHumans() }}</abbr></em>
                     </p>
                 </div>
             </div>

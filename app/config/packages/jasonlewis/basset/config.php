@@ -53,10 +53,12 @@ return array(
 
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('jquery-1.10.2.min.js');
+                $collection->javascript('jquery.timeago.js');
                 $collection->javascript('jquery.form.min.js');
+                $collection->javascript('restfulizer.js');
                 $collection->javascript('bootstrap.min.js');
                 // $collection->javascript('jasny-bootstrap.min.js');
-                $collection->javascript('restfulizer.js');
+                $collection->javascript('main.js');
             });
             $directory->apply('JsMin');
         },
