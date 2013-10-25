@@ -56,11 +56,11 @@ body {
     line-height: 1;
 }
 
-.hidden-sm .jumbotron h1 {
+.hidden-xs .jumbotron .hidden-sm h1 {
     font-size: 100px;
 }
 
-.visible-sm .jumbotron h1 {
+.hidden-xs .jumbotron .visible-sm h1 {
     font-size: 80px;
 }
 
