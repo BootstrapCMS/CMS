@@ -5,19 +5,17 @@ Users
 @stop
 
 @section('controls')
-<div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">Here is a list of all the current users:</p>
-        </div>
-        @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
-            <div class="span6">
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ URL::route('users.create') }}"><i class="fa fa-user"></i> New User</a>
-                </div>
-            </div>
-        @endif
+<div class="row">
+    <div class="col-xs-8">
+        <p class="lead">Here is a list of all the current users:</p>
     </div>
+    @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+        <div class="col-xs-4">
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ URL::route('users.create') }}"><i class="fa fa-user"></i> New User</a>
+            </div>
+        </div>
+    @endif
 </div>
 <hr>
 @stop

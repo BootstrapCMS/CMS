@@ -5,25 +5,23 @@ Blog
 @stop
 
 @section('controls')
-<div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                @if (count($posts) == 0)
-                    There are currently no blog posts.
-                @else
-                    Here you may find our blog posts:
-                @endif
-            </p>
-        </div>
-        @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
-            <div class="span6">
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ URL::route('blog.posts.create') }}"><i class="fa fa-book"></i> New Post</a>
-                </div>
-            </div>
-        @endif
+<div class="row">
+    <div class="col-xs-8">
+        <p class="lead">
+            @if (count($posts) == 0)
+                There are currently no blog posts.
+            @else
+                Here you may find our blog posts:
+            @endif
+        </p>
     </div>
+    @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+        <div class="col-xs-4">
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ URL::route('blog.posts.create') }}"><i class="fa fa-book"></i> New Post</a>
+            </div>
+        </div>
+    @endif
 </div>
 @stop
 
