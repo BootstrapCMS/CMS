@@ -69,7 +69,7 @@
     <br>
     {{ Form::open(array('url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
         <div class="form-group">
-            <textarea id="body" name="body" class="span12, comment-box" placeholder="Type a comment..." rows="3"></textarea>
+            <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
         </div>
         <div class="form-group">
             <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
@@ -88,25 +88,30 @@
 @else
     @foreach ($comments as $comment)
         <div class="well row">
-            <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
+            @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+                <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
                 <p>
                     <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
                 </p>
                 <p>
                     {{ nl2br(e($comment->getBody())) }}
                 </p>
-            </div>
-            @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+                </div>
                 <div class="hidden-xs col-lg-2 col-md-3 col-sm-4">
                     <div class="pull-right">
                         <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
                     </div>
                 </div>
                 <div class="visible-xs">
-                    <div class="pull-right">
-                        <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
-                    </div>
+                    <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
                 </div>
+            @else
+                <p>
+                    <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
+                </p>
+                <p>
+                    {{ nl2br(e($comment->getBody())) }}
+                </p>
             @endif
         </div>
     @endforeach
