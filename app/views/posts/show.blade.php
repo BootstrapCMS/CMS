@@ -95,7 +95,7 @@
     @foreach ($comments as $comment)
         <div class="well clearfix">
             @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
-                <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
+                <div class="col-md-9 col-sm-8 col-xs-12">
                     <p>
                         <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
                     </p>
@@ -104,7 +104,7 @@
                     </p>
                 </div>
                 <div class="hidden-xs">
-                    <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="col-md-3 col-sm-4">
                         <div class="pull-right">
                             <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
                         </div>
