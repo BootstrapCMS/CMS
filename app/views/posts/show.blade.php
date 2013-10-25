@@ -17,10 +17,10 @@
             <div class="col-sm-6">
                 <div class="pull-right">
                     <p>
-                        <em>Post Created: <abbr class="timeago" title="{{ $post->getCreatedAt()->toISO8601String() }}">{{ $post->getCreatedAt()->diffForHumans() }}</abbr></em>
+                        <em>Post Created: <abbr class="timeago" title="{{ $post->getCreatedAt()->toISO8601String() }}">{{ $post->getCreatedAt()->toDateTimeString() }}</abbr></em>
                     </p>
                     <p>
-                        <em>Last Updated: <abbr class="timeago" title="{{ $post->getUpdatedAt()->toISO8601String() }}">{{ $post->getUpdatedAt()->diffForHumans() }}</abbr></em>
+                        <em>Last Updated: <abbr class="timeago" title="{{ $post->getUpdatedAt()->toISO8601String() }}">{{ $post->getUpdatedAt()->toDateTimeString() }}</abbr></em>
                     </p>
                 </div>
             </div>
@@ -31,10 +31,10 @@
                     <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
                 </p>
                 <p>
-                    <strong>Post Created:</strong> {{ $post->getCreatedAt()->diffForHumans() }}
+                    <strong>Post Created:</strong> <abbr class="timeago" title="{{ $post->getCreatedAt()->toISO8601String() }}">{{ $post->getCreatedAt()->toDateTimeString() }}</abbr>
                 </p>
                 <p>
-                    <strong>Last Updated:</strong> {{ $post->getUpdatedAt()->diffForHumans() }}
+                    <strong>Last Updated:</strong> <abbr class="timeago" title="{{ $post->getUpdatedAt()->toISO8601String() }}">{{ $post->getUpdatedAt()->toDateTimeString() }}</abbr>
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
             </div>
@@ -97,7 +97,7 @@
             @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
                 <div class="col-md-9 col-sm-8 col-xs-12">
                     <p>
-                        <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
+                        <strong>{{ $comment->getUserName() }}</strong> - <abbr class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
                     </p>
                     <p>
                         {{ nl2br(e($comment->getBody())) }}
@@ -118,7 +118,7 @@
             @else
                 <div class="col-sm-12">
                     <p>
-                        <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
+                        <strong>{{ $comment->getUserName() }}</strong> - <abbr class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
                     </p>
                     <p>
                         {{ nl2br(e($comment->getBody())) }}
