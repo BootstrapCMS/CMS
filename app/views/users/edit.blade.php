@@ -47,6 +47,7 @@ Edit {{ $user->first_name.' '.$user->last_name }}
     }
     ?>
     @include('users.form')
+    @include('partials.icons')
 </div>
 @stop
 
