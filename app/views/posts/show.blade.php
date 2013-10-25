@@ -26,16 +26,18 @@
             </div>
         </div>
         <div class="visible-xs">
-            <p>
-                <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
-            </p>
-            <p>
-                <strong>Post Created:</strong> {{ $post->getCreatedAt()->diffForHumans() }}
-            </p>
-            <p>
-                <strong>Last Updated:</strong> {{ $post->getUpdatedAt()->diffForHumans() }}
-            </p>
-            <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
+            <div class="col-xs-12">
+                <p>
+                    <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
+                </p>
+                <p>
+                    <strong>Post Created:</strong> {{ $post->getCreatedAt()->diffForHumans() }}
+                </p>
+                <p>
+                    <strong>Last Updated:</strong> {{ $post->getUpdatedAt()->diffForHumans() }}
+                </p>
+                <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
+            </div>
         </div>
     </div>
     <hr>
@@ -69,10 +71,14 @@
     <br>
     {{ Form::open(array('url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
         <div class="form-group">
-            <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+            <div class="col-xs-12">
+                <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+            </div>
         </div>
         <div class="form-group">
-            <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
+            <div class="col-xs-12">
+                <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
+            </div>
         </div>
     {{ Form::close() }}
     <br>
@@ -87,31 +93,37 @@
 <p>There are currently no comments.</p>
 @else
     @foreach ($comments as $comment)
-        <div class="well row">
+        <div class="well clearfix">
             @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
                 <div class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
-                <p>
-                    <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
-                </p>
-                <p>
-                    {{ nl2br(e($comment->getBody())) }}
-                </p>
+                    <p>
+                        <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
+                    </p>
+                    <p>
+                        {{ nl2br(e($comment->getBody())) }}
+                    </p>
                 </div>
-                <div class="hidden-xs col-lg-2 col-md-3 col-sm-4">
-                    <div class="pull-right">
-                        <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
+                <div class="hidden-xs">
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <div class="pull-right">
+                            <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
+                        </div>
                     </div>
                 </div>
                 <div class="visible-xs">
-                    <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
+                    <div class="col-sm-12">
+                        <a class="btn btn-info" href="#edit_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#edit_comment_{{ $comment->getId() }}"><i class="fa fa-pencil-square-o"></i> Edit</a> <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
+                    </div>
                 </div>
             @else
-                <p>
-                    <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
-                </p>
-                <p>
-                    {{ nl2br(e($comment->getBody())) }}
-                </p>
+                <div class="col-sm-12">
+                    <p>
+                        <strong>{{ $comment->getUserName() }}</strong> - {{ $comment->getCreatedAt()->diffForHumans() }}
+                    </p>
+                    <p>
+                        {{ nl2br(e($comment->getBody())) }}
+                    </p>
+                </div>
             @endif
         </div>
     @endforeach
