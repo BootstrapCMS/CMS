@@ -56,8 +56,12 @@ body {
     line-height: 1;
 }
 
-.hidden-xs .jumbotron h1 {
+.hidden-sm .jumbotron h1 {
     font-size: 100px;
+}
+
+.visible-sm .jumbotron h1 {
+    font-size: 80px;
 }
 
 .visible-xs .jumbotron h1 {
@@ -73,12 +77,17 @@ body {
 }
 
 .visible-xs .jumbotron .lead {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .hidden-xs .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
+}
+
+.visible-xs .jumbotron .btn {
+    font-size: 20px;
+    padding: 12px 18px;
 }
 
 .comment-box {
