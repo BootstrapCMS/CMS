@@ -13,15 +13,15 @@ Reset Password
     {{ Form::open(array('url' => URL::route('account.reset.post'), 'method' => 'POST', 'class' => 'form-horizontal')) }}
 
         <div class="form-group{{ ($errors->has('email')) ? ' has-error' : '' }}">
-            <label class="col-sm-2 control-label" for="email">Email Address</label>
-            <div class="col-sm-3">
+            <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="email">Email Address</label>
+            <div class="col-md-3 col-sm-5 col-xs-10">
                 <input name="email" id="email" value="{{ Request::old('email') }}" type="text" class="form-control" placeholder="Email Address">
                 {{ ($errors->has('email') ? $errors->first('email') : '') }}
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-6">
+            <div class="col-sm-offset-2 col-sm-6 col-xs-10">
                 <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> Reset Password</button>
             </div>
         </div>
