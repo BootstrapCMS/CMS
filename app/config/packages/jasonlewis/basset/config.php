@@ -56,6 +56,7 @@ return array(
                 $collection->javascript('jquery.form.min.js');
                 $collection->javascript('bootstrap.min.js');
                 // $collection->javascript('jasny-bootstrap.min.js');
+                $collection->javascript('restfulizer.js');
             });
             $directory->apply('JsMin');
         },
