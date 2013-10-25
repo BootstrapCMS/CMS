@@ -40,8 +40,9 @@ body {
 }
 
 .jumbotron {
+    background-color: transparent;
     text-align: center;
-    margin: 80px 0;
+    margin: 28px 0;
 }
 
 .jumbotron h1 {
