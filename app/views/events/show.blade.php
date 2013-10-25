@@ -45,7 +45,7 @@
     <div class="span11">
         <hr>
         <p class="lead">
-            {{ $event->getBody() }}
+            {{ Markdown::string($event->getBody()) }}
         </p>
     </div>
 </div>
