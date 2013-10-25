@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<div id="wrap">
 <div class="navbar{{ (Config::get('theme.inverse') == true) ? ' navbar-inverse' : ''}} navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">

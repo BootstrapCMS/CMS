@@ -8,6 +8,7 @@
 @include('partials.header')
 </head>
 <body>
+<div id="wrap">
 {{ HTMLMin::render($__env->make('partials.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
 <div class="container">
 {{ HTMLMin::render($__env->make('partials.title', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}

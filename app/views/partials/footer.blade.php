@@ -1,16 +1,16 @@
 <br><hr>
-</div>
+</div></div>
 
 <div id="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <p class="muted credit">
+                <p class="text-muted credit">
                     © <a href="https://github.com/GrahamCampbell">Graham Campbell</a> 2013. All rights reserved.
                 </p>
             </div>
             <div class="col-lg-4">
-                <p class="muted pull-right">
+                <p class="text-muted pull-right">
                     Generated in {{ round((microtime(1) - LARAVEL_START), 4) }} sec.
                 </p>
             </div>
