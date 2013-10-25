@@ -24,6 +24,7 @@ Edit {{ $event->getTitle() }}
 
 @section('content')
 <div class="well">
+    @include('partials.icons')
     <?php
     $form = array('url' => URL::route('events.update', array('events' => $event->getId())),
         'method'   => 'PATCH',
