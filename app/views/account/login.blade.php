@@ -29,7 +29,7 @@ Login
         </div>
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-xs-offset-3 col-sm-10 col-xs-9">
+            <div class="col-md-offset-2 col-sm-offset-3 col-sm-10 col-xs-9">
                 <div class="checkbox">
                     <label><input type="checkbox" name="rememberMe" value="1"> Remember Me</label>
                 </div>
@@ -37,7 +37,7 @@ Login
         </div>
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-xs-offset-3 col-sm-10 col-xs-9">
+            <div class="col-md-offset-2 col-sm-offset-3 col-sm-10 col-xs-9">
                 <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> Log In</button>
                 <label><a href="{{ URL::route('account.reset') }}" class="btn btn-link">Forgot Password?</a></label>
             </div>
