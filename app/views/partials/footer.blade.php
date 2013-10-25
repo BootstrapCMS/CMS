@@ -1,4 +1,3 @@
-<br><hr>
 </div></div>
 
 <div id="footer">
@@ -10,7 +9,7 @@
                 </p>
             </div>
             <div class="col-lg-4">
-                <p class="text-muted pull-right">
+                <p class="text-muted credit pull-right">
                     Generated in {{ round((microtime(1) - LARAVEL_START), 4) }} sec.
                 </p>
             </div>
