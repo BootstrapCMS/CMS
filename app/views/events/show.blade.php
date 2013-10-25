@@ -46,6 +46,7 @@
         <hr>
         <p class="lead">
             {{ Markdown::string($event->getBody()) }}
+            @include('partials.icons')
         </p>
     </div>
 </div>
