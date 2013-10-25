@@ -42,20 +42,41 @@ body {
 .jumbotron {
     background-color: transparent;
     text-align: center;
+}
+
+.hidden-xs .jumbotron {
     margin: 28px 0;
 }
 
+.visible-xs .jumbotron {
+    margin: 20px 0;
+}
+
 .jumbotron h1 {
-    font-size: 100px;
     line-height: 1;
 }
 
+.hidden-xs .jumbotron h1 {
+    font-size: 100px;
+}
+
+.visible-xs .jumbotron h1 {
+    font-size: 60px;
+}
+
 .jumbotron .lead {
-    font-size: 24px;
     line-height: 1.25;
 }
 
-.jumbotron .btn {
+.hidden-xs .jumbotron .lead {
+    font-size: 24px;
+}
+
+.visible-xs .jumbotron .lead {
+    font-size: 18px;
+}
+
+.hidden-xs .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
 }

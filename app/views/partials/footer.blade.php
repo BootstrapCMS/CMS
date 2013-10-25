@@ -1,7 +1,7 @@
 </div></div>
 
 <div id="footer">
-    <div class="container hidden-xs hidden-sm">
+    <div class="container hidden-xs">
         <div class="row">
             <div class="col-xs-8">
                 <p class="text-muted credit">
@@ -15,14 +15,9 @@
             </div>
         </div>
     </div>
-    <div class="container visible-sm">
-        <p class="text-muted credit">
-            © <a href="https://github.com/GrahamCampbell">Graham Campbell</a> 2013. All rights reserved.
-        </p>
-    </div>
     <div class="container visible-xs">
         <p class="text-muted credit">
-            © <a href="https://github.com/GrahamCampbell">Graham Campbell</a> 2013.
+            © <a href="https://github.com/GrahamCampbell">Graham Campbell</a> 2013. All rights reserved.
         </p>
     </div>
 </div>
