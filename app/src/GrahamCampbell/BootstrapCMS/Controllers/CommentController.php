@@ -69,7 +69,7 @@ class CommentController extends BaseController {
 
         CommentProvider::create($input);
 
-        Session::flash('success', 'Your post has been created successfully.');
+        Session::flash('success', 'Your comment has been created successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }
 
