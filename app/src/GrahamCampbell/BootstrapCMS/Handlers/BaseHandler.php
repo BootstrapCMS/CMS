@@ -48,6 +48,13 @@ abstract class BaseHandler {
     protected $id;
 
     /**
+     * The job task.
+     *
+     * @var string
+     */
+    protected $task;
+
+    /**
      * The handler status.
      *
      * @var bool
@@ -143,24 +150,37 @@ abstract class BaseHandler {
     public function fire($job, $data) {
         // load job details and data to the class
         $this->id = $data['model_id'];
+        $this->task = get_class($this);
         $this->job = $job;
         unset($job);
         $this->data = $data;
         unset($data);
         
         // log the job start
-        Log::debug(get_class($this).' has started execution of job '.$this->id);
+        Log::debug($this->task.' has started execution of job '.$this->id);
 
         // check if there is a job model
         try {
             $this->model = JobProvider::find($this->id);
         } catch (\Exception $e) {
-           $this->abort(get_class($this).' has aborted because the job model was inaccessible');
+           $this->abort($this->task.' has aborted because the job model was inaccessible');
         }
 
         // if there's not model, then the job must have been cancelled
         if (!$this->model) {
-            $this->abort(get_class($this).' has aborted because the job was marked as cancelled');
+            $this->abort($this->task.' has aborted because the job was marked as cancelled');
+        }
+
+        // check the model
+        try {
+            if ($this->model->getId() !== $this->id) {
+                throw new Exception('Bad Id');
+            }
+            if ($this->model->getTask() !== $this->task) {
+                throw new Exception('Bad Task');
+            }
+        } catch (\Exception $e) {
+           $this->abort($this->task.' has aborted because the job model was invalid');
         }
 
         // increment tries
@@ -169,7 +189,7 @@ abstract class BaseHandler {
             $this->model->tries = $this->tries;
             $this->model->save();
         } catch (\Exception $e) {
-           $this->abort(get_class($this).' has aborted because the job model was inaccessible');
+           $this->abort($this->task.' has aborted because the job model was inaccessible');
         }
 
         // run the before method
@@ -206,7 +226,7 @@ abstract class BaseHandler {
         $this->status = false;
 
         // log the success
-        Log::info(get_class($this).' has completed successfully');
+        Log::info($this->task.' has completed successfully');
 
         // run the afterSuccess method
         try {
@@ -243,7 +263,7 @@ abstract class BaseHandler {
         if ($exception) {
             Log::error($exception);
         } else {
-            Log::error(get_class($this).' has failed without an exception to log');
+            Log::error($this->task.' has failed without an exception to log');
         }
         
         // run the afterFailure method
@@ -257,26 +277,26 @@ abstract class BaseHandler {
         if (get_class($this->job) == 'Illuminate\Queue\Jobs\BeanstalkdJob') {
             // abort if we have retried too many times
             if ($this->tries >= $this->maxtries) {
-                $this->abort(get_class($this).' has aborted after failing '.$this->tries.' times');
+                $this->abort($this->task.' has aborted after failing '.$this->tries.' times');
             } else {
                 // wait x seconds, then push back to queue
                 try {
                     $this->job->release(4*$this->tries);
                 } catch (\Exception $e) {
                     Log::critical($e);
-                    $this->abort(get_class($this).' has aborted after failing to repush to the queue');
+                    $this->abort($this->task.' has aborted after failing to repush to the queue');
                 }
             }
         } elseif (get_class($this->job) != 'Illuminate\Queue\Jobs\SyncJob') {
             // abort if we have retried too many times
             if ($this->tries >= $this->maxtries) {
-                $this->abort(get_class($this).' has aborted after failing '.$this->tries.' times');
+                $this->abort($this->task.' has aborted after failing '.$this->tries.' times');
             }
             // throw an exception in order to push back to queue
-            throw new \Exception(get_class($this).' has failed with '.get_class($this->job));
+            throw new \Exception($this->task.' has failed with '.get_class($this->job));
         } else {
             // throw an exception to let the caller now the sync job failed
-            throw new \Exception(get_class($this).' has failed with '.get_class($this->job));
+            throw new \Exception($this->task.' has failed with '.get_class($this->job));
         }
     }
 
@@ -293,7 +313,7 @@ abstract class BaseHandler {
         if ($message) {
             Log::error($message); 
         } else {
-            Log::error(get_class($this).' has aborted without a message');
+            Log::error($this->task.' has aborted without a message');
         }
 
         // run the afterAbortion method
