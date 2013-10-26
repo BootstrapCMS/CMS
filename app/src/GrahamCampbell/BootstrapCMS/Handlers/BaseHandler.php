@@ -121,7 +121,7 @@ abstract class BaseHandler {
      */
     public function fire($job, $data) {
         // load job details and data to the class
-        $id = $data['job_id'];
+        $id = $data['model_id'];
         $this->job = $job;
         unset($job);
         $this->data = $data;
@@ -137,6 +137,11 @@ abstract class BaseHandler {
         if (!$this->model) {
             $this->abort(get_class($this).' has aborted because the job was marked as cancelled');
         }
+
+        // increment tries
+        $tries = $this->model->getTries();
+        $this->model->tries = $tries + 1;
+        $this->model->save();
 
         // run the before method
         if ($this->status) {
@@ -227,8 +232,6 @@ abstract class BaseHandler {
                 $this->abort(get_class($this).' has aborted after failing '.$tries.' times');
             } else {
                 try {
-                    // increment tries
-                    $this->model->tries = $tries + 1;
                     // wait x seconds, then push back to queue
                     $this->job->release(4*$tries);
                 } catch (\Exception $e) {
@@ -241,14 +244,6 @@ abstract class BaseHandler {
             // abort if we have retried too many times
             if ($tries >= $this->tries) {
                 $this->abort(get_class($this).' has aborted after failing '.$tries.' times');
-            } else {
-                try {
-                    // increment tries
-                    $this->model->tries = $tries + 1;
-                } catch (\Exception $e) {
-                    Log::critical($e);
-                    $this->abort(get_class($this).' has aborted after failing to repush to the queue');
-                }
             }
             // throw an exception in order to push back to queue
             throw new \Exception(get_class($this).' has failed with '.get_class($this->job));
