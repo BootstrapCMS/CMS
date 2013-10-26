@@ -118,17 +118,23 @@ abstract class BaseHandler {
         $this->data = $data;
 
         // let's get started
-        if (!empty($this->job->getJobId())) {
+        $id = $job->getJobId();
+        if (!empty($id)) {
             // log the job start
-            Log::debug(get_class($this).' has started execution of job '.$this->job->getJobId());
+            Log::debug(get_class($this).' has started execution of job '.$id);
+            // check if the job has been cancelled
+            if (!JobProvider::find($id)) {
+                $this->abort(get_class($this).' has aborted because the job was cancelled');
+            }
         } else {
             // log the job start
             Log::debug(get_class($this).' has started execution of a sync job');
-            // check if the job has been cancelled
-            if (!JobProvider::find($this->job->getJobId())) {
-                $this->abort(get_class($this).' has aborted because job '.$this->job->getJobId().' was cancelled');
-            }
         }
+
+        // save some memory
+        unset($job);
+        unset($data);
+        unset($id);
 
         // run the before method
         if ($this->status) {
