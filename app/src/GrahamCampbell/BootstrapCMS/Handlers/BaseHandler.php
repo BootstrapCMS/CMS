@@ -117,19 +117,16 @@ abstract class BaseHandler {
         $this->job = $job;
         $this->data = $data;
 
-        // log the job start
-        if (empty($this->job->getJobId())) {
-            Log::debug(get_class($this).' has started execution of a sync job');
-        } else {
+        // let's get started
+        if (!empty($this->job->getJobId())) {
+            // log the job start
             Log::debug(get_class($this).' has started execution of job '.$this->job->getJobId());
-        }
-
-        // check if the job has been cancelled
-        if (get_class($this->job) != 'Illuminate\Queue\Jobs\SyncJob') {
-            if (empty($this->job->getJobId())) {
-                if (!JobProvider::find($this->job->getJobId())) {
-                    $this->abort(get_class($this).' has aborted because job '.$this->job->getJobId().' was cancelled');
-                }
+        } else {
+            // log the job start
+            Log::debug(get_class($this).' has started execution of a sync job');
+            // check if the job has been cancelled
+            if (!JobProvider::find($this->job->getJobId())) {
+                $this->abort(get_class($this).' has aborted because job '.$this->job->getJobId().' was cancelled');
             }
         }
 
