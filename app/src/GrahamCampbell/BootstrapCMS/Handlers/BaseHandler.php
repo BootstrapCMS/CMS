@@ -20,6 +20,8 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use GrahamCampbell\CMSCore\Providers\JobProvider;
+
 use Log;
 
 abstract class BaseHandler {
@@ -111,16 +113,25 @@ abstract class BaseHandler {
      * @return void
      */
     public function fire($job, $data) {
-        // log the job start
-        if (empty($job->getJobId())) {
-            Log::debug(get_class($this).' has started execution of a sync job');
-        } else {
-            Log::debug(get_class($this).' has started execution of job '.$job->getId());
-        }
-
         // load job details and data to the class
         $this->job = $job;
         $this->data = $data;
+
+        // log the job start
+        if (empty($this->job->getJobId())) {
+            Log::debug(get_class($this).' has started execution of a sync job');
+        } else {
+            Log::debug(get_class($this).' has started execution of job '.$this->job->getJobId());
+        }
+
+        // check if the job has been cancelled
+        if (get_class($this->job) != 'Illuminate\Queue\Jobs\SyncJob') {
+            if (empty($this->job->getJobId())) {
+                if (!JobProvider::find($this->job->getJobId())) {
+                    $this->abort(get_class($this).' has aborted because job '.$this->job->getJobId().' was cancelled');
+                }
+            }
+        }
 
         // run the before method
         if ($this->status) {
