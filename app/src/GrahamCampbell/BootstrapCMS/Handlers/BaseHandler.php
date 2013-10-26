@@ -27,11 +27,25 @@ use Log;
 abstract class BaseHandler {
 
     /**
-     * The maximum number of retries.
+     * The maximum number of tries.
      *
      * @var array
      */
-    protected $tries = 6;
+    protected $maxtries = 6;
+
+    /**
+     * The current number of tries.
+     *
+     * @var array
+     */
+    protected $tries = 1;
+
+    /**
+     * The job id.
+     *
+     * @var int
+     */
+    protected $id;
 
     /**
      * The handler status.
@@ -39,6 +53,13 @@ abstract class BaseHandler {
      * @var bool
      */
     private $status = true;
+
+    /**
+     * The job model.
+     *
+     * @var mixed
+     */
+    protected $model;
 
     /**
      * The handler job.
@@ -121,18 +142,18 @@ abstract class BaseHandler {
      */
     public function fire($job, $data) {
         // load job details and data to the class
-        $id = $data['model_id'];
+        $this->id = $data['model_id'];
         $this->job = $job;
         unset($job);
         $this->data = $data;
         unset($data);
         
         // log the job start
-        Log::debug(get_class($this).' has started execution of job '.$id);
+        Log::debug(get_class($this).' has started execution of job '.$this->id);
 
         // check if there is a job model
         try {
-            $this->model = JobProvider::find($id);
+            $this->model = JobProvider::find($this->id);
         } catch (\Exception $e) {
            $this->abort(get_class($this).' has aborted because the job model was inaccessible');
         }
@@ -144,7 +165,8 @@ abstract class BaseHandler {
 
         // increment tries
         try {
-            $this->model->tries = $this->model->getTries() + 1;
+            $this->tries = $this->model->getTries() + 1;
+            $this->model->tries = $this->tries;
             $this->model->save();
         } catch (\Exception $e) {
            $this->abort(get_class($this).' has aborted because the job model was inaccessible');
@@ -233,24 +255,22 @@ abstract class BaseHandler {
 
         // attempt to retry
         if (get_class($this->job) == 'Illuminate\Queue\Jobs\BeanstalkdJob') {
-            $tries = $this->model->getTries();
             // abort if we have retried too many times
-            if ($tries >= $this->tries) {
-                $this->abort(get_class($this).' has aborted after failing '.$tries.' times');
+            if ($this->tries >= $this->maxtries) {
+                $this->abort(get_class($this).' has aborted after failing '.$this->tries.' times');
             } else {
                 // wait x seconds, then push back to queue
                 try {
-                    $this->job->release(4*$tries);
+                    $this->job->release(4*$this->tries);
                 } catch (\Exception $e) {
                     Log::critical($e);
                     $this->abort(get_class($this).' has aborted after failing to repush to the queue');
                 }
             }
         } elseif (get_class($this->job) != 'Illuminate\Queue\Jobs\SyncJob') {
-            $tries = $this->model->getTries();
             // abort if we have retried too many times
-            if ($tries >= $this->tries) {
-                $this->abort(get_class($this).' has aborted after failing '.$tries.' times');
+            if ($this->tries >= $this->maxtries) {
+                $this->abort(get_class($this).' has aborted after failing '.$this->tries.' times');
             }
             // throw an exception in order to push back to queue
             throw new \Exception(get_class($this).' has failed with '.get_class($this->job));
