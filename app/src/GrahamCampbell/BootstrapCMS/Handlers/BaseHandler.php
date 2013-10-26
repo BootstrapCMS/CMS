@@ -112,7 +112,11 @@ abstract class BaseHandler {
      */
     public function fire($job, $data) {
         // log the job start
-        Log::debug(get_class($this).' has started execution');
+        if (empty($job->getJobId())) {
+            Log::debug(get_class($this).' has started execution of a sync job');
+        } else {
+            Log::debug(get_class($this).' has started execution of job '.$job->getId());
+        }
 
         // load job details and data to the class
         $this->job = $job;
