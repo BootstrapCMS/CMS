@@ -23,7 +23,7 @@
 use Cache;
 use Config;
 use Log;
-use Queue;
+use Queuing;
 use URL;
 
 class HomeController extends BaseController {
@@ -78,7 +78,7 @@ class HomeController extends BaseController {
             'subject' => Config::get('cms.name').' - Welcome',
         );
 
-        Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+        Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
         return 'done';
     }
 
@@ -88,7 +88,7 @@ class HomeController extends BaseController {
      * @return string
      */
     public function testError() {
-        Queue::push('GrahamCampbell\BootstrapCMS\Handlers\TestHandler', array());
+        Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\TestHandler', array());
         return 'done';
     }
 

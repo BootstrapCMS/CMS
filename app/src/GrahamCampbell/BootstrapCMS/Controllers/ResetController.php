@@ -23,7 +23,7 @@
 use App;
 use Config;
 use Log;
-use Queue;
+use Queuing;
 use Redirect;
 use Session;
 use URL;
@@ -83,7 +83,7 @@ class ResetController extends BaseController {
             );
 
             try {
-                Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+                Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
             } catch (\Exception $e) {
                 Log::alert($e);
                 Session::flash('error', 'We were unable to reset your password. Please contact support.');
@@ -129,7 +129,7 @@ class ResetController extends BaseController {
                     'subject' => Config::get('cms.name').' - New Password Information',
                 );
 
-                Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+                Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
             } catch (\Exception $e) {
                 Log::alert($e);
                 Session::flash('error', 'We were unable to send you your password. Please contact support.');

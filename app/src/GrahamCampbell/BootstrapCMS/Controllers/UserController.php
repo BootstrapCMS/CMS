@@ -23,7 +23,7 @@
 use App;
 use Config;
 use Log;
-use Queue;
+use Queuing;
 use Redirect;
 use Session;
 use URL;
@@ -132,7 +132,7 @@ class UserController extends BaseController {
                     'subject'  => Config::get('cms.name').' - New Account Information'
                 );
 
-                Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+                Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
                 } catch (\Exception $e) {
                     Log::alert($e);
                     $user->delete();
@@ -286,7 +286,7 @@ class UserController extends BaseController {
                 'subject' => Config::get('cms.name').' - New Password Information',
             );
 
-            Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+            Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
         } catch (\Exception $e) {
             Log::alert($e);
             Session::flash('error', 'We were unable to send the password to the user.');
