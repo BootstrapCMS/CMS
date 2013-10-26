@@ -20,7 +20,7 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use GrahamCampbell\CMSCore\Providers\JobProvider;
+use GrahamCampbell\CMSCore\Facades\JobProvider;
 
 use Log;
 
