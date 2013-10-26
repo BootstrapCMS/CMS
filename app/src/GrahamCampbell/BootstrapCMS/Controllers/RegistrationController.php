@@ -24,7 +24,7 @@ use App;
 use Config;
 use Event;
 use Log;
-use Queue;
+use Queuing;
 use Redirect;
 use Session;
 use URL;
@@ -108,7 +108,7 @@ class RegistrationController extends BaseController {
                     'subject' => Config::get('cms.name').' - Welcome',
                 );
 
-                Queue::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+                Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
             } catch (\Exception $e) {
                 Log::alert($e);
                 Event::fire('user.registrationfailed', array(array('Email' => $input['email'])));
