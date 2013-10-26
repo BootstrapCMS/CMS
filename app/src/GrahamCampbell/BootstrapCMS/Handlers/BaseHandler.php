@@ -131,7 +131,11 @@ abstract class BaseHandler {
         Log::debug(get_class($this).' has started execution of job '.$id);
 
         // check if there is a job model
-        $this->model = JobProvider::find($id);
+        try {
+            $this->model = JobProvider::find($id);
+        } catch (\Exception $e) {
+           $this->abort(get_class($this).' has aborted because the job model was inaccessible');
+        }
 
         // if there's not model, then the job must have been cancelled
         if (!$this->model) {
@@ -139,9 +143,12 @@ abstract class BaseHandler {
         }
 
         // increment tries
-        $tries = $this->model->getTries();
-        $this->model->tries = $tries + 1;
-        $this->model->save();
+        try {
+            $this->model->tries = $this->model->getTries() + 1;
+            $this->model->save();
+        } catch (\Exception $e) {
+           $this->abort(get_class($this).' has aborted because the job model was inaccessible');
+        }
 
         // run the before method
         if ($this->status) {
@@ -231,8 +238,8 @@ abstract class BaseHandler {
             if ($tries >= $this->tries) {
                 $this->abort(get_class($this).' has aborted after failing '.$tries.' times');
             } else {
+                // wait x seconds, then push back to queue
                 try {
-                    // wait x seconds, then push back to queue
                     $this->job->release(4*$tries);
                 } catch (\Exception $e) {
                     Log::critical($e);
