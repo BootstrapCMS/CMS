@@ -27,6 +27,13 @@ use Log;
 abstract class BaseHandler {
 
     /**
+     * The maximum number of retries.
+     *
+     * @var array
+     */
+    protected $tries = 6;
+
+    /**
      * The handler status.
      *
      * @var bool
@@ -212,22 +219,41 @@ abstract class BaseHandler {
             Log::error($e);
         }
 
-        // if can handle retrying
+        // attempt to retry
         if (get_class($this->job) == 'Illuminate\Queue\Jobs\BeanstalkdJob') {
+            $tries = $this->model->getTries();
             // abort if we have retried too many times
-            if ($this->job->attempts() >= 3) {
-                $this->abort(get_class($this).' has aborted after failing 3 times');
+            if ($tries >= $this->tries) {
+                $this->abort(get_class($this).' has aborted after failing '.$tries.' times');
             } else {
-                // wait x seconds, then push back to queue, or abort if that fails
                 try {
-                    $this->job->release(4*$this->job->attempts());
+                    // increment tries
+                    $this->model->tries = $tries + 1;
+                    // wait x seconds, then push back to queue
+                    $this->job->release(4*$tries);
                 } catch (\Exception $e) {
                     Log::critical($e);
                     $this->abort(get_class($this).' has aborted after failing to repush to the queue');
                 }
             }
+        } elseif (get_class($this->job) != 'Illuminate\Queue\Jobs\SyncJob') {
+            $tries = $this->model->getTries();
+            // abort if we have retried too many times
+            if ($tries >= $this->tries) {
+                $this->abort(get_class($this).' has aborted after failing '.$tries.' times');
+            } else {
+                try {
+                    // increment tries
+                    $this->model->tries = $tries + 1;
+                } catch (\Exception $e) {
+                    Log::critical($e);
+                    $this->abort(get_class($this).' has aborted after failing to repush to the queue');
+                }
+            }
+            // throw an exception in order to push back to queue
+            throw new \Exception(get_class($this).' has failed with '.get_class($this->job));
         } else {
-            // throw an exception
+            // throw an exception to let the caller now the sync job failed
             throw new \Exception(get_class($this).' has failed with '.get_class($this->job));
         }
     }
