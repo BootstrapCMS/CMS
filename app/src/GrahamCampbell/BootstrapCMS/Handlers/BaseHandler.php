@@ -114,27 +114,22 @@ abstract class BaseHandler {
      */
     public function fire($job, $data) {
         // load job details and data to the class
+        $id = $data['job_id'];
         $this->job = $job;
-        $this->data = $data;
-
-        // let's get started
-        $id = $job->getJobId();
-        if (!empty($id)) {
-            // log the job start
-            Log::debug(get_class($this).' has started execution of job '.$id);
-            // check if the job has been cancelled
-            if (!JobProvider::find($id)) {
-                $this->abort(get_class($this).' has aborted because the job was cancelled');
-            }
-        } else {
-            // log the job start
-            Log::debug(get_class($this).' has started execution of a sync job');
-        }
-
-        // save some memory
         unset($job);
+        $this->data = $data;
         unset($data);
-        unset($id);
+        
+        // log the job start
+        Log::debug(get_class($this).' has started execution of job '.$id);
+
+        // check if there is a job model
+        $this->model = JobProvider::find($id);
+
+        // if there's not model, then the job must have been cancelled
+        if (!$this->model) {
+            $this->abort(get_class($this).' has aborted because the job was marked as cancelled');
+        }
 
         // run the before method
         if ($this->status) {
@@ -182,6 +177,13 @@ abstract class BaseHandler {
         // remove the job from the queue
         try {
             $this->job->delete(); 
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
+
+        // remove the job from the database
+        try {
+            $this->model->delete(); 
         } catch (\Exception $e) {
             Log::error($e);
         }
@@ -256,6 +258,13 @@ abstract class BaseHandler {
         // remove the job from the queue
         try {
             $this->job->delete(); 
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
+
+        // remove the job from the database
+        try {
+            $this->model->delete(); 
         } catch (\Exception $e) {
             Log::error($e);
         }
