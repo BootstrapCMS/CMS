@@ -20,7 +20,7 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Queuing;
+use Cron;
 
 class CronHandler extends BaseHandler {
 
@@ -40,8 +40,7 @@ class CronHandler extends BaseHandler {
      * @return void
      */
     protected function afterSuccess() {
-        JobProvider::clearCrons();
-        Queuing::laterCron(15 ,$this->data);
+        Cron::start();
     }
 
     /**
@@ -50,7 +49,6 @@ class CronHandler extends BaseHandler {
      * @return void
      */
     protected function afterAbortion() {
-        JobProvider::clearCrons();
-        Queuing::laterCron(5 ,$this->data);
+        Cron::start(500);
     }
 }

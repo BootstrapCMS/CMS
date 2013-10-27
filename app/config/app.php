@@ -226,6 +226,7 @@ return array(
         'UserProvider'    => 'GrahamCampbell\CMSCore\Facades\UserProvider',
         'Navigation'      => 'GrahamCampbell\CMSCore\Facades\Navigation',
         'Queuing'         => 'GrahamCampbell\CMSCore\Facades\Queuing',
+        'Cron'            => 'GrahamCampbell\CMSCore\Facades\Cron',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
         'Carbon'          => 'Carbon\Carbon'

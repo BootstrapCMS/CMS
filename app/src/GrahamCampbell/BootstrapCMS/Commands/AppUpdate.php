@@ -45,5 +45,6 @@ class AppUpdate extends AppCommand {
         $this->runMigrations();
         $this->genAssets();
         $this->updateCache();
+        $this->startCrons();
     }
 }

@@ -20,21 +20,21 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-class AppReset extends AppCommand {
+class CronStart extends AppCommand {
 
     /**
      * The command name.
      *
      * @var string
      */
-    protected $name = 'app:reset';
+    protected $name = 'cron:start';
 
     /**
      * The command description.
      *
      * @var string
      */
-    protected $description = 'Resets And Installs The CMS';
+    protected $description = 'Starts the cron jobs';
 
     /**
      * Run the commend.
@@ -42,12 +42,6 @@ class AppReset extends AppCommand {
      * @return void
      */
     public function fire() {
-        $this->genAppKey();
-        $this->resetMigrations();
-        $this->runMigrations();
-        $this->runSeeding();
-        $this->genAssets();
-        $this->updateCache();
         $this->startCrons();
     }
 }

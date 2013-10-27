@@ -21,6 +21,7 @@
  */
 
 use Illuminate\Console\Command;
+use Cron;
 use Navigation;
 
 abstract class AppCommand extends Command {
@@ -80,5 +81,23 @@ abstract class AppCommand extends Command {
      */
     protected function updateCache() {
         Navigation::regen();
+    }
+
+    /**
+     * Start the cron jobs.
+     *
+     * @return void
+     */
+    protected function startCrons() {
+        Cron::start(30);
+    }
+
+    /**
+     * Stop the cron jobs.
+     *
+     * @return void
+     */
+    protected function stopCrons() {
+        Cron::stop();
     }
 }

@@ -36,3 +36,7 @@ Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppUpdate);
 Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppInstall);
 
 Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppReset);
+
+Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\CronStart);
+
+Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\CronStop);
