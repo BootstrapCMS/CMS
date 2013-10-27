@@ -80,7 +80,9 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function updateCache() {
+        $this->line('Regenerating cache...');
         Navigation::regen();
+        $this->info('Cache regenerated!');
     }
 
     /**
@@ -89,7 +91,9 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function startCrons() {
+        $this->line('Starting crons...');
         Cron::start(30);
+        $this->info('Crons started!');
     }
 
     /**
@@ -98,6 +102,8 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function stopCrons() {
+        $this->line('Stopping crons...');
         Cron::stop();
+        $this->info('Crons stopped!');
     }
 }
