@@ -45,7 +45,6 @@ return array(
                 } else {
                     $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
                 }
-                // $collection->stylesheet('jasny-bootstrap.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('main.css')->apply('CssMin');
             });
@@ -54,67 +53,29 @@ return array(
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('jquery-1.10.2.min.js');
                 $collection->javascript('jquery.timeago.js');
-                $collection->javascript('jquery.form.min.js');
                 $collection->javascript('restfulizer.js');
                 $collection->javascript('bootstrap.min.js');
-                // $collection->javascript('jasny-bootstrap.min.js');
                 $collection->javascript('main.js');
             });
             $directory->apply('JsMin');
         },
 
-        'select' => function($collection) {
+        'form' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('bootstrap-select.min.css');
+                $collection->stylesheet('bootstrap-switch.css');
                 $collection->stylesheet('bootstrap-datetimepicker.min.css');
-            });
-            $directory->apply('CssMin');
-            $directory->apply('UriRewriteFilter');
-
-            $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('bootstrap-select.min.js');
-                $collection->javascript('bootstrap-datetimepicker.min.js');
-                $collection->javascript('datetimepicker1.js');
-            });
-            $directory->apply('JsMin');
-        },
-
-        'markdown' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-markdown.min.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('bootstrap-markdown.js');
-            });
-            $directory->apply('JsMin');
-        },
-
-        'switches' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('bootstrap-switch.css');
-            });
-            $directory->apply('CssMin');
-            $directory->apply('UriRewriteFilter');
-
-            $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('jquery.form.min.js');
+                $collection->javascript('typeahead.min.js');
                 $collection->javascript('bootstrap-switch.js');
-            });
-            $directory->apply('JsMin');
-        },
-
-        'images' => function($collection) {
-            $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('bootstrap-lightbox.min.css');
-            });
-            $directory->apply('CssMin');
-            $directory->apply('UriRewriteFilter');
-
-            $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('jquery.lazyload.min.js');
-                $collection->javascript('bootstrap-lightbox.min.js');
+                $collection->javascript('bootstrap-datetimepicker.min.js');
+                $collection->javascript('picker.js');
+                $collection->javascript('bootstrap-markdown.js');
             });
             $directory->apply('JsMin');
         },

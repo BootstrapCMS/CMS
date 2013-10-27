@@ -31,6 +31,7 @@ class EventSubscriber {
     public function subscribe($events) {
         $events->listen('event.created', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventCreated');
         $events->listen('event.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventUpdated');
+        $events->listen('event.deleting', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventDeleting');
         $events->listen('event.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\EventSubscriber@onEventDeleted');
     }
 
@@ -41,7 +42,7 @@ class EventSubscriber {
      * @return void
      */
     public function onEventCreated($event) {
-        //
+        // TODO: Email invited users
     }
 
     /**
@@ -51,7 +52,17 @@ class EventSubscriber {
      * @return void
      */
     public function onEventUpdated($event) {
-        //
+        // TODO: Email invited users
+    }
+
+    /**
+     * Handle an event.deleting event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onEventDeleting($event) {
+        // TODO: Email invited users
     }
 
     /**

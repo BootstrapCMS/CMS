@@ -59,9 +59,9 @@ Edit {{ $user->first_name.' '.$user->last_name }}
 @stop
 
 @section('css')
-{{ Basset::show('switches.css') }}
+{{ Basset::show('form.css') }}
 @stop
 
 @section('js')
-{{ Basset::show('switches.js') }}
+{{ Basset::show('form.js') }}
 @stop

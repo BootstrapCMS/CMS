@@ -23,9 +23,9 @@ Create Page
 @stop
 
 @section('css')
-{{ Basset::show('switches.css') }}
+{{ Basset::show('form.css') }}
 @stop
 
 @section('js')
-{{ Basset::show('switches.js') }}
+{{ Basset::show('form.js') }}
 @stop

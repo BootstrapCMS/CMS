@@ -22,11 +22,9 @@ Create Event
 @stop
 
 @section('css')
-{{ Basset::show('select.css') }}
-{{ Basset::show('markdown.css') }}
+{{ Basset::show('form.css') }}
 @stop
 
 @section('js')
-{{ Basset::show('select.js') }}
-{{ Basset::show('markdown.js') }}
+{{ Basset::show('form.js') }}
 @stop
