@@ -132,7 +132,7 @@ class UserController extends BaseController {
                     'subject'  => Config::get('cms.name').' - New Account Information'
                 );
 
-                Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+                Queuing::pushMail($data);
                 } catch (\Exception $e) {
                     Log::alert($e);
                     $user->delete();
@@ -286,7 +286,7 @@ class UserController extends BaseController {
                 'subject' => Config::get('cms.name').' - New Password Information',
             );
 
-            Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+            Queuing::pushMail($data);
         } catch (\Exception $e) {
             Log::alert($e);
             Session::flash('error', 'We were unable to send the password to the user.');

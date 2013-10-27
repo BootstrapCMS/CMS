@@ -20,9 +20,9 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Mail;
+use Queuing;
 
-class MailHandler extends BaseHandler {
+class CronHandler extends BaseHandler {
 
     /**
      * Run the task (called by BaseHandler).
@@ -31,14 +31,26 @@ class MailHandler extends BaseHandler {
      */
     protected function run() {
         $data = $this->data;
-        if (!is_array($this->data['email'])) {
-            $this->data['email'] = array($this->data['email']);
-        }
-        foreach($this->data['email'] as $email) {
-            $data['email'] = $email;
-            Mail::send($data['view'], $data, function($mail) use($data) {
-                $mail->to($data['email'])->subject($data['subject']);
-            });
-        }
+        // do stuff
+    }
+
+    /**
+     * Run after a job success (called by BaseHandler).
+     *
+     * @return void
+     */
+    protected function afterSuccess() {
+        JobProvider::clearCrons();
+        Queuing::laterCron(15 ,$this->data);
+    }
+
+    /**
+     * Run after a job abortion (called by BaseHandler).
+     *
+     * @return void
+     */
+    protected function afterAbortion() {
+        JobProvider::clearCrons();
+        Queuing::laterCron(5 ,$this->data);
     }
 }

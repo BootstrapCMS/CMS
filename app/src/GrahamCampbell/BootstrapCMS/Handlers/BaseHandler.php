@@ -225,16 +225,6 @@ abstract class BaseHandler {
         // set status to completed
         $this->status = false;
 
-        // log the success
-        Log::info($this->task.' has completed successfully');
-
-        // run the afterSuccess method
-        try {
-            $this->afterSuccess();
-        } catch (\Exception $e) {
-            Log::error($e);
-        }
-
         // remove the job from the queue
         try {
             $this->job->delete(); 
@@ -248,6 +238,16 @@ abstract class BaseHandler {
         } catch (\Exception $e) {
             Log::error($e);
         }
+
+        // run the afterSuccess method
+        try {
+            $this->afterSuccess();
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
+
+        // log the success
+        Log::info($this->task.' has completed successfully');
     }
 
     /**
@@ -259,18 +259,18 @@ abstract class BaseHandler {
         // set status to completed
         $this->status = false;
 
-        // log the error
-        if ($exception) {
-            Log::error($exception);
-        } else {
-            Log::error($this->task.' has failed without an exception to log');
-        }
-        
         // run the afterFailure method
         try {
             $this->afterFailure();
         } catch (\Exception $e) {
             Log::error($e);
+        }
+
+        // log the error
+        if ($exception) {
+            Log::error($exception);
+        } else {
+            Log::error($this->task.' has failed without an exception to log');
         }
 
         // attempt to retry
@@ -309,13 +309,6 @@ abstract class BaseHandler {
         // set status to completed
         $this->status = false;
 
-        // log the message
-        if ($message) {
-            Log::error($message); 
-        } else {
-            Log::error($this->task.' has aborted without a message');
-        }
-
         // run the afterAbortion method
         try {
             $this->afterAbortion();
@@ -335,6 +328,13 @@ abstract class BaseHandler {
             $this->model->delete(); 
         } catch (\Exception $e) {
             Log::error($e);
+        }
+
+        // log the message
+        if ($message) {
+            Log::error($message); 
+        } else {
+            Log::error($this->task.' has aborted without a message');
         }
     }
 }

@@ -108,7 +108,7 @@ class RegistrationController extends BaseController {
                     'subject' => Config::get('cms.name').' - Welcome',
                 );
 
-                Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+                Queuing::pushMail($data);
             } catch (\Exception $e) {
                 Log::alert($e);
                 Event::fire('user.registrationfailed', array(array('Email' => $input['email'])));

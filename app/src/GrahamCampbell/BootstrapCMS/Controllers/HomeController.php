@@ -78,7 +78,7 @@ class HomeController extends BaseController {
             'subject' => Config::get('cms.name').' - Welcome',
         );
 
-        Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\MailHandler', $data, Config::get('mail.queue'));
+        Queuing::pushMail($data);
         return 'done';
     }
 
