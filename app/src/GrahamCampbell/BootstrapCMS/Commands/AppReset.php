@@ -48,6 +48,7 @@ class AppReset extends AppCommand {
         $this->runSeeding();
         $this->genAssets();
         $this->updateCache();
-        $this->startCrons();
+        // $this->startCrons();
+        // crons disabled due to laravel bug - https://github.com/laravel/framework/issues/2569
     }
 }
