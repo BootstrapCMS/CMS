@@ -31,13 +31,13 @@ class UserSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('user.loginsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLoginSuccessful');
-        $events->listen('user.loginfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLoginFailed');
-        $events->listen('user.logout', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLogout');
-        $events->listen('user.registrationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistrationSuccessful');
-        $events->listen('user.registrationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistrationFailed');
-        $events->listen('user.activationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserActivationSuccessful');
-        $events->listen('user.activationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserActivationFailed');
+        $events->listen('user.loginsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginSuccessful');
+        $events->listen('user.loginfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginFailed');
+        $events->listen('user.logout', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLogout');
+        $events->listen('user.registrationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationSuccessful');
+        $events->listen('user.registrationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationFailed');
+        $events->listen('user.activationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationSuccessful');
+        $events->listen('user.activationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationFailed');
     }
 
     /**
