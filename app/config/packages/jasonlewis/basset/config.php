@@ -45,6 +45,7 @@ return array(
                 } else {
                     $collection->stylesheet('bootstrap.'.Config::get('theme.name').'.min.css');
                 }
+                $collection->stylesheet('jasny-bootstrap.min.css');
                 $collection->stylesheet('font-awesome.min.css');
                 $collection->stylesheet('main.css')->apply('CssMin');
             });
@@ -55,6 +56,7 @@ return array(
                 $collection->javascript('jquery.timeago.js');
                 $collection->javascript('restfulizer.js');
                 $collection->javascript('bootstrap.min.js');
+                $collection->javascript('jasny-bootstrap.min.js');
                 $collection->javascript('main.js');
             });
             $directory->apply('JsMin');
