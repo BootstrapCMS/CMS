@@ -268,9 +268,9 @@ abstract class BaseHandler {
 
         // log the error
         if ($exception) {
-            Log::error($exception);
+            Log::critical($exception);
         } else {
-            Log::error($this->task.' has failed without an exception to log');
+            Log::critical($this->task.' has failed without an exception to log');
         }
 
         // attempt to retry
@@ -284,13 +284,13 @@ abstract class BaseHandler {
                     $this->job->release(4*$this->tries);
                 } catch (\Exception $e) {
                     Log::critical($e);
-                    $this->abort($this->task.' has aborted after failing to repush to the queue');
+                    return $this->abort($this->task.' has aborted after failing to repush to the queue');
                 }
             }
         } elseif (get_class($this->job) != 'Illuminate\Queue\Jobs\SyncJob') {
             // abort if we have retried too many times
             if ($this->tries >= $this->maxtries) {
-                $this->abort($this->task.' has aborted after failing '.$this->tries.' times');
+                return $this->abort($this->task.' has aborted after failing '.$this->tries.' times');
             }
             // throw an exception in order to push back to queue
             throw new \Exception($this->task.' has failed with '.get_class($this->job));
@@ -330,11 +330,16 @@ abstract class BaseHandler {
             Log::error($e);
         }
 
-        // log the message
-        if ($message) {
-            Log::error($message); 
+        if (get_class($this->job) != 'Illuminate\Queue\Jobs\BeanstalkdJob') {
+            // log the message
+            if ($message) {
+                Log::critical($message); 
+            } else {
+                Log::critical($this->task.' has aborted without a message');
+            }
         } else {
-            Log::error($this->task.' has aborted without a message');
+            // make sure the queue knows the job aborted
+            throw new Exception($this->task.' has aborted without a message');
         }
     }
 }
