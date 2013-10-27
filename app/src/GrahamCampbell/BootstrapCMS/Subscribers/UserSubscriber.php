@@ -20,6 +20,8 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use Log;
+
 class UserSubscriber {
 
     /**
@@ -29,38 +31,103 @@ class UserSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('user.created', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserCreated');
-        $events->listen('user.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserUpdated');
-        $events->listen('user.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserDeleted');
+        $events->listen('user.loginsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLoginSuccessful');
+        $events->listen('user.loginfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLoginFailed');
+        $events->listen('user.logout', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserLogout');
+        $events->listen('user.registrationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistrationSuccessful');
+        $events->listen('user.registrationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserRegistrationFailed');
+        $events->listen('user.activationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserActivationSuccessful');
+        $events->listen('user.activationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\ExtraUserSubscriber@onUserActivationFailed');
     }
 
     /**
-     * Handle a user.created event.
+     * Handle a user.loginsuccessful event.
      *
      * @param  mixed  $event
      * @return void
      */
-    public function onUserCreated($event) {
-        //
+    public function onUserLoginSuccessful($event) {
+        if (!is_array($event)) {
+            $event = array($event);
+        }
+        Log::info('User login successful', $event);
     }
 
     /**
-     * Handle a user.updated event.
+     * Handle a user.loginfailed event.
      *
      * @param  mixed  $event
      * @return void
      */
-    public function onUserUpdated($event) {
-        //
+    public function onUserLoginFailed($event) {
+        if (!is_array($event)) {
+            $event = array($event);
+        }
+        Log::notice('User login failed', $event);
     }
 
     /**
-     * Handle a user.deleted event.
+     * Handle a user.logout event.
      *
      * @param  mixed  $event
      * @return void
      */
-    public function onUserDeleted($event) {
-        //
+    public function onUserLogout($event) {
+        if (!is_array($event)) {
+            $event = array($event);
+        }
+        Log::info('User logged out', $event);
+    }
+
+    /**
+     * Handle a user.registrationsuccessful event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onUserRegistrationSuccessful($event) {
+        if (!is_array($event)) {
+            $event = array($event);
+        }
+        Log::info('User registration successful', $event);
+    }
+
+    /**
+     * Handle a user.registrationfailed event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onUserRegistrationFailed($event) {
+        if (!is_array($event)) {
+            $event = array($event);
+        }
+        Log::notice('User registration failed', $event);
+    }
+
+    /**
+     * Handle a user.activationsuccessful event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onUserActivationSuccessful($event) {
+        if (!is_array($event)) {
+            $event = array($event);
+        }
+        Log::info('User activation successful', $event);
+    }
+
+    /**
+     * Handle a user.activationfailed event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onUserActivationFailed($event) {
+        if (!is_array($event)) {
+            $event = array($event);
+        }
+        Log::notice('User activation failed', $event);
     }
 }
