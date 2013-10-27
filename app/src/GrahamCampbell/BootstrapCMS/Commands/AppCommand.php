@@ -22,6 +22,7 @@
 
 use Illuminate\Console\Command;
 use Cron;
+use GrahamCampbell\CMSCore\Providers\JobProvider;
 use Navigation;
 
 abstract class AppCommand extends Command {
@@ -105,5 +106,35 @@ abstract class AppCommand extends Command {
         $this->line('Stopping crons...');
         Cron::stop();
         $this->info('Crons stopped!');
+    }
+
+    /**
+     * Clear the queue.
+     *
+     * @return void
+     */
+    protected function clearQueue() {
+        $this->line('Clearing the queue...');
+        JobProvider::clearAll();
+        $this->info('Queue cleared!');
+        $this->comment('Note that the crons where cleared too');
+    }
+
+    /**
+     * List the queue contents.
+     *
+     * @return void
+     */
+    protected function listQueue() {
+        $this->info('Queue listing coming soon...');
+    }
+
+    /**
+     * Get the queue length.
+     *
+     * @return void
+     */
+    protected function listQueue() {
+        $this->info('Queue length information soon...');
     }
 }

@@ -40,3 +40,9 @@ Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppReset);
 Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\CronStart);
 
 Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\CronStop);
+
+Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\QueueClear);
+
+Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\QueueList);
+
+Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\QueueLength);
