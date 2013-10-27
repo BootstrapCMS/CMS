@@ -134,7 +134,7 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function listQueue() {
+    protected function getQueueLength() {
         $this->info('Queue length information soon...');
     }
 }
