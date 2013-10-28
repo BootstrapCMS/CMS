@@ -35,11 +35,8 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function genAppKey() {
-        $this->line('debug: '.Config::get('app.key'));
         $this->call('key:generate');
-        $this->line('debug: '.Config::get('app.key'));
         Crypt::setKey(Config::get('app.key'));
-        $this->line('debug: '.Config::get('app.key'));
     }
 
     /**
