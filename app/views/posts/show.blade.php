@@ -121,7 +121,11 @@
                         <strong>{{ $comment->getUserName() }}</strong> - <abbr class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
                     </p>
                     <p>
-                        {{ (Sentry::check() && Sentry::getUser()->hasAccess('mod')) ? '<a href="#" id="editable_comment_'.$comment->getId().'" class="x-editable" data-type="text" data-pk="'.$comment->getId().'" data-url="'.URL::route('blog.posts.comments.update', array('posts' => $post->getId(), 'comments' => $comment->getId())).'" data-ajaxOptions="{type: "patch"}" data-title="Modify comment">' : '' }}{{ nl2br(e($comment->getBody())) }}{{ (Sentry::check() && Sentry::getUser()->hasAccess('mod')) ? '</a>' : '' }}
+                        @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+                            <a href="#" id="editable_comment_{{ $comment->getId() }}" class="x-editable" data-type="text" data-pk="{{ $comment->getId() }}" data-url="{{ URL::route('blog.posts.comments.update', array('posts' => $post->getId(), 'comments' => $comment->getId())) }}" data-ajaxOptions="{type: "patch"}" data-title="Modify comment">{{ nl2br(e($comment->getBody())) }}</a>
+                        @else
+                            {{ nl2br(e($comment->getBody())) }}
+                        @endif
                     </p>
                 </div>
             @endif
