@@ -5,6 +5,7 @@ $(document).ready(function() {
             dataType: 'json'
         },
         success: function(response, newValue) {
+            console.log(response);
             if (!response) {
                 return "There was an unknown error!";
             }
@@ -16,6 +17,7 @@ $(document).ready(function() {
             }
         },
         error: function(response, newValue) {
+            console.log(response);
             if (!response) {
                 return "There was an unknown error!";
             }
