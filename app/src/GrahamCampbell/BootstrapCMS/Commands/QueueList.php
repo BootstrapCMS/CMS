@@ -27,7 +27,7 @@ class QueueList extends AppCommand {
      *
      * @var string
      */
-    protected $name = 'queue:clear';
+    protected $name = 'queue:list';
 
     /**
      * The command description.

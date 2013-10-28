@@ -126,7 +126,7 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function listQueue() {
-        $this->info('Queue listing coming soon...');
+        $this->error('Queue information is currently unavailable');
     }
 
     /**
@@ -135,6 +135,6 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function getQueueLength() {
-        $this->info('Queue length information soon...');
+        $this->error('Queue information is currently unavailable');
     }
 }
