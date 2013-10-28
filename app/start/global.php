@@ -82,7 +82,6 @@ App::fatal(function($exception) {
             return Response::json($details, $code);
         } else {
             $details = array(
-                'exception' => $exception,
                 'code' => $code,
                 'name' => $name,
                 'message' => $message,
@@ -113,36 +112,47 @@ App::error(function(Exception $exception, $code) {
                 case 400:
                     $name = 'Bad Request';
                     $message = 'The request cannot be fulfilled due to bad syntax.';
+                    break;
                 case 401:
                     $name = 'Unauthorized';
                     $message = 'Authentication is required and has failed or has not yet been provided.';
+                    break;
                 case 403:
                     $name = 'Forbidden';
                     $message = 'The request was a valid request, but the server is refusing to respond to it.';
+                    break;
                 case 404:
                     $name = 'Not Found';
                     $message = 'The requested resource could not be found but may be available again in the future.';
+                    break;
                 case 405:
                     $name = 'Method Not Allowed';
                     $message = 'A request was made of a resource using a request method not supported by that resource.';
+                    break;
                 case 500:
                     $name = 'Internal Server Error';
                     $message = 'An error has occurred and this resource cannot be displayed.';
+                    break;
                 case 501:
                     $name = 'Not Implemented';
                     $message = 'The server either does not recognize the request method, or it lacks the ability to fulfil the request.';
+                    break;
                 case 502:
                     $name = 'Bad Gateway';
                     $message = 'The server was acting as a gateway or proxy and received an invalid response from the upstream server.';
+                    break;
                 case 503:
                     $name = 'Service Unavailable';
                     $message = 'The server is currently unavailable. It may be overloaded or down for maintenance.';
+                    break;
                 case 504:
                     $name = 'Gateway Timeout';
                     $message = 'The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.';
+                    break;
                 case 505:
                     $name = 'HTTP Version Not Supported';
                     $message = 'The server does not support the HTTP protocol version used in the request.';
+                    break;
                 default:
                     $code = 500;
                     $name = 'Internal Server Error';
@@ -156,7 +166,6 @@ App::error(function(Exception $exception, $code) {
                         return Response::json($details, $code);
                     } else {
                         $details = array(
-                            'exception' => $exception,
                             'code' => $code,
                             'name' => $name,
                             'message' => $message,
@@ -174,7 +183,6 @@ App::error(function(Exception $exception, $code) {
                 return Response::json($details, $code);
             } else {
                 $details = array(
-                    'exception' => $exception,
                     'code' => $code,
                     'name' => $name,
                     'message' => $message,
@@ -197,7 +205,6 @@ App::error(function(Exception $exception, $code) {
                     return Response::json($details, $code);
                 } else {
                     $details = array(
-                        'exception' => $exception,
                         'code' => $code,
                         'name' => $name,
                         'message' => $message,
