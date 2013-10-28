@@ -96,8 +96,13 @@ abstract class AppCommand extends Command {
      */
     protected function startCrons() {
         $this->line('Starting crons...');
-        Cron::start(30);
-        $this->info('Crons started!');
+        if (Config::get('queue.default') == 'sync') {
+            $this->error('Crons cannot run on the sync queue.');
+            $this->comment('Please change the queue in the config.');
+        } else {
+            Cron::start(30);
+            $this->info('Crons started!');
+        }
     }
 
     /**
