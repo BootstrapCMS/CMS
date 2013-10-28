@@ -24,7 +24,7 @@ use Illuminate\Console\Command;
 use Config;
 use Cron;
 use Crypt;
-use GrahamCampbell\CMSCore\Providers\JobProvider;
+use GrahamCampbell\CMSCore\Facades\JobProvider;
 use Navigation;
 
 abstract class AppCommand extends Command {
