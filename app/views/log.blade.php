@@ -31,9 +31,9 @@
         <div id="bar-nav">
             <ul class="nav navbar-nav navbar-right">
                 @if (!$empty)
-                    {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }} 
+                    {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }} 
                 @endif
-                {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }}
+                {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }}
             </ul>
         </div>
     </div>
