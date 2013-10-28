@@ -138,6 +138,18 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function getQueueLength() {
-        $this->error('Queue information is currently unavailable');
+        $this->line('Getting queue length...');
+        $length = JobProvider::count();
+        if (is_int($length)) {
+            if ($length > 1) {
+                $this->info('There are no jobs in the queue.');
+            } elseif ($length == 1) {
+                $this->info('There is 1 job in the queue.');
+            } else {
+                $this->info('There are '.$length.' jobs in the queue.');
+            }
+        } else {
+            $this->error('Queue information is currently unavailable');
+        }        
     }
 }
