@@ -95,7 +95,7 @@
     @foreach ($comments as $comment)
         <div class="well clearfix">
             @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
-                <div class="col-md-10 col-sm-9 col-xs-12">
+                <div class="col-md-10 col-sm-9">
                     <p>
                         <strong>{{ $comment->getUserName() }}</strong> - <abbr class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
                     </p>

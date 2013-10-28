@@ -28,16 +28,18 @@
                 @endforeach
             </ul>
         </div>
-        </div>
         <div id="bar-nav">
             <ul class="nav navbar-nav navbar-right">
-                {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }} {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }}
+                @if (!$empty)
+                    {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }} 
+                @endif
+                {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }}
             </ul>
         </div>
     </div>
 </div>
 
-<div class="row">
+<div class="container">
     <div class="col-md-2 col-sm-3">
         <div id="nav" class="well">
             <ul class="nav nav-list">
