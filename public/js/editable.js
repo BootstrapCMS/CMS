@@ -1,8 +1,6 @@
 $(document).ready(function() {
-    $.fn.editable.defaults.;
+    $.fn.editable.defaults.mode = 'inline';
     $('.x-editable').editable({
-        mode = 'inline',
-        },
         success: function(response, newValue) {
             if(!response) {
                 return "Unknown error!";
