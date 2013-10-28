@@ -2,30 +2,31 @@ $(document).ready(function() {
     $.fn.editable.defaults.mode = 'inline';
     $('.x-editable').editable({
         ajaxOptions: {
-            dataType: 'json'
+            dataType: 'json',
+            type: 'PUT'
         },
         success: function(response, newValue) {
             console.log(response);
             if (!response) {
                 return "There was an unknown error!";
             }
-            if (response.success === false) {
+            if (response.success !== true) {
                 if (!response.msg) {
                     return "There was an unknown error!";
                 }
                 return response.msg;
             }
         },
-        error: function(response, newValue) {
-            console.log(response);
-            if (!response) {
+        error: function(error) {
+            console.log(error.responseJSON);
+            if (!error.responseJSON) {
                 return "There was an unknown error!";
             }
-            if (response.success === false) {
-                if (!response.msg) {
+            if (error.responseJSON.success !== true) {
+                if (!error.responseJSON.msg) {
                     return "There was an unknown error!";
                 }
-                return response.msg;
+                return error.responseJSON.msg;
             }
             return "There was an unknown error!";
         }

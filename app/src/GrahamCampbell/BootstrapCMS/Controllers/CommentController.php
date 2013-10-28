@@ -22,6 +22,8 @@
 
 use App;
 use Redirect;
+use Response;
+use Request;
 use Session;
 use Validator;
 
@@ -80,6 +82,24 @@ class CommentController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function update($post_id, $id) {
+        if (Request::ajax()) {
+            $body = Binput::get('value');
+
+            $rules = array('body' => Comment::$rules['body']);
+
+            $val = Validator::make(array('body' => $body), $rules);
+            if ($val->fails()) {
+                App::abort(400, 'The comment was empty.');
+            }
+
+            $comment = CommentProvider::find($id);
+            $this->checkComment($comment);
+
+            $comment->body = $body;
+            $comment->save();
+
+            return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.'));
+        }
         $input = array(
             'body' => Binput::get('body', null, true, false), // no xss protection please
         );
