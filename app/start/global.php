@@ -183,6 +183,7 @@ App::error(function(Exception $exception, $code) {
                 return Response::view('error', $details, $code);
             }
         } catch (Exception $e) {
+            Log::critical($e);
             try {
                 $code = 500;
                 $name = 'Internal Server Error';
