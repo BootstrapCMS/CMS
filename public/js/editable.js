@@ -5,21 +5,27 @@ $(document).ready(function() {
             dataType: 'json'
         },
         success: function(response, newValue) {
-            if(!response) {
-                return "Unknown error!";
+            if (!response) {
+                return "There was an unknown error!";
             }
-            if(response.success === false) {
+            if (response.success === false) {
+                if (!response.msg) {
+                    return "There was an unknown error!";
+                }
                 return response.msg;
             }
         }
-        error: function(errors) {
-            if(!response) {
-                return "Unknown error!";
+        error: function(response, newValue) {
+            if (!response) {
+                return "There was an unknown error!";
             }
-            if(response.success === false) {
+            if (response.success === false) {
+                if (!response.msg) {
+                    return "There was an unknown error!";
+                }
                 return response.msg;
             }
-            return "Unknown error!";
+            return "There was an unknown error!";
         }
     });
 });
