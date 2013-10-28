@@ -93,3 +93,8 @@ body {
 .comment-box {
     resize: none;
 }
+
+.x-editable {
+    color: inherit;
+    text-decoration: inherit;
+}
