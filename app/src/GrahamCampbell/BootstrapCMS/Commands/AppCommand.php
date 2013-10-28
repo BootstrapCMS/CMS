@@ -21,7 +21,9 @@
  */
 
 use Illuminate\Console\Command;
+use Config;
 use Cron;
+use Crypt;
 use GrahamCampbell\CMSCore\Providers\JobProvider;
 use Navigation;
 
@@ -34,6 +36,7 @@ abstract class AppCommand extends Command {
      */
     protected function genAppKey() {
         $this->call('key:generate');
+        Crypt::setKey(Config::get('app.key'));
     }
 
     /**

@@ -45,7 +45,6 @@ class AppUpdate extends AppCommand {
         $this->runMigrations();
         $this->genAssets();
         $this->updateCache();
-        // $this->startCrons();
-        // crons disabled due to laravel bug - https://github.com/laravel/framework/issues/2569
+        $this->startCrons();
     }
 }
