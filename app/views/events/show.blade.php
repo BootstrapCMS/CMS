@@ -69,6 +69,19 @@
 
 @section('messages')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
-    @include('events.delete')
+@include('events.delete')
+@endif
+@stop
+
+
+@section('css')
+@if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+{{ Basset::show('form.css') }}
+@endif
+@stop
+
+@section('js')
+@if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+{{ Basset::show('form.css') }}
 @endif
 @stop

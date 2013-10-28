@@ -46,3 +46,11 @@ Login
   {{ Form::close() }}
 </div>
 @stop
+
+@section('css')
+{{ Basset::show('form.css') }}
+@stop
+
+@section('js')
+{{ Basset::show('form.js') }}
+@stop

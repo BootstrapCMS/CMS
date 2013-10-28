@@ -41,7 +41,7 @@ Edit {{ $event->getTitle() }}
 
 @section('messages')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
-    @include('events.delete')
+@include('events.delete')
 @endif
 @stop
 

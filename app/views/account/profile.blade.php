@@ -53,3 +53,11 @@ Profile
 @section('messages')
 @include('account.delete')
 @stop
+
+@section('css')
+{{ Basset::show('form.css') }}
+@stop
+
+@section('js')
+{{ Basset::show('form.js') }}
+@stop

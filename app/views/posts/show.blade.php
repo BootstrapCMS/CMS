@@ -120,7 +120,7 @@
                     <p>
                         <strong>{{ $comment->getUserName() }}</strong> - <abbr class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
                     </p>
-                    <p>
+                    <p class="x-editable">
                         {{ nl2br(e($comment->getBody())) }}
                     </p>
                 </div>
@@ -132,9 +132,21 @@
 
 @section('messages')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
-    @include('posts.delete')
+@include('posts.delete')
 @endif
 @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
-    @include('posts.comments')
+@include('posts.comments')
+@endif
+@stop
+
+@section('css')
+@if (Sentry::check())
+{{ Basset::show('form.css') }}
+@endif
+@stop
+
+@section('js')
+@if (Sentry::check())
+{{ Basset::show('form.js') }}
 @endif
 @stop
