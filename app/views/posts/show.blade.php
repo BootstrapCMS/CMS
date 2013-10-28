@@ -100,7 +100,7 @@
                         <strong>{{ $comment->getUserName() }}</strong> - <abbr class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
                     </p>
                     <p>
-                        <a href="#" id="editable_comment_{{ $comment->getId() }}" class="x-editable" data-type="textarea" data-pk="{{ $comment->getId() }}" data-url="{{ URL::route('blog.posts.comments.update', array('posts' => $post->getId(), 'comments' => $comment->getId())) }}" data-title="Modify comment">{{ nl2br(e($comment->getBody())) }}</a>
+                        <a href="#" id="editable_comment_{{ $comment->getId() }}" class="x-editable" data-type="textarea" data-inputclass="form-control comment-box" data-rows="7" data-pk="{{ $comment->getId() }}" data-url="{{ URL::route('blog.posts.comments.update', array('posts' => $post->getId(), 'comments' => $comment->getId())) }}" data-title="Modify comment">{{ nl2br(e($comment->getBody())) }}</a>
                     </p>
                 </div>
                 <div class="hidden-xs">
