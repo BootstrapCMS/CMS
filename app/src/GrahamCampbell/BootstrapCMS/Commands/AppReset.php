@@ -42,7 +42,9 @@ class AppReset extends AppCommand {
      * @return void
      */
     public function fire() {
+        $this->line('debug: '.Config::get('app.key'));
         $this->genAppKey();
+        $this->line('debug: '.Config::get('app.key'));
         $this->resetMigrations();
         $this->runMigrations();
         $this->runSeeding();
