@@ -9,8 +9,17 @@ $(document).ready(function() {
                 return "Unknown error!";
             }
             if(response.success === false) {
-                 return response.msg;
+                return response.msg;
             }
+        }
+        error: function(errors) {
+            if(!response) {
+                return "Unknown error!";
+            }
+            if(response.success === false) {
+                return response.msg;
+            }
+            return "Unknown error!";
         }
     });
 });
