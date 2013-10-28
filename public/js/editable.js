@@ -6,7 +6,6 @@ $(document).ready(function() {
             type: 'PUT'
         },
         success: function(response, newValue) {
-            console.log(response);
             if (!response) {
                 return "There was an unknown error!";
             }
@@ -18,7 +17,6 @@ $(document).ready(function() {
             }
         },
         error: function(error) {
-            console.log(error.responseJSON);
             if (!error.responseJSON) {
                 return "There was an unknown error!";
             }
