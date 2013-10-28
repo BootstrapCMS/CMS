@@ -11,29 +11,34 @@
 <body>
 <div id="wrap">
 <div class="navbar{{ (Config::get('theme.inverse') == true) ? ' navbar-inverse' : ''}} navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            {{ HTML::link($url, Lang::get('logviewer::logviewer.title'), array('class' => 'brand')) }}
-            <ul class="nav">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{ URL::route('pages.show', array('pages' => 'home')) }}">Log Viewer</a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <div id="main-nav">
+            <ul class="nav navbar-nav">
                 {{ HTML::nav_item($url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/all', ucfirst(Lang::get('logviewer::logviewer.levels.all'))) }}
                 @foreach ($levels as $level)
                     {{ HTML::nav_item($url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/' . $level, ucfirst(Lang::get('logviewer::logviewer.levels.' . $level))) }}
                 @endforeach
             </ul>
-            @if ( ! $empty)
-                <div class="pull-right">
-                    {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }} {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }}
-                </div>
-            @endif
+        </div>
+        </div>
+        <div id="bar-nav">
+            <ul class="nav navbar-nav navbar-right">
+                {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }} {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }}
+            </ul>
         </div>
     </div>
 </div>
 
-<div class="container-fluid">
-
-<div class="row-fluid">
-
-    <div class="span2">
+<div class="row">
+    <div class="col-md-2 col-sm-3">
         <div id="nav" class="well">
             <ul class="nav nav-list">
                 @if ($logs)
@@ -57,9 +62,9 @@
         </div>
     </div>
 
-    <div class="span10">
-        <div class="row-fluid{{ ! $has_messages ? ' hidden' : '' }}">
-            <div class="span12" id="messages">
+    <div class="col-md-10 col-sm-9">
+        <div class="row{{ ! $has_messages ? ' hidden' : '' }}">
+            <div class="col-xs-12" id="messages">
                 @if (Session::has('success'))
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -80,8 +85,8 @@
                 @endif
             </div>
         </div>
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="row">
+            <div class="col-xs-12">
                 {{ $paginator->links() }}
                 <div id="log" class="well">
                     @if ( ! $empty && ! empty($log))
@@ -116,17 +121,22 @@
 
 </div>
 
-<div id="delete_modal" class="modal hide fade">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>{{ Lang::get('logviewer::logviewer.delete.modal.header') }}</h3>
-    </div>
-    <div class="modal-body">
-        <p>{{ Lang::get('logviewer::logviewer.delete.modal.body') }}</p>
-    </div>
-    <div class="modal-footer">
-        {{ HTML::link($url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/delete', Lang::get('logviewer::logviewer.delete.modal.btn.yes'), array('class' => 'btn btn-success')) }}
-        <button class="btn btn-danger" data-dismiss="modal">{{ Lang::get('logviewer::logviewer.delete.modal.btn.no') }}</button>
+<div id="delete_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+                <p>You are about to delete this log! This process cannot be undone.</p>
+                <p>Are you sure you wish to continue?</p>
+            </div>
+            <div class="modal-footer">
+                {{ HTML::link($url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/delete', Lang::get('logviewer::logviewer.delete.modal.btn.yes'), array('class' => 'btn btn-success')) }}
+                <button class="btn btn-danger" data-dismiss="modal">{{ Lang::get('logviewer::logviewer.delete.modal.btn.no') }}</button>
+            </div>
+        </div>
     </div>
 </div>
 

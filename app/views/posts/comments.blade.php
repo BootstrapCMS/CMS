@@ -7,9 +7,7 @@
                     <h4 class="modal-title">Are you sure?</h4>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        You are about to delete this comment. This process cannot be undone.
-                    </p>
+                    <p>You are about to delete this comment! This process cannot be undone.</p>
                     <p>Are you sure you wish to continue?</p>
                 </div>
                 <div class="modal-footer">

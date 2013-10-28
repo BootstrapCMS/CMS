@@ -1,15 +1,20 @@
 @foreach ($users as $user)
-    <div id="suspend_user_{{ $user->getId() }}" class="modal hide fade">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h3>Are you sure?</h3>
-        </div>
-        <div class="modal-body">
-            <p>Are you sure you want to suspend this user?</p>
-        </div>
-        <div class="modal-footer">
-            <a class="btn btn-success" href="{{ URL::route('users.suspend', array('users' => $user->getId())) }}" data-token="{{ Session::getToken() }}" data-method="POST">Yes</a>
-            <button class="btn btn-danger" data-dismiss="modal">No</button>
+    <div id="suspend_user_{{ $user->getId() }}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Are you sure?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You are about to suspend this user. Any active sessions they have will be ended, and will be unable to login for a period of time.</p>
+                    <p>Are you sure you wish to continue?</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-success" href="{{ URL::route('users.suspend', array('users' => $user->getId())) }}" data-token="{{ Session::getToken() }}" data-method="POST">Yes</a>
+                    <button class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+            </div>
         </div>
     </div>
 @endforeach
