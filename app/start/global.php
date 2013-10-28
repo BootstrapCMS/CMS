@@ -178,7 +178,7 @@ App::error(function(Exception $exception, $code) {
                 $details = array(
                     'success' => false,
                     'code' => $code,
-                    'msg' => $message
+                    'msg' => (!$exception->getMessage() || strlen($exception->getMessage()) > 100 || strlen($exception->getMessage()) < 5) ? $message : $exception->getMessage()
                 );
                 return Response::json($details, $code);
             } else {
@@ -186,7 +186,7 @@ App::error(function(Exception $exception, $code) {
                     'code' => $code,
                     'name' => $name,
                     'message' => $message,
-                    'extra' => $exception->getMessage()
+                    'extra' => (!$exception->getMessage() || strlen($exception->getMessage()) > 35 || strlen($exception->getMessage()) < 5) ? 'Houston, We Have A Problem' : $exception->getMessage()
                 );
                 return Response::view('error', $details, $code);
             }
@@ -208,7 +208,7 @@ App::error(function(Exception $exception, $code) {
                         'code' => $code,
                         'name' => $name,
                         'message' => $message,
-                        'extra' => 'Fatal Error',
+                        'extra' => 'Fatal Error'
                     );
                     return Response::view('error', $details, $code);
                 }

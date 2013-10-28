@@ -91,7 +91,7 @@
                     <h1>{{ Config::get('cms.error') }}</h1>
                 </div>
                 <div class="span7 ellipsis">
-                    <h2 class="pull-right">{{ (!$extra || strlen($extra) > 35 || strlen($extra) < 5) ? 'Houston, We Have A Problem' : $extra }}</h2>
+                    <h2 class="pull-right">{{ $extra }}</h2>
                 </div>
             </div>
             <h2>Error: {{ $code }} ({{ $name }})</h2>
