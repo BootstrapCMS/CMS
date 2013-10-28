@@ -14,7 +14,7 @@ $(document).ready(function() {
                 }
                 return response.msg;
             }
-        }
+        },
         error: function(response, newValue) {
             if (!response) {
                 return "There was an unknown error!";
