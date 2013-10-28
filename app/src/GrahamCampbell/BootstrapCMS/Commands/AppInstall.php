@@ -47,6 +47,6 @@ class AppInstall extends AppCommand {
         $this->runSeeding();
         $this->genAssets();
         $this->updateCache();
-        // $this->startCrons(); https://github.com/laravel/framework/pull/2572
+        $this->startCrons();
     }
 }
