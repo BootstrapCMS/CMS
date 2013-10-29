@@ -21,6 +21,7 @@
  */
 
 use Cron;
+use GrahamCampbell\CMSCore\Facades\JobProvider;
 
 class CronHandler extends BaseHandler {
 
@@ -31,7 +32,7 @@ class CronHandler extends BaseHandler {
      */
     protected function run() {
         $data = $this->data;
-        // do stuff
+        JobProvider::clearOldJobs();
     }
 
     /**
