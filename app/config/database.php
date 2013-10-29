@@ -69,7 +69,7 @@ return array(
         'sqlite' => array(
             'driver'   => 'sqlite',
             'database' => __DIR__.'/../database/production.sqlite',
-            'prefix'   => '',
+            'prefix'   => ''
         ),
 
         'mysql' => array(
@@ -80,7 +80,7 @@ return array(
             'password'  => '',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
+            'prefix'    => ''
         ),
 
         'pgsql' => array(
@@ -91,7 +91,7 @@ return array(
             'password' => '',
             'charset'  => 'utf8',
             'prefix'   => '',
-            'schema'   => 'public',
+            'schema'   => 'public'
         ),
 
         'sqlsrv' => array(
@@ -100,8 +100,8 @@ return array(
             'database' => 'bootstrap-cms',
             'username' => 'root',
             'password' => '',
-            'prefix'   => '',
-        ),
+            'prefix'   => ''
+        )
 
     ),
 
@@ -136,9 +136,9 @@ return array(
         'default' => array(
             'host'     => '127.0.0.1',
             'port'     => 6379,
-            'database' => 0,
-        ),
+            'database' => 0
+        )
 
-    ),
+    )
 
 );

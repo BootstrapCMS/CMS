@@ -111,6 +111,6 @@ return array(
     |
     */
 
-    'eloquented' => true,
+    'eloquented' => true
 
 );

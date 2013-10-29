@@ -140,6 +140,6 @@ return array(
     |
     */
 
-    'domain' => null,
+    'domain' => null
 
 );

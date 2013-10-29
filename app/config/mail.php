@@ -139,6 +139,6 @@ return array(
     |
     */
 
-    'pretend' => false,
+    'pretend' => false
 
 );

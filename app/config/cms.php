@@ -132,6 +132,6 @@ return array(
     |
     */
 
-    'cache' => false,
+    'cache' => false
 
 );

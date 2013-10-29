@@ -79,6 +79,11 @@ Please check the system requirements before installing Bootstrap CMS.
 
 ## Setting Up Queuing
 
+Bootstrap CMS provides queuing functionality, and when enabled, requires 3 separate queues.  
+  * One queue (the mail queue) will be used for sending emails
+  * One queue (the cron queue) will be used for all cron jobs
+  * One queue (the default queue) will be used for all other jobs
+  * These queues must be separate to avoid unexpected functionality
 Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud based.  
 Also note that `sqs` support is not 100% complete and is mainly untested.  
 
@@ -91,6 +96,7 @@ Also note that `sqs` support is not 100% complete and is mainly untested.
 
 ## Setting Up Caching
 
+Bootstrap CMS provides caching functionality, and when enabled, requires a caching server.  
 Note that caching will not work with Laravel's `file` or `database` cache drivers.  
 
 1. Choose your poison - I'd recommend [Redis](http://redis.io).  
@@ -109,7 +115,7 @@ Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analyti
 
 ## Setting Up Themes
 
-Bootstrap CMS also ships with 13 themes, 11 from [Bootswatch](http://bootswatch.com/2).  
+Bootstrap CMS also ships with 13 themes, 11 from [Bootswatch](http://bootswatch.com).  
 
 1. You can set your theme in `app/config/theme.php`.  
 2. You can also set your nav bar style in `app/config/theme.php`.  

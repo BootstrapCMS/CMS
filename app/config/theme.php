@@ -53,6 +53,6 @@ return array(
     |
     */
 
-    'inverse' => true,
+    'inverse' => true
 
 );
