@@ -48,6 +48,6 @@ class AppReset extends AppCommand {
         $this->runSeeding();
         $this->genAssets();
         $this->updateCache();
-        $this->startCrons();
+        $this->tryStartCrons();
     }
 }

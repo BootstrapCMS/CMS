@@ -24,7 +24,7 @@ use Illuminate\Console\Command;
 use Config;
 use Cron;
 use Crypt;
-use GrahamCampbell\CMSCore\Facades\JobProvider;
+use Queuing;
 use Navigation;
 
 abstract class AppCommand extends Command {
@@ -106,6 +106,19 @@ abstract class AppCommand extends Command {
     }
 
     /**
+     * Try to start the cron jobs.
+     *
+     * @return void
+     */
+    protected function tryStartCrons() {
+        if (Config::get('queue.default') == 'sync') {
+            $this->comment('Please note that cron functionality is disabled.');
+        } else {
+            $this->startCrons();
+        }
+    }
+
+    /**
      * Stop the cron jobs.
      *
      * @return void
@@ -123,7 +136,7 @@ abstract class AppCommand extends Command {
      */
     protected function clearQueue() {
         $this->line('Clearing the queue...');
-        JobProvider::clearAll();
+        Queuing::clear();
         $this->info('Queue cleared!');
         $this->comment('Note that the crons where cleared too');
     }
@@ -144,7 +157,7 @@ abstract class AppCommand extends Command {
      */
     protected function getQueueLength() {
         $this->line('Getting queue length...');
-        $length = JobProvider::count();
+        $length = Queuing::length();
         if (is_int($length)) {
             if ($length > 1) {
                 $this->info('There are no jobs in the queue.');
