@@ -91,7 +91,7 @@ Also note that `sqs` support is not 100% complete and is mainly untested.
 1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).  
 2. Enter your queuing server details into `app/config/queue.php`.  
 3. You can also set a separate mail queue in `app/config/mail.php`.  
-4. For [IronMQ](http://www.iron.io/mq), the queue subscription path is `/queue/receive`.  
+4. For [IronMQ](http://www.iron.io/mq), you can run the command `php artisan queue:iron http://yoursite.com` (where `http://yoursite.com` is your site's base URL without a tailing slash, not the subscription URL).  
 5. You can find out more about queuing by heading over to the [Laravel Docs](http://laravel.com/docs/queues).  
 
 
