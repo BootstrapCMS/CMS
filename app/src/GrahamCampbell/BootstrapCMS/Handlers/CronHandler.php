@@ -50,6 +50,8 @@ class CronHandler extends BaseHandler {
      * @return void
      */
     protected function afterAbortion() {
-        Cron::start(500);
+        if ($this->model) {
+            Cron::start(500);
+        }
     }
 }

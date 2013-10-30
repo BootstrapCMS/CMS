@@ -187,10 +187,10 @@ abstract class BaseHandler {
             // check the model
             try {
                 if ($this->model->getId() !== $this->id) {
-                    throw new Exception('Bad Id');
+                    throw new \Exception('Bad Id');
                 }
                 if ($this->model->getTask() !== $this->task) {
-                    throw new Exception('Bad Task');
+                    throw new \Exception('Bad Task');
                 }
             } catch (\Exception $e) {
                $this->abort($this->task.' has aborted because the job model was invalid');
@@ -357,7 +357,7 @@ abstract class BaseHandler {
             }
         } else {
             // make sure the queue knows the job aborted
-            throw new Exception($this->task.' has aborted without a message');
+            throw new \Exception($this->task.' has aborted without a message');
         }
     }
 }
