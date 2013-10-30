@@ -20,21 +20,23 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-class QueueList extends AppCommand {
+use Symfony\Component\Console\Input\InputArgument;
+
+class QueueIron extends AppCommand {
 
     /**
      * The command name.
      *
      * @var string
      */
-    protected $name = 'queue:list';
+    protected $name = 'queue:iron';
 
     /**
      * The command description.
      *
      * @var string
      */
-    protected $description = 'Lists the queue contents';
+    protected $description = 'Setups up IronMQ subscriptions';
 
     /**
      * Run the commend.
@@ -42,6 +44,17 @@ class QueueList extends AppCommand {
      * @return void
      */
     public function fire() {
-        $this->listQueue();
+        $this->ironQueue($this->input->getArgument('url'));
+    }
+
+    /**
+     * Get the console command arguments.
+     *
+     * @return array
+     */
+    protected function getArguments() {
+        return array(
+            array('url', InputArgument::VALUE_REQUIRED, 'The base url of your site without a slash')
+        );
     }
 }
