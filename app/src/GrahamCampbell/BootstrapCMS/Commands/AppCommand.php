@@ -45,7 +45,7 @@ abstract class AppCommand extends Command {
      */
     protected function genAppKey() {
         $this->call('key:generate');
-        $this->app['encrypter']->setKey($this->app['config']['app.key']);
+        $this->laravel['encrypter']->setKey($this->laravel['config']['app.key']);
     }
 
     /**
@@ -94,7 +94,7 @@ abstract class AppCommand extends Command {
      */
     protected function updateCache() {
         $this->line('Regenerating cache...');
-        $this->app['navigation']->regen();
+        $this->laravel['navigation']->regen();
         $this->info('Cache regenerated!');
     }
 
@@ -105,11 +105,11 @@ abstract class AppCommand extends Command {
      */
     protected function startCron() {
         $this->line('Starting cron...');
-        if ($this->app['config']['queue.default'] == 'sync') {
+        if ($this->laravel['config']['queue.default'] == 'sync') {
             $this->error('Cron cannot run on the sync queue.');
             $this->comment('Please change the queue in the config.');
         } else {
-            $this->app['cron']->start(30);
+            $this->laravel['cron']->start(30);
             $this->info('Cron started!');
         }
     }
@@ -120,7 +120,7 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function tryStartCron() {
-        if ($this->app['config']['queue.default'] == 'sync') {
+        if ($this->laravel['config']['queue.default'] == 'sync') {
             $this->comment('Please note that cron functionality is disabled.');
         } else {
             $this->startCron();
@@ -134,7 +134,7 @@ abstract class AppCommand extends Command {
      */
     protected function stopCron() {
         $this->line('Stopping cron...');
-        $this->app['cron']->stop();
+        $this->laravel['cron']->stop();
         $this->info('Cron stopped!');
     }
 
@@ -145,7 +145,7 @@ abstract class AppCommand extends Command {
      */
     protected function clearQueue() {
         $this->line('Clearing the queue...');
-        $this->app['queuing']->clearAll();
+        $this->laravel['queuing']->clearAll();
         $this->info('Queue cleared!');
         $this->comment('Note that cron jobs were cleared too.');
     }
@@ -157,7 +157,7 @@ abstract class AppCommand extends Command {
      */
     protected function getQueueLength() {
         $this->line('Getting queue length...');
-        $length = $this->app['queuing']->length();
+        $length = $this->laravel['queuing']->length();
         if (is_int($length)) {
             if ($length > 1) {
                 $this->info('There are no jobs in the queue.');
