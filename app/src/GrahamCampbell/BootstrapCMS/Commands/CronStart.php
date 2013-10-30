@@ -42,6 +42,6 @@ class CronStart extends AppCommand {
      * @return void
      */
     public function fire() {
-        $this->startCrons();
+        $this->startCron();
     }
 }

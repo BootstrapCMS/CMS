@@ -47,6 +47,6 @@ class AppInstall extends AppCommand {
         $this->runSeeding();
         $this->genAssets();
         $this->updateCache();
-        $this->tryStartCrons();
+        $this->tryStartCron();
     }
 }

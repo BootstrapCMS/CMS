@@ -88,7 +88,7 @@ class HomeController extends BaseController {
      * @return string
      */
     public function testError() {
-        Queuing::push('GrahamCampbell\BootstrapCMS\Handlers\TestHandler', array());
+        Queuing::pushJob('test');
         return 'done';
     }
 

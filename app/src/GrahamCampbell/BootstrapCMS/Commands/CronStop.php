@@ -42,6 +42,6 @@ class CronStop extends AppCommand {
      * @return void
      */
     public function fire() {
-        $this->stopCrons();
+        $this->stopCron();
     }
 }

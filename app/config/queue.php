@@ -39,42 +39,14 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Mail Message Queue
-    |--------------------------------------------------------------------------
-    |
-    | Bootstrap CMS uses a separate queue for sending emails so we can easily
-    | cancel jobs by type, therefore you must define a queue used for mail.
-    |
-    | Please read the documentation on GitHub for more details on queuing.
-    | The queue specified in the connections array will be used for other jobs.
-    |
-    */
-
-    'mail' => 'bootstrap-cms-mail',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Cron Message Queue
-    |--------------------------------------------------------------------------
-    |
-    | Bootstrap CMS uses a separate queue for sending emails so we can easily
-    | cancel jobs by type, therefore you must define a queue used for crons.
-    |
-    | Please read the documentation on GitHub for more details on queuing.
-    | The queue specified in the connections array will be used for other jobs.
-    |
-    */
-
-    'mail' => 'bootstrap-cms-cron',
-
-    /*
-    |--------------------------------------------------------------------------
     | Queue Connections
     |--------------------------------------------------------------------------
     |
     | Here you may configure the connection information for each server that
     | is used by your application. A default configuration has been added
     | for each back-end shipped with Laravel. You are free to add more.
+    |
+    | Please read the Bootstrap CMS documentation on GitHub for more details.
     |
     */
 
@@ -87,22 +59,28 @@ return array(
         'beanstalkd' => array(
             'driver' => 'beanstalkd',
             'host'   => 'localhost',
-            'queue'  => 'bootstrap-cms'
+            'queue'  => 'bootstrap-cms-jobs',
+            'mail'   => 'bootstrap-cms-mail',
+            'cron'   => 'bootstrap-cms-cron'
         ),
 
         'sqs' => array(
             'driver' => 'sqs',
             'key'    => 'your-public-key',
             'secret' => 'your-secret-key',
-            'queue'  => 'bootstrap-cms',
-            'region' => 'us-east-1'
+            'region' => 'us-east-1',
+            'queue'  => 'bootstrap-cms-jobs',
+            'mail'   => 'bootstrap-cms-mail',
+            'cron'   => 'bootstrap-cms-cron'
         ),
 
         'iron' => array(
             'driver'  => 'iron',
             'project' => 'your-project-id',
             'token'   => 'your-token',
-            'queue'   => 'bootstrap-cms'
+            'queue'  => 'bootstrap-cms-jobs',
+            'mail'   => 'bootstrap-cms-mail',
+            'cron'   => 'bootstrap-cms-cron'
         )
 
     )

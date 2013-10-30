@@ -94,14 +94,14 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function startCrons() {
-        $this->line('Starting crons...');
+    protected function startCron() {
+        $this->line('Starting cron...');
         if (Config::get('queue.default') == 'sync') {
-            $this->error('Crons cannot run on the sync queue.');
+            $this->error('Cron cannot run on the sync queue.');
             $this->comment('Please change the queue in the config.');
         } else {
             Cron::start(30);
-            $this->info('Crons started!');
+            $this->info('Cron started!');
         }
     }
 
@@ -110,11 +110,11 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function tryStartCrons() {
+    protected function tryStartCron() {
         if (Config::get('queue.default') == 'sync') {
             $this->comment('Please note that cron functionality is disabled.');
         } else {
-            $this->startCrons();
+            $this->startCron();
         }
     }
 
@@ -123,10 +123,10 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function stopCrons() {
-        $this->line('Stopping crons...');
+    protected function stopCron() {
+        $this->line('Stopping cron...');
         Cron::stop();
-        $this->info('Crons stopped!');
+        $this->info('Cron stopped!');
     }
 
     /**
@@ -136,9 +136,9 @@ abstract class AppCommand extends Command {
      */
     protected function clearQueue() {
         $this->line('Clearing the queue...');
-        Queuing::clear();
+        Queuing::clearAll();
         $this->info('Queue cleared!');
-        $this->comment('Note that the crons where cleared too');
+        $this->comment('Note that cron jobs were cleared too');
     }
 
     /**
