@@ -54,7 +54,7 @@ class QueueIron extends AppCommand {
      */
     protected function getArguments() {
         return array(
-            array('url', InputArgument::VALUE_REQUIRED, 'The base url of your site without a slash')
+            array('url', InputArgument::REQUIRED, 'The base url of your site without a tailing slash')
         );
     }
 }
