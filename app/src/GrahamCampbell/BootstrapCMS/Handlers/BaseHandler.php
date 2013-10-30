@@ -20,9 +20,8 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use GrahamCampbell\CMSCore\Facades\JobProvider;
-
 use Log;
+use GrahamCampbell\CMSCore\Facades\JobProvider;
 
 abstract class BaseHandler {
 
@@ -53,6 +52,13 @@ abstract class BaseHandler {
      * @var string
      */
     protected $task;
+
+    /**
+     * The job method.
+     *
+     * @var string
+     */
+    protected $method;
 
     /**
      * The handler status.
@@ -149,47 +155,55 @@ abstract class BaseHandler {
      */
     public function fire($job, $data) {
         // load job details and data to the class
-        $this->id = $data['model_id'];
-        $this->task = get_class($this);
         $this->job = $job;
         unset($job);
         $this->data = $data;
         unset($data);
-        
-        // log the job start
-        Log::debug($this->task.' has started execution of job '.$this->id);
+        $this->task = get_class($this);
+        $this->method = get_class($this->job);
 
-        // check if there is a job model
-        try {
-            $this->model = JobProvider::find($this->id);
-        } catch (\Exception $e) {
-           $this->abort($this->task.' has aborted because the job model was inaccessible');
-        }
+        if ($this->method == 'Illuminate\Queue\Jobs\SyncJob') {
+            // log the job start
+            Log::debug($this->task.' has started execution of a sync job');
+        } else {
+            // load job the job id to the class
+            $this->id = $this->data['model_id'];
 
-        // if there's not model, then the job must have been cancelled
-        if (!$this->model) {
-            $this->abort($this->task.' has aborted because the job was marked as cancelled');
-        }
+            // log the job start
+            Log::debug($this->task.' has started execution of job '.$this->id);
 
-        // check the model
-        try {
-            if ($this->model->getId() !== $this->id) {
-                throw new Exception('Bad Id');
+            // check if there is a job model
+            try {
+                $this->model = JobProvider::find($this->id);
+            } catch (\Exception $e) {
+               $this->abort($this->task.' has aborted because the job model was inaccessible');
             }
-            if ($this->model->getTask() !== $this->task) {
-                throw new Exception('Bad Task');
-            }
-        } catch (\Exception $e) {
-           $this->abort($this->task.' has aborted because the job model was invalid');
-        }
 
-        // increment tries
-        try {
-            $this->tries = $this->model->getTries() + 1;
-            $this->model->tries = $this->tries;
-            $this->model->save();
-        } catch (\Exception $e) {
-           $this->abort($this->task.' has aborted because the job model was inaccessible');
+            // if there's not model, then the job must have been cancelled
+            if (!$this->model) {
+                $this->abort($this->task.' has aborted because the job was marked as cancelled');
+            }
+
+            // check the model
+            try {
+                if ($this->model->getId() !== $this->id) {
+                    throw new Exception('Bad Id');
+                }
+                if ($this->model->getTask() !== $this->task) {
+                    throw new Exception('Bad Task');
+                }
+            } catch (\Exception $e) {
+               $this->abort($this->task.' has aborted because the job model was invalid');
+            }
+
+            // increment tries
+            try {
+                $this->tries = $this->model->getTries() + 1;
+                $this->model->tries = $this->tries;
+                $this->model->save();
+            } catch (\Exception $e) {
+               $this->abort($this->task.' has aborted because the job model was inaccessible');
+            }
         }
 
         // run the before method
@@ -233,10 +247,12 @@ abstract class BaseHandler {
         }
 
         // remove the job from the database
-        try {
-            $this->model->delete(); 
-        } catch (\Exception $e) {
-            Log::error($e);
+        if ($this->model) {
+            try {
+                $this->model->delete(); 
+            } catch (\Exception $e) {
+                Log::error($e);
+            }
         }
 
         // run the afterSuccess method
@@ -274,7 +290,7 @@ abstract class BaseHandler {
         }
 
         // attempt to retry
-        if (get_class($this->job) == 'Illuminate\Queue\Jobs\BeanstalkdJob') {
+        if ($this->method == 'Illuminate\Queue\Jobs\BeanstalkdJob') {
             // abort if we have retried too many times
             if ($this->tries >= $this->maxtries) {
                 $this->abort($this->task.' has aborted after failing '.$this->tries.' times');
@@ -287,16 +303,16 @@ abstract class BaseHandler {
                     return $this->abort($this->task.' has aborted after failing to repush to the queue');
                 }
             }
-        } elseif (get_class($this->job) != 'Illuminate\Queue\Jobs\SyncJob') {
+        } elseif ($this->method != 'Illuminate\Queue\Jobs\SyncJob') {
             // abort if we have retried too many times
             if ($this->tries >= $this->maxtries) {
                 return $this->abort($this->task.' has aborted after failing '.$this->tries.' times');
             }
             // throw an exception in order to push back to queue
-            throw new \Exception($this->task.' has failed with '.get_class($this->job));
+            throw new \Exception($this->task.' has failed with '.$this->method);
         } else {
             // throw an exception to let the caller now the sync job failed
-            throw new \Exception($this->task.' has failed with '.get_class($this->job));
+            throw new \Exception($this->task.' has failed with '.$this->method);
         }
     }
 
@@ -324,13 +340,15 @@ abstract class BaseHandler {
         }
 
         // remove the job from the database
-        try {
-            $this->model->delete(); 
-        } catch (\Exception $e) {
-            Log::error($e);
+        if ($this->model) {
+            try {
+                $this->model->delete(); 
+            } catch (\Exception $e) {
+                Log::error($e);
+            }
         }
 
-        if (get_class($this->job) != 'Illuminate\Queue\Jobs\BeanstalkdJob') {
+        if ($this->method != 'Illuminate\Queue\Jobs\BeanstalkdJob') {
             // log the message
             if ($message) {
                 Log::critical($message); 
