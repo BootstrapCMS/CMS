@@ -93,6 +93,7 @@
     @if (count($comments) == 0)
     <p>There are currently no comments.</p>
     @else
+        <?php $post_id = $post->getId(); ?>
         @foreach ($comments as $comment)
             @include('posts.comment')
         @endforeach

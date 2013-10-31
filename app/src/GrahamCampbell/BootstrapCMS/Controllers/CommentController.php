@@ -73,7 +73,7 @@ class CommentController extends BaseController {
 
             $comment = CommentProvider::create($input);
 
-            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => View::make('posts.comment', array('comment' => $comment))->render()));
+            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => View::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId()))->render()));
         }
 
         if ($val->fails()) {
