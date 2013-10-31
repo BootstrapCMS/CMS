@@ -148,7 +148,12 @@ $(document).ready(function() {
                 $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                 return;
             }
+            if (!xhr.responseJSON.comment) {
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
+                return;
+            }
             $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-success\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
+            $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown();
         },
         error: function(xhr, status, error) {
             if (!xhr.responseJSON) {
