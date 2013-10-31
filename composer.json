@@ -14,7 +14,7 @@
         "graham-campbell/cms-core": "dev-master",
         "graham-campbell/cloudflare-api": "dev-develop",
         "davejamesmiller/laravel-boris": "dev-master",
-        "kmd/logviewer": "dev-master#2e0782560b2519b2b284d8978234ce18b39a9ba5",
+        "kmd/logviewer": "dev-master#20c7dae60fee4e056f1960ace3d1fda3cc6a1179",
         "fideloper/proxy": "dev-master",
         "jasonlewis/basset": "dev-develop",
         "natxet/CssMin": "dev-master",
