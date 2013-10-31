@@ -77,8 +77,7 @@
         </div>
         <div class="form-group">
             <div class="col-xs-12">
-                <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
-                <label id="commentstatus"></label>
+                <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
             </div>
         </div>
     {{ Form::close() }}
@@ -158,46 +157,43 @@ $(document).ready(function() {
         timeout: 5000,
         beforeSubmit: function(formData, jqForm, options) {
             // TODO: show some kind of working indicator
-            $("#commentstatus").replaceWith("<label id=\"commentstatus\">Submitting comment...</label>");
+            $("#commentstatus").replaceWith("<label id=\"commentstatus\"><div class=\"editable-error-block help-block\" style=\"display: block;\">Submitting comment...</div></label>");
         },
         success: function(data, status, xhr) {
             if (!xhr.responseJSON) {
-                $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                 return;
             }
             console.log(xhr.responseJSON);
             if (xhr.responseJSON.success !== true) {
                 if (!xhr.responseJSON.msg) {
-                    $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
+                    $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                     return;
                 }
-                $("#commentstatus").replaceWith("<label id=\"commentstatus\">"+xhr.responseJSON.msg+"</label>");
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
                 return;
             }
             if (!xhr.responseJSON.msg) {
-                $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                 return;
             }
-            $("#commentstatus").replaceWith("<label id=\"commentstatus\">"+xhr.responseJSON.msg+"</label>");
-            setTimeout(function() {
-                $("#commentstatus").replaceWith("<label id=\"commentstatus\"></label>");
-            }, 3000);
+            $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-success\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
         },
         error: function(xhr, status, error) {
             if (!xhr.responseJSON) {
-                $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                 return;
             }
             console.log(xhr.responseJSON);
             if (xhr.responseJSON.success !== true) {
                 if (!xhr.responseJSON.msg) {
-                    $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
+                    $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                     return;
                 }
-                $("#commentstatus").replaceWith("<label id=\"commentstatus\">"+xhr.responseJSON.msg+"</label>");
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
                 return;
             }
-            $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
+            $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
         }
     }; 
  
