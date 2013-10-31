@@ -1,3 +1,5 @@
-$(document).ready(function() {
+function cmsTimeAgo() {
     $("abbr.timeago").timeago();
-});
+}
+
+$(document).ready(cmsTimeAgo());

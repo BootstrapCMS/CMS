@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function cmsEditable() {
     $.fn.editable.defaults.mode = 'inline';
     $('.x-editable').editable({
         ajaxOptions: {
@@ -29,4 +29,6 @@ $(document).ready(function() {
             return "There was an unknown error!";
         }
     });
-});
+}
+
+$(document).ready(cmsEditable());
