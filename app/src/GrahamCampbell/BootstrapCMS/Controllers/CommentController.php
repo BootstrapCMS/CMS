@@ -70,9 +70,9 @@ class CommentController extends BaseController {
                 App::abort(400, 'Your comment was empty.');
             }
 
-            CommentProvider::create($input);
+            $comment = CommentProvider::create($input);
 
-            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.'));
+            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => View::make('posts.comment', array('comment' => $comment))->render()));
         }
 
         if ($val->fails()) {

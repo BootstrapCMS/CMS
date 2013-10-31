@@ -15,6 +15,9 @@ $(document).ready(function() {
                 }
                 return response.msg;
             }
+            if (response.comment) {
+                $(response.comment).prependTo('#comments').hide().slideDown();
+            }
         },
         error: function(error) {
             if (!error.responseJSON) {
