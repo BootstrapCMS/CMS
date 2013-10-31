@@ -172,7 +172,6 @@ abstract class BaseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function missingMethod($parameters) {
-        Log::notice('Missing method exception occurred in '.get_class($this), array('parameters' => $parameters));
-        return App::abort(404, 'Missing Controller Method');
+        return App::abort(405, 'Missing Controller Method');
     }
 }
