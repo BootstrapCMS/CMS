@@ -26,6 +26,7 @@ use Response;
 use Request;
 use Session;
 use Validator;
+use View;
 
 use Binput;
 
