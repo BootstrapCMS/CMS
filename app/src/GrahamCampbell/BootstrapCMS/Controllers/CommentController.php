@@ -147,6 +147,10 @@ class CommentController extends BaseController {
 
         $comment->delete();
 
+        if (Request::ajax()) {
+            return Response::json(array('success' => true, 'msg' => 'Comment deleted successfully.', 'comment' => $id));
+        }
+
         Session::flash('success', 'The comment has been deleted successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post_id));
     }

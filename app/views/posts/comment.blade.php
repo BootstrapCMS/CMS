@@ -1,4 +1,4 @@
-<div class="well clearfix">
+<div id="comment_{{ $comment->getId() }}" class="well clearfix">
     @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
         <div class="col-md-10 col-sm-9">
             <p>
@@ -11,13 +11,13 @@
         <div class="hidden-xs">
             <div class="col-md-2 col-sm-3">
                 <div class="pull-right">
-                    <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
+                    <a class="btn btn-danger deletable" href="{{ URL::route('blog.posts.comments.destroy', array('posts' => $post->getId(), 'comments' => $comment->getId())) }}"><i class="fa fa-times"></i> Delete</a>
                 </div>
             </div>
         </div>
         <div class="visible-xs">
             <div class="col-sm-12">
-                <a class="btn btn-danger" href="#delete_comment_{{ $comment->getId() }}" data-toggle="modal" data-target="#delete_comment_{{ $comment->getId() }}"><i class="fa fa-times"></i> Delete</a>
+                <a class="btn btn-danger deletable" href="{{ URL::route('blog.posts.comments.destroy', array('posts' => $post->getId(), 'comments' => $comment->getId())) }}"><i class="fa fa-times"></i> Delete</a>
             </div>
         </div>
     @else
