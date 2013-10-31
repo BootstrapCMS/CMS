@@ -67,28 +67,27 @@
 @section('comments')
 <br><hr>
 <h3>Comments</h3>
-<div id="commentcreation">
-    @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
-        <br>
-        {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
-                </div>
+@if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
+    <br>
+    {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
+        <div class="form-group">
+            <div class="col-xs-12">
+                <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
             </div>
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
-                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
+                <label id="commentstatus"></label>
             </div>
-        {{ Form::close() }}
-        <br>
-    @else
-    <p>
-        <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
-    </p>
-    @endif
-</div>
+        </div>
+    {{ Form::close() }}
+    <br>
+@else
+<p>
+    <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
+</p>
+@endif
 <br>
 
 @if (count($comments) == 0)
@@ -159,63 +158,46 @@ $(document).ready(function() {
         timeout: 5000,
         beforeSubmit: function(formData, jqForm, options) {
             // TODO: show some kind of working indicator
-            $.bootstrapGrowl("Submitting comment...", {
-                ele: '#commentcreation',
-                type: 'info'
-            });
+            $("#commentstatus").replaceWith("<label id=\"commentstatus\">Submitting comment...</label>");
         },
         success: function(data, status, xhr) {
             if (!xhr.responseJSON) {
-                $.bootstrapGrowl("There was an unknown error!", {
-                    ele: '#commentcreation',
-                    type: 'error'
-                });
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
                 return;
             }
             console.log(xhr.responseJSON);
             if (xhr.responseJSON.success !== true) {
                 if (!xhr.responseJSON.msg) {
-                    $.bootstrapGrowl("There was an unknown error!", {
-                        ele: '#commentcreation',
-                        type: 'error'
-                    });
+                    $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
                     return;
                 }
-                $.bootstrapGrowl(xhr.responseJSON.msg, {
-                    ele: '#commentcreation',
-                    type: 'success'
-                });
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\">"+xhr.responseJSON.msg+"</label>");
                 return;
             }
+            if (!xhr.responseJSON.msg) {
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
+                return;
+            }
+            $("#commentstatus").replaceWith("<label id=\"commentstatus\">"+xhr.responseJSON.msg+"</label>");
+            setTimeout(function() {
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\"></label>");
+            }, 3000);
         },
         error: function(xhr, status, error) {
             if (!xhr.responseJSON) {
-                $.bootstrapGrowl("There was an unknown error!", {
-                    ele: '#commentcreation',
-                    type: 'error'
-                });
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
                 return;
             }
             console.log(xhr.responseJSON);
             if (xhr.responseJSON.success !== true) {
                 if (!xhr.responseJSON.msg) {
-                    $.bootstrapGrowl("There was an unknown error!", {
-                        ele: '#commentcreation',
-                        type: 'error'
-                    });
+                    $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
                     return;
                 }
-                $.bootstrapGrowl(xhr.responseJSON.msg, {
-                    ele: '#commentcreation',
-                    type: 'error'
-                });
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\">"+xhr.responseJSON.msg+"</label>");
                 return;
             }
-            $.bootstrapGrowl("There was an unknown error!", {
-                ele: '#commentcreation',
-                type: 'error'
-            });
-            return;
+            $("#commentstatus").replaceWith("<label id=\"commentstatus\">There was an unknown error!</label>");
         }
     }; 
  
