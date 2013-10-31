@@ -149,7 +149,7 @@ function cmsDeletable() {
             }
         });
         return false;
-    }
+    });
 }
 
 $(document).ready(function() {
