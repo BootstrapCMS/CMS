@@ -117,7 +117,43 @@
 @if (Sentry::check())
 {{ Basset::show('form.js') }}
 <script>
+function cmsDeletable() {
+    $('.deletable').click(function() {
+        $.ajax({
+            url: $(this).attr('href'),
+            type: 'DELETE',
+            dataType: 'json',
+            timeout: 5000,
+            beforeSend: function(xhr, settings) {
+                // TODO: show some kind of working indicator
+                console.log('deleting...');
+            },
+            success: function(data, status, xhr) {
+                console.log('delete successful');
+                if (!xhr.responseJSON) {
+                    // TODO
+                    return;
+                }
+                console.log(xhr.responseJSON);
+                $('#comment_'+xhr.responseJSON.comment).slideUp(500, function() {
+                    $(this).remove();
+                });
+            },
+            error: function(xhr, status, error) {
+                console.log('delete failed');
+                if (!xhr.responseJSON) {
+                    // TODO
+                    return;
+                }
+                console.log(xhr.responseJSON);
+            }
+        });
+        return false;
+    }
+}
+
 $(document).ready(function() {
+    cmsDeletable();
     $('#commentform').submit(function() {
         $(this).ajaxSubmit({ 
             dataType: 'json',
@@ -154,6 +190,7 @@ $(document).ready(function() {
                 $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(500);
                 cmsTimeAgo();
                 cmsEditable();
+                cmsDeletable();
             },
             error: function(xhr, status, error) {
                 if (!xhr.responseJSON) {
@@ -174,38 +211,6 @@ $(document).ready(function() {
         });
         return false;
     });
-
-    $('.deletable').click(function() {
-        $.ajax({
-            url: $(this).attr('href'),
-            type: 'DELETE',
-            dataType: 'json',
-            timeout: 5000,
-            beforeSend: function(xhr, settings) {
-                // TODO: show some kind of working indicator
-                console.log('deleting...')
-            },
-            success: function(data, status, xhr) {
-                console.log('delete successful');
-                if (!xhr.responseJSON) {
-                    // TODO
-                    return;
-                }
-                console.log(xhr.responseJSON);
-                $('#comment_'+xhr.responseJSON.comment).slideUp(500, function() {
-                    $(this).remove();
-                });
-            },
-            error: function(xhr, status, error) {
-                console.log('delete failed');
-                if (!xhr.responseJSON) {
-                    // TODO
-                    return;
-                }
-                console.log(xhr.responseJSON);
-            }
-        });  
-    }
 });
 </script>
 @endif
