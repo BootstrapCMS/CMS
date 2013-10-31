@@ -24,7 +24,7 @@ Login
             <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="password">Password</label>
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
                 <input name="password" id="password" value="" type="password" class="form-control" placeholder="Password">
-                {{ ($errors->has('password') ?  $errors->first('password') : '') }}
+                {{ ($errors->has('password') ? $errors->first('password') : '') }}
             </div>
         </div>
 
