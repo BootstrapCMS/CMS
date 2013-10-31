@@ -164,46 +164,46 @@ $(document).ready(function() {
                 type: 'info'
             });
         },
-        success: function(response, status, xhr) {
-            if (!response) {
+        success: function(data, status, xhr) {
+            if (!xhr.responseJSON) {
                 $.bootstrapGrowl("There was an unknown error!", {
                     ele: '#commentcreation',
                     type: 'error'
                 });
                 return;
             }
-            if (response.success !== true) {
-                if (!response.msg) {
+            if (xhr.responseJSON.success !== true) {
+                if (!xhr.responseJSON.msg) {
                     $.bootstrapGrowl("There was an unknown error!", {
                         ele: '#commentcreation',
                         type: 'error'
                     });
                     return;
                 }
-                $.bootstrapGrowl(response.msg, {
+                $.bootstrapGrowl(xhr.responseJSON.msg, {
                     ele: '#commentcreation',
                     type: 'success'
                 });
                 return;
             }
         },
-        error: function(error, status, detail) {
-            if (!error.responseJSON) {
+        error: function(xhr, status, error) {
+            if (!xhr.responseJSON) {
                 $.bootstrapGrowl("There was an unknown error!", {
                     ele: '#commentcreation',
                     type: 'error'
                 });
                 return;
             }
-            if (error.responseJSON.success !== true) {
-                if (!error.responseJSON.msg) {
+            if (xhr.responseJSON.success !== true) {
+                if (!xhr.responseJSON.msg) {
                     $.bootstrapGrowl("There was an unknown error!", {
                         ele: '#commentcreation',
                         type: 'error'
                     });
                     return;
                 }
-                $.bootstrapGrowl(error.responseJSON.msg, {
+                $.bootstrapGrowl(xhr.responseJSON.msg, {
                     ele: '#commentcreation',
                     type: 'error'
                 });
