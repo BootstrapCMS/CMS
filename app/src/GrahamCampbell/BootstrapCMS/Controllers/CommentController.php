@@ -26,9 +26,9 @@ use Response;
 use Request;
 use Session;
 use Validator;
-use View;
 
 use Binput;
+use HTMLMin;
 
 use CommentProvider;
 use GrahamCampbell\CMSCore\Models\Comment;
@@ -73,7 +73,7 @@ class CommentController extends BaseController {
 
             $comment = CommentProvider::create($input);
 
-            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => View::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId()))->render()));
+            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId()))));
         }
 
         if ($val->fails()) {
