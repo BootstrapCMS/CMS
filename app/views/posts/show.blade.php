@@ -172,6 +172,7 @@ $(document).ready(function() {
                 });
                 return;
             }
+            console.log(xhr.responseJSON);
             if (xhr.responseJSON.success !== true) {
                 if (!xhr.responseJSON.msg) {
                     $.bootstrapGrowl("There was an unknown error!", {
@@ -195,6 +196,7 @@ $(document).ready(function() {
                 });
                 return;
             }
+            console.log(xhr.responseJSON);
             if (xhr.responseJSON.success !== true) {
                 if (!xhr.responseJSON.msg) {
                     $.bootstrapGrowl("There was an unknown error!", {
