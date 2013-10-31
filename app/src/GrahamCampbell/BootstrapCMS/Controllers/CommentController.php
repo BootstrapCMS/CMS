@@ -56,14 +56,25 @@ class CommentController extends BaseController {
      */
     public function store($post_id) {
         $input = array(
-            'body'    => Binput::get('body'), // use the protected version this time
+            'body'    => Binput::get('body'),
             'user_id' => $this->getUserId(),
-            'post_id' => $post_id,
+            'post_id' => $post_id
         );
 
         $rules = Comment::$rules;
 
         $val = Validator::make($input, $rules);
+
+        if (Request::ajax()) {
+            if ($val->fails()) {
+                App::abort(400, 'Your comment was empty.');
+            }
+
+            CommentProvider::create($input);
+
+            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.'));
+        }
+
         if ($val->fails()) {
             Session::flash('error', 'Your comment was empty.');
             return Redirect::route('blog.posts.show', array('posts' => $post_id));

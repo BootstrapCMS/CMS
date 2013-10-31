@@ -67,26 +67,28 @@
 @section('comments')
 <br><hr>
 <h3>Comments</h3>
-@if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
-    <br>
-    {{ Form::open(array('url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
-        <div class="form-group">
-            <div class="col-xs-12">
-                <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+<div id="commentcreation">
+    @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
+        <br>
+        {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-12">
-                <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button>
+                </div>
             </div>
-        </div>
-    {{ Form::close() }}
-    <br>
-@else
-<p>
-    <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
-</p>
-@endif
+        {{ Form::close() }}
+        <br>
+    @else
+    <p>
+        <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
+    </p>
+    @endif
+</div>
 <br>
 
 @if (count($comments) == 0)
@@ -148,5 +150,78 @@
 @section('js')
 @if (Sentry::check())
 {{ Basset::show('form.js') }}
+<script>
+$(document).ready(function() {
+    var options = { 
+        dataType: 'json',
+        clearForm: true,
+        resetForm: true,
+        timeout: 5000,
+        beforeSubmit: function(formData, jqForm, options) {
+            // TODO: show some kind of working indicator
+            $.bootstrapGrowl("Submitting comment...", {
+                ele: '#commentcreation',
+                type: 'info'
+            });
+        },
+        success: function(response, status, xhr) {
+            if (!response) {
+                $.bootstrapGrowl("There was an unknown error!", {
+                    ele: '#commentcreation',
+                    type: 'error'
+                });
+                return;
+            }
+            if (response.success !== true) {
+                if (!response.msg) {
+                    $.bootstrapGrowl("There was an unknown error!", {
+                        ele: '#commentcreation',
+                        type: 'error'
+                    });
+                    return;
+                }
+                $.bootstrapGrowl(response.msg, {
+                    ele: '#commentcreation',
+                    type: 'success'
+                });
+                return;
+            }
+        },
+        error: function(error, status, detail) {
+            if (!error.responseJSON) {
+                $.bootstrapGrowl("There was an unknown error!", {
+                    ele: '#commentcreation',
+                    type: 'error'
+                });
+                return;
+            }
+            if (error.responseJSON.success !== true) {
+                if (!error.responseJSON.msg) {
+                    $.bootstrapGrowl("There was an unknown error!", {
+                        ele: '#commentcreation',
+                        type: 'error'
+                    });
+                    return;
+                }
+                $.bootstrapGrowl(error.responseJSON.msg, {
+                    ele: '#commentcreation',
+                    type: 'error'
+                });
+                return;
+            }
+            $.bootstrapGrowl("There was an unknown error!", {
+                ele: '#commentcreation',
+                type: 'error'
+            });
+            return;
+        }
+    }; 
+ 
+    $('#commentform').submit(function() { 
+        $(this).ajaxSubmit(options);
+        return false;
+    });
+});
+</script>
 @endif
 @stop

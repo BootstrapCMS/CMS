@@ -74,6 +74,7 @@ return array(
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('jquery.form.js');
                 $collection->javascript('typeahead.min.js');
                 $collection->javascript('bootstrap-switch.js');
                 $collection->javascript('bootstrap-datetimepicker.min.js');
