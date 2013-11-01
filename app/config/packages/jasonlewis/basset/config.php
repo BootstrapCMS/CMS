@@ -96,7 +96,7 @@ return array(
                 $collection->javascript('logviewer.js');
             });
             $directory->apply('JsMin');
-        },
+        }
 
     ),
 
