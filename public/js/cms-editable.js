@@ -1,9 +1,10 @@
-function cmsEditable() {
-    $.fn.editable.defaults.mode = 'inline';
-    $('.x-editable').editable({
+function cmsEditable(bindval) {
+    bindval = bindval || ".x-editable";
+    $.fn.editable.defaults.mode = "inline";
+    $(bindval).editable({
         ajaxOptions: {
-            dataType: 'json',
-            type: 'PUT'
+            dataType: "json",
+            type: "PUT"
         },
         success: function(response, newValue) {
             if (!response) {

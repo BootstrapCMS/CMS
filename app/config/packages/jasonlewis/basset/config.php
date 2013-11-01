@@ -47,17 +47,17 @@ return array(
                 }
                 $collection->stylesheet('jasny-bootstrap.min.css');
                 $collection->stylesheet('font-awesome.min.css');
-                $collection->stylesheet('main.css')->apply('CssMin');
+                $collection->stylesheet('cms-main.css')->apply('CssMin');
             });
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('jquery-1.10.2.min.js');
                 $collection->javascript('jquery.timeago.js');
-                $collection->javascript('restfulizer.js');
+                $collection->javascript('cms-timeago.js');
+                $collection->javascript('cms-restfulizer.js');
                 $collection->javascript('bootstrap.min.js');
                 $collection->javascript('jasny-bootstrap.min.js');
-                $collection->javascript('main.js');
             });
             $directory->apply('JsMin');
         },
@@ -77,23 +77,33 @@ return array(
                 $collection->javascript('typeahead.min.js');
                 $collection->javascript('bootstrap-switch.js');
                 $collection->javascript('bootstrap-datetimepicker.min.js');
-                $collection->javascript('picker.js');
+                $collection->javascript('cms-picker.js');
                 $collection->javascript('bootstrap-editable.min.js');
-                $collection->javascript('editable.js');
+                $collection->javascript('cms-editable.js');
                 $collection->javascript('bootstrap-markdown.js');
+            });
+            $directory->apply('JsMin');
+        },
+
+        'comment' => function($collection) {
+            $directory = $collection->directory('js', function($collection) {
+                $collection->javascript('cms-comment-core.js');
+                $collection->javascript('cms-comment-delete.js');
+                $collection->javascript('cms-comment-create.js');
+                $collection->javascript('cms-comment-main.js');
             });
             $directory->apply('JsMin');
         },
 
         'logviewer' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('logviewer.css');
+                $collection->stylesheet('cms-logviewer.css');
             });
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('js', function($collection) {
-                $collection->javascript('logviewer.js');
+                $collection->javascript('cms-logviewer.js');
             });
             $directory->apply('JsMin');
         }
