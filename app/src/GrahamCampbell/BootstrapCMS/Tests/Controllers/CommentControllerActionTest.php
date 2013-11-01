@@ -24,39 +24,66 @@ class CommentControllerActionTest extends ResourcefulActionTestCase {
 
     use CommentControllerSetupTrait;
 
-    protected function storeCall() {
-        $this->call('POST', $this->getPath($this->getUid().'/comments'));
-        $this->assertResponseStatus(405);
+    protected function storeMocking() {
+        $provider = $this->provider;
+        $provider::shouldReceive('create')
+            ->once()->andReturn($this->mock);
+        $this->mock->shouldReceive('getUserName')->once();
+    }
 
+    protected function storeCall() {
         $this->call('POST', $this->getPath($this->getUid().'/comments'), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+    }
+
+    protected function storeAssertions() {
         $this->assertResponseOk();
+    }
+
+    protected function storeFailsCall() {
+        $this->setExpectedException('Symfony\Component\HttpKernel\Exception\HttpException');
+        $this->storeCall();
     }
 
     protected function storeFailsAssertions() {
-        // TODO: Check the json response
+        $this->assertResponseStatus(400);
+    }
+
+    protected function updateMocking() {
+        $provider = $this->provider;
+        $provider::shouldReceive('find')
+            ->with($this->getUid())->once()->andReturn($this->mock);
+        $this->mock->shouldReceive('update')->once();
     }
 
     protected function updateCall() {
-        $this->call('PATCH', $this->getPath($this->getUid().'/comments/'.$this->getUid()));
-        $this->assertResponseStatus(405);
-
         $this->call('PATCH', $this->getPath($this->getUid().'/comments/'.$this->getUid()), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+    }
+
+    protected function updateAssertions() {
         $this->assertResponseOk();
+    }
+
+    protected function updateFailsCall() {
+        $this->setExpectedException('Symfony\Component\HttpKernel\Exception\HttpException');
+        $this->updateCall();
     }
 
     protected function updateFailsAssertions() {
-        // TODO: Check the json response
+        $this->assertResponseStatus(400);
+    }
+
+    protected function destroyMocking() {
+        $provider = $this->provider;
+        $provider::shouldReceive('find')
+            ->with($this->getUid())->once()->andReturn($this->mock);
+        $this->mock->shouldReceive('delete')->once();
     }
 
     protected function destroyCall() {
-        $this->call('DELETE', $this->getPath($this->getUid().'/comments/'.$this->getUid()));
-        $this->assertResponseStatus(405);
-
         $this->call('DELETE', $this->getPath($this->getUid().'/comments/'.$this->getUid()), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
-        $this->assertResponseOk();
     }
 
     protected function destroyAssertions() {
-        // TODO: Check the json response
+        $this->assertResponseOk();
     }
 }
