@@ -138,6 +138,9 @@ function cmsDeletable() {
                 $('#comment_'+xhr.responseJSON.comment).slideUp(500, function() {
                     $(this).remove();
                 });
+                if ($('#comments').children().size() == 0) {
+                    $("<p>There are currently no comments.</p>").prependTo('#comments').hide().fadeIn(500);
+                }
             },
             error: function(xhr, status, error) {
                 console.log('delete failed');

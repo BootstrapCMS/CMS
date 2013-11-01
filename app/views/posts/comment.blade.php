@@ -11,13 +11,13 @@
         <div class="hidden-xs">
             <div class="col-md-2 col-sm-3">
                 <div class="pull-right">
-                    <a class="btn btn-danger deletable" href="{{ URL::route('blog.posts.comments.destroy', array('posts' => $post->getId(), 'comments' => $comment->getId())) }}"><i class="fa fa-times"></i> Delete</a>
+                    <a class="btn btn-danger deletable" href="{{ URL::route('blog.posts.comments.destroy', array('posts' => $post_id, 'comments' => $comment->getId())) }}"><i class="fa fa-times"></i> Delete</a>
                 </div>
             </div>
         </div>
         <div class="visible-xs">
             <div class="col-sm-12">
-                <a class="btn btn-danger deletable" href="{{ URL::route('blog.posts.comments.destroy', array('posts' => $post->getId(), 'comments' => $comment->getId())) }}"><i class="fa fa-times"></i> Delete</a>
+                <a class="btn btn-danger deletable" href="{{ URL::route('blog.posts.comments.destroy', array('posts' => $post_id, 'comments' => $comment->getId())) }}"><i class="fa fa-times"></i> Delete</a>
             </div>
         </div>
     @else
