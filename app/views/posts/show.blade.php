@@ -91,7 +91,7 @@
 
 <div id="comments">
     @if (count($comments) == 0)
-    <p>There are currently no comments.</p>
+    <p id="nocomments">There are currently no comments.</p>
     @else
         <?php $post_id = $post->getId(); ?>
         @foreach ($comments as $comment)
@@ -135,11 +135,11 @@ function cmsDeletable() {
                     return;
                 }
                 console.log(xhr.responseJSON);
-                $('#comment_'+xhr.responseJSON.comment).slideUp(500, function() {
+                $("#comment_"+xhr.responseJSON.comment).slideUp(500, function() {
                     $(this).remove();
                 });
-                if ($('#comments').children().size() == 0) {
-                    $("<p>There are currently no comments.</p>").prependTo('#comments').hide().fadeIn(500);
+                if ($("#comments").children().length == 0) {
+                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(500);
                 }
             },
             error: function(xhr, status, error) {
@@ -157,7 +157,7 @@ function cmsDeletable() {
 
 $(document).ready(function() {
     cmsDeletable();
-    $('#commentform').submit(function() {
+    $("#commentform").submit(function() {
         $(this).ajaxSubmit({ 
             dataType: 'json',
             clearForm: true,
@@ -191,6 +191,9 @@ $(document).ready(function() {
                 }
                 $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-success\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
                 $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(500);
+                $("#nocomments").fadeOut(500, function() {
+                    $(this).remove();
+                });
                 cmsTimeAgo();
                 cmsEditable();
                 cmsDeletable();
