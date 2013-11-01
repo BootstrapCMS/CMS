@@ -26,28 +26,37 @@ class CommentControllerActionTest extends ResourcefulActionTestCase {
 
     protected function storeCall() {
         $this->call('POST', $this->getPath($this->getUid().'/comments'));
+        $this->assertResponseStatus(405);
+
+        $this->call('POST', $this->getPath($this->getUid().'/comments'), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+        $this->assertResponseOk();
     }
 
     protected function storeFailsAssertions() {
-        $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram($this->getUid()));
-        $this->assertSessionHas('error');
+        // TODO: Check the json response
     }
 
     protected function updateCall() {
         $this->call('PATCH', $this->getPath($this->getUid().'/comments/'.$this->getUid()));
+        $this->assertResponseStatus(405);
+
+        $this->call('PATCH', $this->getPath($this->getUid().'/comments/'.$this->getUid()), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+        $this->assertResponseOk();
     }
 
     protected function updateFailsAssertions() {
-        $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram($this->getUid()));
-        $this->assertSessionHas('error');
+        // TODO: Check the json response
     }
 
     protected function destroyCall() {
         $this->call('DELETE', $this->getPath($this->getUid().'/comments/'.$this->getUid()));
+        $this->assertResponseStatus(405);
+
+        $this->call('DELETE', $this->getPath($this->getUid().'/comments/'.$this->getUid()), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+        $this->assertResponseOk();
     }
 
     protected function destroyAssertions() {
-        $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram($this->getUid()));
-        $this->assertSessionHas('success');
+        // TODO: Check the json response
     }
 }
