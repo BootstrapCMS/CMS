@@ -172,7 +172,7 @@ abstract class BaseController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    protected function checkAjax($comment) {
+    protected function checkAjax() {
         if (!Request::ajax()) {
             return App::abort(405, 'Ajax Is Required');
         }
