@@ -1,5 +1,5 @@
 function cmsCommentMessage(message, type) {
-    $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-"+type+"\">><div class=\"editable-error-block help-block\" style=\"display: block;\">"+message+"</div></label>");
+    $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-"+type+"\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+message+"</div></label>");
 }
 
 function cmsCommentCreateSubmit(that) {
