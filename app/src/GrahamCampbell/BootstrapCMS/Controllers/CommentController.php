@@ -21,10 +21,7 @@
  */
 
 use App;
-use Redirect;
 use Response;
-use Request;
-use Session;
 use Validator;
 
 use Binput;
@@ -56,6 +53,8 @@ class CommentController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function store($post_id) {
+        $this->checkAjax();
+
         $input = array(
             'body'    => Binput::get('body'),
             'user_id' => $this->getUserId(),
@@ -65,26 +64,13 @@ class CommentController extends BaseController {
         $rules = Comment::$rules;
 
         $val = Validator::make($input, $rules);
-
-        if (Request::ajax()) {
-            if ($val->fails()) {
-                App::abort(400, 'Your comment was empty.');
-            }
-
-            $comment = CommentProvider::create($input);
-
-            return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId()))));
-        }
-
         if ($val->fails()) {
-            Session::flash('error', 'Your comment was empty.');
-            return Redirect::route('blog.posts.show', array('posts' => $post_id));
+            App::abort(400, 'Your comment was empty.');
         }
 
-        CommentProvider::create($input);
+        $comment = CommentProvider::create($input);
 
-        Session::flash('success', 'Your comment has been created successfully.');
-        return Redirect::route('blog.posts.show', array('posts' => $post_id));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId()))));
     }
 
     /**
@@ -94,45 +80,24 @@ class CommentController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function update($post_id, $id) {
-        if (Request::ajax()) {
-            $body = Binput::get('value');
+        $this->checkAjax();
 
-            $rules = array('body' => Comment::$rules['body']);
+        $body = Binput::get('value');
 
-            $val = Validator::make(array('body' => $body), $rules);
-            if ($val->fails()) {
-                App::abort(400, 'The comment was empty.');
-            }
+        $rules = array('body' => Comment::$rules['body']);
 
-            $comment = CommentProvider::find($id);
-            $this->checkComment($comment);
-
-            $comment->body = $body;
-            $comment->save();
-
-            return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.'));
-        }
-        $input = array(
-            'body' => Binput::get('body', null, true, false), // no xss protection please
-        );
-
-        $rules = Comment::$rules;
-        unset($rules['user_id']);
-        unset($rules['post_id']);
-
-        $val = Validator::make($input, $rules);
+        $val = Validator::make(array('body' => $body), $rules);
         if ($val->fails()) {
-            Session::flash('error', 'The comment was empty.');
-            return Redirect::route('blog.posts.show', array('posts' => $post_id));
+            App::abort(400, 'The comment was empty.');
         }
 
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        $comment->update($input);
-        
-        Session::flash('success', 'The comment has been updated successfully.');
-        return Redirect::route('blog.posts.show', array('posts' => $post_id));
+        $comment->body = $body;
+        $comment->save();
+
+        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.'));
     }
 
     /**
@@ -142,17 +107,14 @@ class CommentController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function destroy($post_id, $id) {
+        $this->checkAjax();
+
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
         $comment->delete();
 
-        if (Request::ajax()) {
-            return Response::json(array('success' => true, 'msg' => 'Comment deleted successfully.', 'comment' => $id));
-        }
-
-        Session::flash('success', 'The comment has been deleted successfully.');
-        return Redirect::route('blog.posts.show', array('posts' => $post_id));
+        return Response::json(array('success' => true, 'msg' => 'Comment deleted successfully.', 'comment' => $id));
     }
 
     /**

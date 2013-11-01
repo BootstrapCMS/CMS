@@ -25,6 +25,7 @@ use Controller;
 use Config;
 use Event;
 use Log;
+use Request;
 use View;
 
 use Sentry;
@@ -163,6 +164,17 @@ abstract class BaseController extends Controller {
             return Sentry::getUser()->getId();
         } else {
             return 1;
+        }
+    }
+
+    /**
+     * Check ajax request.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    protected function checkAjax($comment) {
+        if (!Request::ajax()) {
+            return App::abort(405, 'Ajax Is Required');
         }
     }
 
