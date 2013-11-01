@@ -2,15 +2,16 @@
 
 return array(
     
-    'base_url' => 'logviewer',
-    'filters'  => array(
+    'base_url'   => 'logviewer',
+    'filters'    => array(
         'global' => array(),
         'view'   => array(),
-        'delete' => array(),
+        'delete' => array()
     ),
-    'log_dirs' => array('app' => storage_path().'/logs'),
-    'log_order' => 'desc',
-    'per_page' => 20,
-    'view'     => 'log',
-    
+    'log_dirs'   => array('app' => storage_path().'/logs'),
+    'log_order'  => 'desc',
+    'per_page'   => 20,
+    'view'       => 'logviewer::viewer',
+    'p_view'     => 'pagination::slider-3'
+
 );
