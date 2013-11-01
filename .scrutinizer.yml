@@ -9,7 +9,8 @@ tools:
         enabled: true
         filter:
             excluded_paths: [app/config,app/config/*]
-    php_loc: true
+    php_loc:
+        enabled: true
     php_mess_detector:
         enabled: true
         config:
@@ -22,12 +23,16 @@ tools:
         filter:
             excluded_paths: [app/config,app/config/*]
         config:
-            checkstyle: true
-            verify_php_doc_comments: true
-            doc_comment_fixes: true
+            checkstyle:
+                enabled: true
+            verify_php_doc_comments:
+                enabled: true
+            doc_comment_fixes:
+                enabled: true
             use_statement_fixes:
                 enabled: true
                 remove_unused: true
                 preserve_multiple: false
                 order_alphabetically: true
-    sensiolabs_security_checker: true
+    sensiolabs_security_checker:
+        enabled: true
