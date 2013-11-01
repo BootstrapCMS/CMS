@@ -82,11 +82,11 @@ class CommentController extends BaseController {
     public function update($post_id, $id) {
         $this->checkAjax();
 
-        $body = Binput::get('value');
+        $input = array('body' => Binput::get('value'));
 
         $rules = array('body' => Comment::$rules['body']);
 
-        $val = Validator::make(array('body' => $body), $rules);
+        $val = Validator::make($input, $rules);
         if ($val->fails()) {
             App::abort(400, 'The comment was empty.');
         }
@@ -94,8 +94,7 @@ class CommentController extends BaseController {
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        $comment->body = $body;
-        $comment->save();
+        $comment->update($input);
 
         return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.'));
     }
