@@ -11,7 +11,7 @@ return array(
     'log_dirs'   => array('app' => storage_path().'/logs'),
     'log_order'  => 'desc',
     'per_page'   => 20,
-    'view'       => 'logviewer::viewer',
+    'view'       => 'log',
     'p_view'     => 'pagination::slider-3'
 
 );
