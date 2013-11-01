@@ -125,20 +125,26 @@ function cmsDeletable() {
             dataType: 'json',
             timeout: 5000,
             success: function(data, status, xhr) {
-                console.log('delete successful');
                 if (!xhr.responseJSON) {
                     // TODO
                     return;
                 }
-                $("#comment_"+xhr.responseJSON.comment).slideUp(400, function() {
-                    $(this).remove();
-                });
-                if ($("#comments").children().length == 1) {
-                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(400);
+                if (xhr.responseJSON.success !== true) {
+                    // TODO
+                    return;
+                }
+                if ($("#comments > div").length == 1) {
+                    $("#comment_"+xhr.responseJSON.comment).fadeOut(300, function() {
+                        $(this).remove();
+                        $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300);
+                    }); 
+                } else {
+                    $("#comment_"+xhr.responseJSON.comment).slideUp(300, function() {
+                        $(this).remove();
+                    });
                 }
             },
             error: function(xhr, status, error) {
-                console.log('delete failed');
                 if (!xhr.responseJSON) {
                     // TODO
                     return;
@@ -151,6 +157,11 @@ function cmsDeletable() {
 
 $(document).ready(function() {
     cmsDeletable();
+    $('textarea#body').keydown(function (e) {
+        if (e.ctrlKey && e.keyCode === 13) {
+            $("#commentform").trigger("submit");
+        }
+    });
     $("#commentform").submit(function() {
         $(this).ajaxSubmit({ 
             dataType: 'json',
@@ -183,28 +194,34 @@ $(document).ready(function() {
                     return;
                 }
                 $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-success\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
-                $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(400);
-                $("#nocomments").fadeOut(400, function() {
-                    $(this).remove();
-                });
-                cmsTimeAgo();
-                cmsEditable();
-                cmsDeletable();
+                if ($("#comments > div").length == 0) {
+                    $("#nocomments").fadeOut(300, function() {
+                        $(this).remove();
+                        $(xhr.responseJSON.comment).prependTo('#comments').hide().fadeIn(300, function() {
+                            cmsTimeAgo();
+                            cmsEditable();
+                            cmsDeletable();
+                        });
+                    });
+                } else {
+                    $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(300, function() {
+                        cmsTimeAgo();
+                        cmsEditable();
+                        cmsDeletable();
+                    });
+                }
             },
             error: function(xhr, status, error) {
                 if (!xhr.responseJSON) {
                     $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                     return;
                 }
-                if (xhr.responseJSON.success !== true) {
-                    if (!xhr.responseJSON.msg) {
-                        $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
-                        return;
-                    }
-                    $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
+                if (!xhr.responseJSON.msg) {
+                    $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                     return;
                 }
-                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
+                $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
+                return;
             }
         });
         return false;

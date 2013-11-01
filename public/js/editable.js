@@ -20,13 +20,10 @@ function cmsEditable() {
             if (!error.responseJSON) {
                 return "There was an unknown error!";
             }
-            if (error.responseJSON.success !== true) {
-                if (!error.responseJSON.msg) {
-                    return "There was an unknown error!";
-                }
-                return error.responseJSON.msg;
+            if (!error.responseJSON.msg) {
+                return "There was an unknown error!";
             }
-            return "There was an unknown error!";
+            return error.responseJSON.msg;
         }
     });
 }
