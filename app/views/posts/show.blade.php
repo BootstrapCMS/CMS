@@ -124,22 +124,17 @@ function cmsDeletable() {
             type: 'DELETE',
             dataType: 'json',
             timeout: 5000,
-            beforeSend: function(xhr, settings) {
-                // TODO: show some kind of working indicator
-                console.log('deleting...');
-            },
             success: function(data, status, xhr) {
                 console.log('delete successful');
                 if (!xhr.responseJSON) {
                     // TODO
                     return;
                 }
-                console.log(xhr.responseJSON);
-                $("#comment_"+xhr.responseJSON.comment).slideUp(500, function() {
+                $("#comment_"+xhr.responseJSON.comment).slideUp(400, function() {
                     $(this).remove();
                 });
-                if ($("#comments").children().length == 0) {
-                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(500);
+                if ($("#comments").children().length == 1) {
+                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(400);
                 }
             },
             error: function(xhr, status, error) {
@@ -148,7 +143,6 @@ function cmsDeletable() {
                     // TODO
                     return;
                 }
-                console.log(xhr.responseJSON);
             }
         });
         return false;
@@ -172,7 +166,6 @@ $(document).ready(function() {
                     $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                     return;
                 }
-                console.log(xhr.responseJSON);
                 if (xhr.responseJSON.success !== true) {
                     if (!xhr.responseJSON.msg) {
                         $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
@@ -190,8 +183,8 @@ $(document).ready(function() {
                     return;
                 }
                 $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-success\"><div class=\"editable-error-block help-block\" style=\"display: block;\">"+xhr.responseJSON.msg+"</div></label>");
-                $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(500);
-                $("#nocomments").fadeOut(500, function() {
+                $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(400);
+                $("#nocomments").fadeOut(400, function() {
                     $(this).remove();
                 });
                 cmsTimeAgo();
@@ -203,7 +196,6 @@ $(document).ready(function() {
                     $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
                     return;
                 }
-                console.log(xhr.responseJSON);
                 if (xhr.responseJSON.success !== true) {
                     if (!xhr.responseJSON.msg) {
                         $("#commentstatus").replaceWith("<label id=\"commentstatus\" class=\"has-error\"><div class=\"editable-error-block help-block\" style=\"display: block;\">There was an unknown error!</div></label>");
