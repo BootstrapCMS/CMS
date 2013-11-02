@@ -3,7 +3,7 @@ var cmsCommentFetchData = new Array();
 function cmsCommentFetchGet() {
     if (cmsCommentFetchData.length != 0) {
         $.ajax({
-            url: $("#comments").data('url').'/'.data[0],
+            url: $("#comments").data("url")+"/"+data[0],
             type: "GET",
             dataType: "json",
             timeout: 5000,
