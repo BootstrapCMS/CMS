@@ -56,6 +56,10 @@ function cmsCommentFetchGet() {
                 console.log('done processing'); 
             });
         }
+    } else {
+        cmsCommentLock = false;
+        cmsCommentFetch();
+        console.log('done processing'); 
     }
 }
 
