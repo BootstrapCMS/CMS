@@ -5,6 +5,7 @@ function cmsCommentMessage(message, type) {
 function cmsCommentCreateSubmit(that) {
     cmsCommentLock = true;
     cmsCommentMessage("Submitting comment...", "info");
+    console.log(that);
     $(that).ajaxSubmit({ 
         dataType: 'json',
         clearForm: true,
@@ -68,10 +69,13 @@ function cmsCommentCreate(bindval, body) {
     bindval = bindval || "#commentform";
     body = body || "textarea#body";
     $(bindval).submit(function() {
+        console.log(this);
         cmsCommentMessage("Waiting for lock to clear...", "info");
         var that = this;
+        console.log(that);
         var cmsCommentCreateCheck = setInterval(function(that) {
             if (cmsCommentLock == false) {
+                console.log(that);
                 cmsCommentCreateSubmit(that);
                 clearInterval(cmsCommentCreateCheck);
             }
