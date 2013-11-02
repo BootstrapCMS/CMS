@@ -1,21 +1,21 @@
 var cmsCommentFetchData = new Array();
 
-function cmsCommentFetchGet() {
+function cmsCommentFetchGet(data) {
     if (cmsCommentFetchData.length != 0) {
         $.ajax({
             url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
             dataType: "json",
             timeout: 5000,
-            success: function(data, status, xhr) {
+            success: function(rdata, status, xhr) {
                 if (!xhr.responseJSON) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchGet();
+                    cmsCommentFetchGet(data);
                     return;
                 }
                 if (!xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchGet();
+                    cmsCommentFetchGet(data);
                     return;
                 }
                 if ($("#comments > div").length == 0) {
@@ -28,7 +28,7 @@ function cmsCommentFetchGet() {
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                             cmsCommentFetchData.splice(0, 1);
-                            cmsCommentFetchGet();
+                            cmsCommentFetchGet(data);
                         });
                     });
                 } else {
@@ -39,13 +39,13 @@ function cmsCommentFetchGet() {
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                         cmsCommentFetchData.splice(0, 1);
-                        cmsCommentFetchGet();
+                        cmsCommentFetchGet(data);
                     });
                 }
             },
             error: function(xhr, status, error) {
                 cmsCommentFetchData.splice(0, 1);
-                cmsCommentFetchGet();
+                cmsCommentFetchGet(data);
             }
         });
         return;
@@ -79,7 +79,7 @@ function cmsCommentFetchNew(data) {
         }
     }
 
-    cmsCommentFetchGet();
+    cmsCommentFetchGet(data);
 }
 
 function cmsCommentFetchReplace(data) {
@@ -89,26 +89,26 @@ function cmsCommentFetchReplace(data) {
             type: "GET",
             dataType: "json",
             timeout: 5000,
-            success: function(data, status, xhr) {
+            success: function(rdata, status, xhr) {
                 if (!xhr.responseJSON) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchReplace();
+                    cmsCommentFetchReplace(data);
                     return;
                 }
                 if (!xhr.responseJSON.main || !xhr.responseJSON.comment_id || !xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchReplace();
+                    cmsCommentFetchReplace(data);
                     return;
                 }
                 $("#comment_"+xhr.responseJSON.comment_id+" > .hidden-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
                 $("#comment_"+xhr.responseJSON.comment_id+" > .visible-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
                 $("#comment_"+xhr.responseJSON.comment_id+" > div > .main").text = xhr.responseJSON.comment_text;
                 cmsCommentFetchData.splice(0, 1);
-                cmsCommentFetchReplace();
+                cmsCommentFetchReplace(data);
             },
             error: function(xhr, status, error) {
                 cmsCommentFetchData.splice(0, 1);
-                cmsCommentFetchReplace();
+                cmsCommentFetchReplace(data);
             }
         });
         return;
@@ -134,7 +134,7 @@ function cmsCommentFetchUpdate(data) {
         }
     }
 
-    cmsCommentFetchReplace();
+    cmsCommentFetchReplace(data);
 }
 
 function cmsCommentFetchProcess(data) {
