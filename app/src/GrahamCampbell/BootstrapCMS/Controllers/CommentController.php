@@ -48,6 +48,22 @@ class CommentController extends BaseController {
     }
 
     /**
+     * Display a listing of the comments.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index($post_id) {
+        $this->checkAjax();
+
+        $post = PostProvider::find($id, array('id'));
+        $this->checkPost($post);
+
+        $comments = $post->getComments('id', 'version');
+
+        return Response::json($comments->toArray());
+    }
+
+    /**
      * Store a new comment.
      *
      * @return \Illuminate\Http\Response
