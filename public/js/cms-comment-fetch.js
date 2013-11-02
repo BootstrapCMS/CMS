@@ -64,12 +64,12 @@ function cmsCommentFetchNew(data) {
             if ($(this).data('pk') == data[i].comment_id) {
                 ok = true;
             }
-        }
+        });
 
         if (ok == false) {
             cmsCommentFetchData.push(data[i]);
         }
-    });
+    }
 
     cmsCommentFetchGet();
 }
