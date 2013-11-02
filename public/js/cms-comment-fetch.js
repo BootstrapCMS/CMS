@@ -13,7 +13,7 @@ function cmsCommentFetchGet() {
                     cmsCommentFetchGet();
                     return;
                 }
-                if (!xhr.responseJSON.msg || !xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
+                if (!xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
                     cmsCommentFetchData.splice(0, 1);
                     cmsCommentFetchGet();
                     return;
