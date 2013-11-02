@@ -35,19 +35,19 @@ function cmsCommentCreateSubmit(that) {
                 $("#nocomments").fadeOut(300, function() {
                     $(this).remove();
                     $(xhr.responseJSON.contents).prependTo('#comments').hide().fadeIn(300, function() {
-                        cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.commnet_id);
-                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.commnet_id);
-                        cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.commnet_id+"_1");
-                        cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.commnet_id+"_2");
+                        cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
+                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
+                        cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
+                        cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                         cmsCommentLock = false;
                     });
                 });
             } else {
                 $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
-                    cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.commnet_id);
-                    cmsCommentEdit("#editable_comment_"+xhr.responseJSON.commnet_id);
-                    cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.commnet_id+"_1");
-                    cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.commnet_id+"_2");
+                    cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
+                    cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
+                    cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
+                    cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                     cmsCommentLock = false;
                 });
             }
