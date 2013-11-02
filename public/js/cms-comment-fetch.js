@@ -51,11 +51,10 @@ function cmsCommentFetchGet() {
 
     if ($("#comments > div").length == 1) {
         $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function(){
-                cmsCommentLock = false;
-                cmsCommentFetch();
-                console.log('done processing'); 
-            });
-        }
+            cmsCommentLock = false;
+            cmsCommentFetch();
+            console.log('done processing'); 
+        });
     } else {
         cmsCommentLock = false;
         cmsCommentFetch();
