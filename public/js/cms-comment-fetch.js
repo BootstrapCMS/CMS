@@ -1,21 +1,22 @@
-var cmsCommentFetchData = new Array();
+var cmsCommentFetchRaw;
+var cmsCommentFetchData;
 
-function cmsCommentFetchGet(data) {
+function cmsCommentFetchGet() {
     if (cmsCommentFetchData.length != 0) {
         $.ajax({
             url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
             dataType: "json",
             timeout: 5000,
-            success: function(rdata, status, xhr) {
+            success: function(data, status, xhr) {
                 if (!xhr.responseJSON) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchGet(data);
+                    cmsCommentFetchGet();
                     return;
                 }
                 if (!xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchGet(data);
+                    cmsCommentFetchGet();
                     return;
                 }
                 if ($("#comments > div").length == 0) {
@@ -28,7 +29,7 @@ function cmsCommentFetchGet(data) {
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                             cmsCommentFetchData.splice(0, 1);
-                            cmsCommentFetchGet(data);
+                            cmsCommentFetchGet();
                         });
                     });
                 } else {
@@ -39,13 +40,13 @@ function cmsCommentFetchGet(data) {
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                         cmsCommentFetchData.splice(0, 1);
-                        cmsCommentFetchGet(data);
+                        cmsCommentFetchGet();
                     });
                 }
             },
             error: function(xhr, status, error) {
                 cmsCommentFetchData.splice(0, 1);
-                cmsCommentFetchGet(data);
+                cmsCommentFetchGet();
             }
         });
         return;
@@ -62,90 +63,90 @@ function cmsCommentFetchGet(data) {
     }
 }
 
-function cmsCommentFetchNew(data) {
-    var length = data.length;
+function cmsCommentFetchNew() {
+    var length = cmsCommentFetchRaw.length;
     cmsCommentFetchData = new Array();
 
     for (var i = 0; i < length; i++) {
         var ok = false;
         $("#comments > div").each(function() {
-            if ($(this).data('pk') == data[i].comment_id) {
+            if ($(this).data('pk') == cmsCommentFetchRaw[i].comment_id) {
                 ok = true;
             }
         });
 
         if (ok == false) {
-            cmsCommentFetchData.push(data[i].comment_id);
+            cmsCommentFetchData.push(cmsCommentFetchRaw[i].comment_id);
         }
     }
 
-    cmsCommentFetchGet(data);
+    cmsCommentFetchGet();
 }
 
-function cmsCommentFetchReplace(data) {
+function cmsCommentFetchReplace() {
     if (cmsCommentFetchData.length != 0) {
         $.ajax({
             url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
             dataType: "json",
             timeout: 5000,
-            success: function(rdata, status, xhr) {
+            success: function(data, status, xhr) {
                 if (!xhr.responseJSON) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchReplace(data);
+                    cmsCommentFetchReplace();
                     return;
                 }
                 if (!xhr.responseJSON.main || !xhr.responseJSON.comment_id || !xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
                     cmsCommentFetchData.splice(0, 1);
-                    cmsCommentFetchReplace(data);
+                    cmsCommentFetchReplace();
                     return;
                 }
                 $("#comment_"+xhr.responseJSON.comment_id+" > .hidden-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
                 $("#comment_"+xhr.responseJSON.comment_id+" > .visible-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
                 $("#comment_"+xhr.responseJSON.comment_id+" > div > .main").text = xhr.responseJSON.comment_text;
                 cmsCommentFetchData.splice(0, 1);
-                cmsCommentFetchReplace(data);
+                cmsCommentFetchReplace();
             },
             error: function(xhr, status, error) {
                 cmsCommentFetchData.splice(0, 1);
-                cmsCommentFetchReplace(data);
+                cmsCommentFetchReplace();
             }
         });
         return;
     }
 
-    cmsCommentFetchNew(data);
+    cmsCommentFetchNew();
 }
 
-function cmsCommentFetchUpdate(data) {
-    var length = data.length;
+function cmsCommentFetchUpdate() {
+    var length = cmsCommentFetchRaw.length;
     cmsCommentFetchData = new Array();
 
     for (var i = 0; i < length; i++) {
         var ok = false;
         $("#comments > .hidden-xs > div > .pull-right > .editable").each(function() {
-            if ($(this).data('ver') == data[i].comment_ver) {
+            if ($(this).data('ver') == cmsCommentFetchRaw[i].comment_ver) {
                 ok = true;
             }
         });
 
         if (ok == false) {
-            cmsCommentFetchData.push(data[i].comment_id);
+            cmsCommentFetchData.push(cmsCommentFetchRaw[i].comment_id);
         }
     }
 
-    cmsCommentFetchReplace(data);
+    cmsCommentFetchReplace();
 }
 
-function cmsCommentFetchProcess(data) {
-    var length = data.length;
+function cmsCommentFetchProcess() {
+    var length = cmsCommentFetchRaw.length;
     var num = 0;
     var done = 0;
 
     $("#comments > div").each(function() {
         var ok = false;
         for (var i = 0; i < length; i++) {
-            if ($(this).data('pk') == data[i].comment_id) {
+            if ($(this).data('pk') == cmsCommentFetchRaw[i].comment_id) {
                 ok = true;
             }
         }
@@ -161,7 +162,7 @@ function cmsCommentFetchProcess(data) {
     var cmsCommentNewCheck = setInterval(function() {
         if (num === done) {
             clearInterval(cmsCommentNewCheck);
-            cmsCommentFetchUpdate(data);
+            cmsCommentFetchUpdate();
         }
     }, 10);
 }
@@ -178,7 +179,8 @@ function cmsCommentFetchWork() {
                 cmsCommentFetch();
                 return;
             }
-            cmsCommentFetchProcess(xhr.responseJSON);
+            cmsCommentFetchRaw = xhr.responseJSON;
+            cmsCommentFetchProcess();
         },
         error: function(xhr, status, error) {
             if (!xhr.responseJSON) {
