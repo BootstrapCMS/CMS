@@ -1,4 +1,4 @@
-<div id="comment_{{ $comment->getId() }}" class="well clearfix" data-pk="{{ $comment->getId() }}">
+<div id="comment_{{ $comment->getId() }}" class="well clearfix" data-pk="{{ $comment->getId() }}" data-ver="{{ $comment->getVersion() }}">
     @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
         <div class="col-md-9 col-sm-8">
             <p>
