@@ -72,8 +72,8 @@ function cmsCommentCreate(bindval, body) {
         var that = this;
         var cmsCommentCreateCheck = setInterval(function() {
             if (cmsCommentLock == false) {
-                clearInterval(cmsCommentCreateCheck);
                 cmsCommentLock = true;
+                clearInterval(cmsCommentCreateCheck);
                 cmsCommentCreateSubmit(that);
             }
         }, 10);

@@ -3,7 +3,7 @@ var cmsCommentFetchData = new Array();
 function cmsCommentFetchGet() {
     if (cmsCommentFetchData.length != 0) {
         $.ajax({
-            url: $("#comments").data("url")+"/"+cmsCommentFetchData[0].comment_id,
+            url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
             dataType: "json",
             timeout: 5000,
@@ -53,12 +53,10 @@ function cmsCommentFetchGet() {
         $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function(){
             cmsCommentLock = false;
             cmsCommentFetch();
-            console.log('done processing'); 
         });
     } else {
         cmsCommentLock = false;
         cmsCommentFetch();
-        console.log('done processing'); 
     }
 }
 
@@ -75,11 +73,9 @@ function cmsCommentFetchNew(data) {
         });
 
         if (ok == false) {
-            cmsCommentFetchData.push(data[i]);
+            cmsCommentFetchData.push(data[i].comment_id);
         }
     }
-
-    console.log(cmsCommentFetchData);
 
     cmsCommentFetchGet();
 }
@@ -132,7 +128,6 @@ function cmsCommentFetchWork() {
         error: function(xhr, status, error) {
             cmsCommentLock = false;
             cmsCommentFetch();
-            console.log('processing errored');
         }
     });
 }
@@ -140,8 +135,8 @@ function cmsCommentFetchWork() {
 function cmsCommentFetchWait() {
     var cmsCommentFetchCheck = setInterval(function() {
         if (cmsCommentLock == false) {
-            clearInterval(cmsCommentFetchCheck);
             cmsCommentLock = true;
+            clearInterval(cmsCommentFetchCheck);
             cmsCommentFetchWork()
         }
     }, 10);
