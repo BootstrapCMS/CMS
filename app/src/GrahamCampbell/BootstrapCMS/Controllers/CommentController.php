@@ -109,7 +109,7 @@ class CommentController extends BaseController {
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => nl2br(e($comment->getBody())), 'comment_id' => $id));
+        return Response::json(array('contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId())), 'comment_id' => $id));
     }
 
     /**
