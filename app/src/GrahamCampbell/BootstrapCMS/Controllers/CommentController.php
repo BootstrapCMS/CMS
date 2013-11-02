@@ -59,7 +59,7 @@ class CommentController extends BaseController {
         $post = PostProvider::find($post_id, array('id'));
         $this->checkPost($post);
 
-        $comments = $post->getComments('id', 'version');
+        $comments = $post->getComments(array('id', 'version'));
 
         $data = array();
 
