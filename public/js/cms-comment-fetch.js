@@ -103,10 +103,10 @@ function cmsCommentFetchReplace() {
                     cmsCommentFetchReplace();
                     return;
                 }
-                $("#editable_comment_"+xhr.responseJSON.comment_id+"_1").data("ver") = xhr.responseJSON.comment_ver;
-                $("#editable_comment_"+xhr.responseJSON.comment_id+"_2").data("ver") = xhr.responseJSON.comment_ver;
-                $("#comment_"+xhr.responseJSON.comment_id).data("ver") = xhr.responseJSON.comment_text;
-                $("#main_comment_"+xhr.responseJSON.comment_id).text = xhr.responseJSON.comment_text;
+                $("#editable_comment_"+xhr.responseJSON.comment_id+"_1").data("ver", xhr.responseJSON.comment_ver);
+                $("#editable_comment_"+xhr.responseJSON.comment_id+"_2").data("ver", xhr.responseJSON.comment_ver);
+                $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_text);
+                $("#main_comment_"+xhr.responseJSON.comment_id).text(xhr.responseJSON.comment_text);
                 console.log('updated comment to version '+xhr.responseJSON.comment_ver+'with text of '+xhr.responseJSON.comment_text);
                 cmsCommentFetchData.splice(0, 1);
                 cmsCommentFetchReplace();
