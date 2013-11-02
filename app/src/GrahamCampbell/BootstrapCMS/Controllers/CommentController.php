@@ -70,7 +70,7 @@ class CommentController extends BaseController {
 
         $comment = CommentProvider::create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId())), 'comment_id' => $comment->getId()));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId())), 'comment_id' => $comment->getId()));
     }
 
     /**
