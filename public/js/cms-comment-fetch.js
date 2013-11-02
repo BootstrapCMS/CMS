@@ -23,7 +23,8 @@ function cmsCommentFetchGet() {
                         $(this).remove();
                         $(xhr.responseJSON.contents).prependTo('#comments').hide().fadeIn(300, function() {
                             cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
-                            cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
+                            cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
+                            cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                             cmsCommentFetchData.splice(0, 1);
@@ -33,7 +34,8 @@ function cmsCommentFetchGet() {
                 } else {
                     $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
                         cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
-                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
+                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
+                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                         cmsCommentFetchData.splice(0, 1);
@@ -80,6 +82,61 @@ function cmsCommentFetchNew(data) {
     cmsCommentFetchGet();
 }
 
+function cmsCommentFetchReplace(data) {
+    if (cmsCommentFetchData.length != 0) {
+        $.ajax({
+            url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
+            type: "GET",
+            dataType: "json",
+            timeout: 5000,
+            success: function(data, status, xhr) {
+                if (!xhr.responseJSON) {
+                    cmsCommentFetchData.splice(0, 1);
+                    cmsCommentFetchReplace();
+                    return;
+                }
+                if (!xhr.responseJSON.main || !xhr.responseJSON.comment_id || !xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
+                    cmsCommentFetchData.splice(0, 1);
+                    cmsCommentFetchReplace();
+                    return;
+                }
+                $("#comment_"+xhr.responseJSON.comment_id+" > .hidden-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
+                $("#comment_"+xhr.responseJSON.comment_id+" > .visible-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
+                $("#comment_"+xhr.responseJSON.comment_id+" > div > .main").text = xhr.responseJSON.comment_text;
+                cmsCommentFetchData.splice(0, 1);
+                cmsCommentFetchReplace();
+            },
+            error: function(xhr, status, error) {
+                cmsCommentFetchData.splice(0, 1);
+                cmsCommentFetchReplace();
+            }
+        });
+        return;
+    }
+
+    cmsCommentFetchNew(data);
+}
+
+function cmsCommentFetchUpdate(data) {
+    var length = data.length;
+    cmsCommentFetchData = new Array();
+
+    for (var i = 0; i < length; i++) {
+        var ok = false;
+        $("#comments > .hidden-xs > div > .pull-right > .editable").each(function() {
+            if ($(this).data('ver') == data[i].comment_ver) {
+                ok = true;
+            }
+        });
+
+        if (ok == false) {
+            cmsCommentFetchData.push(data[i].comment_id);
+        }
+    }
+
+    cmsCommentFetchReplace();
+}
+
 function cmsCommentFetchProcess(data) {
     var length = data.length;
     var num = 0;
@@ -89,9 +146,7 @@ function cmsCommentFetchProcess(data) {
         var ok = false;
         for (var i = 0; i < length; i++) {
             if ($(this).data('pk') == data[i].comment_id) {
-                if ($(this).data('ver') == data[i].comment_ver) {
-                    ok = true;
-                }
+                ok = true;
             }
         }
         if (ok == false) {
@@ -106,7 +161,7 @@ function cmsCommentFetchProcess(data) {
     var cmsCommentNewCheck = setInterval(function() {
         if (num === done) {
             clearInterval(cmsCommentNewCheck);
-            cmsCommentFetchNew(data);
+            cmsCommentFetchUpdate(data);
         }
     }, 10);
 }

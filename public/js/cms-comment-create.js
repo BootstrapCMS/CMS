@@ -36,7 +36,8 @@ function cmsCommentCreateSubmit(that) {
                     $(this).remove();
                     $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
                         cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
-                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
+                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
+                        cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                         cmsCommentLock = false;
@@ -45,7 +46,8 @@ function cmsCommentCreateSubmit(that) {
             } else {
                 $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
                     cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
-                    cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
+                    cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
+                    cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");
                     cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                     cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
                     cmsCommentLock = false;
