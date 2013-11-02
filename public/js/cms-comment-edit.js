@@ -34,6 +34,8 @@ function cmsCommentEdit(bindval) {
                 clearInterval(cmsCommentEditCheck);
                 cmsCommentLock = true;
                 editable.enable();
+                editable.show();
+                editable.activate();
             }
         }, 10);
     });

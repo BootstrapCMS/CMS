@@ -36,7 +36,7 @@ function cmsCommentCreateSubmit(that) {
                     $(this).remove();
                     $(xhr.responseJSON.comment).prependTo('#comments').hide().fadeIn(300, function() {
                         cmsTimeAgo();
-                        cmsEditable();
+                        cmsCommentEdit();
                         cmsCommentDelete();
                         cmsCommentLock = false;
                     });
@@ -44,7 +44,7 @@ function cmsCommentCreateSubmit(that) {
             } else {
                 $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(300, function() {
                     cmsTimeAgo();
-                    cmsEditable();
+                    cmsCommentEdit();
                     cmsCommentDelete();
                     cmsCommentLock = false;
                 });
@@ -58,7 +58,6 @@ function cmsCommentCreateSubmit(that) {
             }
             cmsCommentMessage(xhr.responseJSON.msg, "error");
             cmsCommentLock = false;
-            return;
         }
     });
 }
