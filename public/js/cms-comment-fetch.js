@@ -1,8 +1,49 @@
+function cmsCommentFetchNew(data) {
+    cmsCommentLock = false;
+    cmsCommentFetch();
+    console.log('done processing');
+}
+
 function cmsCommentFetchProcess(data) {
     // do something with the data
     console.log(xhr.responseJSON);
-    cmsCommentLock = false;
-    cmsCommentFetch();
+
+    var length = xhr.responseJSON.length,
+    var num = 0;
+    var done = 0;
+
+    $("#comments > div").each(function() {
+        ok = false;
+        element = null;
+        for (var i = 0; i < length; i++) {
+            if ($(this).data('pk') == xhr.responseJSON[i].id) {
+                if ($(this).data('ver') == xhr.responseJSON[i].version) {
+                    ok = true;
+                }
+            }
+        }
+        if (ok == false) {
+            num++;
+            if ($("#comments > div").length == 1) {
+                $(this).fadeOut(300, function() {
+                    $(this).remove();
+                    done++;
+                }); 
+            } else {
+                $(this).slideUp(300, function() {
+                    $(this).remove();
+                    done++;
+                });
+            }
+        }
+    });
+
+    var cmsCommentNewCheck = setInterval(function() {
+        if (num === done) {
+            clearInterval(cmsCommentNewCheck);
+            cmsCommentFetchNew();
+        }
+    }, 10);
 }
 
 function cmsCommentFetchWork() {

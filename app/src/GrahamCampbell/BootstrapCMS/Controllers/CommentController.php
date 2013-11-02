@@ -91,6 +91,21 @@ class CommentController extends BaseController {
     }
 
     /**
+     * Show the specified post.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($post_id, $id) {
+        $this->checkAjax();
+
+        $comment = CommentProvider::find($id);
+        $this->checkComment($comment);
+
+        return Response::json(array('contents' => nl2br(e($comment->getBody())), 'comment_id' => $id));
+    }
+
+    /**
      * Update an existing comment.
      *
      * @param  int  $id
@@ -146,6 +161,17 @@ class CommentController extends BaseController {
     protected function checkComment($comment) {
         if (!$comment) {
             return App::abort(404, 'Comment Not Found');
+        }
+    }
+
+    /**
+     * Check the post model.
+     *
+     * @return mixed
+     */
+    protected function checkPost($post) {
+        if (!$post) {
+            return App::abort(404, 'Post Not Found');
         }
     }
 }
