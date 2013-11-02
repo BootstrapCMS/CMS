@@ -61,7 +61,13 @@ class CommentController extends BaseController {
 
         $comments = $post->getComments('id', 'version');
 
-        return Response::json($comments->toArray());
+        $data = array();
+
+        foreach ($comments as $comment) {
+            $data[] = array('comment_id' => $comment->getId(), 'comment_ver' => $comment->getVersion());
+        }
+
+        return Response::json($data);
     }
 
     /**

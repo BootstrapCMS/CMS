@@ -8,16 +8,15 @@ function cmsCommentFetchProcess(data) {
     // do something with the data
     console.log(xhr.responseJSON);
 
-    var length = xhr.responseJSON.length,
+    var length = xhr.responseJSON.length;
     var num = 0;
     var done = 0;
 
     $("#comments > div").each(function() {
-        ok = false;
-        element = null;
+        var ok = false;
         for (var i = 0; i < length; i++) {
-            if ($(this).data('pk') == xhr.responseJSON[i].id) {
-                if ($(this).data('ver') == xhr.responseJSON[i].version) {
+            if ($(this).data('pk') == xhr.responseJSON[i].comment_id) {
+                if ($(this).data('ver') == xhr.responseJSON[i].comment_ver) {
                     ok = true;
                 }
             }
