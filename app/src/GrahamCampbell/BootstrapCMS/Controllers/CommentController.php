@@ -81,7 +81,8 @@ class CommentController extends BaseController {
         $input = array(
             'body'    => Binput::get('body'),
             'user_id' => $this->getUserId(),
-            'post_id' => $post_id
+            'post_id' => $post_id,
+            'version' => 1
         );
 
         $rules = Comment::$rules;
