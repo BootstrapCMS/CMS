@@ -94,7 +94,12 @@ class CommentController extends BaseController {
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        $comment->update($input);
+        $version = Binput::get('version');
+        if ($version != $comment->getVersion) {
+            App::abort(409, 'The comment was modified by someone else.');
+        }
+
+        $comment->update(array_merge($input, array('version' => $version+1)));
 
         return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'contents' => nl2br(e($comment->getBody())), 'comment_id' => $id));
     }
