@@ -3,6 +3,7 @@ var cmsCommentFetchData;
 
 function cmsCommentFetchGet() {
     if (cmsCommentFetchData.length != 0) {
+        console.log('get - '+cmsCommentFetchData[0]);
         $.ajax({
             url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
@@ -85,6 +86,7 @@ function cmsCommentFetchNew() {
 
 function cmsCommentFetchReplace() {
     if (cmsCommentFetchData.length != 0) {
+        console.log('replace - '+cmsCommentFetchData[0]);
         $.ajax({
             url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
@@ -101,9 +103,10 @@ function cmsCommentFetchReplace() {
                     cmsCommentFetchReplace();
                     return;
                 }
-                $("#comment_"+xhr.responseJSON.comment_id+" > .hidden-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
-                $("#comment_"+xhr.responseJSON.comment_id+" > .visible-xs > div > .pull-right > .editable").data("ver") = xhr.responseJSON.comment_ver;
-                $("#comment_"+xhr.responseJSON.comment_id+" > div > .main").text = xhr.responseJSON.comment_text;
+                $("#editable_comment_"+xhr.responseJSON.comment_id+"_1").data("ver") = xhr.responseJSON.comment_ver;
+                $("#editable_comment_"+xhr.responseJSON.comment_id+"_2").data("ver") = xhr.responseJSON.comment_ver;
+                $("#main_comment_"+xhr.responseJSON.comment_id).text = xhr.responseJSON.comment_text;
+                console.log('updated comment to version '+xhr.responseJSON.comment_ver+'with text of '+xhr.responseJSON.comment_text);
                 cmsCommentFetchData.splice(0, 1);
                 cmsCommentFetchReplace();
             },
@@ -125,12 +128,17 @@ function cmsCommentFetchUpdate() {
     for (var i = 0; i < length; i++) {
         var ok = false;
         $("#comments > .hidden-xs > div > .pull-right > .editable").each(function() {
-            if ($(this).data('ver') == cmsCommentFetchRaw[i].comment_ver) {
-                ok = true;
+            console.log('selected id '+$(this).data('dk'));
+            if ($(this).data('dk') == cmsCommentFetchRaw[i].comment_id) {
+                if ($(this).data('ver') == cmsCommentFetchRaw[i].comment_ver) {
+                    ok = true;
+                    console.log('validated the version');
+                }
             }
         });
 
         if (ok == false) {
+            console.log('old version detected');
             cmsCommentFetchData.push(cmsCommentFetchRaw[i].comment_id);
         }
     }
