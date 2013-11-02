@@ -21,19 +21,16 @@ function cmsCommentDeleteSubmit(that) {
                 cmsCommentLock = false;
                 return;
             }
-            if ($("#comments > div").length == 1) {
-                $("#comment_"+xhr.responseJSON.comment_id).fadeOut(300, function() {
-                    $(this).remove();
+            $("#comment_"+xhr.responseJSON.comment_id).slideUp(300, function() {
+                $(this).remove();
+                if ($("#comments > div").length == 1) {
                     $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function() {
                         cmsCommentLock = false;
                     });
-                }); 
-            } else {
-                $("#comment_"+xhr.responseJSON.comment_id).slideUp(300, function() {
-                    $(this).remove();
+                } else {
                     cmsCommentLock = false;
-                });
-            }
+                }
+            });
         },
         error: function(xhr, status, error) {
             // TODO: message

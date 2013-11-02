@@ -34,7 +34,7 @@ function cmsCommentCreateSubmit(that) {
             if ($("#comments > div").length == 0) {
                 $("#nocomments").fadeOut(300, function() {
                     $(this).remove();
-                    $(xhr.responseJSON.contents).prependTo('#comments').hide().fadeIn(300, function() {
+                    $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
                         cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
                         cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");

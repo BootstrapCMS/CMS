@@ -49,9 +49,14 @@ function cmsCommentFetchGet() {
         return;
     }
 
-    cmsCommentLock = false;
-    cmsCommentFetch();
-    console.log('done processing');
+    if ($("#comments > div").length == 1) {
+        $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function(){
+                cmsCommentLock = false;
+                cmsCommentFetch();
+                console.log('done processing'); 
+            });
+        }
+    }
 }
 
 function cmsCommentFetchNew(data) {
@@ -71,13 +76,12 @@ function cmsCommentFetchNew(data) {
         }
     }
 
+    console.log(cmsCommentFetchData);
+
     cmsCommentFetchGet();
 }
 
 function cmsCommentFetchProcess(data) {
-    // do something with the data
-    console.log(data);
-
     var length = data.length;
     var num = 0;
     var done = 0;
@@ -93,30 +97,17 @@ function cmsCommentFetchProcess(data) {
         }
         if (ok == false) {
             num++;
-            if ($("#comments > div").length == 1) {
-                $(this).fadeOut(300, function() {
-                    $(this).remove();
-                    done++;
-                }); 
-            } else {
-                $(this).slideUp(300, function() {
-                    $(this).remove();
-                    done++;
-                });
-            }
+            $(this).slideUp(300, function() {
+                $(this).remove();
+                done++;
+            });
         }
     });
 
     var cmsCommentNewCheck = setInterval(function() {
         if (num === done) {
             clearInterval(cmsCommentNewCheck);
-            if ($("#comments > div").length == 1) {
-                $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function() {
-                    cmsCommentFetchNew(data);
-                });
-            } else {
-                cmsCommentFetchNew(data);
-            }
+            cmsCommentFetchNew(data);
         }
     }, 10);
 }
