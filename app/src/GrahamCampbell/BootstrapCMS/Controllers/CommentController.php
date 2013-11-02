@@ -70,7 +70,7 @@ class CommentController extends BaseController {
 
         $comment = CommentProvider::create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId()))));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'comment' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId())), 'comment_id' => $id));
     }
 
     /**
@@ -96,7 +96,7 @@ class CommentController extends BaseController {
 
         $comment->update($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.'));
+        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'body' => nl2br(e($comment->getBody()))));
     }
 
     /**
@@ -113,7 +113,7 @@ class CommentController extends BaseController {
 
         $comment->delete();
 
-        return Response::json(array('success' => true, 'msg' => 'Comment deleted successfully.', 'comment' => $id));
+        return Response::json(array('success' => true, 'msg' => 'Comment deleted successfully.', 'comment_id' => $id));
     }
 
     /**

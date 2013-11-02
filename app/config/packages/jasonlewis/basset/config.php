@@ -66,7 +66,6 @@ return array(
             $directory = $collection->directory('css', function($collection) {
                 $collection->stylesheet('bootstrap-switch.css');
                 $collection->stylesheet('bootstrap-datetimepicker.min.css');
-                $collection->stylesheet('bootstrap-editable.css');
                 $collection->stylesheet('bootstrap-markdown.min.css');
             });
             $directory->apply('CssMin');
@@ -74,11 +73,9 @@ return array(
 
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('jquery.form.js');
-                $collection->javascript('typeahead.min.js');
                 $collection->javascript('bootstrap-switch.js');
                 $collection->javascript('bootstrap-datetimepicker.min.js');
                 $collection->javascript('cms-picker.js');
-                $collection->javascript('bootstrap-editable.min.js');
                 $collection->javascript('bootstrap-markdown.js');
             });
             $directory->apply('JsMin');
@@ -90,6 +87,7 @@ return array(
                 $collection->javascript('cms-comment-edit.js');
                 $collection->javascript('cms-comment-delete.js');
                 $collection->javascript('cms-comment-create.js');
+                $collection->javascript('cms-comment-fetch.js');
                 $collection->javascript('cms-comment-main.js');
             });
             $directory->apply('JsMin');
