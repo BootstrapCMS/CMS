@@ -1,6 +1,6 @@
 function cmsCommentFetchWork() {
 $.ajax({
-        url: 'comments',
+        url: $("#comments").data('url'),
         type: "GET",
         dataType: "json",
         timeout: 5000,

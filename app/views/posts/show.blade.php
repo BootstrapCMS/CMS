@@ -89,7 +89,7 @@
 @endif
 <br>
 
-<div id="comments">
+<div id="comments" data-url="{{ URL::route('blog.posts.comments.index') }}">
     @if (count($comments) == 0)
     <p id="nocomments">There are currently no comments.</p>
     @else
@@ -108,14 +108,10 @@
 @stop
 
 @section('css')
-@if (Sentry::check())
 {{ Basset::show('form.css') }}
-@endif
 @stop
 
 @section('js')
-@if (Sentry::check())
 {{ Basset::show('form.js') }}
 {{ Basset::show('comment.js') }}
-@endif
 @stop
