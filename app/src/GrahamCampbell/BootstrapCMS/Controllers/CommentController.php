@@ -28,6 +28,7 @@ use Binput;
 use HTMLMin;
 
 use CommentProvider;
+use PostProvider;
 use GrahamCampbell\CMSCore\Models\Comment;
 
 class CommentController extends BaseController {
