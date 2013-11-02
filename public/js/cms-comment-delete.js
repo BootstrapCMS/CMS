@@ -23,7 +23,7 @@ function cmsCommentDeleteSubmit(that) {
             }
             $("#comment_"+xhr.responseJSON.comment_id).slideUp(300, function() {
                 $(this).remove();
-                if ($("#comments > div").length == 1 && $("#comments > p").length = 0) {
+                if ($("#comments > div").length == 1 && $("#comments > p").length == 0) {
                     $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function() {
                         cmsCommentLock = false;
                     });
