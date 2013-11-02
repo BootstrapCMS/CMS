@@ -1,4 +1,4 @@
-function cmsEditable(bindval) {
+function cmsCommentEdit(bindval) {
     bindval = bindval || ".x-editable";
     $.fn.editable.defaults.mode = "inline";
     $(bindval).editable({
@@ -27,6 +27,17 @@ function cmsEditable(bindval) {
             return error.responseJSON.msg;
         }
     });
+    $(bindval).on('shown', function(e, editable) {
+        editable.dissable();
+        var cmsCommentCreateCheck = setInterval(function() {
+            if (cmsCommentLock == false) {
+                clearInterval(cmsCommentCreateCheck);
+                cmsCommentLock = true;
+                editable.enable();
+            }
+        }, 10);
+    });
+    $(bindval).on('hidden', function(e, reason) {
+        cmsCommentLock = false;
+    });
 }
-
-$(document).ready(cmsEditable());

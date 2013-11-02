@@ -79,7 +79,6 @@ return array(
                 $collection->javascript('bootstrap-datetimepicker.min.js');
                 $collection->javascript('cms-picker.js');
                 $collection->javascript('bootstrap-editable.min.js');
-                $collection->javascript('cms-editable.js');
                 $collection->javascript('bootstrap-markdown.js');
             });
             $directory->apply('JsMin');
@@ -88,6 +87,7 @@ return array(
         'comment' => function($collection) {
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('cms-comment-core.js');
+                $collection->javascript('cms-comment-edit.js');
                 $collection->javascript('cms-comment-delete.js');
                 $collection->javascript('cms-comment-create.js');
                 $collection->javascript('cms-comment-main.js');
