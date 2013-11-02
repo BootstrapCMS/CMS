@@ -25,7 +25,7 @@ function cmsCommentCreateSubmit(that) {
                 cmsCommentLock = false;
                 return;
             }
-            if (!xhr.responseJSON.msg || !xhr.responseJSON.comment || !xhr.responseJSON.ago || !xhr.responseJSON.edit || !xhr.responseJSON.del) {
+            if (!xhr.responseJSON.msg || !xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
                 cmsCommentMessage("There was an unknown error!", "error");
                 cmsCommentLock = false;
                 return;
@@ -34,7 +34,7 @@ function cmsCommentCreateSubmit(that) {
             if ($("#comments > div").length == 0) {
                 $("#nocomments").fadeOut(300, function() {
                     $(this).remove();
-                    $(xhr.responseJSON.comment).prependTo('#comments').hide().fadeIn(300, function() {
+                    $(xhr.responseJSON.contents).prependTo('#comments').hide().fadeIn(300, function() {
                         cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.commnet_id);
                         cmsCommentEdit("#editable_comment_"+xhr.responseJSON.commnet_id);
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.commnet_id+"_1");
@@ -43,7 +43,7 @@ function cmsCommentCreateSubmit(that) {
                     });
                 });
             } else {
-                $(xhr.responseJSON.comment).prependTo('#comments').hide().slideDown(300, function() {
+                $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
                     cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.commnet_id);
                     cmsCommentEdit("#editable_comment_"+xhr.responseJSON.commnet_id);
                     cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.commnet_id+"_1");

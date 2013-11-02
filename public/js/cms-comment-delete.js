@@ -16,6 +16,11 @@ function cmsCommentDeleteSubmit(that) {
                 cmsCommentLock = false;
                 return;
             }
+            if (!xhr.responseJSON.msg || !xhr.responseJSON.comment_id) {
+                // TODO: message
+                cmsCommentLock = false;
+                return;
+            }
             if ($("#comments > div").length == 1) {
                 $("#comment_"+xhr.responseJSON.comment_id).fadeOut(300, function() {
                     $(this).remove();
@@ -30,6 +35,7 @@ function cmsCommentDeleteSubmit(that) {
             }
         },
         error: function(xhr, status, error) {
+            // TODO: message
             cmsCommentLock = false;
         }
     });
