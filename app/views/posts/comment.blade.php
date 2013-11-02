@@ -1,9 +1,7 @@
 <div id="comment_{{ $comment->getId() }}" class="well clearfix" data-pk="{{ $comment->getId() }}" data-ver="{{ $comment->getVersion() }}">
     @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
         <div class="col-md-9 col-sm-8">
-            <p>
-                <strong>{{ $comment->getUserName() }}</strong> - <abbr id="timeago_comment_{{ $comment->getId() }}" class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
-            </p>
+            <p><strong>{{ $comment->getUserName() }}</strong> - <abbr id="timeago_comment_{{ $comment->getId() }}" class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr></p>
             <p id="main_comment_{{ $comment->getId() }}" class="main">{{ nl2br(e($comment->getBody())) }}</p>
         </div>
         <div class="hidden-xs">
@@ -20,12 +18,8 @@
         </div>
     @else
         <div class="col-xs-12">
-            <p>
-                <strong>{{ $comment->getUserName() }}</strong> - <abbr id="timeago_comment_{{ $comment->getId() }}" class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
-            </p>
-            <p>
-                {{ nl2br(e($comment->getBody())) }}
-            </p>
+            <p><strong>{{ $comment->getUserName() }}</strong> - <abbr id="timeago_comment_{{ $comment->getId() }}" class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr></p>
+            <p id="main_comment_{{ $comment->getId() }}" class="main">{{ nl2br(e($comment->getBody())) }}</p>
         </div>
     @endif
 </div>
