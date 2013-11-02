@@ -49,7 +49,7 @@ function cmsCommentFetchGet() {
         return;
     }
 
-    if ($("#comments > div").length == 1) {
+    if ($("#comments > div").length == 0) {
         $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function(){
             cmsCommentLock = false;
             cmsCommentFetch();
