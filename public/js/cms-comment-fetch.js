@@ -62,6 +62,7 @@ $.ajax({
         error: function(xhr, status, error) {
             cmsCommentLock = false;
             cmsCommentFetch();
+            console.log('processing errored');
         }
     });
 }
