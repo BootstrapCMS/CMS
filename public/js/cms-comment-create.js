@@ -73,7 +73,7 @@ function cmsCommentCreate(bindval, body) {
         cmsCommentMessage("Waiting for lock to clear...", "info");
         var that = this;
         console.log(that);
-        var cmsCommentCreateCheck = setInterval(function(that) {
+        var cmsCommentCreateCheck = setInterval(function() {
             if (cmsCommentLock == false) {
                 console.log(that);
                 cmsCommentCreateSubmit(that);
