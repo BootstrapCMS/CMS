@@ -98,7 +98,7 @@ function cmsCommentFetchReplace() {
                     cmsCommentFetchReplace();
                     return;
                 }
-                if (!xhr.responseJSON.main || !xhr.responseJSON.comment_id || !xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
+                if (!xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
                     cmsCommentFetchData.splice(0, 1);
                     cmsCommentFetchReplace();
                     return;
