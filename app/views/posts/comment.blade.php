@@ -2,7 +2,7 @@
     @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
         <div class="col-md-10 col-sm-9">
             <p>
-                <strong>{{ $comment->getUserName() }}</strong> - <abbr class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
+                <strong>{{ $comment->getUserName() }}</strong> - <abbr id="timeago_comment_{{ $comment->getId() }}" class="timeago" title="{{ $comment->getCreatedAt()->toISO8601String() }}">{{ $comment->getCreatedAt()->toDateTimeString() }}</abbr>
             </p>
             <p id="editable_comment_{{ $comment->getId() }}" class="editable" data-pk="{{ $comment->getId() }}" data-ver="{{ $comment->getVersion() }}" data-url="{{ URL::route('blog.posts.comments.update', array('posts' => $post_id, 'comments' => $comment->getId())) }}">{{ nl2br(e($comment->getBody())) }}</p>
         </div>
