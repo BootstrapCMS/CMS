@@ -24,8 +24,9 @@ function cmsCommentDeleteSubmit(that) {
             if ($("#comments > div").length == 1) {
                 $("#comment_"+xhr.responseJSON.comment_id).fadeOut(300, function() {
                     $(this).remove();
-                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300);
-                    cmsCommentLock = false;
+                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function() {
+                        cmsCommentLock = false;
+                    });
                 }); 
             } else {
                 $("#comment_"+xhr.responseJSON.comment_id).slideUp(300, function() {
