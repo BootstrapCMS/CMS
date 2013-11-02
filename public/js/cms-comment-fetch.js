@@ -126,21 +126,18 @@ function cmsCommentFetchUpdate() {
     cmsCommentFetchData = new Array();
 
     for (var i = 0; i < length; i++) {
-        var ok = false;
-        $("#comments > .hidden-xs > div > .pull-right > .editable").each(function() {
+        $(".editable").each(function() {
             console.log('selected id '+$(this).data('dk'));
             if ($(this).data('dk') == cmsCommentFetchRaw[i].comment_id) {
-                if ($(this).data('ver') == cmsCommentFetchRaw[i].comment_ver) {
-                    ok = true;
-                    console.log('validated the version');
+                console.log('matched id '+$(this).data('dk'));
+                if ($(this).data('ver') != cmsCommentFetchRaw[i].comment_ver) {
+                    console.log('old version detected');
+                    cmsCommentFetchData.push(cmsCommentFetchRaw[i].comment_id);
+                } else {
+                    console.log('new version detected');
                 }
             }
         });
-
-        if (ok == false) {
-            console.log('old version detected');
-            cmsCommentFetchData.push(cmsCommentFetchRaw[i].comment_id);
-        }
     }
 
     cmsCommentFetchReplace();
