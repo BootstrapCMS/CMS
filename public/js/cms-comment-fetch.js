@@ -126,6 +126,15 @@ function cmsCommentFetchWork() {
             cmsCommentFetchProcess(xhr.responseJSON);
         },
         error: function(xhr, status, error) {
+            if (!xhr.responseJSON) {
+                cmsCommentLock = false;
+                cmsCommentFetch();
+                return;
+            }
+            if (xhr.responseJSON.url && xhr.responseJSON.code == 404) {
+                window.location.replace(xhr.responseJSON.url);
+                return;
+            }
             cmsCommentLock = false;
             cmsCommentFetch();
         }

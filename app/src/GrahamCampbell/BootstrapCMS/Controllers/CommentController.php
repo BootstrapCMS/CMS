@@ -57,7 +57,10 @@ class CommentController extends BaseController {
         $this->checkAjax();
 
         $post = PostProvider::find($post_id, array('id'));
-        $this->checkPost($post);
+        if (!$post) {
+            Session::flash('error', 'The post you were viewing has been deleted.');
+            return Response::json(array('success' => false, 'code' => 404, 'msg' => 'The post you were viewing has been deleted.', 'url' => URL::route('blog.posts.index')), 404);
+        }
 
         $comments = $post->getComments(array('id', 'version'));
 
