@@ -3,7 +3,6 @@ var cmsCommentFetchData;
 
 function cmsCommentFetchGet() {
     if (cmsCommentFetchData.length != 0) {
-        console.log('get - '+cmsCommentFetchData[0]);
         $.ajax({
             url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
@@ -86,7 +85,6 @@ function cmsCommentFetchNew() {
 
 function cmsCommentFetchReplace() {
     if (cmsCommentFetchData.length != 0) {
-        console.log('replace - '+cmsCommentFetchData[0]);
         $.ajax({
             url: $("#comments").data("url")+"/"+cmsCommentFetchData[0],
             type: "GET",
@@ -106,10 +104,13 @@ function cmsCommentFetchReplace() {
                 $("#editable_comment_"+xhr.responseJSON.comment_id+"_1").data("ver", xhr.responseJSON.comment_ver);
                 $("#editable_comment_"+xhr.responseJSON.comment_id+"_2").data("ver", xhr.responseJSON.comment_ver);
                 $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
-                $("#main_comment_"+xhr.responseJSON.comment_id).text(xhr.responseJSON.comment_text);
-                console.log('updated comment with id '+xhr.responseJSON.comment_id+' to version '+xhr.responseJSON.comment_ver+' with text of '+xhr.responseJSON.comment_text);
-                cmsCommentFetchData.splice(0, 1);
-                cmsCommentFetchReplace();
+                $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(150, function() {
+                    $(this).text(xhr.responseJSON.comment_text);
+                    $(this).fadeIn(150, function() {
+                        cmsCommentFetchData.splice(0, 1);
+                        cmsCommentFetchReplace();
+                    });
+                });
             },
             error: function(xhr, status, error) {
                 cmsCommentFetchData.splice(0, 1);
@@ -128,17 +129,10 @@ function cmsCommentFetchUpdate() {
 
     for (var i = 0; i < length; i++) {
         $("#comments > div").each(function() {
-            console.log('selected id '+$(this).data('pk'));
             if ($(this).data('pk') == cmsCommentFetchRaw[i].comment_id) {
-                console.log('matched id '+$(this).data('pk'));
                 if ($(this).data('ver') != cmsCommentFetchRaw[i].comment_ver) {
-                    console.log('old version detected');
                     cmsCommentFetchData.push(cmsCommentFetchRaw[i].comment_id);
-                } else {
-                    console.log('new version detected');
                 }
-            } else {
-                console.log('id not on the list');
             }
         });
     }
