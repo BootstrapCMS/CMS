@@ -89,11 +89,11 @@
 @endif
 <br>
 
-<div id="comments" data-url="{{ URL::route('blog.posts.comments.index') }}">
+<?php $post_id = $post->getId(); ?>
+<div id="comments" data-url="{{ URL::route('blog.posts.comments.index', array('posts' => $post_id)) }}">
     @if (count($comments) == 0)
     <p id="nocomments">There are currently no comments.</p>
     @else
-        <?php $post_id = $post->getId(); ?>
         @foreach ($comments as $comment)
             @include('posts.comment')
         @endforeach

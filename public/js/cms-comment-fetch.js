@@ -1,3 +1,10 @@
+function cmsCommentFetchProcess(data) {
+    // do something with the data
+    console.log(xhr.responseJSON);
+    cmsCommentLock = false;
+    cmsCommentFetch();
+}
+
 function cmsCommentFetchWork() {
 $.ajax({
         url: $("#comments").data('url'),
@@ -6,12 +13,11 @@ $.ajax({
         timeout: 5000,
         success: function(data, status, xhr) {
             if (!xhr.responseJSON) {
-                console.log(xhr.responseJSON);
                 cmsCommentLock = false;
                 cmsCommentFetch();
                 return;
             }
-            
+            cmsCommentFetchProcess(xhr.responseJSON);
         },
         error: function(xhr, status, error) {
             cmsCommentLock = false;

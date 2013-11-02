@@ -55,7 +55,7 @@ class CommentController extends BaseController {
     public function index($post_id) {
         $this->checkAjax();
 
-        $post = PostProvider::find($id, array('id'));
+        $post = PostProvider::find($post_id, array('id'));
         $this->checkPost($post);
 
         $comments = $post->getComments('id', 'version');
