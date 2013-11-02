@@ -128,9 +128,9 @@ function cmsCommentFetchUpdate() {
 
     for (var i = 0; i < length; i++) {
         $("#comments > div").each(function() {
-            console.log('selected id '+$(this).data('dk'));
+            console.log('selected id '+$(this).data('pk'));
             if ($(this).data('dk') == cmsCommentFetchRaw[i].comment_id) {
-                console.log('matched id '+$(this).data('dk'));
+                console.log('matched id '+$(this).data('pk'));
                 if ($(this).data('ver') != cmsCommentFetchRaw[i].comment_ver) {
                     console.log('old version detected');
                     cmsCommentFetchData.push(cmsCommentFetchRaw[i].comment_id);
