@@ -129,7 +129,7 @@ function cmsCommentFetchUpdate() {
     for (var i = 0; i < length; i++) {
         $("#comments > div").each(function() {
             console.log('selected id '+$(this).data('pk'));
-            if ($(this).data('dk') == cmsCommentFetchRaw[i].comment_id) {
+            if ($(this).data('pk') == cmsCommentFetchRaw[i].comment_id) {
                 console.log('matched id '+$(this).data('pk'));
                 if ($(this).data('ver') != cmsCommentFetchRaw[i].comment_ver) {
                     console.log('old version detected');
@@ -137,6 +137,8 @@ function cmsCommentFetchUpdate() {
                 } else {
                     console.log('new version detected');
                 }
+            } else {
+                console.log('id not on the list');
             }
         });
     }
