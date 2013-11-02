@@ -21,7 +21,9 @@
  */
 
 use App;
+use Session;
 use Response;
+use URL;
 use Validator;
 
 use Binput;
