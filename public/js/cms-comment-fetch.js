@@ -1,5 +1,7 @@
-function cmsCommentFetchGet(data) {
-    if (data.length != 0) {
+var cmsCommentFetchData = new Array();
+
+function cmsCommentFetchGet() {
+    if (cmsCommentFetchData.length != 0) {
         $.ajax({
             url: $("#comments").data('url').'/'.data[0],
             type: "GET",
@@ -7,13 +9,13 @@ function cmsCommentFetchGet(data) {
             timeout: 5000,
             success: function(data, status, xhr) {
                 if (!xhr.responseJSON) {
-                    data.splice(0, 1);
-                    cmsCommentFetchGet(data);
+                    cmsCommentFetchData.splice(0, 1);
+                    cmsCommentFetchGet();
                     return;
                 }
                 if (!xhr.responseJSON.msg || !xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
-                    data.splice(0, 1);
-                    cmsCommentFetchGet(data);
+                    cmsCommentFetchData.splice(0, 1);
+                    cmsCommentFetchGet();
                     return;
                 }
                 if ($("#comments > div").length == 0) {
@@ -24,8 +26,8 @@ function cmsCommentFetchGet(data) {
                             cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                             cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
-                            data.splice(0, 1);
-                            cmsCommentFetchGet(data);
+                            cmsCommentFetchData.splice(0, 1);
+                            cmsCommentFetchGet();
                         });
                     });
                 } else {
@@ -34,17 +36,17 @@ function cmsCommentFetchGet(data) {
                         cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id);
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_1");
                         cmsCommentDelete("#deletable_comment_"+xhr.responseJSON.comment_id+"_2");
-                        data.splice(0, 1);
-                        cmsCommentFetchGet(data);
+                        cmsCommentFetchData.splice(0, 1);
+                        cmsCommentFetchGet();
                     });
                 }
             },
             error: function(xhr, status, error) {
-                data.splice(0, 1);
-                cmsCommentFetchGet(data);
+                cmsCommentFetchData.splice(0, 1);
+                cmsCommentFetchGet();
             }
         });
-        return
+        return;
     }
 
     cmsCommentLock = false;
@@ -54,7 +56,7 @@ function cmsCommentFetchGet(data) {
 
 function cmsCommentFetchNew(data) {
     var length = data.length;
-    var fetch = new Array();
+    cmsCommentFetchData = new Array();
 
     for (var i = 0; i < length; i++) {
         var ok = false;
@@ -65,11 +67,11 @@ function cmsCommentFetchNew(data) {
         }
 
         if (ok == false) {
-            fetch.push(data[i]);
+            cmsCommentFetchData.push(data[i]);
         }
     });
 
-    cmsCommentFetchGet(fetch);
+    cmsCommentFetchGet();
 }
 
 function cmsCommentFetchProcess(data) {
