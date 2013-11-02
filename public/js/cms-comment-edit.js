@@ -28,10 +28,10 @@ function cmsCommentEdit(bindval) {
         }
     });
     $(bindval).on('shown', function(e, editable) {
-        editable.dissable();
-        var cmsCommentCreateCheck = setInterval(function() {
+        editable.disable();
+        var cmsCommentEditCheck = setInterval(function() {
             if (cmsCommentLock == false) {
-                clearInterval(cmsCommentCreateCheck);
+                clearInterval(cmsCommentEditCheck);
                 cmsCommentLock = true;
                 editable.enable();
             }
