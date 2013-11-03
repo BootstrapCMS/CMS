@@ -58,7 +58,6 @@ return array(
                 $collection->javascript('cms-restfulizer.js');
                 $collection->javascript('bootstrap.min.js');
                 $collection->javascript('jasny-bootstrap.min.js');
-                $collection->javascript('bootbox.min.js');
             });
             $directory->apply('JsMin');
         },

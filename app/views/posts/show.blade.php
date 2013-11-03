@@ -105,6 +105,25 @@
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
 @include('posts.delete')
 @endif
+@if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+<div id="edit_comment" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Edit Comment</h4>
+            </div>
+            <div class="modal-body">
+                <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="edit_comment_cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="edit_comment_ok" type="button" class="btn btn-primary" data-pk="0">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @stop
 
 @section('css')

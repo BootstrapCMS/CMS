@@ -101,8 +101,6 @@ function cmsCommentFetchReplace() {
                     cmsCommentFetchReplace();
                     return;
                 }
-                $("#editable_comment_"+xhr.responseJSON.comment_id+"_1").data("ver", xhr.responseJSON.comment_ver);
-                $("#editable_comment_"+xhr.responseJSON.comment_id+"_2").data("ver", xhr.responseJSON.comment_ver);
                 $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
                 $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(150, function() {
                     $(this).text(xhr.responseJSON.comment_text);

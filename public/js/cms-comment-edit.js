@@ -1,48 +1,38 @@
-function cmsCommentEditShow(that) {
-    setTimeout(function() {
-        console.log($("#main_comment_"+$(that).date('pk')).text());
-    }, 50);
-
-    bootbox.prompt("Edit Comment", function(result) {
-        console.log(result);
-
-        if (!result) {
-            cmsCommentLock = false;
-            result;
-        }
-
-        var formData = {body: result};
-
-        $.ajax({
-            url: $(that).attr("href"),
+function cmsCommentSubmit(that) {
+    $.ajax({
+            url: $("#comments").data("url")+"/"+$(that).data("pk"),
             type: "PATCH",
-            data: formData,
+            data: {body: $("#edit_body").text()},
             dataType: "json",
             timeout: 5000,
             success: function(data, status, xhr) {
                 if (!xhr.responseJSON) {
-                    cmsCommentLock = false;
+                    $("#edit_comment").modal("hide");
                     return;
                 }
                 if (xhr.responseJSON.success !== true || !xhr.responseJSON.msg || !xhr.responseJSON.comment_id || !xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
-                    cmsCommentLock = false;
+                    $("#edit_comment").modal("hide");
                     return;
                 }
-                $("#editable_comment_"+xhr.responseJSON.comment_id+"_1").data("ver", xhr.responseJSON.comment_ver);
-                $("#editable_comment_"+xhr.responseJSON.comment_id+"_2").data("ver", xhr.responseJSON.comment_ver);
                 $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
                 $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(150, function() {
                     $(this).text(xhr.responseJSON.comment_text);
                     $(this).fadeIn(150, function() {
-                        cmsCommentLock = false;
+                        $("#edit_comment").modal("hide");
                     });
                 });
             },
             error: function(xhr, status, error) {
-                cmsCommentLock = false;
+                $("#edit_comment").modal("hide");
             }
         });
     });
+}
+
+function cmsCommentEditShow(that) {
+    $("#edit_comment_ok").data("pk", $(that).data('pk'));
+    $("#edit_body").text($("#main_comment_"+$(that).data('pk')).text().replace(/<br\s*[\/]?>/gi, "\n"));
+    $("#edit_comment").modal("show");
 }
 
 function cmsCommentEdit(bindval) {
@@ -57,5 +47,15 @@ function cmsCommentEdit(bindval) {
             }
         }, 10);
         return false;
+    });
+}
+
+function cmsCommentModel() {
+    $("#edit_comment").on("hidden.bs.modal", function () {
+        cmsCommentLock = false;
+    });
+    $("#edit_comment_ok").click(function () {
+        var that = this;
+        cmsCommentSubmit(that);
     });
 }
