@@ -4,7 +4,7 @@ function cmsCommentMessage(message, type) {
 
 function cmsCommentCreateSubmit(that) {
     cmsCommentMessage("Submitting comment...", "info");
-    $(that).ajaxSubmit({ 
+    $(that).ajaxSubmit({
         dataType: 'json',
         clearForm: true,
         resetForm: true,
