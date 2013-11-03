@@ -1,31 +1,30 @@
 function cmsCommentSubmit(that) {
     $.ajax({
-            url: $("#comments").data("url")+"/"+$(that).data("pk"),
-            type: "PATCH",
-            data: {body: $("#edit_body").text()},
-            dataType: "json",
-            timeout: 5000,
-            success: function(data, status, xhr) {
-                if (!xhr.responseJSON) {
-                    $("#edit_comment").modal("hide");
-                    return;
-                }
-                if (xhr.responseJSON.success !== true || !xhr.responseJSON.msg || !xhr.responseJSON.comment_id || !xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
-                    $("#edit_comment").modal("hide");
-                    return;
-                }
-                $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
-                $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(150, function() {
-                    $(this).text(xhr.responseJSON.comment_text);
-                    $(this).fadeIn(150, function() {
-                        $("#edit_comment").modal("hide");
-                    });
-                });
-            },
-            error: function(xhr, status, error) {
+        url: $("#comments").data("url")+"/"+$(that).data("pk"),
+        type: "PATCH",
+        data: {body: $("#edit_body").text()},
+        dataType: "json",
+        timeout: 5000,
+        success: function(data, status, xhr) {
+            if (!xhr.responseJSON) {
                 $("#edit_comment").modal("hide");
+                return;
             }
-        });
+            if (xhr.responseJSON.success !== true || !xhr.responseJSON.msg || !xhr.responseJSON.comment_id || !xhr.responseJSON.comment_ver || !xhr.responseJSON.comment_text) {
+                $("#edit_comment").modal("hide");
+                return;
+            }
+            $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
+            $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(150, function() {
+                $(this).text(xhr.responseJSON.comment_text);
+                $(this).fadeIn(150, function() {
+                    $("#edit_comment").modal("hide");
+                });
+            });
+        },
+        error: function(xhr, status, error) {
+            $("#edit_comment").modal("hide");
+        }
     });
 }
 
