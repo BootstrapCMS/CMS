@@ -139,6 +139,12 @@ class CommentController extends BaseController {
         $this->checkComment($comment);
 
         $version = Binput::get('version');
+
+        $val = Validator::make(array('version' => $version), array('version' => 'required'));
+        if ($val->fails()) {
+            App::abort(400, 'No version data was supplied.');
+        }
+
         if ($version != $comment->getVersion) {
             App::abort(409, 'The comment was modified by someone else.');
         }

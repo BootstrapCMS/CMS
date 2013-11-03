@@ -1,5 +1,4 @@
 function cmsCommentSubmit(that) {
-    console.log($(that).data("pk"));
     $(that).ajaxSubmit({
         url: $("#comments").data("url")+"/"+$(that).data("pk"),
         dataType: 'json',
@@ -31,6 +30,7 @@ function cmsCommentSubmit(that) {
 
 function cmsCommentEditShow(that) {
     $("#edit_commentform").data("pk", $(that).data('pk'));
+    $("#verion").attr("value", $("#main_comment_"+$(that).data('pk')).data('ver'));
     $("#edit_body").text($("#main_comment_"+$(that).data('pk')).text().replace(/<br\s*[\/]?>/gi, "\n"));
     $("#edit_comment").modal("show");
 }

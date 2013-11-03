@@ -115,6 +115,7 @@
             </div>
             <div class="modal-body">
                 {{ Form::open(array('id' => 'edit_commentform', 'method' => 'PATCH', 'class' => 'form-vertical', 'data-pk' => '0')) }}
+                    <input id="verion" name="version" value="1" type="hidden">
                     <div class="form-group">
                         <div class="col-xs-12">
                             <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
