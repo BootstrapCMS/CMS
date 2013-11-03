@@ -114,7 +114,7 @@
                 <h4 class="modal-title">Edit Comment</h4>
             </div>
             <div class="modal-body">
-                {{ Form::open(array('id' => 'edit_commentform', 'method' => 'PATCH', 'class' => 'form-vertical' 'data-pk' => '0')) }}
+                {{ Form::open(array('id' => 'edit_commentform', 'method' => 'PATCH', 'class' => 'form-vertical', 'data-pk' => '0')) }}
                     <div class="form-group">
                         <div class="col-xs-12">
                             <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
