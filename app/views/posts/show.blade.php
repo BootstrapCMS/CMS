@@ -139,5 +139,6 @@
 
 @section('js')
 {{ Basset::show('form.js') }}
+<script>var cmsCommentInterval = {{ Config::get('cms.comment') }}</script>
 {{ Basset::show('comment.js') }}
 @stop

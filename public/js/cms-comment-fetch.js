@@ -212,5 +212,5 @@ function cmsCommentFetchWait() {
 function cmsCommentFetch() {
     setTimeout(function() {
         cmsCommentFetchWait()
-    }, 5000);
+    }, cmsCommentInterval);
 }
