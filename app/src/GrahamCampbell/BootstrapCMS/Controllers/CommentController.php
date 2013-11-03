@@ -145,7 +145,7 @@ class CommentController extends BaseController {
 
         $comment->update(array_merge($input, array('version' => $version+1)));
 
-        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'contents' => nl2br(e($comment->getBody())), 'comment_id' => $id));
+        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => HTMLMin::render(nl2br(e($comment->getBody()))),'comment_id' => $id, 'comment_ver' => $comment->getVersion()));
     }
 
     /**
