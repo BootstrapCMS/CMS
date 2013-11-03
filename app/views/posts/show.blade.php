@@ -114,11 +114,17 @@
                 <h4 class="modal-title">Edit Comment</h4>
             </div>
             <div class="modal-body">
-                <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+                {{ Form::open(array('id' => 'edit_commentform', 'method' => 'PATCH', 'class' => 'form-vertical' 'data-pk' => '0')) }}
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+                        </div>
+                    </div>
+                {{ Form::close() }}
             </div>
             <div class="modal-footer">
                 <button id="edit_comment_cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button id="edit_comment_ok" type="button" class="btn btn-primary" data-pk="0">OK</button>
+                <button id="edit_comment_ok" type="button" class="btn btn-primary">OK</button>
             </div>
         </div>
     </div>

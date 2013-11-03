@@ -1,9 +1,10 @@
 function cmsCommentSubmit(that) {
-    $.ajax({
+    console.log($(that).data("pk"));
+    $(that).ajaxSubmit({
         url: $("#comments").data("url")+"/"+$(that).data("pk"),
-        type: "PATCH",
-        data: {body: $("#edit_body").text()},
-        dataType: "json",
+        dataType: 'json',
+        clearForm: true,
+        resetForm: true,
         timeout: 5000,
         success: function(data, status, xhr) {
             if (!xhr.responseJSON) {
@@ -29,7 +30,7 @@ function cmsCommentSubmit(that) {
 }
 
 function cmsCommentEditShow(that) {
-    $("#edit_comment_ok").data("pk", $(that).data('pk'));
+    $("#edit_commentform").data("pk", $(that).data('pk'));
     $("#edit_body").text($("#main_comment_"+$(that).data('pk')).text().replace(/<br\s*[\/]?>/gi, "\n"));
     $("#edit_comment").modal("show");
 }
@@ -54,7 +55,16 @@ function cmsCommentModel() {
         cmsCommentLock = false;
     });
     $("#edit_comment_ok").click(function () {
+        $("#edit_commentform").trigger("submit");
+    });
+    $("textarea#edit_body").keydown(function (e) {
+        if (e.ctrlKey && e.keyCode === 13) {
+            $("#edit_commentform").trigger("submit");
+        }
+    });
+    $("#edit_commentform").submit(function() {
         var that = this;
         cmsCommentSubmit(that);
+        return false;
     });
 }
