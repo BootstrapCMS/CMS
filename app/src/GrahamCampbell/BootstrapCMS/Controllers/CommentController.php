@@ -126,7 +126,7 @@ class CommentController extends BaseController {
     public function update($post_id, $id) {
         $this->checkAjax();
 
-        $input = array('body' => Binput::get('value'));
+        $input = array('body' => Binput::get('edit_body'));
 
         $rules = array('body' => Comment::$rules['body']);
 
