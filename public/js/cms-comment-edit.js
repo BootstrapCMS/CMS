@@ -1,5 +1,11 @@
 function cmsCommentEditShow(that) {
+    setTimeout(function() {
+        console.log($("#main_comment_"+$(that).date('pk')).text());
+    }, 50);
+
     bootbox.prompt("Edit Comment", function(result) {
+        console.log(result);
+
         if (!result) {
             cmsCommentLock = false;
             result;
@@ -8,7 +14,7 @@ function cmsCommentEditShow(that) {
         $.ajax({
             url: $(that).attr("href"),
             type: "PATCH",
-            data: {body: result}
+            data: {body: result},
             dataType: "json",
             timeout: 5000,
             success: function(data, status, xhr) {
