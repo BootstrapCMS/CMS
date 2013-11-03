@@ -11,10 +11,12 @@ function cmsCommentEditShow(that) {
             result;
         }
 
+        var formData = {body: result};
+
         $.ajax({
             url: $(that).attr("href"),
             type: "PATCH",
-            data: {body: result},
+            data: formData,
             dataType: "json",
             timeout: 5000,
             success: function(data, status, xhr) {
