@@ -72,7 +72,7 @@ class CommentController extends BaseController {
             $data[] = array('comment_id' => $comment->getId(), 'comment_ver' => $comment->getVersion());
         }
 
-        return Response::json($data);
+        return Response::json(array_reverse($data));
     }
 
     /**
