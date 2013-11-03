@@ -29,8 +29,11 @@ function cmsCommentSubmit(that) {
 }
 
 function cmsCommentEditShow(that) {
+    console.log($(that).data('pk'));
+    console.log($("#comment_"+$(that).data('pk')).data('ver'));
+    console.log($("#main_comment_"+$(that).data('pk')).text().replace(/<br\s*[\/]?>/gi, "\n"));
     $("#edit_commentform").data("pk", $(that).data('pk'));
-    $("#verion").attr("value", $("#main_comment_"+$(that).data('pk')).data('ver'));
+    $("#verion").attr("value", $("#comment_"+$(that).data('pk')).data('ver'));
     $("#edit_body").text($("#main_comment_"+$(that).data('pk')).text().replace(/<br\s*[\/]?>/gi, "\n"));
     $("#edit_comment").modal("show");
 }
