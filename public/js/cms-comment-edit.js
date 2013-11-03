@@ -41,6 +41,7 @@ function cmsCommentEditShow(that) {
             }
         });
     }
+}
 
 function cmsCommentEdit(bindval) {
     bindval = bindval || ".editable";
