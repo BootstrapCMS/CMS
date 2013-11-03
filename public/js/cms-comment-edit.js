@@ -40,7 +40,7 @@ function cmsCommentEditShow(that) {
                 cmsCommentLock = false;
             }
         });
-    }
+    });
 }
 
 function cmsCommentEdit(bindval) {
