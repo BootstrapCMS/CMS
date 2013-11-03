@@ -15,18 +15,13 @@ function cmsCommentCreateSubmit(that) {
                 cmsCommentLock = false;
                 return;
             }
-            if (xhr.responseJSON.success !== true) {
+            if (xhr.responseJSON.success !== true || !xhr.responseJSON.msg || !xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
                 if (!xhr.responseJSON.msg) {
                     cmsCommentMessage("There was an unknown error!", "error");
                     cmsCommentLock = false;
                     return;
                 }
                 cmsCommentMessage(xhr.responseJSON.msg, "error");
-                cmsCommentLock = false;
-                return;
-            }
-            if (!xhr.responseJSON.msg || !xhr.responseJSON.contents || !xhr.responseJSON.comment_id) {
-                cmsCommentMessage("There was an unknown error!", "error");
                 cmsCommentLock = false;
                 return;
             }

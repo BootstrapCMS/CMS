@@ -1,5 +1,4 @@
 function cmsCommentDeleteSubmit(that) {
-    // TODO: message
     $.ajax({
         url: $(that).attr("href"),
         type: "DELETE",
@@ -7,17 +6,10 @@ function cmsCommentDeleteSubmit(that) {
         timeout: 5000,
         success: function(data, status, xhr) {
             if (!xhr.responseJSON) {
-                // TODO: message
                 cmsCommentLock = false;
                 return;
             }
-            if (xhr.responseJSON.success !== true) {
-                // TODO: message
-                cmsCommentLock = false;
-                return;
-            }
-            if (!xhr.responseJSON.msg || !xhr.responseJSON.comment_id) {
-                // TODO: message
+            if (xhr.responseJSON.success !== true || !xhr.responseJSON.msg || !xhr.responseJSON.comment_id) {
                 cmsCommentLock = false;
                 return;
             }
@@ -33,7 +25,6 @@ function cmsCommentDeleteSubmit(that) {
             });
         },
         error: function(xhr, status, error) {
-            // TODO: message
             cmsCommentLock = false;
         }
     });
