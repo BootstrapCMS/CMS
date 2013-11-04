@@ -139,6 +139,9 @@
 
 @section('js')
 {{ Basset::show('form.js') }}
-<script>var cmsCommentInterval = {{ Config::get('cms.comment') }};</script>
+<script>
+var cmsCommentInterval = {{ Config::get('cms.commentfetch') }};
+var cmsCommentTime = {{ Config::get('cms.commenttrans') }};
+</script>
 {{ Basset::show('comment.js') }}
 @stop

@@ -27,9 +27,9 @@ function cmsCommentCreateSubmit(that) {
             }
             cmsCommentMessage(xhr.responseJSON.msg, "success");
             if ($("#comments > div").length == 0) {
-                $("#nocomments").fadeOut(300, function() {
+                $("#nocomments").fadeOut(cmsCommentTime, function() {
                     $(this).remove();
-                    $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
+                    $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(cmsCommentTime, function() {
                         cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
                         cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
                         cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");
@@ -39,7 +39,7 @@ function cmsCommentCreateSubmit(that) {
                     });
                 });
             } else {
-                $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
+                $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(cmsCommentTime, function() {
                     cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
                     cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
                     cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");

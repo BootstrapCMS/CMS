@@ -114,7 +114,22 @@ return array(
     |
     */
 
-    'comment' => 5000,
+    'commentfetch' => 5000,
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Comment Transition Time
+    |--------------------------------------------------------------------------
+    |
+    | This defines how long comment transitions take to complete in
+    | milliseconds. It must be a number divisible by 2.
+    |
+    | Default to 300.
+    |
+    */
+
+    'commenttrans' => 300,
 
     /*
     |--------------------------------------------------------------------------

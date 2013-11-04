@@ -15,9 +15,9 @@ function cmsCommentSubmit(that) {
                 return;
             }
             $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
-            $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(150, function() {
+            $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(cmsCommentTime/2, function() {
                 $(this).text(xhr.responseJSON.comment_text);
-                $(this).fadeIn(150, function() {
+                $(this).fadeIn(cmsCommentTime/2, function() {
                     $("#edit_comment").modal("hide");
                 });
             });

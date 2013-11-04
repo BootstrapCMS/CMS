@@ -13,10 +13,10 @@ function cmsCommentDeleteSubmit(that) {
                 cmsCommentLock = false;
                 return;
             }
-            $("#comment_"+xhr.responseJSON.comment_id).slideUp(300, function() {
+            $("#comment_"+xhr.responseJSON.comment_id).slideUp(cmsCommentTime, function() {
                 $(this).remove();
                 if ($("#comments > div").length == 0 && $("#comments > p").length == 0) {
-                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function() {
+                    $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(cmsCommentTime, function() {
                         cmsCommentLock = false;
                     });
                 } else {

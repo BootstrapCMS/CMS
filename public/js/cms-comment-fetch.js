@@ -20,9 +20,9 @@ function cmsCommentFetchGet() {
                     return;
                 }
                 if ($("#comments > div").length == 0) {
-                    $("#nocomments").fadeOut(300, function() {
+                    $("#nocomments").fadeOut(cmsCommentTime, function() {
                         $(this).remove();
-                        $(xhr.responseJSON.contents).prependTo('#comments').hide().fadeIn(300, function() {
+                        $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(cmsCommentTime, function() {
                             cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
                             cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
                             cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");
@@ -33,7 +33,7 @@ function cmsCommentFetchGet() {
                         });
                     });
                 } else {
-                    $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(300, function() {
+                    $(xhr.responseJSON.contents).prependTo('#comments').hide().slideDown(cmsCommentTime, function() {
                         cmsTimeAgo("#timeago_comment_"+xhr.responseJSON.comment_id);
                         cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_1");
                         cmsCommentEdit("#editable_comment_"+xhr.responseJSON.comment_id+"_2");
@@ -53,7 +53,7 @@ function cmsCommentFetchGet() {
     }
 
     if ($("#comments > div").length == 0 && $("#comments > p").length == 0) {
-        $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(300, function(){
+        $("<p id=\"nocomments\">There are currently no comments.</p>").prependTo("#comments").hide().fadeIn(cmsCommentTime, function(){
             cmsCommentLock = false;
             cmsCommentFetch();
         });
@@ -102,9 +102,9 @@ function cmsCommentFetchReplace() {
                     return;
                 }
                 $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
-                $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(150, function() {
+                $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(cmsCommentTime/2, function() {
                     $(this).text(xhr.responseJSON.comment_text);
-                    $(this).fadeIn(150, function() {
+                    $(this).fadeIn(cmsCommentTime/2, function() {
                         cmsCommentFetchData.splice(0, 1);
                         cmsCommentFetchReplace();
                     });
@@ -152,7 +152,7 @@ function cmsCommentFetchProcess() {
         }
         if (ok == false) {
             num++;
-            $(this).slideUp(300, function() {
+            $(this).slideUp(cmsCommentTime, function() {
                 $(this).remove();
                 done++;
             });
