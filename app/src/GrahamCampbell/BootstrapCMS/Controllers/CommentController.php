@@ -99,7 +99,7 @@ class CommentController extends BaseController {
 
         $comment = CommentProvider::create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId())), 'comment_id' => $comment->getId()));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_id' => $comment->getId()));
     }
 
     /**
@@ -114,7 +114,7 @@ class CommentController extends BaseController {
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $comment->getPostId())), 'comment_text' => HTMLMin::render(nl2br(e($comment->getBody()))),'comment_id' => $id, 'comment_ver' => $comment->getVersion()));
+        return Response::json(array('contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_text' => HTMLMin::render(nl2br(e($comment->getBody()))),'comment_id' => $id, 'comment_ver' => $comment->getVersion()));
     }
 
     /**
@@ -149,9 +149,11 @@ class CommentController extends BaseController {
             App::abort(409, 'The comment was modified by someone else.');
         }
 
-        $comment->update(array_merge($input, array('version' => $version+1)));
+        $version = $version+1;
 
-        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => HTMLMin::render(nl2br(e($comment->getBody()))),'comment_id' => $id, 'comment_ver' => $comment->getVersion()));
+        $comment->update(array_merge($input, array('version' => $version)));
+
+        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => HTMLMin::render(nl2br(e($comment->getBody()))),'comment_id' => $id, 'comment_ver' => $version));
     }
 
     /**

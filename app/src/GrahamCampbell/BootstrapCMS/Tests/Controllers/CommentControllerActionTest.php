@@ -29,6 +29,7 @@ class CommentControllerActionTest extends ResourcefulActionTestCase {
         $provider::shouldReceive('create')
             ->once()->andReturn($this->mock);
         $this->mock->shouldReceive('getUserName')->once();
+        $this->mock->shouldReceive('getVersion')->once();
     }
 
     protected function storeCall() {
@@ -52,6 +53,7 @@ class CommentControllerActionTest extends ResourcefulActionTestCase {
         $provider = $this->provider;
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
+        $this->mock->shouldReceive('getVersion')->once();
         $this->mock->shouldReceive('update')->once();
     }
 
