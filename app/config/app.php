@@ -143,7 +143,6 @@ return array(
         'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
         'DaveJamesMiller\Boris\BorisServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
-        'Philf\Setting\SettingServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
         'Kmd\Logviewer\LogviewerServiceProvider'
