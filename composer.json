@@ -12,7 +12,6 @@
     "require": {
         "php": ">=5.4.7",
         "graham-campbell/cms-core": "dev-master",
-        "graham-campbell/cloudflare-api": "dev-develop",
         "davejamesmiller/laravel-boris": "dev-master",
         "kmd/logviewer": "1.1.*",
         "fideloper/proxy": "dev-master",
