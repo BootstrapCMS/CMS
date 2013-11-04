@@ -34,6 +34,7 @@ trait CommentControllerSetupTrait {
             'getBody'      => 'body',
             'getUserId'    => 'user_id',
             'getPostId'    => 'post_id',
+            'getVersion'   => 'version'
         ));
     }
 
@@ -41,5 +42,6 @@ trait CommentControllerSetupTrait {
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);
         $this->assertEquals($this->mock->getUserId(), $this->attributes['user_id']);
         $this->assertEquals($this->mock->getPostId(), $this->attributes['post_id']);
+        $this->assertEquals($this->mock->getVersion(), $this->attributes['version']);
     }
 }
