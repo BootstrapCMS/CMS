@@ -20,6 +20,10 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use Binput;
+use Mockery;
+use Validator;
+
 class CommentControllerActionTest extends ResourcefulActionTestCase {
 
     use CommentControllerSetupTrait;
@@ -49,8 +53,8 @@ class CommentControllerActionTest extends ResourcefulActionTestCase {
     }
 
     protected function updateSetup() {
-        $this->validate(true);
-        $this->validate(true);
+        Validator::shouldReceive('make')->twice()
+            ->andReturn(Mockery::mock(array('passes' => true, 'fails' => false, 'errors' => array())));
     }
 
     protected function updateMocking() {

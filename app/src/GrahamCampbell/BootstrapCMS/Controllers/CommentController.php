@@ -145,7 +145,7 @@ class CommentController extends BaseController {
             App::abort(400, 'No version data was supplied.');
         }
 
-        if ($version != $comment->getVersion()) {
+        if ($version != $comment->getVersion() && $version) {
             App::abort(409, 'The comment was modified by someone else.');
         }
 

@@ -21,13 +21,52 @@
  */
 
 use Mockery;
+use PostProvider;
 
 class CommentControllerViewTest extends ResourcefulViewTestCase {
 
     use CommentControllerSetupTrait;
 
+    protected function indexSetup() {
+        // overwritten to cancel it
+    }
+
+    protected function indexMocking() {
+        PostProvider::shouldReceive('find')
+            ->once()->andReturn($this->mock);
+        $this->mock->shouldReceive('getComments')
+            ->once()->andReturn(array($this->mock));
+    }
+
+    protected function indexCall() {
+        $this->call('GET', $this->getPath($this->getUid().'/comments'), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+    }
+
+    protected function storeAssertions() {
+        $this->assertResponseOk();
+    }
+
     public function testCreate() {
         // overwritten to cancel it
+    }
+
+    protected function showSetup() {
+        // overwritten to cancel it
+    }
+
+    protected function showMocking() {
+        $provider = $this->provider;
+        $provider::shouldReceive('find')
+            ->with($this->getUid())->once()->andReturn($this->mock);
+        $this->mock->shouldReceive('getUserName')->once();
+    }
+
+    protected function showCall() {
+        $this->call('GET', $this->getPath($this->getUid().'/comments/'.$this->getUid()), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+    }
+
+    protected function showAssertions() {
+        $this->assertResponseOk();
     }
 
     public function testEdit() {
