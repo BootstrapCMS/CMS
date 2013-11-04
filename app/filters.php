@@ -39,13 +39,16 @@ App::before(function($request) {
 
         if (!Sentry::check()) {
             Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
+            if (Request::ajax()) {
+                return App::abort(401, 'Action Requires Login');
+            }
             Session::flash('error', 'You must be logged in to perform that action.');
             return Redirect::guest(URL::route('account.login'));
         }
 
         if (!Sentry::getUser()->hasAccess($value)) {
             Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
-            App::abort(403, ucwords($value).' Permissions Are Required');
+            return App::abort(403, ucwords($value).' Permissions Are Required');
         }
     }
 });
@@ -69,13 +72,16 @@ App::after(function($request, $response) {
 Route::filter('auth', function($route, $request, $value) {
     if (!Sentry::check()) {
         Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
+        if (Request::ajax()) {
+            return App::abort(401, 'Action Requires Login');
+        }
         Session::flash('error', 'You must be logged in to perform that action.');
         return Redirect::guest(URL::route('account.login'));
     }
 
     if (!Sentry::getUser()->hasAccess($value)) {
         Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
-        App::abort(403, ucwords($value).' Permissions Are Required');
+        return App::abort(403, ucwords($value).' Permissions Are Required');
     }
 });
 
@@ -91,7 +97,9 @@ Route::filter('auth', function($route, $request, $value) {
 */
 
 Route::filter('guest', function() {
-    if (Auth::check()) return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
+    if (!Request::ajax() && Auth::check()) {
+        return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
+    }
 });
 
 /*
