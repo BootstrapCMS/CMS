@@ -54,15 +54,13 @@ class NavigationSubscriber {
 
         // add the forum
         if (Config::get('cms.forum')) {
-            Navigation::addItem('main', array('title' => 'Forum', 'slug' => 'forum/sections', 'icon' => 'comments-o'));
+            Navigation::addItem('main', array('title' => 'Forum', 'slug' => 'forum/sections', 'icon' => 'comments'));
         }
 
         if ($event['User']) {
             // add the storage
             if (Config::get('cms.storage')) {
-                if (Sentry::getUser()->hasAccess('user')) {
-                    Navigation::addItem('main', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open-o'));
-                }
+                Navigation::addItem('main', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open '));
             }
 
             // add the profile links

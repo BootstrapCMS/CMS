@@ -65,6 +65,34 @@ if (Config::get('cms.blogging')) {
     }));
 }
 
+// send users to the sections page
+if (Config::get('cms.forum')) {
+    Route::get('forum', array('as' => 'forum', function() {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('forum.sections.index');
+    }));
+    Route::get('forums', array('as' => 'forums1', function() {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('forum.sections.index');
+    }));
+    Route::get('forums/sections', array('as' => 'forums2', function() {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('forum.sections.index');
+    }));
+}
+
+// send users to the sections page
+if (Config::get('cms.storage')) {
+    Route::get('storage', array('as' => 'storage', function() {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('storage.folders.index');
+    }));
+}
+
 // send users to the profile page
 Route::get('account', array('as' => 'account', function() {
     Session::flash('', ''); // work around laravel bug if there is no session yet
