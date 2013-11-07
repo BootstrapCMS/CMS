@@ -31,7 +31,7 @@ class ReplyController extends BaseController {
      */
     public function __construct() {
         // $this->setPermissions(array(
-        //     'getIndex' => 'admin',
+        //     'index' => 'admin',
         // ));
 
         parent::__construct();
@@ -42,7 +42,7 @@ class ReplyController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex() {
+    public function index() {
         $this->checkAjax();
 
         return Response::json(array());

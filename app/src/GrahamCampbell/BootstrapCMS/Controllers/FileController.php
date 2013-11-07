@@ -29,7 +29,7 @@ class FileController extends BaseController {
      */
     public function __construct() {
         // $this->setPermissions(array(
-        //     'getIndex' => 'admin',
+        //     'index' => 'admin',
         // ));
 
         parent::__construct();
@@ -40,7 +40,7 @@ class FileController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex() {
+    public function index() {
         return $this->viewMake('files.index', array(), true);
     }
 }

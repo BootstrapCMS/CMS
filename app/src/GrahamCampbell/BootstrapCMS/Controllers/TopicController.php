@@ -29,7 +29,7 @@ class TopicController extends BaseController {
      */
     public function __construct() {
         // $this->setPermissions(array(
-        //     'getIndex' => 'admin',
+        //     'index' => 'admin',
         // ));
 
         parent::__construct();
@@ -40,7 +40,7 @@ class TopicController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex() {
+    public function index() {
         return $this->viewMake('topics.index', array(), true);
     }
 }

@@ -29,7 +29,7 @@ class FolderController extends BaseController {
      */
     public function __construct() {
         $this->setPermissions(array(
-            'getIndex' => 'user',
+            'index' => 'user',
         ));
 
         parent::__construct();
@@ -40,7 +40,7 @@ class FolderController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex() {
+    public function index() {
         return $this->viewMake('folders.index', array(), true);
     }
 }
