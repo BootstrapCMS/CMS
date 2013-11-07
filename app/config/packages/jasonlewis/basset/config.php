@@ -64,7 +64,7 @@ return array(
 
         'form' => function($collection) {
             $directory = $collection->directory('css', function($collection) {
-                $collection->stylesheet('bootstrap-switch.css');
+                $collection->stylesheet('bootstrap-switch.min.css');
                 $collection->stylesheet('bootstrap-datetimepicker.min.css');
                 $collection->stylesheet('bootstrap-markdown.min.css');
             });
@@ -73,7 +73,7 @@ return array(
 
             $directory = $collection->directory('js', function($collection) {
                 $collection->javascript('jquery.form.js');
-                $collection->javascript('bootstrap-switch.js');
+                $collection->javascript('bootstrap-switch.min.js');
                 $collection->javascript('bootstrap-datetimepicker.min.js');
                 $collection->javascript('cms-picker.js');
                 $collection->javascript('bootstrap-markdown.js');
