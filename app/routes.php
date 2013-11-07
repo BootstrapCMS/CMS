@@ -118,6 +118,19 @@ if (Config::get('cms.events')) {
     Route::resource('events', 'GrahamCampbell\BootstrapCMS\Controllers\EventController');
 }
 
+// forum routes
+if (Config::get('cms.forum')) {
+    Route::resource('forum/sections', 'GrahamCampbell\BootstrapCMS\Controllers\SectionController');
+    Route::resource('forum/sections.topics', 'GrahamCampbell\BootstrapCMS\Controllers\TopicController');
+    Route::resource('forum/sections.topics.replies', 'GrahamCampbell\BootstrapCMS\Controllers\ReplyController');
+}
+
+// storage routes
+if (Config::get('cms.storage')) {
+    Route::resource('storage/folders', 'GrahamCampbell\BootstrapCMS\Controllers\FolderController');
+    Route::resource('storage/folders.files', 'GrahamCampbell\BootstrapCMS\Controllers\FileController');
+}
+
 
 // cloudflare routes
 Route::get('cloudflare', array('as' => 'cloudflare.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudFlareController@getIndex'));

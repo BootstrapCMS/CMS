@@ -43,16 +43,28 @@ class NavigationSubscriber {
      * @return void
      */
     public function onViewMake($event) {
-        // add the blog page after the fist page if blogging is enabled
+        // add the blog
         if (Config::get('cms.blogging')) {
             Navigation::addItem('main', array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book'));
         }
-        // add the events page after the fist page if events are enabled
+        // add the events
         if (Config::get('cms.events')) {
             Navigation::addItem('main', array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
 
+        // add the forum
+        if (Config::get('cms.forum')) {
+            Navigation::addItem('main', array('title' => 'Forum', 'slug' => 'forum/sections', 'icon' => 'comments-o'));
+        }
+
         if ($event['User']) {
+            // add the storage
+            if (Config::get('cms.storage')) {
+                if (Sentry::getUser()->hasAccess('user')) {
+                    Navigation::addItem('main', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open-o'));
+                }
+            }
+
             // add the profile links
             Navigation::addItem('bar', array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
             // add the admin links
