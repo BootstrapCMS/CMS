@@ -60,7 +60,7 @@ class NavigationSubscriber {
         if ($event['User']) {
             // add the storage
             if (Config::get('cms.storage')) {
-                Navigation::addItem('main', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open '));
+                Navigation::addItem('main', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
             }
 
             // add the profile links
