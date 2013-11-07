@@ -41,6 +41,6 @@ class SectionController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return $this->viewMake('sections.index', array(), true);
+        return $this->viewMake('sections.index', array());
     }
 }

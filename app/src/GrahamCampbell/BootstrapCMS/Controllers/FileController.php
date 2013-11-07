@@ -41,6 +41,6 @@ class FileController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return $this->viewMake('files.index', array(), true);
+        return $this->viewMake('files.index', array());
     }
 }

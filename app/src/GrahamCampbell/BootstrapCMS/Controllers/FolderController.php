@@ -41,6 +41,6 @@ class FolderController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return $this->viewMake('folders.index', array(), true);
+        return $this->viewMake('folders.index', array());
     }
 }
