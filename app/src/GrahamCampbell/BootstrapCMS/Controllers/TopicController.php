@@ -40,7 +40,7 @@ class TopicController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index($section_id) {
         return $this->viewMake('topics.index', array());
     }
 }

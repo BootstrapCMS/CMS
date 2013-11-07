@@ -42,7 +42,7 @@ class ReplyController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index($section_id, $topic_id) {
         $this->checkAjax();
 
         return Response::json(array());
