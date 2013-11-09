@@ -53,11 +53,13 @@
                             Login
                         </a>
                     </li>
-                    <li {{ (Request::is('account/register') ? 'class="active"' : '') }}>
-                        <a href="{{ URL::route('account.register') }}">
-                            Register
-                        </a>
-                    </li>
+                    @if (Config::get('cms.regallowed'))
+                      <li {{ (Request::is('account/register') ? 'class="active"' : '') }}>
+                          <a href="{{ URL::route('account.register') }}">
+                              Register
+                          </a>
+                      </li>
+                    @endif
                 @endif
             </ul>
         </div>
