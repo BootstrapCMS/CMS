@@ -20,6 +20,11 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use App;
+use Response;
+
+use FileProvider;
+
 class FileController extends BaseController {
 
     /**
@@ -28,9 +33,10 @@ class FileController extends BaseController {
      * @return void
      */
     public function __construct() {
-        // $this->setPermissions(array(
-        //     'index' => 'admin',
-        // ));
+        $this->setPermissions(array(
+            'index' => 'user',
+            'show'  => 'user'
+        ));
 
         parent::__construct();
     }
@@ -42,5 +48,29 @@ class FileController extends BaseController {
      */
     public function index($folder_id) {
         return $this->viewMake('files.index', array());
+    }
+
+    /**
+     * Download the specified file.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($folder_id, $id) {
+        $file = FileProvider::find($id);
+        $this->checkFile($file);
+
+        return Response::download($file->getPath());
+    }
+
+    /**
+     * Check the file model.
+     *
+     * @return mixed
+     */
+    protected function checkFile($file) {
+        if (!$file) {
+            return App::abort(404, 'File Not Found');
+        }
     }
 }
