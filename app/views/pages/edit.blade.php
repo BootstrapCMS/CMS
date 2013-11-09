@@ -6,16 +6,14 @@ Edit {{ $page->getTitle() }}
 
 @section('controls')
 <div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                Please edit the page:
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}"><i class="fa fa-file-text"></i> Show Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="fa fa-times"></i> Delete Page</a>
-            </div>
+    <div class="col-xs-6">
+        <p class="lead">
+            Please edit the page:
+        </p>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}"><i class="fa fa-file-text"></i> Show Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="fa fa-times"></i> Delete Page</a>
         </div>
     </div>
 </div>

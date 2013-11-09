@@ -6,16 +6,14 @@ Profile
 
 @section('controls')
 <div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                Here is your profile:
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                <a class="btn btn-danger" href="#delete_account" data-toggle="modal" data-target="#delete_account"><i class="fa fa-times"></i> Delete Account</a>
-            </div>
+    <div class="col-xs-8">
+        <p class="lead">
+            Here is your profile:
+        </p>
+    </div>
+    <div class="col-xs-4">
+        <div class="pull-right">
+            <a class="btn btn-danger" href="#delete_account" data-toggle="modal" data-target="#delete_account"><i class="fa fa-times"></i> Delete Account</a>
         </div>
     </div>
 </div>

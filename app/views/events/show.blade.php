@@ -46,19 +46,23 @@
 
 @section('content')
 <div class="well clearfix">
-    <div class="span6">
-        <p class="lead">
+    <div class="hidden-xs">
+        <div class="col-sm-6">
             Date: {{ $event->getFormattedDate() }}
-        </p>
-    </div>
-    <div class="span5">
-        <div class="pull-right">
-            <p class="lead">
+        </div>
+        <div class="col-sm-6">
+            <div class="pull-right">
                 Location: {{ $event->getLocation() }}
-            </p>
+            </div>
         </div>
     </div>
-    <div class="span11">
+    <div class="visible-xs">
+        <div class="col-xs-12">
+            Date: {{ $event->getFormattedDate() }}
+            Location: {{ $event->getLocation() }}
+        </div>
+    </div>
+    <div class="col-xs-12">
         <hr>
         <p class="lead">
             {{ Markdown::string($event->getBody()) }}

@@ -6,18 +6,16 @@ Edit {{ $event->getTitle() }}
 
 @section('controls')
 <div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                Please edit the event:
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="fa fa-file-text"></i> Show Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="fa fa-times"></i> Delete Event</a>
-            </div>
-        </div>
+    <div class="col-xs-6">
+        <p class="lead">
+            Please edit the event:
+        </p>
     </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="fa fa-file-text"></i> Show Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="fa fa-times"></i> Delete Event</a>
+        </div>
+        </div>
 </div>
 <hr>
 @stop

@@ -6,27 +6,25 @@
 
 @section('controls')
 <div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                @if($user->id == Sentry::getUser()->id)
-                    Currently showing your profile:
-                @else
-                    Currently showing {{ $user->getName() }}'s profile:
-                @endif  
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
-                    &nbsp;<a class="btn btn-info" href="{{ URL::route('users.edit', array('users' => $user->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit User</a>
-                @endif
-                &nbsp;<a class="btn btn-warning" href="#suspend_user" data-toggle="modal" data-target="#suspend_user"><i class="fa fa-ban"></i> Suspend User</a>
-                @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
-                    &nbsp;<a class="btn btn-inverse" href="#reset_user" data-toggle="modal" data-target="#reset_user"><i class="fa fa-lock"></i> Reset Password</a>
-                    &nbsp;<a class="btn btn-danger" href="#delete_user" data-toggle="modal" data-target="#delete_user"><i class="fa fa-times"></i> Delete</a>
-                @endif
-            </div>
+    <div class="col-xs-6">
+        <p class="lead">
+            @if($user->id == Sentry::getUser()->id)
+                Currently showing your profile:
+            @else
+                Currently showing {{ $user->getName() }}'s profile:
+            @endif  
+        </p>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+                &nbsp;<a class="btn btn-info" href="{{ URL::route('users.edit', array('users' => $user->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit User</a>
+            @endif
+            &nbsp;<a class="btn btn-warning" href="#suspend_user" data-toggle="modal" data-target="#suspend_user"><i class="fa fa-ban"></i> Suspend User</a>
+            @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+                &nbsp;<a class="btn btn-inverse" href="#reset_user" data-toggle="modal" data-target="#reset_user"><i class="fa fa-lock"></i> Reset Password</a>
+                &nbsp;<a class="btn btn-danger" href="#delete_user" data-toggle="modal" data-target="#delete_user"><i class="fa fa-times"></i> Delete</a>
+            @endif
         </div>
     </div>
 </div>
@@ -36,23 +34,43 @@
 @section('content')
 <h3>User Profile</h3>
 <div class="well clearfix">
-    <div class="span6">
-        @if ($user->first_name)
-            <p><strong>First Name:</strong> {{ $user->getFirstName() }} </p>
-        @endif
-        @if ($user->last_name)
-            <p><strong>Last Name:</strong> {{ $user->getLastName() }} </p>
-        @endif
-        <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
+    <div class="hidden-xs">
+        <div class="col-sm-6">
+            @if ($user->first_name)
+                <p><strong>First Name:</strong> {{ $user->getFirstName() }} </p>
+            @endif
+            @if ($user->last_name)
+                <p><strong>Last Name:</strong> {{ $user->getLastName() }} </p>
+            @endif
+            <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
+        </div>
+        <div class="col-sm-6">
+            <div class="pull-right">
+                <p><em>Account Created: {{ $user->getCreatedAt()->diffForHumans() }}</em></p>
+                <p><em>Account Updated: {{ $user->getUpdatedAt()->diffForHumans() }}</em></p>
+                @if ($user->getActivatedAt())
+                    <p><em>Account Activated: {{ $user->getActivatedAt()->diffForHumans() }}</em></p>
+                @else
+                    <p><em>Account Activated: Not Activated</em></p>
+                @endif
+            </div>
+        </div>
     </div>
-    <div class="span5">
-        <div class="pull-right">
-            <p><em>Account Created: {{ $user->getCreatedAt()->diffForHumans() }}</em></p>
-            <p><em>Account Updated: {{ $user->getUpdatedAt()->diffForHumans() }}</em></p>
+    <div class="visible-xs">
+        <div class="col-xs-12">
+            @if ($user->first_name)
+                <p><strong>First Name:</strong> {{ $user->getFirstName() }} </p>
+            @endif
+            @if ($user->last_name)
+                <p><strong>Last Name:</strong> {{ $user->getLastName() }} </p>
+            @endif
+            <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
+            <p><strong>Account Created: {{ $user->getCreatedAt()->diffForHumans() }}</strong></p>
+            <p><strong>Account Updated: {{ $user->getUpdatedAt()->diffForHumans() }}</strong></p>
             @if ($user->getActivatedAt())
-                <p><em>Account Activated: {{ $user->getActivatedAt()->diffForHumans() }}</em></p>
+                <p><strong>Account Activated: {{ $user->getActivatedAt()->diffForHumans() }}</strong></p>
             @else
-                <p><em>Account Activated: Not Activated</em></p>
+                <p><strong>Account Activated: Not Activated</strong></p>
             @endif
         </div>
     </div>
