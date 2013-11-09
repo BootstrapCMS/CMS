@@ -65,12 +65,12 @@
                 <p><strong>Last Name:</strong> {{ $user->getLastName() }} </p>
             @endif
             <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
-            <p><strong>Account Created: {{ $user->getCreatedAt()->diffForHumans() }}</strong></p>
-            <p><strong>Account Updated: {{ $user->getUpdatedAt()->diffForHumans() }}</strong></p>
+            <p><strong>Account Created:</strong> {{ $user->getCreatedAt()->diffForHumans() }}</p>
+            <p><strong>Account Updated:</strong> {{ $user->getUpdatedAt()->diffForHumans() }}</p>
             @if ($user->getActivatedAt())
-                <p><strong>Account Activated: {{ $user->getActivatedAt()->diffForHumans() }}</strong></p>
+                <p><strong>Account Activated:</strong> {{ $user->getActivatedAt()->diffForHumans() }}</p>
             @else
-                <p><strong>Account Activated: Not Activated</strong></p>
+                <p><strong>Account Activated:</strong> Not Activated</p>
             @endif
         </div>
     </div>
