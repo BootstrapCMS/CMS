@@ -36,6 +36,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 * No support or help will be given during installation or updating.  
   * No database migration support between updates
   * Updates may not be backwards compatible
+  * From V0.4, a migration path will always be provided between tagged releases
 * Some of the config may be for features that don't exist yet.  
   * Some config may even brake the entire site
   * Just remember, this software comes WITHOUT ANY WARRANTY
