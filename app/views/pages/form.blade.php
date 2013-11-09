@@ -18,7 +18,7 @@
 
     <div class="form-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="body">Page Body</label>
-        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
+        <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
             <textarea name="body" id="body" class="form-control" placeholder="Page Body" rows="8">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
             {{ ($errors->has('body') ? $errors->first('body') : '') }}
         </div>

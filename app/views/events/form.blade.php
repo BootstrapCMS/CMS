@@ -18,21 +18,19 @@
 
     <div class="form-group{{ ($errors->has('date')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="date">Event Date</label>
-        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-            <div id="datetimepicker1" class="input-append date">
-                <input name="date" value="{{ Request::old('date', $form['defaults']['date']) }}" type="text" class="form-control" placeholder="Event Date" data-format="yyyy-MM-dd hh:mm:ss"></input>
-                <span class="add-on">
-                    <i data-time-icon="fa fa-clock-o" data-date-icon="fa fa-calendar"></i>
-                </span>
-                {{ ($errors->has('date') ? $errors->first('date') : '') }}
-            </div>
+        <div class="input-group date form_datetime col-lg-3 col-md-4 col-sm-5 col-xs-10" data-date="{{ Request::old('date', $form['defaults']['date']) }}" data-date-format="dd MM yyyy - HH:ii p" data-link-field="date">
+            <input class="form-control" size="16" type="text" value="" readonly>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
         </div>
+        <input type="hidden" id="date" value="">
+        {{ ($errors->has('date') ? $errors->first('date') : '') }}
     </div>
 
     <div class="form-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="body">Event Body</label>
-        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-            <textarea name="body" type="text" class="input-xlarge" data-provide="markdown" placeholder="Event Body" rows="10">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
+        <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+            <textarea name="body" type="text" class="form-control" data-provide="markdown" placeholder="Event Body" rows="10">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
             {{ ($errors->has('body') ? $errors->first('body') : '') }}
         </div>
     </div>
