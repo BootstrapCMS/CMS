@@ -5,7 +5,7 @@ Profile
 @stop
 
 @section('controls')
-<div class="row-fluid">
+<div class="row">
     <div class="col-xs-8">
         <p class="lead">
             Here is your profile:

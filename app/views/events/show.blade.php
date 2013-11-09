@@ -64,9 +64,7 @@
     </div>
     <div class="col-xs-12">
         <hr>
-        <p class="lead">
-            <p class="lead">{{ Markdown::string($event->getBody()) }}</p>
-        </p>
+        <p class="lead">{{ Markdown::string($event->getBody()) }}</p>
     </div>
 </div>
 @stop

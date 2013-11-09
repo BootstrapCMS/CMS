@@ -5,7 +5,7 @@ Edit {{ $page->getTitle() }}
 @stop
 
 @section('controls')
-<div class="row-fluid">
+<div class="row">
     <div class="col-xs-6">
         <p class="lead">
             Please edit the page:
