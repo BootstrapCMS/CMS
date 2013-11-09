@@ -13,13 +13,13 @@ if($page->getShowTitle() == false) {
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     <div class="well clearfix">
         <div class="hidden-xs">
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <p>
                     <strong>Page Creator:</strong> {{ $page->getUserEmail() }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->getSlug())) }}"><i class="fa fa-pencil-square-o"></i> Edit Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="fa fa-times"></i> Delete Page</a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
                         <em>Page Created: <abbr class="timeago" title="{{ $page->getCreatedAt()->toISO8601String() }}">{{ $page->getCreatedAt()->toDateTimeString() }}</abbr></em>

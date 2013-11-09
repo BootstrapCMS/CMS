@@ -8,13 +8,13 @@
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     <div class="well clearfix">
         <div class="hidden-xs">
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <p>
                     <strong>Event Creator:</strong> {{ $event->getUserEmail() }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="fa fa-times"></i> Delete Event</a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
                         <em>Event Created: <abbr class="timeago" title="{{ $event->getCreatedAt()->toISO8601String() }}">{{ $event->getCreatedAt()->toDateTimeString() }}</abbr></em>
@@ -47,25 +47,25 @@
 @section('content')
 <div class="well clearfix">
     <div class="hidden-xs">
-        <div class="col-sm-6">
-            Date: {{ $event->getFormattedDate() }}
+        <div class="col-xs-6">
+            <p>Date: {{ $event->getFormattedDate() }}</p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-xs-6">
             <div class="pull-right">
-                Location: {{ $event->getLocation() }}
+                <p>Location: {{ $event->getLocation() }}</p>
             </div>
         </div>
     </div>
     <div class="visible-xs">
         <div class="col-xs-12">
-            Date: {{ $event->getFormattedDate() }}
-            Location: {{ $event->getLocation() }}
+            <p>Date: {{ $event->getFormattedDate() }}</p>
+            <p>Location: {{ $event->getLocation() }}</p>
         </div>
     </div>
     <div class="col-xs-12">
         <hr>
         <p class="lead">
-            {{ Markdown::string($event->getBody()) }}
+            <p>{{ Markdown::string($event->getBody()) }}</p>
         </p>
     </div>
 </div>

@@ -8,13 +8,13 @@
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     <div class="well clearfix">
         <div class="hidden-xs">
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <p>
                     <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
                         <em>Post Created: <abbr class="timeago" title="{{ $post->getCreatedAt()->toISO8601String() }}">{{ $post->getCreatedAt()->toDateTimeString() }}</abbr></em>
@@ -44,16 +44,20 @@
 @endif
 
 <div class="row">
-    <div class="col-sm-9 col-xs-8">
-        <p class="lead">
-            {{ $post->getSummary() }}
-        </p>
+    <div class="hidden-xs">
+        <div class="col-md-8 col-xs-6">
+            <p class="lead">{{ $post->getSummary() }}</p>
+        </div>
+        <div class="col-md-4 col-xs-6">
+            <div class="pull-right">
+                <p>Author: {{ $post->getUserName() }}</p>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-3 col-xs-4">
-        <div class="pull-right">
-            <p>
-                Author: {{ $post->getUserName() }}
-            </p>
+    <div class="visible-xs">
+        <div class="col-xs-12">
+            <p class="lead">{{ $post->getSummary() }}</p>
+            <p>Author: {{ $post->getUserName() }}</p>
         </div>
     </div>
 </div>

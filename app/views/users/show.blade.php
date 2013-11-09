@@ -35,7 +35,7 @@
 <h3>User Profile</h3>
 <div class="well clearfix">
     <div class="hidden-xs">
-        <div class="col-sm-6">
+        <div class="col-xs-6">
             @if ($user->first_name)
                 <p><strong>First Name:</strong> {{ $user->getFirstName() }} </p>
             @endif
@@ -44,7 +44,7 @@
             @endif
             <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-xs-6">
             <div class="pull-right">
                 <p><em>Account Created: {{ $user->getCreatedAt()->diffForHumans() }}</em></p>
                 <p><em>Account Updated: {{ $user->getUpdatedAt()->diffForHumans() }}</em></p>
