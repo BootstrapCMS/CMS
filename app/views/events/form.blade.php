@@ -1,6 +1,6 @@
 {{ Form::open(array('url' => $form['url'], 'method' => $form['method'], 'class' => 'form-horizontal')) }}
 
-    <div class="control-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Event Title</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="title" value="{{ Request::old('title', $form['defaults']['title']) }}" type="text" class="form-control" placeholder="Event Title">
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('location')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('location')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="location">Event Location</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="location" value="{{ Request::old('location', $form['defaults']['location']) }}" type="text" class="form-control" placeholder="Event Location">
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('date')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('date')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="date">Event Date</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <div id="datetimepicker1" class="input-append date">
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="body">Event Body</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <textarea name="body" type="text" class="input-xlarge" data-provide="markdown" placeholder="Event Body" rows="10">{{ Request::old('body', $form['defaults']['body']) }}</textarea>

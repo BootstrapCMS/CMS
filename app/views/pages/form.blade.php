@@ -1,6 +1,6 @@
 {{ Form::open(array('url' => $form['url'], 'method' => $form['method'], 'class' => 'form-horizontal')) }}
 
-    <div class="control-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Page Title</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="title" id="title" value="{{ Request::old('title', $form['defaults']['title']) }}" type="text" class="form-control" placeholder="Page Title">
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('icon')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('icon')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="icon">Page Icon</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="icon" id="icon" value="{{ Request::old('icon', $form['defaults']['icon']) }}" type="text" class="form-control" placeholder="Page Icon">
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="body">Page Body</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <textarea name="body" id="body" class="form-control" placeholder="Page Body" rows="8">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('show_title')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('show_title')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="show_title">Show Title</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <div class="make-switch" data-on-label="<i class='fa fa-check fa-inverse'></i>" data-off-label="<i class='fa fa-times'>">
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('show_nav')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('show_nav')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="show_nav">Show On Nav</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <div class="make-switch" data-on-label="<i class='fa fa-check fa-inverse'></i>" data-off-label="<i class='fa fa-times'>">

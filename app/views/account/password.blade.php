@@ -1,6 +1,6 @@
 {{ Form::open(array('url' => $form['url'], 'method' => $form['method'], 'class' => 'form-horizontal')) }}
 
-    <div class="control-group{{ $errors->has('password') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="password">Password</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="password" id="password" value="" type="password" class="form-control" placeholder="Password">
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="password_confirmation">Confirm Password</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="password_confirmation" id="password_confirmation" value="" type="password" class="form-control" placeholder="Confirm Password">

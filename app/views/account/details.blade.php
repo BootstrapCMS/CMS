@@ -1,6 +1,6 @@
 {{ Form::open(array('url' => $form['url'], 'method' => $form['method'], 'class' => 'form-horizontal')) }}
 
-    <div class="control-group{{ ($errors->has('first_name')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('first_name')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="first_name">First Name</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="first_name" id="first_name" value="{{ Request::old('first_name', $form['defaults']['first_name']) }}" type="text" class="form-control" placeholder="First Name">
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('last_name')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('last_name')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="last_name">Last Name</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="last_name" id="last_name" value="{{ Request::old('last_name', $form['defaults']['last_name']) }}" type="text" class="form-control" placeholder="Last Name">
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has(' email')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has(' email')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="email">Email</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="email" id="email" value="{{ Request::old('email', $form['defaults']['email']) }}" type="text" class="form-control" placeholder="Email">

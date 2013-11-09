@@ -1,6 +1,6 @@
 {{ Form::open(array('url' => $form['url'], 'method' => $form['method'], 'class' => 'form-horizontal')) }}
 
-    <div class="control-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Post Title</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="title" value="{{ Request::old('title', $form['defaults']['title']) }}" type="text" class="form-control" placeholder="Post Title">
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('summary')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('summary')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="summary">Post Summary</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <input name="summary" value="{{ Request::old('summary', $form['defaults']['summary']) }}" type="text" class="form-control" placeholder="Post Title">
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
+    <div class="form-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="body">Post Body</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <textarea name="body" type="text" class="input-xlarge" data-provide="markdown" placeholder="Post Body" rows="10">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
