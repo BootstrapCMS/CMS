@@ -84,7 +84,11 @@
     <br>
 @else
 <p>
-    <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
+    @if (Config::get('cms.regallowed'))
+        <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
+    @else
+        <strong>Please <a href="{{ URL::route('account.login') }}">login</a> to post a comment.</strong>
+    @endif
 </p>
 @endif
 <br>
