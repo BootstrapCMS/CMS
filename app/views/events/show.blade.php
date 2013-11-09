@@ -48,24 +48,24 @@
 <div class="well clearfix">
     <div class="hidden-xs">
         <div class="col-xs-6">
-            <p>Date: {{ $event->getFormattedDate() }}</p>
+            <p class="lead">Date: {{ $event->getFormattedDate() }}</p>
         </div>
         <div class="col-xs-6">
             <div class="pull-right">
-                <p>Location: {{ $event->getLocation() }}</p>
+                <p class="lead">Location: {{ $event->getLocation() }}</p>
             </div>
         </div>
     </div>
     <div class="visible-xs">
         <div class="col-xs-12">
-            <p>Date: {{ $event->getFormattedDate() }}</p>
-            <p>Location: {{ $event->getLocation() }}</p>
+            <p class="lead">Date: {{ $event->getFormattedDate() }}</p>
+            <p class="lead">Location: {{ $event->getLocation() }}</p>
         </div>
     </div>
     <div class="col-xs-12">
         <hr>
         <p class="lead">
-            <p>{{ Markdown::string($event->getBody()) }}</p>
+            <p class="lead">{{ Markdown::string($event->getBody()) }}</p>
         </p>
     </div>
 </div>
