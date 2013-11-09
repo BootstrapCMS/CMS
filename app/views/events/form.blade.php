@@ -1,26 +1,26 @@
 {{ Form::open(array('url' => $form['url'], 'method' => $form['method'], 'class' => 'form-horizontal')) }}
 
-    <div class="control-group{{ ($errors->has('title')) ? ' error' : '' }}">
-        <label class="control-label" for="title">Event Title</label>
-        <div class="controls">
-            <input name="title" value="{{ Request::old('title', $form['defaults']['title']) }}" type="text" class="input-xlarge" placeholder="Event Title">
+    <div class="control-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Event Title</label>
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
+            <input name="title" value="{{ Request::old('title', $form['defaults']['title']) }}" type="text" class="form-control" placeholder="Event Title">
             {{ ($errors->has('title') ? $errors->first('title') : '') }}
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('location')) ? ' error' : '' }}">
-        <label class="control-label" for="location">Event Location</label>
-        <div class="controls">
-            <input name="location" value="{{ Request::old('location', $form['defaults']['location']) }}" type="text" class="input-xlarge" placeholder="Event Location">
+    <div class="control-group{{ ($errors->has('location')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="location">Event Location</label>
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
+            <input name="location" value="{{ Request::old('location', $form['defaults']['location']) }}" type="text" class="form-control" placeholder="Event Location">
             {{ ($errors->has('location') ? $errors->first('location') : '') }}
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('date')) ? ' error' : '' }}">
-        <label class="control-label" for="date">Event Date</label>
-        <div class="controls">
+    <div class="control-group{{ ($errors->has('date')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="date">Event Date</label>
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <div id="datetimepicker1" class="input-append date">
-                <input name="date" value="{{ Request::old('date', $form['defaults']['date']) }}" type="text" class="input-xlarge" placeholder="Event Date" data-format="yyyy-MM-dd hh:mm:ss"></input>
+                <input name="date" value="{{ Request::old('date', $form['defaults']['date']) }}" type="text" class="form-control" placeholder="Event Date" data-format="yyyy-MM-dd hh:mm:ss"></input>
                 <span class="add-on">
                     <i data-time-icon="fa fa-clock-o" data-date-icon="fa fa-calendar"></i>
                 </span>
@@ -29,15 +29,17 @@
         </div>
     </div>
 
-    <div class="control-group{{ ($errors->has('body')) ? ' error' : '' }}">
-        <label class="control-label" for="body">Event Body</label>
-        <div class="controls">
+    <div class="control-group{{ ($errors->has('body')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="body">Event Body</label>
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <textarea name="body" type="text" class="input-xlarge" data-provide="markdown" placeholder="Event Body" rows="10">{{ Request::old('body', $form['defaults']['body']) }}</textarea>
             {{ ($errors->has('body') ? $errors->first('body') : '') }}
         </div>
     </div>
 
-    <div class="form-actions">
-        <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> {{ $form['button'] }}</button>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-offset-3 col-sm-10 col-xs-12">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> {{ $form['button'] }}</button>
+        </div>
     </div>
 {{ Form::close() }}
