@@ -21,7 +21,7 @@
  */
 
 use Cron;
-use GrahamCampbell\CMSCore\Facades\JobProvider;
+use JobProvider;
 
 class CronHandler extends BaseHandler {
 
