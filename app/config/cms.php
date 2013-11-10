@@ -180,7 +180,41 @@ return array(
     |
     */
 
-    'storage' => true,
+    'storage' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Enable Contact Form
+    |--------------------------------------------------------------------------
+    |
+    | This defines if the contact form functionality is enabled.
+    |
+    | Disabling it will not delete anything from your database, it will just
+    | inaccessible from the web. All associated routes will not be registered,
+    | and the navigation bar will not show any associated links.
+    |
+    | Default to false.
+    |
+    */
+
+    'contact' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Form Email
+    |--------------------------------------------------------------------------
+    |
+    | This defines the email address to send contact form messages to.
+    |
+    | Setting it to null will email the contact form data to the user with the
+    | id of 1. Please only enter an email address here if you change it from
+    | null.
+    |
+    | Default to null.
+    |
+    */
+
+    'email' => null,
 
     /*
     |--------------------------------------------------------------------------
