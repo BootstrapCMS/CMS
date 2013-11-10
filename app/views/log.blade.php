@@ -10,7 +10,7 @@
 
 <body>
 <div id="wrap">
-<div class="navbar{{ (Config::get('theme.inverse') == true) ? ' navbar-inverse' : ''}} navbar-fixed-top">
+<div class="navbar {{ (Config::get('theme.inverse') == true) ? 'navbar-inverse' : 'navbar-default'}} navbar-fixed-top">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
