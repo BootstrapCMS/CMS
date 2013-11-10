@@ -22,6 +22,8 @@
 
 use Response;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class ReplyController extends BaseController {
 
     /**

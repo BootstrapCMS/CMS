@@ -32,6 +32,8 @@ use Sentry;
 
 use GrahamCampbell\CMSCore\Models\Page;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class LoginController extends BaseController {
 
     /**

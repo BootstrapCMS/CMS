@@ -33,6 +33,8 @@ use Binput;
 use Passwd;
 use Sentry;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class ResetController extends BaseController {
 
     /**

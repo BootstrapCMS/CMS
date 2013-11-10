@@ -31,6 +31,8 @@ use Binput;
 
 use GrahamCampbell\CMSCore\Models\Page;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class AccountController extends BaseController {
 
     /**

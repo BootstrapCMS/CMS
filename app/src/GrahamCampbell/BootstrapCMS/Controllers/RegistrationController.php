@@ -33,6 +33,8 @@ use Validator;
 use Binput;
 use Sentry;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class RegistrationController extends BaseController {
 
     /**

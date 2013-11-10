@@ -30,6 +30,8 @@ use Binput;
 use PageProvider;
 use GrahamCampbell\CMSCore\Models\Page;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class PageController extends BaseController {
 
     /**

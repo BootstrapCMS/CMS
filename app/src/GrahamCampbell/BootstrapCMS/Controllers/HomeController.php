@@ -26,6 +26,8 @@ use Log;
 use Queuing;
 use URL;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class HomeController extends BaseController {
 
     /**

@@ -30,6 +30,8 @@ use Binput;
 use PostProvider;
 use GrahamCampbell\CMSCore\Models\Post;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class PostController extends BaseController {
 
     /**

@@ -20,6 +20,8 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class TopicController extends BaseController {
 
     /**

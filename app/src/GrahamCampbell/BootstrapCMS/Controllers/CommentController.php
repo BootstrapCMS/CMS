@@ -33,6 +33,8 @@ use CommentProvider;
 use PostProvider;
 use GrahamCampbell\CMSCore\Models\Comment;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class CommentController extends BaseController {
 
     /**

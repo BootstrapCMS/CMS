@@ -37,6 +37,8 @@ use Sentry;
 use UserProvider;
 use GroupProvider;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class UserController extends BaseController {
 
     /**

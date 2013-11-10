@@ -25,6 +25,8 @@ use Response;
 
 use FileProvider;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class FileController extends BaseController {
 
     /**

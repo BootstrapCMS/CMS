@@ -30,6 +30,8 @@ use Binput;
 use EventProvider;
 use GrahamCampbell\CMSCore\Models\Event;
 
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
 class EventController extends BaseController {
 
     /**

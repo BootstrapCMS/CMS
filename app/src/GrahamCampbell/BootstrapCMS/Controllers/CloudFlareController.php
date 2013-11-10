@@ -20,9 +20,11 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use CloudFlareAPI;
+
 use GrahamCampbell\CMSCore\Models\Page;
 
-use CloudFlareAPI;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
 
 class CloudFlareController extends BaseController {
 
