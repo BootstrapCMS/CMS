@@ -117,13 +117,3 @@ body {
 .carousel-fade .carousel-control {
     z-index: 2;
 }
-
-.carousel-alt .carousel-control {
-    height: 60px;
-    margin-top: 0;
-    font-size: 100px;
-    text-shadow: 0 1px 1px rgba(0,0,0,.4);
-    background-color: transparent;
-    border: 0;
-    z-index: 10;
-}
