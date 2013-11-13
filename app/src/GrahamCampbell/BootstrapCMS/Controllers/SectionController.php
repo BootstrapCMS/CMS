@@ -20,6 +20,13 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use Binput;
+use Redirect;
+use SectionProvider;
+use Session;
+use Validator;
+
+use GrahamCampbell\CMSCore\Models\Section;
 use GrahamCampbell\CMSCore\Controllers\BaseController;
 
 class SectionController extends BaseController {
@@ -44,5 +51,111 @@ class SectionController extends BaseController {
      */
     public function index() {
         return $this->viewMake('sections.index', array());
+    }
+
+    /**
+     * Show the form for creating a new section.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create() {
+        return $this->viewMake('sections.create');
+    }
+
+    /**
+     * Store a new section.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store() {
+        $input = array(
+            'title'   => Binput::get('title'),
+            'summary' => Binput::get('summary'),
+            'user_id' => $this->getUserId()
+        );
+
+        $rules = Section::$rules;
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('sections.create')->withInput()->withErrors($val->errors());
+        }
+
+        $section = SectionProvider::create($input);
+
+        // write flash message and redirect
+        Session::flash('success', 'Your section has been created successfully.');
+        return Redirect::route('topics.index', array('sections' => $section->getId()));
+    }
+
+    /**
+     * Show the form for editing the specified section.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id) {
+        $section = Section::find($id);
+        $this->checkSection($section);
+
+        return $this->viewMake('sections.edit', array('section' => $section));
+    }
+
+    /**
+     * Update an existing section.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id) {
+        $input = array(
+            'title'   => Binput::get('title'),
+            'summary' => Binput::get('summary')
+        );
+
+        $rules = Section::$rules;
+        unset($rules['user_id']);
+
+        $val = Validator::make($input, $rules);
+        if ($val->fails()) {
+            return Redirect::route('sections.edit')->withInput()->withErrors($val->errors());
+        }
+
+        $section = SectionProvider::find($id);
+        $this->checkSection($section);
+
+        $section->update($input);
+
+        // write flash message and redirect
+        Session::flash('success', 'Your section has been updated successfully.');
+        return Redirect::route('topics.index', array('sections' => $section->getId()));
+    }
+
+    /**
+     * Delete an existing section.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id) {
+        $section = SectionProvider::find($id);
+        $this->checkSection($section);
+
+        $section->delete();
+
+        // write flash message and redirect
+        Session::flash('success', 'Your section has been deleted successfully.');
+        return Redirect::route('sections.index');
+    }
+
+    /**
+     * Check the section model.
+     *
+     * @return mixed
+     */
+    protected function checkSection($section) {
+        if (!$section) {
+            return App::abort(404, 'Section Not Found');
+        }
     }
 }
