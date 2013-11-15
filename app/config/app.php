@@ -145,7 +145,9 @@ return array(
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Basset\BassetServiceProvider',
-        'Kmd\Logviewer\LogviewerServiceProvider'
+        'Kmd\Logviewer\LogviewerServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
+        'Barryvdh\DomPDF\ServiceProvider'
 
     ),
 
@@ -235,7 +237,9 @@ return array(
         'Cron'            => 'GrahamCampbell\CMSCore\Facades\Cron',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Basset'          => 'Basset\Facade',
-        'Carbon'          => 'Carbon\Carbon'
+        'Carbon'          => 'Carbon\Carbon',
+        'Debugbar'        => 'Barryvdh\Debugbar\Facade',
+        'PDF'             => 'Barryvdh\DomPDF\Facade'
 
     )
 

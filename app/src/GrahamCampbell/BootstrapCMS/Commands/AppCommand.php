@@ -84,7 +84,12 @@ abstract class AppCommand extends Command {
      * @return void
      */
     protected function genAssets() {
+        $this->line('Publishing assets...');
+        $this->call('debugbar:publish');
+        $this->info('Assets published!');
+        $this->line('Building assets...');
         $this->call('basset:build', array('--production' => true));
+        $this->info('Assets built!');
     }
 
     /**
