@@ -31,7 +31,7 @@ class PostControllerViewTest extends ResourcefulViewTestCase {
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
         $this->mock->shouldReceive('getUserName')
-            ->once()->andReturn('name');
+            ->twice()->andReturn('name');
         $this->mock->shouldReceive('getComments')
             ->once()->andReturn(array());
     }
