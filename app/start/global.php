@@ -88,7 +88,7 @@ App::fatal(function($exception) {
                 'message' => $message,
                 'extra' => 'Fatal Error'
             );
-            return Response::view('error', $details, $code);
+            return Response::view(Config::get('views.error', 'error'), $details, $code);
         }
     } catch (Exception $e) {
         echo 'Fatal Error';
@@ -172,7 +172,7 @@ App::error(function(Exception $exception, $code) {
                         'message' => $message,
                         'extra' => 'Fatal Error'
                     );
-                    return Response::view('error', $details, $code);
+                    return Response::view(Config::get('views.error', 'error'), $details, $code);
                 }
         }
         if (Request::ajax()) {
@@ -190,7 +190,7 @@ App::error(function(Exception $exception, $code) {
                 'message' => $message,
                 'extra' => (!$exception->getMessage() || strlen($exception->getMessage()) > 35 || strlen($exception->getMessage()) < 5) ? 'Houston, We Have A Problem' : $exception->getMessage()
             );
-            return Response::view('error', $details, $code);
+            return Response::view(Config::get('views.error', 'error'), $details, $code);
         }
     } catch (Exception $e) {
         Log::critical($e);
@@ -213,7 +213,7 @@ App::error(function(Exception $exception, $code) {
                     'message' => $message,
                     'extra' => 'Fatal Error'
                 );
-                return Response::view('error', $details, $code);
+                return Response::view(Config::get('views.error', 'error'), $details, $code);
             }
         } catch (Exception $e) {
             echo 'Fatal Error';
@@ -233,7 +233,7 @@ App::error(function(Exception $exception, $code) {
 */
 
 App::down(function() {
-    return Response::view('maintenance', array(), 503);
+    return Response::view(Config::get('views.maintenance', 'maintenance'), array(), 503);
 });
 
 /*

@@ -26,5 +26,5 @@
 @section('js')
 @show
 @if (Config::get('analytics.google'))
-    @include('partials.analytics')
+    @include(Config::get('views.analytics', 'partials.analytics'))
 @endif

@@ -1,4 +1,4 @@
-@extends('layouts.email')
+@extends(Config::get('views.email', 'layouts.email'))
 
 @section('content')
 <p>An admin from <a href="{{ $url }}">{{ Config::get('cms.name') }}</a> has created you an account.</p>

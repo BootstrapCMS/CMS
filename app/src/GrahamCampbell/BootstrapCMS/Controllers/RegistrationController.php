@@ -52,7 +52,7 @@ class RegistrationController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function getRegister() {
-        return $this->viewMake('account.register');
+        return $this->viewMake(Config::get('views.login', 'account.register'));
     }
 
     /**

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{ Lang::get('logviewer::logviewer.title') }}</title>
-    @include('partials.header')
+    @include(Config::get('views.header', 'partials.header'))
     {{ Basset::show('logviewer.css') }}
 </head>
 
@@ -142,7 +142,7 @@
     </div>
 </div>
 
-{{ HTMLMin::render($__env->make('partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+{{ HTMLMin::render($__env->make(Config::get('views.footer', 'partials.footer'), array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
 {{ Basset::show('logviewer.js') }}
 </body>
 </html>

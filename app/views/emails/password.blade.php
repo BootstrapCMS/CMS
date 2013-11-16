@@ -1,4 +1,4 @@
-@extends('layouts.email')
+@extends(Config::get('views.email', 'layouts.email'))
 
 @section('content')
 <p>Here is your temporary password:</p>

@@ -55,7 +55,7 @@ class LoginController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function getLogin() {
-        return $this->viewMake('account.login');
+        return $this->viewMake(Config::get('views.login', 'account.login'));
     }
 
     /**

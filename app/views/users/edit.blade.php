@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Edit {{ $user->first_name.' '.$user->last_name }}

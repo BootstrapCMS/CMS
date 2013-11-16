@@ -1,4 +1,4 @@
-@extends('layouts.email')
+@extends(Config::get('views.email', 'layouts.email'))
 
 @section('content')
 <p>Thank you for creating an account on <a href="{{ $url }}">{{ Config::get('cms.name') }}</a>.</p>
