@@ -62,7 +62,7 @@ class FileController extends BaseController {
         $file = FileProvider::find($id);
         $this->checkFile($file);
 
-        return Response::download($file->getPath());
+        return Response::stream($file->getPath());
     }
 
     /**
