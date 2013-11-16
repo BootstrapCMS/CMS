@@ -20,6 +20,7 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
+use Config;
 use Event;
 use Log;
 use Redirect;
