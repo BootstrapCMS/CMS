@@ -58,3 +58,11 @@ if($page->getShowTitle() == false) {
     @include('pages.delete')
 @endif
 @stop
+
+@section('css')
+<?php eval('?>'.$page->getCSS()); ?>
+@stop
+
+@section('js')
+<?php eval('?>'.$page->getJS()); ?>
+@stop

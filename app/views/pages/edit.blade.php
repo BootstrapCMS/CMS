@@ -30,6 +30,8 @@ Edit {{ $page->getTitle() }}
             'title' => $page->getTitle(),
             'icon' => $page->getIcon(),
             'body' => $page->getBody(),
+            'css' => $page->getCSS(),
+            'js' => $page->getJS(),
             'show_title' => ($page->getShowTitle() == true),
             'show_nav' => ($page->getShowNav() == true),
     ));

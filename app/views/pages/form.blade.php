@@ -24,6 +24,22 @@
         </div>
     </div>
 
+    <div class="form-group{{ ($errors->has('css')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="css">Page CSS</label>
+        <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+            <textarea name="css" id="css" class="form-control" placeholder="Page CSS" rows="8">{{ Request::old('css', $form['defaults']['css']) }}</textarea>
+            {{ ($errors->has('css') ? $errors->first('css') : '') }}
+        </div>
+    </div>
+
+    <div class="form-group{{ ($errors->has('js')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="js">Page JS</label>
+        <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+            <textarea name="js" id="js" class="form-control" placeholder="Page JS" rows="8">{{ Request::old('js', $form['defaults']['js']) }}</textarea>
+            {{ ($errors->has('js') ? $errors->first('js') : '') }}
+        </div>
+    </div>
+
     <div class="form-group{{ ($errors->has('show_title')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="show_title">Show Title</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">

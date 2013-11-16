@@ -138,10 +138,20 @@ class PageController extends BaseController {
             'title'      => Binput::get('title'),
             'slug'       => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
             'body'       => Binput::get('body', null, true, false), // no xss protection please
+            'css'        => Binput::get('css', null, true, false), // no xss protection please
+            'js'         => Binput::get('js', null, true, false), // no xss protection please
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav'   => (Binput::get('show_nav') == 'on'),
             'icon'       => Binput::get('icon'),
         );
+
+        if (is_null($input['css']) || empty($input['css'])) {
+            $input['css'] = '';
+        }
+
+        if (is_null($input['js']) || empty($input['js'])) {
+            $input['js'] = '';
+        }
 
         $rules = Page::$rules;
         unset($rules['user_id']);

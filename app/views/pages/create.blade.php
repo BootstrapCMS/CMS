@@ -14,6 +14,8 @@ Create Page
             'title' => '',
             'icon' => '',
             'body' => '',
+            'css' => '',
+            'js' => '',
             'show_title' => true,
             'show_nav' => true,
     ));
