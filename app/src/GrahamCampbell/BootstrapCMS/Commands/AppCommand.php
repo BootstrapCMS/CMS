@@ -202,8 +202,4 @@ abstract class AppCommand extends Command {
 
         $this->info('Queueing is now setup!');
     }
-
-    public function dosQueue() {
-        $this->laravel['queuing']->pushJob('dos');
-    }
 }

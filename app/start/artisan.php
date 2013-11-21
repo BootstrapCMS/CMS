@@ -43,8 +43,6 @@ Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\QueueClear);
 
 Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\QueueIron);
 
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\QueueDos);
-
 Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\CronStart);
 
 Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\CronStop);
