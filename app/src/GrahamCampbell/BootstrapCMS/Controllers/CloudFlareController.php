@@ -58,7 +58,7 @@ class CloudFlareController extends BaseController {
      */
     public function getData() {
         $stats = CloudFlareAPI::api_stats();
-        $data = $stats->decodeBody()['response']['result']['objs']['0']['trafficBreakdown'];
+        $data = $stats->getResponse()->json()['response']['result']['objs']['0']['trafficBreakdown'];
         return $this->viewMake('cloudflare.data', array('data' => $data), true);
     }
 }
