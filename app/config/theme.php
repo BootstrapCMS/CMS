@@ -31,7 +31,7 @@ return array(
     |
     | Supported: "amelia", "cerulean", "cosmo", "cyborg", "default", "flatly",
     |            "journal", "legacy", "readable", "simplex", "slate", "spacelab",
-    |            "united"
+    |            "united", "yeti"
     |
     | Default to 'default'.
     |
