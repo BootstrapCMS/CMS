@@ -43,8 +43,8 @@ class AppUpdate extends AppCommand {
      */
     public function fire() {
         $this->runMigrations();
-        $this->genAssets();
         $this->updateCache();
+        $this->genAssets();
         $this->tryStartCron();
     }
 }

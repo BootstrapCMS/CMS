@@ -46,8 +46,8 @@ class AppReset extends AppCommand {
         $this->resetMigrations();
         $this->runMigrations();
         $this->runSeeding();
-        $this->genAssets();
         $this->updateCache();
+        $this->genAssets();
         $this->tryStartCron();
     }
 }

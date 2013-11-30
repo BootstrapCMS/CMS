@@ -45,8 +45,8 @@ class AppInstall extends AppCommand {
         $this->genAppKey();
         $this->runMigrations();
         $this->runSeeding();
-        $this->genAssets();
         $this->updateCache();
+        $this->genAssets();
         $this->tryStartCron();
     }
 }
