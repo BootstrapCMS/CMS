@@ -38,7 +38,7 @@ trait PageControllerSetupTrait {
             'getJS'        => 'js',
             'getShowTitle' => 'show_title',
             'getShowNav'   => 'show_nav',
-            'getIcon'      => 'home',
+            'getIcon'      => 'icon',
             'getUserId'    => 'user_id',
         ));
     }
