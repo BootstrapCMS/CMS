@@ -144,7 +144,7 @@ return array(
         'DaveJamesMiller\Boris\BorisServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
-        'Basset\BassetServiceProvider',
+        'Lightgear\Asset\AssetServiceProvider',
         'Kmd\Logviewer\LogviewerServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider'
@@ -236,7 +236,7 @@ return array(
         'Queuing'         => 'GrahamCampbell\CMSCore\Facades\Queuing',
         'Cron'            => 'GrahamCampbell\CMSCore\Facades\Cron',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
-        'Basset'          => 'Basset\Facade',
+        'Asset'           => 'Lightgear\Asset\Facades\Asset',
         'Carbon'          => 'Carbon\Carbon',
         'Debugbar'        => 'Barryvdh\Debugbar\Facade',
         'PDF'             => 'Barryvdh\DomPDF\Facade'

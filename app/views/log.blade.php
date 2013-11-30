@@ -1,12 +1,14 @@
+@section('css')
+{{ Asset::styles('logviewer') }}
+@endsection
+
+@section('js')
+{{ Asset::scripts('logviewer') }}
+@endsection
+
 <!DOCTYPE html>
 <html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{{ Lang::get('logviewer::logviewer.title') }}</title>
-    @include(Config::get('views.header', 'partials.header'))
-    {{ Basset::show('logviewer.css') }}
-</head>
+@include(Config::get('views.header', 'partials.header'))
 
 <body>
 <div id="wrap">
@@ -142,7 +144,7 @@
     </div>
 </div>
 
-{{ HTMLMin::render($__env->make(Config::get('views.footer', 'partials.footer'), array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
-{{ Basset::show('logviewer.js') }}
+@include(Config::get('views.footer', 'partials.footer'))
+
 </body>
 </html>

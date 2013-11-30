@@ -22,7 +22,7 @@
     </div>
 </div>
 
-{{ Basset::show('main.js') }}
+{{ Asset::scripts('main') }}
 @section('js')
 @show
 @if (Config::get('analytics.google'))

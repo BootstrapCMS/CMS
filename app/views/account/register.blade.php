@@ -63,9 +63,9 @@ Register
 @stop
 
 @section('css')
-{{ Basset::show('form.css') }}
+{{ Asset::styles('form') }}
 @stop
 
 @section('js')
-{{ Basset::show('form.js') }}
+{{ Asset::scripts('form') }}
 @stop

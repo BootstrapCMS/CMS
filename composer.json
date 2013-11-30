@@ -17,9 +17,7 @@
         "barryvdh/laravel-debugbar": "dev-master",
         "barryvdh/laravel-dompdf": "dev-master",
         "fideloper/proxy": "dev-master",
-        "jasonlewis/basset": "dev-develop",
-        "natxet/CssMin": "dev-master",
-        "linkorb/jsmin-php": "dev-master"
+        "lightgear/asset": "1.1"
     },
     "require-dev": {
         "mockery/mockery": "dev-master",

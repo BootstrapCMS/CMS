@@ -142,14 +142,14 @@
 @stop
 
 @section('css')
-{{ Basset::show('form.css') }}
+{{ Asset::styles('form') }}
 @stop
 
 @section('js')
-{{ Basset::show('form.js') }}
+{{ Asset::scripts('form') }}
 <script>
 var cmsCommentInterval = {{ Config::get('cms.commentfetch') }};
 var cmsCommentTime = {{ Config::get('cms.commenttrans') }};
 </script>
-{{ Basset::show('comment.js') }}
+{{ Asset::scripts('comment') }}
 @stop

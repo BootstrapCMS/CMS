@@ -78,12 +78,12 @@
 
 @section('css')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
-{{ Basset::show('form.css') }}
+{{ Asset::styles('form') }}
 @endif
 @stop
 
 @section('js')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
-{{ Basset::show('form.css') }}
+{{ Asset::scripts('form') }}
 @endif
 @stop
