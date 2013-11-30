@@ -88,7 +88,7 @@ abstract class AppCommand extends Command {
         $this->call('debugbar:publish');
         $this->info('Assets published!');
         $this->line('Building assets...');
-        $this->call('basset:build', array('--production' => true));
+        $this->call('asset:generate');
         $this->info('Assets built!');
     }
 
