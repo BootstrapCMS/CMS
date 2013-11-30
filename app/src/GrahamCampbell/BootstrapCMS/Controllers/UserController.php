@@ -90,7 +90,7 @@ class UserController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function store() {
-        $password = Passwd::generate(12,8);
+        $password = Passwd::generate();
 
         $input = array(
             'first_name'      => Binput::get('first_name'),
@@ -260,7 +260,7 @@ class UserController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function reset($id) {
-        $password = Passwd::generate(12,8);
+        $password = Passwd::generate();
 
         $input = array(
             'password' => $password,
