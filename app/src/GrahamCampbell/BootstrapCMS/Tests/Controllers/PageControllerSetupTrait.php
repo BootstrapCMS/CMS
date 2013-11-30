@@ -34,11 +34,11 @@ trait PageControllerSetupTrait {
             'getTitle'     => 'title',
             'getSlug'      => 'slug',
             'getBody'      => 'body',
-            'getCSS'       => '',
-            'getJS'        => '',
+            'getCSS'       => 'css',
+            'getJS'        => 'js',
             'getShowTitle' => 'show_title',
             'getShowNav'   => 'show_nav',
-            'getIcon'      => 'icon',
+            'getIcon'      => 'home',
             'getUserId'    => 'user_id',
         ));
     }
