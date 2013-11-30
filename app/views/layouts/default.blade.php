@@ -11,8 +11,8 @@
 <div id="wrap">
 @include(Config::get('views.navigation', 'partials.navigation'))
 <div class="container">
-@include(Config::get('views.title', 'partials.title')))
-@include(Config::get('views.notifications', 'partials.notifications')))
+@include(Config::get('views.title', 'partials.title'))
+@include(Config::get('views.notifications', 'partials.notifications'))
 @section('controls')
 @show
 @section('content')
@@ -21,6 +21,6 @@
 @show
 @section('messages')
 @show
-@include(Config::get('views.footer', 'partials.footer')))
+@include(Config::get('views.footer', 'partials.footer'))
 </body>
 </html>
