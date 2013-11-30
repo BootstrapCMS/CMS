@@ -9,18 +9,18 @@
 </head>
 <body>
 <div id="wrap">
-{{ HTMLMin::render($__env->make(Config::get('views.navigation', 'partials.navigation'), array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+@include(Config::get('views.navigation', 'partials.navigation'))
 <div class="container">
-{{ HTMLMin::render($__env->make(Config::get('views.title', 'partials.title'), array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
-{{ HTMLMin::render($__env->make(Config::get('views.notifications', 'partials.notifications'), array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+@include(Config::get('views.title', 'partials.title')))
+@include(Config::get('views.notifications', 'partials.notifications')))
 @section('controls')
-{{ HTMLMin::render($__env->yieldSection()) }}
+@show
 @section('content')
 @show
 @section('comments')
-{{ HTMLMin::render($__env->yieldSection()) }}
+@show
 @section('messages')
-{{ HTMLMin::render($__env->yieldSection()) }}
-{{ HTMLMin::render($__env->make(Config::get('views.footer', 'partials.footer'), array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+@show
+@include(Config::get('views.footer', 'partials.footer')))
 </body>
 </html>
