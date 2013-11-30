@@ -34,6 +34,8 @@ trait PageControllerSetupTrait {
             'getTitle'     => 'title',
             'getSlug'      => 'slug',
             'getBody'      => 'body',
+            'getCSS'       => '',
+            'getJS'        => '',
             'getShowTitle' => 'show_title',
             'getShowNav'   => 'show_nav',
             'getIcon'      => 'icon',
@@ -45,6 +47,8 @@ trait PageControllerSetupTrait {
         $this->assertEquals($this->mock->getTitle(), $this->attributes['title']);
         $this->assertEquals($this->mock->getSlug(), $this->attributes['slug']);
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);
+        $this->assertEquals($this->mock->getCSS(), $this->attributes['css']);
+        $this->assertEquals($this->mock->getJS(), $this->attributes['js']);
         $this->assertEquals($this->mock->getShowTitle(), $this->attributes['show_title']);
         $this->assertEquals($this->mock->getShowNav(), $this->attributes['show_nav']);
         $this->assertEquals($this->mock->getIcon(), $this->attributes['icon']);
