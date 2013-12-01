@@ -183,23 +183,18 @@ abstract class AppCommand extends Command {
      * @param  string  $url
      * @return void
      */
-    protected function ironQueue($url) {
+    protected function ironQueue() {
         $this->line('Setting up iron queueing...');
 
         if ($this->laravel['config']['queue.default'] !== 'iron') {
             $this->error('The current config is not setup for iron queueing!');
         }
 
-        $url = $url.'/queue/receive';
+        $this->call('queue:subscribe', array('queue' => $this->getQueue('queue'), 'url' => URL::route('queuing.index')));
 
-        $queue = $this->getQueue('queue');
-        $this->call('queue:subscribe', array('queue' => $queue, 'url' => $url));
+        $this->call('queue:subscribe', array('queue' => $this->getQueue('mail'), 'url' => URL::route('queuing.index')));
 
-        $queue = $this->getQueue('mail');
-        $this->call('queue:subscribe', array('queue' => $queue, 'url' => $url));
-
-        $queue = $this->getQueue('cron');
-        $this->call('queue:subscribe', array('queue' => $queue, 'url' => $url));
+        $this->call('queue:subscribe', array('queue' => $this->getQueue('cron'), 'url' => URL::route('queuing.index')));
 
         $this->info('Queueing is now setup!');
     }

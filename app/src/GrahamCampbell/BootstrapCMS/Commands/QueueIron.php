@@ -44,17 +44,6 @@ class QueueIron extends AppCommand {
      * @return void
      */
     public function fire() {
-        $this->ironQueue($this->input->getArgument('url'));
-    }
-
-    /**
-     * Get the console command arguments.
-     *
-     * @return array
-     */
-    protected function getArguments() {
-        return array(
-            array('url', InputArgument::REQUIRED, 'The base url of your site without a tailing slash')
-        );
+        $this->ironQueue();
     }
 }
