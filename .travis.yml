@@ -9,4 +9,7 @@ before_script:
   - php composer.phar install --dev
   - php artisan asset:generate
 
+services:
+  - redis-server
+
 script: phpunit
