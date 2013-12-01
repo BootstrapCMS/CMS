@@ -25,20 +25,6 @@ use Illuminate\Console\Command;
 abstract class AppCommand extends Command {
 
     /**
-     * Get the queue to use.
-     *
-     * @param  string  $type
-     * @return string
-     */
-    protected function getQueue($type) {
-        if ($this->laravel['config']['queue.default'] == 'sync') {
-            return $type;
-        } else {
-            return $this->laravel['config']['queue.connections.'.$this->laravel['config']['queue.default'].'.'.$type];
-        }
-    }
-
-    /**
      * Regenerate the app encryption key.
      *
      * @return void
@@ -64,6 +50,7 @@ abstract class AppCommand extends Command {
      */
     protected function runMigrations() {
         $this->call('migrate', array('--package' => 'cartalyst/sentry'));
+        $this->call('migrate', array('--package' => 'graham-campbell/queuing'));
         $this->call('migrate', array('--package' => 'graham-campbell/cms-core'));
         $this->call('migrate');
     }
@@ -105,22 +92,6 @@ abstract class AppCommand extends Command {
     }
 
     /**
-     * Start the cron jobs.
-     *
-     * @return void
-     */
-    protected function startCron() {
-        $this->line('Starting cron...');
-        if ($this->laravel['config']['queue.default'] == 'sync') {
-            $this->error('Cron cannot run on the sync queue.');
-            $this->comment('Please change the queue in the config.');
-        } else {
-            $this->laravel['cron']->start(30);
-            $this->info('Cron started!');
-        }
-    }
-
-    /**
      * Try to start the cron jobs.
      *
      * @return void
@@ -129,73 +100,7 @@ abstract class AppCommand extends Command {
         if ($this->laravel['config']['queue.default'] == 'sync') {
             $this->comment('Please note that cron functionality is disabled.');
         } else {
-            $this->startCron();
+            $this->call('cron:start');
         }
-    }
-
-    /**
-     * Stop the cron jobs.
-     *
-     * @return void
-     */
-    protected function stopCron() {
-        $this->line('Stopping cron...');
-        $this->laravel['cron']->stop();
-        $this->info('Cron stopped!');
-    }
-
-    /**
-     * Clear the queue.
-     *
-     * @return void
-     */
-    protected function clearQueue() {
-        $this->line('Clearing the queue...');
-        $this->laravel['queuing']->clearAll();
-        $this->info('Queue cleared!');
-        $this->comment('Note that cron jobs were cleared too.');
-    }
-
-    /**
-     * Get the queue length.
-     *
-     * @return void
-     */
-    protected function getQueueLength() {
-        $this->line('Getting queue length...');
-        $length = $this->laravel['queuing']->length();
-        if (is_int($length)) {
-            if ($length > 1) {
-                $this->info('There are no jobs in the queue.');
-            } elseif ($length == 1) {
-                $this->info('There is 1 job in the queue.');
-            } else {
-                $this->info('There are '.$length.' jobs in the queue.');
-            }
-        } else {
-            $this->error('Queue information is currently unavailable!');
-        }        
-    }
-
-    /**
-     * Setup IronMQ queuing.
-     *
-     * @param  string  $url
-     * @return void
-     */
-    protected function ironQueue() {
-        $this->line('Setting up iron queueing...');
-
-        if ($this->laravel['config']['queue.default'] !== 'iron') {
-            $this->error('The current config is not setup for iron queueing!');
-        }
-
-        $this->call('queue:subscribe', array('queue' => $this->getQueue('queue'), 'url' => URL::route('queuing.index')));
-
-        $this->call('queue:subscribe', array('queue' => $this->getQueue('mail'), 'url' => URL::route('queuing.index')));
-
-        $this->call('queue:subscribe', array('queue' => $this->getQueue('cron'), 'url' => URL::route('queuing.index')));
-
-        $this->info('Queueing is now setup!');
     }
 }
