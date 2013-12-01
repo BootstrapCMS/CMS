@@ -41,14 +41,6 @@ Route::get('add/{value}', array('as' => 'add', 'uses' => 'GrahamCampbell\Bootstr
 Route::get('get', array('as' => 'get', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@getValue'));
 
 
-// iron queue push route
-if (Config::get('queue.default') === 'iron') {
-    Route::post('queue/receive', function() {
-        return Queue::marshal();
-    });
-}
-
-
 // send users to the home page
 Route::get('/', array('as' => 'base', function() {
     Session::flash('', ''); // work around laravel bug if there is no session yet
