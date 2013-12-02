@@ -78,9 +78,9 @@ return array(
             'driver'  => 'iron',
             'project' => 'your-project-id',
             'token'   => 'your-token',
-            'queue'  => 'bootstrap-cms-jobs',
-            'mail'   => 'bootstrap-cms-mail',
-            'cron'   => 'bootstrap-cms-cron'
+            'queue'   => 'bootstrap-cms-jobs',
+            'mail'    => 'bootstrap-cms-mail',
+            'cron'    => 'bootstrap-cms-cron'
         )
 
     )
