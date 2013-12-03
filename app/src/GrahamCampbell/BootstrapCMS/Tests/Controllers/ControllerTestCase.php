@@ -86,7 +86,7 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function setAsPage() {
-        Navigation::shouldReceive('addItem')->times(3);
+        Navigation::shouldReceive('addItem')->twice();
         Navigation::shouldReceive('get')->once()
             ->andReturn(array(
                 array('url' => 'http://localhost/pages/home', 'title' => 'Home', 'icon' => 'fa fa-home', 'active' => true),
