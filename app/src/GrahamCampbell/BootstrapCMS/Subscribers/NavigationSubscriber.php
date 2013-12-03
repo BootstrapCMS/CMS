@@ -52,11 +52,6 @@ class NavigationSubscriber {
             Navigation::addItem('main', array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
 
-        // add the forum
-        if (Config::get('cms.forum')) {
-            Navigation::addItem('main', array('title' => 'Forum', 'slug' => 'forum/sections', 'icon' => 'comments'));
-        }
-
         if ($event['User']) {
             // add the storage
             if (Config::get('cms.storage')) {

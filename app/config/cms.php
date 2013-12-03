@@ -150,23 +150,6 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Enable Forum
-    |--------------------------------------------------------------------------
-    |
-    | This defines if the forum functionality is enabled.
-    |
-    | Disabling it will not delete anything from your database, it will just
-    | inaccessible from the web. All associated routes will not be registered,
-    | and the navigation bar will not show any associated links.
-    |
-    | Default to true.
-    |
-    */
-
-    'forum' => true,
-
-    /*
-    |--------------------------------------------------------------------------
     | Enable File Storage
     |--------------------------------------------------------------------------
     |
