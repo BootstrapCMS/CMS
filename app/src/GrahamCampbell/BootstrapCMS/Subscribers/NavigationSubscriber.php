@@ -136,6 +136,9 @@ class NavigationSubscriber {
         // get the home page
         $page = $this->home;
 
+        // debugging
+        Log::info('home page debugging', $page);
+
         // make sure the page is preppended by 'pages/'
         $page['slug'] = 'pages/'.$page['slug'];
         // add the page to the start of the main nav bars
