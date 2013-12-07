@@ -25,8 +25,6 @@ use Navigation;
 use PageProvider;
 use Sentry;
 
-use Log;
-
 class NavigationSubscriber {
 
     /**
@@ -35,13 +33,6 @@ class NavigationSubscriber {
      * @var boolean
      */
     protected $user;
-
-    /**
-     * The home page.
-     *
-     * @var array
-     */
-    protected $home;
 
     /**
      * Register the listeners for the subscriber.
@@ -139,9 +130,6 @@ class NavigationSubscriber {
 
         // select the home page
         $page = $pages[0];
-
-        // debugging
-        Log::info('home page debugging', $page);
 
         // make sure the page is preppended by 'pages/'
         $page['slug'] = 'pages/'.$page['slug'];
