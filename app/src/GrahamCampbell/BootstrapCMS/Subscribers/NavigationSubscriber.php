@@ -22,9 +22,24 @@
 
 use Config;
 use Navigation;
+use PageProvider;
 Use Sentry;
 
 class NavigationSubscriber {
+
+    /**
+     * The user boolean.
+     *
+     * @var boolean
+     */
+    protected $user;
+
+    /**
+     * The home page.
+     *
+     * @var array
+     */
+    protected $home;
 
     /**
      * Register the listeners for the subscriber.
@@ -34,6 +49,10 @@ class NavigationSubscriber {
      */
     public function subscribe($events) {
         $events->listen('view.make', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onViewMake', 5);
+        $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst', 8);
+        $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond', 5);
+        $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird', 2);
+        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBar', 2);
     }
 
     /**
@@ -43,65 +62,130 @@ class NavigationSubscriber {
      * @return void
      */
     public function onViewMake($event) {
+        $this->user = $event['User'];
+    }
+
+    /**
+     * Handle a navigation.main event first.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onNavigationMainFirst($event) {
         // add the blog
         if (Config::get('cms.blogging')) {
-            Navigation::addItem('main', array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book'));
+            Navigation::addMain('default', array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book'));
         }
+
         // add the events
         if (Config::get('cms.events')) {
-            Navigation::addItem('main', array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
+            Navigation::addMain('default', array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
 
-        if ($event['User']) {
+        if ($this->user) {
             // add the storage
             if (Config::get('cms.storage')) {
-                Navigation::addItem('main', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
+                Navigation::addMain('default', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
             }
 
-            // add the profile links
-            Navigation::addItem('bar', array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
             // add the admin links
             if (Sentry::getUser()->hasAccess('admin')) {
-                Navigation::addItem('bar', array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
-                Navigation::addItem('bar', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
-                Navigation::addItem('bar', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'));
-                Navigation::addItem('bar', array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
+                Navigation::addMain('admin', array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
+                Navigation::addMain('admin', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
+                Navigation::addMain('admin', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'));
+                Navigation::addMain('admin', array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
             }
+
             // add the view users link
             if (Sentry::getUser()->hasAccess('mod')) {
-                Navigation::addItem('bar', array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
+                Navigation::addMain('admin', array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'));
             }
+        }
+    }
+
+    /**
+     * Handle a navigation.main event second.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onNavigationMainSecond($event) {
+        $pages = PageProvider::navigation();
+
+        // separate the first page
+        $this->home = $pages[0];
+        unset($pages[0]);
+
+        // add the pages to the nav bar
+        foreach ($pages as $page) {
+            // each page slug is preppended by 'pages/'
+            $page['slug'] = 'pages/'.$page['slug'];
+            // add each page to the main nav bar
+            Navigation::addMain('default', $page);
+        }
+    }
+
+    /**
+     * Handle a navigation.main event second.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onNavigationMainThird($event) {
+        $home = $this->home;
+        // make sure the home page is preppended by 'pages/'
+        $home['slug'] = 'pages/'.$home['slug'];
+        // add the home page to the start of the main nav bars
+        Navigation::addMain('default', $page, true);
+        Navigation::addMain('admin', $page, true);
+    }
+
+    /**
+     * Handle a navigation.bar event.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onNavigationBar($event) {
+        if ($this->user) {
+            // add the profile links
+            Navigation::addBar('default', array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
+
+            // add the admin links
+            if (Sentry::getUser()->hasAccess('admin')) {
+                Navigation::addBar('default', array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
+                Navigation::addBar('default', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
+                Navigation::addBar('default', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'));
+                Navigation::addBar('default', array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
+            }
+
+            // add the view users link
+            if (Sentry::getUser()->hasAccess('mod')) {
+                Navigation::addBar('default', array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
+            }
+
             // add the create user link
             if (Sentry::getUser()->hasAccess('admin')) {
-                Navigation::addItem('bar', array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star'));
+                Navigation::addBar('default', array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star'));
             }
+
             // add the create page link
             if (Sentry::getUser()->hasAccess('edit')) {
-                Navigation::addItem('bar', array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil'));
+                Navigation::addBar('default', array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil'));
             }
+
             // add the create post link
             if (Config::get('cms.blogging')) {
                 if (Sentry::getUser()->hasAccess('blog')) {
-                    Navigation::addItem('bar', array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book'));
-                }
-            }
-            // add the create event link
-            if (Config::get('cms.events')) {
-                if (Sentry::getUser()->hasAccess('edit')) {
-                    Navigation::addItem('bar', array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar'));
+                    Navigation::addBar('default', array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book'));
                 }
             }
 
-            // add the admin links
-            if (Sentry::getUser()->hasAccess('admin')) {
-                Navigation::addItem('admin', array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
-                Navigation::addItem('admin', array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
-                Navigation::addItem('admin', array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'));
-                Navigation::addItem('admin', array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
-            }
-            // add the view users link
-            if (Sentry::getUser()->hasAccess('mod')) {
-                Navigation::addItem('admin', array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'));
+            // add the create event link
+            if (Config::get('cms.events')) {
+                if (Sentry::getUser()->hasAccess('edit')) {
+                    Navigation::addBar('default', array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar'));
+                }
             }
         }
     }

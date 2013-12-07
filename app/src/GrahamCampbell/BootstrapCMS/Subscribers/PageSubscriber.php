@@ -20,7 +20,7 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Navigation;
+use PageProvider;
 
 class PageSubscriber {
 
@@ -44,7 +44,7 @@ class PageSubscriber {
      */
     public function onPageCreated($event) {
         // refresh the navigation cache
-        Navigation::refresh();
+        PageProvider::refresh();
     }
 
     /**
@@ -55,7 +55,7 @@ class PageSubscriber {
      */
     public function onPageUpdated($event) {
         // refresh the navigation cache
-        Navigation::refresh();
+        PageProvider::refresh();
     }
 
     /**
@@ -66,6 +66,6 @@ class PageSubscriber {
      */
     public function onPageDeleted($event) {
         // refresh the navigation cache
-        Navigation::refresh();
+        PageProvider::refresh();
     }
 }

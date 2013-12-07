@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="wrap">
-@include(Config::get('views.navigation', 'partials.navigation'))
+{{ $navigation }}
 <div class="container">
 @include(Config::get('views.title', 'partials.title'))
 @include(Config::get('views.notifications', 'partials.notifications'))

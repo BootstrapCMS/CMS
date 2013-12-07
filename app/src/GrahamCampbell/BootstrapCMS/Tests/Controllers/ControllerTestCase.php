@@ -25,7 +25,7 @@ use Validator;
 use Carbon;
 use Mockery;
 
-use Navigation;
+use PageProvider;
 use GrahamCampbell\BootstrapCMS\Tests\TestCase;
 
 abstract class ControllerTestCase extends TestCase {
@@ -86,8 +86,8 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function setAsPage() {
-        Navigation::shouldReceive('addItem')->twice();
-        Navigation::shouldReceive('get')->once()
+        PageProvider::shouldReceive('addMain')->twice();
+        PageProvider::shouldReceive('navigation')->once()
             ->andReturn(array(
                 array('url' => 'http://localhost/pages/home', 'title' => 'Home', 'icon' => 'fa fa-home', 'active' => true),
                 array('url' => 'http://localhost/pages/about', 'title' => 'About', 'icon' => 'fa fa-info-circle', 'active' => false)
