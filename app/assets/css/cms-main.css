@@ -15,7 +15,7 @@ body {
     padding: 60px 15px;
 }
 
-/*.navbar {
+.navbar {
     padding-right: 5px;
     padding-left: 5px;
 }
@@ -23,7 +23,7 @@ body {
 .navbar-right {
     padding-right: 10px;
     padding-left: 5px;
-}*/
+}
 
 #footer {
     height: 60px;
