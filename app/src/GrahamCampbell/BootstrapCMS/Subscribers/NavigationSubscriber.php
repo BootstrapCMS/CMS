@@ -110,17 +110,18 @@ class NavigationSubscriber {
      * @return void
      */
     public function onNavigationMainSecond($event) {
+        // get the pages
         $pages = PageProvider::navigation();
 
-        // separate the first page
+        // separate the home page
         $this->home = $pages[0];
         unset($pages[0]);
 
         // add the pages to the nav bar
         foreach ($pages as $page) {
-            // each page slug is preppended by 'pages/'
+            // make sure the page is preppended by 'pages/'
             $page['slug'] = 'pages/'.$page['slug'];
-            // add each page to the main nav bar
+            // add the page to the main nav bar
             Navigation::addMain('default', $page);
         }
     }
@@ -132,10 +133,12 @@ class NavigationSubscriber {
      * @return void
      */
     public function onNavigationMainThird($event) {
-        $home = $this->home;
-        // make sure the home page is preppended by 'pages/'
-        $home['slug'] = 'pages/'.$home['slug'];
-        // add the home page to the start of the main nav bars
+        // get the home page
+        $page = $this->home;
+
+        // make sure the page is preppended by 'pages/'
+        $page['slug'] = 'pages/'.$page['slug'];
+        // add the page to the start of the main nav bars
         Navigation::addMain('default', $page, true);
         Navigation::addMain('admin', $page, true);
     }
