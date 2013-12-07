@@ -88,7 +88,6 @@ abstract class ControllerTestCase extends TestCase {
 
     protected function setAsPage() {
         PageProvider::shouldReceive('setNavUser')->once();
-        Navigation::shouldReceive('addMain')->times(5);
         Navigation::shouldReceive('getHTML')->once()->andReturn('');
     }
 
