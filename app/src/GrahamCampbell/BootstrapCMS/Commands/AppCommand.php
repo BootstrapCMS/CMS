@@ -87,7 +87,7 @@ abstract class AppCommand extends Command {
     protected function updateCache() {
         $this->line('Regenerating cache...');
         $this->call('cache:clear');
-        $this->laravel['navigation']->regen();
+        $this->laravel['pageprovider']->refresh();
         $this->info('Cache regenerated!');
     }
 
