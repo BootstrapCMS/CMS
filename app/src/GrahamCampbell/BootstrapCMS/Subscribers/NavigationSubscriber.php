@@ -57,7 +57,7 @@ class NavigationSubscriber {
             Navigation::addMain('default', array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
 
-        if (PageProvider::getUser()) {
+        if (PageProvider::getNavUser()) {
             // add the storage
             if (Config::get('cms.storage')) {
                 Navigation::addMain('default', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
@@ -127,7 +127,7 @@ class NavigationSubscriber {
      * @return void
      */
     public function onNavigationBar($event) {
-        if (PageProvider::getUser()) {
+        if (PageProvider::getNavUser()) {
             // add the profile links
             Navigation::addBar('default', array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
 
