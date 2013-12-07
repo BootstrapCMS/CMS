@@ -25,6 +25,7 @@ use Validator;
 use Carbon;
 use Mockery;
 
+use Navigation;
 use PageProvider;
 use GrahamCampbell\BootstrapCMS\Tests\TestCase;
 
