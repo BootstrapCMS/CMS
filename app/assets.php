@@ -66,3 +66,7 @@ Asset::registerScripts(array(
 Asset::registerStyles(array(
     'css/cms-logviewer.css'
 ), '', 'logviewer');
+
+Asset::registerScripts(array(
+    'js/cms-logviewer.js',
+), '', 'logviewer');
