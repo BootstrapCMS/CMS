@@ -32,16 +32,16 @@ class EloquentSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('eloquent.creating', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentCreating');
-        $events->listen('eloquent.created', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentCreated');
-        $events->listen('eloquent.updating', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentUpdating');
-        $events->listen('eloquent.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentUpdated');
-        $events->listen('eloquent.deleting', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentDeleting');
-        $events->listen('eloquent.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentDeleted');
-        $events->listen('eloquent.saving', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentSaving');
-        $events->listen('eloquent.saved', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentSaved');
-        $events->listen('eloquent.restoring', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentRestoring');
-        $events->listen('eloquent.restored', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentRestored');
+        $events->listen('eloquent.creating', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentCreating', 5);
+        $events->listen('eloquent.created', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentCreated', 5);
+        $events->listen('eloquent.updating', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentUpdating', 5);
+        $events->listen('eloquent.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentUpdated', 5);
+        $events->listen('eloquent.deleting', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentDeleting', 5);
+        $events->listen('eloquent.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentDeleted', 5);
+        $events->listen('eloquent.saving', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentSaving', 5);
+        $events->listen('eloquent.saved', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentSaved', 5);
+        $events->listen('eloquent.restoring', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentRestoring', 5);
+        $events->listen('eloquent.restored', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentRestored', 5);
     }
 
     /**

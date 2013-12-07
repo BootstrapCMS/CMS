@@ -33,7 +33,7 @@ class NavigationSubscriber {
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('view.make', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onViewMake');
+        $events->listen('view.make', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onViewMake', 5);
     }
 
     /**
