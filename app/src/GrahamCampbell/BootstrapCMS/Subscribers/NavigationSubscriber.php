@@ -23,7 +23,9 @@
 use Config;
 use Navigation;
 use PageProvider;
-Use Sentry;
+use Sentry;
+
+use Log;
 
 class NavigationSubscriber {
 
@@ -113,8 +115,7 @@ class NavigationSubscriber {
         // get the pages
         $pages = PageProvider::navigation();
 
-        // separate the home page
-        $this->home = $pages[0];
+        // delete the home page
         unset($pages[0]);
 
         // add the pages to the nav bar
@@ -133,8 +134,11 @@ class NavigationSubscriber {
      * @return void
      */
     public function onNavigationMainThird($event) {
-        // get the home page
-        $page = $this->home;
+        // get the pages
+        $pages = PageProvider::navigation();
+
+        // select the home page
+        $page = $pages[0];
 
         // debugging
         Log::info('home page debugging', $page);
