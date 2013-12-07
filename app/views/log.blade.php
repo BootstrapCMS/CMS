@@ -1,130 +1,135 @@
-@section('css')
-{{ Asset::styles('logviewer') }}
-@endsection
+@extends(Config::get('views.default', 'layouts.default'))
 
-@section('js')
-{{ Asset::scripts('logviewer') }}
-@endsection
+<?php $name = 'Log Viewer'; ?>
 
-<!DOCTYPE html>
-<html lang="en-GB">
-@include(Config::get('views.header', 'partials.header'))
+@section('title')
+{{ ucwords(str_replace('-', ' ', $name)) }}
+@stop
 
-<body>
-<div id="wrap">
-<div class="navbar {{ (Config::get('theme.inverse') == true) ? 'navbar-inverse' : 'navbar-default'}} navbar-fixed-top">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{{ URL::route('pages.show', array('pages' => 'home')) }}">Log Viewer</a>
-    </div>
-    <div class="collapse navbar-collapse">
-        <div id="main-nav">
-            <ul class="nav navbar-nav">
-                {{ HTML::nav_item($url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/all', ucfirst(Lang::get('logviewer::logviewer.levels.all'))) }}
+@section('content')
+<div class="container" id="main-container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-pills">
+                <li class="{{ Request::segment(6) === null || Request::segment(6) === 'all' ? 'active' : ''}}"><a href="{{ Request::root() }}/{{ $url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/all' }}">All</a></li>
                 @foreach ($levels as $level)
-                    {{ HTML::nav_item($url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/' . $level, ucfirst(Lang::get('logviewer::logviewer.levels.' . $level))) }}
+                    <li class="{{ Request::segment(6) === $level ? 'active' : '' }}"><a href="{{ Request::root() }}/{{ $url . '/' . $path . '/' . $sapi_plain . '/' . $date . '/' . $level }}">{{ ucfirst(Lang::get('logviewer::logviewer.levels.' . $level)) }}</a></li>
                 @endforeach
-            </ul>
-        </div>
-        <div id="bar-nav">
-            <ul class="nav navbar-nav navbar-right">
-                @if (!$empty)
-                    {{ HTML::link('#delete_modal', Lang::get('logviewer::logviewer.delete.btn'), array('class' => 'btn btn-danger', 'data-toggle' => 'modal', 'data-target' => '#delete_modal')) }} 
+                @if(!$empty)
+                <li class="pull-right">
+                    <button data-toggle="modal" data-target="#delete-modal" id="btn-delete" type="button" class="btn btn-danger">Delete current log</button>
+                </li>
                 @endif
-                {{ HTML::link(URL::route('pages.show', array('pages' => 'home')), 'Return To Site', array('class' => 'btn btn-info')) }}
             </ul>
         </div>
     </div>
-</div>
-
-<div class="container">
-    <div class="col-md-2 col-sm-3">
-        <div id="nav" class="well">
-            <ul class="nav nav-list">
-                @if ($logs)
-                    @foreach ($logs as $type => $files)
-                        @if ( ! empty($files['logs']))
-                            <?php $count = count($files['logs']) ?>
-                            @foreach ($files['logs'] as $app => $file)
-                                @if ( ! empty($file))
-                                    <li class="nav-header">{{ ($count > 1 ? $app . ' - ' . $files['sapi'] : $files['sapi']) }}</li>
+    <br>
+    <div class="row">
+        <div class="col-lg-2">
+        @if($logs)
+        <div class="panel-group" id="accordion">
+            @foreach ($logs as $type => $files)
+            <?php $count = count($files['logs']) ?>
+                @foreach ($files['logs'] as $app => $file)
+                    @if(!empty($file))
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ lcfirst($files['sapi']) }}">
+                                    {{ ($count > 1 ? $app . ' - ' . $files['sapi'] : $files['sapi']) }}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-{{ lcfirst($files['sapi']) }}" class="panel-collapse collapse">
+                                <div class="panel-body">
                                     <ul class="nav nav-list">
                                         @foreach ($file as $f)
-                                            {{ HTML::decode(HTML::nav_item($url . '/' . $app . '/' . $type . '/' . $f, $f)) }}
+                                             <li class="list-group-item">
+                                                <a href="{{ Request::root() }}/{{ $url . '/' . $app . '/' . $type . '/' . $f }} ">{{ $f }}</a>
+                                            </li>
                                         @endforeach
                                     </ul>
-                                @endif
-                            @endforeach
-                        @endif
-                    @endforeach
-                @endif
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-md-10 col-sm-9">
-        <div class="row{{ ! $has_messages ? ' hidden' : '' }}">
-            <div class="col-xs-12" id="messages">
-                @if (Session::has('success'))
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        {{ Session::get('success') }}
-                    </div>
-                @endif
-                @if (Session::has('error'))
-                    <div class="alert alert-error">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        {{ Session::get('error') }}
-                    </div>
-                @endif
-                @if (Session::has('info'))
-                    <div class="alert alert-info">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        {{ Session::get('info') }}
-                    </div>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                {{ $paginator->links() }}
-                <div id="log" class="well">
-                    @if ( ! $empty && ! empty($log))
-                        @foreach ($log as $l)
-                            @if (strlen($l['stack']) > 1)
-                                <div class="alert alert-block alert-{{ $l['level'] }}">
-                                    <span title="Click to toggle stack trace" class="toggle-stack"><i class="fa fa-expand-o"></i></span>
-                                    <span class="stack-header">{{ $l['header'] }}</span>
-                                    <pre class="stack-trace">{{ $l['stack'] }}</pre>
                                 </div>
-                            @else
-                                <div class="alert alert-block alert-{{ $l['level'] }}">
-                                    <span class="toggle-stack">&nbsp;&nbsp;</span>
-                                    <span class="stack-header">{{ $l['header'] }}</span>
-                                </div>
-                            @endif
-                        @endforeach
-                    @elseif ( ! $empty && empty($log))
-                        <div class="alert alert-block">
-                            {{ Lang::get('logviewer::logviewer.empty_file', array('sapi' => $sapi, 'date' => $date)) }}
+                            </div>
                         </div>
-                    @else
-                        <div class="alert alert-block">
-                            {{ Lang::get('logviewer::logviewer.no_log', array('sapi' => $sapi, 'date' => $date)) }}
+                    @endif
+                @endforeach
+            @endforeach
+        </div>
+        @endif
+        </div>
+        <div class="col-lg-10">
+            <div class="{{ ! $has_messages ? ' hidden' : '' }}">
+                <div class="col-lg-12" id="messages">
+                    @if (Session::has('success'))
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
+                    @if (Session::has('error'))
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ Session::get('error') }}
+                        </div>
+                    @endif
+                    @if (Session::has('info'))
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ Session::get('info') }}
                         </div>
                     @endif
                 </div>
-                {{ $paginator->links() }}
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    {{ $paginator->links() }}
+                    <div id="log" class="well">
+                        @if(!$empty && !empty($log))
+                            <?php $c = 1; ?>
+                            @foreach($log as $l)
+                                <div class="alert">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="log log-{{ $l['level'] }}">
+                                                <h4 class="panel-title">
+                                                    @if($l['stack'] !== "\n")
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ $c }}" >
+                                                    @endif
+                                                    {{ $l['header'] }}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            @if($l['stack'] !== "\n")
+                                            <div id="collapse-{{ $c }}" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <pre>
+                                                        {{ $l['stack'] }}
+                                                    </pre>
+                                                </div>
+                                            </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php $c++; ?>
+                            @endforeach
+                        @elseif(!$empty && empty($log))
+                            <div class="alert alert-info">
+                                {{ Lang::get('logviewer::logviewer.empty_file', array('sapi' => $sapi, 'date' => $date)) }}
+                            </div>
+                        @else
+                            <div class="alert alert-info">
+                                {{ Lang::get('logviewer::logviewer.no_log', array('sapi' => $sapi, 'date' => $date)) }}
+                            </div>
+                        @endif
+                    </div>
+                    {{ $paginator->links() }}
+                </div>
             </div>
         </div>
     </div>
-
 </div>
-
 <div id="delete_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -143,8 +148,8 @@
         </div>
     </div>
 </div>
+@stop
 
-@include(Config::get('views.footer', 'partials.footer'))
-
-</body>
-</html>
+@section('css')
+{{ Asset::styles('logviewer') }}
+@endsection
