@@ -86,12 +86,14 @@ abstract class ControllerTestCase extends TestCase {
     }
 
     protected function setAsPage() {
-        PageProvider::shouldReceive('addMain')->twice();
-        PageProvider::shouldReceive('navigation')->once()
-            ->andReturn(array(
-                array('url' => 'http://localhost/pages/home', 'title' => 'Home', 'icon' => 'fa fa-home', 'active' => true),
-                array('url' => 'http://localhost/pages/about', 'title' => 'About', 'icon' => 'fa fa-info-circle', 'active' => false)
+        PageProvider::shouldReceive('setNavUser')->once();
+        PageProvider::shouldReceive('getNavUser')->twice()->andReturn(false);
+        PageProvider::shouldReceive('navigation')->twice()->andReturn(array(
+            array('url' => 'http://localhost/pages/home', 'title' => 'Home', 'icon' => 'fa fa-home', 'active' => true),
+            array('url' => 'http://localhost/pages/about', 'title' => 'About', 'icon' => 'fa fa-info-circle', 'active' => false)
         ));
+        Navigation::shouldReceive('addMain')->times(5);
+        Navigation::shouldReceive('getHTML')->once()->andReturn('');
     }
 
     protected function validate($bool) {
