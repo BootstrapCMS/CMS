@@ -28,34 +28,16 @@ use Sentry;
 class NavigationSubscriber {
 
     /**
-     * The user boolean.
-     *
-     * @var boolean
-     */
-    protected $user;
-
-    /**
      * Register the listeners for the subscriber.
      *
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
     public function subscribe($events) {
-        $events->listen('view.make', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onViewMake', 5);
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst', 8);
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond', 5);
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird', 2);
         $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBar', 2);
-    }
-
-    /**
-     * Handle a view.make event.
-     *
-     * @param  mixed  $event
-     * @return void
-     */
-    public function onViewMake($event) {
-        $this->user = $event['User'];
     }
 
     /**
@@ -75,7 +57,7 @@ class NavigationSubscriber {
             Navigation::addMain('default', array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
 
-        if ($this->user) {
+        if (PageProvider::getUser()) {
             // add the storage
             if (Config::get('cms.storage')) {
                 Navigation::addMain('default', array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
@@ -145,7 +127,7 @@ class NavigationSubscriber {
      * @return void
      */
     public function onNavigationBar($event) {
-        if ($this->user) {
+        if (PageProvider::getUser()) {
             // add the profile links
             Navigation::addBar('default', array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
 
