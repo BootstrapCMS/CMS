@@ -20,7 +20,7 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Carbon;
+use Carbon\Carbon;
 
 trait EventControllerSetupTrait {
 

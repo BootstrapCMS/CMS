@@ -22,7 +22,7 @@
 
 use Validator;
 
-use Carbon;
+use Carbon\Carbon;
 use Mockery;
 
 use Navigation;

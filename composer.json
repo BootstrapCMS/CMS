@@ -12,10 +12,9 @@
     "require": {
         "php": ">=5.4.7",
         "graham-campbell/cms-core": "dev-master",
-        "davejamesmiller/laravel-boris": "dev-master",
-        "barryvdh/laravel-debugbar": "dev-master",
         "fideloper/proxy": "dev-master",
-        "lightgear/asset": "1.1"
+        "davejamesmiller/laravel-boris": "dev-master",
+        "barryvdh/laravel-debugbar": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "dev-master",

@@ -134,6 +134,8 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'VTalbot\Markdown\MarkdownServiceProvider',
+        'Lightgear\Asset\AssetServiceProvider',
         'GrahamCampbell\Queuing\QueuingServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'GrahamCampbell\Security\SecurityServiceProvider',
@@ -141,10 +143,8 @@ return array(
         'GrahamCampbell\Passwd\PasswdServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
         'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
-        'DaveJamesMiller\Boris\BorisServiceProvider',
-        'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
-        'Lightgear\Asset\AssetServiceProvider',
+        'DaveJamesMiller\Boris\BorisServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
 
     ),
@@ -212,6 +212,8 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
+        'Asset'           => 'Lightgear\Asset\Facades\Asset',
         'JobProvider'     => 'GrahamCampbell\Queuing\Facades\JobProvider',
         'Queuing'         => 'GrahamCampbell\Queuing\Facades\Queuing',
         'Cron'            => 'GrahamCampbell\Queuing\Facades\Cron',
@@ -231,9 +233,6 @@ return array(
         'SectionProvider' => 'GrahamCampbell\CMSCore\Facades\SectionProvider',
         'TopicProvider'   => 'GrahamCampbell\CMSCore\Facades\TopicProvider',
         'UserProvider'    => 'GrahamCampbell\CMSCore\Facades\UserProvider',
-        'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
-        'Asset'           => 'Lightgear\Asset\Facades\Asset',
-        'Carbon'          => 'Carbon\Carbon',
         'Debugbar'        => 'Barryvdh\Debugbar\Facade'
 
     )
