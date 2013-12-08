@@ -12,7 +12,7 @@ Create Event
         'button'   => 'Create New Event',
         'defaults' => array(
             'title'    => '',
-            'date'     => Carbon::now(),
+            'date'     => Carbon\Carbon::now(),
             'location' => '',
             'body'     => '',
     ));
