@@ -91,7 +91,6 @@ class NavigationSubscriber {
         if (PageProvider::getNavUser()) {
             // add the admin links
             if (Sentry::getUser()->hasAccess('admin')) {
-                Navigation::addMain(array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'), 'admin');
                 Navigation::addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
                 Navigation::addMain(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'), 'admin');
             }
@@ -148,7 +147,6 @@ class NavigationSubscriber {
         if (PageProvider::getNavUser()) {
             // add the admin links
             if (Sentry::getUser()->hasAccess('admin')) {
-                Navigation::addBar(array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
                 Navigation::addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
                 Navigation::addBar(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
             }

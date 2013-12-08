@@ -35,25 +35,7 @@ App::before(function($request) {
     if ($request->ajax()) {
         Debugbar::disable();
     }
-    if (!$request->is('logviewer/*')) {
-        Event::fire('page.load', array(array('Path' => $request->path(), 'Headers' => $request->header())));
-    } else {
-        $value = 'admin';
-
-        if (!Sentry::check()) {
-            Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
-            if ($request->ajax()) {
-                return App::abort(401, 'Action Requires Login');
-            }
-            Session::flash('error', 'You must be logged in to perform that action.');
-            return Redirect::guest(URL::route('account.login'));
-        }
-
-        if (!Sentry::getUser()->hasAccess($value)) {
-            Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
-            return App::abort(403, ucwords($value).' Permissions Are Required');
-        }
-    }
+    Event::fire('page.load', array(array('Path' => $request->path(), 'Headers' => $request->header())));
 });
 
 App::after(function($request, $response) {

@@ -145,9 +145,7 @@ return array(
         'VTalbot\Markdown\MarkdownServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Lightgear\Asset\AssetServiceProvider',
-        'Kmd\Logviewer\LogviewerServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider',
-        'Barryvdh\DomPDF\ServiceProvider'
+        'Barryvdh\Debugbar\ServiceProvider'
 
     ),
 
@@ -236,8 +234,7 @@ return array(
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
         'Asset'           => 'Lightgear\Asset\Facades\Asset',
         'Carbon'          => 'Carbon\Carbon',
-        'Debugbar'        => 'Barryvdh\Debugbar\Facade',
-        'PDF'             => 'Barryvdh\DomPDF\Facade'
+        'Debugbar'        => 'Barryvdh\Debugbar\Facade'
 
     )
 

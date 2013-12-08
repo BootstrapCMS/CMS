@@ -61,12 +61,3 @@ Asset::registerScripts(array(
     'js/cms-comment-fetch.js',
     'js/cms-comment-main.js'
 ), '', 'comment');
-
-
-Asset::registerStyles(array(
-    'css/cms-logviewer.css'
-), '', 'logviewer');
-
-Asset::registerScripts(array(
-    'js/cms-logviewer.js',
-), '', 'logviewer');
