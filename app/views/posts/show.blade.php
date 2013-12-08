@@ -73,18 +73,20 @@
 <h3>Comments</h3>
 @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
     <br>
-    {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
-        <div class="form-group">
-            <div class="col-xs-12">
-                <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+    <div class="row">
+        {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-12">
-                <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
+                </div>
             </div>
-        </div>
-    {{ Form::close() }}
+        {{ Form::close() }}
+    </div>
     <br>
 @else
 <p>
@@ -122,14 +124,16 @@
                 <h4 class="modal-title">Edit Comment</h4>
             </div>
             <div class="modal-body">
-                {{ Form::open(array('id' => 'edit_commentform', 'method' => 'PATCH', 'class' => 'form-vertical', 'data-pk' => '0')) }}
-                    <input id="verion" name="version" value="1" type="hidden">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+                <div class="row">
+                    {{ Form::open(array('id' => 'edit_commentform', 'method' => 'PATCH', 'class' => 'form-vertical', 'data-pk' => '0')) }}
+                        <input id="verion" name="version" value="1" type="hidden">
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
+                            </div>
                         </div>
-                    </div>
-                {{ Form::close() }}
+                    {{ Form::close() }}
+                </div>
             </div>
             <div class="modal-footer">
                 <button id="edit_comment_cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
