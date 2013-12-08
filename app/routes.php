@@ -150,10 +150,6 @@ if (Config::get('cms.storage')) {
 }
 
 
-// cloudflare routes
-Route::get('cloudflare', array('as' => 'cloudflare.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudFlareController@getIndex'));
-Route::get('cloudflare/data', array('as' => 'cloudflare.data', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudFlareController@getData'));
-
 // caching routes
 Route::get('caching', array('as' => 'caching.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CachingController@getIndex'));
 

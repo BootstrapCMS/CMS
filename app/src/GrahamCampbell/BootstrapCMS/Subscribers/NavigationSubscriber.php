@@ -37,7 +37,9 @@ class NavigationSubscriber {
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst', 8);
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond', 5);
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird', 2);
-        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBar', 2);
+        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarFirst', 8);
+        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarSecond', 5);
+        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarThird', 2);
     }
 
     /**
@@ -62,19 +64,6 @@ class NavigationSubscriber {
             if (Config::get('cms.storage')) {
                 Navigation::addMain(array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
             }
-
-            // add the admin links
-            if (Sentry::getUser()->hasAccess('admin')) {
-                Navigation::addMain(array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'), 'admin');
-                Navigation::addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
-                Navigation::addMain(array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'), 'admin');
-                Navigation::addMain(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'), 'admin');
-            }
-
-            // add the view users link
-            if (Sentry::getUser()->hasAccess('mod')) {
-                Navigation::addMain(array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'), 'admin');
-            }
         }
     }
 
@@ -98,6 +87,15 @@ class NavigationSubscriber {
             // add the page to the main nav bar
             Navigation::addMain($page);
         }
+
+        if (PageProvider::getNavUser()) {
+            // add the admin links
+            if (Sentry::getUser()->hasAccess('admin')) {
+                Navigation::addMain(array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'), 'admin');
+                Navigation::addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
+                Navigation::addMain(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'), 'admin');
+            }
+        }
     }
 
     /**
@@ -118,27 +116,52 @@ class NavigationSubscriber {
         // add the page to the start of the main nav bars
         Navigation::addMain($page, 'default', true);
         Navigation::addMain($page, 'admin', true);
+
+        if (PageProvider::getNavUser()) {
+            // add the view users link
+            if (Sentry::getUser()->hasAccess('mod')) {
+                Navigation::addMain(array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'), 'admin');
+            }
+        }
     }
 
     /**
-     * Handle a navigation.bar event.
+     * Handle a navigation.bar event first.
      *
      * @param  mixed  $event
      * @return void
      */
-    public function onNavigationBar($event) {
+    public function onNavigationBarFirst($event) {
         if (PageProvider::getNavUser()) {
             // add the profile links
             Navigation::addBar(array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
+        }
+    }
 
+    /**
+     * Handle a navigation.bar event second.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onNavigationBarSecond($event) {
+        if (PageProvider::getNavUser()) {
             // add the admin links
             if (Sentry::getUser()->hasAccess('admin')) {
                 Navigation::addBar(array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
                 Navigation::addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
-                Navigation::addBar(array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'));
                 Navigation::addBar(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
             }
-
+        }
+    }
+    /**
+     * Handle a navigation.bar event third.
+     *
+     * @param  mixed  $event
+     * @return void
+     */
+    public function onNavigationBarThird($event) {
+        if (PageProvider::getNavUser()) {
             // add the view users link
             if (Sentry::getUser()->hasAccess('mod')) {
                 Navigation::addBar(array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
