@@ -29,11 +29,11 @@ return array(
     |
     | This defines if page loads are logged.
     |
-    | Default to true. 
+    | Default to false. 
     |
     */
 
-    'pageload' => true,
+    'pageload' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -42,11 +42,11 @@ return array(
     |
     | This defines if view creations are logged.
     |
-    | Default to true. 
+    | Default to false. 
     |
     */
 
-    'viewmake' => true,
+    'viewmake' => false,
 
     /*
     |--------------------------------------------------------------------------
