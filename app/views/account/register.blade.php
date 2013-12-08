@@ -53,12 +53,11 @@ Register
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-sm-offset-3 col-sm-10 col-xs-12">
-                <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> Register</button>
-                <button class="btn btn-inverse" type="reset">Reset</button>
-            </div>
+        <div class="col-md-offset-2 col-sm-offset-3 col-sm-10 col-xs-12">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> Register</button>
+            <button class="btn btn-inverse" type="reset">Reset</button>
         </div>
-
+    </div>
     {{ Form::close() }}
 </div>
 @stop

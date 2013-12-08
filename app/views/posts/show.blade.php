@@ -77,16 +77,12 @@
         {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
             <div class="form-group">
                 <div class="col-xs-12">
-                    <div class="row">
-                        <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
-                    </div>
+                    <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-12">
-                    <div class="row">
-                        <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
-                    </div>
+                    <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
                 </div>
             </div>
         {{ Form::close() }}
