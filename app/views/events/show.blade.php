@@ -64,7 +64,7 @@
     </div>
     <div class="col-xs-12">
         <hr>
-        {{ str_replace('<p>', '<p class="lead">', Markdown::string($event->getBody())) }}
+        {{ str_replace('<p>', '<p class="lead">', Markdown::parse($event->getBody())) }}
     </div>
 </div>
 @stop

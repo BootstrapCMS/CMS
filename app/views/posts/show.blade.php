@@ -65,7 +65,7 @@
 @stop
 
 @section('content')
-{{ Markdown::string($post->getBody()) }}
+{{ Markdown::parse($post->getBody()) }}
 @stop
 
 @section('comments')
