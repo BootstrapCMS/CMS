@@ -12,13 +12,13 @@
     "require": {
         "php": ">=5.4.7",
         "graham-campbell/cms-core": "dev-master",
-        "fideloper/proxy": "dev-master",
-        "davejamesmiller/laravel-boris": "dev-master",
-        "barryvdh/laravel-debugbar": "dev-master"
+        "fideloper/proxy": "1.1.*",
+        "davejamesmiller/laravel-boris": "1.0.*",
+        "barryvdh/laravel-debugbar": "0.3.*"
     },
     "require-dev": {
-        "mockery/mockery": "dev-master",
-        "phpunit/phpunit": "dev-master"
+        "mockery/mockery": "0.8.*",
+        "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
         "classmap": [
@@ -47,5 +47,6 @@
     "config": {
         "preferred-install": "dist"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
