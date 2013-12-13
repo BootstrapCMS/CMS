@@ -12,7 +12,7 @@
     "require": {
         "php": ">=5.4.7",
         "graham-campbell/cms-core": "0.1.*",
-        "fideloper/proxy": "dev-master#d02c90ad4cad08b3ee8e67a72ff68eedd394ea6b",
+        "fideloper/proxy": "dev-master#17af4d4a9fb1ffd34e4995fe713a9284f076034e",
         "davejamesmiller/laravel-boris": "1.0.*",
         "barryvdh/laravel-debugbar": "0.3.*"
     },
