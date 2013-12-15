@@ -31,14 +31,14 @@
 |
 */
 
-App::before(function($request) {
+App::before(function ($request) {
     if ($request->ajax()) {
         Debugbar::disable();
     }
     Event::fire('page.load', array(array('Path' => $request->path(), 'Headers' => $request->header())));
 });
 
-App::after(function($request, $response) {
+App::after(function ($request, $response) {
     //
 });
 
@@ -54,7 +54,7 @@ App::after(function($request, $response) {
 */
 
 // check if the user is logged in and their access level
-Route::filter('auth', function($route, $request, $value) {
+Route::filter('auth', function ($route, $request, $value) {
     if (!Sentry::check()) {
         Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
         if (Request::ajax()) {
@@ -81,7 +81,7 @@ Route::filter('auth', function($route, $request, $value) {
 |
 */
 
-Route::filter('guest', function() {
+Route::filter('guest', function () {
     if (!Request::ajax() && Auth::check()) {
         return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
     }
@@ -98,7 +98,7 @@ Route::filter('guest', function() {
 |
 */
 
-Route::filter('csrf', function() {
+Route::filter('csrf', function () {
     if (Session::token() != Input::get('_token')) {
         throw new Illuminate\Session\TokenMismatchException;
     }

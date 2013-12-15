@@ -42,7 +42,7 @@ Route::get('get', array('as' => 'get', 'uses' => 'GrahamCampbell\BootstrapCMS\Co
 
 
 // send users to the home page
-Route::get('/', array('as' => 'base', function() {
+Route::get('/', array('as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
     return Redirect::route('pages.show', array('pages' => 'home'));
@@ -50,7 +50,7 @@ Route::get('/', array('as' => 'base', function() {
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
-    Route::get('blog', array('as' => 'blog', function() {
+    Route::get('blog', array('as' => 'blog', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('blog.posts.index');
@@ -59,17 +59,17 @@ if (Config::get('cms.blogging')) {
 
 // send users to the sections page
 if (Config::get('cms.forum')) {
-    Route::get('forum', array('as' => 'forum', function() {
+    Route::get('forum', array('as' => 'forum', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('forum.sections.index');
     }));
-    Route::get('forums', array('as' => 'forums1', function() {
+    Route::get('forums', array('as' => 'forums1', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('forum.sections.index');
     }));
-    Route::get('forums/sections', array('as' => 'forums2', function() {
+    Route::get('forums/sections', array('as' => 'forums2', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('forum.sections.index');
@@ -78,7 +78,7 @@ if (Config::get('cms.forum')) {
 
 // send users to the sections page
 if (Config::get('cms.storage')) {
-    Route::get('storage', array('as' => 'storage', function() {
+    Route::get('storage', array('as' => 'storage', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('storage.folders.index');
@@ -86,7 +86,7 @@ if (Config::get('cms.storage')) {
 }
 
 // send users to the profile page
-Route::get('account', array('as' => 'account', function() {
+Route::get('account', array('as' => 'account', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
     return Redirect::route('account.profile');

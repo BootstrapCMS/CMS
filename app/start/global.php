@@ -63,7 +63,7 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 |
 */
 
-App::fatal(function($exception) {
+App::fatal(function ($exception) {
     try {
         Log::alert($exception);
     } catch (Exception $e) {
@@ -95,7 +95,7 @@ App::fatal(function($exception) {
     }
 });
 
-App::error(function(Exception $exception, $code) {
+App::error(function (Exception $exception, $code) {
     switch ($code) {
         case 404:
             Log::warning($exception);
@@ -232,7 +232,7 @@ App::error(function(Exception $exception, $code) {
 |
 */
 
-App::down(function() {
+App::down(function () {
     return Response::view(Config::get('views.maintenance', 'maintenance'), array(), 503);
 });
 
