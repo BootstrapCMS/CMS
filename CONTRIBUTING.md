@@ -24,4 +24,4 @@ Please submit pull requests against the develop branch.
 * Any pull requests made against the master branch will be closed immediately.  
 * If you plan to fix a bug, please create a branch called `fix-`, followed by an appropriate name.  
 * If you plan to add a feature, please create a branch called `feature-`, followed by an appropriate name.  
-* Please indent with 4 spaces rather than tabs, and make sure your code is commented.  
+* Please follow PSR-2 standards except namespace declarations should be on the same line as `<?php`.  

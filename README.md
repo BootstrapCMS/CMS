@@ -17,7 +17,7 @@ Bootstrap CMS
 
 ## What Is Bootstrap CMS?
 
-Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Sentry 2.0](http://docs.cartalyst.com/sentry-2).  
+Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [Sentry 2.1](http://docs.cartalyst.com/sentry-2).  
 
 * Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Bootstrap CMS relies on my [CMS Core](https://github.com/GrahamCampbell/CMS-Core) package.  
@@ -47,7 +47,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 
 ## System Requirements
 
-Bootstrap CMS was designed to run on a Linux machine with PHP 5.4 and MySQL 5.5.  
+Bootstrap CMS was designed to run on a Linux machine with PHP 5.5 and MySQL 5.5.  
 
 * PHP 5.4.7+ or PHP 5.5+ is required.
 * MySQL 5.1+, 5.5+, or 5.6+ is required. MySQL 5.7+ may work, but is untested.  
@@ -150,14 +150,14 @@ Please submit pull requests against the develop branch.
 * Any pull requests made against the master branch will be closed immediately.  
 * If you plan to fix a bug, please create a branch called `fix-`, followed by an appropriate name.  
 * If you plan to add a feature, please create a branch called `feature-`, followed by an appropriate name.  
-* Please indent with 4 spaces rather than tabs, and make sure your code is commented.  
+* Please follow PSR-2 standards except namespace declarations should be on the same line as `<?php`.  
 
 
 ## License
 
 GNU AFFERO GENERAL PUBLIC LICENSE  
 
-Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With Sentry 2.0  
+Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With Sentry 2.1  
 Copyright (C) 2013  Graham Campbell  
 
 This program is free software: you can redistribute it and/or modify
