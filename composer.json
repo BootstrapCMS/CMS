@@ -39,6 +39,8 @@
     },
     "require-dev": {
         "mockery/mockery": "0.8.*",
+        "phpunit/phpunit": "3.7.*",
+        "sebastian/finder-facade": "1.1.*",
         "sebastianbergmann/phpcov": "1.1.0",
         "satooshi/php-coveralls": "dev-master"
     },
