@@ -142,7 +142,7 @@ return array(
         'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Passwd\PasswdServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
-        'GrahamCampbell\CMSCore\Support\CMSCoreServiceProvider',
+        'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'DaveJamesMiller\Boris\BorisServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
