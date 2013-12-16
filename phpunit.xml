@@ -19,7 +19,7 @@
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app/src</directory>
             <exclude>
-                <directory suffix=".php">./vendor</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>
