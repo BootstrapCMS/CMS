@@ -32,6 +32,6 @@ abstract class TestCase extends LaravelTestCase {
     public function createApplication() {
         $unitTesting = true;
         $testEnvironment = 'testing';
-        return require __DIR__.'/../../../../../bootstrap/start.php';
+        return require __DIR__.'/../../../../bootstrap/start.php';
     }
 }

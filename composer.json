@@ -50,7 +50,10 @@
             "app/database/seeds"
         ],
         "psr-0": {
-            "GrahamCampbell\\BootstrapCMS": "app/src/"
+            "GrahamCampbell\\BootstrapCMS\\Commands": "src/",
+            "GrahamCampbell\\BootstrapCMS\\Controllers": "src/",
+            "GrahamCampbell\\BootstrapCMS\\Subscribers": "src/",
+            "GrahamCampbell\\BootstrapCMS\\Tests": "tests/"
         }
     },
     "scripts": {

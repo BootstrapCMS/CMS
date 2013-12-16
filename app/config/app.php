@@ -142,7 +142,7 @@ return array(
         'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Passwd\PasswdServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
-        'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
+        'GrahamCampbell\CMSCore\Support\CMSCoreServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'DaveJamesMiller\Boris\BorisServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
@@ -229,9 +229,6 @@ return array(
         'GroupProvider'   => 'GrahamCampbell\CMSCore\Facades\GroupProvider',
         'PageProvider'    => 'GrahamCampbell\CMSCore\Facades\PageProvider',
         'PostProvider'    => 'GrahamCampbell\CMSCore\Facades\PostProvider',
-        'ReplyProvider'   => 'GrahamCampbell\CMSCore\Facades\ReplyProvider',
-        'SectionProvider' => 'GrahamCampbell\CMSCore\Facades\SectionProvider',
-        'TopicProvider'   => 'GrahamCampbell\CMSCore\Facades\TopicProvider',
         'UserProvider'    => 'GrahamCampbell\CMSCore\Facades\UserProvider',
         'Debugbar'        => 'Barryvdh\Debugbar\Facade'
 
