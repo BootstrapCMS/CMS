@@ -15,4 +15,12 @@
             <directory suffix=".php">./app/src/GrahamCampbell/BootstrapCMS/Tests/</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app/src</directory>
+            <exclude>
+                <directory suffix=".php">./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>
