@@ -32,7 +32,7 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "graham-campbell/cms-core": "0.1.*",
+        "graham-campbell/cms-core": "0.1.*@dev",
         "fideloper/proxy": "2.0.*",
         "davejamesmiller/laravel-boris": "1.0.*",
         "barryvdh/laravel-debugbar": "0.3.*"
