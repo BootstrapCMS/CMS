@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -27,7 +27,7 @@ use Mockery;
 
 use Navigation;
 use PageProvider;
-use GrahamCampbell\BootstrapCMS\Tests\TestCase;
+use GrahamCampbell\Tests\BootstrapCMS\TestCase;
 
 abstract class ControllerTestCase extends TestCase {
 

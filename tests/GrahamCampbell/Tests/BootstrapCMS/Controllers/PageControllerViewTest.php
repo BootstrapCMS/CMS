@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,8 +20,19 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-class EventControllerActionTest extends ResourcefulActionTestCase {
+class PageControllerViewTest extends ResourcefulViewTestCase {
 
-    use EventControllerSetupTrait;
+    use PageControllerSetupTrait;
 
+    protected function indexSetup() {
+        // overwritten to cancel it
+    }
+
+    protected function indexMocking() {
+        // overwritten to cancel it
+    }
+
+    protected function indexAssertions() {
+        $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram('home'));
+    }
 }

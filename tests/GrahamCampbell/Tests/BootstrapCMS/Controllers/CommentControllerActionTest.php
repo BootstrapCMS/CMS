@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.

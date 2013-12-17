@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,37 +20,38 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Carbon\Carbon;
+trait PageControllerSetupTrait {
 
-trait EventControllerSetupTrait {
-
-    protected $model = 'GrahamCampbell\CMSCore\Models\Event';
-    protected $provider = 'GrahamCampbell\CMSCore\Facades\EventProvider';
-    protected $view = 'event';
-    protected $name = 'events';
-    protected $base = 'events';
-    protected $uid = 'id';
+    protected $model = 'GrahamCampbell\CMSCore\Models\Page';
+    protected $provider = 'GrahamCampbell\CMSCore\Facades\PageProvider';
+    protected $view = 'page';
+    protected $name = 'pages';
+    protected $base = 'pages';
+    protected $uid = 'slug';
 
     protected function extraLinks() {
-        $date = new Carbon($this->attributes['date']);
-        $this->attributes['date'] = $date;
-        $formatteddate = $date->format('l jS F Y \\- H:i:s');
-        $this->attributes['formatteddate'] = $formatteddate;
         $this->addLinks(array(
-            'getTitle'         => 'title',
-            'getDate'          => 'date',
-            'getFormattedDate' => 'formatteddate',
-            'getLocation'      => 'location',
-            'getBody'          => 'body',
-            'getUserId'        => 'user_id',
+            'getTitle'     => 'title',
+            'getSlug'      => 'slug',
+            'getBody'      => 'body',
+            'getCSS'       => 'css',
+            'getJS'        => 'js',
+            'getShowTitle' => 'show_title',
+            'getShowNav'   => 'show_nav',
+            'getIcon'      => 'icon',
+            'getUserId'    => 'user_id',
         ));
     }
 
     protected function extraMockingTests() {
         $this->assertEquals($this->mock->getTitle(), $this->attributes['title']);
-        $this->assertEquals($this->mock->getDate(), $this->attributes['date']);
-        $this->assertEquals($this->mock->getLocation(), $this->attributes['location']);
+        $this->assertEquals($this->mock->getSlug(), $this->attributes['slug']);
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);
+        $this->assertEquals($this->mock->getCSS(), $this->attributes['css']);
+        $this->assertEquals($this->mock->getJS(), $this->attributes['js']);
+        $this->assertEquals($this->mock->getShowTitle(), $this->attributes['show_title']);
+        $this->assertEquals($this->mock->getShowNav(), $this->attributes['show_nav']);
+        $this->assertEquals($this->mock->getIcon(), $this->attributes['icon']);
         $this->assertEquals($this->mock->getUserId(), $this->attributes['user_id']);
     }
 }

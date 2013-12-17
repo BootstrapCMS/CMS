@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,19 +20,11 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Mockery;
+class PageControllerActionTest extends ResourcefulActionTestCase {
 
-class PostControllerViewTest extends ResourcefulViewTestCase {
+    use PageControllerSetupTrait;
 
-    use PostControllerSetupTrait;
-
-    protected function showMocking() {
-        $provider = $this->provider;
-        $provider::shouldReceive('find')
-            ->with($this->getUid())->once()->andReturn($this->mock);
-        $this->mock->shouldReceive('getUserName')
-            ->twice()->andReturn('name');
-        $this->mock->shouldReceive('getComments')
-            ->once()->andReturn(array());
+    protected function destroyAssertions() {
+        $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram('home'));
     }
 }

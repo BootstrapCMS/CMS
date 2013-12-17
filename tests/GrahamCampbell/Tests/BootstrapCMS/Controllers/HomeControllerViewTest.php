@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,17 +20,21 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-class BasicTest extends TestCase {
+class HomeControllerViewTest extends ControllerTestCase {
 
-    public function testBase() {
-        $this->call('GET', '/');
+    use HomeControllerSetupTrait;
 
-        $this->assertRedirectedToRoute('pages.show', array('pages' => 'home'));
+    public function testShowWelcome() {
+        $this->setAsPage();
+
+        $this->call('GET', $this->getPath('hello'));
+
+        $this->assertResponseOk();
     }
 
-    public function testBlog() {
-        $this->call('GET', 'blog');
+    public function testShowTest() {
+        $this->call('GET', $this->getPath('test'));
 
-        $this->assertRedirectedToRoute('blog.posts.index');
+        $this->assertResponseOk();
     }
 }

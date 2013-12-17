@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,17 +20,18 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-trait HomeControllerSetupTrait {
+use Illuminate\Foundation\Testing\TestCase as LaravelTestCase;
 
-    // ControllerTestCase requires for the controller to be attached to a model
-    // we will mock the page model because we have to anyway for the nav bar
-    // we will set the base url as an empty string so we can request any page
+abstract class TestCase extends LaravelTestCase {
 
-    protected $model = 'GrahamCampbell\CMSCore\Models\Page';
-    protected $provider = 'GrahamCampbell\CMSCore\Facades\PageProvider';
-    protected $view = 'page';
-    protected $name = 'pages';
-    protected $base = '';
-    protected $uid = 'slug';
-
+    /**
+     * Creates the application.
+     *
+     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
+     */
+    public function createApplication() {
+        $unitTesting = true;
+        $testEnvironment = 'testing';
+        return require __DIR__.'/../../../../bootstrap/start.php';
+    }
 }

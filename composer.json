@@ -32,17 +32,24 @@
     ],
     "require": {
         "php": ">=5.4.7",
+        "laravel/framework": "4.0.*",
         "graham-campbell/cms-core": "0.1.*",
         "fideloper/proxy": "2.0.*",
         "davejamesmiller/laravel-boris": "1.0.*",
         "barryvdh/laravel-debugbar": "0.3.*"
     },
     "require-dev": {
+        "orchestra/testbench": "2.0.*",
         "mockery/mockery": "0.8.*",
         "phpunit/phpunit": "3.7.*",
         "sebastian/finder-facade": "1.1.*",
         "sebastianbergmann/phpcov": "1.1.0",
-        "satooshi/php-coveralls": "dev-master"
+        "satooshi/php-coveralls": "dev-master",
+        "symfony/config": "2.3.*",
+        "symfony/event-dispatcher": "2.3.*",
+        "symfony/stopwatch": "2.3.*",
+        "symfony/yaml": "2.3.*",
+        "guzzle/guzzle": "3.8.*"
     },
     "autoload": {
         "classmap": [
@@ -50,10 +57,8 @@
             "app/database/seeds"
         ],
         "psr-0": {
-            "GrahamCampbell\\BootstrapCMS\\Commands": "src/",
-            "GrahamCampbell\\BootstrapCMS\\Controllers": "src/",
-            "GrahamCampbell\\BootstrapCMS\\Subscribers": "src/",
-            "GrahamCampbell\\BootstrapCMS\\Tests": "tests/"
+            "GrahamCampbell\\BootstrapCMS": "src/",
+            "GrahamCampbell\\Tests\\BootstrapCMS": "tests/"
         }
     },
     "scripts": {

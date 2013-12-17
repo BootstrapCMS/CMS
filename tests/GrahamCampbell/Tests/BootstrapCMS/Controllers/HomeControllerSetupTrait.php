@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,11 +20,17 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-class PageControllerActionTest extends ResourcefulActionTestCase {
+trait HomeControllerSetupTrait {
 
-    use PageControllerSetupTrait;
+    // ControllerTestCase requires for the controller to be attached to a model
+    // we will mock the page model because we have to anyway for the nav bar
+    // we will set the base url as an empty string so we can request any page
 
-    protected function destroyAssertions() {
-        $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram('home'));
-    }
+    protected $model = 'GrahamCampbell\CMSCore\Models\Page';
+    protected $provider = 'GrahamCampbell\CMSCore\Facades\PageProvider';
+    protected $view = 'page';
+    protected $name = 'pages';
+    protected $base = '';
+    protected $uid = 'slug';
+
 }

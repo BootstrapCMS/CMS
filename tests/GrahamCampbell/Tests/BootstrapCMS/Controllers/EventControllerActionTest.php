@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,18 +20,8 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-use Illuminate\Foundation\Testing\TestCase as LaravelTestCase;
+class EventControllerActionTest extends ResourcefulActionTestCase {
 
-abstract class TestCase extends LaravelTestCase {
+    use EventControllerSetupTrait;
 
-    /**
-     * Creates the application.
-     *
-     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-     */
-    public function createApplication() {
-        $unitTesting = true;
-        $testEnvironment = 'testing';
-        return require __DIR__.'/../../../../bootstrap/start.php';
-    }
 }

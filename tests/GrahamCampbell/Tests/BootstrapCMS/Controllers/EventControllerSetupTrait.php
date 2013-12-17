@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,28 +20,37 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-trait CommentControllerSetupTrait {
+use Carbon\Carbon;
 
-    protected $model = 'GrahamCampbell\CMSCore\Models\Comment';
-    protected $provider = 'GrahamCampbell\CMSCore\Facades\CommentProvider';
-    protected $view = 'comment';
-    protected $name = 'posts'; // yes, that's right - we should redirect to the posts routes
-    protected $base = 'blog.posts'; // yes, that's right - we should redirect to the posts routes
+trait EventControllerSetupTrait {
+
+    protected $model = 'GrahamCampbell\CMSCore\Models\Event';
+    protected $provider = 'GrahamCampbell\CMSCore\Facades\EventProvider';
+    protected $view = 'event';
+    protected $name = 'events';
+    protected $base = 'events';
     protected $uid = 'id';
 
     protected function extraLinks() {
+        $date = new Carbon($this->attributes['date']);
+        $this->attributes['date'] = $date;
+        $formatteddate = $date->format('l jS F Y \\- H:i:s');
+        $this->attributes['formatteddate'] = $formatteddate;
         $this->addLinks(array(
-            'getBody'      => 'body',
-            'getUserId'    => 'user_id',
-            'getPostId'    => 'post_id',
-            'getVersion'   => 'version'
+            'getTitle'         => 'title',
+            'getDate'          => 'date',
+            'getFormattedDate' => 'formatteddate',
+            'getLocation'      => 'location',
+            'getBody'          => 'body',
+            'getUserId'        => 'user_id',
         ));
     }
 
     protected function extraMockingTests() {
+        $this->assertEquals($this->mock->getTitle(), $this->attributes['title']);
+        $this->assertEquals($this->mock->getDate(), $this->attributes['date']);
+        $this->assertEquals($this->mock->getLocation(), $this->attributes['location']);
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);
         $this->assertEquals($this->mock->getUserId(), $this->attributes['user_id']);
-        $this->assertEquals($this->mock->getPostId(), $this->attributes['post_id']);
-        $this->assertEquals($this->mock->getVersion(), $this->attributes['version']);
     }
 }

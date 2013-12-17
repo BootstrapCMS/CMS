@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Tests\Controllers;
+<?php namespace GrahamCampbell\Tests\BootstrapCMS;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -20,8 +20,17 @@
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 
-class PostControllerActionTest extends ResourcefulActionTestCase {
+class BasicTest extends TestCase {
 
-    use PostControllerSetupTrait;
+    public function testBase() {
+        $this->call('GET', '/');
 
+        $this->assertRedirectedToRoute('pages.show', array('pages' => 'home'));
+    }
+
+    public function testBlog() {
+        $this->call('GET', 'blog');
+
+        $this->assertRedirectedToRoute('blog.posts.index');
+    }
 }
