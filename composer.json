@@ -33,6 +33,8 @@
     "require": {
         "php": ">=5.4.7",
         "laravel/framework": "4.0.*",
+        "symfony/config": "2.3.*",
+        "symfony/filesystem": "2.3.*",
         "graham-campbell/cms-core": "0.1.*",
         "fideloper/proxy": "2.0.*",
         "davejamesmiller/laravel-boris": "1.0.*",
