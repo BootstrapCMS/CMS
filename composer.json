@@ -47,7 +47,6 @@
         "sebastian/finder-facade": "1.1.*",
         "sebastianbergmann/phpcov": "1.1.0",
         "satooshi/php-coveralls": "dev-master",
-        "symfony/config": "2.3.*",
         "symfony/event-dispatcher": "2.3.*",
         "symfony/stopwatch": "2.3.*",
         "symfony/yaml": "2.3.*",
