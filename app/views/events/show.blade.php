@@ -48,7 +48,7 @@
 <div class="well clearfix">
     <div class="hidden-xs">
         <div class="col-xs-6">
-            <p class="lead">Date: {{ $event->getFormattedDate() }}</p>
+            <p class="lead">Date: {{ substr($event->getFormattedDate(), 0, -3) }}</p>
         </div>
         <div class="col-xs-6">
             <div class="pull-right">
@@ -58,7 +58,7 @@
     </div>
     <div class="visible-xs">
         <div class="col-xs-12">
-            <p class="lead">Date: {{ $event->getFormattedDate() }}</p>
+            <p class="lead">Date: {{ substr($event->getFormattedDate(), 0, -3) }}</p>
             <p class="lead">Location: {{ $event->getLocation() }}</p>
         </div>
     </div>

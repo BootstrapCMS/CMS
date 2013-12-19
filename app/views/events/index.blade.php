@@ -29,7 +29,7 @@ Events
 @foreach($events as $event)
     <h2>{{ $event->getTitle() }}</h2>
     <p>
-        <strong>{{ $event->getFormattedDate() }}</strong>
+        <strong>{{ substr($event->getFormattedDate(), 0, -3) }}</strong>
     </p>
     <p>
         <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="fa fa-file-text"></i> Show Event</a>
