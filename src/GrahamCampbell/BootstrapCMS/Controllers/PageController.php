@@ -254,7 +254,8 @@ class PageController extends BaseController
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    protected function checkDelete($slug) {
+    protected function checkDelete($slug)
+    {
         if ($slug == 'home') {
             Session::flash('error', 'You cannot delete the homepage.');
             return Redirect::route('pages.show', array('pages' => 'home'));

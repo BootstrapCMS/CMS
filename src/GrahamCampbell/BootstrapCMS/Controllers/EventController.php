@@ -141,7 +141,7 @@ class EventController extends BaseController
      */
     public function update($id)
     {
-       $input = array(
+        $input = array(
             'title'    => Binput::get('title'),
             'location' => Binput::get('location'),
             'date'     => Binput::get('date'),

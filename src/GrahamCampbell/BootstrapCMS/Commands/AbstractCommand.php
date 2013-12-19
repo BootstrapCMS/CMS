@@ -70,7 +70,7 @@ abstract class AbstractCommand extends Command
      */
     protected function runSeeding()
     {
-        $this->call('db:seed',  array('--class' => 'GrahamCampbell\CMSCore\Seeds\DatabaseSeeder'));
+        $this->call('db:seed', array('--class' => 'GrahamCampbell\CMSCore\Seeds\DatabaseSeeder'));
         $this->call('db:seed');
     }
 

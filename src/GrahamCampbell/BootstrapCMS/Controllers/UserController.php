@@ -125,7 +125,7 @@ class UserController extends BaseController
             $user = UserProvider::create($input);
 
             $groups = GroupProvider::index();
-            foreach($groups as $group) {
+            foreach ($groups as $group) {
                 if (Binput::get('group_'.$group->id) === 'on') {
                     $user->addGroup($group);
                 }
@@ -141,19 +141,19 @@ class UserController extends BaseController
                 );
 
                 Queuing::pushMail($data);
-                } catch (\Exception $e) {
-                    Log::alert($e);
-                    $user->delete();
-                    Session::flash('error', 'We were unable to create the user. Please contact support.');
-                    return Redirect::route('users.create')->withInput();
-                }
+            } catch (\Exception $e) {
+                Log::alert($e);
+                $user->delete();
+                Session::flash('error', 'We were unable to create the user. Please contact support.');
+                return Redirect::route('users.create')->withInput();
+            }
 
-                Session::flash('success', 'The user has been created successfully. Their password has been emailed to them.');
-                return Redirect::route('users.show', array('users' => $user->getId()));
-            } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
-                Log::notice($e);
-                Session::flash('error', 'That email address is taken.');
-                return Redirect::route('users.create')->withInput()->withErrors($val);
+            Session::flash('success', 'The user has been created successfully. Their password has been emailed to them.');
+            return Redirect::route('users.show', array('users' => $user->getId()));
+        } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
+            Log::notice($e);
+            Session::flash('error', 'That email address is taken.');
+            return Redirect::route('users.create')->withInput()->withErrors($val);
         }
     }
 
@@ -219,7 +219,7 @@ class UserController extends BaseController
 
         $groups = GroupProvider::index();
 
-        foreach($groups as $group) {
+        foreach ($groups as $group) {
             if ($user->inGroup($group)) {
                 if (Binput::get('group_'.$group->id) !== 'on') {
                     $user->removeGroup($group);
