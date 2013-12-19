@@ -126,7 +126,8 @@ Bootstrap CMS also ships with 14 themes, 12 from [Bootswatch](http://bootswatch.
 
 ## Setting Up Plugins
 
-Bootstrap CMS supports plugins through [CMS Core](https://github.com/GrahamCampbell/CMS-Core).
+Bootstrap CMS supports plugins through [CMS Core](https://github.com/GrahamCampbell/CMS-Core).  
+Note that Bootstrap CMS already ships with the [CMS LogViewer](https://github.com/GrahamCampbell/CMS-LogViewer) plugin.  
 
 1. Add the plugin's package name to your `composer.json`.  
 2. Add the service provider for the plugin in`app/config/cms.php`.  
@@ -135,8 +136,7 @@ Bootstrap CMS supports plugins through [CMS Core](https://github.com/GrahamCampb
 
 ## Usage
 
-There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Bootstrap-CMS
-) for Bootstrap CMS.  
+There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Bootstrap-CMS) for Bootstrap CMS.  
 
 
 ## Updating Your Fork
