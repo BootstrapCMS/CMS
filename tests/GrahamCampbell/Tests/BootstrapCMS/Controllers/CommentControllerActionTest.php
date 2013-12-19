@@ -18,7 +18,6 @@ namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 use Mockery;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\Binput\Facades\Binput;
 
 /**
  * This is the comment controller action test class.

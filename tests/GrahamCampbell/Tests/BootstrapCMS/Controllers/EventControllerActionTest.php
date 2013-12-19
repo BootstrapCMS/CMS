@@ -28,4 +28,14 @@ namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 class EventControllerActionTest extends AbstractResourcefulActionTestCase
 {
     use EventControllerSetupTrait;
+
+    protected function storeCall()
+    {
+        $this->call('POST', $this->getPath(), array('date' => $this->attributes['date']->format('d/m/Y H:i')));
+    }
+
+    protected function updateCall()
+    {
+        $this->call('PATCH', $this->getPath($this->getUid()), array('date' => $this->attributes['date']->format('d/m/Y H:i')));
+    }
 }

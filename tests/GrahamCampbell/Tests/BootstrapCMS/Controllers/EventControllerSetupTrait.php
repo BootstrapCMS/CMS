@@ -46,6 +46,7 @@ trait EventControllerSetupTrait
             'getTitle'         => 'title',
             'getDate'          => 'date',
             'getFormattedDate' => 'formatteddate',
+            'getDateByFormat'  => 'formatteddate',
             'getLocation'      => 'location',
             'getBody'          => 'body',
             'getUserId'        => 'user_id',
