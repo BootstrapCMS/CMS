@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#datetimepicker3').datetimepicker({
+    $('#datetimepicker1').datetimepicker({
         pick12HourFormat: false
     });
 });
