@@ -138,7 +138,6 @@ return array(
         'GrahamCampbell\Navigation\NavigationServiceProvider',
         'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
-        'DaveJamesMiller\Aliases\AliasesServiceProvider',
         'DaveJamesMiller\Boris\BorisServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
 

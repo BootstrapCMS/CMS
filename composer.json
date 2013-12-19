@@ -37,8 +37,7 @@
         "symfony/filesystem": "2.3.*",
         "graham-campbell/cms-core": "dev-develop",
         "fideloper/proxy": "2.0.*",
-        "davejamesmiller/laravel-aliases": "dev-master",
-        "davejamesmiller/laravel-boris": "dev-master",
+        "davejamesmiller/laravel-boris": "dev-master#c08521f99f36146b8ec9430bf5985c56444c0e10",
         "barryvdh/laravel-debugbar": "0.3.*"
     },
     "require-dev": {
