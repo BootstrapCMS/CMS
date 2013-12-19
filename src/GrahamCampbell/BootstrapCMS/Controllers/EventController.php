@@ -88,7 +88,7 @@ class EventController extends BaseController
         $input = array(
             'title'    => Binput::get('title'),
             'location' => Binput::get('location'),
-            'date'     => Carbon::createFromFormat('d/m/Y H:i', Binput::get('date')),
+            'date'     => Binput::get('date'),
             'body'     => Binput::get('body'),
             'user_id'  => $this->getUserId(),
         );
@@ -99,6 +99,8 @@ class EventController extends BaseController
         if ($val->fails()) {
             return Redirect::route('events.create')->withInput()->withErrors($val->errors());
         }
+
+        $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
 
         $event = EventProvider::create($input);
 
@@ -145,7 +147,7 @@ class EventController extends BaseController
         $input = array(
             'title'    => Binput::get('title'),
             'location' => Binput::get('location'),
-            'date'     => Carbon::createFromFormat('d/m/Y H:i', Binput::get('date')),
+            'date'     => Binput::get('date'),
             'body'     => Binput::get('body'),
             'user_id'  => $this->getUserId(),
         );
@@ -157,6 +159,8 @@ class EventController extends BaseController
         if ($val->fails()) {
             return Redirect::route('events.edit', array('events' => $id))->withInput()->withErrors($val->errors());
         }
+
+        $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
 
         $event = EventProvider::find($id);
         $this->checkEvent($event);
