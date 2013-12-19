@@ -39,7 +39,7 @@ Asset::registerScripts(array(
 
 Asset::registerStyles(array(
     'css/bootstrap-switch.css',
-    'css/bootstrap-datetimepicker.min.css',
+    'css/datepicker3.css',
     'css/bootstrap-markdown.min.css'
 ), '', 'form');
 
@@ -47,7 +47,7 @@ Asset::registerStyles(array(
 Asset::registerScripts(array(
     'js/jquery.form.js',
     'js/bootstrap-switch.js',
-    'js/bootstrap-datetimepicker.min.js',
+    'js/bootstrap-datepicker.js',
     'js/cms-picker.js',
     'js/bootstrap-markdown.js'
 ), '', 'form');
