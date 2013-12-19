@@ -35,7 +35,7 @@
         "laravel/framework": "4.0.*",
         "symfony/config": "2.3.*",
         "symfony/filesystem": "2.3.*",
-        "graham-campbell/cms-core": "0.1.*",
+        "graham-campbell/cms-core": "dev-develop",
         "fideloper/proxy": "2.0.*",
         "davejamesmiller/laravel-aliases": "1.0.*",
         "davejamesmiller/laravel-boris": "1.0.*",
