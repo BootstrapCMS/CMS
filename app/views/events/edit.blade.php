@@ -45,8 +45,10 @@ Edit {{ $event->getTitle() }}
 
 @section('css')
 {{ Asset::styles('form') }}
+{{ Asset::styles('picker') }}
 @stop
 
 @section('js')
 {{ Asset::scripts('form') }}
+{{ Asset::scripts('picker') }}
 @stop
