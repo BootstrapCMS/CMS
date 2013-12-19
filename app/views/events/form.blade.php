@@ -20,7 +20,7 @@
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="date">Event Date</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <div class="input-group date form_datetime" data-date="{{ Request::old('date', $form['defaults']['date']) }}" data-date-format="mm/dd/yyyy hh:ii" data-link-field="date">
-                <input id="date" class="form-control" size="16" type="text" value="{{ Request::old('date', $form['defaults']['date']) }}">
+                <input id="date" name="date" type="text" class="form-control" value="{{ Request::old('date', $form['defaults']['date']) }}" placeholder="Event Date">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                 <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
             </div>

@@ -7,6 +7,5 @@ $(function() {
         todayHighlight: 1,
         startView: 2,
         forceParse: 1,
-        showMeridian: 1
     });
 });
