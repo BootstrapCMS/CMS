@@ -37,8 +37,10 @@
         "symfony/filesystem": "2.3.*",
         "graham-campbell/cms-core": "0.1.*",
         "fideloper/proxy": "2.0.*",
+        "davejamesmiller/laravel-aliases": "1.0.*",
         "davejamesmiller/laravel-boris": "1.0.*",
-        "barryvdh/laravel-debugbar": "0.3.*"
+        "barryvdh/laravel-debugbar": "0.3.*",
+        "maximebf/debugbar": "1.7.*"
     },
     "require-dev": {
         "orchestra/testbench": "2.0.*",
