@@ -28,7 +28,7 @@ Edit {{ $event->getTitle() }}
         'button'   => 'Save Event',
         'defaults' => array(
             'title'    => $event->getTitle(),
-            'date'     => $event->getDateByFormat('d-m-Y H:i'),
+            'date'     => $event->getDateByFormat('d/m/Y H:i'),
             'location' => $event->getLocation(),
             'body'     => $event->getBody(),
     ));
