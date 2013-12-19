@@ -100,7 +100,7 @@ class EventController extends BaseController
             return Redirect::route('events.create')->withInput()->withErrors($val->errors());
         }
 
-        $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
+        $input['date'] = Carbon::createFromFormat('d-m-Y H:i', $input['date']);
 
         $event = EventProvider::create($input);
 
@@ -160,7 +160,7 @@ class EventController extends BaseController
             return Redirect::route('events.edit', array('events' => $id))->withInput()->withErrors($val->errors());
         }
 
-        $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
+        $input['date'] = Carbon::createFromFormat('d-m-Y H:i', $input['date']);
 
         $event = EventProvider::find($id);
         $this->checkEvent($event);

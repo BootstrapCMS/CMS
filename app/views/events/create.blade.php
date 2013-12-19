@@ -12,7 +12,7 @@ Create Event
         'button'   => 'Create New Event',
         'defaults' => array(
             'title'    => '',
-            'date'     => Carbon\Carbon::now()->addMinutes(30)->format('d/m/Y H:i'),
+            'date'     => Carbon\Carbon::now()->addMinutes(30)->format('d-m-Y H:i'),
             'location' => '',
             'body'     => '',
     ));
