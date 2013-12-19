@@ -18,7 +18,7 @@
 
     <div class="form-group{{ ($errors->has('date')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="date">Event Date</label>
-        <div class="input-group date form_datetime col-lg-3 col-md-4 col-sm-5 col-xs-10" data-date="{{ Request::old('date', $form['defaults']['date']) }}" data-date-format="dd MM yyyy - HH:ii p" data-link-field="date">
+        <div class="input-group date form_datetime col-lg-3 col-md-4 col-sm-5 col-xs-10" data-date="{{ Request::old('date', $form['defaults']['date']) }}" data-date-format="mm/dd/yyyy hh:ii" data-link-field="date">
             <input class="form-control" size="16" type="text" value="" readonly>
             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>

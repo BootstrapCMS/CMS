@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -87,7 +88,7 @@ class EventController extends BaseController
         $input = array(
             'title'    => Binput::get('title'),
             'location' => Binput::get('location'),
-            'date'     => Binput::get('date'),
+            'date'     => Carbon::createFromFormat('d/m/Y H:i', Binput::get('date')),
             'body'     => Binput::get('body'),
             'user_id'  => $this->getUserId(),
         );
@@ -144,7 +145,7 @@ class EventController extends BaseController
         $input = array(
             'title'    => Binput::get('title'),
             'location' => Binput::get('location'),
-            'date'     => Binput::get('date'),
+            'date'     => Carbon::createFromFormat('d/m/Y H:i', Binput::get('date')),
             'body'     => Binput::get('body'),
             'user_id'  => $this->getUserId(),
         );
