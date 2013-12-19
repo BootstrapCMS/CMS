@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,34 +12,37 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\CMSCore\Models\Page;
+use GrahamCampbell\CMSCore\Facades\PageProvider;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the page controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Redirect;
-use Session;
-use Validator;
-
-use Binput;
-
-use PageProvider;
-use GrahamCampbell\CMSCore\Models\Page;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class PageController extends BaseController {
-
+class PageController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -56,7 +59,8 @@ class PageController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('pages.show', array('pages' => 'home'));
@@ -67,7 +71,8 @@ class PageController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         return $this->viewMake('pages.create');
     }
 
@@ -76,7 +81,8 @@ class PageController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function store() {
+    public function store()
+    {
         $input = array(
             'title'      => Binput::get('title'),
             'slug'       => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
@@ -107,7 +113,8 @@ class PageController extends BaseController {
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($slug) {
+    public function show($slug)
+    {
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
@@ -120,7 +127,8 @@ class PageController extends BaseController {
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug) {
+    public function edit($slug)
+    {
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
@@ -133,7 +141,8 @@ class PageController extends BaseController {
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function update($slug) {
+    public function update($slug)
+    {
         $input = array(
             'title'      => Binput::get('title'),
             'slug'       => urlencode(strtolower(str_replace(' ', '-', Binput::get('title')))),
@@ -182,7 +191,8 @@ class PageController extends BaseController {
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug) {
+    public function destroy($slug)
+    {
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
@@ -201,9 +211,12 @@ class PageController extends BaseController {
     /**
      * Check the page model.
      *
-     * @return mixed
+     * @param  mixed   $page
+     * @param  string  $slug
+     * @return \Illuminate\Http\Response
      */
-    protected function checkPage($page, $slug) {
+    protected function checkPage($page, $slug)
+    {
         if (!$page) {
             if ($slug == 'home') {
                 return App::abort(500, 'The Homepage Is Missing');
@@ -216,9 +229,12 @@ class PageController extends BaseController {
     /**
      * Check the update input.
      *
-     * @return mixed
+     * @param  array   $input
+     * @param  string  $slug
+     * @return \Illuminate\Http\Response
      */
-    protected function checkUpdate($input, $slug) {
+    protected function checkUpdate(array $input, $slug)
+    {
         if ($slug == 'home') {
             if ($slug != $input['slug']) {
                 Session::flash('error', 'You cannot rename the homepage.');
@@ -235,7 +251,8 @@ class PageController extends BaseController {
     /**
      * Check the delete input.
      *
-     * @return mixed
+     * @param  string  $slug
+     * @return \Illuminate\Http\Response
      */
     protected function checkDelete($slug) {
         if ($slug == 'home') {

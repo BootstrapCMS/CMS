@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,34 +12,37 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\CMSCore\Models\Event;
+use GrahamCampbell\CMSCore\Facades\EventProvider;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the event controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Redirect;
-use Session;
-use Validator;
-
-use Binput;
-
-use EventProvider;
-use GrahamCampbell\CMSCore\Models\Event;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class EventController extends BaseController {
-
+class EventController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -56,7 +59,8 @@ class EventController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $events = EventProvider::paginate();
         $links = EventProvider::links();
 
@@ -68,7 +72,8 @@ class EventController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         return $this->viewMake('events.create');
     }
 
@@ -77,7 +82,8 @@ class EventController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function store() {
+    public function store()
+    {
         $input = array(
             'title'    => Binput::get('title'),
             'location' => Binput::get('location'),
@@ -105,7 +111,8 @@ class EventController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
@@ -118,7 +125,8 @@ class EventController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
@@ -131,7 +139,8 @@ class EventController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id) {
+    public function update($id)
+    {
        $input = array(
             'title'    => Binput::get('title'),
             'location' => Binput::get('location'),
@@ -163,7 +172,8 @@ class EventController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
@@ -174,11 +184,13 @@ class EventController extends BaseController {
     }
 
     /**
-     * Check the comment model.
+     * Check the event model.
      *
-     * @return mixed
+     * @param  mixed  $event
+     * @return void
      */
-    protected function checkEvent($event) {
+    protected function checkEvent($event)
+    {
         if (!$event) {
             return App::abort(404, 'Event Not Found');
         }

@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,16 +12,21 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+
+/**
+ * This is the post controller setup trait.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-trait PostControllerSetupTrait {
-
+trait PostControllerSetupTrait
+{
     protected $model = 'GrahamCampbell\CMSCore\Models\Post';
     protected $provider = 'GrahamCampbell\CMSCore\Facades\PostProvider';
     protected $view = 'post';
@@ -29,7 +34,8 @@ trait PostControllerSetupTrait {
     protected $base = 'blog.posts';
     protected $uid = 'id';
 
-    protected function extraLinks() {
+    protected function extraLinks()
+    {
         $this->addLinks(array(
             'getTitle'     => 'title',
             'getSummary'   => 'summary',
@@ -38,7 +44,8 @@ trait PostControllerSetupTrait {
         ));
     }
 
-    protected function extraMockingTests() {
+    protected function extraMockingTests()
+    {
         $this->assertEquals($this->mock->getTitle(), $this->attributes['title']);
         $this->assertEquals($this->mock->getSummary(), $this->attributes['summary']);
         $this->assertEquals($this->mock->getBody(), $this->attributes['body']);

@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Commands;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,24 +12,30 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
+
+namespace GrahamCampbell\BootstrapCMS\Commands;
 
 use Illuminate\Console\Command;
 
-abstract class AppCommand extends Command {
-
+/**
+ * This is the abstract command class.
+ *
+ * @package    Bootstrap-CMS
+ * @author     Graham Campbell
+ * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ */
+abstract class AbstractCommand extends Command
+{
     /**
      * Regenerate the app encryption key.
      *
      * @return void
      */
-    protected function genAppKey() {
+    protected function genAppKey()
+    {
         $this->call('key:generate');
         $this->laravel['encrypter']->setKey($this->laravel['config']['app.key']);
     }
@@ -39,7 +45,8 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function resetMigrations() {
+    protected function resetMigrations()
+    {
         $this->call('migrate:reset');
     }
 
@@ -48,7 +55,8 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function runMigrations() {
+    protected function runMigrations()
+    {
         $this->call('migrate', array('--package' => 'cartalyst/sentry'));
         $this->call('migrate', array('--package' => 'graham-campbell/queuing'));
         $this->call('migrate', array('--package' => 'graham-campbell/cms-core'));
@@ -60,7 +68,8 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function runSeeding() {
+    protected function runSeeding()
+    {
         $this->call('db:seed',  array('--class' => 'GrahamCampbell\CMSCore\Seeds\DatabaseSeeder'));
         $this->call('db:seed');
     }
@@ -70,7 +79,8 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function genAssets() {
+    protected function genAssets()
+    {
         $this->line('Publishing assets...');
         $this->call('debugbar:publish');
         $this->info('Assets published!');
@@ -84,7 +94,8 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function updateCache() {
+    protected function updateCache()
+    {
         $this->line('Regenerating cache...');
         $this->call('cache:clear');
         $this->laravel['pageprovider']->refresh();
@@ -96,7 +107,8 @@ abstract class AppCommand extends Command {
      *
      * @return void
      */
-    protected function tryStartCron() {
+    protected function tryStartCron()
+    {
         if ($this->laravel['config']['queue.default'] == 'sync') {
             $this->comment('Please note that cron functionality is disabled.');
         } else {

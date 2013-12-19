@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Subscribers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,25 +12,31 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Subscribers;
+
+use Illuminate\Support\Facades\Log;
+
+/**
+ * This is the user subscriber class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Log;
-
-class UserSubscriber {
-
+class UserSubscriber
+{
     /**
      * Register the listeners for the subscriber.
      *
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events) {
+    public function subscribe($events)
+    {
         $events->listen('user.loginsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginSuccessful', 5);
         $events->listen('user.loginfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginFailed', 5);
         $events->listen('user.logout', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLogout', 5);
@@ -46,7 +52,8 @@ class UserSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onUserLoginSuccessful($event) {
+    public function onUserLoginSuccessful($event)
+    {
         if (!is_array($event)) {
             $event = array($event);
         }
@@ -59,7 +66,8 @@ class UserSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onUserLoginFailed($event) {
+    public function onUserLoginFailed($event)
+    {
         if (!is_array($event)) {
             $event = array($event);
         }
@@ -72,7 +80,8 @@ class UserSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onUserLogout($event) {
+    public function onUserLogout($event)
+    {
         if (!is_array($event)) {
             $event = array($event);
         }
@@ -85,7 +94,8 @@ class UserSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onUserRegistrationSuccessful($event) {
+    public function onUserRegistrationSuccessful($event)
+    {
         if (!is_array($event)) {
             $event = array($event);
         }
@@ -98,7 +108,8 @@ class UserSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onUserRegistrationFailed($event) {
+    public function onUserRegistrationFailed($event)
+    {
         if (!is_array($event)) {
             $event = array($event);
         }
@@ -111,7 +122,8 @@ class UserSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onUserActivationSuccessful($event) {
+    public function onUserActivationSuccessful($event)
+    {
         if (!is_array($event)) {
             $event = array($event);
         }
@@ -124,7 +136,8 @@ class UserSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onUserActivationFailed($event) {
+    public function onUserActivationFailed($event)
+    {
         if (!is_array($event)) {
             $event = array($event);
         }

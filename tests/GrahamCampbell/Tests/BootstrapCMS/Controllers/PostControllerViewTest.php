@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,21 +12,27 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 use Mockery;
 
-class PostControllerViewTest extends ResourcefulViewTestCase {
-
+/**
+ * This is the post controller view test class.
+ *
+ * @package    Bootstrap-CMS
+ * @author     Graham Campbell
+ * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ */
+class PostControllerViewTest extends AbstractResourcefulViewTestCase
+{
     use PostControllerSetupTrait;
 
-    protected function showMocking() {
+    protected function showMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);

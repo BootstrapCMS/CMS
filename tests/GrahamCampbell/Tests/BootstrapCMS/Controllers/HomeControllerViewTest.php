@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,19 +12,25 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+
+/**
+ * This is the home controller view test class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-class HomeControllerViewTest extends ControllerTestCase {
-
+class HomeControllerViewTest extends AbstractControllerTestCase
+{
     use HomeControllerSetupTrait;
 
-    public function testShowWelcome() {
+    public function testShowWelcome()
+    {
         $this->setAsPage();
 
         $this->call('GET', $this->getPath('hello'));
@@ -32,7 +38,8 @@ class HomeControllerViewTest extends ControllerTestCase {
         $this->assertResponseOk();
     }
 
-    public function testShowTest() {
+    public function testShowTest()
+    {
         $this->call('GET', $this->getPath('test'));
 
         $this->assertResponseOk();

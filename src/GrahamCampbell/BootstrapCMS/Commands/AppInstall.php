@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Commands;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,16 +12,21 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Commands;
+
+/**
+ * This is the app install command class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-class AppInstall extends AppCommand {
-
+class AppInstall extends AbstractCommand
+{
     /**
      * The command name.
      *
@@ -41,7 +46,8 @@ class AppInstall extends AppCommand {
      *
      * @return void
      */
-    public function fire() {
+    public function fire()
+    {
         $this->genAppKey();
         $this->runMigrations();
         $this->runSeeding();

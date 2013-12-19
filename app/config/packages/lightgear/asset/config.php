@@ -9,7 +9,7 @@ return array(
     'search_paths' => array(
         '/workbench',
         '/vendor',
-        '/app/assets',
+        '/app/assets'
     ),
 
     /**

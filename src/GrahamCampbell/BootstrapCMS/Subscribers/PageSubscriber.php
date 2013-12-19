@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Subscribers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,25 +12,31 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Subscribers;
+
+use GrahamCampbell\CMSCore\Facades\PageProvider;
+
+/**
+ * This is the page subscriber class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use PageProvider;
-
-class PageSubscriber {
-
+class PageSubscriber
+{
     /**
      * Register the listeners for the subscriber.
      *
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events) {
+    public function subscribe($events)
+    {
         $events->listen('page.created', 'GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber@onPageCreated', 5);
         $events->listen('page.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber@onPageUpdated', 5);
         $events->listen('page.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber@onPageDeleted', 5);
@@ -42,7 +48,8 @@ class PageSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onPageCreated($event) {
+    public function onPageCreated($event)
+    {
         // refresh the navigation cache
         PageProvider::refresh();
     }
@@ -53,7 +60,8 @@ class PageSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onPageUpdated($event) {
+    public function onPageUpdated($event)
+    {
         // refresh the navigation cache
         PageProvider::refresh();
     }
@@ -64,7 +72,8 @@ class PageSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onPageDeleted($event) {
+    public function onPageDeleted($event)
+    {
         // refresh the navigation cache
         PageProvider::refresh();
     }

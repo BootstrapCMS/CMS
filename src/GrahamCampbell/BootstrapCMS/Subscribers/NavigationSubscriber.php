@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Subscribers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,28 +12,34 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Subscribers;
+
+use Illuminate\Support\Facades\Config;
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use GrahamCampbell\CMSCore\Facades\PageProvider;
+use GrahamCampbell\Navigation\Facades\Navigation;
+
+/**
+ * This is the navigation subscriber class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Config;
-use Navigation;
-use PageProvider;
-use Sentry;
-
-class NavigationSubscriber {
-
+class NavigationSubscriber
+{
     /**
      * Register the listeners for the subscriber.
      *
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events) {
+    public function subscribe($events)
+    {
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst', 8);
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond', 5);
         $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird', 2);
@@ -48,7 +54,8 @@ class NavigationSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onNavigationMainFirst($event) {
+    public function onNavigationMainFirst($event)
+    {
         // add the blog
         if (Config::get('cms.blogging')) {
             Navigation::addMain(array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book'));
@@ -73,7 +80,8 @@ class NavigationSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onNavigationMainSecond($event) {
+    public function onNavigationMainSecond($event)
+    {
         // get the pages
         $pages = PageProvider::navigation();
 
@@ -103,7 +111,8 @@ class NavigationSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onNavigationMainThird($event) {
+    public function onNavigationMainThird($event)
+    {
         // get the pages
         $pages = PageProvider::navigation();
 
@@ -130,7 +139,8 @@ class NavigationSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onNavigationBarFirst($event) {
+    public function onNavigationBarFirst($event)
+    {
         if (PageProvider::getNavUser()) {
             // add the profile links
             Navigation::addBar(array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
@@ -143,7 +153,8 @@ class NavigationSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onNavigationBarSecond($event) {
+    public function onNavigationBarSecond($event)
+    {
         if (PageProvider::getNavUser()) {
             // add the admin links
             if (Sentry::getUser()->hasAccess('admin')) {
@@ -152,13 +163,15 @@ class NavigationSubscriber {
             }
         }
     }
+
     /**
      * Handle a navigation.bar event third.
      *
      * @param  mixed  $event
      * @return void
      */
-    public function onNavigationBarThird($event) {
+    public function onNavigationBarThird($event)
+    {
         if (PageProvider::getNavUser()) {
             // add the view users link
             if (Sentry::getUser()->hasAccess('mod')) {

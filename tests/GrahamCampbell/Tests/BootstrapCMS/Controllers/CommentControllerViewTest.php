@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,64 +12,79 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+
+use Mockery;
+use GrahamCampbell\CMSCore\Facades\PostProvider;
+
+/**
+ * This is the comment controller view test class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Mockery;
-use PostProvider;
-
-class CommentControllerViewTest extends ResourcefulViewTestCase {
-
+class CommentControllerViewTest extends AbstractResourcefulViewTestCase
+{
     use CommentControllerSetupTrait;
 
-    protected function indexSetup() {
+    protected function indexSetup()
+    {
         // overwritten to cancel it
     }
 
-    protected function indexMocking() {
+    protected function indexMocking()
+    {
         PostProvider::shouldReceive('find')
             ->once()->andReturn($this->mock);
         $this->mock->shouldReceive('getComments')
             ->once()->andReturn(array($this->mock));
     }
 
-    protected function indexCall() {
+    protected function indexCall()
+    {
         $this->call('GET', $this->getPath($this->getUid().'/comments'), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
     }
 
-    protected function storeAssertions() {
+    protected function storeAssertions()
+    {
         $this->assertResponseOk();
     }
 
-    public function testCreate() {
+    public function testCreate()
+    {
         // overwritten to cancel it
     }
 
-    protected function showSetup() {
+    protected function showSetup()
+    {
         // overwritten to cancel it
     }
 
-    protected function showMocking() {
+    protected function showMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
         $this->mock->shouldReceive('getUserName')->once();
     }
 
-    protected function showCall() {
+    protected function showCall()
+    {
         $this->call('GET', $this->getPath($this->getUid().'/comments/'.$this->getUid()), array(), array(), array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
     }
 
-    protected function showAssertions() {
+    protected function showAssertions()
+    {
         $this->assertResponseOk();
     }
 
-    public function testEdit() {
+    public function testEdit()
+    {
         // overwritten to cancel it
     }
 }

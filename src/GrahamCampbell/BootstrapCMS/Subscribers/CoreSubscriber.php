@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Subscribers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,26 +12,32 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Subscribers;
+
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+
+/**
+ * This is the core subscriber class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Config;
-use Log;
-
-class CoreSubscriber {
-
+class CoreSubscriber
+{
     /**
      * Register the listeners for the subscriber.
      *
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events) {
+    public function subscribe($events)
+    {
         $events->listen('page.load', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onPageLoad', 5);
         $events->listen('view.make', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onViewMake', 5);
         $events->listen('artisan.start', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onArtisanStart', 5);
@@ -45,7 +51,8 @@ class CoreSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onPageLoad($event) {
+    public function onPageLoad($event)
+    {
         if (Config::get('log.pageload') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -60,7 +67,8 @@ class CoreSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onViewMake($event) {
+    public function onViewMake($event)
+    {
         if (Config::get('log.viewmake') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -75,7 +83,8 @@ class CoreSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onArtisanStart($event) {
+    public function onArtisanStart($event)
+    {
         if (Config::get('log.artisanstart') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -90,7 +99,8 @@ class CoreSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onIlluminateQuery($event) {
+    public function onIlluminateQuery($event)
+    {
         if (Config::get('log.illuminatequery') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -105,7 +115,8 @@ class CoreSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onLocaleChanged($event) {
+    public function onLocaleChanged($event)
+    {
         if (Config::get('log.localechanged') == true) {
             if (!is_array($event)) {
                 $event = array($event);

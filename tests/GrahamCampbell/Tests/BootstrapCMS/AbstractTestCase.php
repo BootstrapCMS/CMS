@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,24 +12,30 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS;
+
+use Illuminate\Foundation\Testing\TestCase;
+
+/**
+ * This is the abstract test case class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Illuminate\Foundation\Testing\TestCase as LaravelTestCase;
-
-abstract class TestCase extends LaravelTestCase {
-
+abstract class AbstractTestCase extends TestCase
+{
     /**
      * Creates the application.
      *
      * @return \Symfony\Component\HttpKernel\HttpKernelInterface
      */
-    public function createApplication() {
+    public function createApplication()
+    {
         $unitTesting = true;
         $testEnvironment = 'testing';
         return require __DIR__.'/../../../../bootstrap/start.php';

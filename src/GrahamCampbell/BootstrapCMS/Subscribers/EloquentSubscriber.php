@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Subscribers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,26 +12,32 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Subscribers;
+
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+
+/**
+ * This is the eloquent subscriber class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Config;
-use Log;
-
-class EloquentSubscriber {
-
+class EloquentSubscriber
+{
     /**
      * Register the listeners for the subscriber.
      *
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events) {
+    public function subscribe($events)
+    {
         $events->listen('eloquent.creating', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentCreating', 5);
         $events->listen('eloquent.created', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentCreated', 5);
         $events->listen('eloquent.updating', 'GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber@onEloquentUpdating', 5);
@@ -50,7 +56,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentCreating($event) {
+    public function onEloquentCreating($event)
+    {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -65,7 +72,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentCreated($event) {
+    public function onEloquentCreated($event)
+    {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -80,7 +88,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentUpdating($event) {
+    public function onEloquentUpdating($event)
+    {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -95,7 +104,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentUpdated($event) {
+    public function onEloquentUpdated($event)
+    {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -110,7 +120,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentDeleting($event) {
+    public function onEloquentDeleting($event)
+    {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -125,7 +136,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentDeleted($event) {
+    public function onEloquentDeleted($event)
+    {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -140,7 +152,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentSaving($event) {
+    public function onEloquentSaving($event)
+    {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -155,7 +168,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentSaved($event) {
+    public function onEloquentSaved($event)
+    {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -170,7 +184,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentRestoring($event) {
+    public function onEloquentRestoring($event)
+    {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
                 $event = array($event);
@@ -185,7 +200,8 @@ class EloquentSubscriber {
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentRestored($event) {
+    public function onEloquentRestored($event)
+    {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
                 $event = array($event);

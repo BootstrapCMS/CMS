@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,18 +12,23 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 
 use Carbon\Carbon;
 
-trait EventControllerSetupTrait {
-
+/**
+ * This is the event controller setup trait.
+ *
+ * @package    Bootstrap-CMS
+ * @author     Graham Campbell
+ * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ */
+trait EventControllerSetupTrait
+{
     protected $model = 'GrahamCampbell\CMSCore\Models\Event';
     protected $provider = 'GrahamCampbell\CMSCore\Facades\EventProvider';
     protected $view = 'event';
@@ -31,7 +36,8 @@ trait EventControllerSetupTrait {
     protected $base = 'events';
     protected $uid = 'id';
 
-    protected function extraLinks() {
+    protected function extraLinks()
+    {
         $date = new Carbon($this->attributes['date']);
         $this->attributes['date'] = $date;
         $formatteddate = $date->format('l jS F Y \\- H:i:s');
@@ -46,7 +52,8 @@ trait EventControllerSetupTrait {
         ));
     }
 
-    protected function extraMockingTests() {
+    protected function extraMockingTests()
+    {
         $this->assertEquals($this->mock->getTitle(), $this->attributes['title']);
         $this->assertEquals($this->mock->getDate(), $this->attributes['date']);
         $this->assertEquals($this->mock->getLocation(), $this->attributes['location']);

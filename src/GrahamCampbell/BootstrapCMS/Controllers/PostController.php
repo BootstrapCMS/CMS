@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,34 +12,37 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\CMSCore\Models\Post;
+use GrahamCampbell\CMSCore\Facades\PostProvider;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the post controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Redirect;
-use Session;
-use Validator;
-
-use Binput;
-
-use PostProvider;
-use GrahamCampbell\CMSCore\Models\Post;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class PostController extends BaseController {
-
+class PostController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'create'  => 'blog',
             'store'   => 'blog',
@@ -56,7 +59,8 @@ class PostController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $posts = PostProvider::paginate();
         $links = PostProvider::links();
 
@@ -68,7 +72,8 @@ class PostController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         return $this->viewMake('posts.create');
     }
 
@@ -77,7 +82,8 @@ class PostController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function store() {
+    public function store()
+    {
         $input = array(
             'title'   => Binput::get('title'),
             'summary' => Binput::get('summary'),
@@ -104,7 +110,8 @@ class PostController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
@@ -119,7 +126,8 @@ class PostController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
@@ -132,7 +140,8 @@ class PostController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id) {
+    public function update($id)
+    {
         $input = array(
             'title'   => Binput::get('title'),
             'summary' => Binput::get('summary'),
@@ -162,7 +171,8 @@ class PostController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
@@ -175,9 +185,11 @@ class PostController extends BaseController {
     /**
      * Check the post model.
      *
-     * @return mixed
+     * @param  mixed  $post
+     * @return void
      */
-    protected function checkPost($post) {
+    protected function checkPost($post)
+    {
         if (!$post) {
             return App::abort(404, 'Post Not Found');
         }

@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,27 +12,35 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+
+/**
+ * This is the page controller view test class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-class PageControllerViewTest extends ResourcefulViewTestCase {
-
+class PageControllerViewTest extends AbstractResourcefulViewTestCase
+{
     use PageControllerSetupTrait;
 
-    protected function indexSetup() {
+    protected function indexSetup()
+    {
         // overwritten to cancel it
     }
 
-    protected function indexMocking() {
+    protected function indexMocking()
+    {
         // overwritten to cancel it
     }
 
-    protected function indexAssertions() {
+    protected function indexAssertions()
+    {
         $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram('home'));
     }
 }

@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,41 +12,44 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use DateTime;
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Passwd\Facades\Passwd;
+use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\CMSCore\Facades\UserProvider;
+use GrahamCampbell\CMSCore\Facades\GroupProvider;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the user controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Config;
-use Log;
-use Queuing;
-use Redirect;
-use Session;
-use URL;
-use Validator;
-
-use Binput;
-use DateTime;
-use Passwd;
-use Sentry;
-
-use UserProvider;
-use GroupProvider;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class UserController extends BaseController {
-
+class UserController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'index'   => 'mod',
             'create'  => 'admin',
@@ -66,7 +69,8 @@ class UserController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $users = UserProvider::paginate();
         $links = UserProvider::links();
 
@@ -78,7 +82,8 @@ class UserController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         $groups = GroupProvider::index();
 
         return $this->viewMake('users.create', array('groups' => $groups), true);
@@ -89,7 +94,8 @@ class UserController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function store() {
+    public function store()
+    {
         $password = Passwd::generate();
 
         $input = array(
@@ -157,7 +163,8 @@ class UserController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         $user = UserProvider::find($id);
         $this->checkUser($user);
 
@@ -170,7 +177,8 @@ class UserController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $user = UserProvider::find($id);
         $this->checkUser($user);
 
@@ -185,7 +193,8 @@ class UserController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id) {
+    public function update($id)
+    {
         $input = array(
             'first_name' => Binput::get('first_name'),
             'last_name'  => Binput::get('last_name'),
@@ -232,7 +241,8 @@ class UserController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function suspend($id) {
+    public function suspend($id)
+    {
         try {
             $throttle = Sentry::getThrottleProvider()->findByUserId($id);
             $throttle->suspend();
@@ -259,7 +269,8 @@ class UserController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function reset($id) {
+    public function reset($id)
+    {
         $password = Passwd::generate();
 
         $input = array(
@@ -306,7 +317,8 @@ class UserController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $user = UserProvider::find($id);
         $this->checkUser($user);
 
@@ -319,9 +331,11 @@ class UserController extends BaseController {
     /**
      * Check the user model.
      *
-     * @return mixed
+     * @param  mixed  $user
+     * @return void
      */
-    protected function checkUser($user) {
+    protected function checkUser($user)
+    {
         if (!$user) {
             return App::abort(404, 'User Not Found');
         }

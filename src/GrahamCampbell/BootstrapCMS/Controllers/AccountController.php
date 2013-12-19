@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,35 +12,38 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\CMSCore\Models\Page;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the account controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Event;
-use Redirect;
-use Session;
-use Validator;
-
-use Sentry;
-use Binput;
-
-use GrahamCampbell\CMSCore\Models\Page;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class AccountController extends BaseController {
-
+class AccountController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'getProfile'    => 'user',
             'deleteProfile' => 'user',
@@ -56,7 +59,8 @@ class AccountController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getProfile() {
+    public function getProfile()
+    {
         return $this->viewMake('account.profile');
     }
 
@@ -65,7 +69,8 @@ class AccountController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function deleteProfile() {
+    public function deleteProfile()
+    {
         $user = Sentry::getUser();
         $this->checkUser($user);
 
@@ -83,7 +88,8 @@ class AccountController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function patchDetails() {
+    public function patchDetails()
+    {
         $input = array(
             'first_name' => Binput::get('first_name'),
             'last_name'  => Binput::get('last_name'),
@@ -117,7 +123,8 @@ class AccountController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function patchPassword() {
+    public function patchPassword()
+    {
         $input = array(
             'password'              => Binput::get('password'),
             'password_confirmation' => Binput::get('password_confirmation'),
@@ -147,9 +154,11 @@ class AccountController extends BaseController {
     /**
      * Check the user model.
      *
-     * @return mixed
+     * @param  mixed  $user
+     * @return void
      */
-    protected function checkUser($user) {
+    protected function checkUser($user)
+    {
         if (!$user) {
             return App::abort(404, 'User Not Found');
         }

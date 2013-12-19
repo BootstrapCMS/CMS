@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,28 +12,36 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+
+/**
+ * This is the abstract resourceful controller view test case class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-abstract class ResourcefulViewTestCase extends ControllerTestCase {
-
-    public function testIndex() {
+abstract class AbstractResourcefulViewTestCase extends AbstractControllerTestCase
+{
+    public function testIndex()
+    {
         $this->indexSetup();
         $this->indexMocking();
         $this->indexCall();
         $this->indexAssertions();
     }
 
-    protected function indexSetup() {
+    protected function indexSetup()
+    {
         $this->setAsPage();
     }
 
-    protected function indexMocking() {
+    protected function indexMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('paginate')
             ->once()->andReturn(array($this->mock));
@@ -41,85 +49,102 @@ abstract class ResourcefulViewTestCase extends ControllerTestCase {
             ->once()->andReturn('');
     }
 
-    protected function indexCall() {
+    protected function indexCall()
+    {
         $this->call('GET', $this->getPath());
     }
 
-    protected function indexAssertions() {
+    protected function indexAssertions()
+    {
         $this->assertResponseOk();
     }
 
-    public function testCreate() {
+    public function testCreate()
+    {
         $this->createSetup();
         $this->createMocking();
         $this->createCall();
         $this->createAssertions();
     }
 
-    protected function createSetup() {
+    protected function createSetup()
+    {
         $this->setAsPage();
     }
 
-    protected function createMocking() {
+    protected function createMocking()
+    {
         //
     }
 
-    protected function createCall() {
+    protected function createCall()
+    {
         $this->call('GET', $this->getPath('create'));
     }
 
-    protected function createAssertions() {
+    protected function createAssertions()
+    {
         $this->assertResponseOk();
     }
 
-    public function testShow() {
+    public function testShow()
+    {
         $this->showSetup();
         $this->showMocking();
         $this->showCall();
         $this->showAssertions();
     }
 
-    protected function showSetup() {
+    protected function showSetup()
+    {
         $this->setAsPage();
     }
 
-    protected function showMocking() {
+    protected function showMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
     }
 
-    protected function showCall() {
+    protected function showCall()
+    {
         $this->call('GET', $this->getPath($this->getUid()));
     }
 
-    protected function showAssertions() {
+    protected function showAssertions()
+    {
         $this->assertResponseOk();
         $this->assertViewHas($this->view);
     }
 
-    public function testEdit() {
+    public function testEdit()
+    {
         $this->editSetup();
         $this->editMocking();
         $this->editCall();
         $this->editAssertions();
     }
 
-    protected function editSetup() {
+    protected function editSetup()
+    {
         $this->setAsPage();
     }
 
-    protected function editMocking() {
+    protected function editMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
     }
 
-    protected function editCall() {
+    protected function editCall()
+    {
         $this->call('GET', $this->getPath($this->getUid().'/edit'));
     }
 
-    protected function editAssertions() {
+    protected function editAssertions()
+    {
         $this->assertResponseOk();
         $this->assertViewHas($this->view);
     }

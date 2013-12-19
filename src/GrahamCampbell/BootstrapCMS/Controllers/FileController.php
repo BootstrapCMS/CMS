@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,29 +12,33 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Response;
+use GrahamCampbell\CMSCore\Facades\FileProvider;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the file controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Response;
-
-use FileProvider;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class FileController extends BaseController {
-
+class FileController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'index' => 'user',
             'show'  => 'user'
@@ -46,19 +50,23 @@ class FileController extends BaseController {
     /**
      * Display the index page.
      *
+     * @param  int  $folder_id
      * @return \Illuminate\Http\Response
      */
-    public function index($folder_id) {
+    public function index($folder_id)
+    {
         return $this->viewMake('files.index', array());
     }
 
     /**
      * Download the specified file.
      *
+     * @param  int  $folder_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($folder_id, $id) {
+    public function show($folder_id, $id)
+    {
         $file = FileProvider::find($id);
         $this->checkFile($file);
 
@@ -68,9 +76,11 @@ class FileController extends BaseController {
     /**
      * Check the file model.
      *
-     * @return mixed
+     * @param  mixed  $file
+     * @return void
      */
-    protected function checkFile($file) {
+    protected function checkFile($file)
+    {
         if (!$file) {
             return App::abort(404, 'File Not Found');
         }

@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,30 +12,35 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
+use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the home controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Cache;
-use Config;
-use Log;
-use Queuing;
-use URL;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class HomeController extends BaseController {
-
+class HomeController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'testQueue' => 'admin',
             'testError' => 'admin',
@@ -51,7 +56,8 @@ class HomeController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function showWelcome() {
+    public function showWelcome()
+    {
         Log::notice('Hello World');
         return $this->viewMake('hello');
     }
@@ -61,7 +67,8 @@ class HomeController extends BaseController {
      *
      * @return string
      */
-    public function showTest() {
+    public function showTest()
+    {
         Log::notice('Test 123');
         return 'Test 123';
     }
@@ -71,7 +78,8 @@ class HomeController extends BaseController {
      *
      * @return string
      */
-    public function testQueue() {
+    public function testQueue()
+    {
         $data = array(
             'view'    => 'emails.welcome',
             'url'     => URL::route('pages.show', array('pages' => 'home')),
@@ -89,7 +97,8 @@ class HomeController extends BaseController {
      *
      * @return string
      */
-    public function testError() {
+    public function testError()
+    {
         Queuing::pushJob('test');
         return 'done';
     }
@@ -99,7 +108,8 @@ class HomeController extends BaseController {
      *
      * @return string
      */
-    public function addValue($value) {
+    public function addValue($value)
+    {
         Cache::put('cachetest', $value, 10);
         return 'done';
     }
@@ -109,7 +119,8 @@ class HomeController extends BaseController {
      *
      * @return string
      */
-    public function getValue() {
+    public function getValue()
+    {
         return Cache::get('cachetest');
     }
 }

@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,37 +12,41 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Passwd\Facades\Passwd;
+use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the reset controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Config;
-use Log;
-use Queuing;
-use Redirect;
-use Session;
-use URL;
-use Validator;
-
-use Binput;
-use Passwd;
-use Sentry;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class ResetController extends BaseController {
-
+class ResetController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -51,7 +55,8 @@ class ResetController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getReset() {
+    public function getReset()
+    {
         return $this->viewMake('account.reset');
     }
 
@@ -60,7 +65,8 @@ class ResetController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function postReset() {
+    public function postReset()
+    {
         $input = array(
             'email' => Binput::get('email'),
         );
@@ -105,10 +111,13 @@ class ResetController extends BaseController {
     /**
      * Reset the user's password.
      *
+     * @param  int     $id
+     * @param  string  $code
      * @return \Illuminate\Http\Response
      */
-    public function getPassword($id = null, $code = null) {
-        if ($id === null || $code === null) {
+    public function getPassword($id, $code)
+    {
+        if (!$id || !$code) {
             App::abort(400);
         }
 

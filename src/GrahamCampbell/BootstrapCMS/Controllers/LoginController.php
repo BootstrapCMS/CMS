@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,37 +12,40 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\CMSCore\Models\Page;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the login controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Config;
-use Event;
-use Log;
-use Redirect;
-use Session;
-use URL;
-use Validator;
-
-use Binput;
-use Sentry;
-
-use GrahamCampbell\CMSCore\Models\Page;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class LoginController extends BaseController {
-
+class LoginController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'getLogout' => 'user',
         ));
@@ -55,7 +58,8 @@ class LoginController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getLogin() {
+    public function getLogin()
+    {
         return $this->viewMake(Config::get('views.login', 'account.login'));
     }
 
@@ -64,7 +68,8 @@ class LoginController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function postLogin() {
+    public function postLogin()
+    {
         $remember = Binput::get('rememberMe');
 
         $input = array(
@@ -125,7 +130,8 @@ class LoginController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getLogout() {
+    public function getLogout()
+    {
         Event::fire('user.logout', array(array('Email' => Sentry::getUser()->email)));
         Sentry::logout();
         return Redirect::route('pages.show', array('pages' => 'home'));

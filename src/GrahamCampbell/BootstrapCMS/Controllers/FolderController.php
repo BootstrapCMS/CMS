@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,31 +12,36 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\CMSCore\Models\Folder;
+use GrahamCampbell\CMSCore\Facades\FolderProvider;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the folder controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Binput;
-use Redirect;
-use FolderProvider;
-use Session;
-use Validator;
-
-use GrahamCampbell\CMSCore\Models\Folder;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class FolderController extends BaseController {
-
+class FolderController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'index' => 'user',
         ));
@@ -49,7 +54,8 @@ class FolderController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         return $this->viewMake('folders.index', array());
     }
 
@@ -58,7 +64,8 @@ class FolderController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         return $this->viewMake('folders.create');
     }
 
@@ -67,7 +74,8 @@ class FolderController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function store() {
+    public function store()
+    {
         $input = array(
             'title'   => Binput::get('title'),
             'summary' => Binput::get('summary'),
@@ -94,7 +102,8 @@ class FolderController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $folder = Folder::find($id);
         $this->checkFolder($folder);
 
@@ -107,7 +116,8 @@ class FolderController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id) {
+    public function update($id)
+    {
         $input = array(
             'title'   => Binput::get('title'),
             'summary' => Binput::get('summary')
@@ -137,7 +147,8 @@ class FolderController extends BaseController {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $folder = FolderProvider::find($id);
         $this->checkFolder($folder);
 
@@ -151,9 +162,11 @@ class FolderController extends BaseController {
     /**
      * Check the folder model.
      *
-     * @return mixed
+     * @param  mixed  $folder
+     * @return void
      */
-    protected function checkFolder($folder) {
+    protected function checkFolder($folder)
+    {
         if (!$folder) {
             return App::abort(404, 'Folder Not Found');
         }

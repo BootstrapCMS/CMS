@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,37 +12,40 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\BootstrapCMS\Controllers;
+
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\HTMLMin\Facades\HTMLMin;
+use GrahamCampbell\CMSCore\Models\Comment;
+use GrahamCampbell\CMSCore\Facades\CommentProvider;
+use GrahamCampbell\CMSCore\Facades\PostProvider;
+use GrahamCampbell\CMSCore\Controllers\BaseController;
+
+/**
+ * This is the comment controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use App;
-use Session;
-use Response;
-use URL;
-use Validator;
-
-use Binput;
-use HTMLMin;
-
-use CommentProvider;
-use PostProvider;
-use GrahamCampbell\CMSCore\Models\Comment;
-
-use GrahamCampbell\CMSCore\Controllers\BaseController;
-
-class CommentController extends BaseController {
-
+class CommentController extends BaseController
+{
     /**
      * Constructor (setup access permissions).
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->setPermissions(array(
             'store'   => 'user',
             'update'  => 'mod',
@@ -55,9 +58,11 @@ class CommentController extends BaseController {
     /**
      * Display a listing of the comments.
      *
+     * @param  int  $post_id
      * @return \Illuminate\Http\Response
      */
-    public function index($post_id) {
+    public function index($post_id)
+    {
         $this->checkAjax();
 
         $post = PostProvider::find($post_id, array('id'));
@@ -80,9 +85,11 @@ class CommentController extends BaseController {
     /**
      * Store a new comment.
      *
+     * @param  int  $post_id
      * @return \Illuminate\Http\Response
      */
-    public function store($post_id) {
+    public function store($post_id)
+    {
         $this->checkAjax();
 
         $input = array(
@@ -107,10 +114,12 @@ class CommentController extends BaseController {
     /**
      * Show the specified post.
      *
+     * @param  int  $post_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($post_id, $id) {
+    public function show($post_id, $id)
+    {
         $this->checkAjax();
 
         $comment = CommentProvider::find($id);
@@ -122,10 +131,12 @@ class CommentController extends BaseController {
     /**
      * Update an existing comment.
      *
+     * @param  int  $post_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($post_id, $id) {
+    public function update($post_id, $id)
+    {
         $this->checkAjax();
 
         $input = array('body' => Binput::get('edit_body'));
@@ -161,10 +172,12 @@ class CommentController extends BaseController {
     /**
      * Delete an existing comment.
      *
+     * @param  int  $post_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($post_id, $id) {
+    public function destroy($post_id, $id)
+    {
         $this->checkAjax();
 
         $comment = CommentProvider::find($id);
@@ -178,9 +191,11 @@ class CommentController extends BaseController {
     /**
      * Check the comment model.
      *
-     * @return mixed
+     * @param  mixed  $comment
+     * @return void
      */
-    protected function checkComment($comment) {
+    protected function checkComment($comment)
+    {
         if (!$comment) {
             return App::abort(404, 'Comment Not Found');
         }
@@ -189,9 +204,11 @@ class CommentController extends BaseController {
     /**
      * Check the post model.
      *
-     * @return mixed
+     * @param  mixed  $post
+     * @return void
      */
-    protected function checkPost($post) {
+    protected function checkPost($post)
+    {
         if (!$post) {
             return App::abort(404, 'Post Not Found');
         }

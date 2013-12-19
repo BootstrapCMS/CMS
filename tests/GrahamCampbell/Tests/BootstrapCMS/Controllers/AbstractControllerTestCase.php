@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,25 +12,28 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+
+use Mockery;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+use GrahamCampbell\CMSCore\Facades\PageProvider;
+use GrahamCampbell\Navigation\Facades\Navigation;
+use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
+
+/**
+ * This is the abstract controller test case class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-use Validator;
-
-use Carbon\Carbon;
-use Mockery;
-
-use Navigation;
-use PageProvider;
-use GrahamCampbell\Tests\BootstrapCMS\TestCase;
-
-abstract class ControllerTestCase extends TestCase {
-
+abstract class AbstractControllerTestCase extends AbstractTestCase
+{
     // protected $model; // must be set in the extending class
     // protected $provider; // must be set in the extending class
     // protected $view; // must be set in the extending class
@@ -42,7 +45,8 @@ abstract class ControllerTestCase extends TestCase {
 
     protected $attributes;
 
-    public function setUp() {
+    public function setUp()
+    {
         parent::setUp();
 
         $model = $this->model;
@@ -57,7 +61,8 @@ abstract class ControllerTestCase extends TestCase {
         $this->setUpLinks();
     }
 
-    public function setUpLinks() {
+    public function setUpLinks()
+    {
         $this->addLinks(array(
             'getId'        => 'id',
             'getCreatedAt' => 'created_at',
@@ -67,40 +72,48 @@ abstract class ControllerTestCase extends TestCase {
         $this->extraLinks();
     }
 
-    protected function extraLinks() {
+    protected function extraLinks()
+    {
         // can be set in the extending class
     }
 
-    protected function addLink($name, $attribute) {
+    protected function addLink($name, $attribute)
+    {
         $this->mock->shouldReceive($name)
             ->andReturn($this->attributes[$attribute]);
     }
 
-    protected function addLinks($links) {
+    protected function addLinks($links)
+    {
         foreach ($links as $name => $attribute) {
             $this->addLink($name, $attribute);
         }
     }
 
-    public function tearDown() {
+    public function tearDown()
+    {
         Mockery::close();
     }
 
-    protected function setAsPage() {
+    protected function setAsPage()
+    {
         PageProvider::shouldReceive('setNavUser')->once();
         Navigation::shouldReceive('getHTML')->once()->andReturn('');
     }
 
-    protected function validate($bool) {
+    protected function validate($bool)
+    {
         Validator::shouldReceive('make')->once()
             ->andReturn(Mockery::mock(array('passes' => $bool, 'fails' => !$bool, 'errors' => array())));
     }
 
-    protected function getUid() {
+    protected function getUid()
+    {
         return $this->attributes[$this->uid];
     }
 
-    protected function getPath($path = null) {
+    protected function getPath($path = null)
+    {
         if (!$path) {
             return str_replace('.', '/', $this->base);
         } else {
@@ -108,7 +121,8 @@ abstract class ControllerTestCase extends TestCase {
         }
     }
 
-    protected function getRoute($route = null) {
+    protected function getRoute($route = null)
+    {
         if (!$route) {
             return $this->base;
         } else {
@@ -116,11 +130,13 @@ abstract class ControllerTestCase extends TestCase {
         }
     }
 
-    protected function getRoutePram($pram) {
+    protected function getRoutePram($pram)
+    {
         return array($this->name => $pram);
     }
 
-    public function testMocking() {
+    public function testMocking()
+    {
         $this->assertNotNull($this->model);
         $this->assertNotNull($this->base);
         $this->assertNotNull($this->mock);
@@ -133,7 +149,8 @@ abstract class ControllerTestCase extends TestCase {
         $this->extraMockingTests();
     }
 
-    protected function extraMockingTests() {
+    protected function extraMockingTests()
+    {
         // can be set in the extending class
         // these tests are optional, so this function is not abstract
     }

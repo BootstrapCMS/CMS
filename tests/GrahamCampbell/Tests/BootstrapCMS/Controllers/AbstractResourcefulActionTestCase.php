@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -12,140 +12,170 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
+
+/**
+ * This is the abstract resourceful controller action test case class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-abstract class ResourcefulActionTestCase extends ControllerTestCase {
-
-    public function testStore() {
+abstract class AbstractResourcefulActionTestCase extends AbstractControllerTestCase
+{
+    public function testStore()
+    {
         $this->storeSetup();
         $this->storeMocking();
         $this->storeCall();
         $this->storeAssertions();
     }
 
-    protected function storeSetup() {
+    protected function storeSetup()
+    {
         $this->validate(true);
     }
 
-    protected function storeMocking() {
+    protected function storeMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('create')
             ->once()->andReturn($this->mock);
     }
 
-    protected function storeCall() {
+    protected function storeCall()
+    {
         $this->call('POST', $this->getPath());
     }
 
-    protected function storeAssertions() {
+    protected function storeAssertions()
+    {
         $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram($this->getUid()));
         $this->assertSessionHas('success');
     }
 
-    public function testStoreFails() {
+    public function testStoreFails()
+    {
         $this->storeFailsSetup();
         $this->storeFailsMocking();
         $this->storeFailsCall();
         $this->storeFailsAssertions();
     }
 
-    protected function storeFailsSetup() {
+    protected function storeFailsSetup()
+    {
         $this->validate(false);
     }
 
-    protected function storeFailsMocking() {
+    protected function storeFailsMocking()
+    {
         //
     }
 
-    protected function storeFailsCall() {
+    protected function storeFailsCall()
+    {
         $this->storeCall();
     }
 
-    protected function storeFailsAssertions() {
+    protected function storeFailsAssertions()
+    {
         $this->assertRedirectedToRoute($this->getRoute('create'));
         $this->assertSessionHasErrors();
     }
 
-    public function testUpdate() {
+    public function testUpdate()
+    {
         $this->updateSetup();
         $this->updateMocking();
         $this->updateCall();
         $this->updateAssertions();
     }
 
-    protected function updateSetup() {
+    protected function updateSetup()
+    {
         $this->validate(true);
     }
 
-    protected function updateMocking() {
+    protected function updateMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
         $this->mock->shouldReceive('update')->once();
     }
 
-    protected function updateCall() {
+    protected function updateCall()
+    {
         $this->call('PATCH', $this->getPath($this->getUid()));
     }
 
-    protected function updateAssertions() {
+    protected function updateAssertions()
+    {
         $this->assertRedirectedToRoute($this->getRoute('show'), $this->getRoutePram($this->getUid()));
         $this->assertSessionHas('success');
     }
 
-    public function testUpdateFails() {
+    public function testUpdateFails()
+    {
         $this->updateFailsSetup();
         $this->updateFailsMocking();
         $this->updateFailsCall();
         $this->updateFailsAssertions();
     }
 
-    protected function updateFailsSetup() {
+    protected function updateFailsSetup()
+    {
         $this->validate(false);
     }
 
-    protected function updateFailsMocking() {
+    protected function updateFailsMocking()
+    {
         //
     }
 
-    protected function updateFailsCall() {
+    protected function updateFailsCall()
+    {
         $this->updateCall();
     }
 
-    protected function updateFailsAssertions() {
+    protected function updateFailsAssertions()
+    {
         $this->assertRedirectedTo($this->getPath($this->getUid().'/edit'));
         $this->assertSessionHasErrors();
     }
 
-    public function testDestroy() {
+    public function testDestroy()
+    {
         $this->destroySetup();
         $this->destroyMocking();
         $this->destroyCall();
         $this->destroyAssertions();
     }
 
-    protected function destroySetup() {
+    protected function destroySetup()
+    {
         //
     }
 
-    protected function destroyMocking() {
+    protected function destroyMocking()
+    {
         $provider = $this->provider;
         $provider::shouldReceive('find')
             ->with($this->getUid())->once()->andReturn($this->mock);
         $this->mock->shouldReceive('delete')->once();
     }
 
-    protected function destroyCall() {
+    protected function destroyCall()
+    {
         $this->call('DELETE', $this->getPath($this->getUid()));
     }
 
-    protected function destroyAssertions() {
+    protected function destroyAssertions()
+    {
         $this->assertRedirectedToRoute($this->getRoute('index'));
     }
 }

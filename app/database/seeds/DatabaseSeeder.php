@@ -12,22 +12,26 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
+ */
+
+/**
+ * This is the database seeder class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @license    GNU AFFERO GENERAL PUBLIC LICENSE
  * @copyright  Copyright (C) 2013  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-
-class DatabaseSeeder extends Seeder {
-
+class DatabaseSeeder extends Seeder
+{
     /**
      * Run the database seeding.
      *
      * @return void
      */
-    public function run() {
-        //
+    public function run()
+    {
+        // see cms core
     }
 }

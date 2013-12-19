@@ -60,7 +60,7 @@ return array(
         'twig' => false,             // Twig, requires barryvdh/laravel-twigbridge
         'default_request'=> false,   // Regular or special Symfony request logger
         'symfony_request'=> true,    // Only one can be enabled..
-        'mail' => true,              // Catch mail messages
+        'mail' => true               // Catch mail messages
 
    ),
 
@@ -95,6 +95,6 @@ return array(
     | in your template yourself. See http://phpdebugbar.com/docs/rendering.html
     |
     */
-    'inject' => true,
+    'inject' => true
 
 );
