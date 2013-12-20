@@ -2,6 +2,15 @@ CHANGE LOG
 ==========
 
 
+## V0.6 Alpha (Upcoming)
+#### Major Release
+
+* Support only laravel 4.1
+* Improved authentication
+* Improved events
+* Added more tests
+
+
 ## V0.5 Alpha (19/12/2013)
 #### Major Release
 

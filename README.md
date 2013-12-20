@@ -10,6 +10,11 @@ Bootstrap CMS
 [![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
 
 
+## WARNING
+
+#### This branch currently holds the very unstable 0.6 code. Expect things to be broken and tests to fail.
+
+
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
 
 #### I'd appreciate it if you'd leave my name in the footer unless you have changed my source significantly. If you do feel you have changed it significantly, I'd still appreciate some kind of link back, and remember that attribution is still required as stated in the license. Thank you, and enjoy!
