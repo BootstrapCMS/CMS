@@ -2,15 +2,25 @@ CHANGE LOG
 ==========
 
 
-## V0.5 Alpha (Upcoming)
+## V0.5 Alpha (19/12/2013)
 #### Major Release
 
-* Added extendibility
+* Made it PSR-2 compliant
+* Massive refactoring
+* Now leveraging CMS Core
+* Updated for Bootstrap 3.0.3
+* Improved styling generally
 * Navigation improvements
-* Moved some stuff to a core package
-* Moved events to another package
+* Queuing improvements
+* Added cron functionality
+* Minification and assets improvements
+* Massively improved blog system
 * Moved the CloudFlare integration to another package
-* Other minor fixes
+* Moved the log viewer to another package
+* Travis and Scrutinizer tweaks
+* Testing improvements
+* Updated doc blocks
+* Coding style fixes
 
 
 ## V0.4 Alpha (25/08/2013)
