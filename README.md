@@ -17,7 +17,7 @@ Bootstrap CMS
 
 ## What Is Bootstrap CMS?
 
-Bootstrap CMS is a PHP CMS powered by [Laravel 4.0](http://laravel.com) with [CMS Core](https://github.com/GrahamCampbell/CMS-Core) and [Sentry 2](https://cartalyst.com/manual/sentry).  
+Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) with [CMS Core](https://github.com/GrahamCampbell/CMS-Core) and [Sentry 2](https://cartalyst.com/manual/sentry).  
 
 * Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Bootstrap CMS relies on my [CMS Core](https://github.com/GrahamCampbell/CMS-Core) package.  
@@ -172,7 +172,7 @@ Please submit pull requests against the develop branch.
 
 GNU AFFERO GENERAL PUBLIC LICENSE  
 
-Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With CMS Core And Sentry 2 
+Bootstrap CMS Is A PHP CMS Powered By Laravel 4.1 With CMS Core And Sentry 2 
 Copyright (C) 2013  Graham Campbell  
 
 This program is free software: you can redistribute it and/or modify

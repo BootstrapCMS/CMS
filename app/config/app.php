@@ -139,7 +139,6 @@ return array(
         'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
         'GrahamCampbell\CMSLogViewer\CMSLogViewerServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
-        'DaveJamesMiller\Boris\BorisServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
 
     ),
