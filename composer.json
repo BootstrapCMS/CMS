@@ -41,16 +41,7 @@
         "barryvdh/laravel-debugbar": "1.0.*"
     },
     "require-dev": {
-        "orchestra/testbench": "2.1.*",
-        "mockery/mockery": "0.8.*",
-        "phpunit/phpunit": "3.7.*",
-        "sebastian/finder-facade": "1.1.*",
-        "sebastianbergmann/phpcov": "1.1.0",
-        "satooshi/php-coveralls": "dev-master",
-        "symfony/event-dispatcher": "2.4.*",
-        "symfony/stopwatch": "2.4.*",
-        "symfony/yaml": "2.4.*",
-        "guzzle/guzzle": "3.8.*"
+        "graham-campbell/testbench": "0.2.*"
     },
     "autoload": {
         "classmap": [
