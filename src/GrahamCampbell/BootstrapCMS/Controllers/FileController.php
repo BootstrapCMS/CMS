@@ -19,7 +19,7 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
 use GrahamCampbell\CMSCore\Facades\FileProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the file controller class.
@@ -30,7 +30,7 @@ use GrahamCampbell\CMSCore\Controllers\BaseController;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class FileController extends BaseController
+class FileController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).

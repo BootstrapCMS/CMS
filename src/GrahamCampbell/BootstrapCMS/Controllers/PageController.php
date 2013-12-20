@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\CMSCore\Models\Page;
 use GrahamCampbell\CMSCore\Facades\PageProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the page controller class.
@@ -34,7 +34,7 @@ use GrahamCampbell\CMSCore\Controllers\BaseController;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class PageController extends BaseController
+class PageController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).

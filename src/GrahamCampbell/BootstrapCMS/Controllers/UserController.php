@@ -30,7 +30,7 @@ use GrahamCampbell\Passwd\Facades\Passwd;
 use GrahamCampbell\Queuing\Facades\Queuing;
 use GrahamCampbell\CMSCore\Facades\UserProvider;
 use GrahamCampbell\CMSCore\Facades\GroupProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the user controller class.
@@ -41,7 +41,7 @@ use GrahamCampbell\CMSCore\Controllers\BaseController;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class UserController extends BaseController
+class UserController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).

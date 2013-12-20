@@ -26,7 +26,7 @@ use GrahamCampbell\HTMLMin\Facades\HTMLMin;
 use GrahamCampbell\CMSCore\Models\Comment;
 use GrahamCampbell\CMSCore\Facades\CommentProvider;
 use GrahamCampbell\CMSCore\Facades\PostProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the comment controller class.
@@ -37,7 +37,7 @@ use GrahamCampbell\CMSCore\Controllers\BaseController;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class CommentController extends BaseController
+class CommentController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).

@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\CMSCore\Models\Folder;
 use GrahamCampbell\CMSCore\Facades\FolderProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the folder controller class.
@@ -33,7 +33,7 @@ use GrahamCampbell\CMSCore\Controllers\BaseController;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class FolderController extends BaseController
+class FolderController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).

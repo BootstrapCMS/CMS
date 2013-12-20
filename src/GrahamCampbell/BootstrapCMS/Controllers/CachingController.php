@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the caching controller class.
@@ -27,7 +27,7 @@ use GrahamCampbell\CMSCore\Controllers\BaseController;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class CachingController extends BaseController
+class CachingController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).

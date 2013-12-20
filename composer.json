@@ -28,10 +28,6 @@
                     "phpcov.php"
                 ]
             }
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/asset"
         }
     ],
     "require": {
