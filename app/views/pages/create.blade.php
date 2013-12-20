@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Create Page
@@ -14,6 +14,8 @@ Create Page
             'title' => '',
             'icon' => '',
             'body' => '',
+            'css' => '',
+            'js' => '',
             'show_title' => true,
             'show_nav' => true,
     ));
@@ -23,9 +25,9 @@ Create Page
 @stop
 
 @section('css')
-{{ Basset::show('switches.css') }}
+{{ Asset::styles('form') }}
 @stop
 
 @section('js')
-{{ Basset::show('switches.js') }}
+{{ Asset::scripts('form') }}
 @stop

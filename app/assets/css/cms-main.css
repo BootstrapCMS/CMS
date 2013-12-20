@@ -1,0 +1,119 @@
+html,
+body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+#wrap > .container {
+    padding: 60px 15px;
+}
+
+.navbar {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar-right {
+    padding-right: 20px;
+    padding-left: 5px;
+}
+
+#footer {
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+#footer > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container .credit {
+    margin: 20px 0;
+}
+
+.jumbotron {
+    background-color: transparent;
+    text-align: center;
+}
+
+.hidden-xs .jumbotron {
+    margin: 28px 0;
+}
+
+.visible-xs .jumbotron {
+    margin: 20px 0;
+}
+
+.jumbotron h1 {
+    line-height: 1;
+}
+
+.hidden-xs .jumbotron .hidden-sm h1 {
+    font-size: 100px;
+}
+
+.hidden-xs .jumbotron .visible-sm h1 {
+    font-size: 80px;
+}
+
+.visible-xs .jumbotron h1 {
+    font-size: 60px;
+}
+
+.jumbotron .lead {
+    line-height: 1.25;
+}
+
+.hidden-xs .jumbotron .lead {
+    font-size: 24px;
+}
+
+.visible-xs .jumbotron .lead {
+    font-size: 20px;
+}
+
+.hidden-xs .jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.visible-xs .jumbotron .btn {
+    font-size: 20px;
+    padding: 12px 18px;
+}
+
+.comment-box {
+    resize: none;
+}
+
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+.carousel-fade .carousel-control {
+    z-index: 2;
+}

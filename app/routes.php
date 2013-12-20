@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * This file is part of Bootstrap CMS by Graham Campbell.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ */
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -21,16 +35,8 @@ Route::get('add/{value}', array('as' => 'add', 'uses' => 'GrahamCampbell\Bootstr
 Route::get('get', array('as' => 'get', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@getValue'));
 
 
-// iron queue push route
-if (Config::get('queue.default') === 'iron') {
-    Route::post('queue/receive', function() {
-        return Queue::marshal();
-    });
-}
-
-
 // send users to the home page
-Route::get('/', array('as' => 'base', function() {
+Route::get('/', array('as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
     return Redirect::route('pages.show', array('pages' => 'home'));
@@ -38,15 +44,43 @@ Route::get('/', array('as' => 'base', function() {
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
-    Route::get('blog', array('as' => 'blog', function() {
+    Route::get('blog', array('as' => 'blog', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('blog.posts.index');
     }));
 }
 
+// send users to the sections page
+if (Config::get('cms.forum')) {
+    Route::get('forum', array('as' => 'forum', function () {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('forum.sections.index');
+    }));
+    Route::get('forums', array('as' => 'forums1', function () {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('forum.sections.index');
+    }));
+    Route::get('forums/sections', array('as' => 'forums2', function () {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('forum.sections.index');
+    }));
+}
+
+// send users to the sections page
+if (Config::get('cms.storage')) {
+    Route::get('storage', array('as' => 'storage', function () {
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
+        return Redirect::route('storage.folders.index');
+    }));
+}
+
 // send users to the profile page
-Route::get('account', array('as' => 'account', function() {
+Route::get('account', array('as' => 'account', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
     return Redirect::route('account.profile');
@@ -66,15 +100,20 @@ Route::post('account/login', array('as' => 'account.login.post', 'uses' => 'Grah
 Route::get('account/logout', array('as' => 'account.logout', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\LoginController@getLogout'));
 
 
-// reset route
+// reset routes
 Route::get('account/reset', array('as' => 'account.reset', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\ResetController@getReset'));
 Route::post('account/reset', array('as' => 'account.reset.post', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\ResetController@postReset'));
 Route::get('account/password/{id}/{code}', array('as' => 'account.password', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\ResetController@getPassword'));
 
 
 // registration routes
-Route::get('account/register', array('as' => 'account.register', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@getRegister'));
-Route::post('account/register', array('as' => 'account.register.post', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@postRegister'));
+if (Config::get('cms.regallowed')) {
+    Route::get('account/register', array('as' => 'account.register', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@getRegister'));
+    Route::post('account/register', array('as' => 'account.register.post', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@postRegister'));
+}
+
+
+// activation route
 Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@getActivate'));
 
 
@@ -98,6 +137,15 @@ if (Config::get('cms.events')) {
     Route::resource('events', 'GrahamCampbell\BootstrapCMS\Controllers\EventController');
 }
 
+// storage routes
+if (Config::get('cms.storage')) {
+    Route::resource('storage/folders', 'GrahamCampbell\BootstrapCMS\Controllers\FolderController');
+    Route::resource('storage/folders.files', 'GrahamCampbell\BootstrapCMS\Controllers\FileController');
+}
 
-// cloudflare routes
-Route::get('cloudflare', array('as' => 'cloudflare.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CloudflareController@getIndex'));
+
+// caching routes
+Route::get('caching', array('as' => 'caching.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CachingController@getIndex'));
+
+// queuing routes
+Route::get('queuing', array('as' => 'queuing.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\QueuingController@getIndex'));

@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Create Post
@@ -21,9 +21,9 @@ Create Post
 @stop
 
 @section('css')
-{{ Basset::show('markdown.css') }}
+{{ Asset::styles('form') }}
 @stop
 
 @section('js')
-{{ Basset::show('markdown.js') }}
+{{ Asset::scripts('form') }}
 @stop

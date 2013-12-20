@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Create Event
@@ -12,7 +12,7 @@ Create Event
         'button'   => 'Create New Event',
         'defaults' => array(
             'title'    => '',
-            'date'     => Carbon::now(),
+            'date'     => Carbon\Carbon::now()->addMinutes(30)->format('d/m/Y H:i'),
             'location' => '',
             'body'     => '',
     ));
@@ -22,11 +22,11 @@ Create Event
 @stop
 
 @section('css')
-{{ Basset::show('select.css') }}
-{{ Basset::show('markdown.css') }}
+{{ Asset::styles('form') }}
+{{ Asset::styles('picker') }}
 @stop
 
 @section('js')
-{{ Basset::show('select.js') }}
-{{ Basset::show('markdown.js') }}
+{{ Asset::scripts('form') }}
+{{ Asset::scripts('picker') }}
 @stop

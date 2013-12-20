@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * This file is part of Bootstrap CMS by Graham Campbell.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ */
+
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -11,26 +25,14 @@
 |
 */
 
-App::before(function($request) {
-    if (!$request->is('logviewer/*')) {
-        Event::fire('page.load', array(array('URL' => Request::url(), 'Headers' => Request::header())));
-    } else {
-        $value = 'admin';
-
-        if (!Sentry::check()) {
-            Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
-            Session::flash('error', 'You must be logged in to perform that action.');
-            return Redirect::guest(URL::route('account.login'));
-        }
-
-        if (!Sentry::getUser()->hasAccess($value)) {
-            Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
-            App::abort(403, ucwords($value).' Permissions Are Required');
-        }
+App::before(function ($request) {
+    if ($request->ajax()) {
+        Debugbar::disable();
     }
+    Event::fire('page.load', array(array('Path' => $request->path(), 'Headers' => $request->header())));
 });
 
-App::after(function($request, $response) {
+App::after(function ($request, $response) {
     //
 });
 
@@ -46,16 +48,19 @@ App::after(function($request, $response) {
 */
 
 // check if the user is logged in and their access level
-Route::filter('auth', function($route, $request, $value) {
+Route::filter('auth', function ($route, $request, $value) {
     if (!Sentry::check()) {
         Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
+        if (Request::ajax()) {
+            return App::abort(401, 'Action Requires Login');
+        }
         Session::flash('error', 'You must be logged in to perform that action.');
         return Redirect::guest(URL::route('account.login'));
     }
 
     if (!Sentry::getUser()->hasAccess($value)) {
         Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
-        App::abort(403, ucwords($value).' Permissions Are Required');
+        return App::abort(403, ucwords($value).' Permissions Are Required');
     }
 });
 
@@ -70,8 +75,10 @@ Route::filter('auth', function($route, $request, $value) {
 |
 */
 
-Route::filter('guest', function() {
-    if (Auth::check()) return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
+Route::filter('guest', function () {
+    if (!Request::ajax() && Auth::check()) {
+        return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
+    }
 });
 
 /*
@@ -85,7 +92,7 @@ Route::filter('guest', function() {
 |
 */
 
-Route::filter('csrf', function() {
+Route::filter('csrf', function () {
     if (Session::token() != Input::get('_token')) {
         throw new Illuminate\Session\TokenMismatchException;
     }

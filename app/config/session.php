@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * This file is part of Bootstrap CMS by Graham Campbell.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ */
+
 return array(
 
     /*
@@ -24,7 +38,7 @@ return array(
     |--------------------------------------------------------------------------
     |
     | Here you may specify the number of minutes that you wish the session
-    | to be allowed to remain idle for it is expired. If you want them
+    | to be allowed to remain idle before it expires. If you want them
     | to immediately expire when the browser closes, set it to zero.
     |
     */
@@ -120,6 +134,6 @@ return array(
     |
     */
 
-    'domain' => null,
+    'domain' => null
 
 );

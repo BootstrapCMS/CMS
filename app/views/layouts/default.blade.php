@@ -2,25 +2,25 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>{{ Config::get('cms.name') }} - @section('title')
 @show</title>
-@include('partials.header')
+@include(Config::get('views.header', 'partials.header'))
 </head>
 <body>
-{{ HTMLMin::render($__env->make('partials.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+<div id="wrap">
+{{ $navigation }}
 <div class="container">
-{{ HTMLMin::render($__env->make('partials.title', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
-{{ HTMLMin::render($__env->make('partials.notifications', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+@include(Config::get('views.title', 'partials.title'))
+@include(Config::get('views.notifications', 'partials.notifications'))
 @section('controls')
-{{ HTMLMin::render($__env->yieldSection()) }}
+@show
 @section('content')
 @show
 @section('comments')
-{{ HTMLMin::render($__env->yieldSection()) }}
+@show
 @section('messages')
-{{ HTMLMin::render($__env->yieldSection()) }}
-<br><hr>
-</div>
-{{ HTMLMin::render($__env->make('partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render()) }}
+@show
+@include(Config::get('views.footer', 'partials.footer'))
 </body>
 </html>

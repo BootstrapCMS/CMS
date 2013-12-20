@@ -2,6 +2,27 @@ CHANGE LOG
 ==========
 
 
+## V0.5 Alpha (19/12/2013)
+#### Major Release
+
+* Made it PSR-2 compliant
+* Massive refactoring
+* Now leveraging CMS Core
+* Updated for Bootstrap 3.0.3
+* Improved styling generally
+* Navigation improvements
+* Queuing improvements
+* Added cron functionality
+* Minification and assets improvements
+* Massively improved blog system
+* Moved the CloudFlare integration to another package
+* Moved the log viewer to another package
+* Travis and Scrutinizer tweaks
+* Testing improvements
+* Updated doc blocks
+* Coding style fixes
+
+
 ## V0.4 Alpha (25/08/2013)
 #### Major Release
 
@@ -51,7 +72,7 @@ CHANGE LOG
 ## V0.3 Alpha (09/08/2013)
 #### Major Release
 
-* Added native support for Cloudflare proxies
+* Added native support for CloudFlare proxies
 * Added proper model deletion
 * Added an actual profile page
 * Added user management
@@ -127,7 +148,7 @@ CHANGE LOG
 * Added a base model
 * Added the db tables for the models
 * Added a simple in-browser cache test
-* Added basic use of apache 
+* Added basic use of apache
 * Updated travis config
 * Some composer tweaks
 * Use unsigned values in the db where possible

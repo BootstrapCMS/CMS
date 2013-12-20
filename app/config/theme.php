@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * This file is part of Bootstrap CMS by Graham Campbell.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ */
+
 return array(
 
     /*
@@ -10,8 +24,8 @@ return array(
     | This defines what theme of Bootstrap to use from bootswatch.com.
     |
     | Supported: "amelia", "cerulean", "cosmo", "cyborg", "default", "flatly",
-    |            "journal", "readable", "simplex", "slate", "spacelab", "spruce",
-    |            "superhero", "united"
+    |            "journal", "legacy", "readable", "simplex", "slate", "spacelab",
+    |            "united", "yeti"
     |
     | Default to 'default'.
     |
@@ -33,6 +47,6 @@ return array(
     |
     */
 
-    'inverse' => true,
+    'inverse' => true
 
 );

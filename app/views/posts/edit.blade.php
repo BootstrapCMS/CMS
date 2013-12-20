@@ -1,21 +1,19 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Edit {{ $post->getTitle() }}
 @stop
 
 @section('controls')
-<div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                Please edit the post:
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="icon-file-text"></i> Show Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="icon-remove"></i> Delete Post</a>
-            </div>
+<div class="row">
+    <div class="col-xs-6">
+        <p class="lead">
+            Please edit the post:
+        </p>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="fa fa-file-text"></i> Show Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
         </div>
     </div>
 </div>
@@ -45,9 +43,9 @@ Edit {{ $post->getTitle() }}
 @stop
 
 @section('css')
-{{ Basset::show('markdown.css') }}
+{{ Asset::styles('form') }}
 @stop
 
 @section('js')
-{{ Basset::show('markdown.js') }}
+{{ Asset::scripts('form') }}
 @stop

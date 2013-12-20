@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Create User
@@ -28,9 +28,9 @@ Create User
 @stop
 
 @section('css')
-{{ Basset::show('switches.css') }}
+{{ Asset::styles('form') }}
 @stop
 
 @section('js')
-{{ Basset::show('switches.js') }}
+{{ Asset::scripts('form') }}
 @stop

@@ -1,15 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ Config::get('cms.name') }}">
 <meta name="author" content="Graham Campbell">
-{{ Basset::show('main.css') }}
+
+{{ Asset::styles('main') }}
 @section('css')
 @show
-{{ Basset::show('extra.css') }}
 
-<!--[if IE]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
 <!--[if lt IE 9]>
-<script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+  <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
+
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">

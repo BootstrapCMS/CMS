@@ -1,23 +1,21 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Edit {{ $event->getTitle() }}
 @stop
 
 @section('controls')
-<div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                Please edit the event:
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="icon-file-text"></i> Show Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="icon-remove"></i> Delete Event</a>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-xs-6">
+        <p class="lead">
+            Please edit the event:
+        </p>
     </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="fa fa-file-text"></i> Show Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="fa fa-times"></i> Delete Event</a>
+        </div>
+        </div>
 </div>
 <hr>
 @stop
@@ -30,7 +28,7 @@ Edit {{ $event->getTitle() }}
         'button'   => 'Save Event',
         'defaults' => array(
             'title'    => $event->getTitle(),
-            'date'     => $event->getDate(),
+            'date'     => $event->getDateByFormat('d/m/Y H:i'),
             'location' => $event->getLocation(),
             'body'     => $event->getBody(),
     ));
@@ -41,16 +39,16 @@ Edit {{ $event->getTitle() }}
 
 @section('messages')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
-    @include('events.delete')
+@include('events.delete')
 @endif
 @stop
 
 @section('css')
-{{ Basset::show('select.css') }}
-{{ Basset::show('markdown.css') }}
+{{ Asset::styles('form') }}
+{{ Asset::styles('picker') }}
 @stop
 
 @section('js')
-{{ Basset::show('select.js') }}
-{{ Basset::show('markdown.js') }}
+{{ Asset::scripts('form') }}
+{{ Asset::scripts('picker') }}
 @stop

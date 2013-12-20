@@ -1,21 +1,19 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Edit {{ $page->getTitle() }}
 @stop
 
 @section('controls')
-<div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                Please edit the page:
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}"><i class="icon-file-text"></i> Show Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="icon-remove"></i> Delete Page</a>
-            </div>
+<div class="row">
+    <div class="col-xs-6">
+        <p class="lead">
+            Please edit the page:
+        </p>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a class="btn btn-success" href="{{ URL::route('pages.show', array('pages' => $page->getSlug())) }}"><i class="fa fa-file-text"></i> Show Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="fa fa-times"></i> Delete Page</a>
         </div>
     </div>
 </div>
@@ -32,6 +30,8 @@ Edit {{ $page->getTitle() }}
             'title' => $page->getTitle(),
             'icon' => $page->getIcon(),
             'body' => $page->getBody(),
+            'css' => $page->getCSS(),
+            'js' => $page->getJS(),
             'show_title' => ($page->getShowTitle() == true),
             'show_nav' => ($page->getShowNav() == true),
     ));
@@ -47,9 +47,9 @@ Edit {{ $page->getTitle() }}
 @stop
 
 @section('css')
-{{ Basset::show('switches.css') }}
+{{ Asset::styles('form') }}
 @stop
 
 @section('js')
-{{ Basset::show('switches.js') }}
+{{ Asset::scripts('form') }}
 @stop

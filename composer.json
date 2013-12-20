@@ -1,7 +1,7 @@
 {
     "name": "graham-campbell/bootstrap-cms",
-    "description": "Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With Sentry 2.0",
-    "keywords": ["laravel", "framework", "sentry", "bootstrap", "cms", "blog", "login", "Bootstrap CMS", "Bootstrap-CMS", "Graham Campbell", "GrahamCampbell"],
+    "description": "Bootstrap CMS Is A PHP CMS Powered By Laravel 4.0 With CMS Core And Sentry 2",
+    "keywords": ["laravel", "framework", "sentry", "bootstrap", "cms", "bootstrap cms", "Bootstrap CMS", "Bootstrap-CMS", "blog", "login", "Graham Campbell", "GrahamCampbell"],
     "license": "GNU Affero General Public License v3",
     "authors": [
         {
@@ -9,30 +9,49 @@
             "email": "graham@mineuk.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "sebastianbergmann/phpcov",
+                "version": "1.1.0",
+                "dist": {
+                    "url": "https://github.com/sebastianbergmann/phpcov/archive/1.1.0.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/sebastianbergmann/phpcov.git",
+                    "type": "git",
+                    "reference": "1.1.0"
+                },
+                "bin": [
+                    "phpcov.php"
+                ]
+            }
+        }
+    ],
     "require": {
         "php": ">=5.4.7",
         "laravel/framework": "4.0.*",
-        "pda/pheanstalk": "2.1.*",
-        "aws/aws-sdk-php": "2.4.*",
-        "iron-io/iron_mq": "1.4.*",
-        "cartalyst/sentry": "2.0.*",
-        "graham-campbell/security": "dev-master",
-        "graham-campbell/binput": "dev-master",
-        "graham-campbell/passwd": "dev-master",
-        "graham-campbell/htmlmin": "dev-master",
-        "graham-campbell/core-api": "dev-master",
-        "graham-campbell/cloudflare-api": "dev-master",
-        "vtalbot/markdown": "1.4.*",
-        "kmd/logviewer": "dev-master",
-        "fideloper/proxy": "dev-master",
-        "jasonlewis/basset": "dev-develop",
-        "natxet/CssMin": "dev-master",
-        "linkorb/jsmin-php": "dev-master",
-        "way/generators": "dev-master"
+        "symfony/config": "2.3.*",
+        "symfony/filesystem": "2.3.*",
+        "graham-campbell/cms-core": "0.1.*",
+        "graham-campbell/cms-logviewer": "0.1.*",
+        "fideloper/proxy": "2.0.*",
+        "davejamesmiller/laravel-boris": "1.0.*",
+        "barryvdh/laravel-debugbar": "0.3.*"
     },
     "require-dev": {
-        "mockery/mockery": "dev-master",
-        "phpunit/phpunit": "dev-master"
+        "orchestra/testbench": "2.0.*",
+        "mockery/mockery": "0.8.*",
+        "phpunit/phpunit": "3.7.*",
+        "sebastian/finder-facade": "1.1.*",
+        "sebastianbergmann/phpcov": "1.1.0",
+        "satooshi/php-coveralls": "dev-master",
+        "symfony/event-dispatcher": "2.3.*",
+        "symfony/stopwatch": "2.3.*",
+        "symfony/yaml": "2.3.*",
+        "guzzle/guzzle": "3.8.*"
     },
     "autoload": {
         "classmap": [
@@ -40,7 +59,8 @@
             "app/database/seeds"
         ],
         "psr-0": {
-            "GrahamCampbell\\BootstrapCMS": "app/src/"
+            "GrahamCampbell\\BootstrapCMS": "src/",
+            "GrahamCampbell\\Tests\\BootstrapCMS": "tests/"
         }
     },
     "scripts": {
@@ -51,6 +71,7 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
+            "php artisan clear-compiled",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [
@@ -60,5 +81,6 @@
     "config": {
         "preferred-install": "dist"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -1,94 +1,44 @@
-<div class="navbar{{ (Config::get('theme.inverse') == true) ? ' navbar-inverse' : ''}} navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="brand" href="{{ URL::route('pages.show', array('pages' => 'home')) }}">{{ Config::get('cms.name') }}</a>
-            <div class="nav-collapse collapse">
-
-                <ul class="nav">
-                    @foreach($nav_pages as $item)
+<div class="navbar {{ ($inverse == true) ? 'navbar-inverse' : 'navbar-default' }} navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ $main[0]['url'] }}">{{ $title }}</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <div id="main-nav">
+                <ul class="nav navbar-nav">
+                    @foreach($main as $item)
                         <li{{ ($item['active'] ? ' class="active"' : '') }}>
-                            <a href="{{ URL::to($item['slug']) }}">
-                                {{ ((!$item['icon'] == '') ? '<i class="'.$item['icon'].' icon-white"></i> ' : '') }}{{ $item['title'] }}
+                            <a href="{{ $item['url'] }}">
+                                {{ ((!$item['icon'] == '') ? '<i class="fa fa-'.$item['icon'].' fa-inverse fa-fw"></i> ' : '') }}{{ $item['title'] }}
                             </a>
                         </li>
                     @endforeach
                 </ul>
-
-                <ul class="nav pull-right">
-                    @if (Sentry::check())
+            </div>
+            <div id="bar-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    @if ($bar)
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                {{ Sentry::getUser()->email }} <b class="caret"></b>
+                                {{ $side }} <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{{ URL::route('account.profile') }}">
-                                        <i class="icon-cog"></i> View Profile
-                                    </a>
-                                </li>
-                                @if (Sentry::getUser()->hasAccess('admin'))
+                                @foreach($bar as $item)
                                     <li>
-                                        <a href="{{ URL::to('logviewer') }}">
-                                            <i class="icon-wrench"></i> View Logs
+                                        <a href="{{ $item['url'] }}">
+                                            {{ ((!$item['icon'] == '') ? '<i class="fa fa-'.$item['icon'].' fa-fw"></i> ' : '') }}{{ $item['title'] }}
                                         </a>
                                     </li>
-                                @endif
-                                @if (Sentry::getUser()->hasAccess('admin'))
-                                    <li>
-                                        <a href="{{ URL::to('cloudflare') }}">
-                                            <i class="icon-cloud"></i> Cloudflare
-                                        </a>
-                                    </li>
-                                @endif
-                                @if (Sentry::getUser()->hasAccess('mod'))
-                                    <li>
-                                        <a href="{{ URL::route('users.index') }}">
-                                            <i class="icon-user"></i> View Users
-                                        </a>
-                                    </li>
-                                @endif
-                                @if (Sentry::getUser()->hasAccess('admin'))
-                                    <li>
-                                        <a href="{{ URL::route('users.create') }}">
-                                            <i class="icon-star"></i> Create User
-                                        </a>
-                                    </li>
-                                @endif
-                                @if (Sentry::getUser()->hasAccess('edit'))
-                                    <li>
-                                        <a href="{{ URL::route('pages.create') }}">
-                                            <i class="icon-pencil"></i> Create Page
-                                        </a>
-                                    </li>
-                                @endif
-                                @if (Config::get('cms.blogging'))
-                                    @if (Sentry::getUser()->hasAccess('blog'))
-                                        <li>
-                                            <a href="{{ URL::route('blog.posts.create') }}">
-                                                <i class="icon-book"></i> Create Post
-                                            </a>
-                                        </li>
-                                    @endif
-                                @endif
-                                @if (Config::get('cms.events'))
-                                    @if (Sentry::getUser()->hasAccess('edit'))
-                                        <li>
-                                            <a href="{{ URL::route('events.create') }}">
-                                                <i class="icon-calendar"></i> Create Event
-                                            </a>
-                                        </li>
-                                    @endif
-                                @endif
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-envelope"></i> Contact Support
-                                    </a>
-                                </li>
+                                @endforeach
                                 <li class="divider"></li>
                                 <li>
                                     <a href="{{ URL::route('account.logout') }}">
-                                        <i class="icon-off"></i> Logout
+                                        <i class="fa fa-power-off fa-fw"></i> Logout
                                     </a>
                                 </li>
                             </ul>
@@ -99,14 +49,15 @@
                                 Login
                             </a>
                         </li>
-                        <li {{ (Request::is('account/register') ? 'class="active"' : '') }}>
-                            <a href="{{ URL::route('account.register') }}">
-                                Register
-                            </a>
-                        </li>
+                        @if (Config::get('cms.regallowed'))
+                            <li {{ (Request::is('account/register') ? 'class="active"' : '') }}>
+                                <a href="{{ URL::route('account.register') }}">
+                                    Register
+                                </a>
+                            </li>
+                        @endif
                     @endif
                 </ul>
-
             </div>
         </div>
     </div>

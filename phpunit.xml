@@ -12,7 +12,16 @@
 >
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>./app/src/GrahamCampbell/BootstrapCMS/Tests/</directory>
+            <directory suffix=".php">./tests/GrahamCampbell/Tests/BootstrapCMS</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/GrahamCampbell/BootstrapCMS</directory>
+            <exclude>
+                <directory>./tests</directory>
+                <directory>./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>

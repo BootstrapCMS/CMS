@@ -1,21 +1,19 @@
-@extends('layouts.default')
+@extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
 Profile
 @stop
 
 @section('controls')
-<div class="row-fluid">
-    <div class="span12">
-        <div class="span6">
-            <p class="lead">
-                Here is your profile:
-            </p>
-        </div>
-        <div class="span6">
-            <div class="pull-right">
-                <a class="btn btn-danger" href="#delete_account" data-toggle="modal" data-target="#delete_account"><i class="icon-remove"></i> Delete Account</a>
-            </div>
+<div class="row">
+    <div class="col-xs-8">
+        <p class="lead">
+            Here is your profile:
+        </p>
+    </div>
+    <div class="col-xs-4">
+        <div class="pull-right">
+            <a class="btn btn-danger" href="#delete_account" data-toggle="modal" data-target="#delete_account"><i class="fa fa-times"></i> Delete Account</a>
         </div>
     </div>
 </div>
@@ -52,4 +50,12 @@ Profile
 
 @section('messages')
 @include('account.delete')
+@stop
+
+@section('css')
+{{ Asset::styles('form') }}
+@stop
+
+@section('js')
+{{ Asset::scripts('form') }}
 @stop

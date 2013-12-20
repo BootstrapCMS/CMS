@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * This file is part of Bootstrap CMS by Graham Campbell.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ */
+
 return array(
 
     /*
@@ -114,19 +128,19 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'Lightgear\Asset\AssetServiceProvider',
+        'GrahamCampbell\Queuing\QueuingServiceProvider',
+        'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
+        'GrahamCampbell\Markdown\MarkdownServiceProvider',
         'GrahamCampbell\Security\SecurityServiceProvider',
         'GrahamCampbell\Binput\BinputServiceProvider',
         'GrahamCampbell\Passwd\PasswdServiceProvider',
-        'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
-        'GrahamCampbell\CoreAPI\CoreAPIServiceProvider',
-        'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider',
-        'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
-        'VTalbot\Markdown\MarkdownServiceProvider',
+        'GrahamCampbell\Navigation\NavigationServiceProvider',
+        'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
+        'GrahamCampbell\CMSLogViewer\CMSLogViewerServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
-        'Basset\BassetServiceProvider',
-        'Kmd\Logviewer\LogviewerServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
-
+        'DaveJamesMiller\Boris\BorisServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider'
 
     ),
 
@@ -193,23 +207,26 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Asset'           => 'Lightgear\Asset\Facades\Asset',
+        'JobProvider'     => 'GrahamCampbell\Queuing\Facades\JobProvider',
+        'Queuing'         => 'GrahamCampbell\Queuing\Facades\Queuing',
+        'Cron'            => 'GrahamCampbell\Queuing\Facades\Cron',
+        'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
+        'Markdown'        => 'GrahamCampbell\Markdown\Facades\Markdown',
         'Security'        => 'GrahamCampbell\Security\Facades\Security',
         'Binput'          => 'GrahamCampbell\Binput\Facades\Binput',
         'Passwd'          => 'GrahamCampbell\Passwd\Facades\Passwd',
-        'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
-        'CoreAPI'         => 'GrahamCampbell\CoreAPI\Facades\CoreAPI',
-        'CloudFlareAPI'   => 'GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI',
-        'CommentProvider' => 'GrahamCampbell\BootstrapCMS\Facades\CommentProvider',
-        'EventProvider'   => 'GrahamCampbell\BootstrapCMS\Facades\EventProvider',
-        'GroupProvider'   => 'GrahamCampbell\BootstrapCMS\Facades\GroupProvider',
-        'PageProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PageProvider',
-        'PostProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PostProvider',
-        'UserProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\UserProvider',
-        'Navigation'      => 'GrahamCampbell\BootstrapCMS\Facades\Navigation',
-        'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
-        'Basset'          => 'Basset\Facade',
-        'Carbon'          => 'Carbon\Carbon',
+        'Navigation'      => 'GrahamCampbell\Navigation\Facades\Navigation',
+        'CommentProvider' => 'GrahamCampbell\CMSCore\Facades\CommentProvider',
+        'EventProvider'   => 'GrahamCampbell\CMSCore\Facades\EventProvider',
+        'FileProvider'    => 'GrahamCampbell\CMSCore\Facades\FileProvider',
+        'FolderProvider'  => 'GrahamCampbell\CMSCore\Facades\FolderProvider',
+        'GroupProvider'   => 'GrahamCampbell\CMSCore\Facades\GroupProvider',
+        'PageProvider'    => 'GrahamCampbell\CMSCore\Facades\PageProvider',
+        'PostProvider'    => 'GrahamCampbell\CMSCore\Facades\PostProvider',
+        'UserProvider'    => 'GrahamCampbell\CMSCore\Facades\UserProvider',
+        'Debugbar'        => 'Barryvdh\Debugbar\Facade'
 
-    ),
+    )
 
 );
