@@ -87,7 +87,7 @@ class ResetController extends AbstractController
                 'view' => 'emails.reset',
                 'link' => URL::route('account.password', array('id' => $user->getId(), 'code' => $user->getResetPasswordCode())),
                 'email' => $user->getLogin(),
-                'subject' => Config::get('cms.name').' - Password Reset Confirmation',
+                'subject' => Config::get('platform.name').' - Password Reset Confirmation',
             );
 
             try {
@@ -137,7 +137,7 @@ class ResetController extends AbstractController
                     'view' => 'emails.password',
                     'password' => $password,
                     'email' => $user->getLogin(),
-                    'subject' => Config::get('cms.name').' - New Password Information',
+                    'subject' => Config::get('platform.name').' - New Password Information',
                 );
 
                 Queuing::pushMail($data);

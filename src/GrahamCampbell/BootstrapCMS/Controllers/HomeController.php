@@ -85,7 +85,7 @@ class HomeController extends AbstractController
             'url'     => URL::route('pages.show', array('pages' => 'home')),
             'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
             'email'   => Config::get('workbench.email'),
-            'subject' => Config::get('cms.name').' - Welcome',
+            'subject' => Config::get('platform.name').' - Welcome',
         );
 
         Queuing::pushMail($data);

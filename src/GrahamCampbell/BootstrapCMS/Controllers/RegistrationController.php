@@ -113,7 +113,7 @@ class RegistrationController extends AbstractController
                     'url'     => URL::route('pages.show', array('pages' => 'home')),
                     'link'    => URL::route('account.activate', array('id' => $user->getId(), 'code' => $user->GetActivationCode())),
                     'email'   => $user->getLogin(),
-                    'subject' => Config::get('cms.name').' - Welcome',
+                    'subject' => Config::get('platform.name').' - Welcome',
                 );
 
                 Queuing::pushMail($data);

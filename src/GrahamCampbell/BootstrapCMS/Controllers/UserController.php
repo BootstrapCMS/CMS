@@ -137,7 +137,7 @@ class UserController extends AbstractController
                     'url'      => URL::route('pages.show', array('pages' => 'home')),
                     'password' => $password,
                     'email'    => $user->getLogin(),
-                    'subject'  => Config::get('cms.name').' - New Account Information'
+                    'subject'  => Config::get('platform.name').' - New Account Information'
                 );
 
                 Queuing::pushMail($data);
@@ -296,7 +296,7 @@ class UserController extends AbstractController
                 'view' => 'emails.password',
                 'password' => $password,
                 'email' => $user->getLogin(),
-                'subject' => Config::get('cms.name').' - New Password Information',
+                'subject' => Config::get('platform.name').' - New Password Information',
             );
 
             Queuing::pushMail($data);
