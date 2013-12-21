@@ -25,7 +25,7 @@ return array(
     |
     | Requires a valid Google Analytics Tracking ID.
     |
-    | Default to false. 
+    | Default to false.
     |
     */
 

@@ -18,39 +18,6 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Site Name
-    |--------------------------------------------------------------------------
-    |
-    | This defines the site name.
-    |
-    | This is the name of your site. It will appear in the title head element
-    | of every page and on the navigation bar except for error pages. You can,
-    | of course, set the Error Page Header the same as the Site Name.
-    |
-    | Default to 'Bootstrap CMS'. 
-    |
-    */
-
-    'name' => 'Bootstrap CMS',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Error Page Header
-    |--------------------------------------------------------------------------
-    |
-    | This defines the error page header.
-    |
-    | This is the header that will appear on all error pages. It will appear in
-    | the title head element of every error page and the maintenance page.
-    |
-    | Default to 'CMS Web Services'. 
-    |
-    */
-
-    'error' => 'CMS Web Services',
-
-    /*
-    |--------------------------------------------------------------------------
     | Enable Public Registration
     |--------------------------------------------------------------------------
     |
@@ -58,7 +25,7 @@ return array(
     |
     | Requires mail.php to be configured.
     |
-    | Default to true. 
+    | Default to true.
     |
     */
 

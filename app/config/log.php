@@ -23,7 +23,7 @@ return array(
     |
     | This defines if page loads are logged.
     |
-    | Default to false. 
+    | Default to false.
     |
     */
 
@@ -36,7 +36,7 @@ return array(
     |
     | This defines if view creations are logged.
     |
-    | Default to false. 
+    | Default to false.
     |
     */
 
@@ -49,7 +49,7 @@ return array(
     |
     | This defines if artisan starts are logged.
     |
-    | Default to false. 
+    | Default to false.
     |
     */
 
@@ -62,7 +62,7 @@ return array(
     |
     | This defines if illuminate queries are logged.
     |
-    | Default to false. 
+    | Default to false.
     |
     */
 
@@ -75,7 +75,7 @@ return array(
     |
     | This defines if locale changed events are logged.
     |
-    | Default to true. 
+    | Default to true.
     |
     */
 
@@ -88,7 +88,7 @@ return array(
     |
     | This defines if eloquent ing events are logged.
     |
-    | Default to false. 
+    | Default to false.
     |
     */
 
@@ -101,7 +101,7 @@ return array(
     |
     | This defines if eloquent ed events are logged.
     |
-    | Default to true. 
+    | Default to true.
     |
     */
 
