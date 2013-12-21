@@ -39,7 +39,7 @@ class AppReset extends AbstractCommand
      *
      * @var string
      */
-    protected $description = 'Resets And Installs The CMS';
+    protected $description = 'Resets And Installs The Application';
 
     /**
      * Run the commend.

@@ -39,7 +39,7 @@ class AppInstall extends AbstractCommand
      *
      * @var string
      */
-    protected $description = 'Installs The CMS';
+    protected $description = 'Installs The Application';
 
     /**
      * Run the commend.

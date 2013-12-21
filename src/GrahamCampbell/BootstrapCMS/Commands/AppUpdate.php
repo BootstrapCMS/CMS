@@ -39,7 +39,7 @@ class AppUpdate extends AbstractCommand
      *
      * @var string
      */
-    protected $description = 'Updates The CMS';
+    protected $description = 'Updates The Application';
 
     /**
      * Run the commend.
