@@ -10,9 +10,6 @@ before_script:
   - php artisan asset:generate
   - mkdir -p build/logs
 
-services:
-  - redis-server
-
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
