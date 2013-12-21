@@ -23,7 +23,7 @@ return array(
     |
     | The following language lines contain the default error messages used by
     | the validator class. Some of these rules have multiple versions such
-    | such as the size rules. Feel free to tweak each of these messages.
+    | as the size rules. Feel free to tweak each of these messages here.
     |
     */
 
@@ -36,10 +36,10 @@ return array(
     "array"            => "The :attribute must be an array.",
     "before"           => "The :attribute must be a date before :date.",
     "between"          => array(
-        "numeric" => "The :attribute must be between :min - :max.",
-        "file"    => "The :attribute must be between :min - :max kilobytes.",
-        "string"  => "The :attribute must be between :min - :max characters.",
-        "array"   => "The :attribute must have between :min - :max items.",
+        "numeric" => "The :attribute must be between :min and :max.",
+        "file"    => "The :attribute must be between :min and :max kilobytes.",
+        "string"  => "The :attribute must be between :min and :max characters.",
+        "array"   => "The :attribute must have between :min and :max items."
     ),
     "confirmed"        => "The :attribute confirmation does not match.",
     "date"             => "The :attribute is not a valid date.",
@@ -57,14 +57,14 @@ return array(
         "numeric" => "The :attribute may not be greater than :max.",
         "file"    => "The :attribute may not be greater than :max kilobytes.",
         "string"  => "The :attribute may not be greater than :max characters.",
-        "array"   => "The :attribute may not have more than :max items.",
+        "array"   => "The :attribute may not have more than :max items."
     ),
     "mimes"            => "The :attribute must be a file of type: :values.",
     "min"              => array(
         "numeric" => "The :attribute must be at least :min.",
         "file"    => "The :attribute must be at least :min kilobytes.",
         "string"  => "The :attribute must be at least :min characters.",
-        "array"   => "The :attribute must have at least :min items.",
+        "array"   => "The :attribute must have at least :min items."
     ),
     "not_in"           => "The selected :attribute is invalid.",
     "numeric"          => "The :attribute must be a number.",
@@ -78,7 +78,7 @@ return array(
         "numeric" => "The :attribute must be :size.",
         "file"    => "The :attribute must be :size kilobytes.",
         "string"  => "The :attribute must be :size characters.",
-        "array"   => "The :attribute must contain :size items.",
+        "array"   => "The :attribute must contain :size items."
     ),
     "unique"           => "The :attribute has already been taken.",
     "url"              => "The :attribute format is invalid.",
@@ -107,6 +107,6 @@ return array(
     |
     */
 
-    'attributes' => array(),
+    'attributes' => array()
 
 );

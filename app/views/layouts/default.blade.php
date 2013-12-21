@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>{{ Config::get('cms.name') }} - @section('title')
+<title>{{{ Config::get('platform.name') }}} - @section('title')
 @show</title>
 @include(Config::get('views.header', 'partials.header'))
 </head>
@@ -12,6 +12,8 @@
 {{ $navigation }}
 <div class="container">
 @include(Config::get('views.title', 'partials.title'))
+@section('top')
+@show
 @include(Config::get('views.notifications', 'partials.notifications'))
 @section('controls')
 @show

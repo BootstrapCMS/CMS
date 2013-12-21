@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ Config::get('cms.name') }}">
-<meta name="author" content="Graham Campbell">
+<meta name="description" content="{{{ Config::get('platform.description') }}}">
+<meta name="author" content="{{{ Config::get('platform.author') }}}">
 
 {{ Asset::styles('main') }}
 @section('css')

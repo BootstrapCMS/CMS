@@ -1,9 +1,17 @@
 <?php
+
 /**
- * Laravel - A PHP Framework For Web Artisans
+ * This file is part of Bootstrap CMS by Graham Campbell.
  *
- * @package  Laravel
- * @author   Taylor Otwell <taylorotwell@gmail.com>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
  */
 
 /*
@@ -42,21 +50,8 @@ $app = require_once __DIR__.'/../bootstrap/start.php';
 | Once we have the application, we can simply call the run method,
 | which will execute the request and send the response back to
 | the client's browser allowing them to enjoy the creative
-| and wonderful applications we have created for them.
+| and wonderful application we have whipped up for them.
 |
 */
 
 $app->run();
-
-/*
-|--------------------------------------------------------------------------
-| Shutdown The Application
-|--------------------------------------------------------------------------
-|
-| Once the app has finished running, we will fire off the shutdown events
-| so that any final work may be done by the application before we shut
-| down the process. This is the last thing to happen to the request.
-|
-*/
-
-$app->shutdown();

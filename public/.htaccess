@@ -1,6 +1,11 @@
 <IfModule mod_rewrite.c>
-    Options -MultiViews
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
     RewriteEngine On
+
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
 
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
