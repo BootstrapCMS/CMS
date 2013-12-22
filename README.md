@@ -108,7 +108,7 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 
 1. Choose your poison - I'd recommend [Redis](http://redis.io).  
 2. Enter your cache server details into `app/config/cache.php`.  
-3. Enable Bootstrap CMS's caching in `app/config/cms.php`.  
+3. Setting the driver to array will effectively disable caching.  
 
 
 ## Setting Up Analytics

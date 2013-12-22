@@ -124,21 +124,6 @@ return array(
     |
     */
 
-    'storage' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Use In Memory Caching
-    |--------------------------------------------------------------------------
-    |
-    | This defines if we can cache some of our pages and SQL data in memory.
-    |
-    | Requires a caching server like Redis and cache.php to be configured.
-    |
-    | Default to false.
-    |
-    */
-
-    'cache' => false
+    'storage' => true
 
 );
