@@ -28,8 +28,8 @@ use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Passwd\Facades\Passwd;
 use GrahamCampbell\Queuing\Facades\Queuing;
-use GrahamCampbell\CMSCore\Facades\UserProvider;
-use GrahamCampbell\CMSCore\Facades\GroupProvider;
+use GrahamCampbell\Credentials\Facades\UserProvider;
+use GrahamCampbell\Credentials\Facades\GroupProvider;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
