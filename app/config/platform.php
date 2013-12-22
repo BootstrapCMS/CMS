@@ -26,11 +26,11 @@ return array(
     | This is the name of your site. It will appear in the title head element
     | of every page and on the navigation bar except error pages.
     |
-    | Default to 'Laravel Platform'.
+    | Default to 'Bootstrap CMS'.
     |
     */
 
-    'name' => 'Laravel Platform',
+    'name' => 'Bootstrap CMS',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,11 +42,11 @@ return array(
     | This is the header that will appear on all error pages. It will appear in
     | the title head element of every error page and the maintenance page.
     |
-    | Default to 'Laravel Web Services'.
+    | Default to 'CMS Web Services'.
     |
     */
 
-    'brand' => 'Laravel Web Services',
+    'brand' => 'CMS Web Services',
 
     /*
     |--------------------------------------------------------------------------
@@ -74,10 +74,10 @@ return array(
     | This is the author of your site. It will appear in the author head
     | element of every page except error pages.
     |
-    | Default to 'Platform is a fork of Laravel with some extra goodies.'.
+    | Default to 'Bootstrap CMS is a PHP CMS powered by Laravel 4.1.'.
     |
     */
 
-    'description' => 'Platform is a fork of Laravel with some extra goodies.'
+    'description' => 'Bootstrap CMS is a PHP CMS powered by Laravel 4.1.'
 
 );

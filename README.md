@@ -177,7 +177,7 @@ Please submit pull requests against the develop branch.
 
 GNU AFFERO GENERAL PUBLIC LICENSE  
 
-Bootstrap CMS Is A PHP CMS Powered By Laravel 4.1 With CMS Core And Sentry 2 
+Bootstrap CMS Is A PHP CMS Powered By Laravel 4.1 With CMS Core And Sentry 2  
 Copyright (C) 2013  Graham Campbell  
 
 This program is free software: you can redistribute it and/or modify
