@@ -12,7 +12,7 @@ Bootstrap CMS
 
 ## WARNING
 
-#### This branch currently holds the very unstable 0.6 code. Expect things to be broken and tests to fail.
+#### This branch currently holds the very unstable 0.6 code. Expect things to be broken and tests to fail, and documentation to be inaccurate in places.
 
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
