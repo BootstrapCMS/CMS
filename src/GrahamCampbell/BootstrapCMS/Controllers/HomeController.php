@@ -99,7 +99,7 @@ class HomeController extends AbstractController
      */
     public function testError()
     {
-        Queuing::pushJob('test');
+        Queuing::pushJob('test', array(), 'GrahamCampbell\BootstrapCMS\Handlers');
         return 'done';
     }
 
