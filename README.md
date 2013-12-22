@@ -81,6 +81,7 @@ Please check the system requirements before installing Bootstrap CMS.
   * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
   * Please note that queuing is required in order to use the cron functionality which can do things like notify users of upcoming events, or send out weekly activity digests
+  * Also note that if you choose to roll without caching, you will find page loads can take a while due to the fact you are generating assets that would normally be cached
 
 
 ## Setting Up Queuing
