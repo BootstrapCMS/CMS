@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Passwd\Facades\Passwd;
 use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -57,7 +58,7 @@ class ResetController extends AbstractController
      */
     public function getReset()
     {
-        return $this->viewMake('account.reset');
+        return Viewer::make('account.reset');
     }
 
     /**

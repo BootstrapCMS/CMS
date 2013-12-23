@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Page;
 use GrahamCampbell\CMSCore\Facades\PageProvider;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
@@ -73,7 +74,7 @@ class PageController extends AbstractController
      */
     public function create()
     {
-        return $this->viewMake('pages.create');
+        return Viewer::make('pages.create');
     }
 
     /**
@@ -118,7 +119,7 @@ class PageController extends AbstractController
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->viewMake('pages.show', array('page' => $page));
+        return Viewer::make('pages.show', array('page' => $page));
     }
 
     /**
@@ -132,7 +133,7 @@ class PageController extends AbstractController
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->viewMake('pages.edit', array('page' => $page));
+        return Viewer::make('pages.edit', array('page' => $page));
     }
 
     /**

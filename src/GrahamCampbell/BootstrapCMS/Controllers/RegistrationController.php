@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -57,7 +58,7 @@ class RegistrationController extends AbstractController
      */
     public function getRegister()
     {
-        return $this->viewMake(Config::get('views.register', 'account.register'));
+        return Viewer::make(Config::get('views.register', 'account.register'));
     }
 
     /**

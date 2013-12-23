@@ -18,6 +18,7 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
+use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Facades\FileProvider;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
@@ -55,7 +56,7 @@ class FileController extends AbstractController
      */
     public function index($folder_id)
     {
-        return $this->viewMake('files.index', array());
+        return Viewer::make('files.index', array());
     }
 
     /**

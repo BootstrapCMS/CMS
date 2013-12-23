@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Page;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
@@ -60,7 +61,7 @@ class LoginController extends AbstractController
      */
     public function getLogin()
     {
-        return $this->viewMake(Config::get('views.login', 'account.login'));
+        return Viewer::make(Config::get('views.login', 'account.login'));
     }
 
     /**

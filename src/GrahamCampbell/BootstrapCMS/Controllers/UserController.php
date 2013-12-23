@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Passwd\Facades\Passwd;
 use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\Credentials\Facades\UserProvider;
 use GrahamCampbell\Credentials\Facades\GroupProvider;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
@@ -74,7 +75,7 @@ class UserController extends AbstractController
         $users = UserProvider::paginate();
         $links = UserProvider::links();
 
-        return $this->viewMake('users.index', array('users' => $users, 'links' => $links), true);
+        return Viewer::make('users.index', array('users' => $users, 'links' => $links), true);
     }
 
     /**
@@ -86,7 +87,7 @@ class UserController extends AbstractController
     {
         $groups = GroupProvider::index();
 
-        return $this->viewMake('users.create', array('groups' => $groups), true);
+        return Viewer::make('users.create', array('groups' => $groups), true);
     }
 
     /**
@@ -168,7 +169,7 @@ class UserController extends AbstractController
         $user = UserProvider::find($id);
         $this->checkUser($user);
 
-        return $this->viewMake('users.show', array('user' => $user), true);
+        return Viewer::make('users.show', array('user' => $user), true);
     }
 
     /**
@@ -184,7 +185,7 @@ class UserController extends AbstractController
 
         $groups = GroupProvider::index();
 
-        return $this->viewMake('users.edit', array('user' => $user, 'groups' => $groups), true);
+        return Viewer::make('users.edit', array('user' => $user, 'groups' => $groups), true);
     }
 
     /**
