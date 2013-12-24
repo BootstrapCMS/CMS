@@ -81,7 +81,7 @@ Please check the system requirements before installing Bootstrap CMS.
   * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
   * Please note that queuing is required in order to use the cron functionality which can do things like notify users of upcoming events, or send out weekly activity digests
-  * Also note, without caching asset generation will cause page load delay - to reduce this, turn off minification and caching in `app/config/packages/lightgear/asset/config.php`
+  * Also note, without caching asset generation will cause page load delay - to reduce this, I have turned off minification in `app/config/packages/lightgear/asset/config.php` by default
 
 
 ## Setting Up Queuing
@@ -98,7 +98,7 @@ Also note that `sqs` support is not 100% complete and is mainly untested.
 1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).  
 2. Enter your queuing server details into `app/config/queue.php`.  
 3. You can also set a separate mail queue in `app/config/mail.php`.  
-4. For [IronMQ](http://www.iron.io/mq), you can run the command `php artisan queue:iron`.  
+4. For [IronMQ](http://www.iron.io/mq), you can run the command `php artisan queue:iron`, and the `php artisan cron:start`.  
 5. You can find out more about queuing by heading over to the [Laravel Docs](http://laravel.com/docs/queues).  
 
 
@@ -109,7 +109,8 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 
 1. Choose your poison - I'd recommend [Redis](http://redis.io).  
 2. Enter your cache server details into `app/config/cache.php`.  
-3. Setting the driver to array will effectively disable caching.  
+3. You will probably want to enabled minification in `app/config/packages/lightgear/asset/config.php`.  
+4. Setting the driver to array will effectively disable caching if you don't want the overhead.  
 
 
 ## Setting Up Analytics
