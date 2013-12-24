@@ -31,16 +31,16 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Log Viewer Creation
+    | Log View Creation
     |--------------------------------------------------------------------------
     |
-    | This defines if viewer creations are logged.
+    | This defines if view creations are logged.
     |
     | Default to false.
     |
     */
 
-    'viewermake' => false,
+    'viewmake' => false,
 
     /*
     |--------------------------------------------------------------------------

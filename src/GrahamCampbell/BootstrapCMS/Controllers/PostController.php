@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Post;
 use GrahamCampbell\CMSCore\Facades\PostProvider;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
@@ -65,7 +64,7 @@ class PostController extends AbstractController
         $posts = PostProvider::paginate();
         $links = PostProvider::links();
 
-        return Viewer::make('posts.index', array('posts' => $posts, 'links' => $links));
+        return $this->viewMake('posts.index', array('posts' => $posts, 'links' => $links));
     }
 
     /**
@@ -75,7 +74,7 @@ class PostController extends AbstractController
      */
     public function create()
     {
-        return Viewer::make('posts.create');
+        return $this->viewMake('posts.create');
     }
 
     /**
@@ -118,7 +117,7 @@ class PostController extends AbstractController
 
         $comments = $post->getComments();
 
-        return Viewer::make('posts.show', array('post' => $post, 'comments' => $comments));
+        return $this->viewMake('posts.show', array('post' => $post, 'comments' => $comments));
     }
 
     /**
@@ -132,7 +131,7 @@ class PostController extends AbstractController
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
-        return Viewer::make('posts.edit', array('post' => $post));
+        return $this->viewMake('posts.edit', array('post' => $post));
     }
 
     /**

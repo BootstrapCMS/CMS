@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Folder;
 use GrahamCampbell\CMSCore\Facades\FolderProvider;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
@@ -57,7 +56,7 @@ class FolderController extends AbstractController
      */
     public function index()
     {
-        return Viewer::make('folders.index', array());
+        return $this->viewMake('folders.index', array());
     }
 
     /**
@@ -67,7 +66,7 @@ class FolderController extends AbstractController
      */
     public function create()
     {
-        return Viewer::make('folders.create');
+        return $this->viewMake('folders.create');
     }
 
     /**
@@ -108,7 +107,7 @@ class FolderController extends AbstractController
         $folder = Folder::find($id);
         $this->checkFolder($folder);
 
-        return Viewer::make('folders.edit', array('folder' => $folder));
+        return $this->viewMake('folders.edit', array('folder' => $folder));
     }
 
     /**

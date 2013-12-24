@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Event;
 use GrahamCampbell\CMSCore\Facades\EventProvider;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
@@ -66,7 +65,7 @@ class EventController extends AbstractController
         $events = EventProvider::paginate();
         $links = EventProvider::links();
 
-        return Viewer::make('events.index', array('events' => $events, 'links' => $links));
+        return $this->viewMake('events.index', array('events' => $events, 'links' => $links));
     }
 
     /**
@@ -76,7 +75,7 @@ class EventController extends AbstractController
      */
     public function create()
     {
-        return Viewer::make('events.create');
+        return $this->viewMake('events.create');
     }
 
     /**
@@ -120,7 +119,7 @@ class EventController extends AbstractController
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return Viewer::make('events.show', array('event' => $event));
+        return $this->viewMake('events.show', array('event' => $event));
     }
 
     /**
@@ -134,7 +133,7 @@ class EventController extends AbstractController
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return Viewer::make('events.edit', array('event' => $event));
+        return $this->viewMake('events.edit', array('event' => $event));
     }
 
     /**

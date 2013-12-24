@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Credentials\Facades\Viewer;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -51,6 +50,6 @@ class CachingController extends AbstractController
      */
     public function getIndex()
     {
-        return Viewer::make('caching.index', array(), true);
+        return $this->viewMake('caching.index', array(), true);
     }
 }
