@@ -39,7 +39,6 @@ class CoreSubscriber
     public function subscribe($events)
     {
         $events->listen('page.load', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onPageLoad', 5);
-        $events->listen('view.make', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onViewMake', 5);
         $events->listen('artisan.start', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onArtisanStart', 5);
         $events->listen('illuminate.query', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onIlluminateQuery', 5);
         $events->listen('locale.changed', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onLocaleChanged', 5);
@@ -58,22 +57,6 @@ class CoreSubscriber
                 $event = array($event);
             }
             Log::debug('Page Loading', $event);
-        }
-    }
-
-    /**
-     * Handle a view.make event.
-     *
-     * @param  mixed  $event
-     * @return void
-     */
-    public function onViewMake($event)
-    {
-        if (Config::get('log.viewmake') == true) {
-            if (!is_array($event)) {
-                $event = array($event);
-            }
-            Log::debug('View Created', $event);
         }
     }
 
