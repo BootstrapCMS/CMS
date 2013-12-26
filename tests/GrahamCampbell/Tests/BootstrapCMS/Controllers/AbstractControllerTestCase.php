@@ -100,7 +100,7 @@ abstract class AbstractControllerTestCase extends AbstractTestCase
         PageProvider::shouldReceive('setNavUser')->once();
         PageProvider::shouldReceive('getNavUser')->once();
         PageProvider::shouldReceive('navigation')->once()
-            ->andReturn(array('title' => 'Home', 'slug' => 'pages/home', 'icon' => 'home'));
+            ->andReturn(array(array('title' => 'Home', 'slug' => 'pages/home', 'icon' => 'home')));
 
         Navigation::shouldReceive('addMain')->times(12);
         Navigation::shouldReceive('getHTML')->once()->andReturn('');
