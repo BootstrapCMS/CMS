@@ -97,13 +97,21 @@ abstract class AbstractControllerTestCase extends AbstractTestCase
 
     protected function setAsPage()
     {
-        PageProvider::shouldReceive('setNavUser')->once();
-        PageProvider::shouldReceive('getNavUser')->once();
-        PageProvider::shouldReceive('navigation')->once()
+        $navigation = Mockery::mock('GrahamCampbell\Navigation\Classes\Navigation');
+
+        $navigation->shouldReceive('addMain')->times(12);
+        $navigation->shouldReceive('getHTML')->once()->andReturn('');
+
+        App::instance('navigation', $navigation);
+
+        $pageprovider = Mockery::mock('GrahamCampbell\CMSCore\Providers\PageProvider');
+
+        $pageprovider->shouldReceive('setNavUser')->once();
+        $pageprovider->shouldReceive('getNavUser')->once();
+        $pageprovider->shouldReceive('navigation')->once()
             ->andReturn(array(array('title' => 'Home', 'slug' => 'pages/home', 'icon' => 'home')));
 
-        Navigation::shouldReceive('addMain')->times(12);
-        Navigation::shouldReceive('getHTML')->once()->andReturn('');
+        App::instance('pageprovider', $pageprovider);
     }
 
     protected function validate($bool)
