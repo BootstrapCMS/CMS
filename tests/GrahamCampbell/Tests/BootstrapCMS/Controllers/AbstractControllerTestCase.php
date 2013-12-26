@@ -19,8 +19,6 @@ namespace GrahamCampbell\Tests\BootstrapCMS\Controllers;
 use Mockery;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\CMSCore\Facades\PageProvider;
-use GrahamCampbell\Navigation\Facades\Navigation;
 use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
 
 /**
@@ -102,7 +100,7 @@ abstract class AbstractControllerTestCase extends AbstractTestCase
         $navigation->shouldReceive('addMain')->times(12);
         $navigation->shouldReceive('getHTML')->once()->andReturn('');
 
-        App::instance('navigation', $navigation);
+        $this->app->instance('navigation', $navigation);
 
         $pageprovider = Mockery::mock('GrahamCampbell\CMSCore\Providers\PageProvider');
 
@@ -111,7 +109,7 @@ abstract class AbstractControllerTestCase extends AbstractTestCase
         $pageprovider->shouldReceive('navigation')->once()
             ->andReturn(array(array('title' => 'Home', 'slug' => 'pages/home', 'icon' => 'home')));
 
-        App::instance('pageprovider', $pageprovider);
+        $this->app->instance('pageprovider', $pageprovider);
     }
 
     protected function validate($bool)
