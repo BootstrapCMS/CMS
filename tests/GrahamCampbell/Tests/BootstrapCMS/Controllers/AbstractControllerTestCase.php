@@ -98,6 +98,7 @@ abstract class AbstractControllerTestCase extends AbstractTestCase
     protected function setAsPage()
     {
         PageProvider::shouldReceive('setNavUser')->once();
+        Navigation::shouldReceive('addMain')->times(12);
         Navigation::shouldReceive('getHTML')->once()->andReturn('');
     }
 
