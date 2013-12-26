@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\Queuing\Facades\Queuing;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
@@ -59,7 +60,7 @@ class HomeController extends AbstractController
     public function showWelcome()
     {
         Log::notice('Hello World');
-        return $this->viewMake('hello');
+        return Viewer::make('hello');
     }
 
     /**

@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -50,6 +51,6 @@ class QueuingController extends AbstractController
      */
     public function getIndex()
     {
-        return $this->viewMake('queuing.index', array(), true);
+        return Viewer::make('queuing.index', array(), 'admin');
     }
 }

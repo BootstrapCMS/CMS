@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Page;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
@@ -61,7 +62,7 @@ class AccountController extends AbstractController
      */
     public function getProfile()
     {
-        return $this->viewMake('account.profile');
+        return Viewer::make('account.profile');
     }
 
     /**
