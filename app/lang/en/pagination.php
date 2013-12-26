@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.

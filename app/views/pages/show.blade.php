@@ -2,7 +2,7 @@
 
 @section('title')
 {{ $page->getTitle() }}
-<?php 
+<?php
 if($page->getShowTitle() == false) {
     $hide_title = true;
 }
