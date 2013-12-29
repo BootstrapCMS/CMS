@@ -45,10 +45,10 @@ class PageSubscriber
     /**
      * Handle a page.created event.
      *
-     * @param  mixed  $event
+     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageCreated($event)
+    public function onPageCreated($page)
     {
         // refresh the navigation cache
         PageProvider::refresh();
@@ -57,10 +57,10 @@ class PageSubscriber
     /**
      * Handle a page.updated event.
      *
-     * @param  mixed  $event
+     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageUpdated($event)
+    public function onPageUpdated($page)
     {
         // refresh the navigation cache
         PageProvider::refresh();
@@ -69,10 +69,10 @@ class PageSubscriber
     /**
      * Handle a page.deleted event.
      *
-     * @param  mixed  $event
+     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageDeleted($event)
+    public function onPageDeleted($page)
     {
         // refresh the navigation cache
         PageProvider::refresh();

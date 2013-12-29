@@ -49,10 +49,10 @@ class UserSubscriber
     /**
      * Handle a user.loginsuccessful event.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onUserLoginSuccessful($event)
+    public function onUserLoginSuccessful(array $event = array())
     {
         if (!is_array($event)) {
             $event = array($event);
@@ -63,10 +63,10 @@ class UserSubscriber
     /**
      * Handle a user.loginfailed event.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onUserLoginFailed($event)
+    public function onUserLoginFailed(array $event = array())
     {
         if (!is_array($event)) {
             $event = array($event);
@@ -77,10 +77,10 @@ class UserSubscriber
     /**
      * Handle a user.logout event.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onUserLogout($event)
+    public function onUserLogout(array $event = array())
     {
         if (!is_array($event)) {
             $event = array($event);
@@ -91,10 +91,10 @@ class UserSubscriber
     /**
      * Handle a user.registrationsuccessful event.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onUserRegistrationSuccessful($event)
+    public function onUserRegistrationSuccessful(array $event = array())
     {
         if (!is_array($event)) {
             $event = array($event);
@@ -105,10 +105,10 @@ class UserSubscriber
     /**
      * Handle a user.registrationfailed event.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onUserRegistrationFailed($event)
+    public function onUserRegistrationFailed(array $event = array())
     {
         if (!is_array($event)) {
             $event = array($event);
@@ -119,10 +119,10 @@ class UserSubscriber
     /**
      * Handle a user.activationsuccessful event.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onUserActivationSuccessful($event)
+    public function onUserActivationSuccessful(array $event = array())
     {
         if (!is_array($event)) {
             $event = array($event);
@@ -133,10 +133,10 @@ class UserSubscriber
     /**
      * Handle a user.activationfailed event.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onUserActivationFailed($event)
+    public function onUserActivationFailed(array $event = array())
     {
         if (!is_array($event)) {
             $event = array($event);

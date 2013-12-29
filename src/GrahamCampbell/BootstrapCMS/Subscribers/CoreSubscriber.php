@@ -50,7 +50,7 @@ class CoreSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onPageLoad($event)
+    public function onPageLoad($event = array())
     {
         if (Config::get('log.pageload') == true) {
             if (!is_array($event)) {
@@ -66,7 +66,7 @@ class CoreSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onArtisanStart($event)
+    public function onArtisanStart($event = array())
     {
         if (Config::get('log.artisanstart') == true) {
             if (!is_array($event)) {
@@ -82,7 +82,7 @@ class CoreSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onIlluminateQuery($event)
+    public function onIlluminateQuery($event = array())
     {
         if (Config::get('log.illuminatequery') == true) {
             if (!is_array($event)) {
@@ -98,7 +98,7 @@ class CoreSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onLocaleChanged($event)
+    public function onLocaleChanged($event = array())
     {
         if (Config::get('log.localechanged') == true) {
             if (!is_array($event)) {
