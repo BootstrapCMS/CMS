@@ -64,28 +64,6 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Login Page
-    |--------------------------------------------------------------------------
-    |
-    | This specifies the view that is used for the login page.
-    |
-    */
-
-    'login' => 'account.login',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Registration Page
-    |--------------------------------------------------------------------------
-    |
-    | This specifies the view that is used for the registration page.
-    |
-    */
-
-    'registration' => 'account.register',
-
-    /*
-    |--------------------------------------------------------------------------
     | Header Partial
     |--------------------------------------------------------------------------
     |
@@ -137,6 +115,6 @@ return array(
     |
     */
 
-    'analytics' => 'partials.analytics',
+    'analytics' => 'partials.analytics'
 
 );

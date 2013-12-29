@@ -103,25 +103,4 @@ class HomeController extends AbstractController
         Queuing::pushJob('test', array(), 'GrahamCampbell\BootstrapCMS\Handlers');
         return 'done';
     }
-
-    /**
-     * Add a value to the cache.
-     *
-     * @return string
-     */
-    public function addValue($value)
-    {
-        Cache::put('cachetest', $value, 10);
-        return 'done';
-    }
-
-    /**
-     * Pull a value from the cache.
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return Cache::get('cachetest');
-    }
 }

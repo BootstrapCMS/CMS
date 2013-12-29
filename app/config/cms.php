@@ -18,36 +18,6 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Enable Public Registration
-    |--------------------------------------------------------------------------
-    |
-    | This defines if public registration is allowed.
-    |
-    | Requires mail.php to be configured.
-    |
-    | Default to true.
-    |
-    */
-
-    'regallowed' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Require Email Verification On Registration
-    |--------------------------------------------------------------------------
-    |
-    | This defines if public registration requires email activation.
-    |
-    | Requires mail.php to be configured.
-    |
-    | Default to true. 
-    |
-    */
-
-    'regemail' => true,
-
-    /*
-    |--------------------------------------------------------------------------
     | Enable Blogging
     |--------------------------------------------------------------------------
     |
