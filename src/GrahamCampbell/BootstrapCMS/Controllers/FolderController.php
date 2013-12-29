@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
