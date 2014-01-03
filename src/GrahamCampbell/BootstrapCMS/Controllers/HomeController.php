@@ -60,7 +60,7 @@ class HomeController extends AbstractController
     public function showWelcome()
     {
         Log::notice('Hello World');
-        return Viewer::make('hello');
+        return Viewer::make('index');
     }
 
     /**

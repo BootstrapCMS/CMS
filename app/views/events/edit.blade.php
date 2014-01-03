@@ -1,10 +1,16 @@
 @extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
-Edit {{ $event->getTitle() }}
+Edit {{{ $event->getTitle() }}}
 @stop
 
-@section('controls')
+@section('top')
+<div class="page-header">
+<h1>Edit {{{ $event->getTitle() }}}</h1>
+</div>
+@stop
+
+@section('content')
 <div class="row">
     <div class="col-xs-6">
         <p class="lead">
@@ -18,9 +24,6 @@ Edit {{ $event->getTitle() }}
         </div>
 </div>
 <hr>
-@stop
-
-@section('content')
 <div class="well">
     <?php
     $form = array('url' => URL::route('events.update', array('events' => $event->getId())),
@@ -37,7 +40,7 @@ Edit {{ $event->getTitle() }}
 </div>
 @stop
 
-@section('messages')
+@section('bottom')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
 @include('events.delete')
 @endif

@@ -4,6 +4,12 @@
 Create Post
 @stop
 
+@section('top')
+<div class="page-header">
+<h1>Create Post</h1>
+</div>
+@stop
+
 @section('content')
 <div class="well">
     <?php

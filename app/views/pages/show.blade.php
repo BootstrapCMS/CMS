@@ -1,15 +1,18 @@
 @extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
-{{ $page->getTitle() }}
-<?php
-if($page->getShowTitle() == false) {
-    $hide_title = true;
-}
-?>
+{{{ $page->getTitle() }}}
 @stop
 
-@section('controls')
+@section('top')
+@if($page->getShowTitle())
+    <div class="page-header">
+    <h1>{{{ $page->getTitle() }}}</h1>
+    </div>
+@endif
+@stop
+
+@section('content')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     <div class="well clearfix">
         <div class="hidden-xs">
@@ -47,22 +50,22 @@ if($page->getShowTitle() == false) {
     </div>
     <hr>
 @endif
+<?php
+    // this is naughty - there must be a better way
+    eval('?>'.$page->getBody());
+?>
 @stop
 
-@section('content')
-<?php eval('?>'.$page->getBody()); ?>
-@stop
-
-@section('messages')
+@section('bottom')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     @include('pages.delete')
 @endif
 @stop
 
 @section('css')
-<?php eval('?>'.$page->getCSS()); ?>
+{{ $page->getCSS() }}
 @stop
 
 @section('js')
-<?php eval('?>'.$page->getJS()); ?>
+{{ $page->getJS() }}
 @stop

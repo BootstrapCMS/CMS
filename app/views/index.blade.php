@@ -1,16 +1,17 @@
 @extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
-Queuing
+Hello World
 @stop
 
 @section('top')
 <div class="page-header">
-<h1>Queuing</h1>
+<h1>Hello World</h1>
 </div>
 @stop
 
 @section('content')
-<p class="lead">Queuing controls coming soon...</p>
-<hr>
+<p class="lead">
+    This is the {{{ Config::get('platform.name') }}} test page.
+</p>
 @stop

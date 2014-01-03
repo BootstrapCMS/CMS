@@ -11,18 +11,13 @@
 <div id="wrap">
 {{ $navigation }}
 <div class="container">
-@include(Config::get('views.title', 'partials.title'))
 @section('top')
 @show
 @include(Config::get('views.notifications', 'partials.notifications'))
-@section('controls')
-@show
 @section('content')
 @show
-@section('comments')
-@show
-@section('messages')
-@show
 @include(Config::get('views.footer', 'partials.footer'))
+@section('bottom')
+@show
 </body>
 </html>

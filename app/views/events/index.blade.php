@@ -4,7 +4,13 @@
 Events
 @stop
 
-@section('controls')
+@section('top')
+<div class="page-header">
+<h1>Events</h1>
+</div>
+@stop
+
+@section('content')
 <div class="row">
     <div class="col-xs-8">
         <p class="lead">
@@ -23,9 +29,6 @@ Events
         </div>
     @endif
 </div>
-@stop
-
-@section('content')
 @foreach($events as $event)
     <h2>{{ $event->getTitle() }}</h2>
     <p>
@@ -42,7 +45,7 @@ Events
 {{ $links }}
 @stop
 
-@section('messages')
+@section('bottom')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     @include('events.deletes')
 @endif

@@ -1,10 +1,16 @@
 @extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
-{{ $event->getTitle() }}
+{{{ $event->getTitle() }}}
 @stop
 
-@section('controls')
+@section('top')
+<div class="page-header">
+<h1>{{{ $event->getTitle() }}}</h1>
+</div>
+@stop
+
+@section('content')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
     <div class="well clearfix">
         <div class="hidden-xs">
@@ -42,9 +48,6 @@
     </div>
     <hr>
 @endif
-@stop
-
-@section('content')
 <div class="well clearfix">
     <div class="hidden-xs">
         <div class="col-xs-6">
@@ -69,12 +72,11 @@
 </div>
 @stop
 
-@section('messages')
+@section('bottom')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
 @include('events.delete')
 @endif
 @stop
-
 
 @section('css')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
