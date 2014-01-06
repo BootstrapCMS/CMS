@@ -75,6 +75,28 @@ return array(
     |
     */
 
-    'registration' => 'credentials::account.register'
+    'registration' => 'credentials::account.register',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Forgot Password Page
+    |--------------------------------------------------------------------------
+    |
+    | This specifies the view that is used for the forgot password page.
+    |
+    */
+
+    'reset' => 'credentials::account.reset',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Profile Password Page
+    |--------------------------------------------------------------------------
+    |
+    | This specifies the view that is used for the profile page.
+    |
+    */
+
+    'profile' => 'credentials::account.profile'
 
 );
