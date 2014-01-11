@@ -50,10 +50,7 @@
     </div>
     <hr>
 @endif
-<?php
-    // this is naughty - there must be a better way
-    eval('?>'.$page->getBody());
-?>
+<?php eval('?>'.$page->getBody()); ?>
 @stop
 
 @section('bottom')
