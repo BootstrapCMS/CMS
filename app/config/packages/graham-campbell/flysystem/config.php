@@ -70,24 +70,24 @@ return array(
         'ftp' => array(
             'driver' => 'ftp',
             'host' => 'ftp.example.com',
+            'port' => 21,
             'username' => 'your-username',
             'password' => 'your-password',
-            'port' => 21,
-            'root' => '/path/to/root',
-            'passive' => true,
-            'ssl' => true,
-            'timeout' => 20
+            // 'root' => '/path/to/root',
+            // 'passive' => true,
+            // 'ssl' => true,
+            // 'timeout' => 20
         ),
 
         'sftp' => array(
             'driver' => 'sftp',
-            'port' => 22,
             'host' => 'sftp.example.com',
+            'port' => 22,
             'username' => 'your-username',
             'password' => 'your-password',
-            'privateKey' => 'path/to/or/contents/of/privatekey',
-            'root' => '/path/to/root',
-            'timeout' => 20,
+            // 'privateKey' => 'path/to/or/contents/of/privatekey',
+            // 'root' => '/path/to/root',
+            // 'timeout' => 20
         ),
 
         'webdav' => array(
