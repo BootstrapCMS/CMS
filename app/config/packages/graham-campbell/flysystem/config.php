@@ -57,6 +57,7 @@ return array(
             'key'    => 'your-key',
             'secret' => 'your-secret',
             'bucket' => 'your-bucket',
+            // 'region' => 'your-region',
             // 'prefix' => 'your-prefix'
         ),
 
