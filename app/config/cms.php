@@ -94,6 +94,21 @@ return array(
     |
     */
 
-    'storage' => true
+    'storage' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | File Storage Connection
+    |--------------------------------------------------------------------------
+    |
+    | This defines the file storage connection of flysystem to use.
+    |
+    | See https://github.com/GrahamCampbell/Laravel-Flysystem for more info.
+    |
+    | Default to 'local'.
+    |
+    */
+
+    'connection' => 'local'
 
 );
