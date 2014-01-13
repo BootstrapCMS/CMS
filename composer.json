@@ -12,6 +12,10 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/dropbox-sdk-php"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/GrahamCampbell/Flysystem"
         },
         {
