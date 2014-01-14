@@ -45,10 +45,9 @@ class PageSubscriber
     /**
      * Handle a page.created event.
      *
-     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageCreated($page)
+    public function onPageCreated()
     {
         // refresh the navigation cache
         PageProvider::refresh();
