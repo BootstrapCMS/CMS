@@ -16,10 +16,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/Flysystem"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/GrahamCampbell/asset"
         },
         {
