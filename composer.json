@@ -40,7 +40,7 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "laravel/framework": "4.1.*",
+        "laravel/framework": "4.1.16",
         "symfony/config": "2.4.*",
         "symfony/filesystem": "2.4.*",
         "graham-campbell/cms-core": "0.2.*",
