@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Validator;
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
  * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 class CommentControllerActionTest extends AbstractResourcefulActionTestCase
