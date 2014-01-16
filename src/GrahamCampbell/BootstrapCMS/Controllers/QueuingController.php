@@ -16,18 +16,19 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\Viewer\Facades\Viewer;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the queuing controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class QueuingController extends BaseController
+class QueuingController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -50,6 +51,6 @@ class QueuingController extends BaseController
      */
     public function getIndex()
     {
-        return $this->viewMake('queuing.index', array(), true);
+        return Viewer::make('queuing.index', array(), 'admin');
     }
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -29,6 +29,6 @@ return array(
 
     'previous' => '&laquo; Previous',
 
-    'next'     => 'Next &raquo;',
+    'next'     => 'Next &raquo;'
 
 );

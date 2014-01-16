@@ -28,8 +28,8 @@ use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 abstract class AbstractControllerTestCase extends AbstractTestCase
@@ -97,8 +97,9 @@ abstract class AbstractControllerTestCase extends AbstractTestCase
 
     protected function setAsPage()
     {
-        PageProvider::shouldReceive('setNavUser')->once();
-        Navigation::shouldReceive('getHTML')->once()->andReturn('');
+        PageProvider::shouldReceive('getNavUser')->times(4)->andReturn(false);
+        PageProvider::shouldReceive('navigation')->twice()
+            ->andReturn(array(array('title' => 'Home', 'slug' => 'pages/home', 'icon' => 'home')));
     }
 
     protected function validate($bool)

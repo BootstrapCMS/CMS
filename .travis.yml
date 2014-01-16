@@ -7,11 +7,8 @@ php:
 before_script:
   - composer self-update
   - composer install --no-interaction --prefer-source --dev
-  - php artisan asset:generate
+  - php artisan asset:generate --env=testing
   - mkdir -p build/logs
-
-services:
-  - redis-server
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml

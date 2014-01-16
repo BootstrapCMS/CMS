@@ -16,24 +16,26 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Folder;
 use GrahamCampbell\CMSCore\Facades\FolderProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the folder controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class FolderController extends BaseController
+class FolderController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -56,7 +58,7 @@ class FolderController extends BaseController
      */
     public function index()
     {
-        return $this->viewMake('folders.index', array());
+        return Viewer::make('folders.index');
     }
 
     /**
@@ -66,7 +68,7 @@ class FolderController extends BaseController
      */
     public function create()
     {
-        return $this->viewMake('folders.create');
+        return Viewer::make('folders.create');
     }
 
     /**
@@ -107,7 +109,7 @@ class FolderController extends BaseController
         $folder = Folder::find($id);
         $this->checkFolder($folder);
 
-        return $this->viewMake('folders.edit', array('folder' => $folder));
+        return Viewer::make('folders.edit', array('folder' => $folder));
     }
 
     /**

@@ -1,10 +1,16 @@
 @extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
-Edit {{ $post->getTitle() }}
+Edit {{{ $post->getTitle() }}}
 @stop
 
-@section('controls')
+@section('top')
+<div class="page-header">
+<h1>Edit {{{ $post->getTitle() }}}</h1>
+</div>
+@stop
+
+@section('content')
 <div class="row">
     <div class="col-xs-6">
         <p class="lead">
@@ -18,9 +24,6 @@ Edit {{ $post->getTitle() }}
     </div>
 </div>
 <hr>
-@stop
-
-@section('content')
 <div class="well">
     <?php
     $form = array('url' => URL::route('blog.posts.update', array('posts' => $post->getId())),
@@ -36,7 +39,7 @@ Edit {{ $post->getTitle() }}
 </div>
 @stop
 
-@section('messages')
+@section('bottom')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     @include('posts.delete')
 @endif

@@ -4,7 +4,13 @@
 Blog
 @stop
 
-@section('controls')
+@section('top')
+<div class="page-header">
+<h1>Blog</h1>
+</div>
+@stop
+
+@section('content')
 <div class="row">
     <div class="col-xs-8">
         <p class="lead">
@@ -23,9 +29,6 @@ Blog
         </div>
     @endif
 </div>
-@stop
-
-@section('content')
 @foreach($posts as $post)
     <h2>{{ $post->getTitle() }}</h2>
     <p>
@@ -42,7 +45,7 @@ Blog
 {{ $links }}
 @stop
 
-@section('messages')
+@section('bottom')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     @include('posts.deletes')
 @endif

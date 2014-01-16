@@ -21,20 +21,21 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Post;
 use GrahamCampbell\CMSCore\Facades\PostProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the post controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class PostController extends BaseController
+class PostController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -64,7 +65,7 @@ class PostController extends BaseController
         $posts = PostProvider::paginate();
         $links = PostProvider::links();
 
-        return $this->viewMake('posts.index', array('posts' => $posts, 'links' => $links));
+        return Viewer::make('posts.index', array('posts' => $posts, 'links' => $links));
     }
 
     /**
@@ -74,7 +75,7 @@ class PostController extends BaseController
      */
     public function create()
     {
-        return $this->viewMake('posts.create');
+        return Viewer::make('posts.create');
     }
 
     /**
@@ -117,7 +118,7 @@ class PostController extends BaseController
 
         $comments = $post->getComments();
 
-        return $this->viewMake('posts.show', array('post' => $post, 'comments' => $comments));
+        return Viewer::make('posts.show', array('post' => $post, 'comments' => $comments));
     }
 
     /**
@@ -131,7 +132,7 @@ class PostController extends BaseController
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
-        return $this->viewMake('posts.edit', array('post' => $post));
+        return Viewer::make('posts.edit', array('post' => $post));
     }
 
     /**

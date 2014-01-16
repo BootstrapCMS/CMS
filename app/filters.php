@@ -47,21 +47,18 @@ App::after(function ($request, $response) {
 |
 */
 
-// check if the user is logged in and their access level
-Route::filter('auth', function ($route, $request, $value) {
-    if (!Sentry::check()) {
-        Log::info('User tried to access a page without being logged in', array('path' => $request->path()));
+Route::filter('auth', function () {
+    if (Auth::guest()) {
         if (Request::ajax()) {
             return App::abort(401, 'Action Requires Login');
         }
-        Session::flash('error', 'You must be logged in to perform that action.');
-        return Redirect::guest(URL::route('account.login'));
+        return Redirect::guest('login');
     }
+});
 
-    if (!Sentry::getUser()->hasAccess($value)) {
-        Log::warning('User tried to access a page without permission', array('path' => $request->path(), 'permission' => $value));
-        return App::abort(403, ucwords($value).' Permissions Are Required');
-    }
+
+Route::filter('auth.basic', function () {
+    return Auth::basic();
 });
 
 /*

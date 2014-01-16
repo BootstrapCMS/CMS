@@ -95,7 +95,7 @@ return array(
         |
         */
 
-        'model' => 'GrahamCampbell\CMSCore\Models\Group'
+        'model' => 'GrahamCampbell\Credentials\Models\Group'
 
     ),
 
@@ -172,7 +172,7 @@ return array(
         |
         */
 
-        'model' => 'GrahamCampbell\CMSCore\Models\Throttle',
+        'model' => 'GrahamCampbell\Credentials\Models\Throttle',
 
         /*
         |--------------------------------------------------------------------------

@@ -24,8 +24,8 @@ use Illuminate\Support\Facades\Log;
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 class EloquentSubscriber
@@ -56,7 +56,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentCreating($event)
+    public function onEloquentCreating($event = array())
     {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
@@ -72,7 +72,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentCreated($event)
+    public function onEloquentCreated($event = array())
     {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
@@ -88,7 +88,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentUpdating($event)
+    public function onEloquentUpdating($event = array())
     {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
@@ -104,7 +104,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentUpdated($event)
+    public function onEloquentUpdated($event = array())
     {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
@@ -120,7 +120,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentDeleting($event)
+    public function onEloquentDeleting($event = array())
     {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
@@ -136,7 +136,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentDeleted($event)
+    public function onEloquentDeleted($event = array())
     {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
@@ -152,7 +152,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentSaving($event)
+    public function onEloquentSaving($event = array())
     {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
@@ -168,7 +168,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentSaved($event)
+    public function onEloquentSaved($event = array())
     {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {
@@ -184,7 +184,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentRestoring($event)
+    public function onEloquentRestoring($event = array())
     {
         if (Config::get('log.eloquenting') == true) {
             if (!is_array($event)) {
@@ -200,7 +200,7 @@ class EloquentSubscriber
      * @param  mixed  $event
      * @return void
      */
-    public function onEloquentRestored($event)
+    public function onEloquentRestored($event = array())
     {
         if (Config::get('log.eloquented') == true) {
             if (!is_array($event)) {

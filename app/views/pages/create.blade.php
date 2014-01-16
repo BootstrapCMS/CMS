@@ -4,6 +4,12 @@
 Create Page
 @stop
 
+@section('top')
+<div class="page-header">
+<h1>Create Page</h1>
+</div>
+@stop
+
 @section('content')
 <div class="well">
     <?php

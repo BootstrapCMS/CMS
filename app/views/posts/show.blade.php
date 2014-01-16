@@ -1,10 +1,16 @@
 @extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
-{{ $post->getTitle() }}
+{{{ $post->getTitle() }}}
 @stop
 
-@section('controls')
+@section('top')
+<div class="page-header">
+<h1>{{{ $post->getTitle() }}}</h1>
+</div>
+@stop
+
+@section('content')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
     <div class="well clearfix">
         <div class="hidden-xs">
@@ -62,14 +68,10 @@
     </div>
 </div>
 <br>
-@stop
 
-@section('content')
 {{ Markdown::render($post->getBody()) }}
-@stop
-
-@section('comments')
 <br><hr>
+
 <h3>Comments</h3>
 @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
     <br>
@@ -90,7 +92,7 @@
     <br>
 @else
 <p>
-    @if (Config::get('cms.regallowed'))
+    @if (Config::get('credentials::regallowed'))
         <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
     @else
         <strong>Please <a href="{{ URL::route('account.login') }}">login</a> to post a comment.</strong>
@@ -111,7 +113,7 @@
 </div>
 @stop
 
-@section('messages')
+@section('bottom')
 @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
 @include('posts.delete')
 @endif

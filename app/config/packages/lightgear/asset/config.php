@@ -21,7 +21,7 @@ return array(
     /**
      * Turn on/off assets minification.
      */
-    'minify' => true,
+    'minify' => false,
 
     /**
      * The patterns for minified assets.

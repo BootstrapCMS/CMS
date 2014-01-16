@@ -23,8 +23,8 @@ use GrahamCampbell\CMSCore\Facades\PageProvider;
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 class PageSubscriber
@@ -45,10 +45,9 @@ class PageSubscriber
     /**
      * Handle a page.created event.
      *
-     * @param  mixed  $event
      * @return void
      */
-    public function onPageCreated($event)
+    public function onPageCreated()
     {
         // refresh the navigation cache
         PageProvider::refresh();
@@ -57,10 +56,10 @@ class PageSubscriber
     /**
      * Handle a page.updated event.
      *
-     * @param  mixed  $event
+     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageUpdated($event)
+    public function onPageUpdated($page)
     {
         // refresh the navigation cache
         PageProvider::refresh();
@@ -69,10 +68,10 @@ class PageSubscriber
     /**
      * Handle a page.deleted event.
      *
-     * @param  mixed  $event
+     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageDeleted($event)
+    public function onPageDeleted($page)
     {
         // refresh the navigation cache
         PageProvider::refresh();

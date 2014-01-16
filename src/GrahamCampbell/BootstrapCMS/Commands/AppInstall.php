@@ -21,8 +21,8 @@ namespace GrahamCampbell\BootstrapCMS\Commands;
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 class AppInstall extends AbstractCommand
@@ -39,7 +39,7 @@ class AppInstall extends AbstractCommand
      *
      * @var string
      */
-    protected $description = 'Installs The CMS';
+    protected $description = 'Installs The Application';
 
     /**
      * Run the commend.

@@ -2,12 +2,12 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<title>
-    {{ Config::get('cms.error') }} - Error {{ $code }}
-</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>{{{ Config::get('platform.brand') }}} - Error {{{ $code }}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ Config::get('cms.error') }}">
-<meta name="author" content="Graham Campbell">
+<meta name="description" content="{{{ Config::get('platform.description') }}}">
+<meta name="author" content="{{{ Config::get('platform.author') }}}">
 <style type="text/css">
     @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
     article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
@@ -88,20 +88,20 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="span5 ellipsis">
-                    <h1>{{ Config::get('cms.error') }}</h1>
+                    <h1>{{{ Config::get('platform.brand') }}}</h1>
                 </div>
                 <div class="span7 ellipsis">
-                    <h2 class="pull-right">{{ $extra }}</h2>
+                    <h2 class="pull-right">{{{ $extra }}}</h2>
                 </div>
             </div>
-            <h2>Error: {{ $code }} ({{ $name }})</h2>
+            <h2>Error: {{{ $code }}} ({{{ $name }}})</h2>
             <hr>
 
             <h3>What does this mean?</h3>
 
             <p>
                 Something went wrong on our servers while we were processing your request.
-                {{ $message }}
+                {{{ $message }}}
                 This occurrence has been logged, and a highly trained team of monkeys has been
                 dispatched to deal with your problem. We're really sorry about this, and will
                 work hard to get this resolved as soon as possible.

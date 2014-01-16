@@ -4,11 +4,13 @@
 Queuing
 @stop
 
-@section('controls')
-<p class="lead">Queuing controls coming soon...</p>
-<hr>
+@section('top')
+<div class="page-header">
+<h1>Queuing</h1>
+</div>
 @stop
 
 @section('content')
-
+<p class="lead">Queuing controls coming soon...</p>
+<hr>
 @stop

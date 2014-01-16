@@ -26,8 +26,8 @@ use GrahamCampbell\Navigation\Facades\Navigation;
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
 class NavigationSubscriber
@@ -51,10 +51,10 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event first.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onNavigationMainFirst($event)
+    public function onNavigationMainFirst(array $event = array())
     {
         // add the blog
         if (Config::get('cms.blogging')) {
@@ -77,10 +77,10 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event second.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onNavigationMainSecond($event)
+    public function onNavigationMainSecond(array $event = array())
     {
         // get the pages
         $pages = PageProvider::navigation();
@@ -108,10 +108,10 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event second.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onNavigationMainThird($event)
+    public function onNavigationMainThird(array $event = array())
     {
         // get the pages
         $pages = PageProvider::navigation();
@@ -136,10 +136,10 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event first.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onNavigationBarFirst($event)
+    public function onNavigationBarFirst(array $event = array())
     {
         if (PageProvider::getNavUser()) {
             // add the profile links
@@ -150,10 +150,10 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event second.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onNavigationBarSecond($event)
+    public function onNavigationBarSecond(array $event = array())
     {
         if (PageProvider::getNavUser()) {
             // add the admin links
@@ -167,10 +167,10 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event third.
      *
-     * @param  mixed  $event
+     * @param  array  $event
      * @return void
      */
-    public function onNavigationBarThird($event)
+    public function onNavigationBarThird(array $event = array())
     {
         if (PageProvider::getNavUser()) {
             // add the view users link

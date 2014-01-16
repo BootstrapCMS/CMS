@@ -4,6 +4,12 @@
 Create Event
 @stop
 
+@section('top')
+<div class="page-header">
+<h1>Create Event</h1>
+</div>
+@stop
+
 @section('content')
 <div class="well">
     <?php

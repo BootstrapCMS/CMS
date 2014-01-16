@@ -16,18 +16,19 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\Viewer\Facades\Viewer;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the caching controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class CachingController extends BaseController
+class CachingController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -50,6 +51,6 @@ class CachingController extends BaseController
      */
     public function getIndex()
     {
-        return $this->viewMake('caching.index', array(), true);
+        return Viewer::make('caching.index', array(), 'admin');
     }
 }

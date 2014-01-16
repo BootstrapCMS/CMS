@@ -18,19 +18,20 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Facades\FileProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the file controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class FileController extends BaseController
+class FileController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -55,7 +56,7 @@ class FileController extends BaseController
      */
     public function index($folder_id)
     {
-        return $this->viewMake('files.index', array());
+        return Viewer::make('files.index', array());
     }
 
     /**

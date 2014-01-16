@@ -20,19 +20,20 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\Queuing\Facades\Queuing;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the home controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class HomeController extends BaseController
+class HomeController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -59,7 +60,7 @@ class HomeController extends BaseController
     public function showWelcome()
     {
         Log::notice('Hello World');
-        return $this->viewMake('hello');
+        return Viewer::make('index');
     }
 
     /**
@@ -85,7 +86,7 @@ class HomeController extends BaseController
             'url'     => URL::route('pages.show', array('pages' => 'home')),
             'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
             'email'   => Config::get('workbench.email'),
-            'subject' => Config::get('cms.name').' - Welcome',
+            'subject' => Config::get('platform.name').' - Welcome',
         );
 
         Queuing::pushMail($data);
@@ -99,28 +100,7 @@ class HomeController extends BaseController
      */
     public function testError()
     {
-        Queuing::pushJob('test');
+        Queuing::pushJob('test', array(), 'GrahamCampbell\BootstrapCMS\Handlers');
         return 'done';
-    }
-
-    /**
-     * Add a value to the cache.
-     *
-     * @return string
-     */
-    public function addValue($value)
-    {
-        Cache::put('cachetest', $value, 10);
-        return 'done';
-    }
-
-    /**
-     * Pull a value from the cache.
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return Cache::get('cachetest');
     }
 }

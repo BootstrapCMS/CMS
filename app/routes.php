@@ -31,8 +31,6 @@ Route::get('hello', array('as' => 'hello', 'uses' => 'GrahamCampbell\BootstrapCM
 Route::get('test', array('as' => 'test', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@showTest'));
 Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@testQueue'));
 Route::get('testerror', array('as' => 'testerror', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@testError'));
-Route::get('add/{value}', array('as' => 'add', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@addValue'));
-Route::get('get', array('as' => 'get', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@getValue'));
 
 
 // send users to the home page
@@ -41,6 +39,7 @@ Route::get('/', array('as' => 'base', function () {
     Session::reflash();
     return Redirect::route('pages.show', array('pages' => 'home'));
 }));
+
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
@@ -51,24 +50,6 @@ if (Config::get('cms.blogging')) {
     }));
 }
 
-// send users to the sections page
-if (Config::get('cms.forum')) {
-    Route::get('forum', array('as' => 'forum', function () {
-        Session::flash('', ''); // work around laravel bug if there is no session yet
-        Session::reflash();
-        return Redirect::route('forum.sections.index');
-    }));
-    Route::get('forums', array('as' => 'forums1', function () {
-        Session::flash('', ''); // work around laravel bug if there is no session yet
-        Session::reflash();
-        return Redirect::route('forum.sections.index');
-    }));
-    Route::get('forums/sections', array('as' => 'forums2', function () {
-        Session::flash('', ''); // work around laravel bug if there is no session yet
-        Session::reflash();
-        return Redirect::route('forum.sections.index');
-    }));
-}
 
 // send users to the sections page
 if (Config::get('cms.storage')) {
@@ -79,52 +60,10 @@ if (Config::get('cms.storage')) {
     }));
 }
 
-// send users to the profile page
-Route::get('account', array('as' => 'account', function () {
-    Session::flash('', ''); // work around laravel bug if there is no session yet
-    Session::reflash();
-    return Redirect::route('account.profile');
-}));
-
-
-// account routes
-Route::get('account/profile', array('as' => 'account.profile', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\AccountController@getProfile'));
-Route::delete('account/profile', array('as' => 'account.profile.delete', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\AccountController@deleteProfile'));
-Route::patch('account/details', array('as' => 'account.details.patch', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\AccountController@patchDetails'));
-Route::patch('account/password', array('as' => 'account.password.patch', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\AccountController@patchPassword'));
-
-
-// login routes
-Route::get('account/login', array('as' => 'account.login', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\LoginController@getLogin'));
-Route::post('account/login', array('as' => 'account.login.post', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\LoginController@postLogin'));
-Route::get('account/logout', array('as' => 'account.logout', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\LoginController@getLogout'));
-
-
-// reset routes
-Route::get('account/reset', array('as' => 'account.reset', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\ResetController@getReset'));
-Route::post('account/reset', array('as' => 'account.reset.post', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\ResetController@postReset'));
-Route::get('account/password/{id}/{code}', array('as' => 'account.password', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\ResetController@getPassword'));
-
-
-// registration routes
-if (Config::get('cms.regallowed')) {
-    Route::get('account/register', array('as' => 'account.register', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@getRegister'));
-    Route::post('account/register', array('as' => 'account.register.post', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@postRegister'));
-}
-
-
-// activation route
-Route::get('account/activate/{id}/{code}', array('as' => 'account.activate', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\RegistrationController@getActivate'));
-
-
-// user routes
-Route::resource('users', 'GrahamCampbell\BootstrapCMS\Controllers\UserController');
-Route::post('users/{users}/suspend', array('as' => 'users.suspend', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\UserController@suspend'));
-Route::post('users/{users}/reset', array('as' => 'users.reset', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\UserController@reset'));
-
 
 // page routes
 Route::resource('pages', 'GrahamCampbell\BootstrapCMS\Controllers\PageController');
+
 
 // blog routes
 if (Config::get('cms.blogging')) {
@@ -132,10 +71,12 @@ if (Config::get('cms.blogging')) {
     Route::resource('blog/posts.comments', 'GrahamCampbell\BootstrapCMS\Controllers\CommentController');
 }
 
+
 // event routes
 if (Config::get('cms.events')) {
     Route::resource('events', 'GrahamCampbell\BootstrapCMS\Controllers\EventController');
 }
+
 
 // storage routes
 if (Config::get('cms.storage')) {
@@ -146,6 +87,7 @@ if (Config::get('cms.storage')) {
 
 // caching routes
 Route::get('caching', array('as' => 'caching.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CachingController@getIndex'));
+
 
 // queuing routes
 Route::get('queuing', array('as' => 'queuing.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\QueuingController@getIndex'));

@@ -21,20 +21,21 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Page;
 use GrahamCampbell\CMSCore\Facades\PageProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the page controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class PageController extends BaseController
+class PageController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -73,7 +74,7 @@ class PageController extends BaseController
      */
     public function create()
     {
-        return $this->viewMake('pages.create');
+        return Viewer::make('pages.create');
     }
 
     /**
@@ -118,7 +119,7 @@ class PageController extends BaseController
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->viewMake('pages.show', array('page' => $page));
+        return Viewer::make('pages.show', array('page' => $page));
     }
 
     /**
@@ -132,7 +133,7 @@ class PageController extends BaseController
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->viewMake('pages.edit', array('page' => $page));
+        return Viewer::make('pages.edit', array('page' => $page));
     }
 
     /**

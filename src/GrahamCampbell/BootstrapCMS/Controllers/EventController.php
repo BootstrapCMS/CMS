@@ -22,20 +22,21 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Event;
 use GrahamCampbell\CMSCore\Facades\EventProvider;
-use GrahamCampbell\CMSCore\Controllers\BaseController;
+use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the event controller class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
- * @copyright  Copyright (C) 2013  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/develop/LICENSE.md
+ * @copyright  Copyright (C) 2013-2014  Graham Campbell
+ * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class EventController extends BaseController
+class EventController extends AbstractController
 {
     /**
      * Constructor (setup access permissions).
@@ -65,7 +66,7 @@ class EventController extends BaseController
         $events = EventProvider::paginate();
         $links = EventProvider::links();
 
-        return $this->viewMake('events.index', array('events' => $events, 'links' => $links));
+        return Viewer::make('events.index', array('events' => $events, 'links' => $links));
     }
 
     /**
@@ -75,7 +76,7 @@ class EventController extends BaseController
      */
     public function create()
     {
-        return $this->viewMake('events.create');
+        return Viewer::make('events.create');
     }
 
     /**
@@ -119,7 +120,7 @@ class EventController extends BaseController
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return $this->viewMake('events.show', array('event' => $event));
+        return Viewer::make('events.show', array('event' => $event));
     }
 
     /**
@@ -133,7 +134,7 @@ class EventController extends BaseController
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return $this->viewMake('events.edit', array('event' => $event));
+        return Viewer::make('events.edit', array('event' => $event));
     }
 
     /**
