@@ -21,6 +21,6 @@ Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git r
 
 Please review these guidelines before submitting any pull requests.  
 
-* Bug fixes shouldn't be sent to the master branch unless they fix features that exist only in the upcoming release.  
+* When submitting bug fixes, check if a maintenance branch exists for an older series, then pull against that older branch if the bug is present in it.  
 * Before sending a pull request for a new feature, you should first create an issue with [Proposal] in the title.  
 * Please follow the [PSR-2 Coding Style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) and [PHP-FIG Naming Conventions](https://github.com/php-fig/fig-standards/blob/master/bylaws/002-psr-naming-conventions.md).  
