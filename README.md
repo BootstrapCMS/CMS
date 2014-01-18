@@ -26,8 +26,8 @@ Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) with [CM
 
 * Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Bootstrap CMS relies on my [CMS Core](https://github.com/GrahamCampbell/CMS-Core) package.  
-* Bootstrap CMS uses [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) to run tests to check if it's working as it should.  
-* Bootstrap CMS uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS) and [Coveralls](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS) to run additional tests and checks.  
+* Bootstrap CMS uses [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS) to check everything is working.  
+* Bootstrap CMS uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162) to run additional checks.  
 * Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.  
 * Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), and [api docs](http://grahamcampbell.github.io/Bootstrap-CMS).  
 * Bootstrap CMS is licensed under the GNU AGPLv3, available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md).  
