@@ -3,16 +3,19 @@ CHANGE LOG
 
 
 ## V0.6 Alpha (Upcoming)
-#### Major Release
 
 * Support only laravel 4.1
+* Ported to laravel platform
+* Ported to laravel credentials
+* Improved view rendering
 * Improved authentication
 * Improved events
+* Removed a few old routes
+* Cleaned up some old code
 * Added more tests
 
 
 ## V0.5 Alpha (19/12/2013)
-#### Major Release
 
 * Made it PSR-2 compliant
 * Massive refactoring
@@ -33,7 +36,6 @@ CHANGE LOG
 
 
 ## V0.4 Alpha (25/08/2013)
-#### Major Release
 
 * Made it PSR-0 compliant
 * Refactored off the libs to other packages
@@ -57,7 +59,6 @@ CHANGE LOG
 
 
 ## V0.3.1 Alpha (12/08/2013)
-#### Minor Release
 
 * Added More tests
 * Test refactoring
@@ -79,7 +80,6 @@ CHANGE LOG
 
 
 ## V0.3 Alpha (09/08/2013)
-#### Major Release
 
 * Added native support for CloudFlare proxies
 * Added proper model deletion
@@ -108,7 +108,6 @@ CHANGE LOG
 
 
 ## V0.2 Alpha (05/08/2013)
-#### Major Release
 
 * Major improvements to page editing and creation
 * Added page details for editors
@@ -152,7 +151,6 @@ CHANGE LOG
 
 
 ## V0.1.1 Alpha (24/07/2013)
-#### Minor Release
 
 * Added a base model
 * Added the db tables for the models
@@ -170,6 +168,5 @@ CHANGE LOG
 
 
 ## V0.1 Alpha (23/07/2013)
-#### Major Release
 
 * Initial testing release
