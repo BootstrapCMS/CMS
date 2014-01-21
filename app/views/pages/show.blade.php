@@ -5,7 +5,7 @@
 @stop
 
 @section('top')
-@if($page->getShowTitle())
+@if($page->show_title)
     <div class="page-header">
     <h1>{{{ $page->title }}}</h1>
     </div>
@@ -60,9 +60,9 @@
 @stop
 
 @section('css')
-{{ $page->getCSS() }}
+{{ $page->css }}
 @stop
 
 @section('js')
-{{ $page->getJS() }}
+{{ $page->js }}
 @stop

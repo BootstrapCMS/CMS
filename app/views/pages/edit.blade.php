@@ -33,9 +33,9 @@ Edit {{{ $page->title }}}
             'title' => $page->title,
             'icon' => $page->icon,
             'body' => $page->body,
-            'css' => $page->getCSS(),
-            'js' => $page->getJS(),
-            'show_title' => ($page->getShowTitle() == true),
+            'css' => $page->css,
+            'js' => $page->js,
+            'show_title' => ($page->show_title == true),
             'show_nav' => ($page->show_nav == true),
     ));
     ?>
