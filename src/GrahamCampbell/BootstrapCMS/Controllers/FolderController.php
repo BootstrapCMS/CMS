@@ -81,7 +81,7 @@ class FolderController extends AbstractController
         $input = array(
             'title'   => Binput::get('title'),
             'summary' => Binput::get('summary'),
-            'user_id' => $this->getUserId()
+            'user_id' => $this->user()->first(array('id'))->id
         );
 
         $rules = Folder::$rules;

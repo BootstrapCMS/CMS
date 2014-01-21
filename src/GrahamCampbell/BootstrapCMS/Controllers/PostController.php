@@ -89,7 +89,7 @@ class PostController extends AbstractController
             'title'   => Binput::get('title'),
             'summary' => Binput::get('summary'),
             'body'    => Binput::get('body'),
-            'user_id' => $this->getUserId(),
+            'user_id' => $this->user()->first(array('id'))->id,
         );
 
         $rules = Post::$rules;
@@ -116,7 +116,7 @@ class PostController extends AbstractController
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
-        $comments = $post->getComments();
+        $comments = $post->comments()->first();
 
         return Viewer::make('posts.show', array('post' => $post, 'comments' => $comments));
     }

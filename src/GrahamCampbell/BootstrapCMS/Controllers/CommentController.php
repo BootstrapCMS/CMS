@@ -71,7 +71,7 @@ class CommentController extends AbstractController
             return Response::json(array('success' => false, 'code' => 404, 'msg' => 'The post you were viewing has been deleted.', 'url' => URL::route('blog.posts.index')), 404);
         }
 
-        $comments = $post->getComments(array('id', 'version'));
+        $comments = $post->comments(array('id', 'version'))->first();
 
         $data = array();
 
@@ -94,7 +94,7 @@ class CommentController extends AbstractController
 
         $input = array(
             'body'    => Binput::get('body'),
-            'user_id' => $this->getUserId(),
+            'user_id' => $this->user()->first(array('id'))->id,
             'post_id' => $post_id,
             'version' => 1
         );
