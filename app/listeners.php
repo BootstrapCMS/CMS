@@ -33,4 +33,4 @@ $subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber;
 Event::subscribe($subscriber);
 
 $observer = new GrahamCampbell\BootstrapCMS\Observers\PageObserver;
-Page::observe($observer);
+PageProvider::observe($observer);
