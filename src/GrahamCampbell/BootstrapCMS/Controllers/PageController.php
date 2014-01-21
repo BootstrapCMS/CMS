@@ -91,7 +91,7 @@ class PageController extends AbstractController
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav'   => (Binput::get('show_nav') == 'on'),
             'icon'       => Binput::get('icon'),
-            'user_id'    => $this->user()->first(array('id'))->id,
+            'user_id'    => $this->getUserId(),
         );
 
         $rules = Page::$rules;

@@ -91,7 +91,7 @@ class EventController extends AbstractController
             'location' => Binput::get('location'),
             'date'     => Binput::get('date'),
             'body'     => Binput::get('body'),
-            'user_id'  => $this->user()->first(array('id'))->id,
+            'user_id'  => $this->getUserId(),
         );
 
         $rules = Event::$rules;
@@ -150,7 +150,7 @@ class EventController extends AbstractController
             'location' => Binput::get('location'),
             'date'     => Binput::get('date'),
             'body'     => Binput::get('body'),
-            'user_id'  => $this->user()->first(array('id'))->id,
+            'user_id'  => $this->getUserId(),
         );
 
         $rules = Event::$rules;
