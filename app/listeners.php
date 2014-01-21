@@ -26,14 +26,11 @@
 $subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber;
 Event::subscribe($subscriber);
 
-$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\EloquentSubscriber;
-Event::subscribe($subscriber);
-
-$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber;
-Event::subscribe($subscriber);
-
 $subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber;
 Event::subscribe($subscriber);
 
 $subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber;
 Event::subscribe($subscriber);
+
+$observer = new GrahamCampbell\BootstrapCMS\Observers\PageObserver;
+Page::observe($observer);

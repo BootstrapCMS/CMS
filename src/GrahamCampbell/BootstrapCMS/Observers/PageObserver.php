@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Subscribers;
+namespace GrahamCampbell\BootstrapCMS\Observers;
 
 use GrahamCampbell\CMSCore\Facades\PageProvider;
 
@@ -27,53 +27,59 @@ use GrahamCampbell\CMSCore\Facades\PageProvider;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class PageSubscriber
+class PageObserver
 {
     /**
-     * Register the listeners for the subscriber.
-     *
-     * @param  Illuminate\Events\Dispatcher  $events
-     * @return array
-     */
-    public function subscribe($events)
-    {
-        $events->listen('page.created', 'GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber@onPageCreated', 5);
-        $events->listen('page.updated', 'GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber@onPageUpdated', 5);
-        $events->listen('page.deleted', 'GrahamCampbell\BootstrapCMS\Subscribers\PageSubscriber@onPageDeleted', 5);
-    }
-
-    /**
-     * Handle a page.created event.
+     * Handle a page creation.
      *
      * @return void
      */
-    public function onPageCreated()
+    public function created($page = null)
     {
-        // refresh the navigation cache
         PageProvider::refresh();
     }
 
     /**
-     * Handle a page.updated event.
+     * Handle a page update.
      *
      * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageUpdated($page)
+    public function updated($page = null)
     {
-        // refresh the navigation cache
         PageProvider::refresh();
     }
 
     /**
-     * Handle a page.deleted event.
+     * Handle a page deletion.
      *
      * @param  \GrahamCampbell\CMSCore\Models\Page  $page
      * @return void
      */
-    public function onPageDeleted($page)
+    public function deleted($page = null)
     {
-        // refresh the navigation cache
+        PageProvider::refresh();
+    }
+
+    /**
+     * Handle a page save.
+     *
+     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
+     * @return void
+     */
+    public function saved($page = null)
+    {
+        PageProvider::refresh();
+    }
+
+    /**
+     * Handle a page restore.
+     *
+     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
+     * @return void
+     */
+    public function restored($page = null)
+    {
         PageProvider::refresh();
     }
 }

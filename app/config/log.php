@@ -66,32 +66,6 @@ return array(
     |
     */
 
-    'localechanged' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Log Eloquent Ing Events
-    |--------------------------------------------------------------------------
-    |
-    | This defines if eloquent ing events are logged.
-    |
-    | Default to false.
-    |
-    */
-
-    'eloquenting' => false,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Log Eloquent Ed Events
-    |--------------------------------------------------------------------------
-    |
-    | This defines if eloquent ed events are logged.
-    |
-    | Default to true.
-    |
-    */
-
-    'eloquented' => true
+    'localechanged' => true
 
 );
