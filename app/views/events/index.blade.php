@@ -30,14 +30,14 @@ Events
     @endif
 </div>
 @foreach($events as $event)
-    <h2>{{ $event->getTitle() }}</h2>
+    <h2>{{ $event->title }}</h2>
     <p>
-        <strong>{{ $event->getDateByFormat('l jS F Y H:i') }}</strong>
+        <strong>{{ $event->date->format('l jS F Y H:i') }}</strong>
     </p>
     <p>
-        <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->getId())) }}"><i class="fa fa-file-text"></i> Show Event</a>
+        <a class="btn btn-success" href="{{ URL::route('events.show', array('events' => $event->id)) }}"><i class="fa fa-file-text"></i> Show Event</a>
         @if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
-             <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event_{{ $event->getId() }}" data-toggle="modal" data-target="#delete_event_{{ $event->getId() }}"><i class="fa fa-times"></i> Delete Event</a>
+             <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event_{{ $event->id }}" data-toggle="modal" data-target="#delete_event_{{ $event->id }}"><i class="fa fa-times"></i> Delete Event</a>
         @endif
     </p>
     <br>

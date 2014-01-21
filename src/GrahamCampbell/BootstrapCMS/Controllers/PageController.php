@@ -105,7 +105,7 @@ class PageController extends AbstractController
 
         // write flash message and redirect
         Session::flash('success', 'Your page has been created successfully.');
-        return Redirect::route('pages.show', array('pages' => $page->getSlug()));
+        return Redirect::route('pages.show', array('pages' => $page->slug));
     }
 
     /**
@@ -183,7 +183,7 @@ class PageController extends AbstractController
 
         // write flash message and redirect
         Session::flash('success', 'Your page has been updated successfully.');
-        return Redirect::route('pages.show', array('pages' => $page->getSlug()));
+        return Redirect::route('pages.show', array('pages' => $page->slug));
     }
 
     /**

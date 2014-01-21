@@ -30,14 +30,14 @@ Blog
     @endif
 </div>
 @foreach($posts as $post)
-    <h2>{{ $post->getTitle() }}</h2>
+    <h2>{{ $post->title }}</h2>
     <p>
-        <strong>{{ $post->getSummary() }}</strong>
+        <strong>{{ $post->summary }}</strong>
     </p>
     <p>
-        <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->getId())) }}"><i class="fa fa-file-text"></i> Show Post</a>
+        <a class="btn btn-success" href="{{ URL::route('blog.posts.show', array('posts' => $post->id)) }}"><i class="fa fa-file-text"></i> Show Post</a>
         @if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
-             <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post_{{ $post->getId() }}" data-toggle="modal" data-target="#delete_post_{{ $post->getId() }}"><i class="fa fa-times"></i> Delete Post</a>
+             <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post_{{ $post->id }}" data-toggle="modal" data-target="#delete_post_{{ $post->id }}"><i class="fa fa-times"></i> Delete Post</a>
         @endif
     </p>
     <br>

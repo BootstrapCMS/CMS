@@ -76,7 +76,7 @@ class CommentController extends AbstractController
         $data = array();
 
         foreach ($comments as $comment) {
-            $data[] = array('comment_id' => $comment->getId(), 'comment_ver' => $comment->getVersion());
+            $data[] = array('comment_id' => $comment->id, 'comment_ver' => $comment->version);
         }
 
         return Response::json(array_reverse($data));
@@ -108,7 +108,7 @@ class CommentController extends AbstractController
 
         $comment = CommentProvider::create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_id' => $comment->getId()));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_id' => $comment->id));
     }
 
     /**
@@ -125,7 +125,7 @@ class CommentController extends AbstractController
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_text' => HTMLMin::render(nl2br(e($comment->getBody()))),'comment_id' => $id, 'comment_ver' => $comment->getVersion()));
+        return Response::json(array('contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_text' => HTMLMin::render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $comment->version));
     }
 
     /**
@@ -158,7 +158,7 @@ class CommentController extends AbstractController
             App::abort(400, 'No version data was supplied.');
         }
 
-        if ($version != $comment->getVersion() && $version) {
+        if ($version != $comment->version && $version) {
             App::abort(409, 'The comment was modified by someone else.');
         }
 
@@ -166,7 +166,7 @@ class CommentController extends AbstractController
 
         $comment->update(array_merge($input, array('version' => $version)));
 
-        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => HTMLMin::render(nl2br(e($comment->getBody()))),'comment_id' => $id, 'comment_ver' => $version));
+        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => HTMLMin::render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $version));
     }
 
     /**

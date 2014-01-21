@@ -10,7 +10,7 @@
                 <p>Are you sure you wish to continue?</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-success" href="{{ URL::route('events.destroy', array('events' => $event->getId())) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Yes</a>
+                <a class="btn btn-success" href="{{ URL::route('events.destroy', array('events' => $event->id)) }}" data-token="{{ Session::getToken() }}" data-method="DELETE">Yes</a>
                 <button class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>

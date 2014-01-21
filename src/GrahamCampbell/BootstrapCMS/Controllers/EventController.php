@@ -106,7 +106,7 @@ class EventController extends AbstractController
         $event = EventProvider::create($input);
 
         Session::flash('success', 'Your event has been created successfully.');
-        return Redirect::route('events.show', array('events' => $event->getId()));
+        return Redirect::route('events.show', array('events' => $event->id));
     }
 
     /**
@@ -169,7 +169,7 @@ class EventController extends AbstractController
         $event->update($input);
         
         Session::flash('success', 'Your event has been updated successfully.');
-        return Redirect::route('events.show', array('events' => $event->getId()));
+        return Redirect::route('events.show', array('events' => $event->id));
     }
 
     /**

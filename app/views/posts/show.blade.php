@@ -1,12 +1,12 @@
 @extends(Config::get('views.default', 'layouts.default'))
 
 @section('title')
-{{{ $post->getTitle() }}}
+{{{ $post->title }}}
 @stop
 
 @section('top')
 <div class="page-header">
-<h1>{{{ $post->getTitle() }}}</h1>
+<h1>{{{ $post->title }}}</h1>
 </div>
 @stop
 
@@ -18,15 +18,15 @@
                 <p>
                     <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
                 </p>
-                <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
+                <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
             </div>
             <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
-                        <em>Post Created: <abbr class="timeago" title="{{ $post->getCreatedAt()->toISO8601String() }}">{{ $post->getCreatedAt()->toDateTimeString() }}</abbr></em>
+                        <em>Post Created: <abbr class="timeago" title="{{ $post->created_at->toISO8601String() }}">{{ $post->created_at->toDateTimeString() }}</abbr></em>
                     </p>
                     <p>
-                        <em>Last Updated: <abbr class="timeago" title="{{ $post->getUpdatedAt()->toISO8601String() }}">{{ $post->getUpdatedAt()->toDateTimeString() }}</abbr></em>
+                        <em>Last Updated: <abbr class="timeago" title="{{ $post->updated_at->toISO8601String() }}">{{ $post->updated_at->toDateTimeString() }}</abbr></em>
                     </p>
                 </div>
             </div>
@@ -37,12 +37,12 @@
                     <strong>Post Creator:</strong> {{ $post->getUserEmail() }}
                 </p>
                 <p>
-                    <strong>Post Created:</strong> <abbr class="timeago" title="{{ $post->getCreatedAt()->toISO8601String() }}">{{ $post->getCreatedAt()->toDateTimeString() }}</abbr>
+                    <strong>Post Created:</strong> <abbr class="timeago" title="{{ $post->created_at->toISO8601String() }}">{{ $post->created_at->toDateTimeString() }}</abbr>
                 </p>
                 <p>
-                    <strong>Last Updated:</strong> <abbr class="timeago" title="{{ $post->getUpdatedAt()->toISO8601String() }}">{{ $post->getUpdatedAt()->toDateTimeString() }}</abbr>
+                    <strong>Last Updated:</strong> <abbr class="timeago" title="{{ $post->updated_at->toISO8601String() }}">{{ $post->updated_at->toDateTimeString() }}</abbr>
                 </p>
-                <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->getId())) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
+                <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
 <div class="row">
     <div class="hidden-xs">
         <div class="col-md-8 col-xs-6">
-            <p class="lead">{{ $post->getSummary() }}</p>
+            <p class="lead">{{ $post->summary }}</p>
         </div>
         <div class="col-md-4 col-xs-6">
             <div class="pull-right">
@@ -62,21 +62,21 @@
     </div>
     <div class="visible-xs">
         <div class="col-xs-12">
-            <p class="lead">{{ $post->getSummary() }}</p>
+            <p class="lead">{{ $post->summary }}</p>
             <p>Author: {{ $post->getUserName() }}</p>
         </div>
     </div>
 </div>
 <br>
 
-{{ Markdown::render($post->getBody()) }}
+{{ Markdown::render($post->body) }}
 <br><hr>
 
 <h3>Comments</h3>
 @if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
     <br>
     <div class="row">
-        {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->getId())), 'method' => 'POST', 'class' => 'form-vertical')) }}
+        {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->id)), 'method' => 'POST', 'class' => 'form-vertical')) }}
             <div class="form-group">
                 <div class="col-xs-12">
                     <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
@@ -101,7 +101,7 @@
 @endif
 <br>
 
-<?php $post_id = $post->getId(); ?>
+<?php $post_id = $post->id; ?>
 <div id="comments" data-url="{{ URL::route('blog.posts.comments.index', array('posts' => $post_id)) }}">
     @if (count($comments) == 0)
     <p id="nocomments">There are currently no comments.</p>

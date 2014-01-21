@@ -102,7 +102,7 @@ class PostController extends AbstractController
         $post = PostProvider::create($input);
 
         Session::flash('success', 'Your post has been created successfully.');
-        return Redirect::route('blog.posts.show', array('posts' => $post->getId()));
+        return Redirect::route('blog.posts.show', array('posts' => $post->id));
     }
 
     /**
@@ -163,7 +163,7 @@ class PostController extends AbstractController
         $post->update($input);
         
         Session::flash('success', 'Your post has been updated successfully.');
-        return Redirect::route('blog.posts.show', array('posts' => $post->getId()));
+        return Redirect::route('blog.posts.show', array('posts' => $post->id));
     }
 
     /**

@@ -95,7 +95,7 @@ class FolderController extends AbstractController
 
         // write flash message and redirect
         Session::flash('success', 'Your folder has been created successfully.');
-        return Redirect::route('files.index', array('folders' => $folder->getId()));
+        return Redirect::route('files.index', array('folders' => $folder->id));
     }
 
     /**
@@ -140,7 +140,7 @@ class FolderController extends AbstractController
 
         // write flash message and redirect
         Session::flash('success', 'Your folder has been updated successfully.');
-        return Redirect::route('files.index', array('folders' => $folder->getId()));
+        return Redirect::route('files.index', array('folders' => $folder->id));
     }
 
     /**
