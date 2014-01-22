@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+@if (Credentials::check() && Credentials::hasAccess('blog'))
     <div class="well clearfix">
         <div class="hidden-xs">
             <div class="col-xs-6">
@@ -73,7 +73,7 @@
 <br><hr>
 
 <h3>Comments</h3>
-@if (Sentry::check() && Sentry::getUser()->hasAccess('user'))
+@if (Credentials::check() && Credentials::hasAccess('user'))
     <br>
     <div class="row">
         {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->id)), 'method' => 'POST', 'class' => 'form-vertical')) }}
@@ -114,10 +114,10 @@
 @stop
 
 @section('bottom')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+@if (Credentials::check() && Credentials::hasAccess('blog'))
 @include('posts.delete')
 @endif
-@if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+@if (Credentials::check() && Credentials::hasAccess('mod'))
 <div id="edit_comment" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

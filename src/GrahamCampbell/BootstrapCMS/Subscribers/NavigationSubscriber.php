@@ -17,9 +17,9 @@
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
 use Illuminate\Support\Facades\Config;
-use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use GrahamCampbell\CMSCore\Facades\PageProvider;
 use GrahamCampbell\Navigation\Facades\Navigation;
+use GrahamCampbell\Credentials\Facades\Credentials;
 
 /**
  * This is the navigation subscriber class.
@@ -98,7 +98,7 @@ class NavigationSubscriber
 
         if (PageProvider::getNavUser()) {
             // add the admin links
-            if (Sentry::getUser()->hasAccess('admin')) {
+            if (Credentials::hasAccess('admin')) {
                 Navigation::addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
                 Navigation::addMain(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'), 'admin');
             }
@@ -127,7 +127,7 @@ class NavigationSubscriber
 
         if (PageProvider::getNavUser()) {
             // add the view users link
-            if (Sentry::getUser()->hasAccess('mod')) {
+            if (Credentials::hasAccess('mod')) {
                 Navigation::addMain(array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'), 'admin');
             }
         }
@@ -157,7 +157,7 @@ class NavigationSubscriber
     {
         if (PageProvider::getNavUser()) {
             // add the admin links
-            if (Sentry::getUser()->hasAccess('admin')) {
+            if (Credentials::hasAccess('admin')) {
                 Navigation::addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
                 Navigation::addBar(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
             }
@@ -174,30 +174,30 @@ class NavigationSubscriber
     {
         if (PageProvider::getNavUser()) {
             // add the view users link
-            if (Sentry::getUser()->hasAccess('mod')) {
+            if (Credentials::hasAccess('mod')) {
                 Navigation::addBar(array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
             }
 
             // add the create user link
-            if (Sentry::getUser()->hasAccess('admin')) {
+            if (Credentials::hasAccess('admin')) {
                 Navigation::addBar(array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star'));
             }
 
             // add the create page link
-            if (Sentry::getUser()->hasAccess('edit')) {
+            if (Credentials::hasAccess('edit')) {
                 Navigation::addBar(array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil'));
             }
 
             // add the create post link
             if (Config::get('cms.blogging')) {
-                if (Sentry::getUser()->hasAccess('blog')) {
+                if (Credentials::hasAccess('blog')) {
                     Navigation::addBar(array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book'));
                 }
             }
 
             // add the create event link
             if (Config::get('cms.events')) {
-                if (Sentry::getUser()->hasAccess('edit')) {
+                if (Credentials::hasAccess('edit')) {
                     Navigation::addBar(array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar'));
                 }
             }

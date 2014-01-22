@@ -204,7 +204,6 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Asset'           => 'Lightgear\Asset\Facades\Asset',
-        'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'Viewer'          => 'GrahamCampbell\Viewer\Facades\Viewer',
         'JobProvider'     => 'GrahamCampbell\Queuing\Facades\JobProvider',
         'Queuing'         => 'GrahamCampbell\Queuing\Facades\Queuing',

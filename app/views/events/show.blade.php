@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+@if (Credentials::check() && Credentials::hasAccess('edit'))
     <div class="well clearfix">
         <div class="hidden-xs">
             <div class="col-xs-6">
@@ -73,19 +73,19 @@
 @stop
 
 @section('bottom')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+@if (Credentials::check() && Credentials::hasAccess('edit'))
 @include('events.delete')
 @endif
 @stop
 
 @section('css')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+@if (Credentials::check() && Credentials::hasAccess('mod'))
 {{ Asset::styles('form') }}
 @endif
 @stop
 
 @section('js')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+@if (Credentials::check() && Credentials::hasAccess('mod'))
 {{ Asset::scripts('form') }}
 @endif
 @stop

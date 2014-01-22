@@ -1,5 +1,5 @@
 <div id="comment_{{ $comment->id }}" class="well clearfix" data-pk="{{ $comment->id }}" data-ver="{{ $comment->version }}">
-    @if (Sentry::check() && Sentry::getUser()->hasAccess('mod'))
+    @if (Credentials::check() && Credentials::hasAccess('mod'))
         <div class="col-md-9 col-sm-8">
             <p><strong>{{ $comment->user()->first(array('first_name', 'last_name'))->getName() }}</strong> - <abbr id="timeago_comment_{{ $comment->id }}" class="timeago" title="{{ $comment->created_at->toISO8601String() }}">{{ $comment->created_at->toDateTimeString() }}</abbr></p>
             <p id="main_comment_{{ $comment->id }}" class="main">{{ nl2br(e($comment->body)) }}</p>

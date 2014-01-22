@@ -40,7 +40,7 @@ Edit {{{ $post->title }}}
 @stop
 
 @section('bottom')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('blog'))
+@if (Credentials::check() && Credentials::hasAccess('blog'))
     @include('posts.delete')
 @endif
 @stop

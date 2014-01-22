@@ -41,7 +41,7 @@ Edit {{{ $event->title }}}
 @stop
 
 @section('bottom')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+@if (Credentials::check() && Credentials::hasAccess('edit'))
 @include('events.delete')
 @endif
 @stop

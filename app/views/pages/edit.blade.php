@@ -44,7 +44,7 @@ Edit {{{ $page->title }}}
 @stop
 
 @section('bottom')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+@if (Credentials::check() && Credentials::hasAccess('edit'))
     @include('pages.delete')
 @endif
 @stop

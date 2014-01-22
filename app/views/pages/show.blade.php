@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+@if (Credentials::check() && Credentials::hasAccess('edit'))
     <div class="well clearfix">
         <div class="hidden-xs">
             <div class="col-xs-6">
@@ -54,7 +54,7 @@
 @stop
 
 @section('bottom')
-@if (Sentry::check() && Sentry::getUser()->hasAccess('edit'))
+@if (Credentials::check() && Credentials::hasAccess('edit'))
     @include('pages.delete')
 @endif
 @stop
