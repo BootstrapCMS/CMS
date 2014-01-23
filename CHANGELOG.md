@@ -12,7 +12,7 @@ CHANGE LOG
 * Improved events
 * Removed a few old routes
 * Cleaned up some old code
-* Added more tests
+* Removed broken tests
 
 
 ## V0.5 Alpha (19/12/2013)
