@@ -22,6 +22,9 @@
     </div>
 </div>
 
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.3.1/jquery.timeago.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js') }}
 {{ Asset::scripts('main') }}
 @section('js')
 @show

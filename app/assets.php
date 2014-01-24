@@ -34,19 +34,13 @@ if (Config::get('theme.name') == 'default') {
 } else {
     $styles[] = 'css/bootstrap.'.Config::get('theme.name').'.min.css';
 }
-$styles[] = 'css/jasny-bootstrap.min.css';
-$styles[] = 'css/font-awesome.min.css';
 $styles[] = 'css/cms-main.css';
 
 Asset::registerStyles($styles, '', 'main');
 
 Asset::registerScripts(array(
-    'js/jquery-1.10.2.min.js',
-    'js/jquery.timeago.js',
     'js/cms-timeago.js',
     'js/cms-restfulizer.js',
-    'js/bootstrap.min.js',
-    'js/jasny-bootstrap.min.js',
     'js/cms-carousel.js'
 ), '', 'main');
 
@@ -58,7 +52,6 @@ Asset::registerStyles(array(
 
 
 Asset::registerScripts(array(
-    'js/jquery.form.js',
     'js/bootstrap-switch.js',
     'js/bootstrap-markdown.js'
 ), '', 'form');
@@ -70,7 +63,6 @@ Asset::registerStyles(array(
 
 
 Asset::registerScripts(array(
-    'js/moment.min.js',
     'js/bootstrap-datetimepicker.min.js',
     'js/cms-picker.js'
 ), '', 'picker');
