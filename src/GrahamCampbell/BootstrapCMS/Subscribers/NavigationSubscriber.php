@@ -66,7 +66,7 @@ class NavigationSubscriber
             Navigation::addMain(array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
 
-        if (PageProvider::getNavUser()) {
+        if (Credentials::check()) {
             // add the storage
             if (Config::get('cms.storage')) {
                 Navigation::addMain(array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
@@ -96,7 +96,7 @@ class NavigationSubscriber
             Navigation::addMain($page);
         }
 
-        if (PageProvider::getNavUser()) {
+        if (Credentials::check()) {
             // add the admin links
             if (Credentials::hasAccess('admin')) {
                 Navigation::addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
@@ -125,7 +125,7 @@ class NavigationSubscriber
         Navigation::addMain($page, 'default', true);
         Navigation::addMain($page, 'admin', true);
 
-        if (PageProvider::getNavUser()) {
+        if (Credentials::check()) {
             // add the view users link
             if (Credentials::hasAccess('mod')) {
                 Navigation::addMain(array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'), 'admin');
@@ -141,7 +141,7 @@ class NavigationSubscriber
      */
     public function onNavigationBarFirst(array $event = array())
     {
-        if (PageProvider::getNavUser()) {
+        if (Credentials::check()) {
             // add the profile links
             Navigation::addBar(array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
         }
@@ -155,7 +155,7 @@ class NavigationSubscriber
      */
     public function onNavigationBarSecond(array $event = array())
     {
-        if (PageProvider::getNavUser()) {
+        if (Credentials::check()) {
             // add the admin links
             if (Credentials::hasAccess('admin')) {
                 Navigation::addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
@@ -172,7 +172,7 @@ class NavigationSubscriber
      */
     public function onNavigationBarThird(array $event = array())
     {
-        if (PageProvider::getNavUser()) {
+        if (Credentials::check()) {
             // add the view users link
             if (Credentials::hasAccess('mod')) {
                 Navigation::addBar(array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
