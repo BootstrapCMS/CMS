@@ -19,7 +19,7 @@ namespace GrahamCampbell\BootstrapCMS\Observers;
 use GrahamCampbell\CMSCore\Facades\PageProvider;
 
 /**
- * This is the page subscriber class.
+ * This is the page observer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
