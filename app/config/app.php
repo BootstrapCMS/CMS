@@ -123,6 +123,7 @@ return array(
         'Lightgear\Asset\AssetServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\Viewer\ViewerServiceProvider',
         'GrahamCampbell\Queuing\QueuingServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',

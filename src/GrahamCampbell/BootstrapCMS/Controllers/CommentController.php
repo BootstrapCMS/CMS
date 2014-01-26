@@ -52,6 +52,8 @@ class CommentController extends AbstractController
             'destroy' => 'mod',
         ));
 
+        $this->beforeFilter('ajax');
+
         parent::__construct();
     }
 
@@ -63,8 +65,6 @@ class CommentController extends AbstractController
      */
     public function index($post_id)
     {
-        $this->checkAjax();
-
         $post = PostProvider::find($post_id, array('id'));
         if (!$post) {
             Session::flash('error', 'The post you were viewing has been deleted.');
@@ -90,8 +90,6 @@ class CommentController extends AbstractController
      */
     public function store($post_id)
     {
-        $this->checkAjax();
-
         $input = array(
             'body'    => Binput::get('body'),
             'user_id' => $this->getUserId(),
@@ -120,8 +118,6 @@ class CommentController extends AbstractController
      */
     public function show($post_id, $id)
     {
-        $this->checkAjax();
-
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
@@ -137,8 +133,6 @@ class CommentController extends AbstractController
      */
     public function update($post_id, $id)
     {
-        $this->checkAjax();
-
         $input = array('body' => Binput::get('edit_body'));
 
         $rules = array('body' => Comment::$rules['body']);
@@ -178,8 +172,6 @@ class CommentController extends AbstractController
      */
     public function destroy($post_id, $id)
     {
-        $this->checkAjax();
-
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
