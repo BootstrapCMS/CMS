@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -35,11 +36,12 @@ use GrahamCampbell\CMSCore\Controllers\AbstractController;
 class HomeController extends AbstractController
 {
     /**
-     * Constructor (setup access permissions).
+     * Create a new instance.
      *
+     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @return void
      */
-    public function __construct()
+    public function __construct(Credentials $credentials)
     {
         $this->setPermissions(array(
             'testQueue' => 'admin',
@@ -48,7 +50,7 @@ class HomeController extends AbstractController
             'getValue'  => 'user',
         ));
 
-        parent::__construct();
+        parent::__construct($credentials);
     }
 
     /**

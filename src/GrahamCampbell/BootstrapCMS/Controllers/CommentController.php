@@ -26,6 +26,7 @@ use GrahamCampbell\HTMLMin\Facades\HTMLMin;
 use GrahamCampbell\CMSCore\Models\Comment;
 use GrahamCampbell\CMSCore\Facades\CommentProvider;
 use GrahamCampbell\CMSCore\Facades\PostProvider;
+use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -40,11 +41,12 @@ use GrahamCampbell\CMSCore\Controllers\AbstractController;
 class CommentController extends AbstractController
 {
     /**
-     * Constructor (setup access permissions).
+     * Create a new instance.
      *
+     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @return void
      */
-    public function __construct()
+    public function __construct(Credentials $credentials)
     {
         $this->setPermissions(array(
             'store'   => 'user',
@@ -54,7 +56,7 @@ class CommentController extends AbstractController
 
         $this->beforeFilter('ajax');
 
-        parent::__construct();
+        parent::__construct($credentials);
     }
 
     /**

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Facades\FileProvider;
+use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -34,18 +35,19 @@ use GrahamCampbell\CMSCore\Controllers\AbstractController;
 class FileController extends AbstractController
 {
     /**
-     * Constructor (setup access permissions).
+     * Create a new instance.
      *
+     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @return void
      */
-    public function __construct()
+    public function __construct(Credentials $credentials)
     {
         $this->setPermissions(array(
             'index' => 'user',
             'show'  => 'user'
         ));
 
-        parent::__construct();
+        parent::__construct($credentials);
     }
 
     /**

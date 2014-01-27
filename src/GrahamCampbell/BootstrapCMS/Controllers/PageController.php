@@ -24,6 +24,7 @@ use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Page;
 use GrahamCampbell\CMSCore\Facades\PageProvider;
+use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -38,11 +39,12 @@ use GrahamCampbell\CMSCore\Controllers\AbstractController;
 class PageController extends AbstractController
 {
     /**
-     * Constructor (setup access permissions).
+     * Create a new instance.
      *
+     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @return void
      */
-    public function __construct()
+    public function __construct(Credentials $credentials)
     {
         $this->setPermissions(array(
             'create'  => 'edit',
@@ -52,7 +54,7 @@ class PageController extends AbstractController
             'destroy' => 'edit',
         ));
 
-        parent::__construct();
+        parent::__construct($credentials);
     }
 
     /**

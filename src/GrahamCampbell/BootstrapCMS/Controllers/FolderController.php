@@ -24,6 +24,7 @@ use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Models\Folder;
 use GrahamCampbell\CMSCore\Facades\FolderProvider;
+use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
@@ -38,17 +39,18 @@ use GrahamCampbell\CMSCore\Controllers\AbstractController;
 class FolderController extends AbstractController
 {
     /**
-     * Constructor (setup access permissions).
+     * Create a new instance.
      *
+     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @return void
      */
-    public function __construct()
+    public function __construct(Credentials $credentials)
     {
         $this->setPermissions(array(
             'index' => 'user',
         ));
 
-        parent::__construct();
+        parent::__construct($credentials);
     }
 
     /**
