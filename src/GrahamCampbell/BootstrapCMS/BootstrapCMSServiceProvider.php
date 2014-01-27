@@ -46,7 +46,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->package('graham-campbell/bootstrap-cms');
     }
 
-
     /**
      * Register the service provider.
      *
