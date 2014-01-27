@@ -137,6 +137,7 @@ return array(
         'GrahamCampbell\Navigation\NavigationServiceProvider',
         'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
         'GrahamCampbell\CMSLogViewer\CMSLogViewerServiceProvider',
+        'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
 
     ),
