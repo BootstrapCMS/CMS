@@ -158,7 +158,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PageController', function ($app) {
             $credentials = $app['credentials'];
 
-            return new Controllers\PageCachingController($credentials);
+            return new Controllers\PageController($credentials);
         });
     }
 
