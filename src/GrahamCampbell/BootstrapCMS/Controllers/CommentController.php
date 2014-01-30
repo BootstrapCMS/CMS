@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
@@ -28,6 +27,9 @@ use GrahamCampbell\CMSCore\Facades\CommentProvider;
 use GrahamCampbell\CMSCore\Facades\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
+use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * This is the comment controller class.
@@ -103,7 +105,7 @@ class CommentController extends AbstractController
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
-            App::abort(400, 'Your comment was empty.');
+            throw new BadRequestHttpException('Your comment was empty.');
         }
 
         $comment = CommentProvider::create($input);
@@ -141,7 +143,7 @@ class CommentController extends AbstractController
 
         $val = Validator::make($input, $rules);
         if ($val->fails()) {
-            App::abort(400, 'The comment was empty.');
+            throw new BadRequestHttpException('Your comment was empty.');
         }
 
         $comment = CommentProvider::find($id);
@@ -151,11 +153,11 @@ class CommentController extends AbstractController
 
         $val = Validator::make(array('version' => $version), array('version' => 'required'));
         if ($val->fails()) {
-            App::abort(400, 'No version data was supplied.');
+            throw new BadRequestHttpException('No version data was supplied.');
         }
 
         if ($version != $comment->version && $version) {
-            App::abort(409, 'The comment was modified by someone else.');
+            throw new ConflictHttpException('The comment was modified by someone else.');
         }
 
         $version = $version+1;
@@ -191,7 +193,7 @@ class CommentController extends AbstractController
     protected function checkComment($comment)
     {
         if (!$comment) {
-            return App::abort(404, 'Comment Not Found');
+            throw new NotFoundHttpException('Comment Not Found');
         }
     }
 
@@ -204,7 +206,7 @@ class CommentController extends AbstractController
     protected function checkPost($post)
     {
         if (!$post) {
-            return App::abort(404, 'Post Not Found');
+            throw new NotFoundHttpException('Post Not Found');
         }
     }
 }

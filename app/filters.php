@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
  *
@@ -50,7 +52,7 @@ App::after(function ($request, $response) {
 Route::filter('auth', function () {
     if (Auth::guest()) {
         if (Request::ajax()) {
-            return App::abort(401, 'Action Requires Login');
+            throw new UnauthorizedHttpException('Action Requires Login');
         }
         return Redirect::guest('login');
     }

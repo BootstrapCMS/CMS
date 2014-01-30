@@ -16,12 +16,12 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CMSCore\Facades\FileProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is the file controller class.
@@ -85,7 +85,7 @@ class FileController extends AbstractController
     protected function checkFile($file)
     {
         if (!$file) {
-            return App::abort(404, 'File Not Found');
+            throw new NotFoundHttpException('File Not Found');
         }
     }
 }

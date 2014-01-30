@@ -17,7 +17,6 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -27,6 +26,7 @@ use GrahamCampbell\CMSCore\Models\Event;
 use GrahamCampbell\CMSCore\Facades\EventProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is the event controller class.
@@ -200,7 +200,7 @@ class EventController extends AbstractController
     protected function checkEvent($event)
     {
         if (!$event) {
-            return App::abort(404, 'Event Not Found');
+            throw new NotFoundHttpException('Event Not Found');
         }
     }
 }

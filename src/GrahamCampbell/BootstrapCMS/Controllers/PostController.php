@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -26,6 +25,7 @@ use GrahamCampbell\CMSCore\Models\Post;
 use GrahamCampbell\CMSCore\Facades\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is the post controller class.
@@ -194,7 +194,7 @@ class PostController extends AbstractController
     protected function checkPost($post)
     {
         if (!$post) {
-            return App::abort(404, 'Post Not Found');
+            throw new NotFoundHttpException('Post Not Found');
         }
     }
 }

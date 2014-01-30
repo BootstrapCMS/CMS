@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -26,6 +25,7 @@ use GrahamCampbell\CMSCore\Models\Folder;
 use GrahamCampbell\CMSCore\Facades\FolderProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is the folder controller class.
@@ -172,7 +172,7 @@ class FolderController extends AbstractController
     protected function checkFolder($folder)
     {
         if (!$folder) {
-            return App::abort(404, 'Folder Not Found');
+            throw new NotFoundHttpException('Folder Not Found');
         }
     }
 }

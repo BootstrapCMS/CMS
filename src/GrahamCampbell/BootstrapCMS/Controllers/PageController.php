@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -26,6 +25,7 @@ use GrahamCampbell\CMSCore\Models\Page;
 use GrahamCampbell\CMSCore\Facades\PageProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\CMSCore\Controllers\AbstractController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is the page controller class.
@@ -222,10 +222,10 @@ class PageController extends AbstractController
     {
         if (!$page) {
             if ($slug == 'home') {
-                return App::abort(500, 'The Homepage Is Missing');
+                throw new \Exception('The Homepage Is Missing');
             }
 
-            return App::abort(404, 'Page Not Found');
+            throw new NotFoundHttpException('Page Not Found');
         }
     }
 
