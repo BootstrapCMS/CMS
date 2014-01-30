@@ -61,6 +61,14 @@ return array(
             // 'prefix' => 'your-prefix'
         ),
 
+        'rackspace' => array(
+            'driver'    => 'rackspace',
+            'endpoint'  => 'your-endpoint',
+            'username'  => 'your-username',
+            'password'  => 'your-password',
+            'container' => 'your-container'
+        ),
+
         'dropbox' => array(
             'driver' => 'dropbox',
             'token'  => 'your-token',
