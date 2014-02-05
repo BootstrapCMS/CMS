@@ -16,10 +16,10 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS;
 
-use Illuminate\Foundation\Testing\TestCase;
+use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
 
 /**
- * This is the abstract test case class.
+ * This is the service provider test class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -27,27 +27,7 @@ use Illuminate\Foundation\Testing\TestCase;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-abstract class AbstractTestCase extends TestCase
+class ServiceProviderTest extends AbstractTestCase
 {
-    /**
-     * Creates the application.
-     *
-     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-     */
-    public function createApplication()
-    {
-        $unitTesting = true;
-        $testEnvironment = 'testing';
-        return require __DIR__.'/../../../../bootstrap/start.php';
-    }
-
-    /**
-     * Get the service provider class.
-     *
-     * @return string
-     */
-    protected function getServiceProviderClass()
-    {
-        return 'GrahamCampbell\CMSCore\CMSCoreServiceProvider';
-    }
+    use ServiceProviderTestCaseTrait;
 }
