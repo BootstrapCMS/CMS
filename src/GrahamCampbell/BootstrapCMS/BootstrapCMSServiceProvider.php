@@ -107,34 +107,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the file controller class.
-     *
-     * @return void
-     */
-    protected function registerFileController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\FileController', function ($app) {
-            $credentials = $app['credentials'];
-
-            return new Controllers\FileController($credentials);
-        });
-    }
-
-    /**
-     * Register the folder controller class.
-     *
-     * @return void
-     */
-    protected function registerFolderController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\FolderController', function ($app) {
-            $credentials = $app['credentials'];
-
-            return new Controllers\FolderController($credentials);
-        });
-    }
-
-    /**
      * Register the home controller class.
      *
      * @return void
