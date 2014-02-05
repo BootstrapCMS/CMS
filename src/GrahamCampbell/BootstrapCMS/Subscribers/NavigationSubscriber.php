@@ -65,13 +65,6 @@ class NavigationSubscriber
         if (Config::get('cms.events')) {
             Navigation::addMain(array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
-
-        if (Credentials::check()) {
-            // add the storage
-            if (Config::get('cms.storage')) {
-                Navigation::addMain(array('title' => 'Storage', 'slug' => 'storage/folders', 'icon' => 'folder-open'));
-            }
-        }
     }
 
     /**

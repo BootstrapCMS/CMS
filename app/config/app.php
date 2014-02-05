@@ -223,8 +223,6 @@ return array(
         'Navigation'      => 'GrahamCampbell\Navigation\Facades\Navigation',
         'CommentProvider' => 'GrahamCampbell\CMSCore\Facades\CommentProvider',
         'EventProvider'   => 'GrahamCampbell\CMSCore\Facades\EventProvider',
-        'FileProvider'    => 'GrahamCampbell\CMSCore\Facades\FileProvider',
-        'FolderProvider'  => 'GrahamCampbell\CMSCore\Facades\FolderProvider',
         'PageProvider'    => 'GrahamCampbell\CMSCore\Facades\PageProvider',
         'PostProvider'    => 'GrahamCampbell\CMSCore\Facades\PostProvider',
         'Debugbar'        => 'Barryvdh\Debugbar\Facade'

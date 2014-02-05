@@ -51,16 +51,6 @@ if (Config::get('cms.blogging')) {
 }
 
 
-// send users to the sections page
-if (Config::get('cms.storage')) {
-    Route::get('storage', array('as' => 'storage', function () {
-        Session::flash('', ''); // work around laravel bug if there is no session yet
-        Session::reflash();
-        return Redirect::route('storage.folders.index');
-    }));
-}
-
-
 // page routes
 Route::resource('pages', 'GrahamCampbell\BootstrapCMS\Controllers\PageController');
 
@@ -75,13 +65,6 @@ if (Config::get('cms.blogging')) {
 // event routes
 if (Config::get('cms.events')) {
     Route::resource('events', 'GrahamCampbell\BootstrapCMS\Controllers\EventController');
-}
-
-
-// storage routes
-if (Config::get('cms.storage')) {
-    Route::resource('storage/folders', 'GrahamCampbell\BootstrapCMS\Controllers\FolderController');
-    Route::resource('storage/folders.files', 'GrahamCampbell\BootstrapCMS\Controllers\FileController');
 }
 
 

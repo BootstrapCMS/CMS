@@ -56,8 +56,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerCachingController();
         $this->registerCommentController();
         $this->registerEventController();
-        $this->registerFileController();
-        $this->registerFolderController();
         $this->registerHomeController();
         $this->registerPageController();
         $this->registerPostController();
