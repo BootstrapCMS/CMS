@@ -57,6 +57,8 @@ class CommentController extends AbstractController
         ));
 
         $this->beforeFilter('ajax');
+        $this->beforeFilter('throttle.comment.store', array('only' => array('store')));
+        $this->beforeFilter('throttle.comment.update', array('only' => array('update')));
 
         parent::__construct($credentials);
     }

@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 /**
@@ -94,5 +95,28 @@ Route::filter('guest', function () {
 Route::filter('csrf', function () {
     if (Session::token() != Input::get('_token')) {
         throw new Illuminate\Session\TokenMismatchException;
+    }
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Throttling Filters
+|--------------------------------------------------------------------------
+|
+| This is where we check the user is not spamming our system by limiting
+| certain types of actions with a throttler.
+|
+*/
+
+Route::filter('throttle.comment.store', function ($route, $request) {
+    if (!Throttle::hit($request, 10, 1)->check()) {
+        throw new AccessDeniedHttpException('Rate limit exceed.');
+    }
+});
+
+Route::filter('throttle.comment.update', function ($route, $request) {
+    if (!Throttle::hit($request, 20, 1)->check()) {
+        throw new AccessDeniedHttpException('Rate limit exceed.');
     }
 });
