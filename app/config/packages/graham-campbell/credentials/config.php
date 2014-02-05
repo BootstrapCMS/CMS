@@ -49,7 +49,7 @@ return array(
     |
     | This defines if public registration requires email activation.
     |
-    | Default to true. 
+    | Default to true.
     |
     */
 

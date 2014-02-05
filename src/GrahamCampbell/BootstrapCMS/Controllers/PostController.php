@@ -118,7 +118,7 @@ class PostController extends AbstractController
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
-        $comments = $post->comments()->get();
+        $comments = $post->comments()->orderBy('id', 'desc')->get();
 
         return Viewer::make('posts.show', array('post' => $post, 'comments' => $comments));
     }
@@ -163,7 +163,7 @@ class PostController extends AbstractController
         $this->checkPost($post);
 
         $post->update($input);
-        
+
         Session::flash('success', 'Your post has been updated successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post->id));
     }
