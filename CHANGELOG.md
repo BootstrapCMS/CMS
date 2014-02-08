@@ -10,7 +10,7 @@ CHANGE LOG
 * Added more unit tests
 
 
-## V0.6 Alpha (Upcoming)
+## V0.6 Alpha (08/02/2014)
 
 * Support only laravel 4.1
 * Ported to laravel platform
