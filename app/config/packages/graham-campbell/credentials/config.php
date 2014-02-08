@@ -44,7 +44,7 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Require Email Verification On Registration
+    | Email Verification On Registration
     |--------------------------------------------------------------------------
     |
     | This defines if public registration requires email activation.
@@ -60,43 +60,43 @@ return array(
     | Login Page
     |--------------------------------------------------------------------------
     |
-    | This specifies the view that is used for the login page.
+    | This defines the view that is used for the login page.
     |
     */
 
-    'login' => 'credentials::account.login',
+    'login' => 'graham-campbell/credentials::account.login',
 
     /*
     |--------------------------------------------------------------------------
     | Registration Page
     |--------------------------------------------------------------------------
     |
-    | This specifies the view that is used for the registration page.
+    | This defines the view that is used for the registration page.
     |
     */
 
-    'registration' => 'credentials::account.register',
+    'registration' => 'graham-campbell/credentials::account.register',
 
     /*
     |--------------------------------------------------------------------------
     | Forgot Password Page
     |--------------------------------------------------------------------------
     |
-    | This specifies the view that is used for the forgot password page.
+    | This defines the view that is used for the forgot password page.
     |
     */
 
-    'reset' => 'credentials::account.reset',
+    'reset' => 'graham-campbell/credentials::account.reset',
 
     /*
     |--------------------------------------------------------------------------
     | Profile Password Page
     |--------------------------------------------------------------------------
     |
-    | This specifies the view that is used for the profile page.
+    | This defines the view that is used for the profile page.
     |
     */
 
-    'profile' => 'credentials::account.profile'
+    'profile' => 'graham-campbell/credentials::account.profile'
 
 );

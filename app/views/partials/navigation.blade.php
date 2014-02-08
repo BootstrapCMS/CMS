@@ -49,7 +49,7 @@
                                 Login
                             </a>
                         </li>
-                        @if (Config::get('credentials::regallowed'))
+                        @if (Config::get('graham-campbell/credentials::regallowed'))
                             <li {{ (Request::is('account/register') ? 'class="active"' : '') }}>
                                 <a href="{{ URL::route('account.register') }}">
                                     Register

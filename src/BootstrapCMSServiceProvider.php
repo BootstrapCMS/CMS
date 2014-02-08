@@ -43,7 +43,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('graham-campbell/bootstrap-cms');
+        $this->package('graham-campbell/bootstrap-cms', 'graham-campbell/bootstrap-cms', __DIR__);
     }
 
     /**

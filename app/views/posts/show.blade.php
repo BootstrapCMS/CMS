@@ -92,7 +92,7 @@
     <br>
 @else
 <p>
-    @if (Config::get('credentials::regallowed'))
+    @if (Config::get('graham-campbell/credentials::regallowed'))
         <strong>Please <a href="{{ URL::route('account.login') }}">login</a> or <a href="{{ URL::route('account.register') }}">register</a> to post a comment.</strong>
     @else
         <strong>Please <a href="{{ URL::route('account.login') }}">login</a> to post a comment.</strong>

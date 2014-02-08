@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of Laravel Navigation by Graham Campbell.
+ * This file is part of Laravel Throttle by Graham Campbell.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,15 +18,15 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Navigation View
+    | Throttler Class
     |--------------------------------------------------------------------------
     |
-    | This option specifies the view to use.
+    | This defines the throttler class to be used.
     |
-    | Default: 'graham-campbell/navigation::bootstrap'
+    | Default: 'GrahamCampbell\Throttle\Throttlers\CacheThrottler'
     |
     */
 
-    'view' => 'partials.navigation'
+    'throttler' => 'GrahamCampbell\Throttle\Throttlers\CacheThrottler'
 
 );
