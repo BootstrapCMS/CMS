@@ -2,17 +2,29 @@ CHANGE LOG
 ==========
 
 
+## V0.7 Alpha (Upcoming)
+
+* Re-merge CMS Core and removed dependency
+* Updated to Bootstrap 3.1
+* Controller refactoring
+* Added more unit tests
+
+
 ## V0.6 Alpha (Upcoming)
 
 * Support only laravel 4.1
 * Ported to laravel platform
 * Ported to laravel credentials
+* PSR-4 autoloading
+* Updated docs
 * Improved view rendering
 * Improved authentication
 * Improved events
 * Removed a few old routes
 * Cleaned up some old code
 * Removed broken tests
+* Assets tweaks
+* Minor tweaks
 
 
 ## V0.5 Alpha (19/12/2013)
