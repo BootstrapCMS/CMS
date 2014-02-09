@@ -77,6 +77,58 @@ return array(
     |
     */
 
-    'events' => true
+    'events' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Comment Model
+    |--------------------------------------------------------------------------
+    |
+    | This defines the comment model to be used.
+    |
+    | Default: 'GrahamCampbell\BootstrapCMS\Models\Comment'
+    |
+    */
+
+    'comment' => 'GrahamCampbell\BootstrapCMS\Models\Comment',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Event Model
+    |--------------------------------------------------------------------------
+    |
+    | This defines the event model to be used.
+    |
+    | Default: 'GrahamCampbell\BootstrapCMS\Models\Event'
+    |
+    */
+
+    'event' => 'GrahamCampbell\BootstrapCMS\Models\Event',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Page Model
+    |--------------------------------------------------------------------------
+    |
+    | This defines the page model to be used.
+    |
+    | Default: 'GrahamCampbell\BootstrapCMS\Models\Page'
+    |
+    */
+
+    'page' => 'GrahamCampbell\BootstrapCMS\Models\Page',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Post Model
+    |--------------------------------------------------------------------------
+    |
+    | This defines the post model to be used.
+    |
+    | Default: 'GrahamCampbell\BootstrapCMS\Models\Post'
+    |
+    */
+
+    'post' => 'GrahamCampbell\BootstrapCMS\Models\Post'
 
 );

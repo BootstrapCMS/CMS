@@ -21,10 +21,9 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Viewer\Facades\Viewer;
-use GrahamCampbell\CMSCore\Models\Post;
-use GrahamCampbell\CMSCore\Facades\PostProvider;
+use GrahamCampbell\BootstrapCMS\Models\Post;
+use GrahamCampbell\BootstrapCMS\Facades\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
-use GrahamCampbell\CMSCore\Controllers\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**

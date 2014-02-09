@@ -59,7 +59,6 @@ abstract class AbstractCommand extends Command
     {
         $this->call('migrate', array('--package' => 'cartalyst/sentry'));
         $this->call('migrate', array('--package' => 'graham-campbell/queuing'));
-        $this->call('migrate', array('--package' => 'graham-campbell/cms-core'));
         $this->call('migrate');
     }
 
@@ -70,7 +69,6 @@ abstract class AbstractCommand extends Command
      */
     protected function runSeeding()
     {
-        $this->call('db:seed', array('--class' => 'GrahamCampbell\CMSCore\Seeds\DatabaseSeeder'));
         $this->call('db:seed');
     }
 

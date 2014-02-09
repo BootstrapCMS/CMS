@@ -22,10 +22,9 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Viewer\Facades\Viewer;
-use GrahamCampbell\CMSCore\Models\Event;
-use GrahamCampbell\CMSCore\Facades\EventProvider;
+use GrahamCampbell\BootstrapCMS\Models\Event;
+use GrahamCampbell\BootstrapCMS\Facades\EventProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
-use GrahamCampbell\CMSCore\Controllers\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**

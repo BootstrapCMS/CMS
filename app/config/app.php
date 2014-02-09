@@ -130,12 +130,9 @@ return array(
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
         'GrahamCampbell\Security\SecurityServiceProvider',
         'GrahamCampbell\Binput\BinputServiceProvider',
-        'GrahamCampbell\Passwd\PasswdServiceProvider',
         'GrahamCampbell\Throttle\ThrottleServiceProvider',
         'GrahamCampbell\Credentials\CredentialsServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
-        'GrahamCampbell\CMSCore\CMSCoreServiceProvider',
-        'GrahamCampbell\CMSLogViewer\CMSLogViewerServiceProvider',
         'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
 
@@ -211,19 +208,17 @@ return array(
         'Cron'            => 'GrahamCampbell\Queuing\Facades\Cron',
         'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
         'Markdown'        => 'GrahamCampbell\Markdown\Facades\Markdown',
-        'Flysystem'       => 'GrahamCampbell\Flysystem\Facades\Flysystem',
         'Security'        => 'GrahamCampbell\Security\Facades\Security',
         'Binput'          => 'GrahamCampbell\Binput\Facades\Binput',
-        'Passwd'          => 'GrahamCampbell\Passwd\Facades\Passwd',
         'Throttle'        => 'GrahamCampbell\Throttle\Facades\Throttle',
         'UserProvider'    => 'GrahamCampbell\Credentials\Facades\UserProvider',
         'GroupProvider'   => 'GrahamCampbell\Credentials\Facades\GroupProvider',
         'Credentials'     => 'GrahamCampbell\Credentials\Facades\Credentials',
         'Navigation'      => 'GrahamCampbell\Navigation\Facades\Navigation',
-        'CommentProvider' => 'GrahamCampbell\CMSCore\Facades\CommentProvider',
-        'EventProvider'   => 'GrahamCampbell\CMSCore\Facades\EventProvider',
-        'PageProvider'    => 'GrahamCampbell\CMSCore\Facades\PageProvider',
-        'PostProvider'    => 'GrahamCampbell\CMSCore\Facades\PostProvider',
+        'CommentProvider' => 'GrahamCampbell\BootstrapCMS\Facades\CommentProvider',
+        'EventProvider'   => 'GrahamCampbell\BootstrapCMS\Facades\EventProvider',
+        'PageProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PageProvider',
+        'PostProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PostProvider',
         'Debugbar'        => 'Barryvdh\Debugbar\Facade'
 
     )

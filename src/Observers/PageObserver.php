@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Observers;
 
-use GrahamCampbell\CMSCore\Facades\PageProvider;
+use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
 
 /**
  * This is the page observer class.
@@ -42,7 +42,7 @@ class PageObserver
     /**
      * Handle a page update.
      *
-     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
+     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
      * @return void
      */
     public function updated($page = null)
@@ -53,7 +53,7 @@ class PageObserver
     /**
      * Handle a page deletion.
      *
-     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
+     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
      * @return void
      */
     public function deleted($page = null)
@@ -64,7 +64,7 @@ class PageObserver
     /**
      * Handle a page save.
      *
-     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
+     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
      * @return void
      */
     public function saved($page = null)
@@ -75,7 +75,7 @@ class PageObserver
     /**
      * Handle a page restore.
      *
-     * @param  \GrahamCampbell\CMSCore\Models\Page  $page
+     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
      * @return void
      */
     public function restored($page = null)

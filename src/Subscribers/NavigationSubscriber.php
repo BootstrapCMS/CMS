@@ -17,7 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
 use Illuminate\Support\Facades\Config;
-use GrahamCampbell\CMSCore\Facades\PageProvider;
+use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
 use GrahamCampbell\Navigation\Facades\Navigation;
 use GrahamCampbell\Credentials\Facades\Credentials;
 

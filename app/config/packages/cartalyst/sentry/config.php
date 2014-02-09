@@ -120,7 +120,7 @@ return array(
         |
         */
 
-        'model' => 'GrahamCampbell\CMSCore\Models\User',
+        'model' => 'GrahamCampbell\BootstrapCMS\Models\User',
 
         /*
         |--------------------------------------------------------------------------

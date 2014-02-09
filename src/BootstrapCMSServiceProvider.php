@@ -44,6 +44,27 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->package('graham-campbell/bootstrap-cms', 'graham-campbell/bootstrap-cms', __DIR__);
+
+        $this->setupViewer();
+    }
+
+    /**
+     * Setup the viewer class.
+     *
+     * @return void
+     */
+    protected function setupViewer()
+    {
+        $this->app->bindShared('viewer', function ($app) {
+            $view = $app['view'];
+            $credentials = $app['credentials'];
+            $navigation = $app['navigation'];
+            $pageprovider = $app['pageprovider'];
+            $name = $app['config']['platform.name'];
+            $inverse = $app['config']['theme.inverse'];
+
+            return new Classes\Viewer($view, $credentials, $navigation, $pageprovider, $name, $inverse);
+        });
     }
 
     /**
@@ -53,6 +74,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerCommentProvider();
+        $this->registerEventProvider();
+        $this->registerPageProvider();
+        $this->registerPostProvider();
         $this->registerCachingController();
         $this->registerCommentController();
         $this->registerEventController();
@@ -60,6 +85,66 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerPageController();
         $this->registerPostController();
         $this->registerQueuingController();
+    }
+
+    /**
+     * Register the comment provider class.
+     *
+     * @return void
+     */
+    protected function registerCommentProvider()
+    {
+        $this->app->bindShared('commentprovider', function ($app) {
+            $model = $app['config']['cms.comment'];
+            $comment = new $model();
+
+            return new Providers\CommentProvider($comment);
+        });
+    }
+
+    /**
+     * Register the event provider class.
+     *
+     * @return void
+     */
+    protected function registerEventProvider()
+    {
+        $this->app->bindShared('eventprovider', function ($app) {
+            $model = $app['config']['cms.event'];
+            $event = new $model();
+
+            return new Providers\EventProvider($event);
+        });
+    }
+
+    /**
+     * Register the page provider class.
+     *
+     * @return void
+     */
+    protected function registerPageProvider()
+    {
+        $this->app->bindShared('pageprovider', function ($app) {
+            $model = $app['config']['cms.page'];
+            $page = new $model();
+
+            return new Providers\PageProvider($page);
+        });
+    }
+
+    /**
+     * Register the post provider class.
+     *
+     * @return void
+     */
+    protected function registerPostProvider()
+    {
+        $this->app->bindShared('postprovider', function ($app) {
+            $model = $app['config']['cms.post'];
+            $post = new $model();
+
+            return new Providers\PostProvider($post);
+        });
     }
 
     /**
@@ -168,7 +253,13 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     public function provides()
     {
         return array(
-            //
+            'commentprovider',
+            'eventprovider',
+            'fileprovider',
+            'folderprovider',
+            'pageprovider',
+            'postprovider',
+            'viewer'
         );
     }
 }

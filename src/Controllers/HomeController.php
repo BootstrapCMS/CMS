@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\URL;
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\Queuing\Facades\Queuing;
 use GrahamCampbell\Credentials\Classes\Credentials;
-use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the home controller class.

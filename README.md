@@ -23,10 +23,10 @@ Bootstrap CMS
 
 ## What Is Bootstrap CMS?
 
-Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) with [CMS Core](https://github.com/GrahamCampbell/CMS-Core) and [Sentry 2](https://cartalyst.com/manual/sentry).
+Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry).
 
 * Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
-* Bootstrap CMS relies on my [CMS Core](https://github.com/GrahamCampbell/CMS-Core) package.
+* Bootstrap CMS relies on many of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing).
 * Bootstrap CMS uses [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS) to check everything is working.
 * Bootstrap CMS uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162) to run additional checks.
 * Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.
@@ -133,16 +133,6 @@ Bootstrap CMS also ships with 14 themes, 12 from [Bootswatch](http://bootswatch.
 3. After making theme changes, you will have to run `php artisan app:update`.
 
 
-## Setting Up Plugins
-
-Bootstrap CMS supports plugins through [CMS Core](https://github.com/GrahamCampbell/CMS-Core).
-Note that Bootstrap CMS already ships with the [CMS LogViewer](https://github.com/GrahamCampbell/CMS-LogViewer) plugin.
-
-1. Add the plugin's package name to your `composer.json`.
-2. Add the service provider for the plugin in`app/config/cms.php`.
-3. Run `composer update` then `php artisan app:update` to install the plugin.
-
-
 ## Usage
 
 There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Bootstrap-CMS) for Bootstrap CMS.
@@ -179,7 +169,7 @@ Please review these guidelines before submitting any pull requests.
 
 GNU AFFERO GENERAL PUBLIC LICENSE
 
-Bootstrap CMS Is A PHP CMS Powered By Laravel 4.1 With CMS Core And Sentry 2
+Bootstrap CMS Is A PHP CMS Powered By Laravel And Sentry 2.1
 Copyright (C) 2013-2014  Graham Campbell
 
 This program is free software: you can redistribute it and/or modify

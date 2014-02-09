@@ -14,6 +14,9 @@
  * GNU Affero General Public License for more details.
  */
 
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+
 /**
  * This is the database seeder class.
  *
@@ -32,6 +35,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // see cms core
+        Eloquent::unguard();
+
+        $this->call('GrahamCampbell\BootstrapCMS\Seeds\GroupsTableSeeder');
+        $this->call('GrahamCampbell\BootstrapCMS\Seeds\UsersTableSeeder');
+        $this->call('GrahamCampbell\BootstrapCMS\Seeds\UsersGroupsTableSeeder');
+
+        $this->call('GrahamCampbell\BootstrapCMS\Seeds\PagesTableSeeder');
+        $this->call('GrahamCampbell\BootstrapCMS\Seeds\PostsTableSeeder');
+        $this->call('GrahamCampbell\BootstrapCMS\Seeds\CommentsTableSeeder');
+        $this->call('GrahamCampbell\BootstrapCMS\Seeds\EventsTableSeeder');
     }
 }

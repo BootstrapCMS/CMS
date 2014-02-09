@@ -18,7 +18,6 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\Credentials\Classes\Credentials;
-use GrahamCampbell\CMSCore\Controllers\AbstractController;
 
 /**
  * This is the queuing controller class.

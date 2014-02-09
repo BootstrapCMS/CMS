@@ -17,6 +17,8 @@
 namespace GrahamCampbell\Tests\BootstrapCMS;
 
 use Illuminate\Foundation\Testing\TestCase;
+use GrahamCampbell\TestBench\Traits\HelperTestCaseTrait;
+use GrahamCampbell\TestBench\Traits\LaravelTestCaseTrait;
 
 /**
  * This is the abstract test case class.
@@ -29,6 +31,8 @@ use Illuminate\Foundation\Testing\TestCase;
  */
 abstract class AbstractTestCase extends TestCase
 {
+    use HelperTestCaseTrait, LaravelTestCaseTrait;
+
     /**
      * Creates the application.
      *
@@ -48,6 +52,6 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function getServiceProviderClass()
     {
-        return 'GrahamCampbell\CMSCore\CMSCoreServiceProvider';
+        return 'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider';
     }
 }
