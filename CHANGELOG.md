@@ -8,6 +8,7 @@ CHANGE LOG
 * Updated to Bootstrap 3.1
 * Controller refactoring
 * Added more unit tests
+* Improved travis testing
 
 
 ## V0.6 Alpha (08/02/2014)

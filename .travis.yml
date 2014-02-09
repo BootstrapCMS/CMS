@@ -3,6 +3,8 @@ language: php
 php:
   - 5.4
   - 5.5
+  - 5.6
+  - hhvm
 
 before_script:
   - composer self-update
@@ -14,6 +16,11 @@ script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_success:
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
-  - php vendor/bin/coveralls -v
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "5.5" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi;'
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "5.5" ]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi;'
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php vendor/bin/coveralls -v; fi;'
+
+matrix:
+  allow_failures:
+    - php: 5.6
+  fast_finish: true
