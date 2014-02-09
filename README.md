@@ -13,7 +13,7 @@ Bootstrap CMS
 
 ## WARNING
 
-#### This is the WIP [V0.7](https://github.com/GrahamCampbell/Bootstrap-CMS/issues?milestone=8) and is subject to extreme change and refactoring. Please use [V0.6](https://github.com/GrahamCampbell/Bootstrap-CMS/releases/tag/v0.6.0-alpha) instead of cloning from the master branch.
+#### This is the incomplete [V0.7](https://github.com/GrahamCampbell/Bootstrap-CMS/issues?milestone=8) and is subject to extreme change and refactoring. Please use [V0.6](https://github.com/GrahamCampbell/Bootstrap-CMS/releases/tag/v0.6.0-alpha) instead of cloning from the master branch.
 
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
@@ -55,8 +55,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 
 Bootstrap CMS was designed to run on a Linux machine with PHP 5.5 and MySQL 5.5.
 
-* PHP 5.4.7+ or PHP 5.5+ is required.
-* MySQL 5.1+, 5.5+, or 5.6+ is required. MySQL 5.7+ may work, but is untested.
+* PHP 5.4.7+ or HHVM 2.4+ and MySQL 5.1+ is required.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Bootstrap CMS.
 * You will need to configure the site in the app/config folder before production.
 * Some features require a cache server like [Redis](http://redis.io) and a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd).
