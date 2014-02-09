@@ -7,6 +7,7 @@ php:
   - hhvm
 
 before_script:
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "hhvm" ]; then php -r "echo HHVM_VERSION;"; fi;'
   - composer self-update
   - composer install --no-interaction --prefer-source --dev
   - php artisan asset:generate --env=testing
