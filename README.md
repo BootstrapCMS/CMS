@@ -13,7 +13,7 @@ Bootstrap CMS
 
 ## WARNING
 
-#### This is the WIP [V0.7](https://github.com/GrahamCampbell/Bootstrap-CMS/issues?milestone=8) and is currently broken. Please use [V0.6](https://github.com/GrahamCampbell/Bootstrap-CMS/releases/tag/v0.6.0-alpha) instead of cloning from the master branch. Also note that this code is subject to extreme change and refactoring.
+#### This is the WIP [V0.7](https://github.com/GrahamCampbell/Bootstrap-CMS/issues?milestone=8) and is subject to extreme change and refactoring. Please use [V0.6](https://github.com/GrahamCampbell/Bootstrap-CMS/releases/tag/v0.6.0-alpha) instead of cloning from the master branch.
 
 
 ## THIS ALPHA RELEASE IS FOR TESTING ONLY
