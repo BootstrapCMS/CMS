@@ -19,3 +19,8 @@ after_success:
   - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "5.5" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi;'
   - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "5.5" ]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi;'
   - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php vendor/bin/coveralls -v; fi;'
+
+matrix:
+  allow_failures:
+    - php: hhvm
+  fast_finish: true
