@@ -5,6 +5,7 @@ CHANGE LOG
 ## V0.7 Alpha (Upcoming)
 
 * Re-merge CMS Core and removed dependency
+* PHP 5.6 and partial HHVM compatibility
 * Updated to Bootstrap 3.1
 * Controller refactoring
 * Added more unit tests

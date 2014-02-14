@@ -1,9 +1,9 @@
 ## What Is Bootstrap CMS?
 
-Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) with [Bootstrap CMS](https://github.com/GrahamCampbell/CMS-Core) and [Sentry 2](https://cartalyst.com/manual/sentry).
+Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry).
 
 * Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
-* Bootstrap CMS relies on my [Bootstrap CMS](https://github.com/GrahamCampbell/CMS-Core) package.
+* Bootstrap CMS relies on many of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing).
 * Bootstrap CMS uses [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS) to check everything is working.
 * Bootstrap CMS uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162) to run additional checks.
 * Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.
@@ -34,8 +34,7 @@ Basically, expect no support what so ever. This includes, but is not exclusive t
 
 Bootstrap CMS was designed to run on a Linux machine with PHP 5.5 and MySQL 5.5.
 
-* PHP 5.4.7+ or PHP 5.5+ is required.
-* MySQL 5.1+, 5.5+, or 5.6+ is required. MySQL 5.7+ may work, but is untested.
+* PHP 5.4.7+ or HHVM 2.4+ (HHVM support is incomplete mainly due to dependencies).
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Bootstrap CMS.
 * You will need to configure the site in the app/config folder before production.
 * Some features require a cache server like [Redis](http://redis.io) and a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd).
@@ -118,21 +117,11 @@ Bootstrap CMS also ships with 14 themes, 12 from [Bootswatch](http://bootswatch.
 
 <br>
 
-## Setting Up Plugins
-
-Bootstrap CMS supports plugins through [Bootstrap CMS](https://github.com/GrahamCampbell/CMS-Core).
-Note that Bootstrap CMS already ships with the [CMS LogViewer](https://github.com/GrahamCampbell/CMS-LogViewer) plugin.
-
-1. Add the plugin's package name to your `composer.json`.
-2. Add the service provider for the plugin in`app/config/cms.php`.
-3. Run `composer update` then `php artisan app:update` to install the plugin.
-
-<br>
-
 ## Usage
 
 There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Bootstrap-CMS) for Bootstrap CMS.
 
+<br>
 
 ## Updating Your Fork
 
@@ -167,7 +156,7 @@ Please review these guidelines before submitting any pull requests.
 
 GNU AFFERO GENERAL PUBLIC LICENSE
 
-Bootstrap CMS Is A PHP CMS Powered By Laravel 4.1 With Bootstrap CMS And Sentry 2
+Bootstrap CMS Is A PHP CMS Powered By Laravel And Sentry 2.1
 Copyright (C) 2013-2014  Graham Campbell
 
 This program is free software: you can redistribute it and/or modify
