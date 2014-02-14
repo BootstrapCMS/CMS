@@ -13,23 +13,6 @@ Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) and [Sen
 
 <br>
 
-## What Does Testing Release Mean?
-
-Basically, expect no support what so ever. This includes, but is not exclusive to:
-
-* No support or help will be given during installation or updating.
-  * No database migration support between updates
-  * Updates may not be backwards compatible
-  * From V0.4, a migration path will always be provided between tagged releases
-* Some of the config may be for features that don't exist yet.
-  * Some config may even brake the entire site
-  * Just remember, this software comes WITHOUT ANY WARRANTY
-* Technically, this software comes with no support after the testing stage either.
-  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
-  * See the [GNU Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) for more details
-
-<br>
-
 ## System Requirements
 
 Bootstrap CMS was designed to run on a Linux machine with PHP 5.5 and MySQL 5.5.
