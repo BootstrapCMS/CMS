@@ -68,16 +68,17 @@ Please check the system requirements before installing Bootstrap CMS.
 1. You may install by cloning from github, or via composer.
   * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
   * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
-2. From a command line open in the folder, run `composer install`.
-3. Enter your database details into `app/config/databse.php`.
-4. Run `php artisan app:install` to setup and seed your database.
-5. You will need to enter your mail server details into `app/config/mail.php`.
+2. See the [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing) readme for extra requirements before continuing.
+3. From a command line open in the folder, run `composer install`.
+4. Enter your database details into `app/config/databse.php`.
+5. Run `php artisan app:install` to setup and seed your database.
+6. You will need to enter your mail server details into `app/config/mail.php`.
   * You can disable verification emails on registration in `app/config/cms.php`
   * Mail is still required for other functions like password resets
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
-6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
+7. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
-7. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
+8. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
   * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
   * Please note that queuing is required in order to use the cron functionality which can do things like notify users of upcoming events, or send out weekly activity digests
