@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\Viewer\Classes\Viewer;
 use GrahamCampbell\BootstrapCMS\Models\Event;
-use GrahamCampbell\BootstrapCMS\Classes\EventProvider;
+use GrahamCampbell\BootstrapCMS\Providers\EventProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

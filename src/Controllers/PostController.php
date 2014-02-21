@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\Viewer\Classes\Viewer;
 use GrahamCampbell\BootstrapCMS\Models\Post;
-use GrahamCampbell\BootstrapCMS\Classes\PostProvider;
+use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
