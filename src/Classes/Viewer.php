@@ -18,7 +18,6 @@ namespace GrahamCampbell\BootstrapCMS\Classes;
 
 use Illuminate\View\Environment;
 use GrahamCampbell\Navigation\Classes\Navigation;
-use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use GrahamCampbell\Viewer\Classes\Viewer as BaseViewer;
 
@@ -48,13 +47,6 @@ class Viewer extends BaseViewer
     protected $navigation;
 
     /**
-     * The page provider instance.
-     *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
-     */
-    protected $pageprovider;
-
-    /**
      * The platform name.
      *
      * @var string
@@ -74,18 +66,16 @@ class Viewer extends BaseViewer
      * @param  \Illuminate\View\Environment  $view
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @param  \GrahamCampbell\Navigation\Classes\Navigation  $navigation
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
      * @param  string  $name
      * @param  bool  $inverse
      * @return void
      */
-    public function __construct(Environment $view, Credentials $credentials, Navigation $navigation, PageProvider $pageprovider, $name, $inverse)
+    public function __construct(Environment $view, Credentials $credentials, Navigation $navigation, $name, $inverse)
     {
         parent::__construct($view);
 
         $this->credentials = $credentials;
         $this->navigation = $navigation;
-        $this->pageprovider = $pageprovider;
         $this->name = $name;
         $this->inverse = $inverse;
     }
@@ -119,5 +109,25 @@ class Viewer extends BaseViewer
         }
 
         return parent::make($view, $data);
+    }
+
+    /**
+     * Return the credentials instance.
+     *
+     * @return \GrahamCampbell\Credentials\Classes\Credentials
+     */
+    public function getCredentials()
+    {
+        return $this->credentials;
+    }
+
+    /**
+     * Return the navigation instance.
+     *
+     * @return \GrahamCampbell\Navigation\Classes\Navigation
+     */
+    public function getNavigation()
+    {
+        return $this->navigation;
     }
 }

@@ -59,11 +59,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $view = $app['view'];
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
-            $pageprovider = $app['pageprovider'];
             $name = $app['config']['platform.name'];
             $inverse = $app['config']['theme.inverse'];
 
-            return new Classes\Viewer($view, $credentials, $navigation, $pageprovider, $name, $inverse);
+            return new Classes\Viewer($view, $credentials, $navigation, $name, $inverse);
         });
     }
 
