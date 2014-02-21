@@ -16,13 +16,13 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\Viewer\Facades\Viewer;
+use GrahamCampbell\Binput\Classes\Binput;
+use GrahamCampbell\Viewer\Classes\Viewer;
 use GrahamCampbell\BootstrapCMS\Models\Post;
-use GrahamCampbell\BootstrapCMS\Facades\PostProvider;
+use GrahamCampbell\BootstrapCMS\Classes\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -38,13 +38,50 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PostController extends AbstractController
 {
     /**
+     * The viewer instance.
+     *
+     * @var \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    protected $viewer;
+
+    /**
+     * The session instance.
+     *
+     * @var \Illuminate\Session\SessionManager
+     */
+    protected $session;
+
+    /**
+     * The binput instance.
+     *
+     * @var \GrahamCampbell\Binput\Classes\Binput
+     */
+    protected $binput;
+
+    /**
+     * The post provider instance.
+     *
+     * @var \GrahamCampbell\BootstrapCMS\Providers\PostProvider
+     */
+    protected $postprovider;
+
+    /**
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
+     * @param  \Illuminate\Session\SessionManager  $session
+     * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
+     * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @return void
      */
-    public function __construct(Credentials $credentials)
+    public function __construct(Credentials $credentials, Viewer $viewer, SessionManager $session, Binput $binput, PostProvider $postprovider)
     {
+        $this->viewer = $viewer;
+        $this->session = $session;
+        $this->binput = $binput;
+        $this->postprovider = $postprovider;
+
         $this->setPermissions(array(
             'create'  => 'blog',
             'store'   => 'blog',
@@ -63,10 +100,10 @@ class PostController extends AbstractController
      */
     public function index()
     {
-        $posts = PostProvider::paginate();
-        $links = PostProvider::links();
+        $posts = $this->postprovider->paginate();
+        $links = $this->postprovider->links();
 
-        return Viewer::make('posts.index', array('posts' => $posts, 'links' => $links));
+        return $this->viewer->make('posts.index', array('posts' => $posts, 'links' => $links));
     }
 
     /**
@@ -76,7 +113,7 @@ class PostController extends AbstractController
      */
     public function create()
     {
-        return Viewer::make('posts.create');
+        return $this->viewer->make('posts.create');
     }
 
     /**
@@ -87,9 +124,9 @@ class PostController extends AbstractController
     public function store()
     {
         $input = array(
-            'title'   => Binput::get('title'),
-            'summary' => Binput::get('summary'),
-            'body'    => Binput::get('body'),
+            'title'   => $this->binput->get('title'),
+            'summary' => $this->binput->get('summary'),
+            'body'    => $this->binput->get('body'),
             'user_id' => $this->getUserId(),
         );
 
@@ -100,9 +137,9 @@ class PostController extends AbstractController
             return Redirect::route('blog.posts.create')->withInput()->withErrors($val->errors());
         }
 
-        $post = PostProvider::create($input);
+        $post = $this->postprovider->create($input);
 
-        Session::flash('success', 'Your post has been created successfully.');
+        $this->session->flash('success', 'Your post has been created successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post->id));
     }
 
@@ -114,12 +151,12 @@ class PostController extends AbstractController
      */
     public function show($id)
     {
-        $post = PostProvider::find($id);
+        $post = $this->postprovider->find($id);
         $this->checkPost($post);
 
         $comments = $post->comments()->orderBy('id', 'desc')->get();
 
-        return Viewer::make('posts.show', array('post' => $post, 'comments' => $comments));
+        return $this->viewer->make('posts.show', array('post' => $post, 'comments' => $comments));
     }
 
     /**
@@ -130,10 +167,10 @@ class PostController extends AbstractController
      */
     public function edit($id)
     {
-        $post = PostProvider::find($id);
+        $post = $this->postprovider->find($id);
         $this->checkPost($post);
 
-        return Viewer::make('posts.edit', array('post' => $post));
+        return $this->viewer->make('posts.edit', array('post' => $post));
     }
 
     /**
@@ -145,9 +182,9 @@ class PostController extends AbstractController
     public function update($id)
     {
         $input = array(
-            'title'   => Binput::get('title'),
-            'summary' => Binput::get('summary'),
-            'body'    => Binput::get('body', null, true, false), // no xss protection please
+            'title'   => $this->binput->get('title'),
+            'summary' => $this->binput->get('summary'),
+            'body'    => $this->binput->get('body', null, true, false), // no xss protection please
         );
 
         $rules = Post::$rules;
@@ -158,12 +195,12 @@ class PostController extends AbstractController
             return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
         }
 
-        $post = PostProvider::find($id);
+        $post = $this->postprovider->find($id);
         $this->checkPost($post);
 
         $post->update($input);
 
-        Session::flash('success', 'Your post has been updated successfully.');
+        $this->session->flash('success', 'Your post has been updated successfully.');
         return Redirect::route('blog.posts.show', array('posts' => $post->id));
     }
 
@@ -175,12 +212,12 @@ class PostController extends AbstractController
      */
     public function destroy($id)
     {
-        $post = PostProvider::find($id);
+        $post = $this->postprovider->find($id);
         $this->checkPost($post);
 
         $post->delete();
 
-        Session::flash('success', 'Your post has been deleted successfully.');
+        $this->session->flash('success', 'Your post has been deleted successfully.');
         return Redirect::route('blog.posts.index');
     }
 
@@ -195,5 +232,45 @@ class PostController extends AbstractController
         if (!$post) {
             throw new NotFoundHttpException('Post Not Found');
         }
+    }
+
+    /**
+     * Return the viewer instance.
+     *
+     * @return \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    public function getViewer()
+    {
+        return $this->viewer;
+    }
+
+    /**
+     * Return the session instance.
+     *
+     * @return \Illuminate\Session\SessionManager
+     */
+    public function getSession()
+    {
+        return $this->session;
+    }
+
+    /**
+     * Return the binput instance.
+     *
+     * @return \GrahamCampbell\Binput\Classes\Binput
+     */
+    public function getBinput()
+    {
+        return $this->binput;
+    }
+
+    /**
+     * Return the post provider instance.
+     *
+     * @return \GrahamCampbell\BootstrapCMS\Providers\PostProvider
+     */
+    public function getPostProvider()
+    {
+        return $this->postprovider;
     }
 }

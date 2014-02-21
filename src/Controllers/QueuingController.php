@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Viewer\Facades\Viewer;
+use GrahamCampbell\Viewer\Classes\Viewer;
 use GrahamCampbell\Credentials\Classes\Credentials;
 
 /**
@@ -31,13 +31,23 @@ use GrahamCampbell\Credentials\Classes\Credentials;
 class QueuingController extends AbstractController
 {
     /**
+     * The viewer instance.
+     *
+     * @var \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    protected $viewer;
+
+    /**
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
      * @return void
      */
-    public function __construct(Credentials $credentials)
+    public function __construct(Credentials $credentials, Viewer $viewer)
     {
+        $this->viewer = $viewer;
+
         $this->setPermissions(array(
             'getIndex' => 'admin',
         ));
@@ -52,6 +62,16 @@ class QueuingController extends AbstractController
      */
     public function getIndex()
     {
-        return Viewer::make('queuing.index', array(), 'admin');
+        return $this->viewer->make('queuing.index', array(), 'admin');
+    }
+
+    /**
+     * Return the viewer instance.
+     *
+     * @return \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    public function getViewer()
+    {
+        return $this->viewer;
     }
 }

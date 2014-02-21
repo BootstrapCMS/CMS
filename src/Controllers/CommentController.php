@@ -16,15 +16,15 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\Session;
+use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\HTMLMin\Facades\HTMLMin;
+use GrahamCampbell\Binput\Classes\Binput;
+use GrahamCampbell\HTMLMin\Classes\HTMLMin;
 use GrahamCampbell\BootstrapCMS\Models\Comment;
-use GrahamCampbell\BootstrapCMS\Facades\CommentProvider;
-use GrahamCampbell\BootstrapCMS\Facades\PostProvider;
+use GrahamCampbell\BootstrapCMS\Providers\CommentProvider;
+use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -42,13 +42,59 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 class CommentController extends AbstractController
 {
     /**
+     * The session instance.
+     *
+     * @var \Illuminate\Session\SessionManager
+     */
+    protected $session;
+
+    /**
+     * The binput instance.
+     *
+     * @var \GrahamCampbell\Binput\Classes\Binput
+     */
+    protected $binput;
+
+    /**
+     * The htmlmin instance.
+     *
+     * @var \GrahamCampbell\HTMLMin\Classes\HTMLMin
+     */
+    protected $htmlmin;
+
+    /**
+     * The comment provider instance.
+     *
+     * @var \GrahamCampbell\BootstrapCMS\Providers\CommentProvider
+     */
+    protected $commentprovider;
+
+    /**
+     * The post provider instance.
+     *
+     * @var \GrahamCampbell\BootstrapCMS\Providers\PostProvider
+     */
+    protected $postprovider;
+
+    /**
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \Illuminate\Session\SessionManager  $session
+     * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
+     * @param  \GrahamCampbell\HTMLMin\Classes\HTMLMin  $htmlmin
+     * @param  \GrahamCampbell\BootstrapCMS\Providers\CommentProvider  $commentprovider
+     * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @return void
      */
-    public function __construct(Credentials $credentials)
+    public function __construct(Credentials $credentials, SessionManager $session, Binput $binput, HTMLMin $htmlmin, CommentProvider $commentprovider, PostProvider $postprovider)
     {
+        $this->session = $session;
+        $this->binput = $binput;
+        $this->htmlmin = $htmlmin;
+        $this->commentprovider = $commentprovider;
+        $this->postprovider = $postprovider;
+
         $this->setPermissions(array(
             'store'   => 'user',
             'update'  => 'mod',
@@ -70,9 +116,9 @@ class CommentController extends AbstractController
      */
     public function index($post_id)
     {
-        $post = PostProvider::find($post_id, array('id'));
+        $post = $this->postprovider->find($post_id, array('id'));
         if (!$post) {
-            Session::flash('error', 'The post you were viewing has been deleted.');
+            $this->session->flash('error', 'The post you were viewing has been deleted.');
             return Response::json(array('success' => false, 'code' => 404, 'msg' => 'The post you were viewing has been deleted.', 'url' => URL::route('blog.posts.index')), 404);
         }
 
@@ -96,7 +142,7 @@ class CommentController extends AbstractController
     public function store($post_id)
     {
         $input = array(
-            'body'    => Binput::get('body'),
+            'body'    => $this->binput->get('body'),
             'user_id' => $this->getUserId(),
             'post_id' => $post_id,
             'version' => 1
@@ -109,9 +155,9 @@ class CommentController extends AbstractController
             throw new BadRequestHttpException('Your comment was empty.');
         }
 
-        $comment = CommentProvider::create($input);
+        $comment = $this->commentprovider->create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_id' => $comment->id));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->htmlmin->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_id' => $comment->id));
     }
 
     /**
@@ -123,10 +169,10 @@ class CommentController extends AbstractController
      */
     public function show($post_id, $id)
     {
-        $comment = CommentProvider::find($id);
+        $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => HTMLMin::make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_text' => HTMLMin::render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $comment->version));
+        return Response::json(array('contents' => $this->htmlmin->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_text' => $this->htmlmin->render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $comment->version));
     }
 
     /**
@@ -138,7 +184,7 @@ class CommentController extends AbstractController
      */
     public function update($post_id, $id)
     {
-        $input = array('body' => Binput::get('edit_body'));
+        $input = array('body' => $this->binput->get('edit_body'));
 
         $rules = array('body' => Comment::$rules['body']);
 
@@ -147,10 +193,10 @@ class CommentController extends AbstractController
             throw new BadRequestHttpException('Your comment was empty.');
         }
 
-        $comment = CommentProvider::find($id);
+        $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
 
-        $version = Binput::get('version');
+        $version = $this->binput->get('version');
 
         $val = Validator::make(array('version' => $version), array('version' => 'required'));
         if ($val->fails()) {
@@ -165,7 +211,7 @@ class CommentController extends AbstractController
 
         $comment->update(array_merge($input, array('version' => $version)));
 
-        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => HTMLMin::render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $version));
+        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => $this->htmlmin->render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $version));
     }
 
     /**
@@ -177,7 +223,7 @@ class CommentController extends AbstractController
      */
     public function destroy($post_id, $id)
     {
-        $comment = CommentProvider::find($id);
+        $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
 
         $comment->delete();
@@ -209,5 +255,55 @@ class CommentController extends AbstractController
         if (!$post) {
             throw new NotFoundHttpException('Post Not Found');
         }
+    }
+
+    /**
+     * Return the session instance.
+     *
+     * @return \Illuminate\Session\SessionManager
+     */
+    public function getSession()
+    {
+        return $this->session;
+    }
+
+    /**
+     * Return the binput instance.
+     *
+     * @return \GrahamCampbell\Binput\Classes\Binput
+     */
+    public function getBinput()
+    {
+        return $this->binput;
+    }
+
+    /**
+     * Return the htmlmin instance.
+     *
+     * @return \GrahamCampbell\HTMLMin\Classes\HTMLMin
+     */
+    public function getHTMLMin()
+    {
+        return $this->htmlmin;
+    }
+
+    /**
+     * Return the comment provider instance.
+     *
+     * @return \GrahamCampbell\BootstrapCMS\Providers\CommentProvider
+     */
+    public function getCommentProvider()
+    {
+        return $this->commentprovider;
+    }
+
+    /**
+     * Return the post provider instance.
+     *
+     * @return \GrahamCampbell\BootstrapCMS\Providers\PostProvider
+     */
+    public function getPostProvider()
+    {
+        return $this->postprovider;
     }
 }

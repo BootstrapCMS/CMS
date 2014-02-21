@@ -17,13 +17,13 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Carbon\Carbon;
+use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\Viewer\Facades\Viewer;
+use GrahamCampbell\Binput\Classes\Binput;
+use GrahamCampbell\Viewer\Classes\Viewer;
 use GrahamCampbell\BootstrapCMS\Models\Event;
-use GrahamCampbell\BootstrapCMS\Facades\EventProvider;
+use GrahamCampbell\BootstrapCMS\Classes\EventProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -39,13 +39,50 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class EventController extends AbstractController
 {
     /**
+     * The viewer instance.
+     *
+     * @var \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    protected $viewer;
+
+    /**
+     * The session instance.
+     *
+     * @var \Illuminate\Session\SessionManager
+     */
+    protected $session;
+
+    /**
+     * The binput instance.
+     *
+     * @var \GrahamCampbell\Binput\Classes\Binput
+     */
+    protected $binput;
+
+    /**
+     * The event provider instance.
+     *
+     * @var \GrahamCampbell\BootstrapCMS\Providers\EventProvider
+     */
+    protected $eventprovider;
+
+    /**
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
+     * @param  \Illuminate\Session\SessionManager  $session
+     * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
+     * @param  \GrahamCampbell\BootstrapCMS\Providers\EventProvider  $eventprovider
      * @return void
      */
-    public function __construct(Credentials $credentials)
+    public function __construct(Credentials $credentials, Viewer $viewer, SessionManager $session, Binput $binput, EventProvider $eventprovider)
     {
+        $this->viewer = $viewer;
+        $this->session = $session;
+        $this->binput = $binput;
+        $this->eventprovider = $eventprovider;
+
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -64,10 +101,10 @@ class EventController extends AbstractController
      */
     public function index()
     {
-        $events = EventProvider::paginate();
-        $links = EventProvider::links();
+        $events = $this->eventprovider->paginate();
+        $links = $this->eventprovider->links();
 
-        return Viewer::make('events.index', array('events' => $events, 'links' => $links));
+        return $this->viewer->make('events.index', array('events' => $events, 'links' => $links));
     }
 
     /**
@@ -77,7 +114,7 @@ class EventController extends AbstractController
      */
     public function create()
     {
-        return Viewer::make('events.create');
+        return $this->viewer->make('events.create');
     }
 
     /**
@@ -88,10 +125,10 @@ class EventController extends AbstractController
     public function store()
     {
         $input = array(
-            'title'    => Binput::get('title'),
-            'location' => Binput::get('location'),
-            'date'     => Binput::get('date'),
-            'body'     => Binput::get('body'),
+            'title'    => $this->binput->get('title'),
+            'location' => $this->binput->get('location'),
+            'date'     => $this->binput->get('date'),
+            'body'     => $this->binput->get('body'),
             'user_id'  => $this->getUserId(),
         );
 
@@ -104,9 +141,9 @@ class EventController extends AbstractController
 
         $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
 
-        $event = EventProvider::create($input);
+        $event = $this->eventprovider->create($input);
 
-        Session::flash('success', 'Your event has been created successfully.');
+        $this->session->flash('success', 'Your event has been created successfully.');
         return Redirect::route('events.show', array('events' => $event->id));
     }
 
@@ -118,10 +155,10 @@ class EventController extends AbstractController
      */
     public function show($id)
     {
-        $event = EventProvider::find($id);
+        $event = $this->eventprovider->find($id);
         $this->checkEvent($event);
 
-        return Viewer::make('events.show', array('event' => $event));
+        return $this->viewer->make('events.show', array('event' => $event));
     }
 
     /**
@@ -132,10 +169,10 @@ class EventController extends AbstractController
      */
     public function edit($id)
     {
-        $event = EventProvider::find($id);
+        $event = $this->eventprovider->find($id);
         $this->checkEvent($event);
 
-        return Viewer::make('events.edit', array('event' => $event));
+        return $this->viewer->make('events.edit', array('event' => $event));
     }
 
     /**
@@ -147,10 +184,10 @@ class EventController extends AbstractController
     public function update($id)
     {
         $input = array(
-            'title'    => Binput::get('title'),
-            'location' => Binput::get('location'),
-            'date'     => Binput::get('date'),
-            'body'     => Binput::get('body'),
+            'title'    => $this->binput->get('title'),
+            'location' => $this->binput->get('location'),
+            'date'     => $this->binput->get('date'),
+            'body'     => $this->binput->get('body'),
             'user_id'  => $this->getUserId(),
         );
 
@@ -164,12 +201,12 @@ class EventController extends AbstractController
 
         $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
 
-        $event = EventProvider::find($id);
+        $event = $this->eventprovider->find($id);
         $this->checkEvent($event);
 
         $event->update($input);
 
-        Session::flash('success', 'Your event has been updated successfully.');
+        $this->session->flash('success', 'Your event has been updated successfully.');
         return Redirect::route('events.show', array('events' => $event->id));
     }
 
@@ -181,12 +218,12 @@ class EventController extends AbstractController
      */
     public function destroy($id)
     {
-        $event = EventProvider::find($id);
+        $event = $this->eventprovider->find($id);
         $this->checkEvent($event);
 
         $event->delete();
 
-        Session::flash('success', 'Your event has been deleted successfully.');
+        $this->session->flash('success', 'Your event has been deleted successfully.');
         return Redirect::route('events.index');
     }
 
@@ -201,5 +238,45 @@ class EventController extends AbstractController
         if (!$event) {
             throw new NotFoundHttpException('Event Not Found');
         }
+    }
+
+    /**
+     * Return the viewer instance.
+     *
+     * @return \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    public function getViewer()
+    {
+        return $this->viewer;
+    }
+
+    /**
+     * Return the session instance.
+     *
+     * @return \Illuminate\Session\SessionManager
+     */
+    public function getSession()
+    {
+        return $this->session;
+    }
+
+    /**
+     * Return the binput instance.
+     *
+     * @return \GrahamCampbell\Binput\Classes\Binput
+     */
+    public function getBinput()
+    {
+        return $this->binput;
+    }
+
+    /**
+     * Return the event provider instance.
+     *
+     * @return \GrahamCampbell\BootstrapCMS\Providers\EventProvider
+     */
+    public function getEventProvider()
+    {
+        return $this->eventprovider;
     }
 }

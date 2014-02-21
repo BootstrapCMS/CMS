@@ -16,11 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
-use GrahamCampbell\Viewer\Facades\Viewer;
-use GrahamCampbell\Queuing\Facades\Queuing;
+use GrahamCampbell\Viewer\Classes\Viewer;
+use GrahamCampbell\Queuing\Classes\Queuing;
 use GrahamCampbell\Credentials\Classes\Credentials;
 
 /**
@@ -35,13 +33,50 @@ use GrahamCampbell\Credentials\Classes\Credentials;
 class HomeController extends AbstractController
 {
     /**
+     * The viewer instance.
+     *
+     * @var \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    protected $viewer;
+
+    /**
+     * The queuing instance.
+     *
+     * @var \GrahamCampbell\Queuing\Classes\Queuing
+     */
+    protected $queuing;
+
+    /**
+     * The email address.
+     *
+     * @var string
+     */
+    protected $email;
+
+    /**
+     * The email subject.
+     *
+     * @var string
+     */
+    protected $subject;
+
+    /**
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
+     * @param  \GrahamCampbell\Queuing\Classes\Queuing  $queuing
+     * @param  string  $email
+     * @param  string  $subject
      * @return void
      */
-    public function __construct(Credentials $credentials)
+    public function __construct(Credentials $credentials, Viewer $viewer, Queuing $queuing, $email, $subject)
     {
+        $this->viewer = $viewer;
+        $this->queuing = $queuing;
+        $this->email = $email;
+        $this->subject = $subject;
+
         $this->setPermissions(array(
             'testQueue' => 'admin',
             'testError' => 'admin',
@@ -59,8 +94,7 @@ class HomeController extends AbstractController
      */
     public function showWelcome()
     {
-        Log::notice('Hello World');
-        return Viewer::make('index');
+        return $this->viewer->make('index');
     }
 
     /**
@@ -70,7 +104,6 @@ class HomeController extends AbstractController
      */
     public function showTest()
     {
-        Log::notice('Test 123');
         return 'Test 123';
     }
 
@@ -85,11 +118,11 @@ class HomeController extends AbstractController
             'view'    => 'emails.welcome',
             'url'     => URL::route('pages.show', array('pages' => 'home')),
             'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
-            'email'   => Config::get('workbench.email'),
-            'subject' => Config::get('platform.name').' - Welcome',
+            'email'   => $this->email,
+            'subject' => $this->subject,
         );
 
-        Queuing::pushMail($data);
+        $this->queuing->pushMail($data);
         return 'done';
     }
 
@@ -100,7 +133,27 @@ class HomeController extends AbstractController
      */
     public function testError()
     {
-        Queuing::pushJob('test', array(), 'GrahamCampbell\BootstrapCMS\Handlers');
+        $this->queuing->pushJob('test', array(), 'GrahamCampbell\BootstrapCMS\Handlers');
         return 'done';
+    }
+
+    /**
+     * Return the viewer instance.
+     *
+     * @return \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    public function getViewer()
+    {
+        return $this->viewer;
+    }
+
+    /**
+     * Return the queuing instance.
+     *
+     * @return \GrahamCampbell\Queuing\Classes\Queuing
+     */
+    public function getQueuing()
+    {
+        return $this->queuing;
     }
 }

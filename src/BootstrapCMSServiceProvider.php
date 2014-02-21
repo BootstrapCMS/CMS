@@ -156,8 +156,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CachingController', function ($app) {
             $credentials = $app['credentials'];
+            $viewer = $app['viewer'];
 
-            return new Controllers\CachingController($credentials);
+            return new Controllers\CachingController($credentials, $viewer);
         });
     }
 
@@ -170,8 +171,13 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CommentController', function ($app) {
             $credentials = $app['credentials'];
+            $session = $app['session'];
+            $binput = $app['binput'];
+            $htmlmin = $app['htmlmin'];
+            $commentprovider = $app['commentprovider'];
+            $postprovider = $app['postprovider'];
 
-            return new Controllers\CommentController($credentials);
+            return new Controllers\CommentController($credentials, $session, $binput, $htmlmin, $commentprovider, $postprovider);
         });
     }
 
@@ -184,8 +190,12 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\EventController', function ($app) {
             $credentials = $app['credentials'];
+            $viewer = $app['viewer'];
+            $session = $app['session'];
+            $binput = $app['binput'];
+            $eventprovider = $app['eventprovider'];
 
-            return new Controllers\EventController($credentials);
+            return new Controllers\EventController($credentials, $viewer, $session, $binput, $eventprovider);
         });
     }
 
@@ -198,8 +208,12 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\HomeController', function ($app) {
             $credentials = $app['credentials'];
+            $viewer = $app['viewer'];
+            $queuing = $app['queuing'];
+            $email = $app['config']['workbench.email'];
+            $subject = $app['config']['platform.name'].' - Welcome';
 
-            return new Controllers\HomeController($credentials);
+            return new Controllers\HomeController($credentials, $viewer, $queuing, $email, $subject);
         });
     }
 
@@ -212,8 +226,12 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PageController', function ($app) {
             $credentials = $app['credentials'];
+            $viewer = $app['viewer'];
+            $session = $app['session'];
+            $binput = $app['binput'];
+            $pageprovider = $app['pageprovider'];
 
-            return new Controllers\PageController($credentials);
+            return new Controllers\PageController($credentials, $viewer, $session, $binput, $pageprovider);
         });
     }
 
@@ -226,8 +244,12 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PostController', function ($app) {
             $credentials = $app['credentials'];
+            $viewer = $app['viewer'];
+            $session = $app['session'];
+            $binput = $app['binput'];
+            $postprovider = $app['postprovider'];
 
-            return new Controllers\PostController($credentials);
+            return new Controllers\PostController($credentials, $viewer, $session, $binput, $postprovider);
         });
     }
 
@@ -240,8 +262,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\QueuingController', function ($app) {
             $credentials = $app['credentials'];
+            $viewer = $app['viewer'];
 
-            return new Controllers\QueuingController($credentials);
+            return new Controllers\QueuingController($credentials, $viewer);
         });
     }
 
