@@ -2,13 +2,13 @@ Bootstrap CMS
 =============
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Bootstrap-CMS/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
 [![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Bootstrap-CMS/badge.png)](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162/mini.png)](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162)
 [![Software License](https://poser.pugx.org/graham-campbell/bootstrap-cms/license.png)](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md)
 [![Latest Version](https://poser.pugx.org/graham-campbell/bootstrap-cms/v/stable.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
+[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
 
 
 ## WARNING
