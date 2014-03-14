@@ -6,10 +6,12 @@ CHANGE LOG
 
 * Re-merge CMS Core and removed dependency
 * PHP 5.6 and partial HHVM compatibility
+* Code execution on pages now optional
 * Updated to Bootstrap 3.1
 * Controller refactoring
 * Added more unit tests
 * Improved travis testing
+* Minor tweaks
 
 
 ## V0.6 Alpha (08/02/2014)
