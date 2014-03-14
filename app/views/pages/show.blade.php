@@ -50,7 +50,11 @@
     </div>
     <hr>
 @endif
+@if (Config::get('cms.eval', false))
 <?php eval('?>'.$page->body); ?>
+@else
+{{ $page->body }}
+@endif
 @stop
 
 @section('bottom')

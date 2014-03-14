@@ -18,6 +18,23 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
+    | Enable Eval On Pages
+    |--------------------------------------------------------------------------
+    |
+    | This defines if the page eval functionality is enabled.
+    |
+    | Disabling it will prevent people from executing php on pages. This would
+    | be useful if you wanted to prevent users writing dynamic pages, because
+    | allowing them to execute php means they can do anything really.
+    |
+    | Default to true.
+    |
+    */
+
+    'eval' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Enable Blogging
     |--------------------------------------------------------------------------
     |
