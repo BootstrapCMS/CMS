@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
+
 return array(
 
     /*
@@ -11,7 +13,7 @@ return array(
      |
      */
 
-    'enabled' => \Config::get('app.debug'),
+    'enabled' => Config::get('app.debug'),
 
     /*
      |--------------------------------------------------------------------------
@@ -35,7 +37,7 @@ return array(
      |
      | Vendor files are included by default, but can be set to false.
      | This can also be set to 'js' or 'css', to only include javascript or css vendor files.
-     | Vendor files are for css: font-awesome (including fonts) en for js: jquery 1.8.3
+     | Vendor files are for css: font-awesome (including fonts) and for js: jquery 1.8.3
      |
      */
 
@@ -52,6 +54,17 @@ return array(
      */
 
     'capture_ajax' => false,
+
+    /*
+     |--------------------------------------------------------------------------
+     | Capture Console Commands
+     |--------------------------------------------------------------------------
+     |
+     | The Debugbar can listen to Artisan commands. You can view them with the browse button in the Debugbar.
+     |
+     */
+
+    'capture_console' => false,
 
     /*
      |--------------------------------------------------------------------------
@@ -74,13 +87,13 @@ return array(
         'route'           => true,  // Current route information
         'laravel'         => false, // Laravel version and environment
         'events'          => false, // All events fired
-        'twig'            => false, // Twig, requires barryvdh/laravel-twigbridge
         'default_request' => false, // Regular or special Symfony request logger
         'symfony_request' => true,  // Only one can be enabled..
-        'mail'            => true,  // Catch mail messages
+        'mail'            => false, // Catch mail messages
         'logs'            => false, // Add the latest log messages
         'files'           => false, // Show the included files
-        'config'          => false  // Display config settings
+        'config'          => false, // Display config settings
+        'auth'            => false  // Display Laravel authentication status
     ),
 
     /*
@@ -93,18 +106,15 @@ return array(
      */
 
     'options' => array(
-        'pdo' => array(
-            'with_params'       => true,   // Render SQL with the parameters substituted
-            'quotation_char'    => "'",    // The character to surround params
-            'extra_connections' => array(  // Add extra connections to the PDO Collector
-                // 'mysql',
-            )
+        'db' => array(
+            'with_params' => true,  // Render SQL with the parameters substituted
+            'timeline'    => false  // Add the queries to the timeline
         ),
         'mail' => array(
             'full_log' => false
         ),
         'views' => array(
-            'data' => false,    // Note: Can slow down the application, because the data can be quite large..
+            'data' => false  // Note: Can slow down the application, because the data can be quite large..
         ),
         'route' => array(
             'label' => true  // Show complete route on bar

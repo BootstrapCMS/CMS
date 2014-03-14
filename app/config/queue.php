@@ -55,14 +55,15 @@ return array(
             'host'   => 'localhost',
             'queue'  => 'bootstrap-cms-jobs',
             'mail'   => 'bootstrap-cms-mail',
-            'cron'   => 'bootstrap-cms-cron'
+            'cron'   => 'bootstrap-cms-cron',
+            'ttr'    => 60
         ),
 
         'sqs' => array(
             'driver' => 'sqs',
             'key'    => 'your-public-key',
             'secret' => 'your-secret-key',
-            'region' => 'us-east-1',
+            'region' => 'eu-west-1',
             'queue'  => 'bootstrap-cms-jobs',
             'mail'   => 'bootstrap-cms-mail',
             'cron'   => 'bootstrap-cms-cron'
@@ -70,8 +71,9 @@ return array(
 
         'iron' => array(
             'driver'  => 'iron',
-            'project' => 'your-project-id',
+            'host'    => 'mq-aws-eu-west-1.iron.io',
             'token'   => 'your-token',
+            'project' => 'your-project',
             'queue'   => 'bootstrap-cms-jobs',
             'mail'    => 'bootstrap-cms-mail',
             'cron'    => 'bootstrap-cms-cron'

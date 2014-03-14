@@ -31,7 +31,7 @@
         "graham-campbell/credentials": "0.2.*",
         "graham-campbell/navigation": "0.3.*",
         "fideloper/proxy": "2.0.*",
-        "barryvdh/laravel-debugbar": "1.2.*"
+        "barryvdh/laravel-debugbar": "1.4.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "0.3.*",
@@ -51,6 +51,7 @@
     },
     "scripts": {
         "post-install-cmd": [
+            "php artisan clear-compiled",
             "php artisan optimize"
         ],
         "pre-update-cmd": [
