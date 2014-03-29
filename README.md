@@ -2,10 +2,10 @@ Bootstrap CMS
 =============
 
 
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap CMS/master.svg)](https://travis-ci.org/GrahamCampbell/Bootstrap CMS)
-[![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Bootstrap CMS/master.svg)](https://coveralls.io/r/GrahamCampbell/Bootstrap CMS)
+[![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg)](https://travis-ci.org/GrahamCampbell/Bootstrap CMS)
+[![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Bootstrap-CMS/master.svg)](https://coveralls.io/r/GrahamCampbell/Bootstrap CMS)
 [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/GrahamCampbell/Bootstrap CMS/blob/master/LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Bootstrap CMS.svg)](https://github.com/GrahamCampbell/Bootstrap CMS/releases)
+[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Bootstrap-CMS.svg)](https://github.com/GrahamCampbell/Bootstrap CMS/releases)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162/mini.png)](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162)
 
