@@ -2,13 +2,12 @@ Bootstrap CMS
 =============
 
 
-[![Build Status](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS.png)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
-[![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Bootstrap-CMS/badge.png)](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS)
+[![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap CMS/master.svg)](https://travis-ci.org/GrahamCampbell/Bootstrap CMS)
+[![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Bootstrap CMS/master.svg)](https://coveralls.io/r/GrahamCampbell/Bootstrap CMS)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/GrahamCampbell/Bootstrap CMS/blob/master/LICENSE.md)
+[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Bootstrap CMS.svg)](https://github.com/GrahamCampbell/Bootstrap CMS/releases)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162/mini.png)](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162)
-[![Software License](https://poser.pugx.org/graham-campbell/bootstrap-cms/license.png)](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md)
-[![Latest Version](https://poser.pugx.org/graham-campbell/bootstrap-cms/v/stable.png)](https://packagist.org/packages/graham-campbell/bootstrap-cms)
-[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS.png)](http://stillmaintained.com/GrahamCampbell/Bootstrap-CMS)
 
 
 ## WARNING
@@ -39,7 +38,7 @@ Bootstrap CMS is a PHP CMS powered by [Laravel 4.1](http://laravel.com) and [Sen
 
 Bootstrap CMS was designed to run on a Linux machine with PHP 5.5 and MySQL 5.5.
 
-* PHP 5.4.7+ or HHVM 2.4+ (HHVM support is incomplete mainly due to dependencies).
+* PHP 5.4.7+ or HHVM 3.0+ (HHVM support is incomplete mainly due to dependencies).
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Bootstrap CMS.
 * You will need to configure the site in the app/config folder before production.
 * Some features require a cache server like [Redis](http://redis.io) and a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd).
