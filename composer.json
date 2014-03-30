@@ -19,6 +19,7 @@
         "php": ">=5.4.7",
         "laravel/framework": "4.1.*",
         "symfony/config": "2.4.*",
+        "symfony/event-dispatcher": "2.4.*",
         "symfony/filesystem": "2.4.*",
         "lightgear/asset": "1.4",
         "graham-campbell/core": "0.3.*",
@@ -36,8 +37,13 @@
     "require-dev": {
         "graham-campbell/testbench": "0.3.*",
         "pda/pheanstalk": "2.1.*",
-        "aws/aws-sdk-php": "2.5.*",
+        "aws/aws-sdk-php": "2.6.*",
         "iron-io/iron_mq": "1.5.*"
+    },
+    "suggest": {
+        "pda/pheanstalk": "Enables the beanstalk connector.",
+        "aws/aws-sdk-php": "Enables the aws connector.",
+        "iron-io/iron_mq": "Enables the iron connector."
     },
     "autoload": {
         "classmap": [
@@ -45,7 +51,11 @@
             "app/database/seeds"
         ],
         "psr-4": {
-            "GrahamCampbell\\BootstrapCMS\\": "src/",
+            "GrahamCampbell\\BootstrapCMS\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "GrahamCampbell\\Tests\\BootstrapCMS\\": "tests/"
         }
     },

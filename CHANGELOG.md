@@ -11,6 +11,7 @@ CHANGE LOG
 * Controller refactoring
 * Added more unit tests
 * Improved travis testing
+* Composer tweaks
 * Minor tweaks
 
 
