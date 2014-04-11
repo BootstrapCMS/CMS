@@ -10,7 +10,7 @@ Bootstrap CMS
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162/mini.png)](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162)
 
 
-## This code is licensed under the GNU AGPLv3
+## This Code Is Licensed Under The GNU AGPLv3
 
 #### I'd appreciate it if you'd leave my name in the footer unless you have changed my source significantly. If you do feel you have changed it significantly, I'd still appreciate some kind of link back, and remember that attribution is still required as stated in the license. Thank you, and enjoy!
 
