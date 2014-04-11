@@ -24,9 +24,3 @@
 | the console gets access to each of the command object instances.
 |
 */
-
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppUpdate);
-
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppInstall);
-
-Artisan::add(new GrahamCampbell\BootstrapCMS\Commands\AppReset);

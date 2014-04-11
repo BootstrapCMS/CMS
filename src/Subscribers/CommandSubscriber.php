@@ -14,10 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Commands;
+namespace GrahamCampbell\BootstrapCMS\Subscribers;
+
+use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
 
 /**
- * This is the app reset command class.
+ * This is the command subscriber class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,35 +27,29 @@ namespace GrahamCampbell\BootstrapCMS\Commands;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class AppReset extends AbstractCommand
+class CommandSubscriber
 {
     /**
-     * The command name.
+     * Register the listeners for the subscriber.
      *
-     * @var string
+     * @param  Illuminate\Events\Dispatcher  $events
+     * @return array
      */
-    protected $name = 'app:reset';
+    public function subscribe($events)
+    {
+        $events->listen('command.updatecache', 'GrahamCampbell\Core\Subscribers\CommandSubscriber@onPageLoad', 3);
+    }
 
     /**
-     * The command description.
+     * Handle a command.updatecache event.
      *
-     * @var string
-     */
-    protected $description = 'Resets And Installs The Application';
-
-    /**
-     * Run the commend.
-     *
+     * @param  GrahamCampbell\Core\Commands\AbstractCommand  $command
      * @return void
      */
-    public function fire()
+    public function onUpdateCache($command)
     {
-        $this->genAppKey();
-        $this->resetMigrations();
-        $this->runMigrations();
-        $this->runSeeding();
-        $this->updateCache();
-        $this->genAssets();
-        $this->tryStartCron();
+        $command->line('Regenerating page cache...');
+        PageProvider::refresh();
+        $command->info('Page cache regenerated!');
     }
 }
