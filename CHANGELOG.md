@@ -2,6 +2,18 @@ CHANGE LOG
 ==========
 
 
+## V1.0 Beta 1 (Upcoming - August 2014)
+
+* Bugfixes
+
+
+## V0.8 Alpha (Upcoming - July 2014)
+
+* Upgrade to Laravel 4.2
+* Added event invitations
+* More unit tests
+
+
 ## V0.7 Alpha (Upcoming)
 
 * Re-merge CMS Core and removed dependency
@@ -11,6 +23,7 @@ CHANGE LOG
 * Controller refactoring
 * Added more unit tests
 * Improved travis testing
+* Command improvements
 * Composer tweaks
 * Minor tweaks
 
