@@ -34,7 +34,7 @@ class CommandSubscriber
     /**
      * Register the listeners for the subscriber.
      *
-     * @param  Illuminate\Events\Dispatcher  $events
+     * @param  \Illuminate\Events\Dispatcher  $events
      * @return array
      */
     public function subscribe(Dispatcher $events)
@@ -45,7 +45,7 @@ class CommandSubscriber
     /**
      * Handle a command.updatecache event.
      *
-     * @param  Illuminate\Console\Command  $command
+     * @param  \Illuminate\Console\Command  $command
      * @return void
      */
     public function onUpdateCache(Command $command)
