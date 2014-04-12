@@ -23,6 +23,7 @@ CHANGE LOG
 * Controller refactoring
 * Added more unit tests
 * Improved travis testing
+* Improved page deletion
 * Command improvements
 * Improved validation
 * Composer tweaks
