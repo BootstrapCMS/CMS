@@ -19,10 +19,8 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 use Carbon\Carbon;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\Viewer\Classes\Viewer;
-use GrahamCampbell\BootstrapCMS\Models\Event;
 use GrahamCampbell\BootstrapCMS\Providers\EventProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -132,9 +130,7 @@ class EventController extends AbstractController
             'user_id'  => $this->getUserId(),
         );
 
-        $rules = Event::$rules;
-
-        $val = Validator::make($input, $rules);
+        $val = $this->eventprovider->validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('events.create')->withInput()->withErrors($val->errors());
         }
@@ -191,10 +187,7 @@ class EventController extends AbstractController
             'user_id'  => $this->getUserId(),
         );
 
-        $rules = Event::$rules;
-        unset($rules['user_id']);
-
-        $val = Validator::make($input, $rules);
+        $val = $val = $this->eventprovider->validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('events.edit', array('events' => $id))->withInput()->withErrors($val->errors());
         }

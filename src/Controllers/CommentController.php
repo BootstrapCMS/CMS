@@ -19,10 +19,8 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\HTMLMin\Classes\HTMLMin;
-use GrahamCampbell\BootstrapCMS\Models\Comment;
 use GrahamCampbell\BootstrapCMS\Providers\CommentProvider;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
@@ -148,10 +146,7 @@ class CommentController extends AbstractController
             'version' => 1
         );
 
-        $rules = Comment::$rules;
-
-        $val = Validator::make($input, $rules);
-        if ($val->fails()) {
+        if ($this->commentprovider->validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
         }
 
@@ -186,10 +181,7 @@ class CommentController extends AbstractController
     {
         $input = array('body' => $this->binput->get('edit_body'));
 
-        $rules = array('body' => Comment::$rules['body']);
-
-        $val = Validator::make($input, $rules);
-        if ($val->fails()) {
+        if ($this->commentprovider->validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
         }
 
@@ -198,8 +190,7 @@ class CommentController extends AbstractController
 
         $version = $this->binput->get('version');
 
-        $val = Validator::make(array('version' => $version), array('version' => 'required'));
-        if ($val->fails()) {
+        if (empty($version)) {
             throw new BadRequestHttpException('No version data was supplied.');
         }
 

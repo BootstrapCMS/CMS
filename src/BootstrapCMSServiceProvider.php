@@ -103,7 +103,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $model = $app['config']['cms.comment'];
             $comment = new $model();
 
-            return new Providers\CommentProvider($comment);
+            $validator = $app['validator'];
+
+            return new Providers\CommentProvider($comment, $validator);
         });
     }
 
@@ -118,7 +120,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $model = $app['config']['cms.event'];
             $event = new $model();
 
-            return new Providers\EventProvider($event);
+            $validator = $app['validator'];
+
+            return new Providers\EventProvider($event, $validator);
         });
     }
 
@@ -133,7 +137,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $model = $app['config']['cms.page'];
             $page = new $model();
 
-            return new Providers\PageProvider($page);
+            $validator = $app['validator'];
+
+            return new Providers\PageProvider($page, $validator);
         });
     }
 
@@ -148,7 +154,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $model = $app['config']['cms.post'];
             $post = new $model();
 
-            return new Providers\PostProvider($post);
+            $validator = $app['validator'];
+
+            return new Providers\PostProvider($post, $validator);
         });
     }
 

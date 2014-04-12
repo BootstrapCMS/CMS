@@ -18,10 +18,8 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\Viewer\Classes\Viewer;
-use GrahamCampbell\BootstrapCMS\Models\Post;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -130,9 +128,7 @@ class PostController extends AbstractController
             'user_id' => $this->getUserId(),
         );
 
-        $rules = Post::$rules;
-
-        $val = Validator::make($input, $rules);
+        $val = $this->postprovider->validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('blog.posts.create')->withInput()->withErrors($val->errors());
         }
@@ -187,10 +183,7 @@ class PostController extends AbstractController
             'body'    => $this->binput->get('body', null, true, false), // no xss protection please
         );
 
-        $rules = Post::$rules;
-        unset($rules['user_id']);
-
-        $val = Validator::make($input, $rules);
+        $val = $this->postprovider->validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
         }

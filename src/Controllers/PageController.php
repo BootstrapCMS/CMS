@@ -18,10 +18,8 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\Viewer\Classes\Viewer;
-use GrahamCampbell\BootstrapCMS\Models\Page;
 use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -132,9 +130,7 @@ class PageController extends AbstractController
             'user_id'    => $this->getUserId(),
         );
 
-        $rules = Page::$rules;
-
-        $val = Validator::make($input, $rules);
+        $val = $this->pageprovider->validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('pages.create')->withInput()->withErrors($val->errors());
         }
@@ -201,10 +197,7 @@ class PageController extends AbstractController
             $input['js'] = '';
         }
 
-        $rules = Page::$rules;
-        unset($rules['user_id']);
-
-        $val = Validator::make($input, $rules);
+        $val = $this->pageprovider->validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($val->errors());
         }

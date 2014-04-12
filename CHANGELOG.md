@@ -24,6 +24,7 @@ CHANGE LOG
 * Added more unit tests
 * Improved travis testing
 * Command improvements
+* Improved validation
 * Composer tweaks
 * Minor tweaks
 
