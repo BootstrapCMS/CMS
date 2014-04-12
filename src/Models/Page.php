@@ -88,4 +88,16 @@ class Page extends AbstractModel implements BelongsToUserInterface
         'show_nav'   => 'required',
         'user_id'    => 'required'
     );
+
+    /**
+     * Before deleting an existing model.
+     *
+     * @return mixed
+     */
+    public function beforeDelete()
+    {
+        if ($this->slug == 'home') {
+            throw new \Exception('You cannot delete the homepage.');
+        }
+    }
 }
