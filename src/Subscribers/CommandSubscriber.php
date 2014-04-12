@@ -17,6 +17,8 @@
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
 use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
+use Illuminate\Console\Command;
+use Illuminate\Events\Dispatcher;
 
 /**
  * This is the command subscriber class.
@@ -35,7 +37,7 @@ class CommandSubscriber
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events)
+    public function subscribe(Dispatcher $events)
     {
         $events->listen('command.updatecache', 'GrahamCampbell\Core\Subscribers\CommandSubscriber@onPageLoad', 3);
     }
@@ -43,10 +45,10 @@ class CommandSubscriber
     /**
      * Handle a command.updatecache event.
      *
-     * @param  GrahamCampbell\Core\Commands\AbstractCommand  $command
+     * @param  Illuminate\Console\Command  $command
      * @return void
      */
-    public function onUpdateCache($command)
+    public function onUpdateCache(Command $command)
     {
         $command->line('Regenerating page cache...');
         PageProvider::refresh();

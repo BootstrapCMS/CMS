@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
+use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -35,7 +36,7 @@ class UserSubscriber
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events)
+    public function subscribe(Dispatcher $events)
     {
         $events->listen('user.loginsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginSuccessful', 5);
         $events->listen('user.loginfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginFailed', 5);

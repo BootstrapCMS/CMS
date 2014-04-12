@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
+use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 
@@ -36,7 +37,7 @@ class CoreSubscriber
      * @param  Illuminate\Events\Dispatcher  $events
      * @return array
      */
-    public function subscribe($events)
+    public function subscribe(Dispatcher $events)
     {
         $events->listen('page.load', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onPageLoad', 5);
         $events->listen('artisan.start', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onArtisanStart', 5);
