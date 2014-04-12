@@ -44,7 +44,7 @@ trait HasManyPagesTrait
      */
     public function deletePages()
     {
-        foreach ($this->pages()->get(array('id')) as $page) {
+        foreach ($this->pages()->get(array('id', 'slug')) as $page) {
             $page->delete();
         }
     }
