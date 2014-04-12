@@ -78,10 +78,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerPageProvider();
         $this->registerPostProvider();
 
-        if ($this->app['config']['graham-campbell/core::commands']) {
-            $this->registerCommandSubscriber();
-        }
-
+        $this->registerCommandSubscriber();
         $this->registerCoreSubscriber();
         $this->registerNavigationSubscriber();
         $this->registerUserSubscriber();
