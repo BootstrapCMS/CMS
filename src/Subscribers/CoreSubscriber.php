@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
+use Illuminate\Config\Repository;
 use Illuminate\Events\Dispatcher;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Log\Writer;
 
 /**
  * This is the core subscriber class.
@@ -32,6 +32,33 @@ use Illuminate\Support\Facades\Log;
 class CoreSubscriber
 {
     /**
+     * The config instance.
+     *
+     * @var \Illuminate\Config\Repository
+     */
+    protected $config;
+
+    /**
+     * The log instance.
+     *
+     * @var \Illuminate\Log\Writer
+     */
+    protected $log;
+
+    /**
+     * Create a new instance.
+     *
+     * @param  \Illuminate\Config\Repository  $config
+     * @param  \Illuminate\Log\Writer  $log
+     * @return void
+     */
+    public function __construct(Repository $config, Writer $log)
+    {
+        $this->config = $config;
+        $this->log = $log;
+    }
+
+    /**
      * Register the listeners for the subscriber.
      *
      * @param  \Illuminate\Events\Dispatcher  $events
@@ -39,10 +66,14 @@ class CoreSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('page.load', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onPageLoad', 5);
-        $events->listen('artisan.start', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onArtisanStart', 5);
-        $events->listen('illuminate.query', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onIlluminateQuery', 5);
-        $events->listen('locale.changed', 'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onLocaleChanged', 5);
+        $events->listen('page.load',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onPageLoad', 5);
+        $events->listen('artisan.start',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onArtisanStart', 5);
+        $events->listen('illuminate.query',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onIlluminateQuery', 5);
+        $events->listen('locale.changed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onLocaleChanged', 5);
     }
 
     /**
@@ -53,11 +84,11 @@ class CoreSubscriber
      */
     public function onPageLoad($event = array())
     {
-        if (Config::get('log.pageload') == true) {
+        if ($this->config->get('log.pageload') == true) {
             if (!is_array($event)) {
                 $event = array($event);
             }
-            Log::debug('Page Loading', $event);
+            $this->log->debug('Page Loading', $event);
         }
     }
 
@@ -69,11 +100,11 @@ class CoreSubscriber
      */
     public function onArtisanStart($event = array())
     {
-        if (Config::get('log.artisanstart') == true) {
+        if ($this->config->get('log.artisanstart') == true) {
             if (!is_array($event)) {
                 $event = array($event);
             }
-            Log::debug('Artisan Starting', $event);
+            $this->log->debug('Artisan Starting', $event);
         }
     }
 
@@ -85,11 +116,11 @@ class CoreSubscriber
      */
     public function onIlluminateQuery($event = array())
     {
-        if (Config::get('log.illuminatequery') == true) {
+        if ($this->config->get('log.illuminatequery') == true) {
             if (!is_array($event)) {
                 $event = array($event);
             }
-            Log::debug('Query Executed', $event);
+            $this->log->debug('Query Executed', $event);
         }
     }
 
@@ -101,11 +132,31 @@ class CoreSubscriber
      */
     public function onLocaleChanged($event = array())
     {
-        if (Config::get('log.localechanged') == true) {
+        if ($this->config->get('log.localechanged') == true) {
             if (!is_array($event)) {
                 $event = array($event);
             }
-            Log::debug('Locale Changed', $event);
+            $this->log->debug('Locale Changed', $event);
         }
+    }
+
+    /**
+     * Get the config instance.
+     *
+     * @return \Illuminate\Config\Repository
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * Get the log instance.
+     *
+     * @return \Illuminate\Log\Writer;
+     */
+    public function getLog()
+    {
+        return $this->log;
     }
 }

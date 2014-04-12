@@ -17,7 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
 use Illuminate\Events\Dispatcher;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Log\Writer;
 
 /**
  * This is the user subscriber class.
@@ -31,6 +31,24 @@ use Illuminate\Support\Facades\Log;
 class UserSubscriber
 {
     /**
+     * The log instance.
+     *
+     * @var \Illuminate\Log\Writer
+     */
+    protected $log;
+
+    /**
+     * Create a new instance.
+     *
+     * @param  \Illuminate\Log\Writer  $log
+     * @return void
+     */
+    public function __construct(Writer $log)
+    {
+        $this->log = $log;
+    }
+
+    /**
      * Register the listeners for the subscriber.
      *
      * @param  \Illuminate\Events\Dispatcher  $events
@@ -38,13 +56,20 @@ class UserSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('user.loginsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginSuccessful', 5);
-        $events->listen('user.loginfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginFailed', 5);
-        $events->listen('user.logout', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLogout', 5);
-        $events->listen('user.registrationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationSuccessful', 5);
-        $events->listen('user.registrationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationFailed', 5);
-        $events->listen('user.activationsuccessful', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationSuccessful', 5);
-        $events->listen('user.activationfailed', 'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationFailed', 5);
+        $events->listen('user.loginsuccessful',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginSuccessful', 5);
+        $events->listen('user.loginfailed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginFailed', 5);
+        $events->listen('user.logout',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLogout', 5);
+        $events->listen('user.registrationsuccessful',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationSuccessful', 5);
+        $events->listen('user.registrationfailed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationFailed', 5);
+        $events->listen('user.activationsuccessful',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationSuccessful', 5);
+        $events->listen('user.activationfailed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationFailed', 5);
     }
 
     /**
@@ -58,7 +83,7 @@ class UserSubscriber
         if (!is_array($event)) {
             $event = array($event);
         }
-        Log::info('User login successful', $event);
+        $this->log->info('User login successful', $event);
     }
 
     /**
@@ -72,7 +97,7 @@ class UserSubscriber
         if (!is_array($event)) {
             $event = array($event);
         }
-        Log::notice('User login failed', $event);
+        $this->log->notice('User login failed', $event);
     }
 
     /**
@@ -86,7 +111,7 @@ class UserSubscriber
         if (!is_array($event)) {
             $event = array($event);
         }
-        Log::info('User logged out', $event);
+        $this->log->info('User logged out', $event);
     }
 
     /**
@@ -100,7 +125,7 @@ class UserSubscriber
         if (!is_array($event)) {
             $event = array($event);
         }
-        Log::info('User registration successful', $event);
+        $this->log->info('User registration successful', $event);
     }
 
     /**
@@ -114,7 +139,7 @@ class UserSubscriber
         if (!is_array($event)) {
             $event = array($event);
         }
-        Log::notice('User registration failed', $event);
+        $this->log->notice('User registration failed', $event);
     }
 
     /**
@@ -128,7 +153,7 @@ class UserSubscriber
         if (!is_array($event)) {
             $event = array($event);
         }
-        Log::info('User activation successful', $event);
+        $this->log->info('User activation successful', $event);
     }
 
     /**
@@ -142,6 +167,16 @@ class UserSubscriber
         if (!is_array($event)) {
             $event = array($event);
         }
-        Log::notice('User activation failed', $event);
+        $this->log->notice('User activation failed', $event);
+    }
+
+    /**
+     * Get the log instance.
+     *
+     * @return \Illuminate\Log\Writer;
+     */
+    public function getLog()
+    {
+        return $this->log;
     }
 }

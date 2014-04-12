@@ -77,6 +77,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerEventProvider();
         $this->registerPageProvider();
         $this->registerPostProvider();
+        $this->registerCommandSubscriber();
+        $this->registerCoreSubscriber();
+        $this->registerNavigationSubscriber();
+        $this->registerUserSubscriber();
         $this->registerCachingController();
         $this->registerCommentController();
         $this->registerEventController();
@@ -143,6 +147,66 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $post = new $model();
 
             return new Providers\PostProvider($post);
+        });
+    }
+
+    /**
+     * Register the command subscriber class.
+     *
+     * @return void
+     */
+    protected function registerCommandSubscriber()
+    {
+        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber', function ($app) {
+            $pageprovider = $app['pageprovider'];
+
+            return new Subscribers\CommandSubscriber($pageprovider);
+        });
+    }
+
+    /**
+     * Register the core subscriber class.
+     *
+     * @return void
+     */
+    protected function registerCoreSubscriber()
+    {
+        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber', function ($app) {
+            $config = $app['config'];
+            $log = $app['log'];
+
+            return new Subscribers\CoreSubscriber($config, $log);
+        });
+    }
+
+    /**
+     * Register the navigation subscriber class.
+     *
+     * @return void
+     */
+    protected function registerNavigationSubscriber()
+    {
+        $this->app->bindShared('GrahamCampbell\Credentials\Subscribers\NavigationSubscriber', function ($app) {
+            $config = $app['config'];
+            $navigation = $app['navigation'];
+            $credentials = $app['credentials'];
+            $pageprovider = $app['pageprovider'];
+
+            return new Subscribers\NavigationSubscriber($config, $navigation, $credentials, $pageprovider);
+        });
+    }
+
+    /**
+     * Register the user subscriber class.
+     *
+     * @return void
+     */
+    protected function registerUserSubscriber()
+    {
+        $this->app->bindShared('GrahamCampbell\Credentials\Subscribers\UserSubscriber', function ($app) {
+            $log = $app['log'];
+
+            return new Subscribers\UserSubscriber($log);
         });
     }
 

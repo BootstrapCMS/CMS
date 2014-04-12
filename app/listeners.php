@@ -23,17 +23,17 @@
 |
 */
 
-$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber;
+$subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber');
 Event::subscribe($subscriber);
 
-$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber;
+$subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber');
 Event::subscribe($subscriber);
 
-$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber;
+$subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber');
 Event::subscribe($subscriber);
 
-$subscriber = new GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber;
+$subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber');
 Event::subscribe($subscriber);
 
-$observer = new GrahamCampbell\BootstrapCMS\Observers\PageObserver;
+$observer = App::make('GrahamCampbell\BootstrapCMS\Observers\PageObserver');
 PageProvider::observe($observer);

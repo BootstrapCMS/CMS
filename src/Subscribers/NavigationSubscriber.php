@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
+use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
+use GrahamCampbell\Credentials\Classes\Credentials;
+use GrahamCampbell\Navigation\Classes\Navigation;
+use Illuminate\Config\Repository;
 use Illuminate\Events\Dispatcher;
-use Illuminate\Support\Facades\Config;
-use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
-use GrahamCampbell\Navigation\Facades\Navigation;
-use GrahamCampbell\Credentials\Facades\Credentials;
 
 /**
  * This is the navigation subscriber class.
@@ -34,6 +34,51 @@ use GrahamCampbell\Credentials\Facades\Credentials;
 class NavigationSubscriber
 {
     /**
+     * The config instance.
+     *
+     * @var \Illuminate\Config\Repository
+     */
+    protected $config;
+
+    /**
+     * The navigation instance.
+     *
+     * @var \GrahamCampbell\Navigation\Classes\Navigation
+     */
+    protected $navigation;
+
+    /**
+     * The credentials instance.
+     *
+     * @var \GrahamCampbell\Credentials\Classes\Credentials
+     */
+    protected $credentials;
+
+    /**
+     * The page provider instance.
+     *
+     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     */
+    protected $pageprovider;
+
+    /**
+     * Create a new instance.
+     *
+     * @param  \Illuminate\Config\Repository  $config
+     * @param  \GrahamCampbell\Navigation\Classes\Navigation  $navigation
+     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
+     * @return void
+     */
+    public function __construct($config, $navigation, $credentials, $pageprovider)
+    {
+        $this->config = $config;
+        $this->navigation = $navigation;
+        $this->credentials = $credentials;
+        $this->pageprovider = $pageprovider;
+    }
+
+    /**
      * Register the listeners for the subscriber.
      *
      * @param  \Illuminate\Events\Dispatcher  $events
@@ -41,12 +86,18 @@ class NavigationSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst', 8);
-        $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond', 5);
-        $events->listen('navigation.main', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird', 2);
-        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarFirst', 8);
-        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarSecond', 5);
-        $events->listen('navigation.bar', 'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarThird', 2);
+        $events->listen('navigation.main',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst', 8);
+        $events->listen('navigation.main',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond', 5);
+        $events->listen('navigation.main',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird', 2);
+        $events->listen('navigation.bar',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarFirst', 8);
+        $events->listen('navigation.bar',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarSecond', 5);
+        $events->listen('navigation.bar',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarThird', 2);
     }
 
     /**
@@ -58,13 +109,13 @@ class NavigationSubscriber
     public function onNavigationMainFirst(array $event = array())
     {
         // add the blog
-        if (Config::get('cms.blogging')) {
-            Navigation::addMain(array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book'));
+        if ($this->config->get('cms.blogging')) {
+            $this->navigation->addMain(array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book'));
         }
 
         // add the events
-        if (Config::get('cms.events')) {
-            Navigation::addMain(array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
+        if ($this->config->get('cms.events')) {
+            $this->navigation->addMain(array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
         }
     }
 
@@ -77,7 +128,7 @@ class NavigationSubscriber
     public function onNavigationMainSecond(array $event = array())
     {
         // get the pages
-        $pages = PageProvider::navigation();
+        $pages = $this->pageprovider->navigation();
 
         // delete the home page
         unset($pages[0]);
@@ -87,14 +138,14 @@ class NavigationSubscriber
             // make sure the page is preppended by 'pages/'
             $page['slug'] = 'pages/'.$page['slug'];
             // add the page to the main nav bar
-            Navigation::addMain($page);
+            $this->navigation->addMain($page);
         }
 
-        if (Credentials::check()) {
+        if ($this->credentials->check()) {
             // add the admin links
-            if (Credentials::hasAccess('admin')) {
-                Navigation::addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
-                Navigation::addMain(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'), 'admin');
+            if ($this->credentials->hasAccess('admin')) {
+                $this->navigation->addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
+                $this->navigation->addMain(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'), 'admin');
             }
         }
     }
@@ -108,7 +159,7 @@ class NavigationSubscriber
     public function onNavigationMainThird(array $event = array())
     {
         // get the pages
-        $pages = PageProvider::navigation();
+        $pages = $this->pageprovider->navigation();
 
         // select the home page
         $page = $pages[0];
@@ -116,13 +167,13 @@ class NavigationSubscriber
         // make sure the page is preppended by 'pages/'
         $page['slug'] = 'pages/'.$page['slug'];
         // add the page to the start of the main nav bars
-        Navigation::addMain($page, 'default', true);
-        Navigation::addMain($page, 'admin', true);
+        $this->navigation->addMain($page, 'default', true);
+        $this->navigation->addMain($page, 'admin', true);
 
-        if (Credentials::check()) {
+        if ($this->credentials->check()) {
             // add the view users link
-            if (Credentials::hasAccess('mod')) {
-                Navigation::addMain(array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'), 'admin');
+            if ($this->credentials->hasAccess('mod')) {
+                $this->navigation->addMain(array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'), 'admin');
             }
         }
     }
@@ -135,9 +186,9 @@ class NavigationSubscriber
      */
     public function onNavigationBarFirst(array $event = array())
     {
-        if (Credentials::check()) {
+        if ($this->credentials->check()) {
             // add the profile links
-            Navigation::addBar(array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
+            $this->navigation->addBar(array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
         }
     }
 
@@ -149,11 +200,11 @@ class NavigationSubscriber
      */
     public function onNavigationBarSecond(array $event = array())
     {
-        if (Credentials::check()) {
+        if ($this->credentials->check()) {
             // add the admin links
-            if (Credentials::hasAccess('admin')) {
-                Navigation::addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
-                Navigation::addBar(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
+            if ($this->credentials->hasAccess('admin')) {
+                $this->navigation->addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
+                $this->navigation->addBar(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
             }
         }
     }
@@ -166,35 +217,75 @@ class NavigationSubscriber
      */
     public function onNavigationBarThird(array $event = array())
     {
-        if (Credentials::check()) {
+        if ($this->credentials->check()) {
             // add the view users link
-            if (Credentials::hasAccess('mod')) {
-                Navigation::addBar(array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
+            if ($this->credentials->hasAccess('mod')) {
+                $this->navigation->addBar(array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
             }
 
             // add the create user link
-            if (Credentials::hasAccess('admin')) {
-                Navigation::addBar(array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star'));
+            if ($this->credentials->hasAccess('admin')) {
+                $this->navigation->addBar(array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star'));
             }
 
             // add the create page link
-            if (Credentials::hasAccess('edit')) {
-                Navigation::addBar(array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil'));
+            if ($this->credentials->hasAccess('edit')) {
+                $this->navigation->addBar(array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil'));
             }
 
             // add the create post link
-            if (Config::get('cms.blogging')) {
-                if (Credentials::hasAccess('blog')) {
-                    Navigation::addBar(array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book'));
+            if ($this->config->get('cms.blogging')) {
+                if ($this->credentials->hasAccess('blog')) {
+                    $this->navigation->addBar(array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book'));
                 }
             }
 
             // add the create event link
-            if (Config::get('cms.events')) {
-                if (Credentials::hasAccess('edit')) {
-                    Navigation::addBar(array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar'));
+            if ($this->config->get('cms.events')) {
+                if ($this->credentials->hasAccess('edit')) {
+                    $this->navigation->addBar(array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar'));
                 }
             }
         }
+    }
+
+    /**
+     * Get the config instance.
+     *
+     * @return \Illuminate\Config\Repository
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * Get the navigation instance.
+     *
+     * @return \GrahamCampbell\Navigation\Classes\Navigation
+     */
+    public function getNavigation()
+    {
+        return $this->navigation;
+    }
+
+    /**
+     * Get the credentials instance.
+     *
+     * @return \GrahamCampbell\Credentials\Classes\Credentials
+     */
+    public function getCredentials()
+    {
+        return $this->credentials;
+    }
+
+    /**
+     * Get the page provider instance.
+     *
+     * @return \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     */
+    public function getPageProvider()
+    {
+        return $this->pageprovider;
     }
 }

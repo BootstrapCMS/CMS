@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
-use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
+use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
 use Illuminate\Console\Command;
 use Illuminate\Events\Dispatcher;
 
@@ -32,6 +32,24 @@ use Illuminate\Events\Dispatcher;
 class CommandSubscriber
 {
     /**
+     * The page provider instance.
+     *
+     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     */
+    protected $pageprovider;
+
+    /**
+     * Create a new instance.
+     *
+     * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
+     * @return void
+     */
+    public function __construct(PageProvider $pageprovider)
+    {
+        $this->pageprovider = $pageprovider;
+    }
+
+    /**
      * Register the listeners for the subscriber.
      *
      * @param  \Illuminate\Events\Dispatcher  $events
@@ -39,7 +57,8 @@ class CommandSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('command.updatecache', 'GrahamCampbell\Core\Subscribers\CommandSubscriber@onPageLoad', 3);
+        $events->listen('command.updatecache',
+            'GrahamCampbell\Core\Subscribers\CommandSubscriber@onPageLoad', 3);
     }
 
     /**
@@ -51,7 +70,17 @@ class CommandSubscriber
     public function onUpdateCache(Command $command)
     {
         $command->line('Regenerating page cache...');
-        PageProvider::refresh();
+        $this->pageprovider->refresh();
         $command->info('Page cache regenerated!');
+    }
+
+    /**
+     * Get the page provider instance.
+     *
+     * @return \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     */
+    public function getPageProvider()
+    {
+        return $this->pageprovider;
     }
 }
