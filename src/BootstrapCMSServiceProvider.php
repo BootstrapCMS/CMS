@@ -77,10 +77,15 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerEventProvider();
         $this->registerPageProvider();
         $this->registerPostProvider();
-        $this->registerCommandSubscriber();
+
+        if ($this->app['config']['graham-campbell/core::commands']) {
+            $this->registerCommandSubscriber();
+        }
+
         $this->registerCoreSubscriber();
         $this->registerNavigationSubscriber();
         $this->registerUserSubscriber();
+
         $this->registerCachingController();
         $this->registerCommentController();
         $this->registerEventController();
@@ -186,7 +191,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerNavigationSubscriber()
     {
-        $this->app->bindShared('GrahamCampbell\Credentials\Subscribers\NavigationSubscriber', function ($app) {
+        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber', function ($app) {
             $config = $app['config'];
             $navigation = $app['navigation'];
             $credentials = $app['credentials'];
@@ -203,7 +208,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerUserSubscriber()
     {
-        $this->app->bindShared('GrahamCampbell\Credentials\Subscribers\UserSubscriber', function ($app) {
+        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber', function ($app) {
             $log = $app['log'];
 
             return new Subscribers\UserSubscriber($log);

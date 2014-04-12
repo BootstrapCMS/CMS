@@ -23,8 +23,10 @@
 |
 */
 
-$subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber');
-Event::subscribe($subscriber);
+if (Config::get('graham-campbell/core::commands')) {
+    $subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber');
+    Event::subscribe($subscriber);
+}
 
 $subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber');
 Event::subscribe($subscriber);
