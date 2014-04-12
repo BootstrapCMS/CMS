@@ -228,12 +228,12 @@ class PageController extends AbstractController
         $page = $this->pageprovider->find($slug);
         $this->checkPage($page, $slug);
 
-        $checkdelete = $this->checkDelete($slug);
-        if ($checkdelete) {
-            return $checkdelete;
+        try {
+            $page->delete();
+        } catch (\Exception $e) {
+            $this->session->flash('error', 'You cannot delete this page.');
+            return Redirect::route('pages.show', array('pages' => $page->slug));
         }
-
-        $page->delete();
 
         // write flash message and redirect
         $this->session->flash('success', 'Your page has been deleted successfully.');
@@ -277,20 +277,6 @@ class PageController extends AbstractController
                 $this->session->flash('error', 'The homepage must be on the navigation bar.');
                 return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
             }
-        }
-    }
-
-    /**
-     * Check the delete input.
-     *
-     * @param  string  $slug
-     * @return \Illuminate\Http\Response
-     */
-    protected function checkDelete($slug)
-    {
-        if ($slug == 'home') {
-            $this->session->flash('error', 'You cannot delete the homepage.');
-            return Redirect::route('pages.show', array('pages' => 'home'));
         }
     }
 
