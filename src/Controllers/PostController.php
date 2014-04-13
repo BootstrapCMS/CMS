@@ -200,7 +200,7 @@ class PostController extends AbstractController
 
         $post->delete();
 
-        return Redirect::route('blog.posts.index');
+        return Redirect::route('blog.posts.index')
             ->with('success', 'Your post has been deleted successfully.');
     }
 
