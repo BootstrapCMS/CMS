@@ -264,11 +264,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\EventController', function ($app) {
             $credentials = $app['credentials'];
             $viewer = $app['viewer'];
-            $session = $app['session'];
             $binput = $app['binput'];
             $eventprovider = $app['eventprovider'];
 
-            return new Controllers\EventController($credentials, $viewer, $session, $binput, $eventprovider);
+            return new Controllers\EventController($credentials, $viewer, $binput, $eventprovider);
         });
     }
 
@@ -318,11 +317,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PostController', function ($app) {
             $credentials = $app['credentials'];
             $viewer = $app['viewer'];
-            $session = $app['session'];
             $binput = $app['binput'];
             $postprovider = $app['postprovider'];
 
-            return new Controllers\PostController($credentials, $viewer, $session, $binput, $postprovider);
+            return new Controllers\PostController($credentials, $viewer, $binput, $postprovider);
         });
     }
 

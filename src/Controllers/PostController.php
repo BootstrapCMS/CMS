@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\Viewer\Classes\Viewer;
@@ -43,13 +42,6 @@ class PostController extends AbstractController
     protected $viewer;
 
     /**
-     * The session instance.
-     *
-     * @var \Illuminate\Session\SessionManager
-     */
-    protected $session;
-
-    /**
      * The binput instance.
      *
      * @var \GrahamCampbell\Binput\Classes\Binput
@@ -68,15 +60,13 @@ class PostController extends AbstractController
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
-     * @param  \Illuminate\Session\SessionManager  $session
      * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer, SessionManager $session, Binput $binput, PostProvider $postprovider)
+    public function __construct(Credentials $credentials, Viewer $viewer, Binput $binput, PostProvider $postprovider)
     {
         $this->viewer = $viewer;
-        $this->session = $session;
         $this->binput = $binput;
         $this->postprovider = $postprovider;
 
@@ -135,8 +125,8 @@ class PostController extends AbstractController
 
         $post = $this->postprovider->create($input);
 
-        $this->session->flash('success', 'Your post has been created successfully.');
-        return Redirect::route('blog.posts.show', array('posts' => $post->id));
+        return Redirect::route('blog.posts.show', array('posts' => $post->id))
+            ->with('success', 'Your post has been created successfully.');
     }
 
     /**
@@ -193,8 +183,8 @@ class PostController extends AbstractController
 
         $post->update($input);
 
-        $this->session->flash('success', 'Your post has been updated successfully.');
-        return Redirect::route('blog.posts.show', array('posts' => $post->id));
+        return Redirect::route('blog.posts.show', array('posts' => $post->id))
+            ->with('success', 'Your post has been updated successfully.');
     }
 
     /**
@@ -210,8 +200,8 @@ class PostController extends AbstractController
 
         $post->delete();
 
-        $this->session->flash('success', 'Your post has been deleted successfully.');
         return Redirect::route('blog.posts.index');
+            ->with('success', 'Your post has been deleted successfully.');
     }
 
     /**
@@ -235,16 +225,6 @@ class PostController extends AbstractController
     public function getViewer()
     {
         return $this->viewer;
-    }
-
-    /**
-     * Return the session instance.
-     *
-     * @return \Illuminate\Session\SessionManager
-     */
-    public function getSession()
-    {
-        return $this->session;
     }
 
     /**

@@ -17,7 +17,6 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
 use GrahamCampbell\Binput\Classes\Binput;
 use GrahamCampbell\Viewer\Classes\Viewer;
@@ -44,13 +43,6 @@ class EventController extends AbstractController
     protected $viewer;
 
     /**
-     * The session instance.
-     *
-     * @var \Illuminate\Session\SessionManager
-     */
-    protected $session;
-
-    /**
      * The binput instance.
      *
      * @var \GrahamCampbell\Binput\Classes\Binput
@@ -69,15 +61,13 @@ class EventController extends AbstractController
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
      * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
-     * @param  \Illuminate\Session\SessionManager  $session
      * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
      * @param  \GrahamCampbell\BootstrapCMS\Providers\EventProvider  $eventprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer, SessionManager $session, Binput $binput, EventProvider $eventprovider)
+    public function __construct(Credentials $credentials, Viewer $viewer, Binput $binput, EventProvider $eventprovider)
     {
         $this->viewer = $viewer;
-        $this->session = $session;
         $this->binput = $binput;
         $this->eventprovider = $eventprovider;
 
@@ -139,8 +129,8 @@ class EventController extends AbstractController
 
         $event = $this->eventprovider->create($input);
 
-        $this->session->flash('success', 'Your event has been created successfully.');
-        return Redirect::route('events.show', array('events' => $event->id));
+        return Redirect::route('events.show', array('events' => $event->id))
+            ->with('success', 'Your event has been created successfully.');
     }
 
     /**
@@ -199,8 +189,8 @@ class EventController extends AbstractController
 
         $event->update($input);
 
-        $this->session->flash('success', 'Your event has been updated successfully.');
-        return Redirect::route('events.show', array('events' => $event->id));
+        return Redirect::route('events.show', array('events' => $event->id))
+            ->with('success', 'Your event has been updated successfully.');
     }
 
     /**
@@ -216,8 +206,8 @@ class EventController extends AbstractController
 
         $event->delete();
 
-        $this->session->flash('success', 'Your event has been deleted successfully.');
-        return Redirect::route('events.index');
+        return Redirect::route('events.index')
+            ->with('success', 'Your event has been deleted successfully.');
     }
 
     /**
@@ -241,16 +231,6 @@ class EventController extends AbstractController
     public function getViewer()
     {
         return $this->viewer;
-    }
-
-    /**
-     * Return the session instance.
-     *
-     * @return \Illuminate\Session\SessionManager
-     */
-    public function getSession()
-    {
-        return $this->session;
     }
 
     /**

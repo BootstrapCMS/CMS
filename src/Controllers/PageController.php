@@ -138,8 +138,8 @@ class PageController extends AbstractController
         $page = $this->pageprovider->create($input);
 
         // write flash message and redirect
-        $this->session->flash('success', 'Your page has been created successfully.');
-        return Redirect::route('pages.show', array('pages' => $page->slug));
+        return Redirect::route('pages.show', array('pages' => $page->slug))
+            ->with('success', 'Your page has been created successfully.');
     }
 
     /**
@@ -213,8 +213,8 @@ class PageController extends AbstractController
         $page->update($input);
 
         // write flash message and redirect
-        $this->session->flash('success', 'Your page has been updated successfully.');
-        return Redirect::route('pages.show', array('pages' => $page->slug));
+        return Redirect::route('pages.show', array('pages' => $page->slug))
+            ->with('success', 'Your page has been updated successfully.');
     }
 
     /**
@@ -231,13 +231,13 @@ class PageController extends AbstractController
         try {
             $page->delete();
         } catch (\Exception $e) {
-            $this->session->flash('error', 'You cannot delete this page.');
-            return Redirect::route('pages.show', array('pages' => $page->slug));
+            return Redirect::route('pages.show', array('pages' => $page->slug))
+                ->with('error', 'You cannot delete this page.');
         }
 
         // write flash message and redirect
-        $this->session->flash('success', 'Your page has been deleted successfully.');
-        return Redirect::route('pages.show', array('pages' => 'home'));
+        return Redirect::route('pages.show', array('pages' => 'home'))
+            ->with('success', 'Your page has been deleted successfully.');
     }
 
     /**
@@ -269,13 +269,13 @@ class PageController extends AbstractController
     {
         if ($slug == 'home') {
             if ($slug != $input['slug']) {
-                $this->session->flash('error', 'You cannot rename the homepage.');
-                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+                return Redirect::route('pages.edit', array('pages' => $slug))->withInput()
+                    ->with('error', 'You cannot rename the homepage.');
             }
 
             if ($input['show_nav'] == false) {
-                $this->session->flash('error', 'The homepage must be on the navigation bar.');
-                return Redirect::route('pages.edit', array('pages' => $slug))->withInput();
+                return Redirect::route('pages.edit', array('pages' => $slug))->withInput()
+                    ->with('error', 'The homepage must be on the navigation bar.');
             }
         }
     }
