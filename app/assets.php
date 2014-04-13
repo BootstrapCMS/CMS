@@ -35,14 +35,23 @@ if (Config::get('theme.name') == 'default') {
     $styles[] = 'css/bootstrap.'.Config::get('theme.name').'.min.css';
 }
 $styles[] = 'css/cms-main.css';
+if (Config::get('laravel-debugbar::config.enabled')) {
+    $styles[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\styles\github.css';
+}
 
 Asset::registerStyles($styles, '', 'main');
 
-Asset::registerScripts(array(
+
+$scripts = array(
     'js/cms-timeago.js',
     'js/cms-restfulizer.js',
     'js/cms-carousel.js'
-), '', 'main');
+);
+if (Config::get('laravel-debugbar::config.enabled')) {
+    $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js'
+}
+
+Asset::registerScripts($scripts, '', 'main');
 
 
 Asset::registerStyles(array(
