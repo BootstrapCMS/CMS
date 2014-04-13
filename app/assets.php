@@ -48,7 +48,7 @@ $scripts = array(
     'js/cms-carousel.js'
 );
 if (Config::get('laravel-debugbar::config.enabled')) {
-    $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js'
+    $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js';
 }
 
 Asset::registerScripts($scripts, '', 'main');
