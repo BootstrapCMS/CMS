@@ -145,7 +145,6 @@ class NavigationSubscriber
             // add the admin links
             if ($this->credentials->hasAccess('admin')) {
                 $this->navigation->addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
-                $this->navigation->addMain(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'), 'admin');
             }
         }
     }
@@ -204,7 +203,6 @@ class NavigationSubscriber
             // add the admin links
             if ($this->credentials->hasAccess('admin')) {
                 $this->navigation->addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
-                $this->navigation->addBar(array('title' => 'Queuing', 'slug' => 'queuing', 'icon' => 'random'));
             }
         }
     }

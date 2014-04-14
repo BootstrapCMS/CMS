@@ -89,7 +89,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerHomeController();
         $this->registerPageController();
         $this->registerPostController();
-        $this->registerQueuingController();
     }
 
     /**
@@ -321,21 +320,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $postprovider = $app['postprovider'];
 
             return new Controllers\PostController($credentials, $viewer, $binput, $postprovider);
-        });
-    }
-
-    /**
-     * Register the queuing controller class.
-     *
-     * @return void
-     */
-    protected function registerQueuingController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\QueuingController', function ($app) {
-            $credentials = $app['credentials'];
-            $viewer = $app['viewer'];
-
-            return new Controllers\QueuingController($credentials, $viewer);
         });
     }
 

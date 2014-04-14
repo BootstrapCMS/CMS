@@ -70,7 +70,3 @@ if (Config::get('cms.events')) {
 
 // caching routes
 Route::get('caching', array('as' => 'caching.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CachingController@getIndex'));
-
-
-// queuing routes
-Route::get('queuing', array('as' => 'queuing.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\QueuingController@getIndex'));
