@@ -57,8 +57,11 @@ class CommandSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('command.updatecache',
-            'GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber@onUpdateCache', 3);
+        $events->listen(
+            'command.updatecache',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber@onUpdateCache',
+            3
+        );
     }
 
     /**

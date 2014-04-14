@@ -66,14 +66,26 @@ class CoreSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('page.load',
-            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onPageLoad', 5);
-        $events->listen('artisan.start',
-            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onArtisanStart', 5);
-        $events->listen('illuminate.query',
-            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onIlluminateQuery', 5);
-        $events->listen('locale.changed',
-            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onLocaleChanged', 5);
+        $events->listen(
+            'page.load',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onPageLoad',
+            5
+        );
+        $events->listen(
+            'artisan.start',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onArtisanStart',
+            5
+        );
+        $events->listen(
+            'illuminate.query',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onIlluminateQuery',
+            5
+        );
+        $events->listen(
+            'locale.changed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber@onLocaleChanged',
+            5
+        );
     }
 
     /**

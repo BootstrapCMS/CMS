@@ -56,20 +56,41 @@ class UserSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('user.loginsuccessful',
-            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginSuccessful', 5);
-        $events->listen('user.loginfailed',
-            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginFailed', 5);
-        $events->listen('user.logout',
-            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLogout', 5);
-        $events->listen('user.registrationsuccessful',
-            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationSuccessful', 5);
-        $events->listen('user.registrationfailed',
-            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationFailed', 5);
-        $events->listen('user.activationsuccessful',
-            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationSuccessful', 5);
-        $events->listen('user.activationfailed',
-            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationFailed', 5);
+        $events->listen(
+            'user.loginsuccessful',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginSuccessful',
+            5
+        );
+        $events->listen(
+            'user.loginfailed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLoginFailed',
+            5
+        );
+        $events->listen(
+            'user.logout',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserLogout',
+            5
+        );
+        $events->listen(
+            'user.registrationsuccessful',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationSuccessful',
+            5
+        );
+        $events->listen(
+            'user.registrationfailed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserRegistrationFailed',
+            5
+        );
+        $events->listen(
+            'user.activationsuccessful',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationSuccessful',
+            5
+        );
+        $events->listen(
+            'user.activationfailed',
+            'GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber@onUserActivationFailed',
+            5
+        );
     }
 
     /**

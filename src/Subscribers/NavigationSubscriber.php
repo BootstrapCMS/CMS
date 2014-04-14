@@ -86,18 +86,36 @@ class NavigationSubscriber
      */
     public function subscribe(Dispatcher $events)
     {
-        $events->listen('navigation.main',
-            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst', 8);
-        $events->listen('navigation.main',
-            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond', 5);
-        $events->listen('navigation.main',
-            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird', 2);
-        $events->listen('navigation.bar',
-            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarFirst', 8);
-        $events->listen('navigation.bar',
-            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarSecond', 5);
-        $events->listen('navigation.bar',
-            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarThird', 2);
+        $events->listen(
+            'navigation.main',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainFirst',
+            8
+        );
+        $events->listen(
+            'navigation.main',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainSecond',
+            5
+        );
+        $events->listen(
+            'navigation.main',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationMainThird',
+            2
+        );
+        $events->listen(
+            'navigation.bar',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarFirst',
+            8
+        );
+        $events->listen(
+            'navigation.bar',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarSecond',
+            5
+        );
+        $events->listen(
+            'navigation.bar',
+            'GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber@onNavigationBarThird',
+            2
+        );
     }
 
     /**
