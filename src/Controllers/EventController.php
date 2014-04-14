@@ -112,13 +112,9 @@ class EventController extends AbstractController
      */
     public function store()
     {
-        $input = array(
-            'title'    => $this->binput->get('title'),
-            'location' => $this->binput->get('location'),
-            'date'     => $this->binput->get('date'),
-            'body'     => $this->binput->get('body'),
-            'user_id'  => $this->getUserId(),
-        );
+        $input = array_merge(array('user_id' => $this->getUserId()), $this->binput->only(array(
+            'title', 'location', 'date', 'body'
+        )));
 
         $val = $this->eventprovider->validate($input, array_keys($input));
         if ($val->fails()) {
@@ -169,13 +165,7 @@ class EventController extends AbstractController
      */
     public function update($id)
     {
-        $input = array(
-            'title'    => $this->binput->get('title'),
-            'location' => $this->binput->get('location'),
-            'date'     => $this->binput->get('date'),
-            'body'     => $this->binput->get('body'),
-            'user_id'  => $this->getUserId(),
-        );
+        $input = $this->binput->only(array('title', 'location', 'date', 'body'));
 
         $val = $val = $this->eventprovider->validate($input, array_keys($input));
         if ($val->fails()) {

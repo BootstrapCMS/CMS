@@ -139,12 +139,11 @@ class CommentController extends AbstractController
      */
     public function store($post_id)
     {
-        $input = array(
-            'body'    => $this->binput->get('body'),
+        $input = array_merge($this->binput->only('body'), array(
             'user_id' => $this->getUserId(),
             'post_id' => $post_id,
             'version' => 1
-        );
+        ));
 
         if ($this->commentprovider->validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
@@ -179,7 +178,7 @@ class CommentController extends AbstractController
      */
     public function update($post_id, $id)
     {
-        $input = array('body' => $this->binput->get('edit_body'));
+        $input = $this->binput->map(array('edit_body' => 'body'));
 
         if ($this->commentprovider->validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');

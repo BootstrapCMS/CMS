@@ -111,12 +111,9 @@ class PostController extends AbstractController
      */
     public function store()
     {
-        $input = array(
-            'title'   => $this->binput->get('title'),
-            'summary' => $this->binput->get('summary'),
-            'body'    => $this->binput->get('body'),
-            'user_id' => $this->getUserId(),
-        );
+        $input = array_merge(array('user_id' => $this->getUserId()), $this->binput->only(array(
+            'title', 'summary', 'body'
+        )));
 
         $val = $this->postprovider->validate($input, array_keys($input));
         if ($val->fails()) {
@@ -167,11 +164,7 @@ class PostController extends AbstractController
      */
     public function update($id)
     {
-        $input = array(
-            'title'   => $this->binput->get('title'),
-            'summary' => $this->binput->get('summary'),
-            'body'    => $this->binput->get('body', null, true, false), // no xss protection please
-        );
+        $input = $this->binput->only(array('title', 'summary', 'body'));
 
         $val = $this->postprovider->validate($input, array_keys($input));
         if ($val->fails()) {
