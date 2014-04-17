@@ -16,7 +16,7 @@
         <div class="hidden-xs">
             <div class="col-xs-6">
                 <p>
-                    <strong>Post Creator:</strong> {{ $post->user()->first(array('email'))->email }}
+                    <strong>Post Creator:</strong> {{ $post->user()->cacheDriver('array')->rememberForever()->first(array('email'))->email }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
             </div>
@@ -34,7 +34,7 @@
         <div class="visible-xs">
             <div class="col-xs-12">
                 <p>
-                    <strong>Post Creator:</strong> {{ $post->user()->first(array('email'))->email }}
+                    <strong>Post Creator:</strong> {{ $post->user()->cacheDriver('array')->rememberForever()->first(array('email'))->email }}
                 </p>
                 <p>
                     <strong>Post Created:</strong> <abbr class="timeago" title="{{ $post->created_at->toISO8601String() }}">{{ $post->created_at->toDateTimeString() }}</abbr>
@@ -56,14 +56,14 @@
         </div>
         <div class="col-md-4 col-xs-6">
             <div class="pull-right">
-                <p>Author: {{ $post->user()->first(array('first_name', 'last_name'))->getName() }}</p>
+                <p>Author: {{ $post->user()->cacheDriver('array')->rememberForever()->first(array('first_name', 'last_name'))->getName() }}</p>
             </div>
         </div>
     </div>
     <div class="visible-xs">
         <div class="col-xs-12">
             <p class="lead">{{ $post->summary }}</p>
-            <p>Author: {{ $post->user()->first(array('first_name', 'last_name'))->getName() }}</p>
+            <p>Author: {{ $post->user()->cacheDriver('array')->rememberForever()->first(array('first_name', 'last_name'))->getName() }}</p>
         </div>
     </div>
 </div>

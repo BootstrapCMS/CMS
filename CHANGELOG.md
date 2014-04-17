@@ -25,6 +25,7 @@ CHANGE LOG
 * Improved travis testing
 * Improved page deletion
 * Command improvements
+* Some performance improvements
 * Improved input and validation
 * Composer tweaks
 * Minor tweaks
