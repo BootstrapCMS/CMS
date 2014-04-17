@@ -27,6 +27,22 @@ return array(
     |
     */
 
-    'throttler' => 'GrahamCampbell\Throttle\Throttlers\CacheThrottler'
+    'throttler' => 'GrahamCampbell\Throttle\Throttlers\CacheThrottler',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cache Driver
+    |--------------------------------------------------------------------------
+    |
+    | This defines the cache driver to be used. It may be the name of any
+    | driver set in app/config/cache.php. Setting it to null will use the
+    | driver you have set as default in app/config/cache.php. Please note that
+    | a driver that supports cache tags is required.
+    |
+    | Default: null
+    |
+    */
+
+    'driver' => null
 
 );
