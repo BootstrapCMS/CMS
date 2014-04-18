@@ -31,7 +31,7 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Email Verification On Registration
+    | Require Account Activation
     |--------------------------------------------------------------------------
     |
     | This defines if public registration requires email activation.
@@ -40,7 +40,7 @@ return array(
     |
     */
 
-    'regemail' => true,
+    'activation' => true,
 
     /*
     |--------------------------------------------------------------------------
