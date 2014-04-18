@@ -26,7 +26,7 @@
                         <em>Post Created: {{ HTML::ago($post->created_at) }}</em>
                     </p>
                     <p>
-                        <em>Last Updated: {{ HTML::ago($post->update_at) }}</em>
+                        <em>Last Updated: {{ HTML::ago($post->updated_at) }}</em>
                     </p>
                 </div>
             </div>
