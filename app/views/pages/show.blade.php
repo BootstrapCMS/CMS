@@ -25,10 +25,10 @@
             <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
-                        <em>Page Created: <abbr class="timeago" title="{{ $page->created_at->toISO8601String() }}">{{ $page->created_at->toDateTimeString() }}</abbr></em>
+                        <em>Page Created: {{ HTML::ago($page->created_at) }}</em>
                     </p>
                     <p>
-                        <em>Last Updated: <abbr class="timeago" title="{{ $page->updated_at->toISO8601String() }}">{{ $page->updated_at->toDateTimeString() }}</abbr></em>
+                        <em>Last Updated: {{ HTML::ago($page->updated_at) }}</em>
                     </p>
                 </div>
             </div>
@@ -39,10 +39,10 @@
                     <strong>Page Creator:</strong> {{ $page->user()->cacheDriver('array')->rememberForever()->first(array('email'))->email }}
                 </p>
                 <p>
-                    <strong>Page Created:</strong> <abbr class="timeago" title="{{ $page->created_at->toISO8601String() }}">{{ $page->created_at->toDateTimeString() }}</abbr>
+                    <strong>Page Created:</strong> {{ HTML::ago($page->created_at) }}
                 </p>
                 <p>
-                    <strong>Last Updated:</strong> <abbr class="timeago" title="{{ $page->updated_at->toISO8601String() }}">{{ $page->updated_at->toDateTimeString() }}</abbr>
+                    <strong>Last Updated:</strong> {{ HTML::ago($page->updated_at) }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('pages.edit', array('pages' => $page->slug)) }}"><i class="fa fa-pencil-square-o"></i> Edit Page</a> <a class="btn btn-danger" href="#delete_page" data-toggle="modal" data-target="#delete_page"><i class="fa fa-times"></i> Delete Page</a>
             </div>

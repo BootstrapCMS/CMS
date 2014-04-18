@@ -23,10 +23,10 @@
             <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
-                        <em>Event Created: <abbr class="timeago" title="{{ $event->created_at->toISO8601String() }}">{{ $event->created_at->toDateTimeString() }}</abbr></em>
+                        <em>Event Created: {{ HTML::ago($event->created_at) }}</em>
                     </p>
                     <p>
-                        <em>Last Updated: <abbr class="timeago" title="{{ $event->updated_at->toISO8601String() }}">{{ $event->updated_at->toDateTimeString() }}</abbr></em>
+                        <em>Last Updated: {{ HTML::ago($event->updated_at) }}</em>
                     </p>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                     <strong>Event Creator:</strong> {{ $event->user()->cacheDriver('array')->rememberForever()->first(array('email'))->email }}
                 </p>
                 <p>
-                    <strong>Event Created:</strong> <abbr class="timeago" title="{{ $event->created_at->toISO8601String() }}">{{ $event->created_at->toDateTimeString() }}</abbr>
+                    <strong>Event Created:</strong> {{ HTML::ago($event->created_at) }}
                 </p>
                 <p>
-                    <strong>Last Updated:</strong> <abbr class="timeago" title="{{ $event->updated_at->toISO8601String() }}">{{ $event->updated_at->toDateTimeString() }}</abbr>
+                    <strong>Last Updated:</strong> {{ HTML::ago($event->updated_at) }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="fa fa-times"></i> Delete Event</a>
             </div>

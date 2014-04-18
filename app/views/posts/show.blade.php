@@ -23,10 +23,10 @@
             <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
-                        <em>Post Created: <abbr class="timeago" title="{{ $post->created_at->toISO8601String() }}">{{ $post->created_at->toDateTimeString() }}</abbr></em>
+                        <em>Post Created: {{ HTML::ago($post->created_at) }}</em>
                     </p>
                     <p>
-                        <em>Last Updated: <abbr class="timeago" title="{{ $post->updated_at->toISO8601String() }}">{{ $post->updated_at->toDateTimeString() }}</abbr></em>
+                        <em>Last Updated: {{ HTML::ago($post->update_at) }}</em>
                     </p>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                     <strong>Post Creator:</strong> {{ $post->user()->cacheDriver('array')->rememberForever()->first(array('email'))->email }}
                 </p>
                 <p>
-                    <strong>Post Created:</strong> <abbr class="timeago" title="{{ $post->created_at->toISO8601String() }}">{{ $post->created_at->toDateTimeString() }}</abbr>
+                    <strong>Post Created:</strong> {{ HTML::ago($post->created_at) }}
                 </p>
                 <p>
-                    <strong>Last Updated:</strong> <abbr class="timeago" title="{{ $post->updated_at->toISO8601String() }}">{{ $post->updated_at->toDateTimeString() }}</abbr>
+                    <strong>Last Updated:</strong> {{ HTML::ago($post->updated_at) }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('blog.posts.edit', array('posts' => $post->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
             </div>
