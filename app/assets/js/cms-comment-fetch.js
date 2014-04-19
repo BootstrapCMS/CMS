@@ -189,7 +189,9 @@ function cmsCommentFetchWork() {
                 return;
             }
             if (xhr.responseJSON.url && xhr.responseJSON.code == 404) {
-                window.location.replace(xhr.responseJSON.url);
+                $("body").fadeOut(1000, function() {
+                    window.location.replace(xhr.responseJSON.url);
+                });
                 return;
             }
             cmsCommentLock = false;
