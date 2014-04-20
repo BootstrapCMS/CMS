@@ -162,7 +162,15 @@ class NavigationSubscriber
         if ($this->credentials->check()) {
             // add the admin links
             if ($this->credentials->hasAccess('admin')) {
+                if (class_exists('GrahamCampbell\LogViewer\LogViewerServiceProvider')) {
+                    $this->navigation->addMain(array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'), 'admin');
+                }
+
                 $this->navigation->addMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
+
+                if (class_exists('GrahamCampbell\CloudFlare\CloudFlareServiceProvider')) {
+                    $this->navigation->addMain(array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'), 'admin');
+                }
             }
         }
     }
@@ -220,7 +228,15 @@ class NavigationSubscriber
         if ($this->credentials->check()) {
             // add the admin links
             if ($this->credentials->hasAccess('admin')) {
+                if (class_exists('GrahamCampbell\LogViewer\LogViewerServiceProvider')) {
+                    $this->navigation->addBar(array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
+                }
+
                 $this->navigation->addBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
+
+                if (class_exists('GrahamCampbell\CloudFlare\CloudFlareServiceProvider')) {
+                    $this->navigation->addBar(array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'));
+                }
             }
         }
     }

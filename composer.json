@@ -32,16 +32,19 @@
         "graham-campbell/credentials": "0.2.*",
         "graham-campbell/navigation": "0.3.*",
         "graham-campbell/contact": "0.1.*",
+        "graham-campbell/logviewer": "0.1.*",
         "fideloper/proxy": "2.0.*",
         "barryvdh/laravel-debugbar": "1.6.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "0.3.*",
+        "graham-campbell/cloudflare": "0.1.*",
         "pda/pheanstalk": "2.1.*",
         "aws/aws-sdk-php": "2.6.*",
         "iron-io/iron_mq": "1.5.*"
     },
     "suggest": {
+        "graham-campbell/cloudflare": "Integration with CloudFlare.",
         "pda/pheanstalk": "Enables the beanstalk connector.",
         "aws/aws-sdk-php": "Enables the aws connector.",
         "iron-io/iron_mq": "Enables the iron connector."
