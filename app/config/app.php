@@ -134,6 +134,7 @@ return array(
         'GrahamCampbell\Credentials\CredentialsServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
         'GrahamCampbell\Contact\ContactServiceProvider',
+        'GrahamCampbell\LogViewer\LogViewerServiceProvider',
         'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
 

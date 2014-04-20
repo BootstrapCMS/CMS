@@ -38,7 +38,6 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "0.3.*",
-        "graham-campbell/cloudflare": "0.1.*",
         "pda/pheanstalk": "2.1.*",
         "aws/aws-sdk-php": "2.6.*",
         "iron-io/iron_mq": "1.5.*"
