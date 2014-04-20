@@ -35,7 +35,8 @@ return array(
     | Contact Form Email
     |--------------------------------------------------------------------------
     |
-    | This defines the email address to send contact form messages to.
+    | This defines the email address to send contact form messages to. It can
+    | be a single address, or an array of email addresses.
     |
     | Default to null.
     |

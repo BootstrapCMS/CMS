@@ -37,7 +37,7 @@ Route::get('testerror', array('as' => 'testerror', 'uses' => 'GrahamCampbell\Boo
 Route::get('/', array('as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
-    return Redirect::route('pages.show', array('pages' => 'home'));
+    return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
 }));
 
 

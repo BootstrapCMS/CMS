@@ -74,7 +74,7 @@ Route::filter('auth.basic', function () {
 
 Route::filter('guest', function () {
     if (!Request::ajax() && Auth::check()) {
-        return Redirect::intended(URL::route('pages.show', array('pages' => 'home')));
+        return Redirect::intended(URL::to(Config::get('graham-campbell/core::home', 'pages/home')));
     }
 });
 

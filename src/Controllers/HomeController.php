@@ -116,7 +116,7 @@ class HomeController extends AbstractController
     {
         $data = array(
             'view'    => 'emails.welcome',
-            'url'     => URL::route('pages.show', array('pages' => 'home')),
+            'url'     => URL::to(Config::get('graham-campbell/core::home', 'pages/home')),
             'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
             'email'   => $this->email,
             'subject' => $this->subject,

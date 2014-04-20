@@ -31,13 +31,13 @@ class BasicTest extends AbstractTestCase
     {
         $this->call('GET', '/');
 
-        $this->assertRedirectedToRoute('pages.show', array('pages' => 'home'));
+        $this->assertRedirectedTo('pages/home');
     }
 
     public function testBlog()
     {
         $this->call('GET', 'blog');
 
-        $this->assertRedirectedToRoute('blog.posts.index');
+        $this->assertRedirectedTo('blog/posts');
     }
 }

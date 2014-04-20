@@ -100,7 +100,7 @@ class PageController extends AbstractController
     {
         $this->session->flash('', ''); // work around laravel bug if there is no session yet
         $this->session->reflash();
-        return Redirect::route('pages.show', array('pages' => 'home'));
+        return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
     }
 
     /**
@@ -236,7 +236,7 @@ class PageController extends AbstractController
         }
 
         // write flash message and redirect
-        return Redirect::route('pages.show', array('pages' => 'home'))
+        return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'))
             ->with('success', 'Your page has been deleted successfully.');
     }
 
