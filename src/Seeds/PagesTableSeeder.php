@@ -55,6 +55,18 @@ class PagesTableSeeder extends Seeder
 
         DB::table('pages')->insert($home);
 
+        $contact = array(
+            'title' => 'Contact',
+            'slug'  => 'contact',
+            'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-contact.md')),
+            'user_id'    => 1,
+            'icon'       => 'envelope',
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
+        );
+
+        DB::table('pages')->insert($contact);
+
         $about = array(
             'title' => 'About',
             'slug'  => 'about',

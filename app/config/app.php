@@ -133,6 +133,7 @@ return array(
         'GrahamCampbell\Throttle\ThrottleServiceProvider',
         'GrahamCampbell\Credentials\CredentialsServiceProvider',
         'GrahamCampbell\Navigation\NavigationServiceProvider',
+        'GrahamCampbell\Contact\ContactServiceProvider',
         'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider'
 

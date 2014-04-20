@@ -52,7 +52,8 @@ Please check the system requirements before installing Bootstrap CMS.
 5. Run `php artisan app:install` to setup and seed your database.
 6. You will need to enter your mail server details into `app/config/mail.php`.
   * You can disable verification emails in `app/config/packages/graham-campbell/navigation/config.php`
-  * Mail is still required for other functions like password resets
+  * Mail is still required for other functions like password resets and the contact form
+  * You must set the contact email in `app/config/packages/graham-campbell/contact/config.php`
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
 7. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
