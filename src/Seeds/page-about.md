@@ -36,8 +36,9 @@ Please check the system requirements before installing Bootstrap CMS.
 4. Enter your database details into `app/config/databse.php`.
 5. Run `php artisan app:install` to setup and seed your database.
 6. You will need to enter your mail server details into `app/config/mail.php`.
-  * You can disable verification emails on registration in `app/config/cms.php`
-  * Mail is still required for other functions like password resets
+  * You can disable verification emails in `app/config/packages/graham-campbell/navigation/config.php`
+  * Mail is still required for other functions like password resets and the contact form
+  * You must set the contact email in `app/config/packages/graham-campbell/contact/config.php`
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
 7. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
@@ -59,7 +60,9 @@ Bootstrap CMS provides queuing functionality, and when enabled, requires 3 separ
   * These queues must be separate to avoid unexpected functionality
 
 Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud based.
-Also note that `sqs` support is not 100% complete and is mainly untested.
+Also note that `sqs` and `redis` support is not 100% complete and is mainly untested.
+
+For most uses, sync queuing will actually by sufficient because the queuing package will execute the jobs after the response has been sent (on application shutdown), so the end user will see no slowdown, we just won't be able to re-entry failed jobs.
 
 1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).
 2. Enter your queuing server details into `app/config/queue.php`.
@@ -81,16 +84,6 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 
 <br>
 
-## Setting Up Analytics
-
-Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analytics) (other services to come later).
-
-1. Setup a web property on [Google Analytics](http://www.google.com/analytics).
-2. Enter your tracking id into `app/config/analytics.php`.
-3. Enable Google Analytics in `app/config/analytics.php`.
-
-<br>
-
 ## Setting Up Themes
 
 Bootstrap CMS also ships with 17 themes, 15 from [Bootswatch](http://bootswatch.com).
@@ -98,6 +91,26 @@ Bootstrap CMS also ships with 17 themes, 15 from [Bootswatch](http://bootswatch.
 1. You can set your theme in `app/config/theme.php`.
 2. You can also set your nav bar style in `app/config/theme.php`.
 3. After making theme changes, you will have to run `php artisan app:update`.
+
+<br>
+
+## Setting Up Google Analytics
+
+Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analytics).
+
+1. Setup a web property on [Google Analytics](http://www.google.com/analytics).
+2. Enter your tracking id into `app/config/analytics.php`.
+3. Enable Google Analytics in `app/config/analytics.php`.
+
+<br>
+
+## Setting Up CloudFlare Analytics
+
+Bootstrap CMS can read [CloudFlare](https://www.cloudflare.com/) analytic data through a package.
+
+1. Follow the install instructions for my [Laravel CloudFlare](https://github.com/GrahamCampbell/Laravel-CloudFlare) package.
+2. Remember to add your credentials to `app/config/packages/graham-campbell/cloudflare-api/config.php`.
+3. Bootstrap CMS will auto-detect the package, only allow admin access, and add links to the navigation bar.
 
 <br>
 
