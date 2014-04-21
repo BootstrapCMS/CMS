@@ -14,7 +14,7 @@ CHANGE LOG
 * More unit tests
 
 
-## V0.7 Alpha (Upcoming)
+## V0.7 Alpha (21/04/2014)
 
 * Re-merge CMS Core and removed dependency
 * PHP 5.6 and partial HHVM compatibility
