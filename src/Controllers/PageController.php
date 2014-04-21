@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
 use GrahamCampbell\Binput\Classes\Binput;

@@ -17,6 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Config;
 use GrahamCampbell\Viewer\Classes\Viewer;
 use GrahamCampbell\Queuing\Classes\Queuing;
 use GrahamCampbell\Credentials\Classes\Credentials;
