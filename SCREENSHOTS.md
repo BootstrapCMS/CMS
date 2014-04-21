@@ -6,92 +6,98 @@ SCREENSHOTS
 ## Public Interface
 
 
-[![Public 1a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/1a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/1a.png)
+![Public 1](http://i.imgur.com/VXDlRZr.png)
 
 
-[![Public 1b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/1b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/1b.png)
+![Public 2](https://i.imgur.com/4iDECHD.png)
 
 
-[![Public 2a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/2a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/2a.png)
+![Public 3](https://i.imgur.com/yeSoeJH.png)
 
 
-[![Public 2b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/2b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/2b.png)
+![Public 4](https://i.imgur.com/r7L3n0d.png)
 
 
-[![Public 3a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/3a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/3a.png)
+![Public 5](https://i.imgur.com/0tEZ4et.png)
 
 
-[![Public 3b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/3b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/3b.png)
+![Public 6](https://i.imgur.com/lKl3DXA.png)
 
 
-[![Public 4a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4a.png)
+![Public 7](https://i.imgur.com/NN9klkr.png)
 
 
-[![Public 4b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4b.png)
+![Public 8](https://i.imgur.com/CoECVlc.png)
 
 
-[![Public 4c](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4c.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4c.png)
+![Public 9](https://i.imgur.com/54i1pRS.png)
 
 
-[![Public 4d](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4d.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/public/4d.png)
+![Public 10](https://i.imgur.com/CEhfykA.png)
+
+
+![Public 11](https://i.imgur.com/1Q0OkFl.png)
+
+
+![Public 12](https://i.imgur.com/e9TbZfD.png)
 
 
 
 ## Admin Interface
 
 
-[![Public 1a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/1a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/1a.png)
+![Admin 1](https://i.imgur.com/ZrF4f15.png)
 
 
-[![Public 1b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/1b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/1b.png)
+![Admin 2](https://i.imgur.com/co8lJey.png)
 
 
-[![Public 2a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2a.png)
+![Admin 3](https://i.imgur.com/2Ckn8aC.png)
 
 
-[![Public 2b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2b.png)
+![Admin 4](https://i.imgur.com/yRn7qJV.png)
 
 
-[![Public 2c](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2c.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2c.png)
+![Admin 5](https://i.imgur.com/3vtDU8i.png)
 
 
-[![Public 2d](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2d.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2d.png)
+![Admin 6](https://i.imgur.com/KzZCTXe.png)
 
 
-[![Public 2e](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2e.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2e.png)
+![Admin 7](https://i.imgur.com/f4nbr6y.png)
 
 
-[![Public 2f](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2f.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/2f.png)
+![Admin 8](https://i.imgur.com/Sp8yFMl.png)
 
 
-[![Public 3a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/3a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/3a.png)
+![Admin 9](https://i.imgur.com/ubPdZJf.png)
 
 
-[![Public 3b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/3b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/3b.png)
+![Admin 10](https://i.imgur.com/SZGmAsD.png)
 
 
-[![Public 3c](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/3c.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/3c.png)
+![Admin 11](https://i.imgur.com/D9520z1.png)
 
 
-[![Public 4a](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4a.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4a.png)
+![Admin 12](https://i.imgur.com/1CW0b62.png)
 
 
-[![Public 4b](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4b.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4b.png)
+![Admin 13](https://i.imgur.com/YLBKHaw.png)
 
 
-[![Public 4c](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4c.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4c.png)
+![Admin 14](https://i.imgur.com/0XTXHZZ.png)
 
 
-[![Public 4d](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4d.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4d.png)
+![Admin 15](https://i.imgur.com/NaGUb9h.png)
 
 
-[![Public 4e](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4e.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4e.png)
+![Admin 16](https://i.imgur.com/UDN89Sy.png)
 
 
-[![Public 4f](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4f.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4f.png)
+![Admin 17](https://i.imgur.com/JIvX90d.png)
 
 
-[![Public 4g](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4g.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4g.png)
+![Admin 18](https://i.imgur.com/UX8F8ui.png)
 
 
-[![Public 4h](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4h.png)](http://cdn.mineuk.com/cms/0.7-alpha-screenshots/admin/4h.png)
+![Admin 19](https://i.imgur.com/XfxsUKw.png)
