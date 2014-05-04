@@ -75,7 +75,7 @@
 <h3>Comments</h3>
 @if (Credentials::check() && Credentials::hasAccess('user'))
     <br>
-    <div class="row well well-sm">
+    <div class="well well-sm clearfix">
         {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->id)), 'method' => 'POST', 'class' => 'form-vertical')) }}
             <div class="form-group">
                 <div class="col-xs-12">
@@ -119,7 +119,7 @@
 @endif
 @if (Credentials::check() && Credentials::hasAccess('mod'))
 <div id="edit_comment" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
