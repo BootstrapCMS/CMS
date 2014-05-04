@@ -14,6 +14,11 @@ CHANGE LOG
 * More unit tests
 
 
+## V0.7.1 Alpha (Upcoming)
+
+* Blog comments fixes
+
+
 ## V0.7 Alpha (21/04/2014)
 
 * Re-merge CMS Core and removed dependency

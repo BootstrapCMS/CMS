@@ -20,7 +20,7 @@ use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
 use GrahamCampbell\Binput\Classes\Binput;
-use GrahamCampbell\HTMLMin\Classes\HTMLMin;
+use GrahamCampbell\Viewer\Classes\Viewer;
 use GrahamCampbell\BootstrapCMS\Providers\CommentProvider;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Classes\Credentials;
@@ -40,6 +40,13 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 class CommentController extends AbstractController
 {
     /**
+     * The viewer instance.
+     *
+     * @var \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    protected $viewer;
+
+    /**
      * The session instance.
      *
      * @var \Illuminate\Session\SessionManager
@@ -52,13 +59,6 @@ class CommentController extends AbstractController
      * @var \GrahamCampbell\Binput\Classes\Binput
      */
     protected $binput;
-
-    /**
-     * The htmlmin instance.
-     *
-     * @var \GrahamCampbell\HTMLMin\Classes\HTMLMin
-     */
-    protected $htmlmin;
 
     /**
      * The comment provider instance.
@@ -78,18 +78,18 @@ class CommentController extends AbstractController
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
      * @param  \Illuminate\Session\SessionManager  $session
      * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
-     * @param  \GrahamCampbell\HTMLMin\Classes\HTMLMin  $htmlmin
      * @param  \GrahamCampbell\BootstrapCMS\Providers\CommentProvider  $commentprovider
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, SessionManager $session, Binput $binput, HTMLMin $htmlmin, CommentProvider $commentprovider, PostProvider $postprovider)
+    public function __construct(Credentials $credentials, Viewer $viewer, SessionManager $session, Binput $binput, CommentProvider $commentprovider, PostProvider $postprovider)
     {
+        $this->viewer = $viewer;
         $this->session = $session;
         $this->binput = $binput;
-        $this->htmlmin = $htmlmin;
         $this->commentprovider = $commentprovider;
         $this->postprovider = $postprovider;
 
@@ -151,7 +151,7 @@ class CommentController extends AbstractController
 
         $comment = $this->commentprovider->create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->htmlmin->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_id' => $comment->id));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->viewer->getView()->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_id' => $comment->id));
     }
 
     /**
@@ -166,7 +166,7 @@ class CommentController extends AbstractController
         $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => $this->htmlmin->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id)), 'comment_text' => $this->htmlmin->render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $comment->version));
+        return Response::json(array('contents' => $this->viewer->getView()->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_text' => nl2br(e($comment->body)), 'comment_id' => $id, 'comment_ver' => $comment->version));
     }
 
     /**
@@ -201,7 +201,7 @@ class CommentController extends AbstractController
 
         $comment->update(array_merge($input, array('version' => $version)));
 
-        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => $this->htmlmin->render(nl2br(e($comment->body))),'comment_id' => $id, 'comment_ver' => $version));
+        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => nl2br(e($comment->body)),'comment_id' => $id, 'comment_ver' => $version));
     }
 
     /**
@@ -248,6 +248,16 @@ class CommentController extends AbstractController
     }
 
     /**
+     * Return the viewer instance.
+     *
+     * @return \GrahamCampbell\Viewer\Classes\Viewer
+     */
+    public function getViewer()
+    {
+        return $this->viewer;
+    }
+
+    /**
      * Return the session instance.
      *
      * @return \Illuminate\Session\SessionManager
@@ -265,16 +275,6 @@ class CommentController extends AbstractController
     public function getBinput()
     {
         return $this->binput;
-    }
-
-    /**
-     * Return the htmlmin instance.
-     *
-     * @return \GrahamCampbell\HTMLMin\Classes\HTMLMin
-     */
-    public function getHTMLMin()
-    {
-        return $this->htmlmin;
     }
 
     /**

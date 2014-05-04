@@ -243,13 +243,13 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CommentController', function ($app) {
             $credentials = $app['credentials'];
+            $viewer = $app['viewer'];
             $session = $app['session'];
             $binput = $app['binput'];
-            $htmlmin = $app['htmlmin'];
             $commentprovider = $app['commentprovider'];
             $postprovider = $app['postprovider'];
 
-            return new Controllers\CommentController($credentials, $session, $binput, $htmlmin, $commentprovider, $postprovider);
+            return new Controllers\CommentController($credentials, $viewer, $session, $binput, $commentprovider, $postprovider);
         });
     }
 

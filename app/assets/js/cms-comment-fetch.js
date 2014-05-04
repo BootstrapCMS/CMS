@@ -103,7 +103,7 @@ function cmsCommentFetchReplace() {
                 }
                 $("#comment_"+xhr.responseJSON.comment_id).data("ver", xhr.responseJSON.comment_ver);
                 $("#main_comment_"+xhr.responseJSON.comment_id).fadeOut(cmsCommentTime/2, function() {
-                    $(this).text(xhr.responseJSON.comment_text);
+                    $(this).html(xhr.responseJSON.comment_text);
                     $(this).fadeIn(cmsCommentTime/2, function() {
                         cmsCommentFetchData.splice(0, 1);
                         cmsCommentFetchReplace();

@@ -75,7 +75,7 @@
 <h3>Comments</h3>
 @if (Credentials::check() && Credentials::hasAccess('user'))
     <br>
-    <div class="row">
+    <div class="row well well-sm">
         {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->id)), 'method' => 'POST', 'class' => 'form-vertical')) }}
             <div class="form-group">
                 <div class="col-xs-12">
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-xs-12">
+                <div class="col-xs-12 comment-button">
                     <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
                 </div>
             </div>

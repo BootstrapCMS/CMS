@@ -94,6 +94,11 @@ body {
     resize: none;
 }
 
+.comment-button {
+    margin-top:15px;
+    margin-bottom:10px;
+}
+
 .carousel-fade .carousel-inner .item {
     opacity: 0;
     -webkit-transition-property: opacity;
