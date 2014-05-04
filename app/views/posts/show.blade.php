@@ -89,7 +89,6 @@
             </div>
         {{ Form::close() }}
     </div>
-    <br>
 @else
 <p>
     @if (Config::get('graham-campbell/credentials::regallowed'))
