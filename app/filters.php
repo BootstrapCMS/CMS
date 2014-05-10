@@ -108,12 +108,12 @@ Route::filter('csrf', function () {
 
 Route::filter('throttle.comment.store', function ($route, $request) {
     if (!Throttle::hit($request, 10, 1)->check()) {
-        throw new TooManyRequestsHttpException('Rate limit exceed.');
+        throw new TooManyRequestsHttpException(60, 'Rate limit exceed.');
     }
 });
 
 Route::filter('throttle.comment.update', function ($route, $request) {
     if (!Throttle::hit($request, 20, 1)->check()) {
-        throw new TooManyRequestsHttpException('Rate limit exceed.');
+        throw new TooManyRequestsHttpException(60, 'Rate limit exceed.');
     }
 });
