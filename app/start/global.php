@@ -101,6 +101,16 @@ App::error(function (Exception $exception, $code) {
             Log::error($exception);
     }
 
+    $headers = array();
+
+    try {
+        if ($exception instanceof Symfony\Component\HttpKernel\Exception\HttpExceptionInterface) {
+            $headers = (array) $exception->getHeaders();
+        }
+    } catch (Exception $e) {
+        $headers = array();
+    }
+
     try {
         switch ($code) {
             case 400:
@@ -193,7 +203,7 @@ App::error(function (Exception $exception, $code) {
                         'code' => $code,
                         'msg' => $message
                     );
-                    return Response::json($details, $code);
+                    return Response::json($details, $code, $headers);
                 }
                 if (Config::get('app.debug') === false) {
                     $details = array(
@@ -202,7 +212,7 @@ App::error(function (Exception $exception, $code) {
                         'message' => $message,
                         'extra' => 'Fatal Error'
                     );
-                    return Response::view(Config::get('views.error', 'error'), $details, $code);
+                    return Response::view(Config::get('views.error', 'error'), $details, $code, $headers);
                 }
         }
         if (Request::ajax()) {
@@ -211,7 +221,7 @@ App::error(function (Exception $exception, $code) {
                 'code' => $code,
                 'msg' => (!$exception->getMessage() || strlen($exception->getMessage()) > 100 || strlen($exception->getMessage()) < 5) ? $message : $exception->getMessage()
             );
-            return Response::json($details, $code);
+            return Response::json($details, $code, $headers);
         }
         if (Config::get('app.debug') === false) {
             $details = array(
@@ -220,7 +230,7 @@ App::error(function (Exception $exception, $code) {
                 'message' => $message,
                 'extra' => (!$exception->getMessage() || strlen($exception->getMessage()) > 35 || strlen($exception->getMessage()) < 5) ? 'Houston, We Have A Problem' : $exception->getMessage()
             );
-            return Response::view(Config::get('views.error', 'error'), $details, $code);
+            return Response::view(Config::get('views.error', 'error'), $details, $code, $headers);
         }
     } catch (Exception $e) {
         Log::critical($e);
