@@ -123,6 +123,42 @@ App::error(function (Exception $exception, $code) {
                 $name = 'Method Not Allowed';
                 $message = 'A request was made of a resource using a request method not supported by that resource.';
                 break;
+            case 406:
+                $name = 'Not Acceptable';
+                $message = 'The requested resource is only capable of generating content not acceptable.';
+                break;
+            case 409:
+                $name = 'Conflict';
+                $message = 'The request could not be processed because of conflict in the request.';
+                break;
+            case 410:
+                $name = 'Gone';
+                $message = 'The requested resource is no longer available and will not be available again.';
+                break;
+            case 411:
+                $name = 'Length Required';
+                $message = 'The request did not specify the length of its content, which is required by the requested resource.';
+                break;
+            case 412:
+                $name = 'Precondition Failed';
+                $message = 'The server does not meet one of the preconditions that the requester put on the request.';
+                break;
+            case 415:
+                $name = 'Unsupported Media Type';
+                $message = 'The request entity has a media type which the server or resource does not support.';
+                break;
+            case 422:
+                $name = 'Unprocessable Entity';
+                $message = 'The request was well-formed but was unable to be followed due to semantic errors.';
+                break;
+            case 428:
+                $name = 'Precondition Required';
+                $message = 'The origin server requires the request to be conditional.';
+                break;
+            case 429:
+                $name = 'Too Many Requests';
+                $message = 'The user has sent too many requests in a given amount of time.';
+                break;
             case 500:
                 $name = 'Internal Server Error';
                 $message = 'An error has occurred and this resource cannot be displayed.';

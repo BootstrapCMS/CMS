@@ -1,7 +1,7 @@
 <?php
 
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
@@ -108,12 +108,12 @@ Route::filter('csrf', function () {
 
 Route::filter('throttle.comment.store', function ($route, $request) {
     if (!Throttle::hit($request, 10, 1)->check()) {
-        throw new AccessDeniedHttpException('Rate limit exceed.');
+        throw new TooManyRequestsHttpException('Rate limit exceed.');
     }
 });
 
 Route::filter('throttle.comment.update', function ($route, $request) {
     if (!Throttle::hit($request, 20, 1)->check()) {
-        throw new AccessDeniedHttpException('Rate limit exceed.');
+        throw new TooManyRequestsHttpException('Rate limit exceed.');
     }
 });
