@@ -14,7 +14,7 @@ CHANGE LOG
 * More unit tests
 
 
-## V0.7.1 Alpha (Upcoming)
+## V0.7.1 Alpha (24/05/2014)
 
 * Blog comments fixes
 * Updated to use my blade auth helpers
