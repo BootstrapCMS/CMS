@@ -1,5 +1,5 @@
 <div id="comment_{{ $comment->id }}" class="well clearfix col-xs-12 animated bounceIn{{ rand(0, 1) ? 'Left': 'Right' }}" data-pk="{{ $comment->id }}" data-ver="{{ $comment->version }}">
-    @if (Credentials::check() && Credentials::hasAccess('mod'))
+    @auth('mod')
         <div class="col-md-9 col-sm-8">
             <p><strong>{{ $comment->user()->cacheDriver('array')->rememberForever()->first(array('first_name', 'last_name'))->getName() }}</strong> - {{ HTML::ago($comment->created_at, 'timeago_comment_'.$comment->id) }}</p>
             <p id="main_comment_{{ $comment->id }}" class="main">{{ nl2br(e($comment->body)) }}</p>
@@ -21,5 +21,5 @@
             <p><strong>{{ $comment->user()->cacheDriver('array')->rememberForever()->first(array('first_name', 'last_name'))->getName() }}</strong> - {{ HTML::ago($comment->created_at, 'timeago_comment_'.$comment->id) }}</p>
             <p id="main_comment_{{ $comment->id }}" class="main">{{ nl2br(e($comment->body)) }}</p>
         </div>
-    @endif
+    @endauth
 </div>

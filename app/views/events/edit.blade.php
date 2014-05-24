@@ -41,9 +41,9 @@ Edit {{{ $event->title }}}
 @stop
 
 @section('bottom')
-@if (Credentials::check() && Credentials::hasAccess('edit'))
+@auth('edit')
 @include('events.delete')
-@endif
+@endeuth
 @stop
 
 @section('css')
@@ -53,6 +53,6 @@ Edit {{{ $event->title }}}
 
 @section('js')
 {{ Asset::scripts('form') }}
-{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js') }}
 {{ Asset::scripts('picker') }}
 @stop

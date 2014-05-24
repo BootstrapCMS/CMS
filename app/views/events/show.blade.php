@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-@if (Credentials::check() && Credentials::hasAccess('edit'))
+@auth('edit')
     <div class="well clearfix">
         <div class="hidden-xs">
             <div class="col-xs-6">
@@ -47,7 +47,7 @@
         </div>
     </div>
     <hr>
-@endif
+@endauth
 <div class="well clearfix">
     <div class="hidden-xs">
         <div class="col-xs-6">
@@ -73,19 +73,19 @@
 @stop
 
 @section('bottom')
-@if (Credentials::check() && Credentials::hasAccess('edit'))
+@auth('edit')
 @include('events.delete')
-@endif
+@endauth
 @stop
 
 @section('css')
-@if (Credentials::check() && Credentials::hasAccess('mod'))
+@auth('mod')
 {{ Asset::styles('form') }}
-@endif
+@endauth
 @stop
 
 @section('js')
-@if (Credentials::check() && Credentials::hasAccess('mod'))
+@auth('mod')
 {{ Asset::scripts('form') }}
-@endif
+@endauth
 @stop

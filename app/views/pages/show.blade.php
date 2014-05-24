@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-@if (Credentials::check() && Credentials::hasAccess('edit'))
+@auth('edit')
     <div class="well clearfix">
         <div class="hidden-xs">
             <div class="col-xs-6">
@@ -49,7 +49,7 @@
         </div>
     </div>
     <hr>
-@endif
+@endauth
 @if (Config::get('cms.eval', false))
 <?php eval('?>'.$page->body); ?>
 @else
@@ -58,9 +58,9 @@
 @stop
 
 @section('bottom')
-@if (Credentials::check() && Credentials::hasAccess('edit'))
+@auth('edit')
     @include('pages.delete')
-@endif
+@endauth
 @stop
 
 @section('css')

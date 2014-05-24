@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-@if (Credentials::check() && Credentials::hasAccess('blog'))
+@auth('blog')
     <div class="well clearfix">
         <div class="hidden-xs">
             <div class="col-xs-6">
@@ -47,7 +47,7 @@
         </div>
     </div>
     <hr>
-@endif
+@endauth
 
 <div class="row">
     <div class="hidden-xs">
@@ -73,7 +73,7 @@
 <br><hr>
 
 <h3>Comments</h3>
-@if (Credentials::check() && Credentials::hasAccess('user'))
+@auth('user')
     <br>
     <div class="well well-sm clearfix">
         {{ Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->id)), 'method' => 'POST', 'class' => 'form-vertical')) }}
@@ -97,7 +97,7 @@
         <strong>Please <a href="{{ URL::route('account.login') }}">login</a> to post a comment.</strong>
     @endif
 </p>
-@endif
+@endauth
 <br>
 
 <?php $post_id = $post->id; ?>
@@ -113,10 +113,10 @@
 @stop
 
 @section('bottom')
-@if (Credentials::check() && Credentials::hasAccess('blog'))
+@auth('blog')
 @include('posts.delete')
-@endif
-@if (Credentials::check() && Credentials::hasAccess('mod'))
+@endauth
+@auth('mod')
 <div id="edit_comment" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -143,11 +143,11 @@
         </div>
     </div>
 </div>
-@endif
+@endauth
 @stop
 
 @section('css')]
-{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css') }}
+{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css') }}
 {{ Asset::styles('form') }}
 @stop
 

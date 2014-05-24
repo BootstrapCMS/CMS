@@ -17,6 +17,8 @@ CHANGE LOG
 ## V0.7.1 Alpha (Upcoming)
 
 * Blog comments fixes
+* Updated to use my blade auth helpers
+* Updated assets
 
 
 ## V0.7 Alpha (21/04/2014)

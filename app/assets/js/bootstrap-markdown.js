@@ -1,5 +1,5 @@
 /* ===================================================
- * bootstrap-markdown.js v2.3.1
+ * bootstrap-markdown.js v2.4.0
  * http://github.com/toopay/bootstrap-markdown
  * ===================================================
  * Copyright 2013 Taufan Aditya
@@ -97,7 +97,7 @@
             btnGroupContainer.append('<button type="button" class="'
                                     +btnClass
                                     +' btn-default btn-sm" title="'
-                                    +button.title
+                                    +this.__localize(button.title)
                                     +'" tabindex="'
                                     +tabIndex
                                     +'" data-provider="'
@@ -109,7 +109,7 @@
                                     +'><span class="'
                                     +buttonIcon
                                     +'"></span> '
-                                    +btnText
+                                    +this.__localize(btnText)
                                     +'</button>')
 
             // Register handler and callback
@@ -131,7 +131,9 @@
           rowsVal = hasRows ? this.$textarea.attr('rows') : maxRows
 
       this.$textarea.attr('rows',rowsVal)
-      this.$textarea.css('resize','none')
+      if (this.$options.resize) {
+        this.$textarea.css('resize',this.$options.resize)
+      }
 
       this.$textarea
         .on('focus',    $.proxy(this.focus, this))
@@ -168,6 +170,19 @@
       e.preventDefault()
     }
 
+  , __localize: function(string) {
+      var messages = $.fn.markdown.messages,
+          language = this.$options.language
+      if (
+        typeof messages !== 'undefined' &&
+        typeof messages[language] !== 'undefined' &&
+        typeof messages[language][string] !== 'undefined'
+      ) {
+        return messages[language][string];
+      }
+      return string;
+    }
+
   , showEditor: function() {
       var instance = this,
           textarea,
@@ -193,14 +208,27 @@
                             'class': 'md-header btn-toolbar'
                             })
 
-        // Build the main buttons
-        if (options.buttons.length > 0) {
-          editorHeader = this.__buildButtons(options.buttons, editorHeader)
+        // Merge the main & additional button groups together
+        var allBtnGroups = []
+        if (options.buttons.length > 0) allBtnGroups = allBtnGroups.concat(options.buttons[0])
+        if (options.additionalButtons.length > 0) allBtnGroups = allBtnGroups.concat(options.additionalButtons[0])
+
+        // Reduce and/or reorder the button groups
+        if (options.reorderButtonGroups.length > 0) {
+          allBtnGroups = allBtnGroups
+              .filter(function(btnGroup) {
+                return options.reorderButtonGroups.indexOf(btnGroup.name) > -1
+              })
+              .sort(function(a, b) {
+                if (options.reorderButtonGroups.indexOf(a.name) < options.reorderButtonGroups.indexOf(b.name)) return -1
+                if (options.reorderButtonGroups.indexOf(a.name) > options.reorderButtonGroups.indexOf(b.name)) return 1
+                return 0
+              })
         }
 
-        // Build the additional buttons
-        if (options.additionalButtons.length > 0) {
-          editorHeader = this.__buildButtons(options.additionalButtons, editorHeader)
+        // Build the buttons
+        if (allBtnGroups.length > 0) {
+          editorHeader = this.__buildButtons([allBtnGroups], editorHeader)
         }
 
         editor.append(editorHeader)
@@ -252,21 +280,34 @@
                               +ns
                               +'" data-handler="'
                               +saveHandler
-                              +'"><i class="icon icon-white icon-ok"></i> Save</button>')
+                              +'"><i class="icon icon-white icon-ok"></i> '
+                              +this.__localize('Save')
+                              +'</button>')
 
           editor.append(editorFooter)
         }
 
-        // Set width/height
-        $.each(['height','width'],function(k,attr){
-          if (options[attr] != 'inherit') {
-            if (jQuery.isNumeric(options[attr])) {
-              editor.css(attr,options[attr]+'px')
-            } else {
-              editor.addClass(options[attr])
-            }
+        // Set width
+        if (options.width && options.width !== 'inherit') {
+          if (jQuery.isNumeric(options.width)) {
+            editor.css('display', 'table')
+            textarea.css('width', options.width + 'px')
+          } else {
+            editor.addClass(options.width)
           }
-        })
+        }
+
+        // Set height
+        if (options.height && options.height !== 'inherit') {
+          if (jQuery.isNumeric(options.height)) {
+            var height = options.height
+            if (editorHeader) height = Math.max(0, height - editorHeader.outerHeight())
+            if (editorFooter) height = Math.max(0, height - editorFooter.outerHeight())
+            textarea.css('height', height + 'px')
+          } else {
+            editor.addClass(options.height)
+          }
+        }
 
         // Reference
         this.$editor     = editor
@@ -333,6 +374,12 @@
         // Otherwise, just append it after textarea
         container.parent().append(replacementContainer)
       }
+
+      // Set the preview element dimensions
+      replacementContainer.css({
+        width: container.outerWidth() + 'px',
+        height: container.outerHeight() + 'px'
+      })
 
       // Hide the last-active textarea
       container.hide()
@@ -671,6 +718,8 @@
     })
   }
 
+  $.fn.markdown.messages = {}
+
   $.fn.markdown.defaults = {
     /* Editor Properties */
     autofocus: false,
@@ -678,7 +727,9 @@
     savable:false,
     width: 'inherit',
     height: 'inherit',
+    resize: 'none',
     iconlibrary: 'glyph',
+    language: 'en',
 
     /* Buttons Properties */
     buttons: [
@@ -687,14 +738,14 @@
         data: [{
           name: 'cmdBold',
           title: 'Bold',
-          icon: { glyph: 'glyphicon glyphicon-bold', fa: 'fa fa-bold' },
+          icon: { glyph: 'glyphicon glyphicon-bold', fa: 'fa fa-bold', 'fa-3': 'icon-bold' },
           callback: function(e){
             // Give/remove ** surround the selection
             var chunk, cursor, selected = e.getSelection(), content = e.getContent()
 
             if (selected.length == 0) {
               // Give extra word
-              chunk = 'strong text'
+              chunk = e.__localize('strong text')
             } else {
               chunk = selected.text
             }
@@ -716,14 +767,14 @@
         },{
           name: 'cmdItalic',
           title: 'Italic',
-          icon: { glyph: 'glyphicon glyphicon-italic', fa: 'fa fa-italic' },
+          icon: { glyph: 'glyphicon glyphicon-italic', fa: 'fa fa-italic', 'fa-3': 'icon-italic' },
           callback: function(e){
             // Give/remove * surround the selection
             var chunk, cursor, selected = e.getSelection(), content = e.getContent()
 
             if (selected.length == 0) {
               // Give extra word
-              chunk = 'emphasized text'
+              chunk = e.__localize('emphasized text')
             } else {
               chunk = selected.text
             }
@@ -745,14 +796,14 @@
         },{
           name: 'cmdHeading',
           title: 'Heading',
-          icon: { glyph: 'glyphicon glyphicon-header', fa: 'fa fa-font' },
+          icon: { glyph: 'glyphicon glyphicon-header', fa: 'fa fa-font', 'fa-3': 'icon-font' },
           callback: function(e){
             // Append/remove ### surround the selection
             var chunk, cursor, selected = e.getSelection(), content = e.getContent(), pointer, prevChar
 
             if (selected.length == 0) {
               // Give extra word
-              chunk = 'heading text'
+              chunk = e.__localize('heading text')
             } else {
               chunk = selected.text + '\n';
             }
@@ -781,19 +832,19 @@
         data: [{
           name: 'cmdUrl',
           title: 'URL/Link',
-          icon: { glyph: 'glyphicon glyphicon-globe', fa: 'fa fa-globe' },
+          icon: { glyph: 'glyphicon glyphicon-globe', fa: 'fa fa-globe', 'fa-3': 'icon-globe' },
           callback: function(e){
             // Give [] surround the selection and prepend the link
             var chunk, cursor, selected = e.getSelection(), content = e.getContent(), link
 
             if (selected.length == 0) {
               // Give extra word
-              chunk = 'enter link description here'
+              chunk = e.__localize('enter link description here')
             } else {
               chunk = selected.text
             }
 
-            link = prompt('Insert Hyperlink','http://')
+            link = prompt(e.__localize('Insert Hyperlink'),'http://')
 
             if (link != null && link != '' && link != 'http://') {
               // transform selection and set the cursor into chunked text
@@ -807,27 +858,27 @@
         },{
           name: 'cmdImage',
           title: 'Image',
-          icon: { glyph: 'glyphicon glyphicon-picture', fa: 'fa fa-picture-o' },
+          icon: { glyph: 'glyphicon glyphicon-picture', fa: 'fa fa-picture-o', 'fa-3': 'icon-picture' },
           callback: function(e){
             // Give ![] surround the selection and prepend the image link
             var chunk, cursor, selected = e.getSelection(), content = e.getContent(), link
 
             if (selected.length == 0) {
               // Give extra word
-              chunk = 'enter image description here'
+              chunk = e.__localize('enter image description here')
             } else {
               chunk = selected.text
             }
 
-            link = prompt('Insert Image Hyperlink','http://')
+            link = prompt(e.__localize('Insert Image Hyperlink'),'http://')
 
             if (link != null) {
               // transform selection and set the cursor into chunked text
-              e.replaceSelection('!['+chunk+']('+link+' "enter image title here")')
+              e.replaceSelection('!['+chunk+']('+link+' "'+e.__localize('enter image title here')+'")')
               cursor = selected.start+2
 
               // Set the next tab
-              e.setNextTab('enter image title here')
+              e.setNextTab(e.__localize('enter image title here'))
 
               // Set the cursor
               e.setSelection(cursor,cursor+chunk.length)
@@ -839,7 +890,7 @@
         data: [{
           name: 'cmdList',
           title: 'List',
-          icon: { glyph: 'glyphicon glyphicon-list', fa: 'fa fa-list' },
+          icon: { glyph: 'glyphicon glyphicon-list', fa: 'fa fa-list', 'fa-3': 'icon-list-ul' },
           callback: function(e){
             // Prepend/Give - surround the selection
             var chunk, cursor, selected = e.getSelection(), content = e.getContent()
@@ -847,7 +898,7 @@
             // transform selection and set the cursor into chunked text
             if (selected.length == 0) {
               // Give extra word
-              chunk = 'list text here'
+              chunk = e.__localize('list text here')
 
               e.replaceSelection('- '+chunk)
 
@@ -892,7 +943,7 @@
           title: 'Preview',
           btnText: 'Preview',
           btnClass: 'btn btn-primary btn-sm',
-          icon: { glyph: 'glyphicon glyphicon-search', fa: 'fa fa-search' },
+          icon: { glyph: 'glyphicon glyphicon-search', fa: 'fa fa-search', 'fa-3': 'icon-search' },
           callback: function(e){
             // Check the preview mode and toggle based on this flag
             var isPreview = e.$isPreview,content
@@ -908,6 +959,7 @@
       }]
     ],
     additionalButtons:[], // Place to hook more buttons by code
+    reorderButtonGroups:[],
 
     /* Events hook */
     onShow: function (e) {},

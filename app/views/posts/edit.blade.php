@@ -40,9 +40,9 @@ Edit {{{ $post->title }}}
 @stop
 
 @section('bottom')
-@if (Credentials::check() && Credentials::hasAccess('blog'))
+@auth('blog')
     @include('posts.delete')
-@endif
+@endauth
 @stop
 
 @section('css')

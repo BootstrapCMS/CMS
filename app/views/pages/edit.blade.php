@@ -44,9 +44,9 @@ Edit {{{ $page->title }}}
 @stop
 
 @section('bottom')
-@if (Credentials::check() && Credentials::hasAccess('edit'))
+@auth('edit')
     @include('pages.delete')
-@endif
+@endauth
 @stop
 
 @section('css')
