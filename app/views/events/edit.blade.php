@@ -43,7 +43,7 @@ Edit {{{ $event->title }}}
 @section('bottom')
 @auth('edit')
 @include('events.delete')
-@endeuth
+@endauth
 @stop
 
 @section('css')
