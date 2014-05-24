@@ -151,7 +151,7 @@ class CommentController extends AbstractController
 
         $comment = $this->commentprovider->create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->viewer->getView()->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_id' => $comment->id));
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->viewer->getView()->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_id' => $comment->id), 201);
     }
 
     /**
