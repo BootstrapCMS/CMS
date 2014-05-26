@@ -37,8 +37,8 @@ class AddStuffToPages extends Migration
     public function up()
     {
         Schema::table('pages', function ($table) {
-            $table->text('css')->default('');
-            $table->text('js')->default('');
+            $table->text('css')->nullable();
+            $table->text('js')->nullable();
         });
 
         foreach (PageProvider::all() as $page) {
