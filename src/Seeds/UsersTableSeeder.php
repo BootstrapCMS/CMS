@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Seeds;
 
-use DateTime;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use GrahamCampbell\Credentials\Facades\Credentials;
@@ -47,7 +47,7 @@ class UsersTableSeeder extends Seeder
             'email'        => 'admin@dsmg.co.uk',
             'password'     => 'password',
             'activated'    => 1,
-            'activated_at' => new DateTime
+            'activated_at' => Carbon::now()
         );
         Credentials::getUserProvider()->create($user);
 
@@ -57,7 +57,7 @@ class UsersTableSeeder extends Seeder
             'email'        => 'semiadmin@dsmg.co.uk',
             'password'     => 'password',
             'activated'    => 1,
-            'activated_at' => new DateTime
+            'activated_at' => Carbon::now()
         );
         Credentials::getUserProvider()->create($user);
 
@@ -67,7 +67,7 @@ class UsersTableSeeder extends Seeder
             'email'        => 'moderator@dsmg.co.uk',
             'password'     => 'password',
             'activated'    => 1,
-            'activated_at' => new DateTime
+            'activated_at' => Carbon::now()
         );
         Credentials::getUserProvider()->create($user);
 
@@ -77,7 +77,7 @@ class UsersTableSeeder extends Seeder
             'email'        => 'blogger@dsmg.co.uk',
             'password'     => 'password',
             'activated'    => 1,
-            'activated_at' => new DateTime
+            'activated_at' => Carbon::now()
         );
         Credentials::getUserProvider()->create($user);
 
@@ -87,7 +87,7 @@ class UsersTableSeeder extends Seeder
             'email'        => 'editor@dsmg.co.uk',
             'password'     => 'password',
             'activated'    => 1,
-            'activated_at' => new DateTime
+            'activated_at' => Carbon::now()
         );
         Credentials::getUserProvider()->create($user);
 
@@ -97,7 +97,7 @@ class UsersTableSeeder extends Seeder
             'email'        => 'user@dsmg.co.uk',
             'password'     => 'password',
             'activated'    => 1,
-            'activated_at' => new DateTime
+            'activated_at' => Carbon::now()
         );
         Credentials::getUserProvider()->create($user);
     }

@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Seeds;
 
-use DateTime;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -49,8 +49,8 @@ class PagesTableSeeder extends Seeder
             'show_title' => false,
             'icon'       => 'home',
             'user_id'    => 1,
-            'created_at' => new DateTime,
-            'updated_at' => new DateTime
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         );
 
         DB::table('pages')->insert($home);
@@ -61,8 +61,8 @@ class PagesTableSeeder extends Seeder
             'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-contact.md')),
             'user_id'    => 1,
             'icon'       => 'envelope',
-            'created_at' => new DateTime,
-            'updated_at' => new DateTime
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         );
 
         DB::table('pages')->insert($contact);
@@ -73,8 +73,8 @@ class PagesTableSeeder extends Seeder
             'body'  => '<div class="row"><div class="col-lg-8">'.Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>',
             'user_id'    => 1,
             'icon'       => 'info-circle',
-            'created_at' => new DateTime,
-            'updated_at' => new DateTime
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         );
 
         DB::table('pages')->insert($about);

@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Seeds;
 
-use DateTime;
+
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -49,8 +49,8 @@ class EventsTableSeeder extends Seeder
             'location'   => 'Example Location',
             'body'       => 'This is an example event.',
             'user_id'    => 1,
-            'created_at' => new DateTime,
-            'updated_at' => new DateTime
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         );
 
         DB::table('events')->insert($event);
