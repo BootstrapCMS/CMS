@@ -14,7 +14,7 @@ CHANGE LOG
 * More unit tests
 
 
-## V0.7.2 Alpha (Upcoming)
+## V0.7.2 Alpha (26/05/2014)
 
 * Fixed database issues
 
