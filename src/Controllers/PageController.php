@@ -125,10 +125,12 @@ class PageController extends AbstractController
             'title'      => $this->binput->get('title'),
             'slug'       => urlencode(strtolower(str_replace(' ', '-', $this->binput->get('title')))),
             'body'       => $this->binput->get('body', null, true, false), // no xss protection please
+            'css'        => $this->binput->get('css', null, true, false), // no xss protection please
+            'js'         => $this->binput->get('js', null, true, false), // no xss protection please
             'show_title' => ($this->binput->get('show_title') == 'on'),
             'show_nav'   => ($this->binput->get('show_nav') == 'on'),
             'icon'       => $this->binput->get('icon'),
-            'user_id'    => $this->getUserId(),
+            'user_id'    => $this->getUserId()
         );
 
         $val = $this->pageprovider->validate($input, array_keys($input));
@@ -187,7 +189,7 @@ class PageController extends AbstractController
             'js'         => $this->binput->get('js', null, true, false), // no xss protection please
             'show_title' => ($this->binput->get('show_title') == 'on'),
             'show_nav'   => ($this->binput->get('show_nav') == 'on'),
-            'icon'       => $this->binput->get('icon'),
+            'icon'       => $this->binput->get('icon')
         );
 
         if (is_null($input['css']) || empty($input['css'])) {

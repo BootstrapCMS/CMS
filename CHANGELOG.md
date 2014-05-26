@@ -14,6 +14,11 @@ CHANGE LOG
 * More unit tests
 
 
+## V0.7.2 Alpha (Upcoming)
+
+* Fixed database issues
+
+
 ## V0.7.1 Alpha (24/05/2014)
 
 * Blog comments fixes
