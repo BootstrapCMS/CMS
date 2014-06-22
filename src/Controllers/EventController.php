@@ -17,11 +17,11 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Carbon\Carbon;
+use Illuminate\View\Factory;
 use Illuminate\Support\Facades\Redirect;
-use GrahamCampbell\Binput\Classes\Binput;
-use GrahamCampbell\Viewer\Classes\Viewer;
+use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\EventProvider;
-use GrahamCampbell\Credentials\Classes\Credentials;
+use GrahamCampbell\Credentials\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -36,16 +36,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class EventController extends AbstractController
 {
     /**
-     * The viewer instance.
-     *
-     * @var \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    protected $viewer;
-
-    /**
      * The binput instance.
      *
-     * @var \GrahamCampbell\Binput\Classes\Binput
+     * @var \GrahamCampbell\Binput\Binput
      */
     protected $binput;
 
@@ -59,15 +52,14 @@ class EventController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
-     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
-     * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
+     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
+     * @param  \Illuminate\View\Factory  $view
+     * @param  \GrahamCampbell\Binput\Binput  $binput
      * @param  \GrahamCampbell\BootstrapCMS\Providers\EventProvider  $eventprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer, Binput $binput, EventProvider $eventprovider)
+    public function __construct(Credentials $credentials, Factory $view, Binput $binput, EventProvider $eventprovider)
     {
-        $this->viewer = $viewer;
         $this->binput = $binput;
         $this->eventprovider = $eventprovider;
 
@@ -79,7 +71,7 @@ class EventController extends AbstractController
             'destroy' => 'edit',
         ));
 
-        parent::__construct($credentials);
+        parent::__construct($credentials, $view);
     }
 
     /**
@@ -92,7 +84,7 @@ class EventController extends AbstractController
         $events = $this->eventprovider->paginate();
         $links = $this->eventprovider->links();
 
-        return $this->viewer->make('events.index', array('events' => $events, 'links' => $links));
+        return $this->view->make('events.index', array('events' => $events, 'links' => $links));
     }
 
     /**
@@ -102,7 +94,7 @@ class EventController extends AbstractController
      */
     public function create()
     {
-        return $this->viewer->make('events.create');
+        return $this->view->make('events.create');
     }
 
     /**
@@ -140,7 +132,7 @@ class EventController extends AbstractController
         $event = $this->eventprovider->find($id);
         $this->checkEvent($event);
 
-        return $this->viewer->make('events.show', array('event' => $event));
+        return $this->view->make('events.show', array('event' => $event));
     }
 
     /**
@@ -154,7 +146,7 @@ class EventController extends AbstractController
         $event = $this->eventprovider->find($id);
         $this->checkEvent($event);
 
-        return $this->viewer->make('events.edit', array('event' => $event));
+        return $this->view->make('events.edit', array('event' => $event));
     }
 
     /**
@@ -214,19 +206,9 @@ class EventController extends AbstractController
     }
 
     /**
-     * Return the viewer instance.
-     *
-     * @return \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    public function getViewer()
-    {
-        return $this->viewer;
-    }
-
-    /**
      * Return the binput instance.
      *
-     * @return \GrahamCampbell\Binput\Classes\Binput
+     * @return \GrahamCampbell\Binput\Binput
      */
     public function getBinput()
     {

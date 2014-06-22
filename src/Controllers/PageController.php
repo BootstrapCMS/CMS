@@ -16,13 +16,13 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\View\Factory;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Redirect;
-use GrahamCampbell\Binput\Classes\Binput;
-use GrahamCampbell\Viewer\Classes\Viewer;
+use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
-use GrahamCampbell\Credentials\Classes\Credentials;
+use GrahamCampbell\Credentials\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -37,13 +37,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PageController extends AbstractController
 {
     /**
-     * The viewer instance.
-     *
-     * @var \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    protected $viewer;
-
-    /**
      * The session instance.
      *
      * @var \Illuminate\Session\SessionManager
@@ -53,7 +46,7 @@ class PageController extends AbstractController
     /**
      * The binput instance.
      *
-     * @var \GrahamCampbell\Binput\Classes\Binput
+     * @var \GrahamCampbell\Binput\Binput
      */
     protected $binput;
 
@@ -67,16 +60,15 @@ class PageController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
-     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
+     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
+     * @param  \Illuminate\View\Factory  $view
      * @param  \Illuminate\Session\SessionManager  $session
-     * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
+     * @param  \GrahamCampbell\Binput\Binput  $binput
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer, SessionManager $session, Binput $binput, PageProvider $pageprovider)
+    public function __construct(Credentials $credentials, Factory $view, SessionManager $session, Binput $binput, PageProvider $pageprovider)
     {
-        $this->viewer = $viewer;
         $this->session = $session;
         $this->binput = $binput;
         $this->pageprovider = $pageprovider;
@@ -89,7 +81,7 @@ class PageController extends AbstractController
             'destroy' => 'edit',
         ));
 
-        parent::__construct($credentials);
+        parent::__construct($credentials, $view);
     }
 
     /**
@@ -111,7 +103,7 @@ class PageController extends AbstractController
      */
     public function create()
     {
-        return $this->viewer->make('pages.create');
+        return $this->view->make('pages.create');
     }
 
     /**
@@ -156,7 +148,7 @@ class PageController extends AbstractController
         $page = $this->pageprovider->find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->viewer->make('pages.show', array('page' => $page));
+        return $this->view->make('pages.show', array('page' => $page));
     }
 
     /**
@@ -170,7 +162,7 @@ class PageController extends AbstractController
         $page = $this->pageprovider->find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->viewer->make('pages.edit', array('page' => $page));
+        return $this->view->make('pages.edit', array('page' => $page));
     }
 
     /**
@@ -284,16 +276,6 @@ class PageController extends AbstractController
     }
 
     /**
-     * Return the viewer instance.
-     *
-     * @return \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    public function getViewer()
-    {
-        return $this->viewer;
-    }
-
-    /**
      * Return the session instance.
      *
      * @return \Illuminate\Session\SessionManager
@@ -306,7 +288,7 @@ class PageController extends AbstractController
     /**
      * Return the binput instance.
      *
-     * @return \GrahamCampbell\Binput\Classes\Binput
+     * @return \GrahamCampbell\Binput\Binput
      */
     public function getBinput()
     {

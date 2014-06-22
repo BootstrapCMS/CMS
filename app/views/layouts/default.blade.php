@@ -1,3 +1,4 @@
+@navtype('default')
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
 <div id="wrap">
-{{ $navigation }}
+@navigation
 <div class="container">
 @section('top')
 @show

@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\View\Factory;
 use Illuminate\Support\Facades\Redirect;
-use GrahamCampbell\Binput\Classes\Binput;
-use GrahamCampbell\Viewer\Classes\Viewer;
+use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
-use GrahamCampbell\Credentials\Classes\Credentials;
+use GrahamCampbell\Credentials\Credentials;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -35,16 +35,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PostController extends AbstractController
 {
     /**
-     * The viewer instance.
-     *
-     * @var \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    protected $viewer;
-
-    /**
      * The binput instance.
      *
-     * @var \GrahamCampbell\Binput\Classes\Binput
+     * @var \GrahamCampbell\Binput\Binput
      */
     protected $binput;
 
@@ -58,15 +51,14 @@ class PostController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
-     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
-     * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
+     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
+     * @param  \Illuminate\View\Factory  $view
+     * @param  \GrahamCampbell\Binput\Binput  $binput
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer, Binput $binput, PostProvider $postprovider)
+    public function __construct(Credentials $credentials, Factory $view, Binput $binput, PostProvider $postprovider)
     {
-        $this->viewer = $viewer;
         $this->binput = $binput;
         $this->postprovider = $postprovider;
 
@@ -78,7 +70,7 @@ class PostController extends AbstractController
             'destroy' => 'blog',
         ));
 
-        parent::__construct($credentials);
+        parent::__construct($credentials, $view);
     }
 
     /**
@@ -91,7 +83,7 @@ class PostController extends AbstractController
         $posts = $this->postprovider->paginate();
         $links = $this->postprovider->links();
 
-        return $this->viewer->make('posts.index', array('posts' => $posts, 'links' => $links));
+        return $this->view->make('posts.index', array('posts' => $posts, 'links' => $links));
     }
 
     /**
@@ -101,7 +93,7 @@ class PostController extends AbstractController
      */
     public function create()
     {
-        return $this->viewer->make('posts.create');
+        return $this->view->make('posts.create');
     }
 
     /**
@@ -139,7 +131,7 @@ class PostController extends AbstractController
 
         $comments = $post->comments()->orderBy('id', 'desc')->get();
 
-        return $this->viewer->make('posts.show', array('post' => $post, 'comments' => $comments));
+        return $this->view->make('posts.show', array('post' => $post, 'comments' => $comments));
     }
 
     /**
@@ -153,7 +145,7 @@ class PostController extends AbstractController
         $post = $this->postprovider->find($id);
         $this->checkPost($post);
 
-        return $this->viewer->make('posts.edit', array('post' => $post));
+        return $this->view->make('posts.edit', array('post' => $post));
     }
 
     /**
@@ -211,19 +203,9 @@ class PostController extends AbstractController
     }
 
     /**
-     * Return the viewer instance.
-     *
-     * @return \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    public function getViewer()
-    {
-        return $this->viewer;
-    }
-
-    /**
      * Return the binput instance.
      *
-     * @return \GrahamCampbell\Binput\Classes\Binput
+     * @return \GrahamCampbell\Binput\Binput
      */
     public function getBinput()
     {

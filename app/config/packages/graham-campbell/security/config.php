@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of Laravel Credentials by Graham Campbell.
+ * This file is part of Laravel Security by Graham Campbell.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,28 +18,13 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Enable Public Registration
+    | Evil attributes
     |--------------------------------------------------------------------------
     |
-    | This defines if public registration is allowed.
-    |
-    | Default to true.
+    | This defines the evil attributes and they will be always be removed from
+    | the input.
     |
     */
-
-    'regallowed' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Require Account Activation
-    |--------------------------------------------------------------------------
-    |
-    | This defines if public registration requires email activation.
-    |
-    | Default to true.
-    |
-    */
-
-    'activation' => true
+    'evil' => array('on\w*', 'style', 'xmlns', 'formaction', 'form', 'xlink:href')
 
 );

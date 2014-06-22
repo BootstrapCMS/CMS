@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\Core\Models\AbstractModel;
-use GrahamCampbell\Core\Models\Interfaces\DateModelInterface;
-use GrahamCampbell\Core\Models\Common\DateModelTrait;
+use GrahamCampbell\Database\Models\AbstractModel;
+use GrahamCampbell\Database\Models\Interfaces\DateModelInterface;
+use GrahamCampbell\Database\Models\Common\DateModelTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToManyUsersInterface;

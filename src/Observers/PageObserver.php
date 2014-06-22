@@ -32,6 +32,7 @@ class PageObserver
     /**
      * Handle a page creation.
      *
+     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
      * @return void
      */
     public function created($page = null)

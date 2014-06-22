@@ -18,21 +18,17 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reminder Language Lines
+    | Default Queue Driver
     |--------------------------------------------------------------------------
     |
-    | The following language lines are the default lines which match reasons
-    | that are given by the password broker for a password update attempt
-    | has failed, such as for an invalid token or invalid new password.
+    | The Laravel queue API supports a variety of back-ends via an unified
+    | API, giving you convenient access to each back-end using the same
+    | syntax for each one. Here you may set the default queue driver.
+    |
+    | Supported: "sync", "beanstalkd", "sqs", "iron", "redis"
     |
     */
 
-    "password" => "Passwords must be at least six characters and match the confirmation.",
-
-    "user"     => "We can't find a user with that e-mail address.",
-
-    "token"    => "This password reset token is invalid.",
-
-    "sent"     => "Password reminder sent!",
+    'default' => 'sync'
 
 );

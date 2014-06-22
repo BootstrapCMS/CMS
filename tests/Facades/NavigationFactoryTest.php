@@ -14,12 +14,13 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Handlers;
+namespace GrahamCampbell\Tests\BootstrapCMS\Facades;
 
-use GrahamCampbell\Queuing\Handlers\AbstractHandler;
+use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
+use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 
 /**
- * This is the test handler class.
+ * This is the navigation factory facade test class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -27,15 +28,37 @@ use GrahamCampbell\Queuing\Handlers\AbstractHandler;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class TestHandler extends AbstractHandler
+class NavigationFactoryTest extends AbstractTestCase
 {
+    use FacadeTestCaseTrait;
+
     /**
-     * Run the task (called by AbstractHandler).
+     * Get the facade accessor.
      *
-     * @return void
+     * @return string
      */
-    protected function run()
+    protected function getFacadeAccessor()
     {
-        throw new \Exception('TestHandler Error Test!');
+        return 'navfactory';
+    }
+
+    /**
+     * Get the facade class.
+     *
+     * @return string
+     */
+    protected function getFacadeClass()
+    {
+        return 'GrahamCampbell\BootstrapCMS\Facades\NavigationFactory';
+    }
+
+    /**
+     * Get the facade route.
+     *
+     * @return string
+     */
+    protected function getFacadeRoot()
+    {
+        return 'GrahamCampbell\BootstrapCMS\Navigation\Factory';
     }
 }

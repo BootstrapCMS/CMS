@@ -17,30 +17,30 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "laravel/framework": "4.1.*",
-        "symfony/config": "2.4.*",
-        "symfony/event-dispatcher": "2.4.*",
-        "symfony/filesystem": "2.4.*",
+        "laravel/framework": "4.2.*",
+        "symfony/config": "2.5.*",
+        "symfony/event-dispatcher": "2.5.*",
+        "symfony/filesystem": "2.5.*",
         "lightgear/asset": "1.4",
-        "graham-campbell/core": "0.3.*",
-        "graham-campbell/viewer": "0.2.*",
-        "graham-campbell/queuing": "0.3.*",
-        "graham-campbell/htmlmin": "1.1.*",
-        "graham-campbell/markdown": "1.1.*",
-        "graham-campbell/binput": "1.1.*",
-        "graham-campbell/throttle": "0.2.*",
-        "graham-campbell/credentials": "0.2.*",
-        "graham-campbell/navigation": "0.3.*",
-        "graham-campbell/contact": "0.1.*",
-        "graham-campbell/logviewer": "0.1.*",
+        "graham-campbell/core": "0.4.*",
+        "graham-campbell/database": "0.1.*",
+        "graham-campbell/queuing": "0.4.*",
+        "graham-campbell/htmlmin": "~2.0",
+        "graham-campbell/markdown": "~2.0",
+        "graham-campbell/binput": "~2.0",
+        "graham-campbell/throttle": "~1.0",
+        "graham-campbell/credentials": "0.3.*",
+        "graham-campbell/navigation": "0.4.*",
+        "graham-campbell/contact": "0.2.*",
+        "graham-campbell/logviewer": "0.2.*",
         "fideloper/proxy": "2.0.*",
         "barryvdh/laravel-debugbar": "1.6.*"
     },
     "require-dev": {
-        "graham-campbell/testbench": "0.3.*",
-        "pda/pheanstalk": "2.1.*",
-        "aws/aws-sdk-php": "2.6.*",
-        "iron-io/iron_mq": "1.5.*"
+        "graham-campbell/testbench": "~1.0",
+        "pda/pheanstalk": "~2.1",
+        "aws/aws-sdk-php": "~2.4",
+        "iron-io/iron_mq": "~1.4"
     },
     "suggest": {
         "graham-campbell/cloudflare": "Integration with CloudFlare.",
@@ -83,7 +83,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.7-dev"
+            "dev-develop": "0.8-dev"
         }
     },
     "minimum-stability": "dev",

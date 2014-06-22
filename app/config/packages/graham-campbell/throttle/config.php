@@ -18,19 +18,6 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Throttler Class
-    |--------------------------------------------------------------------------
-    |
-    | This defines the throttler class to be used.
-    |
-    | Default: 'GrahamCampbell\Throttle\Throttlers\CacheThrottler'
-    |
-    */
-
-    'throttler' => 'GrahamCampbell\Throttle\Throttlers\CacheThrottler',
-
-    /*
-    |--------------------------------------------------------------------------
     | Cache Driver
     |--------------------------------------------------------------------------
     |

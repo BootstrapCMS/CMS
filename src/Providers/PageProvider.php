@@ -17,11 +17,11 @@
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
 use Illuminate\Support\Facades\Cache;
-use GrahamCampbell\Core\Providers\AbstractProvider;
-use GrahamCampbell\Core\Providers\Interfaces\PaginateProviderInterface;
-use GrahamCampbell\Core\Providers\Common\PaginateProviderTrait;
-use GrahamCampbell\Core\Providers\Interfaces\SlugProviderInterface;
-use GrahamCampbell\Core\Providers\Common\SlugProviderTrait;
+use GrahamCampbell\Database\Providers\AbstractProvider;
+use GrahamCampbell\Database\Providers\Interfaces\PaginateProviderInterface;
+use GrahamCampbell\Database\Providers\Common\PaginateProviderTrait;
+use GrahamCampbell\Database\Providers\Interfaces\SlugProviderInterface;
+use GrahamCampbell\Database\Providers\Common\SlugProviderTrait;
 
 /**
  * This is the page provider class.

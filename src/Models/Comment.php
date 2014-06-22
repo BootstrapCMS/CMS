@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\Core\Models\AbstractModel;
+use GrahamCampbell\Database\Models\AbstractModel;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToPostInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToPostTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;

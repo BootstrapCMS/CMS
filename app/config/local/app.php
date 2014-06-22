@@ -18,21 +18,28 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reminder Language Lines
+    | Application Debug Mode
     |--------------------------------------------------------------------------
     |
-    | The following language lines are the default lines which match reasons
-    | that are given by the password broker for a password update attempt
-    | has failed, such as for an invalid token or invalid new password.
+    | When your application is in debug mode, detailed error messages with
+    | stack traces will be shown on every error that occurs within your
+    | application. If disabled, a simple generic error page is shown.
     |
     */
 
-    "password" => "Passwords must be at least six characters and match the confirmation.",
+    'debug' => true,
 
-    "user"     => "We can't find a user with that e-mail address.",
+    /*
+    |--------------------------------------------------------------------------
+    | Application URL
+    |--------------------------------------------------------------------------
+    |
+    | This URL is used by the console to properly generate URLs when using
+    | the Artisan command line tool. You should set this to the root of
+    | your application so that it is used when running Artisan tasks.
+    |
+    */
 
-    "token"    => "This password reset token is invalid.",
-
-    "sent"     => "Password reminder sent!",
+    'url' => ''
 
 );

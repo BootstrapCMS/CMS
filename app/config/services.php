@@ -18,21 +18,28 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reminder Language Lines
+    | Third Party Services
     |--------------------------------------------------------------------------
     |
-    | The following language lines are the default lines which match reasons
-    | that are given by the password broker for a password update attempt
-    | has failed, such as for an invalid token or invalid new password.
+    | This file is for storing the credentials for third party services such
+    | as Stripe, Mailgun, Mandrill, and others. This file provides a sane
+    | default location for this type of information, allowing packages
+    | to have a conventional place to find your various credentials.
     |
     */
 
-    "password" => "Passwords must be at least six characters and match the confirmation.",
+    'mailgun' => array(
+        'domain' => '',
+        'secret' => ''
+    ),
 
-    "user"     => "We can't find a user with that e-mail address.",
+    'mandrill' => array(
+        'secret' => ''
+    ),
 
-    "token"    => "This password reset token is invalid.",
-
-    "sent"     => "Password reminder sent!",
+    'stripe' => array(
+        'model'  => 'User',
+        'secret' => ''
+    )
 
 );

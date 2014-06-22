@@ -70,6 +70,19 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
+    | Application Fallback Locale
+    |--------------------------------------------------------------------------
+    |
+    | The fallback locale determines the locale to use when the current one
+    | is not available. You may change the value to correspond to any of
+    | the language folders that are provided through your application.
+    |
+    */
+
+    'fallback_locale' => 'en',
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |
@@ -80,6 +93,8 @@ return array(
     */
 
     'key' => 'YourSecretKey!!!',
+
+    'cipher' => MCRYPT_RIJNDAEL_128,
 
     /*
     |--------------------------------------------------------------------------
@@ -124,7 +139,6 @@ return array(
         'Fideloper\Proxy\ProxyServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
-        'GrahamCampbell\Viewer\ViewerServiceProvider',
         'GrahamCampbell\Queuing\QueuingServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
@@ -198,25 +212,20 @@ return array(
         'Schema'          => 'Illuminate\Support\Facades\Schema',
         'Seeder'          => 'Illuminate\Database\Seeder',
         'Session'         => 'Illuminate\Support\Facades\Session',
+        'SoftDeletingTrait' => 'Illuminate\Database\Eloquent\SoftDeletingTrait',
         'SSH'             => 'Illuminate\Support\Facades\SSH',
         'Str'             => 'Illuminate\Support\Str',
         'URL'             => 'Illuminate\Support\Facades\URL',
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Asset'           => 'Lightgear\Asset\Facades\Asset',
-        'Viewer'          => 'GrahamCampbell\Viewer\Facades\Viewer',
-        'JobProvider'     => 'GrahamCampbell\Queuing\Facades\JobProvider',
-        'Queuing'         => 'GrahamCampbell\Queuing\Facades\Queuing',
-        'Cron'            => 'GrahamCampbell\Queuing\Facades\Cron',
         'HTMLMin'         => 'GrahamCampbell\HTMLMin\Facades\HTMLMin',
         'Markdown'        => 'GrahamCampbell\Markdown\Facades\Markdown',
-        'Security'        => 'GrahamCampbell\Security\Facades\Security',
         'Binput'          => 'GrahamCampbell\Binput\Facades\Binput',
         'Throttle'        => 'GrahamCampbell\Throttle\Facades\Throttle',
         'UserProvider'    => 'GrahamCampbell\Credentials\Facades\UserProvider',
         'GroupProvider'   => 'GrahamCampbell\Credentials\Facades\GroupProvider',
         'Credentials'     => 'GrahamCampbell\Credentials\Facades\Credentials',
-        'Navigation'      => 'GrahamCampbell\Navigation\Facades\Navigation',
         'CommentProvider' => 'GrahamCampbell\BootstrapCMS\Facades\CommentProvider',
         'EventProvider'   => 'GrahamCampbell\BootstrapCMS\Facades\EventProvider',
         'PageProvider'    => 'GrahamCampbell\BootstrapCMS\Facades\PageProvider',

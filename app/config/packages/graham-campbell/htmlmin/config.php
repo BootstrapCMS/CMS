@@ -35,6 +35,24 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
+    | Force Blade Optimizations
+    |--------------------------------------------------------------------------
+    |
+    | This option forces blade minification on views where there such
+    | minification may be dangerous. This should only be used if you are fully
+    | aware of the potential issues this may cause. Obviously this setting is
+    | dependent on blade minification actually being enabled.
+    |
+    | PLEASE USE WITH CAUTION
+    |
+    | Default: false
+    |
+    */
+
+    'force' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Automatic Live Optimizations
     |--------------------------------------------------------------------------
     |

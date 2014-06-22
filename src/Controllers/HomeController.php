@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\Mail\Mailer;
+use Illuminate\View\Factory;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Config;
-use GrahamCampbell\Viewer\Classes\Viewer;
-use GrahamCampbell\Queuing\Classes\Queuing;
-use GrahamCampbell\Credentials\Classes\Credentials;
+use GrahamCampbell\Credentials\Credentials;
 
 /**
  * This is the home controller class.
@@ -34,18 +34,11 @@ use GrahamCampbell\Credentials\Classes\Credentials;
 class HomeController extends AbstractController
 {
     /**
-     * The viewer instance.
+     * The mail instance.
      *
-     * @var \GrahamCampbell\Viewer\Classes\Viewer
+     * @var \Illuminate\Mail\Mailer
      */
-    protected $viewer;
-
-    /**
-     * The queuing instance.
-     *
-     * @var \GrahamCampbell\Queuing\Classes\Queuing
-     */
-    protected $queuing;
+    protected $mail;
 
     /**
      * The email address.
@@ -64,28 +57,24 @@ class HomeController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
-     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
-     * @param  \GrahamCampbell\Queuing\Classes\Queuing  $queuing
+     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
+     * @param  \Illuminate\View\Factory  $view
+     * @param  \Illuminate\Mail\Mailer  $mail
      * @param  string  $email
      * @param  string  $subject
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer, Queuing $queuing, $email, $subject)
+    public function __construct(Credentials $credentials, Factory $view, Mailer $mail, $email, $subject)
     {
-        $this->viewer = $viewer;
-        $this->queuing = $queuing;
+        $this->mail = $mail;
         $this->email = $email;
         $this->subject = $subject;
 
         $this->setPermissions(array(
-            'testQueue' => 'admin',
-            'testError' => 'admin',
-            'addValue'  => 'mod',
-            'getValue'  => 'user',
+            'testQueue' => 'admin'
         ));
 
-        parent::__construct($credentials);
+        parent::__construct($credentials, $view);
     }
 
     /**
@@ -95,7 +84,7 @@ class HomeController extends AbstractController
      */
     public function showWelcome()
     {
-        return $this->viewer->make('index');
+        return $this->view->make('index');
     }
 
     /**
@@ -105,7 +94,7 @@ class HomeController extends AbstractController
      */
     public function showTest()
     {
-        return 'Test 123';
+        return 'Test 123!';
     }
 
     /**
@@ -115,46 +104,27 @@ class HomeController extends AbstractController
      */
     public function testQueue()
     {
-        $data = array(
-            'view'    => 'emails.welcome',
+        $mail = array(
             'url'     => URL::to(Config::get('graham-campbell/core::home', 'pages/home')),
             'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
             'email'   => $this->email,
-            'subject' => $this->subject,
+            'subject' => $this->subject
         );
 
-        $this->queuing->pushMail($data);
-        return 'done';
+        $this->mail->queue('emails.welcome', $mail, function($message) use ($mail) {
+            $message->to($mail['email'])->subject($mail['subject']);
+        });
+
+        return 'The message has been queued for sending.';
     }
 
     /**
-     * Queue a task that will fail.
+     * Return the mail instance.
      *
-     * @return string
+     * @return \Illuminate\Mail\Mailer
      */
-    public function testError()
+    public function getMail()
     {
-        $this->queuing->pushJob('test', array(), 'GrahamCampbell\BootstrapCMS\Handlers');
-        return 'done';
-    }
-
-    /**
-     * Return the viewer instance.
-     *
-     * @return \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    public function getViewer()
-    {
-        return $this->viewer;
-    }
-
-    /**
-     * Return the queuing instance.
-     *
-     * @return \GrahamCampbell\Queuing\Classes\Queuing
-     */
-    public function getQueuing()
-    {
-        return $this->queuing;
+        return $this->mail;
     }
 }

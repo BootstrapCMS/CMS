@@ -14,13 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\Tests\BootstrapCMS\Facades;
+namespace GrahamCampbell\BootstrapCMS\Facades;
 
-use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use Illuminate\Support\Facades\Facade;
 
 /**
- * This is the viewer facade test class.
+ * This is the navigation factory facade class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -28,37 +27,15 @@ use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class ViewerTest extends AbstractTestCase
+class NavigationFactory extends Facade
 {
-    use FacadeTestCaseTrait;
-
     /**
-     * Get the facade accessor.
+     * Get the registered name of the component.
      *
      * @return string
      */
-    protected function getFacadeAccessor()
+    protected static function getFacadeAccessor()
     {
-        return 'viewer';
-    }
-
-    /**
-     * Get the facade class.
-     *
-     * @return string
-     */
-    protected function getFacadeClass()
-    {
-        return 'GrahamCampbell\Viewer\Facades\Viewer';
-    }
-
-    /**
-     * Get the facade route.
-     *
-     * @return string
-     */
-    protected function getFacadeRoot()
-    {
-        return 'GrahamCampbell\BootstrapCMS\Classes\Viewer';
+        return 'navfactory';
     }
 }
