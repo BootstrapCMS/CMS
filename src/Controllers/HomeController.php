@@ -111,7 +111,7 @@ class HomeController extends AbstractController
             'subject' => $this->subject
         );
 
-        $this->mailer->queue('emails.welcome', $mail, function($message) use ($mail) {
+        $this->mailer->queue('graham-campbell/credentials::emails.welcome', $mail, function($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
 
