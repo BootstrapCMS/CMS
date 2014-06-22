@@ -147,7 +147,6 @@
 @stop
 
 @section('css')]
-{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css') }}
 {{ Asset::styles('form') }}
 @stop
 
