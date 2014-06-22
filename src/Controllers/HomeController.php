@@ -34,11 +34,11 @@ use GrahamCampbell\Credentials\Credentials;
 class HomeController extends AbstractController
 {
     /**
-     * The mail instance.
+     * The mailer instance.
      *
      * @var \Illuminate\Mail\Mailer
      */
-    protected $mail;
+    protected $mailer;
 
     /**
      * The email address.
@@ -59,14 +59,14 @@ class HomeController extends AbstractController
      *
      * @param  \GrahamCampbell\Credentials\Credentials  $credentials
      * @param  \Illuminate\View\Factory  $view
-     * @param  \Illuminate\Mail\Mailer  $mail
+     * @param  \Illuminate\Mail\Mailer  $mailer
      * @param  string  $email
      * @param  string  $subject
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view, Mailer $mail, $email, $subject)
+    public function __construct(Credentials $credentials, Factory $view, Mailer $mailer, $email, $subject)
     {
-        $this->mail = $mail;
+        $this->mailer = $mailer;
         $this->email = $email;
         $this->subject = $subject;
 
@@ -111,7 +111,7 @@ class HomeController extends AbstractController
             'subject' => $this->subject
         );
 
-        $this->mail->queue('emails.welcome', $mail, function($message) use ($mail) {
+        $this->mailer->queue('emails.welcome', $mail, function($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
 
@@ -119,12 +119,12 @@ class HomeController extends AbstractController
     }
 
     /**
-     * Return the mail instance.
+     * Return the mailer instance.
      *
      * @return \Illuminate\Mail\Mailer
      */
-    public function getMail()
+    public function getMailer()
     {
-        return $this->mail;
+        return $this->mailer;
     }
 }

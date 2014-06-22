@@ -315,11 +315,11 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\HomeController', function ($app) {
             $credentials = $app['credentials'];
             $view = $app['view'];
-            $mail = $app['mail'];
+            $mailer = $app['mailer'];
             $email = $app['config']['workbench.email'];
             $subject = $app['config']['platform.name'].' - Welcome';
 
-            return new Controllers\HomeController($credentials, $view, $mail, $email, $subject);
+            return new Controllers\HomeController($credentials, $view, $mailer, $email, $subject);
         });
     }
 
