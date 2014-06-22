@@ -1,4 +1,3 @@
-@navtype('default')
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>

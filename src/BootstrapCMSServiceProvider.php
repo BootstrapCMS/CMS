@@ -57,6 +57,8 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
 
+        $this->app['view']->share('__navtype', 'default');
+
         $blade->extend(function ($value, $compiler) {
             $pattern = $compiler->createMatcher('navtype');
             $replace = '$1<?php $__navtype = $2; ?>';
