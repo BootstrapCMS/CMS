@@ -2,46 +2,21 @@ Bootstrap CMS
 =============
 
 
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
-[![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Bootstrap-CMS/master.svg)](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS)
-[![Software License](https://img.shields.io/badge/license-AGPL%203.0-brightgreen.svg)](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Bootstrap-CMS.svg)](https://github.com/GrahamCampbell/Bootstrap-CMS/releases)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/badges/quality-score.png?s=df19b33e11d486109decb5c9c78b1d7d049ddde6)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162/mini.png)](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162)
+[![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg?style=flat)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat)](LICENSE.md)
+[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Bootstrap-CMS.svg?style=flat)](https://github.com/GrahamCampbell/Bootstrap-CMS/releases)
 
 
-## This Code Is Licensed Under The GNU AGPLv3
+## Introduction
 
-#### I'd appreciate it if you'd leave my name in the footer unless you have changed my source significantly. If you do feel you have changed it significantly, I'd still appreciate some kind of link back, and remember that attribution is still required as stated in the license. Feel free to checkout the [screenshots](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/SCREENSHOTS.md)!
-
-
-## What Is Bootstrap CMS?
-
-Bootstrap CMS is a PHP CMS powered by [Laravel 4.2](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry).
-
-* Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
-* Bootstrap CMS relies on many of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing).
-* Bootstrap CMS uses [Travis CI](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Bootstrap-CMS) to check everything is working.
-* Bootstrap CMS uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/9eb79f92-a80a-46dc-9a3d-726c0ecc4162) to run additional checks.
-* Bootstrap CMS uses [Composer](https://getcomposer.org) to load and manage dependencies.
-* Bootstrap CMS provides a [change log](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), and [api docs](http://grahamcampbell.github.io/Bootstrap-CMS).
-* Bootstrap CMS is licensed under the GNU AGPLv3, available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md).
-* Licenses for included components are available [here](https://github.com/GrahamCampbell/Bootstrap-CMS/tree/master/licenses), excluding [Composer](https://getcomposer.org) installed components.
-
-
-## System Requirements
-
-Bootstrap CMS was designed to run on a Linux machine with PHP 5.5 and MySQL 5.5.
-
-* PHP 5.4.7+ or HHVM 3.0+.
-* You will need [Composer](https://getcomposer.org) installed to load the dependencies of Bootstrap CMS.
-* You will need to configure the site in the app/config folder before production.
-* Some features require a cache server like [Redis](http://redis.io) and a queuing server like [Beanstalkd](http://kr.github.io/beanstalkd).
+Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides some testing functionality for [Laravel 4.2](http://laravel.com). It relies on 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://grahamcampbell.github.io/Bootstrap-CMS), and [contribution guidelines](CONTRIBUTING.md).
 
 
 ## Installation
 
-Please check the system requirements before installing Bootstrap CMS.
+[PHP](https://php.net) 5.4.7+ or [HHVM](http://hhvm.com) 3.1+, a database server, and [Composer](https://getcomposer.org) are required.
 
 1. You may install by cloning from github, or via composer.
   * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
@@ -66,23 +41,7 @@ Please check the system requirements before installing Bootstrap CMS.
 
 ## Setting Up Queuing
 
-Bootstrap CMS provides queuing functionality, and when enabled, requires 3 separate queues.
-
-  * One queue (the mail queue) will be used for sending emails
-  * One queue (the cron queue) will be used for all cron jobs
-  * One queue (the default queue) will be used for all other jobs
-  * These queues must be separate to avoid unexpected functionality
-
-Note that `beanstalkd` requires a local server, while `sqs` and `iron` are cloud based.
-Also note that `sqs` and `redis` support is not 100% complete and is mainly untested.
-
-For most uses, sync queuing will actually by sufficient because the queuing package will execute the jobs after the response has been sent (on application shutdown), so the end user will see no slowdown, we just won't be able to re-entry failed jobs.
-
-1. Choose your poison - I'd recommend [IronMQ](http://www.iron.io/mq).
-2. Enter your queuing server details into `app/config/queue.php`.
-3. You can also set a separate mail queue in `app/config/mail.php`.
-4. For [IronMQ](http://www.iron.io/mq), you can run the command `php artisan queue:iron`, and the `php artisan cron:start`.
-5. You can find out more about queuing by heading over to the [Laravel Docs](http://laravel.com/docs/queues).
+Queuing documentation is coming soon.
 
 
 ## Setting Up Caching
@@ -121,38 +80,6 @@ Bootstrap CMS can read [CloudFlare](https://www.cloudflare.com/) analytic data t
 1. Follow the install instructions for my [Laravel CloudFlare](https://github.com/GrahamCampbell/Laravel-CloudFlare) package.
 2. Remember to add your credentials to `app/config/packages/graham-campbell/cloudflare-api/config.php`.
 3. Bootstrap CMS will auto-detect the package, only allow admin access, and add links to the navigation bar.
-
-
-## Usage
-
-There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Bootstrap-CMS) for Bootstrap CMS.
-
-
-## Updating Your Fork
-
-Before submitting a pull request, you should ensure that your fork is up to date.
-
-You may fork Bootstrap CMS:
-
-    git remote add upstream git://github.com/GrahamCampbell/Bootstrap-CMS.git
-
-The first command is only necessary the first time. If you have issues merging, you will need to get a merge tool such as [P4Merge](http://perforce.com/product/components/perforce_visual_merge_and_diff_tools).
-
-You can then update the branch:
-
-    git pull --rebase upstream master
-    git push --force origin <branch_name>
-
-Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git rebase --continue`, and `git push --force origin <branch_name>`.
-
-
-## Pull Requests
-
-Please review these guidelines before submitting any pull requests.
-
-* When submitting bug fixes, check if a maintenance branch exists for an older series, then pull against that older branch if the bug is present in it.
-* Before sending a pull request for a new feature, you should first create an issue with [Proposal] in the title.
-* Please follow the [PSR-2 Coding Style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) and [PHP-FIG Naming Conventions](https://github.com/php-fig/fig-standards/blob/master/bylaws/002-psr-naming-conventions.md).
 
 
 ## License
