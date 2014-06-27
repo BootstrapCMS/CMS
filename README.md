@@ -14,11 +14,6 @@ Bootstrap CMS
 Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 4.2](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry). It relies on 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://grahamcampbell.github.io/Bootstrap-CMS), and [contribution guidelines](CONTRIBUTING.md).
 
 
-## This Code Is Licensed Under The GNU AGPLv3
-
-#### I'd appreciate it if you'd leave my name in the footer unless you have changed my source significantly. If you do feel you have changed it significantly, I'd still appreciate some kind of link back, and remember that attribution is still required as stated in the license. Feel free to checkout the [screenshots](SCREENSHOTS.md)!
-
-
 ## Installation
 
 [PHP](https://php.net) 5.4.7+ or [HHVM](http://hhvm.com) 3.1+, a database server, and [Composer](https://getcomposer.org) are required.
