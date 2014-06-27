@@ -35,7 +35,6 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 8. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
   * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
-  * Please note that queuing is required in order to use the cron functionality which can do things like notify users of upcoming events, or send out weekly activity digests
   * Also note, without caching asset generation will cause page load delay - to reduce this, I have turned off minification in `app/config/packages/lightgear/asset/config.php` by default
 
 
