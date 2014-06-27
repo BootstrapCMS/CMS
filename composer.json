@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/bootstrap-cms",
-    "description": "Bootstrap CMS Is A PHP CMS Powered By Laravel 4.1 And Sentry 2.1",
+    "description": "Bootstrap CMS Is A PHP CMS Powered By Laravel 4.2 And Sentry 2.1",
     "keywords": ["laravel", "framework", "sentry", "bootstrap", "cms", "bootstrap cms", "Bootstrap CMS", "Bootstrap-CMS", "blog", "login", "Graham Campbell", "GrahamCampbell"],
     "license": "AGPL-3.0",
     "authors": [
