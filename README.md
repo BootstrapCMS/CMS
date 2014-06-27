@@ -11,7 +11,7 @@ Bootstrap CMS
 
 ## Introduction
 
-Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides some testing functionality for [Laravel 4.2](http://laravel.com). It relies on 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://grahamcampbell.github.io/Bootstrap-CMS), and [contribution guidelines](CONTRIBUTING.md).
+Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 4.2](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry). It relies on 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://grahamcampbell.github.io/Bootstrap-CMS), and [contribution guidelines](CONTRIBUTING.md).
 
 
 ## Installation
