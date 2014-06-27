@@ -5,7 +5,7 @@ Bootstrap CMS
 [![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg?style=flat)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
-[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-AGPL%203.0-brightgreen.svg?style=flat)](LICENSE.md)
 [![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Bootstrap-CMS.svg?style=flat)](https://github.com/GrahamCampbell/Bootstrap-CMS/releases)
 
 
