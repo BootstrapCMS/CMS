@@ -17,6 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Models;
 
 use GrahamCampbell\Database\Models\AbstractModel;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
 
@@ -29,7 +30,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Page extends AbstractModel implements BelongsToUserInterface
+class Page extends AbstractModel implements BelongsToUserInterface, PresenterInterface
 {
     use BelongsToUserTrait;
 
@@ -88,6 +89,16 @@ class Page extends AbstractModel implements BelongsToUserInterface
         'show_nav'   => 'required',
         'user_id'    => 'required'
     );
+
+    /**
+     * Get the presenter class.
+     *
+     * @var string
+     */
+    public function getPresenter()
+    {
+        return 'GrahamCampbell\BootstrapCMS\Presenters\PagePresenter';
+    }
 
     /**
      * Before deleting an existing model.

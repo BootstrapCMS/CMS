@@ -17,6 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Models;
 
 use GrahamCampbell\Database\Models\AbstractModel;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\Database\Models\Interfaces\DateModelInterface;
 use GrahamCampbell\Database\Models\Common\DateModelTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
@@ -33,7 +34,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToManyUsersTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Event extends AbstractModel implements DateModelInterface, BelongsToUserInterface, BelongsToManyUsersInterface
+class Event extends AbstractModel implements DateModelInterface, BelongsToUserInterface, BelongsToManyUsersInterface, PresenterInterface
 {
     use DateModelTrait, BelongsToUserTrait, BelongsToManyUsersTrait;
 
@@ -91,6 +92,16 @@ class Event extends AbstractModel implements DateModelInterface, BelongsToUserIn
         'body'     => 'required',
         'user_id'  => 'required'
     );
+
+    /**
+     * Get the presenter class.
+     *
+     * @var string
+     */
+    public function getPresenter()
+    {
+        return 'GrahamCampbell\BootstrapCMS\Presenters\EventPresenter';
+    }
 
     /**
      * Before deleting an existing model.

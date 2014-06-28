@@ -134,6 +134,7 @@ return array(
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
+        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
         'Lightgear\Asset\AssetServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',

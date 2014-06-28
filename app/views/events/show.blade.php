@@ -16,7 +16,7 @@
         <div class="hidden-xs">
             <div class="col-xs-6">
                 <p>
-                    <strong>Event Creator:</strong> {{ $event->user()->cacheDriver('array')->rememberForever()->first(array('email'))->email }}
+                    <strong>Event Owner:</strong> {{ $event->owner }}
                 </p>
                 <a class="btn btn-info" href="{{ URL::route('events.edit', array('events' => $event->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event" data-toggle="modal" data-target="#delete_event"><i class="fa fa-times"></i> Delete Event</a>
             </div>
@@ -34,7 +34,7 @@
         <div class="visible-xs">
             <div class="col-xs-12">
                 <p>
-                    <strong>Event Creator:</strong> {{ $event->user()->cacheDriver('array')->rememberForever()->first(array('email'))->email }}
+                    <strong>Event Owner:</strong> {{ $event->owner }}
                 </p>
                 <p>
                     <strong>Event Created:</strong> {{ HTML::ago($event->created_at) }}

@@ -16,6 +16,7 @@ CHANGE LOG
 * Removed viewer package
 * Added event invitations
 * Added di aliases
+* Added presenters
 * More unit tests
 
 
