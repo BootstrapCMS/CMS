@@ -21,18 +21,17 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 1. You may install by cloning from github, or via composer.
   * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
   * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
-2. See the [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing) readme for extra requirements before continuing.
-3. From a command line open in the folder, run `composer install`.
-4. Enter your database details into `app/config/databse.php`.
-5. Run `php artisan app:install` to setup and seed your database.
-6. You will need to enter your mail server details into `app/config/mail.php`.
+2. From a command line open in the folder, run `composer install`.
+3. Enter your database details into `app/config/databse.php`.
+4. Run `php artisan app:install` to setup and seed your database.
+5. You will need to enter your mail server details into `app/config/mail.php`.
   * You can disable verification emails in `app/config/packages/graham-campbell/navigation/config.php`
   * Mail is still required for other functions like password resets and the contact form
   * You must set the contact email in `app/config/packages/graham-campbell/contact/config.php`
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
-7. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
+6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
-8. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
+7. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
   * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
   * Also note, without caching asset generation will cause page load delay - to reduce this, I have turned off minification in `app/config/packages/lightgear/asset/config.php` by default
@@ -40,7 +39,11 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 ## Setting Up Queuing
 
-Queuing documentation is coming soon.
+Bootstrap CMS's queuing is powered by my [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing) package, and requires no configuration behond what Laravel's queuing would otherwise require.
+
+1. Choose your poison - I'd recommend [Beanskalkd](http://kr.github.io/beanstalkd).
+2. Enter your queue server details into `app/config/queue.php`.
+3. Laravel Queuing provides a quickstart command for iron queuing. Simply run `php artisan queue:iron`.
 
 
 ## Setting Up Caching
