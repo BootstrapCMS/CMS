@@ -28,7 +28,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class PostPresenter extends BasePresenter
+class PagePresenter extends BasePresenter
 {
     use OwnerPresenterTrait;
 

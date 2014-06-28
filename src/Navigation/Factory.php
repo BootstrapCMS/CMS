@@ -18,6 +18,7 @@ namespace GrahamCampbell\BootstrapCMS\Navigation;
 
 use GrahamCampbell\Navigation\Navigation;
 use GrahamCampbell\Credentials\Credentials;
+use McCool\LaravelAutoPresenter\PresenterDecorator;
 
 /**
  * This is the navigation factory class.
@@ -45,6 +46,13 @@ class Factory
     protected $navigation;
 
     /**
+     * The decorator instance.
+     *
+     * @var \McCool\LaravelAutoPresenter\PresenterDecorator
+     */
+    protected $decorator;
+
+    /**
      * The platform name.
      *
      * @var string
@@ -70,15 +78,17 @@ class Factory
      *
      * @param  \GrahamCampbell\Credentials\Credentials  $credentials
      * @param  \GrahamCampbell\Navigation\Navigation  $navigation
+     * @param  \McCool\LaravelAutoPresenter\PresenterDecorator  $decorator
      * @param  string  $name
      * @param  string  $property
      * @param  bool  $inverse
      * @return void
      */
-    public function __construct(Credentials $credentials, Navigation $navigation, $name, $property, $inverse)
+    public function __construct(Credentials $credentials, Navigation $navigation, PresenterDecorator $decorator, $name, $property, $inverse)
     {
         $this->credentials = $credentials;
         $this->navigation = $navigation;
+        $this->decorator = $decorator;
         $this->name = $name;
         $this->property = $property;
         $this->inverse = $inverse;
@@ -93,21 +103,19 @@ class Factory
     public function make($type = 'default')
     {
         if ($this->credentials->check()) {
-            $propery = $this->property;
-            $side = $this->credentials->getUser()->$propery;
             if ($type === 'admin') {
                 if ($this->credentials->hasAccess('admin')) {
                     // the requested type is admin, and the user is an admin
                     return $this->navigation->getHTML('admin', 'admin', array(
                         'title' => 'Admin Panel',
-                        'side' => $side,
+                        'side' => $this->getSide(),
                         'inverse' => $this->inverse
                     ));
                 } else {
                     // the requested type is admin, and the user is NOT an admin
                     return $this->navigation->getHTML('default', 'default', array(
                         'title' => $this->name,
-                        'side' => $side,
+                        'side' => $this->getSide(),
                         'inverse' => $this->inverse
                     ));
                 }
@@ -115,7 +123,7 @@ class Factory
                 // the requested type is default, and the user is logged in
                 return $this->navigation->getHTML('default','default', array(
                     'title' => $this->name,
-                    'side' => $side,
+                    'side' => $this->getSide(),
                     'inverse' => $this->inverse
                 ));
             }
@@ -126,6 +134,31 @@ class Factory
                 'inverse' => $this->inverse
             ));
         }
+    }
+
+    /**
+     * Get the relevant user property for the side bar.
+     *
+     * @return string
+     */
+    protected function getSide()
+    {
+        $propery = $this->property;
+        $user = $this->getUser();
+
+        return $user->$propery;
+    }
+
+    /**
+     * Get a decorated user object.
+     *
+     * @return \GrahamCampbell\Credentials\Presenters\UserPresenter
+     */
+    protected function getUser()
+    {
+        $user = $this->credentials->getUser();
+
+        return $this->decorator->decorate($user);
     }
 
     /**
@@ -146,5 +179,15 @@ class Factory
     public function getNavigation()
     {
         return $this->navigation;
+    }
+
+    /**
+     * Return the decorator instance.
+     *
+     * @return \McCool\LaravelAutoPresenter\PresenterDecorator
+     */
+    public function getDecorator()
+    {
+        return $this->decorator;
     }
 }

@@ -38,6 +38,6 @@ trait OwnerPresenterTrait
             ->cacheDriver('array')->rememberForever()
             ->first(array('first_name', 'last_name', 'email'));
 
-        return $user->first_name.' '.$user->last_name ($user->email);
+        return $user->first_name.' '.$user->last_name.' ('.$user->email.')';
     }
 }
