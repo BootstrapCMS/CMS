@@ -52,6 +52,13 @@ class Factory
     protected $name;
 
     /**
+     * The user property.
+     *
+     * @var string
+     */
+    protected $property;
+
+    /**
      * The inverse navigation.
      *
      * @var bool
@@ -64,14 +71,16 @@ class Factory
      * @param  \GrahamCampbell\Credentials\Credentials  $credentials
      * @param  \GrahamCampbell\Navigation\Navigation  $navigation
      * @param  string  $name
+     * @param  string  $property
      * @param  bool  $inverse
      * @return void
      */
-    public function __construct(Credentials $credentials, Navigation $navigation, $name, $inverse)
+    public function __construct(Credentials $credentials, Navigation $navigation, $name, $property, $inverse)
     {
         $this->credentials = $credentials;
         $this->navigation = $navigation;
         $this->name = $name;
+        $this->property = $property;
         $this->inverse = $inverse;
     }
 
@@ -84,19 +93,21 @@ class Factory
     public function make($type = 'default')
     {
         if ($this->credentials->check()) {
+            $propery = $this->property;
+            $side = $this->credentials->getUser()->$propery;
             if ($type === 'admin') {
                 if ($this->credentials->hasAccess('admin')) {
                     // the requested type is admin, and the user is an admin
                     return $this->navigation->getHTML('admin', 'admin', array(
                         'title' => 'Admin Panel',
-                        'side' => $this->credentials->getUser()->email,
+                        'side' => $side,
                         'inverse' => $this->inverse
                     ));
                 } else {
                     // the requested type is admin, and the user is NOT an admin
                     return $this->navigation->getHTML('default', 'default', array(
                         'title' => $this->name,
-                        'side' => $this->credentials->getUser()->email,
+                        'side' => $side,
                         'inverse' => $this->inverse
                     ));
                 }
@@ -104,7 +115,7 @@ class Factory
                 // the requested type is default, and the user is logged in
                 return $this->navigation->getHTML('default','default', array(
                     'title' => $this->name,
-                    'side' => $this->credentials->getUser()->email,
+                    'side' => $side,
                     'inverse' => $this->inverse
                 ));
             }

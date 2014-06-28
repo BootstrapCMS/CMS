@@ -110,9 +110,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
             $name = $app['config']['platform.name'];
+            $property = $app['config']['cms.nav'];
             $inverse = $app['config']['theme.inverse'];
 
-            return new Navigation\Factory($credentials, $navigation, $name, $inverse);
+            return new Navigation\Factory($credentials, $navigation, $name, $property, $inverse);
         });
 
         $this->app->alias('navfactory', 'GrahamCampbell\BootstrapCMS\Navigation\Factory');
