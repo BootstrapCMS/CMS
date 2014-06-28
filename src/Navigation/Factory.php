@@ -98,7 +98,7 @@ class Factory
      * Create a navigation bar.
      *
      * @param  string  $type
-     * @return void
+     * @return string
      */
     public function make($type = 'default')
     {
