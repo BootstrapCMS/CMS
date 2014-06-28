@@ -115,7 +115,8 @@ class PageController extends AbstractController
     {
         $input = array(
             'title'      => $this->binput->get('title'),
-            'slug'       => urlencode(strtolower(str_replace(' ', '-', $this->binput->get('title')))),
+            'nav_title'  => $this->binput->get('nav_title'),
+            'slug'       => $this->binput->get('slug'),
             'body'       => $this->binput->get('body', null, true, false), // no xss protection please
             'css'        => $this->binput->get('css', null, true, false), // no xss protection please
             'js'         => $this->binput->get('js', null, true, false), // no xss protection please
@@ -175,7 +176,8 @@ class PageController extends AbstractController
     {
         $input = array(
             'title'      => $this->binput->get('title'),
-            'slug'       => urlencode(strtolower(str_replace(' ', '-', $this->binput->get('title')))),
+            'nav_title'  => $this->binput->get('nav_title'),
+            'slug'       => $this->binput->get('slug'),
             'body'       => $this->binput->get('body', null, true, false), // no xss protection please
             'css'        => $this->binput->get('css', null, true, false), // no xss protection please
             'js'         => $this->binput->get('js', null, true, false), // no xss protection please
@@ -265,12 +267,12 @@ class PageController extends AbstractController
         if ($slug == 'home') {
             if ($slug != $input['slug']) {
                 return Redirect::route('pages.edit', array('pages' => $slug))->withInput()
-                    ->with('error', 'You cannot rename the homepage.');
+                    ->with('error', 'You cannot change the homepage slug.');
             }
 
             if ($input['show_nav'] == false) {
                 return Redirect::route('pages.edit', array('pages' => $slug))->withInput()
-                    ->with('error', 'The homepage must be on the navigation bar.');
+                    ->with('error', 'The homepage must remain on the navigation bar.');
             }
         }
     }

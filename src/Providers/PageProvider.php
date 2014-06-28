@@ -103,7 +103,15 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
     protected function sendGet()
     {
         $model = $this->model;
-        return $model::where('show_nav', '=', true)->get(array('title', 'slug', 'icon'))->toArray();
+        $pages = $model::where('show_nav', '=', true)->get(array('nav_title', 'slug', 'icon'))->toArray();
+
+        foreach ($pages as $key => $page) {
+            $pages[$key]['slug'] = 'pages/'.$page['slug'];
+            $pages[$key]['title'] = $page['nav_title'];
+            unset($pages[$key]['nav_title']);
+        }
+
+        return $pages;
     }
 
     /**

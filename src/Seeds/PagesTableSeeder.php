@@ -44,6 +44,7 @@ class PagesTableSeeder extends Seeder
 
         $home = array(
             'title' => 'Home',
+            'nav_title' => 'Home',
             'slug'  => 'home',
             'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-home.md')),
             'show_title' => false,
@@ -57,6 +58,7 @@ class PagesTableSeeder extends Seeder
 
         $contact = array(
             'title' => 'Contact',
+            'nav_title' => 'Contact',
             'slug'  => 'contact',
             'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-contact.md')),
             'user_id'    => 1,
@@ -69,6 +71,7 @@ class PagesTableSeeder extends Seeder
 
         $about = array(
             'title' => 'About',
+            'nav_title' => 'About',
             'slug'  => 'about',
             'body'  => '<div class="row"><div class="col-lg-8">'.Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>',
             'user_id'    => 1,

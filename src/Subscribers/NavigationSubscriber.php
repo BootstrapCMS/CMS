@@ -153,9 +153,6 @@ class NavigationSubscriber
 
         // add the pages to the nav bar
         foreach ($pages as $page) {
-            // make sure the page is preppended by 'pages/'
-            $page['slug'] = 'pages/'.$page['slug'];
-            // add the page to the main nav bar
             $this->navigation->addMain($page);
         }
 
@@ -185,8 +182,6 @@ class NavigationSubscriber
         // select the home page
         $page = $pages[0];
 
-        // make sure the page is preppended by 'pages/'
-        $page['slug'] = 'pages/'.$page['slug'];
         // add the page to the start of the main nav bars
         $this->navigation->addMain($page, 'default', true);
         $this->navigation->addMain($page, 'admin', true);

@@ -15,6 +15,7 @@ CHANGE LOG
 * Queuing and mail improvements
 * Removed viewer package
 * Added event invitations
+* Page improvements
 * Added di aliases
 * Added presenters
 * More unit tests

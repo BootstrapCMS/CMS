@@ -31,6 +31,8 @@ Edit {{{ $page->title }}}
         'button' => 'Save Page',
         'defaults' => array(
             'title' => $page->title,
+            'nav_title' => $page->nav_title,
+            'slug' => $page->slug,
             'icon' => $page->icon,
             'body' => $page->body,
             'css' => $page->css,

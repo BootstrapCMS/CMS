@@ -53,7 +53,7 @@ class Page extends AbstractModel implements BelongsToUserInterface, PresenterInt
      *
      * @var array
      */
-    public static $index = array('id', 'slug', 'title');
+    public static $index = array('id', 'slug', 'title', 'nav_title');
 
     /**
      * The max pages per page when displaying a paginated index.
@@ -83,7 +83,8 @@ class Page extends AbstractModel implements BelongsToUserInterface, PresenterInt
      */
     public static $rules = array(
         'title'      => 'required',
-        'slug'       => 'required',
+        'nav_title'  => 'required',
+        'slug'       => 'required|alpha_dash',
         'body'       => 'required',
         'show_title' => 'required',
         'show_nav'   => 'required',
