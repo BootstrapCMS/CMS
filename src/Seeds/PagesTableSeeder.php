@@ -43,7 +43,7 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->delete();
 
         $home = array(
-            'title' => 'Home',
+            'title' => 'Welcome',
             'nav_title' => 'Home',
             'slug'  => 'home',
             'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-home.md')),
@@ -57,7 +57,7 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert($home);
 
         $contact = array(
-            'title' => 'Contact',
+            'title' => 'Contact Us',
             'nav_title' => 'Contact',
             'slug'  => 'contact',
             'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-contact.md')),
@@ -70,7 +70,7 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert($contact);
 
         $about = array(
-            'title' => 'About',
+            'title' => 'About Us',
             'nav_title' => 'About',
             'slug'  => 'about',
             'body'  => '<div class="row"><div class="col-lg-8">'.Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>',
