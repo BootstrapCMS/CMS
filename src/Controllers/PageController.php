@@ -113,18 +113,7 @@ class PageController extends AbstractController
      */
     public function store()
     {
-        $input = array(
-            'title'      => $this->binput->get('title'),
-            'nav_title'  => $this->binput->get('nav_title'),
-            'slug'       => $this->binput->get('slug'),
-            'body'       => $this->binput->get('body', null, true, false), // no xss protection please
-            'css'        => $this->binput->get('css', null, true, false), // no xss protection please
-            'js'         => $this->binput->get('js', null, true, false), // no xss protection please
-            'show_title' => ($this->binput->get('show_title') == 'on'),
-            'show_nav'   => ($this->binput->get('show_nav') == 'on'),
-            'icon'       => $this->binput->get('icon'),
-            'user_id'    => $this->getUserId()
-        );
+        $input = array_merge($this->getInput(), array('user_id' => $this->getUserId()));
 
         $val = $this->pageprovider->validate($input, array_keys($input));
         if ($val->fails()) {
@@ -174,17 +163,7 @@ class PageController extends AbstractController
      */
     public function update($slug)
     {
-        $input = array(
-            'title'      => $this->binput->get('title'),
-            'nav_title'  => $this->binput->get('nav_title'),
-            'slug'       => $this->binput->get('slug'),
-            'body'       => $this->binput->get('body', null, true, false), // no xss protection please
-            'css'        => $this->binput->get('css', null, true, false), // no xss protection please
-            'js'         => $this->binput->get('js', null, true, false), // no xss protection please
-            'show_title' => ($this->binput->get('show_title') == 'on'),
-            'show_nav'   => ($this->binput->get('show_nav') == 'on'),
-            'icon'       => $this->binput->get('icon')
-        );
+        $input = $this->getInput();
 
         if (is_null($input['css']) || empty($input['css'])) {
             $input['css'] = '';
@@ -235,6 +214,26 @@ class PageController extends AbstractController
         // write flash message and redirect
         return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'))
             ->with('success', 'Your page has been deleted successfully.');
+    }
+
+    /**
+     * Get the user input.
+     *
+     * @return array
+     */
+    protected function getInput()
+    {
+        return array(
+            'title'      => $this->binput->get('title'),
+            'nav_title'  => $this->binput->get('nav_title'),
+            'slug'       => $this->binput->get('slug'),
+            'body'       => $this->binput->get('body', null, true, false), // no xss protection please
+            'css'        => $this->binput->get('css', null, true, false), // no xss protection please
+            'js'         => $this->binput->get('js', null, true, false), // no xss protection please
+            'show_title' => ($this->binput->get('show_title') == 'on'),
+            'show_nav'   => ($this->binput->get('show_nav') == 'on'),
+            'icon'       => $this->binput->get('icon')
+        );
     }
 
     /**
