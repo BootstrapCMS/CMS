@@ -1,8 +1,5 @@
 <?php
 
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
-use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
-
 /**
  * This file is part of Bootstrap CMS by Graham Campbell.
  *
@@ -16,6 +13,9 @@ use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  */
+
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 /*
 |--------------------------------------------------------------------------
