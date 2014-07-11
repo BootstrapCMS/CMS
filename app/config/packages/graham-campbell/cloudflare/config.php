@@ -56,6 +56,34 @@ return array(
     |
     */
 
-    'zone' => 'example.com'
+    'zone' => 'example.com',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cache Driver
+    |--------------------------------------------------------------------------
+    |
+    | This defines the cache driver to be used. It may be the name of any
+    | driver set in app/config/cache.php. Setting it to null will use the
+    | driver you have set as default in app/config/cache.php.
+    |
+    | Default: null
+    |
+    */
+
+    'driver' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cache Key
+    |--------------------------------------------------------------------------
+    |
+    | This defines the cache key to be used for storing the stats cache.
+    |
+    | Default: 'cloudflarestats'
+    |
+    */
+
+    'key' => 'cloudflarestats'
 
 );
