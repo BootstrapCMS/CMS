@@ -34,8 +34,8 @@ return array(
     | CloudFlare Connections
     |--------------------------------------------------------------------------
     |
-    | Here are each of the connections setup for your application. Examples of
-    | configuration have been included, but you may add as many connection as
+    | Here are each of the connections setup for your application. Example
+    | configuration has been included, but you may add as many connections as
     | you would like.
     |
     */
