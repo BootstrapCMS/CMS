@@ -95,6 +95,7 @@ Bootstrap CMS can read [CloudFlare](https://www.cloudflare.com/) analytic data t
 GNU AFFERO GENERAL PUBLIC LICENSE
 
 Bootstrap CMS Is A PHP CMS Powered By Laravel And Sentry 2.1
+
 Copyright (C) 2013-2014  Graham Campbell
 
 This program is free software: you can redistribute it and/or modify
