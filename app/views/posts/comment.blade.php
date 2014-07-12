@@ -1,7 +1,7 @@
 <div id="comment_{{ $comment->id }}" class="well clearfix col-xs-12 animated bounceIn{{ rand(0, 1) ? 'Left': 'Right' }}" data-pk="{{ $comment->id }}" data-ver="{{ $comment->version }}">
     @auth('mod')
         <div class="col-md-9 col-sm-8">
-            <p><strong>{{ $comment->user()->cacheDriver('array')->rememberForever()->first(array('first_name', 'last_name'))->getName() }}</strong> - {{ HTML::ago($comment->created_at, 'timeago_comment_'.$comment->id) }}</p>
+            <p><strong>{{ $comment->author }}</strong> - {{ HTML::ago($comment->created_at, 'timeago_comment_'.$comment->id) }}</p>
             <p id="main_comment_{{ $comment->id }}" class="main">{{ nl2br(e($comment->body)) }}</p>
         </div>
         <div class="hidden-xs">
@@ -18,7 +18,7 @@
         </div>
     @else
         <div class="col-xs-12">
-            <p><strong>{{ $comment->user()->cacheDriver('array')->rememberForever()->first(array('first_name', 'last_name'))->getName() }}</strong> - {{ HTML::ago($comment->created_at, 'timeago_comment_'.$comment->id) }}</p>
+            <p><strong>{{ $comment->author }}</strong> - {{ HTML::ago($comment->created_at, 'timeago_comment_'.$comment->id) }}</p>
             <p id="main_comment_{{ $comment->id }}" class="main">{{ nl2br(e($comment->body)) }}</p>
         </div>
     @endauth

@@ -16,7 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\Core\Models\AbstractModel;
+use GrahamCampbell\Database\Models\AbstractModel;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
 
@@ -29,7 +30,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Page extends AbstractModel implements BelongsToUserInterface
+class Page extends AbstractModel implements BelongsToUserInterface, PresenterInterface
 {
     use BelongsToUserTrait;
 
@@ -52,7 +53,7 @@ class Page extends AbstractModel implements BelongsToUserInterface
      *
      * @var array
      */
-    public static $index = array('id', 'slug', 'title');
+    public static $index = array('id', 'slug', 'title', 'nav_title');
 
     /**
      * The max pages per page when displaying a paginated index.
@@ -82,12 +83,23 @@ class Page extends AbstractModel implements BelongsToUserInterface
      */
     public static $rules = array(
         'title'      => 'required',
-        'slug'       => 'required',
+        'nav_title'  => 'required',
+        'slug'       => 'required|alpha_dash',
         'body'       => 'required',
         'show_title' => 'required',
         'show_nav'   => 'required',
         'user_id'    => 'required'
     );
+
+    /**
+     * Get the presenter class.
+     *
+     * @var string
+     */
+    public function getPresenter()
+    {
+        return 'GrahamCampbell\BootstrapCMS\Presenters\PagePresenter';
+    }
 
     /**
      * Before deleting an existing model.

@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
-use GrahamCampbell\Core\Providers\AbstractProvider;
+use GrahamCampbell\Database\Providers\AbstractProvider;
 
 /**
  * This is the comment provider class.

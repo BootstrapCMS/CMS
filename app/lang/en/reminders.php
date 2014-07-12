@@ -33,6 +33,6 @@ return array(
 
     "token"    => "This password reset token is invalid.",
 
-    "sent"     => "Password reminder sent!"
+    "sent"     => "Password reminder sent!",
 
 );

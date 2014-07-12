@@ -10,7 +10,14 @@ CHANGE LOG
 ## V0.8 Alpha (Upcoming - July 2014)
 
 * Upgrade to Laravel 4.2
+* Updated to Bootstrap 3.2
+* Navigation improvements
+* Queuing and mail improvements
+* Removed viewer package
 * Added event invitations
+* Page improvements
+* Added di aliases
+* Added presenters
 * More unit tests
 
 

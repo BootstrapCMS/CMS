@@ -45,24 +45,30 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->package('graham-campbell/bootstrap-cms', 'graham-campbell/bootstrap-cms', __DIR__);
 
-        $this->setupViewer();
+        $this->setupBlade();
     }
 
     /**
-     * Setup the viewer class.
+     * Setup the blade compiler class.
      *
      * @return void
      */
-    protected function setupViewer()
+    protected function setupBlade()
     {
-        $this->app->bindShared('viewer', function ($app) {
-            $view = $app['view'];
-            $credentials = $app['credentials'];
-            $navigation = $app['navigation'];
-            $name = $app['config']['platform.name'];
-            $inverse = $app['config']['theme.inverse'];
+        $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
 
-            return new Classes\Viewer($view, $credentials, $navigation, $name, $inverse);
+        $this->app['view']->share('__navtype', 'default');
+
+        $blade->extend(function ($value, $compiler) {
+            $pattern = $compiler->createMatcher('navtype');
+            $replace = '$1<?php $__navtype = $2; ?>';
+            return preg_replace($pattern, $replace, $value);
+        });
+
+        $blade->extend(function ($value, $compiler) {
+            $pattern = $compiler->createPlainMatcher('navigation');
+            $replace = '$1<?php echo \GrahamCampbell\BootstrapCMS\Facades\NavigationFactory::make($__navtype); ?>$2';
+            return preg_replace($pattern, $replace, $value);
         });
     }
 
@@ -73,6 +79,8 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerNavigationFactory();
+
         $this->registerCommentProvider();
         $this->registerEventProvider();
         $this->registerPageProvider();
@@ -92,6 +100,27 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register the navigation factory class.
+     *
+     * @return void
+     */
+    protected function registerNavigationFactory()
+    {
+        $this->app->bindShared('navfactory', function ($app) {
+            $credentials = $app['credentials'];
+            $navigation = $app['navigation'];
+            $decorator = $app->make('McCool\LaravelAutoPresenter\PresenterDecorator');
+            $name = $app['config']['platform.name'];
+            $property = $app['config']['cms.nav'];
+            $inverse = $app['config']['theme.inverse'];
+
+            return new Navigation\Factory($credentials, $navigation, $decorator, $name, $property, $inverse);
+        });
+
+        $this->app->alias('navfactory', 'GrahamCampbell\BootstrapCMS\Navigation\Factory');
+    }
+
+    /**
      * Register the comment provider class.
      *
      * @return void
@@ -106,6 +135,8 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             return new Providers\CommentProvider($comment, $validator);
         });
+
+        $this->app->alias('commentprovider', 'GrahamCampbell\BootstrapCMS\Providers\CommentProvider');
     }
 
     /**
@@ -123,6 +154,8 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             return new Providers\EventProvider($event, $validator);
         });
+
+        $this->app->alias('eventprovider', 'GrahamCampbell\BootstrapCMS\Providers\EventProvider');
     }
 
     /**
@@ -140,6 +173,8 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             return new Providers\PageProvider($page, $validator);
         });
+
+        $this->app->alias('pageprovider', 'GrahamCampbell\BootstrapCMS\Providers\PageProvider');
     }
 
     /**
@@ -157,6 +192,8 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             return new Providers\PostProvider($post, $validator);
         });
+
+        $this->app->alias('postprovider', 'GrahamCampbell\BootstrapCMS\Providers\PostProvider');
     }
 
     /**
@@ -228,9 +265,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CachingController', function ($app) {
             $credentials = $app['credentials'];
-            $viewer = $app['viewer'];
+            $view = $app['view'];
 
-            return new Controllers\CachingController($credentials, $viewer);
+            return new Controllers\CachingController($credentials, $view);
         });
     }
 
@@ -243,13 +280,13 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CommentController', function ($app) {
             $credentials = $app['credentials'];
-            $viewer = $app['viewer'];
+            $view = $app['view'];
             $session = $app['session'];
             $binput = $app['binput'];
             $commentprovider = $app['commentprovider'];
             $postprovider = $app['postprovider'];
 
-            return new Controllers\CommentController($credentials, $viewer, $session, $binput, $commentprovider, $postprovider);
+            return new Controllers\CommentController($credentials, $view, $session, $binput, $commentprovider, $postprovider);
         });
     }
 
@@ -262,11 +299,11 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\EventController', function ($app) {
             $credentials = $app['credentials'];
-            $viewer = $app['viewer'];
+            $view = $app['view'];
             $binput = $app['binput'];
             $eventprovider = $app['eventprovider'];
 
-            return new Controllers\EventController($credentials, $viewer, $binput, $eventprovider);
+            return new Controllers\EventController($credentials, $view, $binput, $eventprovider);
         });
     }
 
@@ -279,12 +316,12 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\HomeController', function ($app) {
             $credentials = $app['credentials'];
-            $viewer = $app['viewer'];
-            $queuing = $app['queuing'];
+            $view = $app['view'];
+            $mailer = $app['mailer'];
             $email = $app['config']['workbench.email'];
             $subject = $app['config']['platform.name'].' - Welcome';
 
-            return new Controllers\HomeController($credentials, $viewer, $queuing, $email, $subject);
+            return new Controllers\HomeController($credentials, $view, $mailer, $email, $subject);
         });
     }
 
@@ -297,12 +334,12 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PageController', function ($app) {
             $credentials = $app['credentials'];
-            $viewer = $app['viewer'];
+            $view = $app['view'];
             $session = $app['session'];
             $binput = $app['binput'];
             $pageprovider = $app['pageprovider'];
 
-            return new Controllers\PageController($credentials, $viewer, $session, $binput, $pageprovider);
+            return new Controllers\PageController($credentials, $view, $session, $binput, $pageprovider);
         });
     }
 
@@ -315,11 +352,11 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PostController', function ($app) {
             $credentials = $app['credentials'];
-            $viewer = $app['viewer'];
+            $view = $app['view'];
             $binput = $app['binput'];
             $postprovider = $app['postprovider'];
 
-            return new Controllers\PostController($credentials, $viewer, $binput, $postprovider);
+            return new Controllers\PostController($credentials, $view, $binput, $postprovider);
         });
     }
 
@@ -331,13 +368,13 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     public function provides()
     {
         return array(
+            'navfactory',
             'commentprovider',
             'eventprovider',
             'fileprovider',
             'folderprovider',
             'pageprovider',
-            'postprovider',
-            'viewer'
+            'postprovider'
         );
     }
 }

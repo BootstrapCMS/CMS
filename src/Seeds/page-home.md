@@ -33,7 +33,7 @@
 
     <div class="col-md-4 col-xs-12">
         <h2>Welcome</h2>
-        <p>Bootstrap CMS is a PHP CMS powered by <a href="http://laravel.com">Laravel 4.1</a> with <a href="https://github.com/GrahamCampbell/CMS-Core">Bootstrap CMS</a> and <a href="https://cartalyst.com/manual/sentry">Sentry 2</a>. Bootstrap CMS was created by, and is maintained by <a href="https://github.com/GrahamCampbell">Graham Campbell</a>.</p>
+        <p>Bootstrap CMS is a PHP CMS powered by <a href="http://laravel.com">Laravel 4.2</a> with <a href="https://github.com/GrahamCampbell/CMS-Core">Bootstrap CMS</a> and <a href="https://cartalyst.com/manual/sentry">Sentry 2</a>. Bootstrap CMS was created by, and is maintained by <a href="https://github.com/GrahamCampbell">Graham Campbell</a>.</p>
         <p>
             <a class="btn" href="<?php echo URL::route("pages.show", array("pages" => "about")); ?>">View details &raquo;</a>
         </p>

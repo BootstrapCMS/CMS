@@ -14,13 +14,13 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\Tests\BootstrapCMS\Facades;
+namespace GrahamCampbell\BootstrapCMS\Presenters;
 
-use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\BootstrapCMS\Models\Event;
+use McCool\LaravelAutoPresenter\BasePresenter;
 
 /**
- * This is the viewer facade test class.
+ * This is the event presenter class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -28,37 +28,18 @@ use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class ViewerTest extends AbstractTestCase
+class EventPresenter extends BasePresenter
 {
-    use FacadeTestCaseTrait;
+    use OwnerPresenterTrait;
 
     /**
-     * Get the facade accessor.
+     * Create a new instance.
      *
-     * @return string
+     * @param  \GrahamCampbell\BootstrapCMS\Models\Event  $event
+     * @return void
      */
-    protected function getFacadeAccessor()
+    public function __construct(Event $event)
     {
-        return 'viewer';
-    }
-
-    /**
-     * Get the facade class.
-     *
-     * @return string
-     */
-    protected function getFacadeClass()
-    {
-        return 'GrahamCampbell\Viewer\Facades\Viewer';
-    }
-
-    /**
-     * Get the facade route.
-     *
-     * @return string
-     */
-    protected function getFacadeRoot()
-    {
-        return 'GrahamCampbell\BootstrapCMS\Classes\Viewer';
+        $this->resource = $event;
     }
 }

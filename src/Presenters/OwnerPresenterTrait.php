@@ -14,12 +14,10 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Handlers;
-
-use GrahamCampbell\Queuing\Handlers\AbstractHandler;
+namespace GrahamCampbell\BootstrapCMS\Presenters;
 
 /**
- * This is the test handler class.
+ * This is the owner presenter trait.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -27,15 +25,19 @@ use GrahamCampbell\Queuing\Handlers\AbstractHandler;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class TestHandler extends AbstractHandler
+trait OwnerPresenterTrait
 {
     /**
-     * Run the task (called by AbstractHandler).
+     * Get the owner.
      *
-     * @return void
+     * @return string
      */
-    protected function run()
+    public function owner()
     {
-        throw new \Exception('TestHandler Error Test!');
+        $user = $this->resource->user()
+            ->cacheDriver('array')->rememberForever()
+            ->first(array('first_name', 'last_name', 'email'));
+
+        return $user->first_name.' '.$user->last_name.' ('.$user->email.')';
     }
 }

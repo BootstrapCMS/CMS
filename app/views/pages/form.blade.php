@@ -8,6 +8,22 @@
         </div>
     </div>
 
+    <div class="form-group{{ ($errors->has('nav_title')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="nav_title">Page Nav Title</label>
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
+            <input name="nav_title" id="nav_title" value="{{ Request::old('nav_title', $form['defaults']['nav_title']) }}" type="text" class="form-control" placeholder="Page Nav Title">
+            {{ ($errors->has('nav_title') ? $errors->first('nav_title') : '') }}
+        </div>
+    </div>
+
+    <div class="form-group{{ ($errors->has('slug')) ? ' has-error' : '' }}">
+        <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="slug">Page Slug</label>
+        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
+            <input name="slug" id="slug" value="{{ Request::old('slug', $form['defaults']['slug']) }}" type="text" class="form-control" placeholder="Page Slug">
+            {{ ($errors->has('slug') ? $errors->first('slug') : '') }}
+        </div>
+    </div>
+
     <div class="form-group{{ ($errors->has('icon')) ? ' has-error' : '' }}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="icon">Page Icon</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">

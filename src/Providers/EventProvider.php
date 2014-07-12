@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
-use GrahamCampbell\Core\Providers\AbstractProvider;
-use GrahamCampbell\Core\Providers\Interfaces\PaginateProviderInterface;
-use GrahamCampbell\Core\Providers\Common\PaginateProviderTrait;
+use GrahamCampbell\Database\Providers\AbstractProvider;
+use GrahamCampbell\Database\Providers\Interfaces\PaginateProviderInterface;
+use GrahamCampbell\Database\Providers\Common\PaginateProviderTrait;
 
 /**
  * This is the event provider class.

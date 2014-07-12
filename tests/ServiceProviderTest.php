@@ -30,4 +30,29 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
 class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTestCaseTrait;
+
+    public function testNavigationFactoryIsInjectable()
+    {
+        $this->assertIsInjectable('GrahamCampbell\BootstrapCMS\Navigation\Factory');
+    }
+
+    public function testCommentProviderIsInjectable()
+    {
+        $this->assertIsInjectable('GrahamCampbell\BootstrapCMS\Providers\CommentProvider');
+    }
+
+    public function testEventProviderIsInjectable()
+    {
+        $this->assertIsInjectable('GrahamCampbell\BootstrapCMS\Providers\EventProvider');
+    }
+
+    public function testPageProviderIsInjectable()
+    {
+        $this->assertIsInjectable('GrahamCampbell\BootstrapCMS\Providers\PageProvider');
+    }
+
+    public function testPostProviderIsInjectable()
+    {
+        $this->assertIsInjectable('GrahamCampbell\BootstrapCMS\Providers\PostProvider');
+    }
 }

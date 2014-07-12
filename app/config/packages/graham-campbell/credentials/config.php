@@ -40,61 +40,6 @@ return array(
     |
     */
 
-    'activation' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Login Page
-    |--------------------------------------------------------------------------
-    |
-    | This defines the view that is used for the login page.
-    |
-    */
-
-    'login' => 'graham-campbell/credentials::account.login',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Registration Page
-    |--------------------------------------------------------------------------
-    |
-    | This defines the view that is used for the registration page.
-    |
-    */
-
-    'registration' => 'graham-campbell/credentials::account.register',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Forgot Password Page
-    |--------------------------------------------------------------------------
-    |
-    | This defines the view that is used for the forgot password page.
-    |
-    */
-
-    'reset' => 'graham-campbell/credentials::account.reset',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Resend Activation Page
-    |--------------------------------------------------------------------------
-    |
-    | This defines the view that is used for the resend activation page.
-    |
-    */
-
-    'resend' => 'graham-campbell/credentials::account.resend',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Profile Password Page
-    |--------------------------------------------------------------------------
-    |
-    | This defines the view that is used for the profile page.
-    |
-    */
-
-    'profile' => 'graham-campbell/credentials::account.profile'
+    'activation' => true
 
 );

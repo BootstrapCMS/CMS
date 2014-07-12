@@ -18,54 +18,42 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Token
+    | Default Connection Name
     |--------------------------------------------------------------------------
     |
-    | This defines the api key to be used from your account page.
-    |
-    | Default: 'YourToken'
+    | Here you may specify which of the connections below you wish to use as
+    | your default connection for all work. Of course, you may use many
+    | connections at once using the manager class.
     |
     */
 
-    'token' => 'YourToken',
+    'default' => 'main',
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Email
+    | CloudFlare Connections
     |--------------------------------------------------------------------------
     |
-    | This defines the email address associated with the api key to be used.
-    |
-    | Default: 'YourEmail'
+    | Here are each of the connections setup for your application. Examples of
+    | configuration have been included, but you may add as many connection as
+    | you would like.
     |
     */
 
-    'email' => 'YourEmail',
+    'connections' => array(
 
-    /*
-    |--------------------------------------------------------------------------
-    | Domain
-    |--------------------------------------------------------------------------
-    |
-    | This defines the domain to make api calls on.
-    |
-    | Default: 'YourDomain'
-    |
-    */
+        'main' => array(
+            'token'   => 'your-token',
+            'email'   => 'your-email',
+            // 'baseurl' => 'https://www.cloudflare.com/api_json.html'
+        ),
 
-    'domain' => 'YourDomain',
+        'alternative' => array(
+            'token'   => 'your-token',
+            'email'   => 'your-email',
+            // 'baseurl' => 'https://www.cloudflare.com/api_json.html'
+        )
 
-    /*
-    |--------------------------------------------------------------------------
-    | Base URL
-    |--------------------------------------------------------------------------
-    |
-    | This defines the base url for making api calls against.
-    |
-    | Default: 'https://www.cloudflare.com/api_json.html'
-    |
-    */
-
-    'baseurl' => 'https://www.cloudflare.com/api_json.html'
+    )
 
 );

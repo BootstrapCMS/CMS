@@ -38,10 +38,10 @@ return array(
     | This defines the email address to send contact form messages to. It can
     | be a single address, or an array of email addresses.
     |
-    | Default to null.
+    | Default to 'admin@example.com'.
     |
     */
 
-    'email' => null
+    'email' => 'admin@example.com'
 
 );

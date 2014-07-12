@@ -17,8 +17,8 @@
 namespace GrahamCampbell\BootstrapCMS\Subscribers;
 
 use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
-use GrahamCampbell\Credentials\Classes\Credentials;
-use GrahamCampbell\Navigation\Classes\Navigation;
+use GrahamCampbell\Credentials\Credentials;
+use GrahamCampbell\Navigation\Navigation;
 use Illuminate\Config\Repository;
 use Illuminate\Events\Dispatcher;
 
@@ -43,14 +43,14 @@ class NavigationSubscriber
     /**
      * The navigation instance.
      *
-     * @var \GrahamCampbell\Navigation\Classes\Navigation
+     * @var \GrahamCampbell\Navigation\Navigation
      */
     protected $navigation;
 
     /**
      * The credentials instance.
      *
-     * @var \GrahamCampbell\Credentials\Classes\Credentials
+     * @var \GrahamCampbell\Credentials\Credentials
      */
     protected $credentials;
 
@@ -65,8 +65,8 @@ class NavigationSubscriber
      * Create a new instance.
      *
      * @param  \Illuminate\Config\Repository  $config
-     * @param  \GrahamCampbell\Navigation\Classes\Navigation  $navigation
-     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
+     * @param  \GrahamCampbell\Navigation\Navigation  $navigation
+     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
      * @return void
      */
@@ -153,9 +153,6 @@ class NavigationSubscriber
 
         // add the pages to the nav bar
         foreach ($pages as $page) {
-            // make sure the page is preppended by 'pages/'
-            $page['slug'] = 'pages/'.$page['slug'];
-            // add the page to the main nav bar
             $this->navigation->addMain($page);
         }
 
@@ -185,8 +182,6 @@ class NavigationSubscriber
         // select the home page
         $page = $pages[0];
 
-        // make sure the page is preppended by 'pages/'
-        $page['slug'] = 'pages/'.$page['slug'];
         // add the page to the start of the main nav bars
         $this->navigation->addMain($page, 'default', true);
         $this->navigation->addMain($page, 'admin', true);
@@ -286,7 +281,7 @@ class NavigationSubscriber
     /**
      * Get the navigation instance.
      *
-     * @return \GrahamCampbell\Navigation\Classes\Navigation
+     * @return \GrahamCampbell\Navigation\Navigation
      */
     public function getNavigation()
     {
@@ -296,7 +291,7 @@ class NavigationSubscriber
     /**
      * Get the credentials instance.
      *
-     * @return \GrahamCampbell\Credentials\Classes\Credentials
+     * @return \GrahamCampbell\Credentials\Credentials
      */
     public function getCredentials()
     {

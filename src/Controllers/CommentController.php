@@ -16,14 +16,14 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
+use Illuminate\View\Factory;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
-use GrahamCampbell\Binput\Classes\Binput;
-use GrahamCampbell\Viewer\Classes\Viewer;
+use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\CommentProvider;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
-use GrahamCampbell\Credentials\Classes\Credentials;
+use GrahamCampbell\Credentials\Credentials;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -40,13 +40,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 class CommentController extends AbstractController
 {
     /**
-     * The viewer instance.
-     *
-     * @var \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    protected $viewer;
-
-    /**
      * The session instance.
      *
      * @var \Illuminate\Session\SessionManager
@@ -56,7 +49,7 @@ class CommentController extends AbstractController
     /**
      * The binput instance.
      *
-     * @var \GrahamCampbell\Binput\Classes\Binput
+     * @var \GrahamCampbell\Binput\Binput
      */
     protected $binput;
 
@@ -77,17 +70,16 @@ class CommentController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
-     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
+     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
+     * @param  \Illuminate\View\Factory  $view
      * @param  \Illuminate\Session\SessionManager  $session
-     * @param  \GrahamCampbell\Binput\Classes\Binput  $binput
+     * @param  \GrahamCampbell\Binput\Binput  $binput
      * @param  \GrahamCampbell\BootstrapCMS\Providers\CommentProvider  $commentprovider
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer, SessionManager $session, Binput $binput, CommentProvider $commentprovider, PostProvider $postprovider)
+    public function __construct(Credentials $credentials, Factory $view, SessionManager $session, Binput $binput, CommentProvider $commentprovider, PostProvider $postprovider)
     {
-        $this->viewer = $viewer;
         $this->session = $session;
         $this->binput = $binput;
         $this->commentprovider = $commentprovider;
@@ -103,7 +95,7 @@ class CommentController extends AbstractController
         $this->beforeFilter('throttle.comment.store', array('only' => array('store')));
         $this->beforeFilter('throttle.comment.update', array('only' => array('update')));
 
-        parent::__construct($credentials);
+        parent::__construct($credentials, $view);
     }
 
     /**
@@ -151,7 +143,7 @@ class CommentController extends AbstractController
 
         $comment = $this->commentprovider->create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->viewer->getView()->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_id' => $comment->id), 201);
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->view->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_id' => $comment->id), 201);
     }
 
     /**
@@ -166,7 +158,7 @@ class CommentController extends AbstractController
         $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => $this->viewer->getView()->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_text' => nl2br(e($comment->body)), 'comment_id' => $id, 'comment_ver' => $comment->version));
+        return Response::json(array('contents' => $this->view->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_text' => nl2br(e($comment->body)), 'comment_id' => $id, 'comment_ver' => $comment->version));
     }
 
     /**
@@ -248,16 +240,6 @@ class CommentController extends AbstractController
     }
 
     /**
-     * Return the viewer instance.
-     *
-     * @return \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    public function getViewer()
-    {
-        return $this->viewer;
-    }
-
-    /**
      * Return the session instance.
      *
      * @return \Illuminate\Session\SessionManager
@@ -270,7 +252,7 @@ class CommentController extends AbstractController
     /**
      * Return the binput instance.
      *
-     * @return \GrahamCampbell\Binput\Classes\Binput
+     * @return \GrahamCampbell\Binput\Binput
      */
     public function getBinput()
     {

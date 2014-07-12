@@ -27,10 +27,18 @@
 
 
 // test routes
-Route::get('hello', array('as' => 'hello', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@showWelcome'));
-Route::get('test', array('as' => 'test', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@showTest'));
-Route::get('testqueue', array('as' => 'testqueue', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@testQueue'));
-Route::get('testerror', array('as' => 'testerror', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@testError'));
+Route::get('hello', array(
+    'as' => 'hello',
+    'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@showWelcome'
+));
+Route::get('test', array(
+    'as' => 'test',
+    'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@showTest'
+));
+Route::get('testqueue', array(
+    'as' => 'testqueue',
+    'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@testQueue'
+));
 
 
 // send users to the home page
@@ -69,4 +77,7 @@ if (Config::get('cms.events')) {
 
 
 // caching routes
-Route::get('caching', array('as' => 'caching.index', 'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CachingController@getIndex'));
+Route::get('caching', array(
+    'as' => 'caching.index',
+    'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CachingController@getIndex'
+));

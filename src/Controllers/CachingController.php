@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Viewer\Classes\Viewer;
-use GrahamCampbell\Credentials\Classes\Credentials;
+use Illuminate\View\Factory;
+use GrahamCampbell\Credentials\Credentials;
 
 /**
  * This is the caching controller class.
@@ -31,28 +31,19 @@ use GrahamCampbell\Credentials\Classes\Credentials;
 class CachingController extends AbstractController
 {
     /**
-     * The viewer instance.
-     *
-     * @var \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    protected $viewer;
-
-    /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Classes\Credentials  $credentials
-     * @param  \GrahamCampbell\Viewer\Classes\Viewer  $viewer
+     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
+     * @param  \Illuminate\View\Factory  $view
      * @return void
      */
-    public function __construct(Credentials $credentials, Viewer $viewer)
+    public function __construct(Credentials $credentials, Factory $view)
     {
-        $this->viewer = $viewer;
-
         $this->setPermissions(array(
             'getIndex' => 'admin',
         ));
 
-        parent::__construct($credentials);
+        parent::__construct($credentials, $view);
     }
 
     /**
@@ -62,16 +53,6 @@ class CachingController extends AbstractController
      */
     public function getIndex()
     {
-        return $this->viewer->make('caching.index', array(), 'admin');
-    }
-
-    /**
-     * Return the viewer instance.
-     *
-     * @return \GrahamCampbell\Viewer\Classes\Viewer
-     */
-    public function getViewer()
-    {
-        return $this->viewer;
+        return $this->view->make('caching.index');
     }
 }

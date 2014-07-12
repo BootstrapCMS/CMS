@@ -16,7 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\Core\Models\AbstractModel;
+use GrahamCampbell\Database\Models\AbstractModel;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyCommentsTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
@@ -31,7 +32,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToUserInterface
+class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToUserInterface, PresenterInterface
 {
     use HasManyCommentsTrait, BelongsToUserTrait;
 
@@ -88,6 +89,16 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
         'body'    => 'required',
         'user_id' => 'required'
     );
+
+    /**
+     * Get the presenter class.
+     *
+     * @var string
+     */
+    public function getPresenter()
+    {
+        return 'GrahamCampbell\BootstrapCMS\Presenters\PostPresenter';
+    }
 
     /**
      * Before deleting an existing model.

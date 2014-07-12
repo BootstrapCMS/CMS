@@ -14,14 +14,13 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\Tests\BootstrapCMS\Handlers;
+namespace GrahamCampbell\Tests\BootstrapCMS\Facades;
 
-use ReflectionClass;
-use GrahamCampbell\BootstrapCMS\Handlers\TestHandler;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
+use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 
 /**
- * This is the test handler test class.
+ * This is the navigation factory facade test class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -29,32 +28,37 @@ use GrahamCampbell\TestBench\Classes\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class TestHandlerTest extends AbstractTestCase
+class NavigationFactoryTest extends AbstractTestCase
 {
-    public function testRun()
+    use FacadeTestCaseTrait;
+
+    /**
+     * Get the facade accessor.
+     *
+     * @return string
+     */
+    protected function getFacadeAccessor()
     {
-        $method = $this->getReflection()->getMethod('run');
-        $method->setAccessible(true);
-
-        $return = null;
-
-        try {
-            $method->invoke($this->getTestHandler());
-        } catch (\Exception $e) {
-            $return = $e;
-        }
-
-        $this->assertInstanceOf('Exception', $return);
-        $this->assertEquals('TestHandler Error Test!', $return->getMessage());
+        return 'navfactory';
     }
 
-    protected function getTestHandler()
+    /**
+     * Get the facade class.
+     *
+     * @return string
+     */
+    protected function getFacadeClass()
     {
-        return new TestHandler();
+        return 'GrahamCampbell\BootstrapCMS\Facades\NavigationFactory';
     }
 
-    protected function getReflection()
+    /**
+     * Get the facade route.
+     *
+     * @return string
+     */
+    protected function getFacadeRoot()
     {
-        return new ReflectionClass('GrahamCampbell\BootstrapCMS\Handlers\TestHandler');
+        return 'GrahamCampbell\BootstrapCMS\Navigation\Factory';
     }
 }

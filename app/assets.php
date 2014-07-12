@@ -45,7 +45,8 @@ Asset::registerStyles($styles, '', 'main');
 $scripts = array(
     'js/cms-timeago.js',
     'js/cms-restfulizer.js',
-    'js/cms-carousel.js'
+    'js/cms-carousel.js',
+    'js/cms-alerts.js'
 );
 if (Config::get('laravel-debugbar::config.enabled')) {
     $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js';

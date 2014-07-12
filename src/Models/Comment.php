@@ -16,7 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\Core\Models\AbstractModel;
+use GrahamCampbell\Database\Models\AbstractModel;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToPostInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToPostTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
@@ -31,7 +32,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface
+class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface, PresenterInterface
 {
     use BelongsToPostTrait, BelongsToUserTrait;
 
@@ -80,4 +81,14 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
         'user_id' => 'required',
         'post_id' => 'required'
     );
+
+    /**
+     * Get the presenter class.
+     *
+     * @var string
+     */
+    public function getPresenter()
+    {
+        return 'GrahamCampbell\BootstrapCMS\Presenters\CommentPresenter';
+    }
 }
