@@ -23,10 +23,11 @@ The move from Bootstrap CMS 0.7 to 0.8 will require you to clear out all your co
 
 [PHP](https://php.net) 5.4.7+ or [HHVM](http://hhvm.com) 3.1+, a database server, and [Composer](https://getcomposer.org) are required.
 
-1. You may install by cloning from github, or via composer.
-  * Github: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
-  * Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
-2. From a command line open in the folder, run `composer install`.
+1. There are 3 ways of grabbing the code:
+  * Use GitHub: simply download the zip on the right of the readme
+  * Use Git: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
+  * Use Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
+2. From a command line open in the folder, run `composer install --no-dev -o`.
 3. Enter your database details into `app/config/databse.php`.
 4. Run `php artisan app:install` to setup and seed your database.
 5. You will need to enter your mail server details into `app/config/mail.php`.
