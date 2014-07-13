@@ -275,34 +275,4 @@ class PageController extends AbstractController
             }
         }
     }
-
-    /**
-     * Return the session instance.
-     *
-     * @return \Illuminate\Session\SessionManager
-     */
-    public function getSession()
-    {
-        return $this->session;
-    }
-
-    /**
-     * Return the binput instance.
-     *
-     * @return \GrahamCampbell\Binput\Binput
-     */
-    public function getBinput()
-    {
-        return $this->binput;
-    }
-
-    /**
-     * Return the page provider instance.
-     *
-     * @return \GrahamCampbell\BootstrapCMS\Providers\PageProvider
-     */
-    public function getPageProvider()
-    {
-        return $this->pageprovider;
-    }
 }

@@ -117,14 +117,4 @@ class HomeController extends AbstractController
 
         return 'The message has been queued for sending.';
     }
-
-    /**
-     * Return the mailer instance.
-     *
-     * @return \Illuminate\Mail\Mailer
-     */
-    public function getMailer()
-    {
-        return $this->mailer;
-    }
 }

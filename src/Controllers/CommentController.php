@@ -238,44 +238,4 @@ class CommentController extends AbstractController
             throw new NotFoundHttpException('Post Not Found');
         }
     }
-
-    /**
-     * Return the session instance.
-     *
-     * @return \Illuminate\Session\SessionManager
-     */
-    public function getSession()
-    {
-        return $this->session;
-    }
-
-    /**
-     * Return the binput instance.
-     *
-     * @return \GrahamCampbell\Binput\Binput
-     */
-    public function getBinput()
-    {
-        return $this->binput;
-    }
-
-    /**
-     * Return the comment provider instance.
-     *
-     * @return \GrahamCampbell\BootstrapCMS\Providers\CommentProvider
-     */
-    public function getCommentProvider()
-    {
-        return $this->commentprovider;
-    }
-
-    /**
-     * Return the post provider instance.
-     *
-     * @return \GrahamCampbell\BootstrapCMS\Providers\PostProvider
-     */
-    public function getPostProvider()
-    {
-        return $this->postprovider;
-    }
 }

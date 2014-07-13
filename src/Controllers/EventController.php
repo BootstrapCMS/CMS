@@ -204,24 +204,4 @@ class EventController extends AbstractController
             throw new NotFoundHttpException('Event Not Found');
         }
     }
-
-    /**
-     * Return the binput instance.
-     *
-     * @return \GrahamCampbell\Binput\Binput
-     */
-    public function getBinput()
-    {
-        return $this->binput;
-    }
-
-    /**
-     * Return the event provider instance.
-     *
-     * @return \GrahamCampbell\BootstrapCMS\Providers\EventProvider
-     */
-    public function getEventProvider()
-    {
-        return $this->eventprovider;
-    }
 }

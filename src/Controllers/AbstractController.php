@@ -68,14 +68,4 @@ abstract class AbstractController extends Controller
         $this->beforeFilter('credentials:edit', array('only' => $this->edits));
         $this->beforeFilter('credentials:blog', array('only' => $this->blogs));
     }
-
-    /**
-     * Return the view factory instance.
-     *
-     * @return \Illuminate\View\Factory
-     */
-    public function getView()
-    {
-        return $this->view;
-    }
 }

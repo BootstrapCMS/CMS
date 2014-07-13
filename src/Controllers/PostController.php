@@ -201,24 +201,4 @@ class PostController extends AbstractController
             throw new NotFoundHttpException('Post Not Found');
         }
     }
-
-    /**
-     * Return the binput instance.
-     *
-     * @return \GrahamCampbell\Binput\Binput
-     */
-    public function getBinput()
-    {
-        return $this->binput;
-    }
-
-    /**
-     * Return the post provider instance.
-     *
-     * @return \GrahamCampbell\BootstrapCMS\Providers\PostProvider
-     */
-    public function getPostProvider()
-    {
-        return $this->postprovider;
-    }
 }
