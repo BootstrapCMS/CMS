@@ -9,8 +9,9 @@
 @show
 <br>
 <p>
-Thank you, <br>
-The Support Team
+{{{ Lang::get('email.thanks') }}},
+<br>
+{{{ Lang::get('email.sender') }}}
 </p>
 </body>
 </html>

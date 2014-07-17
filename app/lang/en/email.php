@@ -16,8 +16,8 @@
 
 return array(
 
-    'previous' => '&laquo; Previous',
+    'thanks' => 'Thank you',
 
-    'next'     => 'Next &raquo;',
+    'sender' => 'The Support Team'
 
 );

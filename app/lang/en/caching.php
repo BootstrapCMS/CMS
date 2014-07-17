@@ -16,8 +16,8 @@
 
 return array(
 
-    'previous' => '&laquo; Previous',
+    'title' => 'Caching',
 
-    'next'     => 'Next &raquo;',
+    'lead' => 'Caching controls coming soon...',
 
 );
