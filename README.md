@@ -16,7 +16,7 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 ## Upgrading
 
-The move from Bootstrap CMS 0.7 to 0.8 will require you to clear out all your config and reconfigure. This is because we've upgraded to Laravel 4.2, and upgraded to my newer packages. Please note that queuing has changed completely and no longer requires and special configuration behond what Laravel 4.2 requires.
+The move from Bootstrap CMS 0.7 to 0.8 will require you to clear out all your config and reconfigure. This is because we've upgraded to Laravel 4.2, and upgraded to my newer packages. Please note that queuing has changed completely and no longer requires and special configuration behond what Laravel 4.2 requires. Because this repo is still alpha, database migrations between versions may not work.
 
 
 ## Installation
