@@ -38,7 +38,7 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('events')->delete();
+        DB::table('events')->truncate();
 
         $date = Carbon::now();
 

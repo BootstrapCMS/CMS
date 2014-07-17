@@ -40,7 +40,7 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pages')->delete();
+        DB::table('pages')->truncate();
 
         $home = array(
             'title' => 'Welcome',

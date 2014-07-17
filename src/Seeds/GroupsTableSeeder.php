@@ -38,7 +38,7 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('groups')->delete();
+        DB::table('groups')->truncate();
 
         // users
         $permissions = array('user' => 1, 'edit' => 0, 'blog' => 0, 'mod' => 0, 'admin' => 0);

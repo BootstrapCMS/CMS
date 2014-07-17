@@ -38,7 +38,7 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comments')->delete();
+        DB::table('comments')->truncate();
 
         $comment = array(
             'body'       => 'This is an example comment.',

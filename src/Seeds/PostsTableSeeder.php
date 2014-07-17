@@ -38,7 +38,7 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->delete();
+        DB::table('posts')->truncate();
 
         $post = array(
             'title'      => 'Hello World',
