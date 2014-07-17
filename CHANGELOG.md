@@ -14,10 +14,10 @@ CHANGE LOG
 * Navigation improvements
 * Queuing and mail improvements
 * Removed viewer package
-* Added event invitations
 * Page improvements
 * Added di aliases
 * Added presenters
+* Throttling improvements
 * More unit tests
 
 

@@ -285,8 +285,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $binput = $app['binput'];
             $commentprovider = $app['commentprovider'];
             $postprovider = $app['postprovider'];
+            $throttler = $app['throttle']->get($app['request'], 1, 10);
 
-            return new Controllers\CommentController($credentials, $view, $session, $binput, $commentprovider, $postprovider);
+            return new Controllers\CommentController($credentials, $view, $session, $binput, $commentprovider, $postprovider, $throttler);
         });
     }
 

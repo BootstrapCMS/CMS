@@ -24,6 +24,7 @@ use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\CommentProvider;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Credentials;
+use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -68,6 +69,13 @@ class CommentController extends AbstractController
     protected $postprovider;
 
     /**
+     * The throttler instance.
+     *
+     * @var \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
+     */
+    protected $throttler;
+
+    /**
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Credentials  $credentials
@@ -76,14 +84,16 @@ class CommentController extends AbstractController
      * @param  \GrahamCampbell\Binput\Binput  $binput
      * @param  \GrahamCampbell\BootstrapCMS\Providers\CommentProvider  $commentprovider
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
+     * @param  \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface  $throttler
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view, SessionManager $session, Binput $binput, CommentProvider $commentprovider, PostProvider $postprovider)
+    public function __construct(Credentials $credentials, Factory $view, SessionManager $session, Binput $binput, CommentProvider $commentprovider, PostProvider $postprovider, ThrottlerInterface $throttler)
     {
         $this->session = $session;
         $this->binput = $binput;
         $this->commentprovider = $commentprovider;
         $this->postprovider = $postprovider;
+        $this->throttler = $throttler;
 
         $this->setPermissions(array(
             'store'   => 'user',
@@ -92,8 +102,7 @@ class CommentController extends AbstractController
         ));
 
         $this->beforeFilter('ajax');
-        $this->beforeFilter('throttle.comment.store', array('only' => array('store')));
-        $this->beforeFilter('throttle.comment.update', array('only' => array('update')));
+        $this->beforeFilter('throttle.comment', array('only' => array('store')));
 
         parent::__construct($credentials, $view);
     }
@@ -140,6 +149,8 @@ class CommentController extends AbstractController
         if ($this->commentprovider->validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
         }
+
+        $this->throttler->hit();
 
         $comment = $this->commentprovider->create($input);
 
