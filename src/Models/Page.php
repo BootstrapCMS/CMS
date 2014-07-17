@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
+use Venturecraft\Revisionable\RevisionableTrait;
 use GrahamCampbell\Database\Models\AbstractModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
@@ -32,7 +33,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  */
 class Page extends AbstractModel implements BelongsToUserInterface, PresenterInterface
 {
-    use BelongsToUserTrait;
+    use BelongsToUserTrait, RevisionableTrait;
 
     /**
      * The table the pages are stored in.

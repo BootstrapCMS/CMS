@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
+use Venturecraft\Revisionable\RevisionableTrait;
 use GrahamCampbell\Database\Models\AbstractModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
@@ -34,7 +35,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  */
 class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToUserInterface, PresenterInterface
 {
-    use HasManyCommentsTrait, BelongsToUserTrait;
+    use HasManyCommentsTrait, BelongsToUserTrait, RevisionableTrait;
 
     /**
      * The table the posts are stored in.

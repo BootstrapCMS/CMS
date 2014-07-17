@@ -34,6 +34,7 @@
         "graham-campbell/contact": "0.2.*",
         "graham-campbell/logviewer": "0.2.*",
         "mccool/laravel-auto-presenter": "~2.1",
+        "venturecraft/revisionable": "~1.5",
         "fideloper/proxy": "2.0.*",
         "barryvdh/laravel-debugbar": "1.6.*"
     },

@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
+use Venturecraft\Revisionable\RevisionableTrait;
 use GrahamCampbell\Database\Models\AbstractModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\Database\Models\Interfaces\DateModelInterface;
@@ -34,7 +35,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  */
 class Event extends AbstractModel implements DateModelInterface, BelongsToUserInterface, PresenterInterface
 {
-    use DateModelTrait, BelongsToUserTrait;
+    use DateModelTrait, BelongsToUserTrait, RevisionableTrait;
 
     /**
      * The table the events are stored in.

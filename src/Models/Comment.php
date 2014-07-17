@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
+use Venturecraft\Revisionable\RevisionableTrait;
 use GrahamCampbell\Database\Models\AbstractModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToPostInterface;
@@ -34,7 +35,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  */
 class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface, PresenterInterface
 {
-    use BelongsToPostTrait, BelongsToUserTrait;
+    use BelongsToPostTrait, BelongsToUserTrait, RevisionableTrait;
 
     /**
      * The table the comments are stored in.
