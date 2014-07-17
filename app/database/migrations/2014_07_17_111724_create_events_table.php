@@ -43,7 +43,6 @@ class CreateEventsTable extends Migration
             $table->text('body');
             $table->timestamp('date');
             $table->text('location');
-            $table->boolean('mailed')->default(false);
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });

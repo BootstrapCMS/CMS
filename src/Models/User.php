@@ -25,8 +25,6 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyEventsInterfa
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyEventsTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyCommentsTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToManyEventsInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToManyEventsTrait;
 
 /**
  * This is the user model class.
@@ -37,9 +35,9 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToManyEventsTrait
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class User extends CredentialsUser implements HasManyPagesInterface, HasManyPostsInterface, HasManyEventsInterface, HasManyCommentsInterface, BelongsToManyEventsInterface
+class User extends CredentialsUser implements HasManyPagesInterface, HasManyPostsInterface, HasManyEventsInterface, HasManyCommentsInterface
 {
-    use HasManyPagesTrait, HasManyPostsTrait, HasManyEventsTrait, HasManyCommentsTrait, BelongsToManyEventsTrait;
+    use HasManyPagesTrait, HasManyPostsTrait, HasManyEventsTrait, HasManyCommentsTrait;
 
     /**
      * Before deleting an existing model.
@@ -48,7 +46,6 @@ class User extends CredentialsUser implements HasManyPagesInterface, HasManyPost
      */
     public function beforeDelete()
     {
-        $this->invites()->sync(array());
         $this->deletePages();
         $this->deletePosts();
         $this->deleteEvents();

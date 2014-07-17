@@ -16,7 +16,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
-use GrahamCampbell\BootstrapCMS\Facades\CommentProvider;
+use Illuminate\Database\Schema\Blueprint;
 
 /**
  * This is the create pages table migration class.
@@ -27,7 +27,7 @@ use GrahamCampbell\BootstrapCMS\Facades\CommentProvider;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class AddVersionToComments extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -36,13 +36,21 @@ class AddVersionToComments extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function ($table) {
-            $table->integer('version')->unsigned()->default(1);
+        Schema::create('pages', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->string('title');
+            $table->string('nav_title');
+            $table->string('slug');
+            $table->text('body');
+            $table->text('css')->nullable();
+            $table->text('js')->nullable();
+            $table->boolean('show_title')->default(true);
+            $table->boolean('show_nav')->default(true);
+            $table->string('icon')->default('');
+            $table->integer('user_id')->unsigned();
+            $table->timestamps();
         });
-
-        foreach (CommentProvider::all() as $comment) {
-            $comment->update(array('version' => 1));
-        }
     }
 
     /**
@@ -52,8 +60,6 @@ class AddVersionToComments extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function ($table) {
-            $table->dropColumn('version');
-        });
+        Schema::drop('pages');
     }
 }

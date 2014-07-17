@@ -22,8 +22,6 @@ use GrahamCampbell\Database\Models\Interfaces\DateModelInterface;
 use GrahamCampbell\Database\Models\Common\DateModelTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToManyUsersInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToManyUsersTrait;
 
 /**
  * This is the event model class.
@@ -34,9 +32,9 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToManyUsersTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Event extends AbstractModel implements DateModelInterface, BelongsToUserInterface, BelongsToManyUsersInterface, PresenterInterface
+class Event extends AbstractModel implements DateModelInterface, BelongsToUserInterface, PresenterInterface
 {
-    use DateModelTrait, BelongsToUserTrait, BelongsToManyUsersTrait;
+    use DateModelTrait, BelongsToUserTrait;
 
     /**
      * The table the events are stored in.
@@ -101,15 +99,5 @@ class Event extends AbstractModel implements DateModelInterface, BelongsToUserIn
     public function getPresenter()
     {
         return 'GrahamCampbell\BootstrapCMS\Presenters\EventPresenter';
-    }
-
-    /**
-     * Before deleting an existing model.
-     *
-     * @return mixed
-     */
-    public function beforeDelete()
-    {
-        $this->invites()->sync(array());
     }
 }
