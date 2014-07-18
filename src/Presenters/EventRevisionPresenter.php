@@ -14,10 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces;
+namespace GrahamCampbell\BootstrapCMS\Presenters;
+
+use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
 
 /**
- * This is the belongs to user interface.
+ * This is the event revision presenter class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,12 +27,7 @@ namespace GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-interface BelongsToUserInterface
+class EventRevisionPresenter extends AbstractRevisionPresenter
 {
-    /**
-     * Get the user relation.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user();
+    //
 }

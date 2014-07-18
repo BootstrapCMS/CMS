@@ -16,8 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters;
 
+use Illuminate\Support\Facades\App;
+use GrahamCampbell\Credentials\Presenters\UserPresenter as BasePresenter;
+
 /**
- * This is the owner presenter trait.
+ * This is the author presenter trait.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,19 +28,13 @@ namespace GrahamCampbell\BootstrapCMS\Presenters;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-trait OwnerPresenterTrait
+class UserPresenter extends BasePresenter
 {
-    /**
-     * Get the owner.
-     *
-     * @return string
-     */
-    public function owner()
+    public function actionHistory()
     {
-        $user = $this->resource->user()
-            ->cacheDriver('array')->rememberForever()
-            ->first(array('first_name', 'last_name', 'email'));
+        $presenter = App::make('McCool\LaravelAutoPresenter\PresenterDecorator');
+        $history = $this->resource->revisions()->orderBy('id', 'desc')->take(20)->get();
 
-        return $user->first_name.' '.$user->last_name.' ('.$user->email.')';
+        return $presenter->decorate($history);
     }
 }

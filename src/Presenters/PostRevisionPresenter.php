@@ -16,12 +16,10 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters;
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
-use McCool\LaravelAutoPresenter\BasePresenter;
-use GrahamCampbell\Credentials\Presenters\OwnerPresenterTrait;
+use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
 
 /**
- * This is the page presenter class.
+ * This is the post revision presenter class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -29,18 +27,7 @@ use GrahamCampbell\Credentials\Presenters\OwnerPresenterTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class PagePresenter extends BasePresenter
+class PostRevisionPresenter extends AbstractRevisionPresenter
 {
-    use OwnerPresenterTrait;
-
-    /**
-     * Create a new instance.
-     *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
-     * @return void
-     */
-    public function __construct(Page $page)
-    {
-        $this->resource = $page;
-    }
+    //
 }

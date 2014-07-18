@@ -18,6 +18,7 @@ namespace GrahamCampbell\BootstrapCMS\Presenters;
 
 use GrahamCampbell\BootstrapCMS\Models\Event;
 use McCool\LaravelAutoPresenter\BasePresenter;
+use GrahamCampbell\Credentials\Presenters\OwnerPresenterTrait;
 
 /**
  * This is the event presenter class.

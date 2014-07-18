@@ -161,7 +161,7 @@ class Factory
     /**
      * Get a decorated user object.
      *
-     * @return \GrahamCampbell\Credentials\Presenters\UserPresenter
+     * @return \GrahamCampbell\BootstrapCMS\Presenters\UserPresenter
      */
     protected function getUser()
     {

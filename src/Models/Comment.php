@@ -16,13 +16,14 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use Venturecraft\Revisionable\RevisionableTrait;
 use GrahamCampbell\Database\Models\AbstractModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToPostInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToPostTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToUserInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
+use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
+use GrahamCampbell\Credentials\Models\Relations\Common\BelongsToUserTrait;
+use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
+use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
 
 /**
  * This is the comment model class.
@@ -33,7 +34,7 @@ use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToUserTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface, PresenterInterface
+class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface, RevisionableInterface, PresenterInterface
 {
     use BelongsToPostTrait, BelongsToUserTrait, RevisionableTrait;
 

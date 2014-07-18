@@ -16,8 +16,10 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters;
 
+use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
+
 /**
- * This is the author presenter trait.
+ * This is the comment revision presenter class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,19 +27,7 @@ namespace GrahamCampbell\BootstrapCMS\Presenters;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-trait AuthorPresenterTrait
+class CommentRevisionPresenter extends AbstractRevisionPresenter
 {
-    /**
-     * Get the author's name.
-     *
-     * @return string
-     */
-    public function author()
-    {
-        $user = $this->resource->user()
-            ->cacheDriver('array')->rememberForever()
-            ->first(array('first_name', 'last_name'));
-
-        return $user->first_name.' '.$user->last_name;
-    }
+    //
 }

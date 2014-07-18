@@ -16,8 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use GrahamCampbell\Credentials\Models\User as CredentialsUser;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyPagesInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyPagesTrait;
@@ -55,64 +53,22 @@ class User extends CredentialsUser implements HasManyPagesInterface, HasManyPost
     }
 
     /**
-     * Get the recent action history for the user.
+     * Get the presenter class.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @var string
      */
-    public function actionHistory()
+    public function getPresenter()
     {
-        // create the carbon object now to save cpu cycles
-        // from creating the same object over and over again
-        $carbon = Carbon::now()->subWeek();
-
-        // iterate over the recently updated relations and get the combined history
-        $history = new Collection();
-        $this->getRecentlyModified($carbon)->each(function ($a) use ($history, $carbon) {
-            $history->merge($a->revisionHistory()->where('updated_at', '>=', $carbon)->getResults());
-        });
-
-        // return the first 20 items
-        if ($count = $this->sortCollection($history)->count() > 20) {
-            return $history->slice(0, 19);
-        }
-
-        // return less than 20 items
-        return $history;
-    }
-
-    /**
-     * Get the recently modified relations.
-     *
-     * @param  \Carbon\Carbon  $carbon
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    protected function getRecentlyModified(Carbon $carbon)
-    {
-        // combine the recently modified relations
-        $collection = new Collection();
-        foreach (array('pages', 'posts', 'events', 'comments') as $model) {
-            $collection->merge($this->$model()->where('updated_at', '>=', $carbon)->getResults());
-        }
-
-        return $collection;
+        return 'GrahamCampbell\BootstrapCMS\Presenters\UserPresenter';
     }
 
     /**
      * Get the recent action history for the user.
      *
-     * @param  \Illuminate\Database\Eloquent\Collection  $collection
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return mixed
      */
-    protected function sortCollection(Collection $collection)
+    public function revisions()
     {
-        // sort the collection by last updated
-        $collection->sort(function ($a, $b) {
-            if ($a = $a->updated_at->timestamp === $b = $b->updated_at->timestamp) {
-                return 0;
-            }
-            return ($a < $b) ? 1 : -1;
-        });
-
-        return $collection;
+        return $this->hasMany('Venturecraft\Revisionable\Revision');
     }
 }

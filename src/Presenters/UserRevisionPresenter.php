@@ -14,10 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Models\Relations\Common;
+namespace GrahamCampbell\BootstrapCMS\Presenters;
+
+use GrahamCampbell\Credentials\Presenters\UserRevisionPresenter as BasePresenter;
 
 /**
- * This is the belongs to user trait.
+ * This is the user revision presenter class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,15 +27,7 @@ namespace GrahamCampbell\BootstrapCMS\Models\Relations\Common;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-trait BelongsToUserTrait
+class UserRevisionPresenter extends BasePresenter
 {
-    /**
-     * Get the user relation.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('GrahamCampbell\BootstrapCMS\Models\User');
-    }
+    //
 }
