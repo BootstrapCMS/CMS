@@ -83,7 +83,6 @@
             <div class="well clearfix">
                 <h4>{{{ $item->title }}}<h4>
                 <p>{{ $item->description }}</p>
-                <pre>{{{ $item->diff }}}</pre>
             </div>
         @endforeach
     </div>
