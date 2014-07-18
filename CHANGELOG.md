@@ -18,7 +18,6 @@ CHANGE LOG
 * Added di aliases
 * Added presenters
 * Throttling improvements
-* Localisation
 * More unit tests
 
 

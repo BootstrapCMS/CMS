@@ -111,11 +111,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $navigation = $app['navigation'];
             $decorator = $app->make('McCool\LaravelAutoPresenter\PresenterDecorator');
             $name = $app['config']['platform.name'];
-            $admin = $app['translator']->get('admin.title');
             $property = $app['config']['cms.nav'];
             $inverse = $app['config']['theme.inverse'];
 
-            return new Navigation\Factory($credentials, $navigation, $decorator, $name, $admin, $property, $inverse);
+            return new Navigation\Factory($credentials, $navigation, $decorator, $name, $property, $inverse);
         });
 
         $this->app->alias('navfactory', 'GrahamCampbell\BootstrapCMS\Navigation\Factory');

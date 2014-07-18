@@ -2,16 +2,16 @@
 
 @section('title')
 @navtype('admin')
-{{{ Lang::get('caching.title') }}}
+Caching
 @stop
 
 @section('top')
 <div class="page-header">
-<h1>{{{ Lang::get('caching.title') }}}</h1>
+<h1>Caching</h1>
 </div>
 @stop
 
 @section('content')
-<p class="lead">{{{ Lang::get('caching.lead') }}}</p>
+<p class="lead">Caching controls coming soon...</p>
 <hr>
 @stop

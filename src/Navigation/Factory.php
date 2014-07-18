@@ -60,13 +60,6 @@ class Factory
     protected $name;
 
     /**
-     * The admin panel name.
-     *
-     * @var string
-     */
-    protected $admin;
-
-    /**
      * The user property.
      *
      * @var string
@@ -87,18 +80,16 @@ class Factory
      * @param  \GrahamCampbell\Navigation\Navigation  $navigation
      * @param  \McCool\LaravelAutoPresenter\PresenterDecorator  $decorator
      * @param  string  $name
-     * @param  string  $admin
      * @param  string  $property
      * @param  bool  $inverse
      * @return void
      */
-    public function __construct(Credentials $credentials, Navigation $navigation, PresenterDecorator $decorator, $name, $admin, $property, $inverse)
+    public function __construct(Credentials $credentials, Navigation $navigation, PresenterDecorator $decorator, $name, $property, $inverse)
     {
         $this->credentials = $credentials;
         $this->navigation = $navigation;
         $this->decorator = $decorator;
         $this->name = $name;
-        $this->admin = $admin;
         $this->property = $property;
         $this->inverse = $inverse;
     }
@@ -116,7 +107,7 @@ class Factory
                 if ($this->credentials->hasAccess('admin')) {
                     // the requested type is admin, and the user is an admin
                     return $this->navigation->getHTML('admin', 'admin', array(
-                        'title' => $this->admin,
+                        'title' => 'Admin Panel',
                         'side' => $this->getSide(),
                         'inverse' => $this->inverse
                     ));
