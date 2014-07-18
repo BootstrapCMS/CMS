@@ -13,7 +13,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-lg-6">
         <p class="lead">
             @if($user->id == Credentials::getUser()->id)
                 Currently showing your profile:
@@ -22,8 +22,8 @@
             @endif
         </p>
     </div>
-    <div class="col-xs-6">
-        <div class="pull-right">
+    <div class="col-lg-6">
+        <div class="pull-right visible-lg">
             @auth('admin')
                 &nbsp;<a class="btn btn-info" href="{{ URL::route('users.edit', array('users' => $user->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit User</a>
             @endauth
@@ -33,6 +33,16 @@
                 &nbsp;<a class="btn btn-danger" href="#delete_user" data-toggle="modal" data-target="#delete_user"><i class="fa fa-times"></i> Delete</a>
             @endauth
         </div>
+    </div>
+    <div class="col-lg-6 hidden-lg">
+        @auth('admin')
+            &nbsp;<a class="btn btn-info" href="{{ URL::route('users.edit', array('users' => $user->id)) }}"><i class="fa fa-pencil-square-o"></i> Edit User</a>
+        @endauth
+        &nbsp;<a class="btn btn-warning" href="#suspend_user" data-toggle="modal" data-target="#suspend_user"><i class="fa fa-ban"></i> Suspend User</a>
+        @auth('admin')
+            &nbsp;<a class="btn btn-inverse" href="#reset_user" data-toggle="modal" data-target="#reset_user"><i class="fa fa-lock"></i> Reset Password</a>
+            &nbsp;<a class="btn btn-danger" href="#delete_user" data-toggle="modal" data-target="#delete_user"><i class="fa fa-times"></i> Delete</a>
+        @endauth
     </div>
 </div>
 <hr>
@@ -75,28 +85,36 @@
         </div>
     </div>
 </div>
-@auth('admin')
-    <hr>
+<hr>
+<div class="col-md-6">
     <h3>Security History</h3>
-    <div>
-        @foreach($user->securityHistory as $item)
-            <div class="well clearfix">
-                <h4>{{{ $item->title }}}<h4>
-                <p>{{ $item->description }}</p>
-            </div>
-        @endforeach
-    </div>
-@endauth
-@auth('mod')
     <hr>
-    <h3>Action History</h3>
-    <div>
-        @foreach($user->actionHistory as $item)
+    @if (empty($securityEvents = $user->securityHistory->toArray()))
+        <div class="lead">No notable events have occurred yet.</div>
+    @else
+        @foreach($securityEvents as $event)
             <div class="well clearfix">
+                <p><strong>{{{ $event->title }}}</strong> - {{ HTML::ago($event->updated_at) }}</p>
+                {{{ $event->description }}}</p>
             </div>
         @endforeach
-    </div>
-@endauth
+    @endif
+</div>
+<hr class="hidden-lg">
+<div class="col-md-6">
+    <h3>Recent Actions</h3>
+    <hr>
+    @if (empty($actionEvents = $user->actionHistory->toArray()))
+        <div class="lead">No notable events have occurred yet.</div>
+    @else
+        @foreach($actionEvents as $event)
+            <div class="well clearfix">
+                <p><strong>{{{ 'EVENT TITLE' }}}</strong> - {{ 'EVENT DATE' }}</p>
+                {{{ 'EVENT DESCRIPTION' }}}</p>
+            </div>
+        @endforeach
+    @endif
+</div>
 @stop
 
 @section('bottom')

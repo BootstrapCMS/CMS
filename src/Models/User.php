@@ -69,6 +69,6 @@ class User extends CredentialsUser implements HasManyPagesInterface, HasManyPost
      */
     public function revisions()
     {
-        return $this->hasMany('Venturecraft\Revisionable\Revision');
+        return $this->hasMany('GrahamCampbell\Credentials\Models\Revision');
     }
 }

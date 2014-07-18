@@ -17,6 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Presenters;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use GrahamCampbell\Credentials\Presenters\UserPresenter as BasePresenter;
 
 /**
@@ -33,7 +34,9 @@ class UserPresenter extends BasePresenter
     public function actionHistory()
     {
         $presenter = App::make('McCool\LaravelAutoPresenter\PresenterDecorator');
-        $history = $this->resource->revisions()->orderBy('id', 'desc')->take(20)->get();
+        $history = $this->resource->revisions()
+            ->where('revisionable_type', '!=', Config::get('cartalyst/sentry::users.model'))
+            ->orderBy('id', 'desc')->take(20)->get();
 
         return $presenter->decorate($history);
     }
