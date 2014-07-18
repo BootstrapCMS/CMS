@@ -16,10 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters;
 
-use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
-
 /**
- * This is the event revision presenter class.
+ * This is the owner presenter trait.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -27,7 +25,19 @@ use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class EventRevisionPresenter extends AbstractRevisionPresenter
+trait OwnerPresenterTrait
 {
-    //
+    /**
+     * Get the owner.
+     *
+     * @return string
+     */
+    public function owner()
+    {
+        $user = $this->resource->user()
+            ->cacheDriver('array')->rememberForever()
+            ->first(array('first_name', 'last_name', 'email'));
+
+        return $user->first_name.' '.$user->last_name.' ('.$user->email.')';
+    }
 }

@@ -18,7 +18,6 @@ namespace GrahamCampbell\BootstrapCMS\Presenters;
 
 use GrahamCampbell\BootstrapCMS\Models\Page;
 use McCool\LaravelAutoPresenter\BasePresenter;
-use GrahamCampbell\Credentials\Presenters\OwnerPresenterTrait;
 
 /**
  * This is the page presenter class.

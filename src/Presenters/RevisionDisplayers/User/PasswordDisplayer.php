@@ -14,12 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\User;
 
-use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
+use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\User\PasswordDisplayer as BaseDisplayer;
 
 /**
- * This is the comment revision presenter class.
+ * This is the password displayer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -27,7 +27,7 @@ use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class CommentRevisionPresenter extends AbstractRevisionPresenter
+class PasswordDisplayer extends BaseDisplayer
 {
     //
 }

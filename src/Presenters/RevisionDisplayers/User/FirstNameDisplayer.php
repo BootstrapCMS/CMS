@@ -14,12 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\User;
 
-use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
+use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\User\FirstNameDisplayer as BaseDisplayer;
 
 /**
- * This is the page revision presenter class.
+ * This is the first name displayer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -27,7 +27,7 @@ use GrahamCampbell\Credentials\Presenters\AbstractRevisionPresenter;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class PageRevisionPresenter extends AbstractRevisionPresenter
+class FirstNameDisplayer extends BaseDisplayer
 {
     //
 }

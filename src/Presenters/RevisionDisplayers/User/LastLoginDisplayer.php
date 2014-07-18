@@ -14,13 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\User;
 
-use GrahamCampbell\BootstrapCMS\Models\Event;
-use McCool\LaravelAutoPresenter\BasePresenter;
+use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\User\LastLoginDisplayer as BaseDisplayer;
 
 /**
- * This is the event presenter class.
+ * This is the last login displayer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -28,18 +27,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class EventPresenter extends BasePresenter
+class LastLoginDisplayer extends BaseDisplayer
 {
-    use OwnerPresenterTrait;
-
-    /**
-     * Create a new instance.
-     *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Event  $event
-     * @return void
-     */
-    public function __construct(Event $event)
-    {
-        $this->resource = $event;
-    }
+    //
 }

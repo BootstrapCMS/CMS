@@ -14,12 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\User;
 
-use GrahamCampbell\Credentials\Presenters\UserRevisionPresenter as BasePresenter;
+use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\User\ActivatedDisplayer as BaseDisplayer;
 
 /**
- * This is the user revision presenter class.
+ * This is the activated displayer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -27,7 +27,7 @@ use GrahamCampbell\Credentials\Presenters\UserRevisionPresenter as BasePresenter
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class UserRevisionPresenter extends BasePresenter
+class ActivatedDisplayer extends BaseDisplayer
 {
     //
 }

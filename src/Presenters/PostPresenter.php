@@ -18,7 +18,6 @@ namespace GrahamCampbell\BootstrapCMS\Presenters;
 
 use GrahamCampbell\BootstrapCMS\Models\Post;
 use McCool\LaravelAutoPresenter\BasePresenter;
-use GrahamCampbell\Credentials\Presenters\OwnerPresenterTrait;
 use GrahamCampbell\Credentials\Presenters\AuthorPresenterTrait;
 
 /**
