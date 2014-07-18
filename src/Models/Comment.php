@@ -53,6 +53,13 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
     public static $name = 'comment';
 
     /**
+     * The revisionable columns.
+     *
+     * @var array
+     */
+    protected $keepRevisionOf = array('body');
+
+    /**
      * The columns to select when displaying an index.
      *
      * @var array

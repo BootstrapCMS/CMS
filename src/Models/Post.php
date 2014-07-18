@@ -53,6 +53,13 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
     public static $name = 'post';
 
     /**
+     * The revisionable columns.
+     *
+     * @var array
+     */
+    protected $keepRevisionOf = array('title', 'summary', 'body');
+
+    /**
      * The columns to select when displaying an index.
      *
      * @var array

@@ -51,6 +51,13 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
     public static $name = 'page';
 
     /**
+     * The revisionable columns.
+     *
+     * @var array
+     */
+    protected $keepRevisionOf = array('title', 'nav_title', 'slug', 'body', 'css', 'js', 'show_title', 'show_nav', 'icon');
+
+    /**
      * The columns to select when displaying an index.
      *
      * @var array

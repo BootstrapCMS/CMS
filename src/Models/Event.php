@@ -53,6 +53,13 @@ class Event extends AbstractModel implements DateModelInterface, BelongsToUserIn
     public static $name = 'event';
 
     /**
+     * The revisionable columns.
+     *
+     * @var array
+     */
+    protected $keepRevisionOf = array('title', 'body', 'date', 'location');
+
+    /**
      * The columns to select when displaying an index.
      *
      * @var array
