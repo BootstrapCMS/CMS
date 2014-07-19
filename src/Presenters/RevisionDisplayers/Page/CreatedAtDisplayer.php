@@ -28,6 +28,16 @@ namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
 class CreatedAtDisplayer extends AbstractDisplayer
 {
     /**
+     * Get the change title.
+     *
+     * @return string
+     */
+    public function title()
+    {
+        return 'Created Page';
+    }
+
+    /**
      * Get the change description from the context of
      * the change being made by the current user.
      *
