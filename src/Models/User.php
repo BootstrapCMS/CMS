@@ -61,14 +61,4 @@ class User extends CredentialsUser implements HasManyPagesInterface, HasManyPost
     {
         return 'GrahamCampbell\BootstrapCMS\Presenters\UserPresenter';
     }
-
-    /**
-     * Get the recent action history for the user.
-     *
-     * @return mixed
-     */
-    public function revisions()
-    {
-        return $this->hasMany('GrahamCampbell\Credentials\Models\Revision');
-    }
 }
