@@ -14,10 +14,10 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Event;
 
 /**
- * This is the body displayer class.
+ * This is the location displayer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,7 +25,7 @@ namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class BodyDisplayer extends AbstractDisplayer
+class LocationDisplayer extends AbstractDisplayer
 {
     /**
      * Get the change description from the context of
@@ -35,7 +35,7 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the content of' . $this->name();
+        return 'You updated the location of' . $this->name();
     }
 
     /**
@@ -46,6 +46,6 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the content of' . $this->name();
+        return 'This user updated the location of' . $this->name();
     }
 }

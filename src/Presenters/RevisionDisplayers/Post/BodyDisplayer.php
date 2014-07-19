@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Post;
 
 /**
  * This is the body displayer class.

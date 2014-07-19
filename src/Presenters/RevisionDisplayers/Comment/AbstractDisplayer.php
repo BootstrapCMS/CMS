@@ -14,10 +14,12 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Comment;
+
+use GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\AbstractRevisionDisplayer;
 
 /**
- * This is the body displayer class.
+ * This is the abstract displayer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,27 +27,23 @@ namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class BodyDisplayer extends AbstractDisplayer
+abstract class AbstractDisplayer extends AbstractRevisionDisplayer
 {
     /**
-     * Get the change description from the context of
-     * the change being made by the current user.
+     * Get the post name.
      *
      * @return string
      */
-    protected function current()
+    protected function name()
     {
-        return 'You updated the content of' . $this->name();
-    }
+        $comment = $this->resource->revisionable()->withTrashed()
+            ->cacheDriver('array')->rememberForever()
+            ->first(array('post_id'));
 
-    /**
-     * Get the change description from the context of
-     * the change not being made by the current user.
-     *
-     * @return string
-     */
-    protected function external()
-    {
-        return 'This user updated the content of' . $this->name();
+        $post = $comment->post()->withTrashed()
+            ->cacheDriver('array')->rememberForever()
+            ->first(array('title'));
+
+        return ' "'.$post->title.'".';
     }
 }

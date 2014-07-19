@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Event;
 
 /**
  * This is the body displayer class.
@@ -35,7 +35,7 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the content of' . $this->name();
+        return 'You updated the description of' . $this->name();
     }
 
     /**
@@ -46,6 +46,6 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the content of' . $this->name();
+        return 'This user updated the description of' . $this->name();
     }
 }

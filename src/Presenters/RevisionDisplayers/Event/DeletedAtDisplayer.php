@@ -14,10 +14,10 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Event;
 
 /**
- * This is the body displayer class.
+ * This is the deleted at displayer class.
  *
  * @package    Bootstrap-CMS
  * @author     Graham Campbell
@@ -25,8 +25,18 @@ namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class BodyDisplayer extends AbstractDisplayer
+class DeletedAtDisplayer extends AbstractDisplayer
 {
+    /**
+     * Get the change title.
+     *
+     * @return string
+     */
+    public function title()
+    {
+        return 'Deleted Event';
+    }
+
     /**
      * Get the change description from the context of
      * the change being made by the current user.
@@ -35,7 +45,7 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the content of' . $this->name();
+        return 'You deleted the event called' . $this->name();
     }
 
     /**
@@ -46,6 +56,6 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the content of' . $this->name();
+        return 'This user deleted the event called' . $this->name();
     }
 }

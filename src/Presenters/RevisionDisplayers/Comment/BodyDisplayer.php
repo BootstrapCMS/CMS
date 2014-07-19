@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
+namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Comment;
 
 /**
  * This is the body displayer class.
@@ -28,6 +28,16 @@ namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
 class BodyDisplayer extends AbstractDisplayer
 {
     /**
+     * Get the change title.
+     *
+     * @return string
+     */
+    public function title()
+    {
+        return 'Edited Comment';
+    }
+
+    /**
      * Get the change description from the context of
      * the change being made by the current user.
      *
@@ -35,7 +45,7 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the content of' . $this->name();
+        return 'You edited a comment on' . $this->name();
     }
 
     /**
@@ -46,6 +56,6 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the content of' . $this->name();
+        return 'This user edited a comment on' . $this->name();
     }
 }
