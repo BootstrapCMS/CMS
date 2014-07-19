@@ -50,6 +50,6 @@ abstract class AbstractDisplayer extends AbstractRevisionDisplayer
             ->cacheDriver('array')->rememberForever()
             ->first(array('title'));
 
-        return ' "'.$page->post.'".';
+        return ' "'.$post->title.'".';
     }
 }
