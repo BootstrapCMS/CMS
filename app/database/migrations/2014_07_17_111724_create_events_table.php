@@ -45,6 +45,7 @@ class CreateEventsTable extends Migration
             $table->text('location');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

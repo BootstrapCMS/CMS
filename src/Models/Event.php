@@ -18,8 +18,7 @@ namespace GrahamCampbell\BootstrapCMS\Models;
 
 use GrahamCampbell\Database\Models\AbstractModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
-use GrahamCampbell\Database\Models\Interfaces\DateModelInterface;
-use GrahamCampbell\Database\Models\Common\DateModelTrait;
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\Credentials\Models\Relations\Common\BelongsToUserTrait;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
@@ -34,9 +33,9 @@ use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
  * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
  */
-class Event extends AbstractModel implements DateModelInterface, BelongsToUserInterface, RevisionableInterface, PresenterInterface
+class Event extends AbstractModel implements BelongsToUserInterface, RevisionableInterface, PresenterInterface
 {
-    use DateModelTrait, BelongsToUserTrait, RevisionableTrait;
+    use BelongsToUserTrait, RevisionableTrait, SoftDeletingTrait;
 
     /**
      * The table the events are stored in.
@@ -51,6 +50,13 @@ class Event extends AbstractModel implements DateModelInterface, BelongsToUserIn
      * @var string
      */
     public static $name = 'event';
+
+    /**
+     * The properties on the model that are dates.
+     *
+     * @var array
+     */
+    protected $dates = array('date', 'deleted_at');
 
     /**
      * The revisionable columns.

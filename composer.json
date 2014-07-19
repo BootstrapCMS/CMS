@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "laravel/framework": "4.2.*",
+        "laravel/framework": "~4.2.6",
         "symfony/config": "2.5.*",
         "symfony/event-dispatcher": "2.5.*",
         "symfony/filesystem": "2.5.*",

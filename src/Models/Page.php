@@ -18,6 +18,7 @@ namespace GrahamCampbell\BootstrapCMS\Models;
 
 use GrahamCampbell\Database\Models\AbstractModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\Credentials\Models\Relations\Common\BelongsToUserTrait;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
@@ -34,7 +35,7 @@ use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
  */
 class Page extends AbstractModel implements BelongsToUserInterface, RevisionableInterface, PresenterInterface
 {
-    use BelongsToUserTrait, RevisionableTrait;
+    use BelongsToUserTrait, RevisionableTrait, SoftDeletingTrait;
 
     /**
      * The table the pages are stored in.
@@ -49,6 +50,13 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
      * @var string
      */
     public static $name = 'page';
+
+    /**
+     * The properties on the model that are dates.
+     *
+     * @var array
+     */
+    protected $dates = array('deleted_at');
 
     /**
      * The revisionable columns.

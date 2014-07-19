@@ -50,6 +50,7 @@ class CreatePagesTable extends Migration
             $table->string('icon')->default('');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

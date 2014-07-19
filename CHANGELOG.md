@@ -18,6 +18,9 @@ CHANGE LOG
 * Added di aliases
 * Added presenters
 * Throttling improvements
+* Added action history for users
+* Added soft deleting
+* Cleaned up some old code
 * More unit tests
 
 
