@@ -21,7 +21,7 @@ The move from Bootstrap CMS 0.7 to 0.8 will require you to clear out all your co
 
 ## Installation
 
-[PHP](https://php.net) 5.4.7+ or [HHVM](http://hhvm.com) 3.1+, a database server, and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.2+, a database server, and [Composer](https://getcomposer.org) are required.
 
 1. There are 3 ways of grabbing the code:
   * Use GitHub: simply download the zip on the right of the readme
