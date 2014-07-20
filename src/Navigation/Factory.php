@@ -18,7 +18,6 @@ namespace GrahamCampbell\BootstrapCMS\Navigation;
 
 use GrahamCampbell\Navigation\Navigation;
 use GrahamCampbell\Credentials\Credentials;
-use McCool\LaravelAutoPresenter\PresenterDecorator;
 
 /**
  * This is the navigation factory class.
@@ -46,13 +45,6 @@ class Factory
     protected $navigation;
 
     /**
-     * The decorator instance.
-     *
-     * @var \McCool\LaravelAutoPresenter\PresenterDecorator
-     */
-    protected $decorator;
-
-    /**
      * The platform name.
      *
      * @var string
@@ -78,17 +70,15 @@ class Factory
      *
      * @param  \GrahamCampbell\Credentials\Credentials  $credentials
      * @param  \GrahamCampbell\Navigation\Navigation  $navigation
-     * @param  \McCool\LaravelAutoPresenter\PresenterDecorator  $decorator
      * @param  string  $name
      * @param  string  $property
      * @param  bool  $inverse
      * @return void
      */
-    public function __construct(Credentials $credentials, Navigation $navigation, PresenterDecorator $decorator, $name, $property, $inverse)
+    public function __construct(Credentials $credentials, Navigation $navigation, $name, $property, $inverse)
     {
         $this->credentials = $credentials;
         $this->navigation = $navigation;
-        $this->decorator = $decorator;
         $this->name = $name;
         $this->property = $property;
         $this->inverse = $inverse;
@@ -144,21 +134,9 @@ class Factory
     protected function getSide()
     {
         $propery = $this->property;
-        $user = $this->getUser();
+        $user = $this->credentials->getDecoratedUser();
 
         return $user->$propery;
-    }
-
-    /**
-     * Get a decorated user object.
-     *
-     * @return \GrahamCampbell\BootstrapCMS\Presenters\UserPresenter
-     */
-    protected function getUser()
-    {
-        $user = $this->credentials->getUser();
-
-        return $this->decorator->decorate($user);
     }
 
     /**
@@ -179,15 +157,5 @@ class Factory
     public function getNavigation()
     {
         return $this->navigation;
-    }
-
-    /**
-     * Return the decorator instance.
-     *
-     * @return \McCool\LaravelAutoPresenter\PresenterDecorator
-     */
-    public function getDecorator()
-    {
-        return $this->decorator;
     }
 }

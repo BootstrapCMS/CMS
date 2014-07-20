@@ -109,12 +109,11 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->bindShared('navfactory', function ($app) {
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
-            $decorator = $app->make('McCool\LaravelAutoPresenter\PresenterDecorator');
             $name = $app['config']['platform.name'];
             $property = $app['config']['cms.nav'];
             $inverse = $app['config']['theme.inverse'];
 
-            return new Navigation\Factory($credentials, $navigation, $decorator, $name, $property, $inverse);
+            return new Navigation\Factory($credentials, $navigation, $name, $property, $inverse);
         });
 
         $this->app->alias('navfactory', 'GrahamCampbell\BootstrapCMS\Navigation\Factory');
