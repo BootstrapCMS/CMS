@@ -2,7 +2,7 @@
 <meta name="description" content="{{{ Config::get('platform.description') }}}">
 <meta name="author" content="{{{ Config::get('platform.author') }}}">
 
-{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css') }}
+{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css') }}
 {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css') }}
 {{ Asset::styles('main') }}
 @section('css')
