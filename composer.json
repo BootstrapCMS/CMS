@@ -39,9 +39,7 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0",
-        "pda/pheanstalk": "~2.1",
-        "aws/aws-sdk-php": "~2.4",
-        "iron-io/iron_mq": "~1.4"
+        "doctrine/dbal": "~2.4"
     },
     "suggest": {
         "graham-campbell/cloudflare": "Integration with CloudFlare.",
