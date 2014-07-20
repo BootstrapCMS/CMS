@@ -203,8 +203,9 @@ class NavigationSubscriber
     public function onNavigationBarFirst(array $event = array())
     {
         if ($this->credentials->check()) {
-            // add the profile links
+            // add the profile/history links
             $this->navigation->addBar(array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
+            $this->navigation->addBar(array('title' => 'View History', 'slug' => 'account/history', 'icon' => 'history'));
         }
     }
 
