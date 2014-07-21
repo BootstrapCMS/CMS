@@ -96,14 +96,14 @@ class Factory
             if ($type === 'admin') {
                 if ($this->credentials->hasAccess('admin')) {
                     // the requested type is admin, and the user is an admin
-                    return $this->navigation->getHTML('admin', 'admin', array(
+                    return $this->navigation->render('admin', 'admin', array(
                         'title' => 'Admin Panel',
                         'side' => $this->getSide(),
                         'inverse' => $this->inverse
                     ));
                 } else {
                     // the requested type is admin, and the user is NOT an admin
-                    return $this->navigation->getHTML('default', 'default', array(
+                    return $this->navigation->render('default', 'default', array(
                         'title' => $this->name,
                         'side' => $this->getSide(),
                         'inverse' => $this->inverse
@@ -111,7 +111,7 @@ class Factory
                 }
             } else {
                 // the requested type is default, and the user is logged in
-                return $this->navigation->getHTML('default','default', array(
+                return $this->navigation->render('default','default', array(
                     'title' => $this->name,
                     'side' => $this->getSide(),
                     'inverse' => $this->inverse
@@ -119,7 +119,7 @@ class Factory
             }
         } else {
             // the requested type is default, and the user is NOT logged in
-            return $this->navigation->getHTML('default', false, array(
+            return $this->navigation->render('default', false, array(
                 'title' => $this->name,
                 'inverse' => $this->inverse
             ));
