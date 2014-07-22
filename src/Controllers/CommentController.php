@@ -110,12 +110,12 @@ class CommentController extends AbstractController
     /**
      * Display a listing of the comments.
      *
-     * @param  int  $post_id
+     * @param  int  $postId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index($post_id)
+    public function index($postId)
     {
-        $post = $this->postprovider->find($post_id, array('id'));
+        $post = $this->postprovider->find($postId, array('id'));
         if (!$post) {
             $this->session->flash('error', 'The post you were viewing has been deleted.');
             return Response::json(array('success' => false, 'code' => 404, 'msg' => 'The post you were viewing has been deleted.', 'url' => URL::route('blog.posts.index')), 404);
@@ -135,14 +135,14 @@ class CommentController extends AbstractController
     /**
      * Store a new comment.
      *
-     * @param  int  $post_id
+     * @param  int  $postId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store($post_id)
+    public function store($postId)
     {
         $input = array_merge($this->binput->only('body'), array(
             'user_id' => $this->getUserId(),
-            'post_id' => $post_id,
+            'postId' => $postId,
             'version' => 1
         ));
 
@@ -154,32 +154,32 @@ class CommentController extends AbstractController
 
         $comment = $this->commentprovider->create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->view->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_id' => $comment->id), 201);
+        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->view->make('posts.comment', array('comment' => $comment, 'postId' => $postId))->render(), 'comment_id' => $comment->id), 201);
     }
 
     /**
      * Show the specified post.
      *
-     * @param  int  $post_id
+     * @param  int  $postId
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($post_id, $id)
+    public function show($postId, $id)
     {
         $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => $this->view->make('posts.comment', array('comment' => $comment, 'post_id' => $post_id))->render(), 'comment_text' => nl2br(e($comment->body)), 'comment_id' => $id, 'comment_ver' => $comment->version));
+        return Response::json(array('contents' => $this->view->make('posts.comment', array('comment' => $comment, 'postId' => $postId))->render(), 'comment_text' => nl2br(e($comment->body)), 'comment_id' => $id, 'comment_ver' => $comment->version));
     }
 
     /**
      * Update an existing comment.
      *
-     * @param  int  $post_id
+     * @param  int  $postId
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update($post_id, $id)
+    public function update($postId, $id)
     {
         $input = $this->binput->map(array('edit_body' => 'body'));
 
@@ -210,11 +210,11 @@ class CommentController extends AbstractController
     /**
      * Delete an existing comment.
      *
-     * @param  int  $post_id
+     * @param  int  $postId
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($post_id, $id)
+    public function destroy($postId, $id)
     {
         $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
