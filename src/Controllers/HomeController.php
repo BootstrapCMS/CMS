@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Mail\Mailer;
-use Illuminate\View\Factory;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Config;
 use GrahamCampbell\Credentials\Credentials;
+use Illuminate\Mail\Mailer;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\URL;
+use Illuminate\View\Factory;
 
 /**
  * This is the home controller class.
@@ -80,7 +80,7 @@ class HomeController extends AbstractController
     /**
      * Show the hello world page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function showWelcome()
     {

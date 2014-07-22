@@ -16,13 +16,13 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\View\Factory;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Session\SessionManager;
-use Illuminate\Support\Facades\Redirect;
 use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
 use GrahamCampbell\Credentials\Credentials;
+use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\Factory;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -99,7 +99,7 @@ class PageController extends AbstractController
     /**
      * Show the form for creating a new page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -131,7 +131,7 @@ class PageController extends AbstractController
      * Show the specified page.
      *
      * @param  string  $slug
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show($slug)
     {
@@ -145,7 +145,7 @@ class PageController extends AbstractController
      * Show the form for editing the specified page.
      *
      * @param  string  $slug
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit($slug)
     {

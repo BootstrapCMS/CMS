@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Navigation;
 
-use GrahamCampbell\Navigation\Navigation;
 use GrahamCampbell\Credentials\Credentials;
+use GrahamCampbell\Navigation\Navigation;
 
 /**
  * This is the navigation factory class.

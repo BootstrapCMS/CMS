@@ -17,9 +17,9 @@
 namespace GrahamCampbell\BootstrapCMS\Seeds;
 
 use Carbon\Carbon;
+use GrahamCampbell\Credentials\Facades\Credentials;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use GrahamCampbell\Credentials\Facades\Credentials;
 
 /**
  * This is the users table seeder class.

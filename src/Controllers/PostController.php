@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\View\Factory;
-use Illuminate\Support\Facades\Redirect;
 use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Credentials;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\Factory;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -76,7 +76,7 @@ class PostController extends AbstractController
     /**
      * Display a listing of the posts.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -89,7 +89,7 @@ class PostController extends AbstractController
     /**
      * Show the form for creating a new post.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -122,7 +122,7 @@ class PostController extends AbstractController
      * Show the specified post.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show($id)
     {
@@ -138,7 +138,7 @@ class PostController extends AbstractController
      * Show the form for editing the specified post.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit($id)
     {

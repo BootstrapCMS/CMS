@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\View\Factory;
-use GrahamCampbell\Credentials\Credentials;
 use GrahamCampbell\Credentials\Controllers\AbstractController as Controller;
+use GrahamCampbell\Credentials\Credentials;
+use Illuminate\View\Factory;
 
 /**
  * This is the abstract controller class.

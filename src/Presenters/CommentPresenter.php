@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters;
 
-use McCool\LaravelAutoPresenter\BasePresenter;
 use GrahamCampbell\BootstrapCMS\Models\Comment;
 use GrahamCampbell\Credentials\Presenters\AuthorPresenterTrait;
+use McCool\LaravelAutoPresenter\BasePresenter;
 
 /**
  * This is the comment presenter class.

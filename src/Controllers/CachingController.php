@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\View\Factory;
 use GrahamCampbell\Credentials\Credentials;
+use Illuminate\View\Factory;
 
 /**
  * This is the caching controller class.
@@ -49,7 +49,7 @@ class CachingController extends AbstractController
     /**
      * Display the index page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function getIndex()
     {

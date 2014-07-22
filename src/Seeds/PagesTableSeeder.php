@@ -17,10 +17,10 @@
 namespace GrahamCampbell\BootstrapCMS\Seeds;
 
 use Carbon\Carbon;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use GrahamCampbell\Markdown\Facades\Markdown;
 
 /**
  * This is the pages table seeder class.

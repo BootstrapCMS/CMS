@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers;
 
-use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\RevisionDisplayerInterface;
 use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\AbstractRevisionDisplayer as AbstractCredentialsRevisionDisplayer;
+use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\RevisionDisplayerInterface;
 
 /**
  * This is the abstract displayer class.

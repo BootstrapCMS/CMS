@@ -17,11 +17,11 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\View\Factory;
-use Illuminate\Support\Facades\Redirect;
 use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\EventProvider;
 use GrahamCampbell\Credentials\Credentials;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\Factory;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -77,7 +77,7 @@ class EventController extends AbstractController
     /**
      * Display a listing of the events.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -90,7 +90,7 @@ class EventController extends AbstractController
     /**
      * Show the form for creating a new event.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -125,7 +125,7 @@ class EventController extends AbstractController
      * Show the specified event.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show($id)
     {
@@ -139,7 +139,7 @@ class EventController extends AbstractController
      * Show the form for editing the specified event.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit($id)
     {

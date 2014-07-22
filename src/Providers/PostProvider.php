@@ -17,8 +17,8 @@
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
 use GrahamCampbell\Database\Providers\AbstractProvider;
-use GrahamCampbell\Database\Providers\Interfaces\PaginateProviderInterface;
 use GrahamCampbell\Database\Providers\Common\PaginateProviderTrait;
+use GrahamCampbell\Database\Providers\Interfaces\PaginateProviderInterface;
 
 /**
  * This is the post provider class.

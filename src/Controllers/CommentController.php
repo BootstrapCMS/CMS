@@ -16,18 +16,18 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\View\Factory;
-use Illuminate\Session\SessionManager;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\URL;
 use GrahamCampbell\Binput\Binput;
 use GrahamCampbell\BootstrapCMS\Providers\CommentProvider;
 use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
 use GrahamCampbell\Credentials\Credentials;
 use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
+use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
+use Illuminate\View\Factory;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * This is the comment controller class.
@@ -111,7 +111,7 @@ class CommentController extends AbstractController
      * Display a listing of the comments.
      *
      * @param  int  $post_id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index($post_id)
     {
@@ -136,7 +136,7 @@ class CommentController extends AbstractController
      * Store a new comment.
      *
      * @param  int  $post_id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store($post_id)
     {
@@ -162,7 +162,7 @@ class CommentController extends AbstractController
      *
      * @param  int  $post_id
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($post_id, $id)
     {
@@ -177,7 +177,7 @@ class CommentController extends AbstractController
      *
      * @param  int  $post_id
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update($post_id, $id)
     {
@@ -212,7 +212,7 @@ class CommentController extends AbstractController
      *
      * @param  int  $post_id
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($post_id, $id)
     {

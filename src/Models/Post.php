@@ -16,15 +16,15 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\Database\Models\AbstractModel;
-use McCool\LaravelAutoPresenter\PresenterInterface;
-use Illuminate\Database\Eloquent\SoftDeletingTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyCommentsTrait;
-use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
 use GrahamCampbell\Credentials\Models\Relations\Common\BelongsToUserTrait;
-use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
 use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
+use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
+use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
+use GrahamCampbell\Database\Models\AbstractModel;
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 
 /**
  * This is the post model class.

@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Seeds;
 
+use GrahamCampbell\Credentials\Facades\Credentials;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use GrahamCampbell\Credentials\Facades\Credentials;
 
 /**
  * This is the groups table seeder class.

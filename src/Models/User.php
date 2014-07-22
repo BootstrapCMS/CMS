@@ -16,15 +16,15 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\Credentials\Models\User as CredentialsUser;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyPagesInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyPagesTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyPostsInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyPostsTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyEventsInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyEventsTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyCommentsTrait;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyEventsTrait;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyPagesTrait;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyPostsTrait;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyEventsInterface;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyPagesInterface;
+use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyPostsInterface;
+use GrahamCampbell\Credentials\Models\User as CredentialsUser;
 
 /**
  * This is the user model class.
