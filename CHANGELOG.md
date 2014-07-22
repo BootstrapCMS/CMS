@@ -20,7 +20,8 @@ CHANGE LOG
 * Throttling improvements
 * Added action history for users
 * Added soft deleting
-* Cleaned up some old code
+* Controller refactoring
+* Code cleanup
 * More unit tests
 
 
