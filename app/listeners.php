@@ -34,8 +34,5 @@ Event::subscribe($subscriber);
 $subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber');
 Event::subscribe($subscriber);
 
-$subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber');
-Event::subscribe($subscriber);
-
 $observer = App::make('GrahamCampbell\BootstrapCMS\Observers\PageObserver');
 PageProvider::observe($observer);

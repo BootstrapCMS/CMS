@@ -89,7 +89,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerCommandSubscriber();
         $this->registerCoreSubscriber();
         $this->registerNavigationSubscriber();
-        $this->registerUserSubscriber();
 
         $this->registerCachingController();
         $this->registerCommentController();
@@ -238,20 +237,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $pageprovider = $app['pageprovider'];
 
             return new Subscribers\NavigationSubscriber($config, $navigation, $credentials, $pageprovider);
-        });
-    }
-
-    /**
-     * Register the user subscriber class.
-     *
-     * @return void
-     */
-    protected function registerUserSubscriber()
-    {
-        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\UserSubscriber', function ($app) {
-            $log = $app['log'];
-
-            return new Subscribers\UserSubscriber($log);
         });
     }
 
