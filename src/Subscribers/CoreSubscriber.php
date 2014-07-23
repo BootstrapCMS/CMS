@@ -165,7 +165,7 @@ class CoreSubscriber
     /**
      * Get the log instance.
      *
-     * @return \Illuminate\Log\Writer;
+     * @return \Illuminate\Log\Writer
      */
     public function getLog()
     {
