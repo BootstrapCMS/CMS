@@ -16,15 +16,15 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Binput\Binput;
-use GrahamCampbell\BootstrapCMS\Providers\CommentProvider;
-use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
-use GrahamCampbell\Credentials\Credentials;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\BootstrapCMS\Facades\CommentProvider;
+use GrahamCampbell\BootstrapCMS\Facades\PostProvider;
+use GrahamCampbell\Credentials\Facades\Credentials;
 use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
-use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
-use Illuminate\View\Factory;
+use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -41,34 +41,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class CommentController extends AbstractController
 {
     /**
-     * The session instance.
-     *
-     * @var \Illuminate\Session\SessionManager
-     */
-    protected $session;
-
-    /**
-     * The binput instance.
-     *
-     * @var \GrahamCampbell\Binput\Binput
-     */
-    protected $binput;
-
-    /**
-     * The comment provider instance.
-     *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\CommentProvider
-     */
-    protected $commentprovider;
-
-    /**
-     * The post provider instance.
-     *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\PostProvider
-     */
-    protected $postprovider;
-
-    /**
      * The throttler instance.
      *
      * @var \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
@@ -78,28 +50,11 @@ class CommentController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \Illuminate\View\Factory  $view
-     * @param  \Illuminate\Session\SessionManager  $session
-     * @param  \GrahamCampbell\Binput\Binput  $binput
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\CommentProvider  $commentprovider
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @param  \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface  $throttler
      * @return void
      */
-    public function __construct(
-        Credentials $credentials,
-        Factory $view,
-        SessionManager $session,
-        Binput $binput,
-        CommentProvider $commentprovider,
-        PostProvider $postprovider,
-        ThrottlerInterface $throttler
-    ) {
-        $this->session = $session;
-        $this->binput = $binput;
-        $this->commentprovider = $commentprovider;
-        $this->postprovider = $postprovider;
+    public function __construct(ThrottlerInterface $throttler)
+    {
         $this->throttler = $throttler;
 
         $this->setPermissions(array(
@@ -111,7 +66,7 @@ class CommentController extends AbstractController
         $this->beforeFilter('ajax');
         $this->beforeFilter('throttle.comment', array('only' => array('store')));
 
-        parent::__construct($credentials, $view);
+        parent::__construct();
     }
 
     /**
@@ -122,9 +77,9 @@ class CommentController extends AbstractController
      */
     public function index($postId)
     {
-        $post = $this->postprovider->find($postId, array('id'));
+        $post = PostProvider::find($postId, array('id'));
         if (!$post) {
-            $this->session->flash('error', 'The post you were viewing has been deleted.');
+            Session::flash('error', 'The post you were viewing has been deleted.');
             return Response::json(array(
                 'success' => false,
                 'code' => 404,
@@ -152,21 +107,21 @@ class CommentController extends AbstractController
      */
     public function store($postId)
     {
-        $input = array_merge($this->binput->only('body'), array(
-            'user_id' => $this->getUserId(),
+        $input = array_merge(Binput::only('body'), array(
+            'user_id' => Credentials::getuser()->id,
             'postId' => $postId,
             'version' => 1
         ));
 
-        if ($this->commentprovider->validate($input, array_keys($input))->fails()) {
+        if (CommentProvider::validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
         }
 
         $this->throttler->hit();
 
-        $comment = $this->commentprovider->create($input);
+        $comment = CommentProvider::create($input);
 
-        $contents = $this->view->make('posts.comment', array(
+        $contents = View::make('posts.comment', array(
             'comment' => $comment,
             'postId' => $postId
         ));
@@ -188,10 +143,10 @@ class CommentController extends AbstractController
      */
     public function show($postId, $id)
     {
-        $comment = $this->commentprovider->find($id);
+        $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        $contents = $this->view->make('posts.comment', array(
+        $contents = View::make('posts.comment', array(
             'comment' => $comment,
             'postId' => $postId
         ));
@@ -213,16 +168,16 @@ class CommentController extends AbstractController
      */
     public function update($postId, $id)
     {
-        $input = $this->binput->map(array('edit_body' => 'body'));
+        $input = Binput::map(array('edit_body' => 'body'));
 
-        if ($this->commentprovider->validate($input, array_keys($input))->fails()) {
+        if (CommentProvider::validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
         }
 
-        $comment = $this->commentprovider->find($id);
+        $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        $version = $this->binput->get('version');
+        $version = Binput::get('version');
 
         if (empty($version)) {
             throw new BadRequestHttpException('No version data was supplied.');
@@ -254,7 +209,7 @@ class CommentController extends AbstractController
      */
     public function destroy($postId, $id)
     {
-        $comment = $this->commentprovider->find($id);
+        $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
         $comment->delete();

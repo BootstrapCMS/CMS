@@ -16,11 +16,10 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Credentials\Credentials;
-use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
-use Illuminate\View\Factory;
+use Illuminate\Support\Facades\View;
 
 /**
  * This is the home controller class.
@@ -33,13 +32,6 @@ use Illuminate\View\Factory;
  */
 class HomeController extends AbstractController
 {
-    /**
-     * The mailer instance.
-     *
-     * @var \Illuminate\Mail\Mailer
-     */
-    protected $mailer;
-
     /**
      * The email address.
      *
@@ -57,16 +49,12 @@ class HomeController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \Illuminate\View\Factory  $view
-     * @param  \Illuminate\Mail\Mailer  $mailer
      * @param  string  $email
      * @param  string  $subject
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view, Mailer $mailer, $email, $subject)
+    public function __construct($email, $subject)
     {
-        $this->mailer = $mailer;
         $this->email = $email;
         $this->subject = $subject;
 
@@ -74,7 +62,7 @@ class HomeController extends AbstractController
             'testQueue' => 'admin'
         ));
 
-        parent::__construct($credentials, $view);
+        parent::__construct();
     }
 
     /**
@@ -84,7 +72,7 @@ class HomeController extends AbstractController
      */
     public function showWelcome()
     {
-        return $this->view->make('index');
+        return View::make('index');
     }
 
     /**
@@ -111,7 +99,7 @@ class HomeController extends AbstractController
             'subject' => $this->subject
         );
 
-        $this->mailer->queue('graham-campbell/credentials::emails.welcome', $mail, function($message) use ($mail) {
+        Mail::queue('graham-campbell/credentials::emails.welcome', $mail, function($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
 

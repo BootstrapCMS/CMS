@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Binput\Binput;
-use GrahamCampbell\BootstrapCMS\Providers\PostProvider;
-use GrahamCampbell\Credentials\Credentials;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\BootstrapCMS\Facades\PostProvider;
+use GrahamCampbell\Credentials\Facades\Credentials;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\Factory;
+use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -35,33 +35,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PostController extends AbstractController
 {
     /**
-     * The binput instance.
-     *
-     * @var \GrahamCampbell\Binput\Binput
-     */
-    protected $binput;
-
-    /**
-     * The post provider instance.
-     *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\PostProvider
-     */
-    protected $postprovider;
-
-    /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \Illuminate\View\Factory  $view
-     * @param  \GrahamCampbell\Binput\Binput  $binput
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\PostProvider  $postprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view, Binput $binput, PostProvider $postprovider)
+    public function __construct()
     {
-        $this->binput = $binput;
-        $this->postprovider = $postprovider;
-
         $this->setPermissions(array(
             'create'  => 'blog',
             'store'   => 'blog',
@@ -70,7 +49,7 @@ class PostController extends AbstractController
             'destroy' => 'blog',
         ));
 
-        parent::__construct($credentials, $view);
+        parent::__construct();
     }
 
     /**
@@ -80,10 +59,10 @@ class PostController extends AbstractController
      */
     public function index()
     {
-        $posts = $this->postprovider->paginate();
-        $links = $this->postprovider->links();
+        $posts = PostProvider::paginate();
+        $links = PostProvider::links();
 
-        return $this->view->make('posts.index', array('posts' => $posts, 'links' => $links));
+        return View::make('posts.index', array('posts' => $posts, 'links' => $links));
     }
 
     /**
@@ -93,7 +72,7 @@ class PostController extends AbstractController
      */
     public function create()
     {
-        return $this->view->make('posts.create');
+        return View::make('posts.create');
     }
 
     /**
@@ -103,16 +82,16 @@ class PostController extends AbstractController
      */
     public function store()
     {
-        $input = array_merge(array('user_id' => $this->getUserId()), $this->binput->only(array(
+        $input = array_merge(array('user_id' => Credentials::getuser()->id), Binput::only(array(
             'title', 'summary', 'body'
         )));
 
-        $val = $this->postprovider->validate($input, array_keys($input));
+        $val = PostProvider::validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('blog.posts.create')->withInput()->withErrors($val->errors());
         }
 
-        $post = $this->postprovider->create($input);
+        $post = PostProvider::create($input);
 
         return Redirect::route('blog.posts.show', array('posts' => $post->id))
             ->with('success', 'Your post has been created successfully.');
@@ -126,12 +105,12 @@ class PostController extends AbstractController
      */
     public function show($id)
     {
-        $post = $this->postprovider->find($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
         $comments = $post->comments()->orderBy('id', 'desc')->get();
 
-        return $this->view->make('posts.show', array('post' => $post, 'comments' => $comments));
+        return View::make('posts.show', array('post' => $post, 'comments' => $comments));
     }
 
     /**
@@ -142,10 +121,10 @@ class PostController extends AbstractController
      */
     public function edit($id)
     {
-        $post = $this->postprovider->find($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
-        return $this->view->make('posts.edit', array('post' => $post));
+        return View::make('posts.edit', array('post' => $post));
     }
 
     /**
@@ -156,14 +135,14 @@ class PostController extends AbstractController
      */
     public function update($id)
     {
-        $input = $this->binput->only(array('title', 'summary', 'body'));
+        $input = Binput::only(array('title', 'summary', 'body'));
 
-        $val = $this->postprovider->validate($input, array_keys($input));
+        $val = PostProvider::validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
         }
 
-        $post = $this->postprovider->find($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
         $post->update($input);
@@ -180,7 +159,7 @@ class PostController extends AbstractController
      */
     public function destroy($id)
     {
-        $post = $this->postprovider->find($id);
+        $post = PostProvider::find($id);
         $this->checkPost($post);
 
         $post->delete();

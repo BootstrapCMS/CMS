@@ -17,8 +17,6 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use GrahamCampbell\Credentials\Controllers\AbstractController as Controller;
-use GrahamCampbell\Credentials\Credentials;
-use Illuminate\View\Factory;
 
 /**
  * This is the abstract controller class.
@@ -46,24 +44,13 @@ abstract class AbstractController extends Controller
     protected $blogs = array();
 
     /**
-     * The view factory instance.
-     *
-     * @var \Illuminate\View\Factory
-     */
-    protected $view;
-
-    /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \Illuminate\View\Factory  $view
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view)
+    public function __construct()
     {
-        parent::__construct($credentials);
-
-        $this->view = $view;
+        parent::__construct();
 
         $this->beforeFilter('credentials:edit', array('only' => $this->edits));
         $this->beforeFilter('credentials:blog', array('only' => $this->blogs));

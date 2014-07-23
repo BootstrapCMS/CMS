@@ -16,13 +16,13 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Binput\Binput;
-use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
-use GrahamCampbell\Credentials\Credentials;
-use Illuminate\Session\SessionManager;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
+use GrahamCampbell\Credentials\Facades\Credentials;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\Factory;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -37,47 +37,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PageController extends AbstractController
 {
     /**
-     * The session instance.
-     *
-     * @var \Illuminate\Session\SessionManager
-     */
-    protected $session;
-
-    /**
-     * The binput instance.
-     *
-     * @var \GrahamCampbell\Binput\Binput
-     */
-    protected $binput;
-
-    /**
-     * The page provider instance.
-     *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
-     */
-    protected $pageprovider;
-
-    /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \Illuminate\View\Factory  $view
-     * @param  \Illuminate\Session\SessionManager  $session
-     * @param  \GrahamCampbell\Binput\Binput  $binput
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
      * @return void
      */
-    public function __construct(
-        Credentials $credentials,
-        Factory $view,
-        SessionManager $session,
-        Binput $binput,
-        PageProvider $pageprovider
-    ) {
-        $this->session = $session;
-        $this->binput = $binput;
-        $this->pageprovider = $pageprovider;
-
+    public function __construct()
+    {
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -86,7 +51,7 @@ class PageController extends AbstractController
             'destroy' => 'edit',
         ));
 
-        parent::__construct($credentials, $view);
+        parent::__construct();
     }
 
     /**
@@ -96,8 +61,8 @@ class PageController extends AbstractController
      */
     public function index()
     {
-        $this->session->flash('', ''); // work around laravel bug if there is no session yet
-        $this->session->reflash();
+        Session::flash('', ''); // work around laravel bug if there is no session yet
+        Session::reflash();
         return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
     }
 
@@ -108,7 +73,7 @@ class PageController extends AbstractController
      */
     public function create()
     {
-        return $this->view->make('pages.create');
+        return View::make('pages.create');
     }
 
     /**
@@ -118,14 +83,14 @@ class PageController extends AbstractController
      */
     public function store()
     {
-        $input = array_merge($this->getInput(), array('user_id' => $this->getUserId()));
+        $input = array_merge($this->getInput(), array('user_id' => Credentials::getuser()->id));
 
-        $val = $this->pageprovider->validate($input, array_keys($input));
+        $val = PageProvider::validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('pages.create')->withInput()->withErrors($val->errors());
         }
 
-        $page = $this->pageprovider->create($input);
+        $page = PageProvider::create($input);
 
         // write flash message and redirect
         return Redirect::route('pages.show', array('pages' => $page->slug))
@@ -140,10 +105,10 @@ class PageController extends AbstractController
      */
     public function show($slug)
     {
-        $page = $this->pageprovider->find($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->view->make('pages.show', array('page' => $page));
+        return View::make('pages.show', array('page' => $page));
     }
 
     /**
@@ -154,10 +119,10 @@ class PageController extends AbstractController
      */
     public function edit($slug)
     {
-        $page = $this->pageprovider->find($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return $this->view->make('pages.edit', array('page' => $page));
+        return View::make('pages.edit', array('page' => $page));
     }
 
     /**
@@ -178,12 +143,12 @@ class PageController extends AbstractController
             $input['js'] = '';
         }
 
-        $val = $this->pageprovider->validate($input, array_keys($input));
+        $val = PageProvider::validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($val->errors());
         }
 
-        $page = $this->pageprovider->find($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
         $checkupdate = $this->checkUpdate($input, $slug);
@@ -206,7 +171,7 @@ class PageController extends AbstractController
      */
     public function destroy($slug)
     {
-        $page = $this->pageprovider->find($slug);
+        $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
         try {
@@ -229,15 +194,15 @@ class PageController extends AbstractController
     protected function getInput()
     {
         return array(
-            'title'      => $this->binput->get('title'),
-            'nav_title'  => $this->binput->get('nav_title'),
-            'slug'       => $this->binput->get('slug'),
-            'body'       => $this->binput->get('body', null, true, false), // no xss protection please
-            'css'        => $this->binput->get('css', null, true, false), // no xss protection please
-            'js'         => $this->binput->get('js', null, true, false), // no xss protection please
-            'show_title' => ($this->binput->get('show_title') == 'on'),
-            'show_nav'   => ($this->binput->get('show_nav') == 'on'),
-            'icon'       => $this->binput->get('icon')
+            'title'      => Binput::get('title'),
+            'nav_title'  => Binput::get('nav_title'),
+            'slug'       => Binput::get('slug'),
+            'body'       => Binput::get('body', null, true, false), // no xss protection please
+            'css'        => Binput::get('css', null, true, false), // no xss protection please
+            'js'         => Binput::get('js', null, true, false), // no xss protection please
+            'show_title' => (Binput::get('show_title') == 'on'),
+            'show_nav'   => (Binput::get('show_nav') == 'on'),
+            'icon'       => Binput::get('icon')
         );
     }
 

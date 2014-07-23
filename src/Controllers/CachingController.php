@@ -16,8 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use GrahamCampbell\Credentials\Credentials;
-use Illuminate\View\Factory;
+use Illuminate\Support\Facades\View;
 
 /**
  * This is the caching controller class.
@@ -33,17 +32,15 @@ class CachingController extends AbstractController
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \Illuminate\View\Factory  $view
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view)
+    public function __construct()
     {
         $this->setPermissions(array(
             'getIndex' => 'admin',
         ));
 
-        parent::__construct($credentials, $view);
+        parent::__construct();
     }
 
     /**
@@ -53,6 +50,6 @@ class CachingController extends AbstractController
      */
     public function getIndex()
     {
-        return $this->view->make('caching.index');
+        return View::make('caching.index');
     }
 }

@@ -17,11 +17,11 @@
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
 use Carbon\Carbon;
-use GrahamCampbell\Binput\Binput;
-use GrahamCampbell\BootstrapCMS\Providers\EventProvider;
-use GrahamCampbell\Credentials\Credentials;
+use GrahamCampbell\Binput\Facades\Binput;
+use GrahamCampbell\BootstrapCMS\Facades\EventProvider;
+use GrahamCampbell\Credentials\Facades\Credentials;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\Factory;
+use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -36,33 +36,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class EventController extends AbstractController
 {
     /**
-     * The binput instance.
-     *
-     * @var \GrahamCampbell\Binput\Binput
-     */
-    protected $binput;
-
-    /**
-     * The event provider instance.
-     *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\EventProvider
-     */
-    protected $eventprovider;
-
-    /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \Illuminate\View\Factory  $view
-     * @param  \GrahamCampbell\Binput\Binput  $binput
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\EventProvider  $eventprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view, Binput $binput, EventProvider $eventprovider)
+    public function __construct()
     {
-        $this->binput = $binput;
-        $this->eventprovider = $eventprovider;
-
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -71,7 +50,7 @@ class EventController extends AbstractController
             'destroy' => 'edit',
         ));
 
-        parent::__construct($credentials, $view);
+        parent::__construct();
     }
 
     /**
@@ -81,10 +60,10 @@ class EventController extends AbstractController
      */
     public function index()
     {
-        $events = $this->eventprovider->paginate();
-        $links = $this->eventprovider->links();
+        $events = EventProvider::paginate();
+        $links = EventProvider::links();
 
-        return $this->view->make('events.index', array('events' => $events, 'links' => $links));
+        return View::make('events.index', array('events' => $events, 'links' => $links));
     }
 
     /**
@@ -94,7 +73,7 @@ class EventController extends AbstractController
      */
     public function create()
     {
-        return $this->view->make('events.create');
+        return View::make('events.create');
     }
 
     /**
@@ -104,18 +83,18 @@ class EventController extends AbstractController
      */
     public function store()
     {
-        $input = array_merge(array('user_id' => $this->getUserId()), $this->binput->only(array(
+        $input = array_merge(array('user_id' => Credentials::getuser()->id), Binput::only(array(
             'title', 'location', 'date', 'body'
         )));
 
-        $val = $this->eventprovider->validate($input, array_keys($input));
+        $val = EventProvider::validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('events.create')->withInput()->withErrors($val->errors());
         }
 
         $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
 
-        $event = $this->eventprovider->create($input);
+        $event = EventProvider::create($input);
 
         return Redirect::route('events.show', array('events' => $event->id))
             ->with('success', 'Your event has been created successfully.');
@@ -129,10 +108,10 @@ class EventController extends AbstractController
      */
     public function show($id)
     {
-        $event = $this->eventprovider->find($id);
+        $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return $this->view->make('events.show', array('event' => $event));
+        return View::make('events.show', array('event' => $event));
     }
 
     /**
@@ -143,10 +122,10 @@ class EventController extends AbstractController
      */
     public function edit($id)
     {
-        $event = $this->eventprovider->find($id);
+        $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return $this->view->make('events.edit', array('event' => $event));
+        return View::make('events.edit', array('event' => $event));
     }
 
     /**
@@ -157,16 +136,16 @@ class EventController extends AbstractController
      */
     public function update($id)
     {
-        $input = $this->binput->only(array('title', 'location', 'date', 'body'));
+        $input = Binput::only(array('title', 'location', 'date', 'body'));
 
-        $val = $val = $this->eventprovider->validate($input, array_keys($input));
+        $val = $val = EventProvider::validate($input, array_keys($input));
         if ($val->fails()) {
             return Redirect::route('events.edit', array('events' => $id))->withInput()->withErrors($val->errors());
         }
 
         $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
 
-        $event = $this->eventprovider->find($id);
+        $event = EventProvider::find($id);
         $this->checkEvent($event);
 
         $event->update($input);
@@ -183,7 +162,7 @@ class EventController extends AbstractController
      */
     public function destroy($id)
     {
-        $event = $this->eventprovider->find($id);
+        $event = EventProvider::find($id);
         $this->checkEvent($event);
 
         $event->delete();
