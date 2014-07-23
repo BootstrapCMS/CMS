@@ -257,10 +257,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerCachingController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CachingController', function ($app) {
-            $credentials = $app['credentials'];
-            $view = $app['view'];
-
-            return new Controllers\CachingController($credentials, $view);
+            return new Controllers\CachingController();
         });
     }
 
@@ -272,23 +269,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerCommentController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CommentController', function ($app) {
-            $credentials = $app['credentials'];
-            $view = $app['view'];
-            $session = $app['session'];
-            $binput = $app['binput'];
-            $commentprovider = $app['commentprovider'];
-            $postprovider = $app['postprovider'];
             $throttler = $app['throttle']->get($app['request'], 1, 10);
 
-            return new Controllers\CommentController(
-                $credentials,
-                $view,
-                $session,
-                $binput,
-                $commentprovider,
-                $postprovider,
-                $throttler
-            );
+            return new Controllers\CommentController($throttler);
         });
     }
 
@@ -300,12 +283,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerEventController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\EventController', function ($app) {
-            $credentials = $app['credentials'];
-            $view = $app['view'];
-            $binput = $app['binput'];
-            $eventprovider = $app['eventprovider'];
-
-            return new Controllers\EventController($credentials, $view, $binput, $eventprovider);
+            return new Controllers\EventController();
         });
     }
 
@@ -317,13 +295,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerHomeController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\HomeController', function ($app) {
-            $credentials = $app['credentials'];
-            $view = $app['view'];
-            $mailer = $app['mailer'];
             $email = $app['config']['workbench.email'];
             $subject = $app['config']['platform.name'].' - Welcome';
 
-            return new Controllers\HomeController($credentials, $view, $mailer, $email, $subject);
+            return new Controllers\HomeController($email, $subject);
         });
     }
 
@@ -335,13 +310,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerPageController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PageController', function ($app) {
-            $credentials = $app['credentials'];
-            $view = $app['view'];
-            $session = $app['session'];
-            $binput = $app['binput'];
-            $pageprovider = $app['pageprovider'];
-
-            return new Controllers\PageController($credentials, $view, $session, $binput, $pageprovider);
+            return new Controllers\PageController();
         });
     }
 
@@ -353,12 +322,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerPostController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PostController', function ($app) {
-            $credentials = $app['credentials'];
-            $view = $app['view'];
-            $binput = $app['binput'];
-            $postprovider = $app['postprovider'];
-
-            return new Controllers\PostController($credentials, $view, $binput, $postprovider);
+            return new Controllers\PostController();
         });
     }
 
