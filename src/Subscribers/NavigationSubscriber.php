@@ -89,7 +89,7 @@ class NavigationSubscriber
     public function __construct(
         Navigation $navigation,
         Credentials $credentials,
-        PageProvider $pageprovider
+        PageProvider $pageprovider,
         $blogging = false,
         $events = false,
         $cloudflare = false

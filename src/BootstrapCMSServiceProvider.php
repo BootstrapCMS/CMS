@@ -234,16 +234,16 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $navigation = $app['navigation'];
             $credentials = $app['credentials'];
             $pageprovider = $app['pageprovider'];
-            $blogging = $app['config']['cms.blogging']
-            $events = $app['config']['cms.events']
+            $blogging = $app['config']['cms.blogging'];
+            $events = $app['config']['cms.events'];
             $cloudflare = class_exists('GrahamCampbell\CloudFlare\CloudFlareServiceProvider');
 
             return new Subscribers\NavigationSubscriber(
                 $navigation,
                 $credentials,
                 $pageprovider,
-                $blogging
-                $events
+                $blogging,
+                $events,
                 $cloudflare
             );
         });
