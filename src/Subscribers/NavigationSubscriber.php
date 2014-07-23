@@ -19,7 +19,6 @@ namespace GrahamCampbell\BootstrapCMS\Subscribers;
 use GrahamCampbell\BootstrapCMS\Providers\PageProvider;
 use GrahamCampbell\Credentials\Credentials;
 use GrahamCampbell\Navigation\Navigation;
-use Illuminate\Config\Repository;
 use Illuminate\Events\Dispatcher;
 
 /**
