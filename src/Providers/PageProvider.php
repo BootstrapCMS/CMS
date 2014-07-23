@@ -145,10 +145,6 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
      */
     protected function validCache($value)
     {
-        if (is_null($value) || !is_array($value) || empty($value)) {
-            return false;
-        }
-
-        return true;
+        return (is_array($value) && !empty($value));
     }
 }
