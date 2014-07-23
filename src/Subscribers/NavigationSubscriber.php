@@ -34,13 +34,6 @@ use Illuminate\Events\Dispatcher;
 class NavigationSubscriber
 {
     /**
-     * The config instance.
-     *
-     * @var \Illuminate\Config\Repository
-     */
-    protected $config;
-
-    /**
      * The navigation instance.
      *
      * @var \GrahamCampbell\Navigation\Navigation
@@ -62,24 +55,51 @@ class NavigationSubscriber
     protected $pageprovider;
 
     /**
+     * The blogging flag.
+     *
+     * @var bool
+     */
+    protected $blogging;
+
+    /**
+     * The events flag.
+     *
+     * @var bool
+     */
+    protected $events;
+
+    /**
+     * The cloudflare flag.
+     *
+     * @var bool
+     */
+    protected $cloudflare;
+
+    /**
      * Create a new instance.
      *
-     * @param  \Illuminate\Config\Repository  $config
      * @param  \GrahamCampbell\Navigation\Navigation  $navigation
      * @param  \GrahamCampbell\Credentials\Credentials  $credentials
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
+     * @param  bool  $blogging
+     * @param  bool  $events
+     * @param  bool  $cloudflare
      * @return void
      */
     public function __construct(
-        Repository $config,
         Navigation $navigation,
         Credentials $credentials,
         PageProvider $pageprovider
+        $blogging = false,
+        $events = false,
+        $cloudflare = false
     ) {
-        $this->config = $config;
         $this->navigation = $navigation;
         $this->credentials = $credentials;
         $this->pageprovider = $pageprovider;
+        $this->blogging = $blogging;
+        $this->events = $events;
+        $this->cloudflare = $cloudflare;
     }
 
     /**
@@ -131,13 +151,17 @@ class NavigationSubscriber
     public function onNavigationMainFirst(array $event = array())
     {
         // add the blog
-        if ($this->config->get('cms.blogging')) {
-            $this->navigation->addToMain(array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book'));
+        if ($this->blogging) {
+            $this->navigation->addToMain(
+                array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book')
+            );
         }
 
         // add the events
-        if ($this->config->get('cms.events')) {
-            $this->navigation->addToMain(array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar'));
+        if ($this->events) {
+            $this->navigation->addToMain(
+                array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar')
+            );
         }
     }
 
@@ -163,10 +187,19 @@ class NavigationSubscriber
         if ($this->credentials->check()) {
             // add the admin links
             if ($this->credentials->hasAccess('admin')) {
-                $this->navigation->addToMain(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'), 'admin');
-                $this->navigation->addToMain(array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'), 'admin');
-                if (class_exists('GrahamCampbell\CloudFlare\CloudFlareServiceProvider')) {
-                    $this->navigation->addToMain(array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'), 'admin');
+                $this->navigation->addToMain(
+                    array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'),
+                    'admin'
+                );
+                $this->navigation->addToMain(
+                    array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'),
+                    'admin'
+                );
+                if ($this->cloudflare) {
+                    $this->navigation->addToMain(
+                        array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'),
+                        'admin'
+                    );
                 }
             }
         }
@@ -190,11 +223,12 @@ class NavigationSubscriber
         $this->navigation->addToMain($page, 'default', true);
         $this->navigation->addToMain($page, 'admin', true);
 
-        if ($this->credentials->check()) {
-            // add the view users link
-            if ($this->credentials->hasAccess('mod')) {
-                $this->navigation->addToMain(array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'), 'admin');
-            }
+        // add the view users link
+        if ($this->credentials->check() && $this->credentials->hasAccess('mod')) {
+            $this->navigation->addToMain(
+                array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'),
+                'admin'
+            );
         }
     }
 
@@ -208,8 +242,12 @@ class NavigationSubscriber
     {
         if ($this->credentials->check()) {
             // add the profile/history links
-            $this->navigation->addToBar(array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog'));
-            $this->navigation->addToBar(array('title' => 'View History', 'slug' => 'account/history', 'icon' => 'history'));
+            $this->navigation->addToBar(
+                array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog')
+            );
+            $this->navigation->addToBar(
+                array('title' => 'View History', 'slug' => 'account/history', 'icon' => 'history')
+            );
         }
     }
 
@@ -221,14 +259,18 @@ class NavigationSubscriber
      */
     public function onNavigationBarSecond(array $event = array())
     {
-        if ($this->credentials->check()) {
-            // add the admin links
-            if ($this->credentials->hasAccess('admin')) {
-                $this->navigation->addToBar(array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'));
-                $this->navigation->addToBar(array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench'));
-                if (class_exists('GrahamCampbell\CloudFlare\CloudFlareServiceProvider')) {
-                    $this->navigation->addToBar(array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'));
-                }
+        // add the admin links
+        if ($this->credentials->check() && $this->credentials->hasAccess('admin')) {
+            $this->navigation->addToBar(
+                array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer')
+            );
+            $this->navigation->addToBar(
+                array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench')
+            );
+            if ($this->cloudflare) {
+                $this->navigation->addToBar(
+                    array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud')
+                );
             }
         }
     }
@@ -244,43 +286,43 @@ class NavigationSubscriber
         if ($this->credentials->check()) {
             // add the view users link
             if ($this->credentials->hasAccess('mod')) {
-                $this->navigation->addToBar(array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user'));
+                $this->navigation->addToBar(
+                    array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user')
+                );
             }
 
             // add the create user link
             if ($this->credentials->hasAccess('admin')) {
-                $this->navigation->addToBar(array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star'));
+                $this->navigation->addToBar(
+                    array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star')
+                );
             }
 
             // add the create page link
             if ($this->credentials->hasAccess('edit')) {
-                $this->navigation->addToBar(array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil'));
+                $this->navigation->addToBar(
+                    array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil')
+                );
             }
 
             // add the create post link
-            if ($this->config->get('cms.blogging')) {
+            if ($this->blogging) {
                 if ($this->credentials->hasAccess('blog')) {
-                    $this->navigation->addToBar(array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book'));
+                    $this->navigation->addToBar(
+                        array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book')
+                    );
                 }
             }
 
             // add the create event link
-            if ($this->config->get('cms.events')) {
+            if ($this->events) {
                 if ($this->credentials->hasAccess('edit')) {
-                    $this->navigation->addToBar(array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar'));
+                    $this->navigation->addToBar(
+                        array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar')
+                    );
                 }
             }
         }
-    }
-
-    /**
-     * Get the config instance.
-     *
-     * @return \Illuminate\Config\Repository
-     */
-    public function getConfig()
-    {
-        return $this->config;
     }
 
     /**

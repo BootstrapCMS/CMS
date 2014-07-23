@@ -231,12 +231,21 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerNavigationSubscriber()
     {
         $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber', function ($app) {
-            $config = $app['config'];
             $navigation = $app['navigation'];
             $credentials = $app['credentials'];
             $pageprovider = $app['pageprovider'];
+            $blogging = $app['config']['cms.blogging']
+            $events = $app['config']['cms.events']
+            $cloudflare = class_exists('GrahamCampbell\CloudFlare\CloudFlareServiceProvider');
 
-            return new Subscribers\NavigationSubscriber($config, $navigation, $credentials, $pageprovider);
+            return new Subscribers\NavigationSubscriber(
+                $navigation,
+                $credentials,
+                $pageprovider,
+                $blogging
+                $events
+                $cloudflare
+            );
         });
     }
 
