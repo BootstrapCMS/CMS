@@ -70,8 +70,12 @@ class NavigationSubscriber
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
      * @return void
      */
-    public function __construct(Repository $config, Navigation $navigation, Credentials $credentials, PageProvider $pageprovider)
-    {
+    public function __construct(
+        Repository $config,
+        Navigation $navigation,
+        Credentials $credentials,
+        PageProvider $pageprovider
+    ) {
         $this->config = $config;
         $this->navigation = $navigation;
         $this->credentials = $credentials;
