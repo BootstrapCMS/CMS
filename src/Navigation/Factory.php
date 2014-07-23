@@ -65,7 +65,7 @@ class Factory
      */
     protected $inverse;
 
-   /**
+    /**
      * Create a new instance.
      *
      * @param  \GrahamCampbell\Credentials\Credentials  $credentials
@@ -111,7 +111,7 @@ class Factory
                 }
             } else {
                 // the requested type is default, and the user is logged in
-                return $this->navigation->render('default','default', array(
+                return $this->navigation->render('default', 'default', array(
                     'title' => $this->name,
                     'side' => $this->getSide(),
                     'inverse' => $this->inverse

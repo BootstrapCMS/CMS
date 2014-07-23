@@ -59,6 +59,7 @@ class UsersGroupsTableSeeder extends Seeder
      */
     protected function matchUser($email, $group)
     {
-        return Credentials::getUserProvider()->findByLogin($email)->addGroup(Credentials::getGroupProvider()->findByName($group));
+        return Credentials::getUserProvider()->findByLogin($email)
+            ->addGroup(Credentials::getGroupProvider()->findByName($group));
     }
 }

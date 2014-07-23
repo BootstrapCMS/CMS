@@ -67,8 +67,13 @@ class PageController extends AbstractController
      * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view, SessionManager $session, Binput $binput, PageProvider $pageprovider)
-    {
+    public function __construct(
+        Credentials $credentials,
+        Factory $view,
+        SessionManager $session,
+        Binput $binput,
+        PageProvider $pageprovider
+    ) {
         $this->session = $session;
         $this->binput = $binput;
         $this->pageprovider = $pageprovider;
@@ -165,11 +170,11 @@ class PageController extends AbstractController
     {
         $input = $this->getInput();
 
-        if (is_null($input['css']) || empty($input['css'])) {
+        if (empty($input['css'])) {
             $input['css'] = '';
         }
 
-        if (is_null($input['js']) || empty($input['js'])) {
+        if (empty($input['js'])) {
             $input['js'] = '';
         }
 

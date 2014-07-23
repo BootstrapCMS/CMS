@@ -87,8 +87,15 @@ class CommentController extends AbstractController
      * @param  \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface  $throttler
      * @return void
      */
-    public function __construct(Credentials $credentials, Factory $view, SessionManager $session, Binput $binput, CommentProvider $commentprovider, PostProvider $postprovider, ThrottlerInterface $throttler)
-    {
+    public function __construct(
+        Credentials $credentials,
+        Factory $view,
+        SessionManager $session,
+        Binput $binput,
+        CommentProvider $commentprovider,
+        PostProvider $postprovider,
+        ThrottlerInterface $throttler
+    ) {
         $this->session = $session;
         $this->binput = $binput;
         $this->commentprovider = $commentprovider;
@@ -118,7 +125,12 @@ class CommentController extends AbstractController
         $post = $this->postprovider->find($postId, array('id'));
         if (!$post) {
             $this->session->flash('error', 'The post you were viewing has been deleted.');
-            return Response::json(array('success' => false, 'code' => 404, 'msg' => 'The post you were viewing has been deleted.', 'url' => URL::route('blog.posts.index')), 404);
+            return Response::json(array(
+                'success' => false,
+                'code' => 404,
+                'msg' => 'The post you were viewing has been deleted.',
+                'url' => URL::route('blog.posts.index')
+            ), 404);
         }
 
         $comments = $post->comments()->get(array('id', 'version'));
@@ -154,7 +166,17 @@ class CommentController extends AbstractController
 
         $comment = $this->commentprovider->create($input);
 
-        return Response::json(array('success' => true, 'msg' => 'Comment created successfully.', 'contents' => $this->view->make('posts.comment', array('comment' => $comment, 'postId' => $postId))->render(), 'comment_id' => $comment->id), 201);
+        $contents = $this->view->make('posts.comment', array(
+            'comment' => $comment,
+            'postId' => $postId
+        ));
+
+        return Response::json(array(
+            'success' => true,
+            'msg' => 'Comment created successfully.',
+            'contents' => $contents->render(),
+            'comment_id' => $comment->id
+        ), 201);
     }
 
     /**
@@ -169,7 +191,17 @@ class CommentController extends AbstractController
         $comment = $this->commentprovider->find($id);
         $this->checkComment($comment);
 
-        return Response::json(array('contents' => $this->view->make('posts.comment', array('comment' => $comment, 'postId' => $postId))->render(), 'comment_text' => nl2br(e($comment->body)), 'comment_id' => $id, 'comment_ver' => $comment->version));
+        $contents = $this->view->make('posts.comment', array(
+            'comment' => $comment,
+            'postId' => $postId
+        ));
+
+        return Response::json(array(
+            'contents' => $contents->render(),
+            'comment_text' => nl2br(e($comment->body)),
+            'comment_id' => $id,
+            'comment_ver' => $comment->version
+        ));
     }
 
     /**
@@ -200,11 +232,17 @@ class CommentController extends AbstractController
             throw new ConflictHttpException('The comment was modified by someone else.');
         }
 
-        $version = $version+1;
+        $version++;
 
         $comment->update(array_merge($input, array('version' => $version)));
 
-        return Response::json(array('success' => true, 'msg' => 'Comment updated successfully.', 'comment_text' => nl2br(e($comment->body)),'comment_id' => $id, 'comment_ver' => $version));
+        return Response::json(array(
+            'success' => true,
+            'msg' => 'Comment updated successfully.',
+            'comment_text' => nl2br(e($comment->body)),
+            'comment_id' => $id,
+            'comment_ver' => $version
+        ));
     }
 
     /**
@@ -221,7 +259,11 @@ class CommentController extends AbstractController
 
         $comment->delete();
 
-        return Response::json(array('success' => true, 'msg' => 'Comment deleted successfully.', 'comment_id' => $id));
+        return Response::json(array(
+            'success' => true,
+            'msg' => 'Comment deleted successfully.',
+            'comment_id' => $id
+        ));
     }
 
     /**

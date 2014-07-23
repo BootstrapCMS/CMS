@@ -73,7 +73,8 @@ class PagesTableSeeder extends Seeder
             'title' => 'About Us',
             'nav_title' => 'About',
             'slug'  => 'about',
-            'body'  => '<div class="row"><div class="col-lg-8">'.Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>',
+            'body'  => '<div class="row"><div class="col-lg-8">'
+                .Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>',
             'user_id'    => 1,
             'icon'       => 'info-circle',
             'created_at' => Carbon::now(),
