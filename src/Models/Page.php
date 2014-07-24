@@ -111,7 +111,7 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
     /**
      * Get the presenter class.
      *
-     * @var string
+     * @return string
      */
     public function getPresenter()
     {
@@ -122,6 +122,8 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
      * Before deleting an existing model.
      *
      * @return mixed
+     *
+     * @throws \Exception
      */
     public function beforeDelete()
     {

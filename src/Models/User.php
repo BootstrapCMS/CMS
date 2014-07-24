@@ -55,7 +55,7 @@ class User extends CredentialsUser implements HasManyPagesInterface, HasManyPost
     /**
      * Get the presenter class.
      *
-     * @var string
+     * @return string
      */
     public function getPresenter()
     {

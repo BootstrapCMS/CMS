@@ -104,6 +104,8 @@ class CommentController extends AbstractController
      *
      * @param  int  $postId
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
      */
     public function store($postId)
     {
@@ -165,6 +167,9 @@ class CommentController extends AbstractController
      * @param  int  $postId
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     * @throws \Symfony\Component\HttpKernel\Exception\ConflictHttpException
      */
     public function update($postId, $id)
     {
@@ -226,6 +231,8 @@ class CommentController extends AbstractController
      *
      * @param  mixed  $comment
      * @return void
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     protected function checkComment($comment)
     {
@@ -239,6 +246,8 @@ class CommentController extends AbstractController
      *
      * @param  mixed  $post
      * @return void
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     protected function checkPost($post)
     {

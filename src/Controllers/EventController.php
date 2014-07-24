@@ -176,6 +176,8 @@ class EventController extends AbstractController
      *
      * @param  mixed  $event
      * @return void
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     protected function checkEvent($event)
     {

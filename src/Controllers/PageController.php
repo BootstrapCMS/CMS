@@ -220,6 +220,9 @@ class PageController extends AbstractController
      * @param  mixed   $page
      * @param  string  $slug
      * @return \Illuminate\Http\Response
+     *
+     * @throws \Exception
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     protected function checkPage($page, $slug)
     {

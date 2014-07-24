@@ -173,6 +173,8 @@ class PostController extends AbstractController
      *
      * @param  mixed  $post
      * @return void
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     protected function checkPost($post)
     {

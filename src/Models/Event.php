@@ -109,7 +109,7 @@ class Event extends AbstractModel implements BelongsToUserInterface, Revisionabl
     /**
      * Get the presenter class.
      *
-     * @var string
+     * @return string
      */
     public function getPresenter()
     {

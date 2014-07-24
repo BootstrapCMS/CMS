@@ -110,7 +110,7 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
     /**
      * Get the presenter class.
      *
-     * @var string
+     * @return string
      */
     public function getPresenter()
     {

@@ -102,7 +102,7 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
     /**
      * Get the presenter class.
      *
-     * @var string
+     * @return string
      */
     public function getPresenter()
     {
