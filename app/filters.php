@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Illuminate\Session\TokenMismatchException;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 /*
@@ -49,7 +49,7 @@ App::after(function ($request, $response) {
 
 Route::filter('csrf', function () {
     if (Session::token() != Input::get('_token')) {
-        throw new Illuminate\Session\TokenMismatchException;
+        throw new TokenMismatchException;
     }
 });
 
