@@ -19,7 +19,6 @@ namespace GrahamCampbell\BootstrapCMS\Controllers;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
 use GrahamCampbell\Credentials\Facades\Credentials;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -37,12 +36,22 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PageController extends AbstractController
 {
     /**
+     * The home page path.
+     *
+     * @var string
+     */
+    protected $path;
+
+    /**
      * Create a new instance.
      *
+     * @param  string  $path
      * @return void
      */
-    public function __construct()
+    public function __construct($path)
     {
+        $this->path = $path;
+
         $this->setPermissions(array(
             'create'  => 'edit',
             'store'   => 'edit',
@@ -63,7 +72,7 @@ class PageController extends AbstractController
     {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
-        return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
+        return Redirect::to($this->path);
     }
 
     /**
@@ -182,8 +191,7 @@ class PageController extends AbstractController
         }
 
         // write flash message and redirect
-        return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'))
-            ->with('success', 'Your page has been deleted successfully.');
+        return Redirect::to($this->path)->with('success', 'Your page has been deleted successfully.');
     }
 
     /**

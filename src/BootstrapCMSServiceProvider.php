@@ -90,12 +90,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerCoreSubscriber();
         $this->registerNavigationSubscriber();
 
-        $this->registerCachingController();
         $this->registerCommentController();
-        $this->registerEventController();
         $this->registerHomeController();
         $this->registerPageController();
-        $this->registerPostController();
     }
 
     /**
@@ -250,18 +247,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the caching controller class.
-     *
-     * @return void
-     */
-    protected function registerCachingController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\CachingController', function ($app) {
-            return new Controllers\CachingController();
-        });
-    }
-
-    /**
      * Register the comment controller class.
      *
      * @return void
@@ -276,18 +261,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the event controller class.
-     *
-     * @return void
-     */
-    protected function registerEventController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\EventController', function ($app) {
-            return new Controllers\EventController();
-        });
-    }
-
-    /**
      * Register the home controller class.
      *
      * @return void
@@ -297,8 +270,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\HomeController', function ($app) {
             $email = $app['config']['workbench.email'];
             $subject = $app['config']['platform.name'].' - Welcome';
+            $path = $app['config']['graham-campbell/core::home'];
 
-            return new Controllers\HomeController($email, $subject);
+            return new Controllers\HomeController($email, $subject, $path);
         });
     }
 
@@ -310,19 +284,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerPageController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PageController', function ($app) {
-            return new Controllers\PageController();
-        });
-    }
+            $path = $app['config']['graham-campbell/core::home'];
 
-    /**
-     * Register the post controller class.
-     *
-     * @return void
-     */
-    protected function registerPostController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\PostController', function ($app) {
-            return new Controllers\PostController();
+            return new Controllers\PageController($path);
         });
     }
 

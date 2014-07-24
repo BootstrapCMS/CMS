@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Controllers;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
@@ -47,16 +46,25 @@ class HomeController extends AbstractController
     protected $subject;
 
     /**
+     * The home page path.
+     *
+     * @var string
+     */
+    protected $path;
+
+    /**
      * Create a new instance.
      *
      * @param  string  $email
      * @param  string  $subject
+     * @param  string  $path
      * @return void
      */
-    public function __construct($email, $subject)
+    public function __construct($email, $subject, $path)
     {
         $this->email = $email;
         $this->subject = $subject;
+        $this->path = $path;
 
         $this->setPermissions(array(
             'testQueue' => 'admin'
@@ -93,7 +101,7 @@ class HomeController extends AbstractController
     public function testQueue()
     {
         $mail = array(
-            'url'     => URL::to(Config::get('graham-campbell/core::home', 'pages/home')),
+            'url'     => URL::to($this->path),
             'link'    => URL::route('account.activate', array('id' => 1, 'code' => 1234)),
             'email'   => $this->email,
             'subject' => $this->subject
