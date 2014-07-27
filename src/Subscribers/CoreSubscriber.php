@@ -23,33 +23,32 @@ use Illuminate\Log\Writer;
 /**
  * This is the core subscriber class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class CoreSubscriber
 {
     /**
      * The config instance.
      *
-     * @var \Illuminate\Config\Repository
+     * @type \Illuminate\Config\Repository
      */
     protected $config;
 
     /**
      * The log instance.
      *
-     * @var \Illuminate\Log\Writer
+     * @type \Illuminate\Log\Writer
      */
     protected $log;
 
     /**
      * Create a new instance.
      *
-     * @param  \Illuminate\Config\Repository  $config
-     * @param  \Illuminate\Log\Writer  $log
+     * @param \Illuminate\Config\Repository $config
+     * @param \Illuminate\Log\Writer        $log
+     *
      * @return void
      */
     public function __construct(Repository $config, Writer $log)
@@ -61,8 +60,9 @@ class CoreSubscriber
     /**
      * Register the listeners for the subscriber.
      *
-     * @param  \Illuminate\Events\Dispatcher  $events
-     * @return array
+     * @param \Illuminate\Events\Dispatcher $events
+     *
+     * @return void
      */
     public function subscribe(Dispatcher $events)
     {
@@ -91,7 +91,8 @@ class CoreSubscriber
     /**
      * Handle a page.load event.
      *
-     * @param  mixed  $event
+     * @param mixed $event
+     *
      * @return void
      */
     public function onPageLoad($event = array())
@@ -107,7 +108,8 @@ class CoreSubscriber
     /**
      * Handle an artisan.start event.
      *
-     * @param  mixed  $event
+     * @param mixed $event
+     *
      * @return void
      */
     public function onArtisanStart($event = array())
@@ -123,7 +125,8 @@ class CoreSubscriber
     /**
      * Handle a illuminate.query event.
      *
-     * @param  mixed  $event
+     * @param mixed $event
+     *
      * @return void
      */
     public function onIlluminateQuery($event = array())
@@ -139,7 +142,8 @@ class CoreSubscriber
     /**
      * Handle a locale.changed event.
      *
-     * @param  mixed  $event
+     * @param mixed $event
+     *
      * @return void
      */
     public function onLocaleChanged($event = array())

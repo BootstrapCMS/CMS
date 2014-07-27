@@ -27,25 +27,24 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * This is the page controller class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class PageController extends AbstractController
 {
     /**
      * The home page path.
      *
-     * @var string
+     * @type string
      */
     protected $path;
 
     /**
      * Create a new instance.
      *
-     * @param  string  $path
+     * @param string $path
+     *
      * @return void
      */
     public function __construct($path)
@@ -109,7 +108,8 @@ class PageController extends AbstractController
     /**
      * Show the specified page.
      *
-     * @param  string  $slug
+     * @param string $slug
+     *
      * @return \Illuminate\View\View
      */
     public function show($slug)
@@ -123,7 +123,8 @@ class PageController extends AbstractController
     /**
      * Show the form for editing the specified page.
      *
-     * @param  string  $slug
+     * @param string $slug
+     *
      * @return \Illuminate\View\View
      */
     public function edit($slug)
@@ -137,7 +138,8 @@ class PageController extends AbstractController
     /**
      * Update an existing page.
      *
-     * @param  string  $slug
+     * @param string $slug
+     *
      * @return \Illuminate\Http\Response
      */
     public function update($slug)
@@ -175,7 +177,8 @@ class PageController extends AbstractController
     /**
      * Delete an existing page.
      *
-     * @param  string  $slug
+     * @param string $slug
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($slug)
@@ -197,7 +200,7 @@ class PageController extends AbstractController
     /**
      * Get the user input.
      *
-     * @return array
+     * @return string[]
      */
     protected function getInput()
     {
@@ -217,12 +220,13 @@ class PageController extends AbstractController
     /**
      * Check the page model.
      *
-     * @param  mixed   $page
-     * @param  string  $slug
-     * @return \Illuminate\Http\Response
+     * @param mixed  $page
+     * @param string $slug
      *
      * @throws \Exception
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
+     * @return \Illuminate\Http\Response
      */
     protected function checkPage($page, $slug)
     {
@@ -238,8 +242,9 @@ class PageController extends AbstractController
     /**
      * Check the update input.
      *
-     * @param  array   $input
-     * @param  string  $slug
+     * @param array  $input
+     * @param string $slug
+     *
      * @return \Illuminate\Http\Response
      */
     protected function checkUpdate(array $input, $slug)

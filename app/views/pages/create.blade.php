@@ -39,9 +39,9 @@ Create Page
 @section('js')
 {{ Asset::scripts('form') }}
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function () {
     var title = $('#title');
-    title.keyup(function(e) {
+    title.keyup(function (e) {
         val = title.val();
         $("#nav_title").val(val);
         var slug = val.replace(/[^a-zA-Z0-9\s]/g, '')

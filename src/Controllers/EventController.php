@@ -27,11 +27,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * This is the event controller class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class EventController extends AbstractController
 {
@@ -103,7 +101,8 @@ class EventController extends AbstractController
     /**
      * Show the specified event.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\View\View
      */
     public function show($id)
@@ -117,7 +116,8 @@ class EventController extends AbstractController
     /**
      * Show the form for editing the specified event.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\View\View
      */
     public function edit($id)
@@ -131,7 +131,8 @@ class EventController extends AbstractController
     /**
      * Update an existing event.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update($id)
@@ -157,7 +158,8 @@ class EventController extends AbstractController
     /**
      * Delete an existing event.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -174,10 +176,11 @@ class EventController extends AbstractController
     /**
      * Check the event model.
      *
-     * @param  mixed  $event
-     * @return void
+     * @param mixed $event
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
+     * @return void
      */
     protected function checkEvent($event)
     {

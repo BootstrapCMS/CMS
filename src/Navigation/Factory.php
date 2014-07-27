@@ -22,57 +22,56 @@ use GrahamCampbell\Navigation\Navigation;
 /**
  * This is the navigation factory class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class Factory
 {
     /**
      * The credentials instance.
      *
-     * @var \GrahamCampbell\Credentials\Credentials
+     * @type \GrahamCampbell\Credentials\Credentials
      */
     protected $credentials;
 
     /**
      * The navigation instance.
      *
-     * @var \GrahamCampbell\Navigation\Navigation
+     * @type \GrahamCampbell\Navigation\Navigation
      */
     protected $navigation;
 
     /**
      * The platform name.
      *
-     * @var string
+     * @type string
      */
     protected $name;
 
     /**
      * The user property.
      *
-     * @var string
+     * @type string
      */
     protected $property;
 
     /**
      * The inverse navigation.
      *
-     * @var bool
+     * @type bool
      */
     protected $inverse;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \GrahamCampbell\Navigation\Navigation  $navigation
-     * @param  string  $name
-     * @param  string  $property
-     * @param  bool  $inverse
+     * @param \GrahamCampbell\Credentials\Credentials $credentials
+     * @param \GrahamCampbell\Navigation\Navigation   $navigation
+     * @param string                                  $name
+     * @param string                                  $property
+     * @param bool                                    $inverse
+     *
      * @return void
      */
     public function __construct(Credentials $credentials, Navigation $navigation, $name, $property, $inverse)
@@ -87,7 +86,8 @@ class Factory
     /**
      * Create a navigation bar.
      *
-     * @param  string  $type
+     * @param string $type
+     *
      * @return string
      */
     public function make($type = 'default')

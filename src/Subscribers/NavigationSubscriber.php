@@ -24,65 +24,64 @@ use Illuminate\Events\Dispatcher;
 /**
  * This is the navigation subscriber class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class NavigationSubscriber
 {
     /**
      * The navigation instance.
      *
-     * @var \GrahamCampbell\Navigation\Navigation
+     * @type \GrahamCampbell\Navigation\Navigation
      */
     protected $navigation;
 
     /**
      * The credentials instance.
      *
-     * @var \GrahamCampbell\Credentials\Credentials
+     * @type \GrahamCampbell\Credentials\Credentials
      */
     protected $credentials;
 
     /**
      * The page provider instance.
      *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     * @type \GrahamCampbell\BootstrapCMS\Providers\PageProvider
      */
     protected $pageprovider;
 
     /**
      * The blogging flag.
      *
-     * @var bool
+     * @type bool
      */
     protected $blogging;
 
     /**
      * The events flag.
      *
-     * @var bool
+     * @type bool
      */
     protected $events;
 
     /**
      * The cloudflare flag.
      *
-     * @var bool
+     * @type bool
      */
     protected $cloudflare;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Navigation\Navigation  $navigation
-     * @param  \GrahamCampbell\Credentials\Credentials  $credentials
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
-     * @param  bool  $blogging
-     * @param  bool  $events
-     * @param  bool  $cloudflare
+     * @param \GrahamCampbell\Navigation\Navigation               $navigation
+     * @param \GrahamCampbell\Credentials\Credentials             $credentials
+     * @param \GrahamCampbell\BootstrapCMS\Providers\PageProvider $pageprovider
+     * @param bool                                                $blogging
+     * @param bool                                                $events
+     * @param bool                                                $cloudflare
+     *
      * @return void
      */
     public function __construct(
@@ -104,8 +103,9 @@ class NavigationSubscriber
     /**
      * Register the listeners for the subscriber.
      *
-     * @param  \Illuminate\Events\Dispatcher  $events
-     * @return array
+     * @param \Illuminate\Events\Dispatcher $events
+     *
+     * @return void
      */
     public function subscribe(Dispatcher $events)
     {
@@ -144,7 +144,8 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event first.
      *
-     * @param  array  $event
+     * @param array $event
+     *
      * @return void
      */
     public function onNavigationMainFirst(array $event = array())
@@ -167,7 +168,8 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event second.
      *
-     * @param  array  $event
+     * @param array $event
+     *
      * @return void
      */
     public function onNavigationMainSecond(array $event = array())
@@ -207,7 +209,8 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event second.
      *
-     * @param  array  $event
+     * @param array $event
+     *
      * @return void
      */
     public function onNavigationMainThird(array $event = array())
@@ -234,7 +237,8 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event first.
      *
-     * @param  array  $event
+     * @param array $event
+     *
      * @return void
      */
     public function onNavigationBarFirst(array $event = array())
@@ -253,7 +257,8 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event second.
      *
-     * @param  array  $event
+     * @param array $event
+     *
      * @return void
      */
     public function onNavigationBarSecond(array $event = array())
@@ -277,7 +282,8 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event third.
      *
-     * @param  array  $event
+     * @param array $event
+     *
      * @return void
      */
     public function onNavigationBarThird(array $event = array())

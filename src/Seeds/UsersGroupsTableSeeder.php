@@ -23,11 +23,9 @@ use Illuminate\Support\Facades\DB;
 /**
  * This is the users/groups table seeder class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class UsersGroupsTableSeeder extends Seeder
 {
@@ -53,8 +51,9 @@ class UsersGroupsTableSeeder extends Seeder
     /**
      * Add the user by email to a group.
      *
-     * @param  string  $email
-     * @param  string  $group
+     * @param string $email
+     * @param string $group
+     *
      * @return void
      */
     protected function matchUser($email, $group)

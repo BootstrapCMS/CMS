@@ -29,11 +29,9 @@ use McCool\LaravelAutoPresenter\PresenterInterface;
 /**
  * This is the comment model class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface, RevisionableInterface, PresenterInterface
 {
@@ -42,56 +40,56 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
     /**
      * The table the comments are stored in.
      *
-     * @var string
+     * @type string
      */
     protected $table = 'comments';
 
     /**
      * The model name.
      *
-     * @var string
+     * @type string
      */
     public static $name = 'comment';
 
     /**
      * The properties on the model that are dates.
      *
-     * @var array
+     * @type array
      */
     protected $dates = array('deleted_at');
 
     /**
      * The revisionable columns.
      *
-     * @var array
+     * @type array
      */
     protected $keepRevisionOf = array('body');
 
     /**
      * The columns to select when displaying an index.
      *
-     * @var array
+     * @type array
      */
     public static $index = array('id', 'body', 'user_id', 'created_at', 'version');
 
     /**
      * The columns to order by when displaying an index.
      *
-     * @var string
+     * @type string
      */
     public static $order = 'id';
 
     /**
      * The direction to order by when displaying an index.
      *
-     * @var string
+     * @type string
      */
     public static $sort = 'desc';
 
     /**
      * The comment validation rules.
      *
-     * @var array
+     * @type array
      */
     public static $rules = array(
         'body'    => 'required',

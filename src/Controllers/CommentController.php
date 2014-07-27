@@ -32,25 +32,24 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * This is the comment controller class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class CommentController extends AbstractController
 {
     /**
      * The throttler instance.
      *
-     * @var \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
+     * @type \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface
      */
     protected $throttler;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface  $throttler
+     * @param \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface $throttler
+     *
      * @return void
      */
     public function __construct(ThrottlerInterface $throttler)
@@ -72,7 +71,8 @@ class CommentController extends AbstractController
     /**
      * Display a listing of the comments.
      *
-     * @param  int  $postId
+     * @param int $postId
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function index($postId)
@@ -102,10 +102,11 @@ class CommentController extends AbstractController
     /**
      * Store a new comment.
      *
-     * @param  int  $postId
-     * @return \Illuminate\Http\JsonResponse
+     * @param int $postId
      *
      * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store($postId)
     {
@@ -139,8 +140,9 @@ class CommentController extends AbstractController
     /**
      * Show the specified post.
      *
-     * @param  int  $postId
-     * @param  int  $id
+     * @param int $postId
+     * @param int $id
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function show($postId, $id)
@@ -164,12 +166,13 @@ class CommentController extends AbstractController
     /**
      * Update an existing comment.
      *
-     * @param  int  $postId
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param int $postId
+     * @param int $id
      *
      * @throws \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
      * @throws \Symfony\Component\HttpKernel\Exception\ConflictHttpException
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update($postId, $id)
     {
@@ -208,8 +211,9 @@ class CommentController extends AbstractController
     /**
      * Delete an existing comment.
      *
-     * @param  int  $postId
-     * @param  int  $id
+     * @param int $postId
+     * @param int $id
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($postId, $id)
@@ -229,10 +233,11 @@ class CommentController extends AbstractController
     /**
      * Check the comment model.
      *
-     * @param  mixed  $comment
-     * @return void
+     * @param mixed $comment
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
+     * @return void
      */
     protected function checkComment($comment)
     {
@@ -244,10 +249,11 @@ class CommentController extends AbstractController
     /**
      * Check the post model.
      *
-     * @param  mixed  $post
-     * @return void
+     * @param mixed $post
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
+     * @return void
      */
     protected function checkPost($post)
     {

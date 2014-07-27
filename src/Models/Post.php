@@ -29,11 +29,9 @@ use McCool\LaravelAutoPresenter\PresenterInterface;
 /**
  * This is the post model class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToUserInterface, RevisionableInterface, PresenterInterface
 {
@@ -42,63 +40,63 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
     /**
      * The table the posts are stored in.
      *
-     * @var string
+     * @type string
      */
     protected $table = 'posts';
 
     /**
      * The model name.
      *
-     * @var string
+     * @type string
      */
     public static $name = 'post';
 
     /**
      * The properties on the model that are dates.
      *
-     * @var array
+     * @type array
      */
     protected $dates = array('deleted_at');
 
     /**
      * The revisionable columns.
      *
-     * @var array
+     * @type array
      */
     protected $keepRevisionOf = array('title', 'summary', 'body');
 
     /**
      * The columns to select when displaying an index.
      *
-     * @var array
+     * @type array
      */
     public static $index = array('id', 'title', 'summary');
 
     /**
      * The max posts per page when displaying a paginated index.
      *
-     * @var int
+     * @type int
      */
     public static $paginate = 10;
 
     /**
      * The columns to order by when displaying an index.
      *
-     * @var string
+     * @type string
      */
     public static $order = 'id';
 
     /**
      * The direction to order by when displaying an index.
      *
-     * @var string
+     * @type string
      */
     public static $sort = 'desc';
 
     /**
      * The post validation rules.
      *
-     * @var array
+     * @type array
      */
     public static $rules = array(
         'title'   => 'required',

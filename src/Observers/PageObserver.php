@@ -21,18 +21,17 @@ use GrahamCampbell\BootstrapCMS\Facades\PageProvider;
 /**
  * This is the page observer class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class PageObserver
 {
     /**
      * Handle a page creation.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
+     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
+     *
      * @return void
      */
     public function created($page = null)
@@ -43,7 +42,8 @@ class PageObserver
     /**
      * Handle a page update.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
+     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
+     *
      * @return void
      */
     public function updated($page = null)
@@ -54,7 +54,8 @@ class PageObserver
     /**
      * Handle a page deletion.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
+     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
+     *
      * @return void
      */
     public function deleted($page = null)
@@ -65,7 +66,8 @@ class PageObserver
     /**
      * Handle a page save.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
+     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
+     *
      * @return void
      */
     public function saved($page = null)
@@ -76,7 +78,8 @@ class PageObserver
     /**
      * Handle a page restore.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
+     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
+     *
      * @return void
      */
     public function restored($page = null)

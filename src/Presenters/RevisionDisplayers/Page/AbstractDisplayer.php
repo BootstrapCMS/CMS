@@ -21,11 +21,9 @@ use GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\AbstractRevisionDi
 /**
  * This is the abstract displayer class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 abstract class AbstractDisplayer extends AbstractRevisionDisplayer
 {
@@ -42,7 +40,8 @@ abstract class AbstractDisplayer extends AbstractRevisionDisplayer
     /**
      * Get the page name.
      *
-     * @param  bool  $final
+     * @param bool $final
+     *
      * @return string
      */
     protected function name($final = true)

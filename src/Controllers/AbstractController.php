@@ -21,25 +21,23 @@ use GrahamCampbell\Credentials\Controllers\AbstractController as Controller;
 /**
  * This is the abstract controller class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 abstract class AbstractController extends Controller
 {
     /**
      * A list of methods protected by edit permissions.
      *
-     * @var array
+     * @type array
      */
     protected $edits = array();
 
     /**
      * A list of methods protected by blog permissions.
      *
-     * @var array
+     * @type array
      */
     protected $blogs = array();
 

@@ -22,11 +22,9 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 /**
  * This is the page presenter class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class PagePresenter extends BasePresenter
 {
@@ -35,7 +33,8 @@ class PagePresenter extends BasePresenter
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Page  $page
+     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
+     *
      * @return void
      */
     public function __construct(Page $page)

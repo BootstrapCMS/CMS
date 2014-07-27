@@ -23,11 +23,9 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 /**
  * This is the comment presenter class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class CommentPresenter extends BasePresenter
 {
@@ -36,7 +34,8 @@ class CommentPresenter extends BasePresenter
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Models\Comment  $comment
+     * @param \GrahamCampbell\BootstrapCMS\Models\Comment $comment
+     *
      * @return void
      */
     public function __construct(Comment $comment)

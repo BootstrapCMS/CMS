@@ -26,11 +26,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * This is the post controller class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class PostController extends AbstractController
 {
@@ -100,7 +98,8 @@ class PostController extends AbstractController
     /**
      * Show the specified post.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\View\View
      */
     public function show($id)
@@ -116,7 +115,8 @@ class PostController extends AbstractController
     /**
      * Show the form for editing the specified post.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\View\View
      */
     public function edit($id)
@@ -130,7 +130,8 @@ class PostController extends AbstractController
     /**
      * Update an existing post.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update($id)
@@ -154,7 +155,8 @@ class PostController extends AbstractController
     /**
      * Delete an existing post.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -171,10 +173,11 @@ class PostController extends AbstractController
     /**
      * Check the post model.
      *
-     * @param  mixed  $post
-     * @return void
+     * @param mixed $post
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
+     * @return void
      */
     protected function checkPost($post)
     {

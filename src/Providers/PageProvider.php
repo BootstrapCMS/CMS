@@ -26,11 +26,9 @@ use Illuminate\Support\Facades\Cache;
 /**
  * This is the page provider class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class PageProvider extends AbstractProvider implements PaginateProviderInterface, SlugProviderInterface
 {
@@ -39,7 +37,7 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
     /**
      * A cache of the page navigation.
      *
-     * @var array
+     * @type array
      */
     protected $nav = array();
 
@@ -127,7 +125,8 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
     /**
      * Set the page navigation in the cache.
      *
-     * @param  array  $value
+     * @param array $value
+     *
      * @return $this
      */
     protected function setCache($value)
@@ -140,7 +139,8 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
     /**
      * Check of the nav var is not corrupt.
      *
-     * @param  array  $value
+     * @param array $value
+     *
      * @return bool
      */
     protected function validCache($value)

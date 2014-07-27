@@ -23,41 +23,40 @@ use Illuminate\Support\Facades\View;
 /**
  * This is the home controller class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class HomeController extends AbstractController
 {
     /**
      * The email address.
      *
-     * @var string
+     * @type string
      */
     protected $email;
 
     /**
      * The email subject.
      *
-     * @var string
+     * @type string
      */
     protected $subject;
 
     /**
      * The home page path.
      *
-     * @var string
+     * @type string
      */
     protected $path;
 
     /**
      * Create a new instance.
      *
-     * @param  string  $email
-     * @param  string  $subject
-     * @param  string  $path
+     * @param string $email
+     * @param string $subject
+     * @param string $path
+     *
      * @return void
      */
     public function __construct($email, $subject, $path)
@@ -107,7 +106,7 @@ class HomeController extends AbstractController
             'subject' => $this->subject
         );
 
-        Mail::queue('graham-campbell/credentials::emails.welcome', $mail, function($message) use ($mail) {
+        Mail::queue('graham-campbell/credentials::emails.welcome', $mail, function ($message) use ($mail) {
             $message->to($mail['email'])->subject($mail['subject']);
         });
 

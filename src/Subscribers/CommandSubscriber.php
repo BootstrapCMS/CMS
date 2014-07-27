@@ -23,25 +23,24 @@ use Illuminate\Events\Dispatcher;
 /**
  * This is the command subscriber class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class CommandSubscriber
 {
     /**
      * The page provider instance.
      *
-     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     * @type \GrahamCampbell\BootstrapCMS\Providers\PageProvider
      */
     protected $pageprovider;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\BootstrapCMS\Providers\PageProvider  $pageprovider
+     * @param \GrahamCampbell\BootstrapCMS\Providers\PageProvider $pageprovider
+     *
      * @return void
      */
     public function __construct(PageProvider $pageprovider)
@@ -52,8 +51,9 @@ class CommandSubscriber
     /**
      * Register the listeners for the subscriber.
      *
-     * @param  \Illuminate\Events\Dispatcher  $events
-     * @return array
+     * @param \Illuminate\Events\Dispatcher $events
+     *
+     * @return void
      */
     public function subscribe(Dispatcher $events)
     {
@@ -67,7 +67,8 @@ class CommandSubscriber
     /**
      * Handle a command.updatecache event.
      *
-     * @param  \Illuminate\Console\Command  $command
+     * @param \Illuminate\Console\Command $command
+     *
      * @return void
      */
     public function onUpdateCache(Command $command)

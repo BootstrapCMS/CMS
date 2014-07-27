@@ -27,11 +27,9 @@ use McCool\LaravelAutoPresenter\PresenterInterface;
 /**
  * This is the event model class.
  *
- * @package    Bootstrap-CMS
- * @author     Graham Campbell
- * @copyright  Copyright (C) 2013-2014  Graham Campbell
- * @license    https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Bootstrap-CMS
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
 class Event extends AbstractModel implements BelongsToUserInterface, RevisionableInterface, PresenterInterface
 {
@@ -40,63 +38,63 @@ class Event extends AbstractModel implements BelongsToUserInterface, Revisionabl
     /**
      * The table the events are stored in.
      *
-     * @var string
+     * @type string
      */
     protected $table = 'events';
 
     /**
      * The model name.
      *
-     * @var string
+     * @type string
      */
     public static $name = 'event';
 
     /**
      * The properties on the model that are dates.
      *
-     * @var array
+     * @type array
      */
     protected $dates = array('date', 'deleted_at');
 
     /**
      * The revisionable columns.
      *
-     * @var array
+     * @type array
      */
     protected $keepRevisionOf = array('title', 'body', 'date', 'location');
 
     /**
      * The columns to select when displaying an index.
      *
-     * @var array
+     * @type array
      */
     public static $index = array('id', 'title', 'date');
 
     /**
      * The max events per page when displaying a paginated index.
      *
-     * @var int
+     * @type int
      */
     public static $paginate = 10;
 
     /**
      * The columns to order by when displaying an index.
      *
-     * @var string
+     * @type string
      */
     public static $order = 'date';
 
     /**
      * The direction to order by when displaying an index.
      *
-     * @var string
+     * @type string
      */
     public static $sort = 'asc';
 
     /**
      * The event validation rules.
      *
-     * @var array
+     * @type array
      */
     public static $rules = array(
         'title'    => 'required',
