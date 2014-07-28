@@ -40,6 +40,19 @@ return array(
     |
     */
 
-    'activation' => true
+    'activation' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Revision Model
+    |--------------------------------------------------------------------------
+    |
+    | This defines the revision model to be used.
+    |
+    | Default: 'GrahamCampbell\Credentials\Models\Revision'
+    |
+    */
+
+    'revision' => 'GrahamCampbell\Credentials\Models\Revision'
 
 );
