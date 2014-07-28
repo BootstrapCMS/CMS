@@ -118,7 +118,7 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
     /**
      * Before deleting an existing model.
      *
-     * @return mixed
+     * @return void
      */
     public function beforeDelete()
     {

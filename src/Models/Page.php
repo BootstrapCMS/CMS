@@ -121,7 +121,7 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
      *
      * @throws \Exception
      *
-     * @return mixed
+     * @return void
      */
     public function beforeDelete()
     {

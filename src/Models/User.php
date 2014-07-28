@@ -38,19 +38,6 @@ class User extends CredentialsUser implements HasManyPagesInterface, HasManyPost
     use HasManyPagesTrait, HasManyPostsTrait, HasManyEventsTrait, HasManyCommentsTrait;
 
     /**
-     * Before deleting an existing model.
-     *
-     * @return mixed
-     */
-    public function beforeDelete()
-    {
-        $this->deletePages();
-        $this->deletePosts();
-        $this->deleteEvents();
-        $this->deleteComments();
-    }
-
-    /**
      * Get the presenter class.
      *
      * @return string
@@ -58,5 +45,18 @@ class User extends CredentialsUser implements HasManyPagesInterface, HasManyPost
     public function getPresenter()
     {
         return 'GrahamCampbell\BootstrapCMS\Presenters\UserPresenter';
+    }
+
+    /**
+     * Before deleting an existing model.
+     *
+     * @return void
+     */
+    public function beforeDelete()
+    {
+        $this->deletePages();
+        $this->deletePosts();
+        $this->deleteEvents();
+        $this->deleteComments();
     }
 }
