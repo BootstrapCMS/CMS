@@ -30,14 +30,14 @@ abstract class AbstractController extends Controller
     /**
      * A list of methods protected by edit permissions.
      *
-     * @type array
+     * @type string[]
      */
     protected $edits = array();
 
     /**
      * A list of methods protected by blog permissions.
      *
-     * @type array
+     * @type string[]
      */
     protected $blogs = array();
 
