@@ -17,6 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Seeds;
 
 use Carbon\Carbon;
+use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -44,7 +45,7 @@ class PagesTableSeeder extends Seeder
             'title' => 'Welcome',
             'nav_title' => 'Home',
             'slug'  => 'home',
-            'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-home.md')),
+            'body'  => Binput::clean(Markdown::render(File::get(dirname(__FILE__).'/page-home.md')), true, false),
             'show_title' => false,
             'icon'       => 'home',
             'user_id'    => 1,
@@ -58,7 +59,7 @@ class PagesTableSeeder extends Seeder
             'title' => 'Contact Us',
             'nav_title' => 'Contact',
             'slug'  => 'contact',
-            'body'  => Markdown::render(File::get(dirname(__FILE__).'/page-contact.md')),
+            'body'  => Binput::clean(Markdown::render(File::get(dirname(__FILE__).'/page-contact.md')), true, false),
             'user_id'    => 1,
             'icon'       => 'envelope',
             'created_at' => Carbon::now(),
@@ -71,8 +72,8 @@ class PagesTableSeeder extends Seeder
             'title' => 'About Us',
             'nav_title' => 'About',
             'slug'  => 'about',
-            'body'  => '<div class="row"><div class="col-lg-8">'
-                .Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>',
+            'body'  => Binput::clean('<div class="row"><div class="col-lg-8">'
+                .Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>', true, false),
             'user_id'    => 1,
             'icon'       => 'info-circle',
             'created_at' => Carbon::now(),

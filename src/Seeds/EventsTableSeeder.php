@@ -38,11 +38,13 @@ class EventsTableSeeder extends Seeder
     {
         DB::table('events')->truncate();
 
-        $date = Carbon::now();
+        $date = Carbon::now()->addWeeks(2);
+
+        $date->second = 0;
 
         $event = array(
             'title'      => 'Example Event',
-            'date'       => $date->addWeeks(2),
+            'date'       => $date,
             'location'   => 'Example Location',
             'body'       => 'This is an example event.',
             'user_id'    => 1,
