@@ -242,8 +242,8 @@ class PageController extends AbstractController
     /**
      * Check the update input.
      *
-     * @param array  $input
-     * @param string $slug
+     * @param string[] $input
+     * @param string   $slug
      *
      * @return \Illuminate\Http\Response
      */
