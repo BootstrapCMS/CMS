@@ -112,7 +112,7 @@ class CommentController extends AbstractController
     {
         $input = array_merge(Binput::only('body'), array(
             'user_id' => Credentials::getuser()->id,
-            'postId' => $postId,
+            'post_id' => $postId,
             'version' => 1
         ));
 
@@ -126,7 +126,7 @@ class CommentController extends AbstractController
 
         $contents = View::make('posts.comment', array(
             'comment' => $comment,
-            'postId' => $postId
+            'post_id' => $postId
         ));
 
         return Response::json(array(
