@@ -33,42 +33,42 @@ class NavigationSubscriber
     /**
      * The navigation instance.
      *
-     * @type \GrahamCampbell\Navigation\Navigation
+     * @var \GrahamCampbell\Navigation\Navigation
      */
     protected $navigation;
 
     /**
      * The credentials instance.
      *
-     * @type \GrahamCampbell\Credentials\Credentials
+     * @var \GrahamCampbell\Credentials\Credentials
      */
     protected $credentials;
 
     /**
      * The page provider instance.
      *
-     * @type \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
      */
     protected $pageprovider;
 
     /**
      * The blogging flag.
      *
-     * @type bool
+     * @var bool
      */
     protected $blogging;
 
     /**
      * The events flag.
      *
-     * @type bool
+     * @var bool
      */
     protected $events;
 
     /**
      * The cloudflare flag.
      *
-     * @type bool
+     * @var bool
      */
     protected $cloudflare;
 

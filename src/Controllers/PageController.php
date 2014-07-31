@@ -36,7 +36,7 @@ class PageController extends AbstractController
     /**
      * The home page path.
      *
-     * @type string
+     * @var string
      */
     protected $path;
 

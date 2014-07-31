@@ -38,63 +38,63 @@ class Event extends AbstractModel implements BelongsToUserInterface, Revisionabl
     /**
      * The table the events are stored in.
      *
-     * @type string
+     * @var string
      */
     protected $table = 'events';
 
     /**
      * The model name.
      *
-     * @type string
+     * @var string
      */
     public static $name = 'event';
 
     /**
      * The properties on the model that are dates.
      *
-     * @type array
+     * @var array
      */
     protected $dates = array('date', 'deleted_at');
 
     /**
      * The revisionable columns.
      *
-     * @type array
+     * @var array
      */
     protected $keepRevisionOf = array('title', 'body', 'date', 'location');
 
     /**
      * The columns to select when displaying an index.
      *
-     * @type array
+     * @var array
      */
     public static $index = array('id', 'title', 'date');
 
     /**
      * The max events per page when displaying a paginated index.
      *
-     * @type int
+     * @var int
      */
     public static $paginate = 10;
 
     /**
      * The columns to order by when displaying an index.
      *
-     * @type string
+     * @var string
      */
     public static $order = 'date';
 
     /**
      * The direction to order by when displaying an index.
      *
-     * @type string
+     * @var string
      */
     public static $sort = 'asc';
 
     /**
      * The event validation rules.
      *
-     * @type array
+     * @var array
      */
     public static $rules = array(
         'title'    => 'required',

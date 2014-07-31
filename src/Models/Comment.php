@@ -40,56 +40,56 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
     /**
      * The table the comments are stored in.
      *
-     * @type string
+     * @var string
      */
     protected $table = 'comments';
 
     /**
      * The model name.
      *
-     * @type string
+     * @var string
      */
     public static $name = 'comment';
 
     /**
      * The properties on the model that are dates.
      *
-     * @type array
+     * @var array
      */
     protected $dates = array('deleted_at');
 
     /**
      * The revisionable columns.
      *
-     * @type array
+     * @var array
      */
     protected $keepRevisionOf = array('body');
 
     /**
      * The columns to select when displaying an index.
      *
-     * @type array
+     * @var array
      */
     public static $index = array('id', 'body', 'user_id', 'created_at', 'version');
 
     /**
      * The columns to order by when displaying an index.
      *
-     * @type string
+     * @var string
      */
     public static $order = 'id';
 
     /**
      * The direction to order by when displaying an index.
      *
-     * @type string
+     * @var string
      */
     public static $sort = 'desc';
 
     /**
      * The comment validation rules.
      *
-     * @type array
+     * @var array
      */
     public static $rules = array(
         'body'    => 'required',

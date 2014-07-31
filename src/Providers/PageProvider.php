@@ -37,7 +37,7 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
     /**
      * A cache of the page navigation.
      *
-     * @type array
+     * @var array
      */
     protected $nav = array();
 

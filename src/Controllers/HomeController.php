@@ -32,21 +32,21 @@ class HomeController extends AbstractController
     /**
      * The email address.
      *
-     * @type string
+     * @var string
      */
     protected $email;
 
     /**
      * The email subject.
      *
-     * @type string
+     * @var string
      */
     protected $subject;
 
     /**
      * The home page path.
      *
-     * @type string
+     * @var string
      */
     protected $path;
 

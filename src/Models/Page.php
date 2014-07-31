@@ -38,63 +38,63 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
     /**
      * The table the pages are stored in.
      *
-     * @type string
+     * @var string
      */
     protected $table = 'pages';
 
     /**
      * The model name.
      *
-     * @type string
+     * @var string
      */
     public static $name = 'page';
 
     /**
      * The properties on the model that are dates.
      *
-     * @type array
+     * @var array
      */
     protected $dates = array('deleted_at');
 
     /**
      * The revisionable columns.
      *
-     * @type array
+     * @var array
      */
     protected $keepRevisionOf = array('title', 'nav_title', 'slug', 'body', 'css', 'js', 'show_title', 'show_nav', 'icon');
 
     /**
      * The columns to select when displaying an index.
      *
-     * @type array
+     * @var array
      */
     public static $index = array('id', 'slug', 'title', 'nav_title');
 
     /**
      * The max pages per page when displaying a paginated index.
      *
-     * @type int
+     * @var int
      */
     public static $paginate = 10;
 
     /**
      * The columns to order by when displaying an index.
      *
-     * @type string
+     * @var string
      */
     public static $order = 'slug';
 
     /**
      * The direction to order by when displaying an index.
      *
-     * @type string
+     * @var string
      */
     public static $sort = 'asc';
 
     /**
      * The page validation rules.
      *
-     * @type array
+     * @var array
      */
     public static $rules = array(
         'title'      => 'required',

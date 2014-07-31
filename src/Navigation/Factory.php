@@ -31,35 +31,35 @@ class Factory
     /**
      * The credentials instance.
      *
-     * @type \GrahamCampbell\Credentials\Credentials
+     * @var \GrahamCampbell\Credentials\Credentials
      */
     protected $credentials;
 
     /**
      * The navigation instance.
      *
-     * @type \GrahamCampbell\Navigation\Navigation
+     * @var \GrahamCampbell\Navigation\Navigation
      */
     protected $navigation;
 
     /**
      * The platform name.
      *
-     * @type string
+     * @var string
      */
     protected $name;
 
     /**
      * The user property.
      *
-     * @type string
+     * @var string
      */
     protected $property;
 
     /**
      * The inverse navigation.
      *
-     * @type bool
+     * @var bool
      */
     protected $inverse;
 

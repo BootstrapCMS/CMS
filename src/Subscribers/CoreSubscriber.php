@@ -32,14 +32,14 @@ class CoreSubscriber
     /**
      * The config instance.
      *
-     * @type \Illuminate\Config\Repository
+     * @var \Illuminate\Config\Repository
      */
     protected $config;
 
     /**
      * The log instance.
      *
-     * @type \Illuminate\Log\Writer
+     * @var \Illuminate\Log\Writer
      */
     protected $log;
 

@@ -32,7 +32,7 @@ class CommandSubscriber
     /**
      * The page provider instance.
      *
-     * @type \GrahamCampbell\BootstrapCMS\Providers\PageProvider
+     * @var \GrahamCampbell\BootstrapCMS\Providers\PageProvider
      */
     protected $pageprovider;
 
