@@ -16,16 +16,16 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\User;
 
-use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\User\LastAttemptAtDisplayer as BaseDisplayer;
+use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\User\RemovedGroupDisplayer as BaseDisplayer;
 
 /**
- * This is the last attempt at displayer class.
+ * This is the removed group displayer class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class LastAttemptAtDisplayer extends BaseDisplayer
+class RemovedGroupDisplayer extends BaseDisplayer
 {
     //
 }

@@ -19,7 +19,7 @@ namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\User;
 use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\User\SuspendedAtDisplayer as BaseDisplayer;
 
 /**
- * This is the created at displayer class.
+ * This is the suspended at displayer class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
