@@ -43,7 +43,7 @@ abstract class AbstractTestCase extends BaseTestCase
 
     protected function readyApp()
     {
-        $this->app['config']->set('database.connections.sqlite.database', __DIR__ . '/test.sqlite');
+        $this->app['config']->set('database.connections.sqlite.database', storage_path('temp.sqlite'));
         $this->app['router']->enableFilters();
 
     }
@@ -59,7 +59,7 @@ abstract class AbstractTestCase extends BaseTestCase
 
     protected function login($id = 1)
     {
-        $this->app['credentials']->setUser($this->app['userprovider']->find($id));
+        $this->app['credentials']->login($this->app['userprovider']->find($id));
     }
 
     /**
