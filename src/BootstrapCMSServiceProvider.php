@@ -89,7 +89,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerNavigationSubscriber();
 
         $this->registerCommentController();
-        $this->registerHomeController();
         $this->registerPageController();
     }
 
@@ -255,22 +254,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $throttler = $app['throttle']->get($app['request'], 1, 10);
 
             return new Controllers\CommentController($throttler);
-        });
-    }
-
-    /**
-     * Register the home controller class.
-     *
-     * @return void
-     */
-    protected function registerHomeController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Controllers\HomeController', function ($app) {
-            $email = $app['config']['workbench.email'];
-            $subject = $app['config']['platform.name'].' - Welcome';
-            $path = $app['config']['graham-campbell/core::home'];
-
-            return new Controllers\HomeController($email, $subject, $path);
         });
     }
 

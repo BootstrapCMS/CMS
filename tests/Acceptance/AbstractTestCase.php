@@ -34,32 +34,16 @@ abstract class AbstractTestCase extends BaseTestCase
      */
     protected function start()
     {
-        file_put_contents(storage_path('temp.sqlite'), '');
-
-        $this->readyApp();
-
         $this->app['artisan']->call('app:install');
-    }
-
-    protected function readyApp()
-    {
-        $this->app['config']->set('database.connections.sqlite.database', storage_path('temp.sqlite'));
-        $this->app['router']->enableFilters();
-
     }
 
     protected function callAgain()
     {
         $this->refreshApplication();
 
-        $this->readyApp();
+        $this->start();
 
         return call_user_func_array(array($this, 'call'), func_get_args());
-    }
-
-    protected function login($id = 1)
-    {
-        $this->app['credentials']->login($this->app['userprovider']->find($id));
     }
 
     /**

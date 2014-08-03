@@ -245,20 +245,4 @@ class CommentController extends AbstractController
             throw new NotFoundHttpException('Comment Not Found');
         }
     }
-
-    /**
-     * Check the post model.
-     *
-     * @param mixed $post
-     *
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     *
-     * @return void
-     */
-    protected function checkPost($post)
-    {
-        if (!$post) {
-            throw new NotFoundHttpException('Post Not Found');
-        }
-    }
 }

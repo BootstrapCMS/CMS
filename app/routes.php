@@ -26,21 +26,6 @@
 */
 
 
-// test routes
-Route::get('hello', array(
-    'as' => 'hello',
-    'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@showWelcome'
-));
-Route::get('test', array(
-    'as' => 'test',
-    'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@showTest'
-));
-Route::get('testqueue', array(
-    'as' => 'testqueue',
-    'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\HomeController@testQueue'
-));
-
-
 // send users to the home page
 Route::get('/', array('as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
