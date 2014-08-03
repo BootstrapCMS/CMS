@@ -16,41 +16,180 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS\Acceptance;
 
+use GrahamCampbell\Credentials\Facades\Credentials;
+
 /**
  * This is the page test class.
  *
- * @group acceptance
+ * @group page
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class Pagetest extends AbstractTestCase
+class PageTest extends AbstractTestCase
 {
     public function testIndex()
     {
         $this->call('GET', '/');
+
+        $this->assertRedirectedTo('pages/home');
+
+        $this->callAgain('GET', 'pages');
+
         $this->assertRedirectedTo('pages/home');
     }
 
-    // public function testCreate()
-    // {
-    //     $this->login();
-    //     $this->call('PUT', 'pages/create', array());
-    //     $this->assertRedirectedTo('pages/create');
-    // }
-
-    public function testShowHome()
+    public function testCreate()
     {
-        $this->call('GET', 'pages/home');
+        $this->call('GET', 'pages/create');
+
         $this->assertResponseOk();
-        $this->assertSee('Bootstrap CMS');
+        $this->assertSee('Create Page');
     }
 
-    public function testShowAbout()
+    public function testStoreFail()
     {
-        $this->call('GET', 'pages/about');
+        Credentials::shouldReceive('getuser')->once()->andReturn((object) array('id' => 1));
+
+        $this->call('POST', 'pages');
+
+        $this->assertRedirectedTo('pages/create');
+        $this->assertSessionHasErrors();
+        $this->assertHasOldInput();
+    }
+
+    public function testStoreSuccess()
+    {
+        Credentials::shouldReceive('getuser')->once()->andReturn((object) array('id' => 1));
+
+        $this->call('POST', 'pages', array(
+            'title'      => 'New Page',
+            'nav_title'  => 'Herro',
+            'slug'       => 'foobar',
+            'icon'       => '',
+            'body'       => 'Why herro there!',
+            'css'        => '',
+            'js'         => '',
+            'show_title' => 'on',
+            'show_nav'   => 'on'
+
+        ));
+
+        $this->assertRedirectedTo('pages/foobar');
+        $this->assertSessionHas('success');
+    }
+
+    /**
+     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @expectedExceptionMessage Page Not Found
+     */
+    public function testShowFail()
+    {
+        $this->call('GET', 'pages/error');
+    }
+
+    public function testShowSuccess()
+    {
+        $this->call('GET', 'pages/home');
+
+        $this->assertResponseOk();
+        $this->assertSee('Bootstrap CMS');
+
+        $this->callAgain('GET', 'pages/about');
+
         $this->assertResponseOk();
         $this->assertSee('This is the about page!');
+    }
+
+    public function testEditHome()
+    {
+        $this->call('GET', 'pages/home/edit');
+
+        $this->assertResponseOk();
+        $this->assertSee('Edit Welcome');
+    }
+
+    public function testUpdateFail()
+    {
+        $this->call('PATCH', 'pages/home');
+
+        $this->assertRedirectedTo('pages/home/edit');
+        $this->assertSessionHasErrors();
+        $this->assertHasOldInput();
+    }
+
+    public function testUpdateHomeUrl()
+    {
+        $this->call('PATCH', 'pages/home', array(
+            'title'      => 'New Page',
+            'nav_title'  => 'Herro',
+            'slug'       => 'foobar',
+            'icon'       => '',
+            'body'       => 'Why herro there!',
+            'css'        => '',
+            'js'         => '',
+            'show_title' => 'on',
+            'show_nav'   => 'on'
+
+        ));
+
+        $this->assertRedirectedTo('pages/home/edit');
+        $this->assertSessionHas('error');
+        $this->assertHasOldInput();
+    }
+
+    public function testUpdateHomeNav()
+    {
+        $this->call('PATCH', 'pages/home', array(
+            'title'      => 'New Page',
+            'nav_title'  => 'Herro',
+            'slug'       => 'home',
+            'icon'       => '',
+            'body'       => 'Why herro there!',
+            'css'        => '',
+            'js'         => '',
+            'show_title' => 'on',
+            'show_nav'   => 'off'
+
+        ));
+
+        $this->assertRedirectedTo('pages/home/edit');
+        $this->assertSessionHas('error');
+        $this->assertHasOldInput();
+    }
+
+    public function testUpdateSuccess()
+    {
+        $this->call('PATCH', 'pages/home', array(
+            'title'      => 'New Page',
+            'nav_title'  => 'Herro',
+            'slug'       => 'home',
+            'icon'       => '',
+            'body'       => 'Why herro there!',
+            'css'        => '',
+            'js'         => '',
+            'show_title' => 'on',
+            'show_nav'   => 'on'
+
+        ));
+
+        $this->assertRedirectedTo('pages/home');
+        $this->assertSessionHas('success');
+    }
+
+    public function testDestroyFail()
+    {
+        $this->call('DELETE', 'pages/home');
+
+        $this->assertRedirectedTo('pages/home');
+        $this->assertSessionHas('error');
+    }
+
+    public function testDestroySuccess()
+    {
+        $this->call('DELETE', 'pages/about');
+
+        $this->assertRedirectedTo('pages/home');
     }
 }
