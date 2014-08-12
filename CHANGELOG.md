@@ -2,12 +2,12 @@ CHANGE LOG
 ==========
 
 
-## V1.0 Beta 1 (Upcoming - August/September 2014)
+## V1.0 Beta 1 (Upcoming)
 
 * Bugfixes
 
 
-## V0.8 Alpha (Upcoming - August 2014)
+## V0.8 Alpha (12/08/2014)
 
 * Upgrade to Laravel 4.2
 * Updated to Bootstrap 3.2
