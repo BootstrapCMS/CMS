@@ -43,7 +43,7 @@ class CreatedAtDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You commented on' . $this->name();
+        return 'You commented on'.$this->name();
     }
 
     /**
@@ -54,6 +54,6 @@ class CreatedAtDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user commented on' . $this->name();
+        return 'This user commented on'.$this->name();
     }
 }

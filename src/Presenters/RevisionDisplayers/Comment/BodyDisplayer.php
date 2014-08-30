@@ -43,7 +43,7 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You edited a comment on' . $this->name();
+        return 'You edited a comment on'.$this->name();
     }
 
     /**
@@ -54,6 +54,6 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user edited a comment on' . $this->name();
+        return 'This user edited a comment on'.$this->name();
     }
 }

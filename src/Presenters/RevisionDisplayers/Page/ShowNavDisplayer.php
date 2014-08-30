@@ -34,10 +34,10 @@ class ShowNavDisplayer extends AbstractDisplayer
     protected function current()
     {
         if ($this->resource->new_value) {
-            return 'You added ' . $this->name(false) . 'to the nav bar.';
+            return 'You added '.$this->name(false).'to the nav bar.';
         }
 
-        return 'You removed ' . $this->name(false) . 'from the nav bar.';
+        return 'You removed '.$this->name(false).'from the nav bar.';
     }
 
     /**
@@ -49,9 +49,9 @@ class ShowNavDisplayer extends AbstractDisplayer
     protected function external()
     {
         if ($this->resource->new_value) {
-            return 'This user added ' . $this->name(false) . 'to the nav bar.';
+            return 'This user added '.$this->name(false).'to the nav bar.';
         }
 
-        return 'This user removed ' . $this->name(false) . 'from the nav bar.';
+        return 'This user removed '.$this->name(false).'from the nav bar.';
     }
 }

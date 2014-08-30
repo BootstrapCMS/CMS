@@ -43,7 +43,7 @@ class CreatedAtDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You created a new page called' . $this->name();
+        return 'You created a new page called'.$this->name();
     }
 
     /**
@@ -54,6 +54,6 @@ class CreatedAtDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user created a new page called' . $this->name();
+        return 'This user created a new page called'.$this->name();
     }
 }

@@ -24,7 +24,6 @@
 |
 */
 
-
 $styles = array();
 if (Config::get('theme.name') == 'default') {
     $styles[] = 'css/bootstrap.min.css';
@@ -41,7 +40,6 @@ if (Config::get('laravel-debugbar::config.enabled')) {
 
 Asset::registerStyles($styles, '', 'main');
 
-
 $scripts = array(
     'js/cms-timeago.js',
     'js/cms-restfulizer.js',
@@ -54,29 +52,24 @@ if (Config::get('laravel-debugbar::config.enabled')) {
 
 Asset::registerScripts($scripts, '', 'main');
 
-
 Asset::registerStyles(array(
     'css/bootstrap-switch.css',
     'css/bootstrap-markdown.min.css'
 ), '', 'form');
-
 
 Asset::registerScripts(array(
     'js/bootstrap-switch.js',
     'js/bootstrap-markdown.js'
 ), '', 'form');
 
-
 Asset::registerStyles(array(
     'css/bootstrap-datetimepicker.min.css'
 ), '', 'picker');
-
 
 Asset::registerScripts(array(
     'js/bootstrap-datetimepicker.min.js',
     'js/cms-picker.js'
 ), '', 'picker');
-
 
 Asset::registerScripts(array(
     'js/cms-comment-core.js',

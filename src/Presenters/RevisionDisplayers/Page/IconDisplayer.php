@@ -33,7 +33,7 @@ class IconDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the icon of' . $this->name();
+        return 'You updated the icon of'.$this->name();
     }
 
     /**
@@ -44,6 +44,6 @@ class IconDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the icon of' . $this->name();
+        return 'This user updated the icon of'.$this->name();
     }
 }

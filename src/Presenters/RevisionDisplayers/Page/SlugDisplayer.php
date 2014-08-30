@@ -33,7 +33,7 @@ class SlugDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the slug of' . $this->name();
+        return 'You updated the slug of'.$this->name();
     }
 
     /**
@@ -44,6 +44,6 @@ class SlugDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the slug of' . $this->name();
+        return 'This user updated the slug of'.$this->name();
     }
 }

@@ -25,14 +25,12 @@
 |
 */
 
-
 // send users to the home page
 Route::get('/', array('as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
     return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
 }));
-
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
@@ -43,10 +41,8 @@ if (Config::get('cms.blogging')) {
     }));
 }
 
-
 // page routes
 Route::resource('pages', 'GrahamCampbell\BootstrapCMS\Controllers\PageController');
-
 
 // blog routes
 if (Config::get('cms.blogging')) {
@@ -54,12 +50,10 @@ if (Config::get('cms.blogging')) {
     Route::resource('blog/posts.comments', 'GrahamCampbell\BootstrapCMS\Controllers\CommentController');
 }
 
-
 // event routes
 if (Config::get('cms.events')) {
     Route::resource('events', 'GrahamCampbell\BootstrapCMS\Controllers\EventController');
 }
-
 
 // caching routes
 Route::get('caching', array(

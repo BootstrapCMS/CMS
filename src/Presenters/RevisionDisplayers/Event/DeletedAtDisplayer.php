@@ -43,7 +43,7 @@ class DeletedAtDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You deleted the event called' . $this->name();
+        return 'You deleted the event called'.$this->name();
     }
 
     /**
@@ -54,6 +54,6 @@ class DeletedAtDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user deleted the event called' . $this->name();
+        return 'This user deleted the event called'.$this->name();
     }
 }

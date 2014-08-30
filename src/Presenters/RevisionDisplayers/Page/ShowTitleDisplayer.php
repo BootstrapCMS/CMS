@@ -34,10 +34,10 @@ class ShowTitleDisplayer extends AbstractDisplayer
     protected function current()
     {
         if ($this->resource->new_value) {
-            return 'You unhid the title of ' . $this->name();
+            return 'You unhid the title of '.$this->name();
         }
 
-        return 'You hid the title of ' . $this->name();
+        return 'You hid the title of '.$this->name();
     }
 
     /**
@@ -49,9 +49,9 @@ class ShowTitleDisplayer extends AbstractDisplayer
     protected function external()
     {
         if ($this->resource->new_value) {
-            return 'This user unhid the title of ' . $this->name();
+            return 'This user unhid the title of '.$this->name();
         }
 
-        return 'This user hid the title of ' . $this->name();
+        return 'This user hid the title of '.$this->name();
     }
 }

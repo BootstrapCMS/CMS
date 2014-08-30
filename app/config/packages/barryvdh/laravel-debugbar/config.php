@@ -27,7 +27,7 @@ return array(
      */
     'storage' => array(
         'enabled' => true,
-        'path' => storage_path() . '/debugbar'
+        'path' => storage_path().'/debugbar'
     ),
 
     /*

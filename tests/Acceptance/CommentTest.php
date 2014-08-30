@@ -17,7 +17,6 @@
 namespace GrahamCampbell\Tests\BootstrapCMS\Acceptance;
 
 use GrahamCampbell\BootstrapCMS\Facades\PostProvider;
-use GrahamCampbell\Credentials\Facades\Credentials;
 
 /**
  * This is the comment test class.

@@ -43,7 +43,7 @@ class DeletedAtDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You deleted a comment on' . $this->name();
+        return 'You deleted a comment on'.$this->name();
     }
 
     /**
@@ -54,6 +54,6 @@ class DeletedAtDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user deleted a comment on' . $this->name();
+        return 'This user deleted a comment on'.$this->name();
     }
 }

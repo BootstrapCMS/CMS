@@ -33,7 +33,7 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the description of' . $this->name();
+        return 'You updated the description of'.$this->name();
     }
 
     /**
@@ -44,6 +44,6 @@ class BodyDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the description of' . $this->name();
+        return 'This user updated the description of'.$this->name();
     }
 }

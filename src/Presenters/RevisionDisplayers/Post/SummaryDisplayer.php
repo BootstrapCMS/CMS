@@ -33,7 +33,7 @@ class SummaryDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the summary of' . $this->name();
+        return 'You updated the summary of'.$this->name();
     }
 
     /**
@@ -44,6 +44,6 @@ class SummaryDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the summary of' . $this->name();
+        return 'This user updated the summary of'.$this->name();
     }
 }

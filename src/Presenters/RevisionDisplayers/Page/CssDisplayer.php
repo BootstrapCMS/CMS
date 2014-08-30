@@ -33,7 +33,7 @@ class CssDisplayer extends AbstractDisplayer
      */
     protected function current()
     {
-        return 'You updated the css of' . $this->name();
+        return 'You updated the css of'.$this->name();
     }
 
     /**
@@ -44,6 +44,6 @@ class CssDisplayer extends AbstractDisplayer
      */
     protected function external()
     {
-        return 'This user updated the css of' . $this->name();
+        return 'This user updated the css of'.$this->name();
     }
 }
