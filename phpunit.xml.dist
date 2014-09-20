@@ -11,7 +11,7 @@
          stopOnFailure="false"
          syntaxCheck="true"
          strict="true"
-         verbose="true">
+         verbose="true"
 >
     <testsuites>
         <testsuite name="Bootatrap CMS Test Suite">
