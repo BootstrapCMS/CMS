@@ -5,30 +5,13 @@
 </div>
 @endif
 
-@if ($message = Session::get('success'))
-<div class="alert alert-success cms-alert">
-    <a class="close" data-dismiss="alert">×</a>
-    {{ $message }}
-</div>
-@endif
+<?php $message_types = array('success', 'error', 'warning', 'info'); ?>
 
-@if ($message = Session::get('error'))
-<div class="alert alert-danger cms-alert">
-    <a class="close" data-dismiss="alert">×</a>
-    {{ $message }}
-</div>
-@endif
-
-@if ($message = Session::get('warning'))
-<div class="alert alert-warning cms-alert">
-    <a class="close" data-dismiss="alert">×</a>
-    {{ $message }}
-</div>
-@endif
-
-@if ($message = Session::get('info'))
-<div class="alert alert-info cms-alert">
-    <a class="close" data-dismiss="alert">×</a>
-    {{ $message }}
-</div>
-@endif
+@foreach ($message_types as $type)
+    @if ($message = Session::get($type))
+    <div class="alert alert-{{ $type }} cms-alert">
+        <a class="close" data-dismiss="alert">×</a>
+        {{ $message }}
+    </div>
+    @endif
+@endforeach
