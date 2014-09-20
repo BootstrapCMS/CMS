@@ -5,9 +5,9 @@
 </div>
 @endif
 
-<?php $message_types = array('success', 'error', 'warning', 'info'); ?>
+<?php $types = array('success', 'error', 'warning', 'info'); ?>
 
-@foreach ($message_types as $type)
+@foreach ($types as $type)
     @if ($message = Session::get($type))
     <div class="alert alert-{{ $type }} cms-alert">
         <a class="close" data-dismiss="alert">×</a>
