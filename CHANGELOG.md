@@ -7,6 +7,15 @@ CHANGE LOG
 * Bugfixes
 
 
+## V0.8.1 Alpha (Upcoming)
+
+* Presenter fixes
+* Updated bootswatch
+* Improved the test suite
+* Started committing composer.lock
+* Other minor fixes
+
+
 ## V0.8 Alpha (12/08/2014)
 
 * Upgrade to Laravel 4.2
