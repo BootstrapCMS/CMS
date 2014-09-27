@@ -9,9 +9,9 @@ CHANGE LOG
 
 ## V0.8.1 Alpha (Upcoming)
 
-* Presenter fixes
 * Updated bootswatch
 * Improved the test suite
+* Presenter fixes and cleanup
 * Started committing composer.lock
 * Other minor fixes
 
