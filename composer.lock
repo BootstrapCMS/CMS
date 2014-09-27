@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a89abbd9c0dbb478e2b1ca80be51c80e",
+    "hash": "a1139f26c65cb69630f61674d6759c0e",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -611,16 +611,16 @@
         },
         {
             "name": "graham-campbell/credentials",
-            "version": "v0.3.0-alpha",
+            "version": "v0.3.1-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "6cb1826a1a8909558f3de8471a42a7a5de28bf0b"
+                "reference": "b1edebf4622d26ba1a4728c32340f77fe6adc034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/6cb1826a1a8909558f3de8471a42a7a5de28bf0b",
-                "reference": "6cb1826a1a8909558f3de8471a42a7a5de28bf0b",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/b1edebf4622d26ba1a4728c32340f77fe6adc034",
+                "reference": "b1edebf4622d26ba1a4728c32340f77fe6adc034",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +639,7 @@
                 "illuminate/support": "~4.2",
                 "illuminate/view": "~4.2",
                 "lightgear/asset": "1.4",
-                "mccool/laravel-auto-presenter": "~2.1",
+                "mccool/laravel-auto-presenter": "2.1.*",
                 "php": ">=5.4.7",
                 "sebastian/diff": "~1.1"
             },
@@ -675,7 +675,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Credentials Is A Cool Way To Authenticate In Laravel 4.2+",
+            "description": "Credentials Is A Cool Way To Authenticate In Laravel 4.2",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -689,7 +689,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-08-12 20:13:25"
+            "time": "2014-09-26 20:26:20"
         },
         {
             "name": "graham-campbell/database",
@@ -1271,24 +1271,24 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.9",
+            "version": "4.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f"
+                "reference": "dc53dacacfa7abc82b541f5cab812e511c17eb4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
-                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/dc53dacacfa7abc82b541f5cab812e511c17eb4e",
+                "reference": "dc53dacacfa7abc82b541f5cab812e511c17eb4e",
                 "shasum": ""
             },
             "require": {
-                "classpreloader/classpreloader": "~1.0",
+                "classpreloader/classpreloader": "~1.0.2",
                 "d11wtq/boris": "~1.0",
                 "filp/whoops": "1.1.*",
                 "ircmaxell/password-compat": "~1.0",
-                "jeremeamia/superclosure": "~1.0",
+                "jeremeamia/superclosure": "~1.0.1",
                 "monolog/monolog": "~1.6",
                 "nesbot/carbon": "~1.0",
                 "patchwork/utf8": "1.1.*",
@@ -1382,7 +1382,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-09-15 02:45:24"
+            "time": "2014-09-27 01:58:42"
         },
         {
             "name": "leafo/lessphp",
@@ -1683,16 +1683,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "cde7a00d1410a17fb6d61b993cb017a78be1137c"
+                "reference": "5cb6e71055f7b0b57956b73d324cc4de31278f42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cde7a00d1410a17fb6d61b993cb017a78be1137c",
-                "reference": "cde7a00d1410a17fb6d61b993cb017a78be1137c",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/5cb6e71055f7b0b57956b73d324cc4de31278f42",
+                "reference": "5cb6e71055f7b0b57956b73d324cc4de31278f42",
                 "shasum": ""
             },
             "require": {
@@ -1725,7 +1725,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2014-09-10 03:26:33"
+            "time": "2014-09-26 02:52:02"
         },
         {
             "name": "nikic/php-parser",
@@ -2116,16 +2116,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af"
+                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/2b9af56cc676c338d52fca4c657e5bdff73bb7af",
-                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e02f71a35436af4bd58a1bd90116089e632e29e1",
+                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1",
                 "shasum": ""
             },
             "require": {
@@ -2151,13 +2151,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "name": "Chris Corbyn"
                 },
                 {
-                    "name": "Chris Corbyn"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Swiftmailer, free feature-rich PHP mailer",
@@ -2166,7 +2164,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-06-13 11:44:54"
+            "time": "2014-09-20 07:17:36"
         },
         {
             "name": "symfony/browser-kit",
@@ -2994,16 +2992,16 @@
     "packages-dev": [
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd"
+                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
-                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/6a6bec0670bb6e71a263b08bc1b98ea242928633",
+                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633",
                 "shasum": ""
             },
             "require": {
@@ -3031,17 +3029,6 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -3050,10 +3037,16 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Docblock Annotations Parser",
@@ -3063,7 +3056,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-07-06 15:52:21"
+            "time": "2014-09-25 16:45:30"
         },
         {
             "name": "doctrine/cache",
@@ -3464,16 +3457,16 @@
         },
         {
             "name": "graham-campbell/testbench",
-            "version": "v1.1.1",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "c7d5188a1b64fbce3be3de1935c83ee8fe6c5671"
+                "reference": "7b3fdad4d605a0f21b285b38c7d66597e6696a64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/c7d5188a1b64fbce3be3de1935c83ee8fe6c5671",
-                "reference": "c7d5188a1b64fbce3be3de1935c83ee8fe6c5671",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/7b3fdad4d605a0f21b285b38c7d66597e6696a64",
+                "reference": "7b3fdad4d605a0f21b285b38c7d66597e6696a64",
                 "shasum": ""
             },
             "require": {
@@ -3516,7 +3509,7 @@
                 "laravel",
                 "test"
             ],
-            "time": "2014-09-14 17:56:11"
+            "time": "2014-09-18 18:33:00"
         },
         {
             "name": "mockery/mockery",
