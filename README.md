@@ -1,5 +1,4 @@
-Bootstrap CMS
-=============
+![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4431513/e389ee76-466a-11e4-81a7-ebf7a2479673.png)
 
 
 [![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
