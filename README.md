@@ -1,21 +1,17 @@
-![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4431513/e389ee76-466a-11e4-81a7-ebf7a2479673.png)
-
-
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Bootstrap-CMS)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS)
-[![Software License](https://img.shields.io/badge/license-AGPL%203.0-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square)](https://github.com/GrahamCampbell/Bootstrap-CMS/releases)
-
-
-## Introduction
+Bootstrap CMS
+=============
 
 Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 4.2](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry). It utilises 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
+![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4432326/c1990be0-468c-11e4-89ef-197316eeaa29.PNG)
 
-## Upgrading
-
-The move from Bootstrap CMS 0.7 to 0.8 will require you to clear out all your config and reconfigure. This is because we've upgraded to Laravel 4.2, and upgraded to my newer packages. Please note that queuing has changed completely and no longer requires and special configuration behond what Laravel 4.2 requires. Because this repo is still alpha, database migrations between versions may not work.
+<p align="center">
+<a href="https://travis-ci.org/GrahamCampbell/Bootstrap-CMS"><img src="https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-AGPL%203.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/GrahamCampbell/Bootstrap-CMS/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square" alt="Latest Version"></img></a>
+</p>
 
 
 ## Installation
