@@ -42,6 +42,6 @@ return array(
     |
     */
 
-    'commands' => true
+    'commands' => true,
 
 );

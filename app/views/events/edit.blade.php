@@ -34,7 +34,7 @@ Edit {{{ $event->title }}}
             'date'     => $event->date->format('d/m/Y H:i'),
             'location' => $event->location,
             'body'     => $event->body,
-    ));
+    ), );
     ?>
     @include('events.form')
 </div>

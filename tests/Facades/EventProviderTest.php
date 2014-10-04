@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS\Facades;
 
-use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
 use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
 
 /**
  * This is the event provider facade test class.

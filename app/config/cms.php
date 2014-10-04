@@ -160,6 +160,6 @@ return array(
     |
     */
 
-    'post' => 'GrahamCampbell\BootstrapCMS\Models\Post'
+    'post' => 'GrahamCampbell\BootstrapCMS\Models\Post',
 
 );

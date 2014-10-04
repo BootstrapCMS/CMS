@@ -14,9 +14,9 @@
  * GNU Affero General Public License for more details.
  */
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * This is the create pages table migration class.

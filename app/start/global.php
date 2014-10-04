@@ -71,7 +71,7 @@ App::fatal(function ($exception) {
             $details = array(
                 'success' => false,
                 'code' => $code,
-                'msg' => $message
+                'msg' => $message,
             );
             return Response::json($details, $code);
         }
@@ -80,7 +80,7 @@ App::fatal(function ($exception) {
                 'code' => $code,
                 'name' => $name,
                 'message' => $message,
-                'extra' => 'Fatal Error'
+                'extra' => 'Fatal Error',
             );
             return Response::view(Config::get('views.error', 'error'), $details, $code);
         }
@@ -201,7 +201,7 @@ App::error(function (Exception $exception, $code) {
                     $details = array(
                         'success' => false,
                         'code' => $code,
-                        'msg' => $message
+                        'msg' => $message,
                     );
                     return Response::json($details, $code, $headers);
                 }
@@ -210,7 +210,7 @@ App::error(function (Exception $exception, $code) {
                         'code' => $code,
                         'name' => $name,
                         'message' => $message,
-                        'extra' => 'Fatal Error'
+                        'extra' => 'Fatal Error',
                     );
                     return Response::view(Config::get('views.error', 'error'), $details, $code, $headers);
                 }
@@ -219,7 +219,7 @@ App::error(function (Exception $exception, $code) {
             $details = array(
                 'success' => false,
                 'code' => $code,
-                'msg' => (!$exception->getMessage() || strlen($exception->getMessage()) > 100 || strlen($exception->getMessage()) < 5) ? $message : $exception->getMessage()
+                'msg' => (!$exception->getMessage() || strlen($exception->getMessage()) > 100 || strlen($exception->getMessage()) < 5) ? $message : $exception->getMessage(),
             );
             return Response::json($details, $code, $headers);
         }
@@ -228,7 +228,7 @@ App::error(function (Exception $exception, $code) {
                 'code' => $code,
                 'name' => $name,
                 'message' => $message,
-                'extra' => (!$exception->getMessage() || strlen($exception->getMessage()) > 35 || strlen($exception->getMessage()) < 5) ? 'Houston, We Have A Problem' : $exception->getMessage()
+                'extra' => (!$exception->getMessage() || strlen($exception->getMessage()) > 35 || strlen($exception->getMessage()) < 5) ? 'Houston, We Have A Problem' : $exception->getMessage(),
             );
             return Response::view(Config::get('views.error', 'error'), $details, $code, $headers);
         }
@@ -242,7 +242,7 @@ App::error(function (Exception $exception, $code) {
                 $details = array(
                     'success' => false,
                     'code' => $code,
-                    'msg' => $message
+                    'msg' => $message,
                 );
                 return Response::json($details, $code);
             }
@@ -251,7 +251,7 @@ App::error(function (Exception $exception, $code) {
                     'code' => $code,
                     'name' => $name,
                     'message' => $message,
-                    'extra' => 'Fatal Error'
+                    'extra' => 'Fatal Error',
                 );
                 return Response::view(Config::get('views.error', 'error'), $details, $code);
             }

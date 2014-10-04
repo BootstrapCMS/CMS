@@ -29,6 +29,6 @@ return array(
     |
     */
 
-    'driver' => 'log'
+    'driver' => 'log',
 
 );

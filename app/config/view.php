@@ -40,6 +40,6 @@ return array(
     |
     */
 
-    'pagination' => 'pagination::slider-3'
+    'pagination' => 'pagination::slider-3',
 
 );

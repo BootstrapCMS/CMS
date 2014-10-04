@@ -43,7 +43,7 @@ class CommentsTableSeeder extends Seeder
             'user_id'    => 1,
             'post_id'    => 1,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         );
 
         DB::table('comments')->insert($comment);

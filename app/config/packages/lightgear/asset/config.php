@@ -9,7 +9,7 @@ return array(
     'search_paths' => array(
         '/workbench',
         '/vendor',
-        '/app/assets'
+        '/app/assets',
     ),
 
     /**
@@ -50,6 +50,6 @@ return array(
     /**
      * Turn on/off assets caching.
      */
-    'use_cache' => true
+    'use_cache' => true,
 
 );

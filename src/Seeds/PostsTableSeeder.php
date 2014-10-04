@@ -44,7 +44,7 @@ class PostsTableSeeder extends Seeder
             'body'       => 'This is an example blog post.',
             'user_id'    => 1,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         );
 
         DB::table('posts')->insert($post);

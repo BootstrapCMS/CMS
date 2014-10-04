@@ -72,7 +72,7 @@ class PageTest extends AbstractTestCase
             'css'        => '',
             'js'         => '',
             'show_title' => 'on',
-            'show_nav'   => 'on'
+            'show_nav'   => 'on',
 
         ));
 
@@ -130,7 +130,7 @@ class PageTest extends AbstractTestCase
             'css'        => '',
             'js'         => '',
             'show_title' => 'on',
-            'show_nav'   => 'on'
+            'show_nav'   => 'on',
 
         ));
 
@@ -150,7 +150,7 @@ class PageTest extends AbstractTestCase
             'css'        => '',
             'js'         => '',
             'show_title' => 'on',
-            'show_nav'   => 'off'
+            'show_nav'   => 'off',
 
         ));
 
@@ -170,7 +170,7 @@ class PageTest extends AbstractTestCase
             'css'        => '',
             'js'         => '',
             'show_title' => 'on',
-            'show_nav'   => 'on'
+            'show_nav'   => 'on',
 
         ));
 

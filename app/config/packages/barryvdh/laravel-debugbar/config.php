@@ -27,7 +27,7 @@ return array(
      */
     'storage' => array(
         'enabled' => true,
-        'path' => storage_path().'/debugbar'
+        'path' => storage_path().'/debugbar',
     ),
 
     /*
@@ -96,7 +96,7 @@ return array(
         'logs'            => false, // Add the latest log messages
         'files'           => false, // Show the included files
         'config'          => false, // Display config settings
-        'auth'            => false  // Display Laravel authentication status
+        'auth'            => false, // Display Laravel authentication status
     ),
 
     /*
@@ -114,20 +114,20 @@ return array(
         ),
         'db' => array(
             'with_params' => true,  // Render SQL with the parameters substituted
-            'timeline'    => false  // Add the queries to the timeline
+            'timeline'    => false, // Add the queries to the timeline
         ),
         'mail' => array(
-            'full_log' => false
+            'full_log' => false,
         ),
         'views' => array(
-            'data' => false  // Note: Can slow down the application, because the data can be quite large..
+            'data' => false,  // Note: Can slow down the application, because the data can be quite large..
         ),
         'route' => array(
-            'label' => true  // Show complete route on bar
+            'label' => true,  // Show complete route on bar
         ),
         'logs' => array(
-            'file' => null
-        )
+            'file' => null,
+        ),
     ),
 
     /*
@@ -141,6 +141,6 @@ return array(
      |
      */
 
-    'inject' => true
+    'inject' => true,
 
 );

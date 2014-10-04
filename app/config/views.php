@@ -115,6 +115,6 @@ return array(
     |
     */
 
-    'analytics' => 'partials.analytics'
+    'analytics' => 'partials.analytics',
 
 );

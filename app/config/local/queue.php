@@ -29,6 +29,6 @@ return array(
     |
     */
 
-    'default' => 'sync'
+    'default' => 'sync',
 
 );

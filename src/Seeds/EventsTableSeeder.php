@@ -49,7 +49,7 @@ class EventsTableSeeder extends Seeder
             'body'       => 'This is an example event.',
             'user_id'    => 1,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         );
 
         DB::table('events')->insert($event);

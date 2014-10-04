@@ -42,6 +42,6 @@ return array(
     |
     */
 
-    'googleid' => 'UA-XXXXXXXX-X'
+    'googleid' => 'UA-XXXXXXXX-X',
 
 );

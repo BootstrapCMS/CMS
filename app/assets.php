@@ -44,7 +44,7 @@ $scripts = array(
     'js/cms-timeago.js',
     'js/cms-restfulizer.js',
     'js/cms-carousel.js',
-    'js/cms-alerts.js'
+    'js/cms-alerts.js',
 );
 if (Config::get('laravel-debugbar::config.enabled')) {
     $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js';
@@ -54,21 +54,21 @@ Asset::registerScripts($scripts, '', 'main');
 
 Asset::registerStyles(array(
     'css/bootstrap-switch.css',
-    'css/bootstrap-markdown.min.css'
+    'css/bootstrap-markdown.min.css',
 ), '', 'form');
 
 Asset::registerScripts(array(
     'js/bootstrap-switch.js',
-    'js/bootstrap-markdown.js'
+    'js/bootstrap-markdown.js',
 ), '', 'form');
 
 Asset::registerStyles(array(
-    'css/bootstrap-datetimepicker.min.css'
+    'css/bootstrap-datetimepicker.min.css',
 ), '', 'picker');
 
 Asset::registerScripts(array(
     'js/bootstrap-datetimepicker.min.js',
-    'js/cms-picker.js'
+    'js/cms-picker.js',
 ), '', 'picker');
 
 Asset::registerScripts(array(
@@ -77,5 +77,5 @@ Asset::registerScripts(array(
     'js/cms-comment-delete.js',
     'js/cms-comment-create.js',
     'js/cms-comment-fetch.js',
-    'js/cms-comment-main.js'
+    'js/cms-comment-main.js',
 ), '', 'comment');

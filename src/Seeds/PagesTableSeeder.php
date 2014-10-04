@@ -50,7 +50,7 @@ class PagesTableSeeder extends Seeder
             'icon'       => 'home',
             'user_id'    => 1,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         );
 
         DB::table('pages')->insert($home);
@@ -63,7 +63,7 @@ class PagesTableSeeder extends Seeder
             'user_id'    => 1,
             'icon'       => 'envelope',
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         );
 
         DB::table('pages')->insert($contact);
@@ -77,7 +77,7 @@ class PagesTableSeeder extends Seeder
             'user_id'    => 1,
             'icon'       => 'info-circle',
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         );
 
         DB::table('pages')->insert($about);

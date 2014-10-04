@@ -101,7 +101,7 @@ class Event extends AbstractModel implements BelongsToUserInterface, Revisionabl
         'location' => 'required',
         'date'     => 'required',
         'body'     => 'required',
-        'user_id'  => 'required'
+        'user_id'  => 'required',
     );
 
     /**

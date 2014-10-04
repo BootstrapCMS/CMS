@@ -66,6 +66,6 @@ return array(
     |
     */
 
-    'live' => false
+    'live' => false,
 
 );

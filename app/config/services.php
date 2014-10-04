@@ -30,16 +30,16 @@ return array(
 
     'mailgun' => array(
         'domain' => '',
-        'secret' => ''
+        'secret' => '',
     ),
 
     'mandrill' => array(
-        'secret' => ''
+        'secret' => '',
     ),
 
     'stripe' => array(
         'model'  => 'User',
-        'secret' => ''
-    )
+        'secret' => '',
+    ),
 
 );

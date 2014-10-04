@@ -39,7 +39,7 @@ Edit {{{ $page->title }}}
             'js' => $page->js,
             'show_title' => ($page->show_title == true),
             'show_nav' => ($page->show_nav == true),
-    ));
+    ), );
     ?>
     @include('pages.form')
 </div>

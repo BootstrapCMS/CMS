@@ -150,7 +150,7 @@ return array(
         'GrahamCampbell\Contact\ContactServiceProvider',
         'GrahamCampbell\LogViewer\LogViewerServiceProvider',
         'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider'
+        'Barryvdh\Debugbar\ServiceProvider',
 
     ),
 
@@ -230,8 +230,8 @@ return array(
         'EventProvider'     => 'GrahamCampbell\BootstrapCMS\Facades\EventProvider',
         'PageProvider'      => 'GrahamCampbell\BootstrapCMS\Facades\PageProvider',
         'PostProvider'      => 'GrahamCampbell\BootstrapCMS\Facades\PostProvider',
-        'Debugbar'          => 'Barryvdh\Debugbar\Facade'
+        'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 
-    )
+    ),
 
 );

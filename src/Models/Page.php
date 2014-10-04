@@ -103,7 +103,7 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
         'body'       => 'required',
         'show_title' => 'required',
         'show_nav'   => 'required',
-        'user_id'    => 'required'
+        'user_id'    => 'required',
     );
 
     /**

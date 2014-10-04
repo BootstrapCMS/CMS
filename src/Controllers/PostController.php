@@ -81,7 +81,7 @@ class PostController extends AbstractController
     public function store()
     {
         $input = array_merge(array('user_id' => Credentials::getuser()->id), Binput::only(array(
-            'title', 'summary', 'body'
+            'title', 'summary', 'body',
         )));
 
         $val = PostProvider::validate($input, array_keys($input));

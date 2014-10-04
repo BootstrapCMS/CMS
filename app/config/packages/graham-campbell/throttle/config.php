@@ -30,6 +30,6 @@ return array(
     |
     */
 
-    'driver' => null
+    'driver' => null,
 
 );

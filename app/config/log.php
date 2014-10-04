@@ -66,6 +66,6 @@ return array(
     |
     */
 
-    'localechanged' => true
+    'localechanged' => true,
 
 );

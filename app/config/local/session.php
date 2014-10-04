@@ -30,6 +30,6 @@ return array(
     |
     */
 
-    'driver' => 'file'
+    'driver' => 'file',
 
 );

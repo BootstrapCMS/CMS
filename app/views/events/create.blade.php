@@ -21,7 +21,7 @@ Create Event
             'date'     => Carbon\Carbon::now()->addMinutes(30)->format('d/m/Y H:i'),
             'location' => '',
             'body'     => '',
-    ));
+    ), );
     ?>
     @include('events.form')
 </div>

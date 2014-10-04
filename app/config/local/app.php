@@ -40,6 +40,6 @@ return array(
     |
     */
 
-    'url' => ''
+    'url' => '',
 
 );

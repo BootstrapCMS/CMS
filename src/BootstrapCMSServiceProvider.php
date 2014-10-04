@@ -285,7 +285,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             'fileprovider',
             'folderprovider',
             'pageprovider',
-            'postprovider'
+            'postprovider',
         );
     }
 }

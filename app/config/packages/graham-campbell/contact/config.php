@@ -42,6 +42,6 @@ return array(
     |
     */
 
-    'email' => 'admin@example.com'
+    'email' => 'admin@example.com',
 
 );

@@ -213,7 +213,7 @@ class PageController extends AbstractController
             'js'         => Binput::get('js', null, true, false), // no xss protection please
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav'   => (Binput::get('show_nav') == 'on'),
-            'icon'       => Binput::get('icon')
+            'icon'       => Binput::get('icon'),
         );
     }
 

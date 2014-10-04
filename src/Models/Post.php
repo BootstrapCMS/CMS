@@ -102,7 +102,7 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
         'title'   => 'required',
         'summary' => 'required',
         'body'    => 'required',
-        'user_id' => 'required'
+        'user_id' => 'required',
     );
 
     /**

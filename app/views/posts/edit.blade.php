@@ -33,7 +33,7 @@ Edit {{{ $post->title }}}
             'title' => $post->title,
             'summary' => $post->summary,
             'body' => $post->body,
-    ));
+    ), );
     ?>
     @include('posts.form')
 </div>

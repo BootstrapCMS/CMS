@@ -40,6 +40,6 @@ return array(
     |
     */
 
-    'email' => 'graham@mineuk.com'
+    'email' => 'graham@mineuk.com',
 
 );

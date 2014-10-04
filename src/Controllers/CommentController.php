@@ -84,7 +84,7 @@ class CommentController extends AbstractController
                 'success' => false,
                 'code' => 404,
                 'msg' => 'The post you were viewing has been deleted.',
-                'url' => URL::route('blog.posts.index')
+                'url' => URL::route('blog.posts.index'),
             ), 404);
         }
 
@@ -113,7 +113,7 @@ class CommentController extends AbstractController
         $input = array_merge(Binput::only('body'), array(
             'user_id' => Credentials::getuser()->id,
             'post_id' => $postId,
-            'version' => 1
+            'version' => 1,
         ));
 
         if (CommentProvider::validate($input, array_keys($input))->fails()) {
@@ -126,14 +126,14 @@ class CommentController extends AbstractController
 
         $contents = View::make('posts.comment', array(
             'comment' => $comment,
-            'post_id' => $postId
+            'post_id' => $postId,
         ));
 
         return Response::json(array(
             'success' => true,
             'msg' => 'Comment created successfully.',
             'contents' => $contents->render(),
-            'comment_id' => $comment->id
+            'comment_id' => $comment->id,
         ), 201);
     }
 
@@ -152,14 +152,14 @@ class CommentController extends AbstractController
 
         $contents = View::make('posts.comment', array(
             'comment' => $comment,
-            'postId' => $postId
+            'postId' => $postId,
         ));
 
         return Response::json(array(
             'contents' => $contents->render(),
             'comment_text' => nl2br(e($comment->body)),
             'comment_id' => $id,
-            'comment_ver' => $comment->version
+            'comment_ver' => $comment->version,
         ));
     }
 
@@ -204,7 +204,7 @@ class CommentController extends AbstractController
             'msg' => 'Comment updated successfully.',
             'comment_text' => nl2br(e($comment->body)),
             'comment_id' => $id,
-            'comment_ver' => $version
+            'comment_ver' => $version,
         ));
     }
 
@@ -226,7 +226,7 @@ class CommentController extends AbstractController
         return Response::json(array(
             'success' => true,
             'msg' => 'Comment deleted successfully.',
-            'comment_id' => $id
+            'comment_id' => $id,
         ));
     }
 

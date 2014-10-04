@@ -70,7 +70,7 @@ return array(
         |
         */
 
-        'key' => 'cartalyst_sentry'
+        'key' => 'cartalyst_sentry',
 
     ),
 
@@ -95,7 +95,7 @@ return array(
         |
         */
 
-        'model' => 'GrahamCampbell\Credentials\Models\Group'
+        'model' => 'GrahamCampbell\Credentials\Models\Group',
 
     ),
 
@@ -133,7 +133,7 @@ return array(
         |
         */
 
-        'login_attribute' => 'email'
+        'login_attribute' => 'email',
 
     ),
 
@@ -200,8 +200,8 @@ return array(
         |
         */
 
-        'suspension_time' => 15
+        'suspension_time' => 15,
 
-    )
+    ),
 
 );

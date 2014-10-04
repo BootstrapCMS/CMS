@@ -45,14 +45,14 @@ return array(
     'connections' => array(
 
         'sync' => array(
-            'driver' => 'sync'
+            'driver' => 'sync',
         ),
 
         'beanstalkd' => array(
             'driver' => 'beanstalkd',
             'host'   => 'localhost',
             'queue'  => 'default',
-            'ttr'    => 60
+            'ttr'    => 60,
         ),
 
         'sqs' => array(
@@ -60,7 +60,7 @@ return array(
             'key'    => 'your-public-key',
             'secret' => 'your-secret-key',
             'queue'  => 'your-queue-url',
-            'region' => 'eu-west-1'
+            'region' => 'eu-west-1',
         ),
 
         'iron' => array(
@@ -69,13 +69,13 @@ return array(
             'token'   => 'your-token',
             'project' => 'your-project-id',
             'queue'   => 'your-queue-name',
-            'encrypt' => true
+            'encrypt' => true,
         ),
 
         'redis' => array(
             'driver' => 'redis',
-            'queue'  => 'default'
-        )
+            'queue'  => 'default',
+        ),
 
     ),
 
@@ -92,8 +92,8 @@ return array(
 
     'failed' => array(
 
-        'database' => 'mysql', 'table' => 'failed_jobs'
+        'database' => 'mysql', 'table' => 'failed_jobs',
 
-    )
+    ),
 
 );

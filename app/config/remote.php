@@ -48,8 +48,8 @@ return array(
             'password'  => '',
             'key'       => '',
             'keyphrase' => '',
-            'root'      => '/var/www'
-        )
+            'root'      => '/var/www',
+        ),
 
     ),
 
@@ -66,8 +66,8 @@ return array(
 
     'groups' => array(
 
-        'web' => array('production')
+        'web' => array('production'),
 
-    )
+    ),
 
 );

@@ -94,7 +94,7 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
     public static $rules = array(
         'body'    => 'required',
         'user_id' => 'required',
-        'post_id' => 'required'
+        'post_id' => 'required',
     );
 
     /**

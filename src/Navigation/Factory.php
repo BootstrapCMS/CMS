@@ -99,14 +99,14 @@ class Factory
                     return $this->navigation->render('admin', 'admin', array(
                         'title' => 'Admin Panel',
                         'side' => $this->getSide(),
-                        'inverse' => $this->inverse
+                        'inverse' => $this->inverse,
                     ));
                 } else {
                     // the requested type is admin, and the user is NOT an admin
                     return $this->navigation->render('default', 'default', array(
                         'title' => $this->name,
                         'side' => $this->getSide(),
-                        'inverse' => $this->inverse
+                        'inverse' => $this->inverse,
                     ));
                 }
             } else {
@@ -114,14 +114,14 @@ class Factory
                 return $this->navigation->render('default', 'default', array(
                     'title' => $this->name,
                     'side' => $this->getSide(),
-                    'inverse' => $this->inverse
+                    'inverse' => $this->inverse,
                 ));
             }
         } else {
             // the requested type is default, and the user is NOT logged in
             return $this->navigation->render('default', false, array(
                 'title' => $this->name,
-                'inverse' => $this->inverse
+                'inverse' => $this->inverse,
             ));
         }
     }

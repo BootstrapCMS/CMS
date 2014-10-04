@@ -26,7 +26,7 @@ Create Page
             'js' => '',
             'show_title' => true,
             'show_nav' => true,
-    ));
+    ), );
     ?>
     @include('pages.form')
 </div>

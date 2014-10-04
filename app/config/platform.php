@@ -78,6 +78,6 @@ return array(
     |
     */
 
-    'description' => 'Bootstrap CMS is a PHP CMS powered by Laravel 4.2.'
+    'description' => 'Bootstrap CMS is a PHP CMS powered by Laravel 4.2.',
 
 );

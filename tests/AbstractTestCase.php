@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS;
 
-use Illuminate\Foundation\Testing\TestCase;
 use GrahamCampbell\TestBench\Traits\HelperTestCaseTrait;
 use GrahamCampbell\TestBench\Traits\LaravelTestCaseTrait;
+use Illuminate\Foundation\Testing\TestCase;
 
 /**
  * This is the abstract test case class.

@@ -14,8 +14,8 @@
  * GNU Affero General Public License for more details.
  */
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Seeder;
 
 /**
  * This is the database seeder class.

@@ -84,6 +84,6 @@ return array(
     |
     */
 
-    'key' => 'cloudflarestats'
+    'key' => 'cloudflarestats',
 
 );
