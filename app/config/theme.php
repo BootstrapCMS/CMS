@@ -24,9 +24,9 @@ return array(
     | This defines what theme of Bootstrap to use from bootswatch.com.
     |
     | Supported: "amelia", "cerulean", "cosmo", "cyborg", "darkly", "default",
-    |            "flatly", "journal", "legacy", "lumen", "lumen", "paper",
-    |            "readable", "sandstone", "simplex", "slate", "spacelab",
-    |            "superhero", "united", "yeti"
+    |            "flatly", "journal", "legacy", "lumen", "paper", "readable",
+    |            "sandstone", "simplex", "slate", "spacelab", "superhero",
+    |            "united", "yeti"
     |
     | Default to 'default'.
     |
