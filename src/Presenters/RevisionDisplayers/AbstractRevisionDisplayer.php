@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers;
 
-use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\AbstractRevisionDisplayer as AbstractCredentialsRevisionDisplayer;
+use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\AbstractRevisionDisplayer as BaseRevisionDisplayer;
 use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\RevisionDisplayerInterface;
 
 /**
@@ -26,7 +26,7 @@ use GrahamCampbell\Credentials\Presenters\RevisionDisplayers\RevisionDisplayerIn
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-abstract class AbstractRevisionDisplayer extends AbstractCredentialsRevisionDisplayer implements RevisionDisplayerInterface
+abstract class AbstractRevisionDisplayer extends BaseRevisionDisplayer implements RevisionDisplayerInterface
 {
     /**
      * Get the change description.
