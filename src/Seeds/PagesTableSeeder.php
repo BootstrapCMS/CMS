@@ -42,10 +42,10 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->truncate();
 
         $home = array(
-            'title' => 'Welcome',
-            'nav_title' => 'Home',
-            'slug'  => 'home',
-            'body'  => Binput::clean(Markdown::render(File::get(dirname(__FILE__).'/page-home.md')), true, false),
+            'title'      => 'Welcome',
+            'nav_title'  => 'Home',
+            'slug'       => 'home',
+            'body'       => $this->getContent('home'),
             'show_title' => false,
             'icon'       => 'home',
             'user_id'    => 1,
@@ -56,10 +56,10 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert($home);
 
         $contact = array(
-            'title' => 'Contact Us',
-            'nav_title' => 'Contact',
-            'slug'  => 'contact',
-            'body'  => Binput::clean(Markdown::render(File::get(dirname(__FILE__).'/page-contact.md')), true, false),
+            'title'      => 'Contact Us',
+            'nav_title'  => 'Contact',
+            'slug'       => 'contact',
+            'body'       => $this->getContent('contact'),
             'user_id'    => 1,
             'icon'       => 'envelope',
             'created_at' => Carbon::now(),
@@ -69,11 +69,10 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert($contact);
 
         $about = array(
-            'title' => 'About Us',
-            'nav_title' => 'About',
-            'slug'  => 'about',
-            'body'  => Binput::clean('<div class="row"><div class="col-lg-8">'
-                .Markdown::render(File::get(dirname(__FILE__).'/page-about.md')).'</div></div>', true, false),
+            'title'      => 'About Us',
+            'nav_title'  => 'About',
+            'slug'       => 'about',
+            'body'       => $this->getContent('about'),
             'user_id'    => 1,
             'icon'       => 'info-circle',
             'created_at' => Carbon::now(),
@@ -81,5 +80,19 @@ class PagesTableSeeder extends Seeder
         );
 
         DB::table('pages')->insert($about);
+    }
+
+    /**
+     * Get the page content.
+     *
+     * @param string $page
+     *
+     * @return string
+     */
+    protected function getContent($page)
+    {
+        $content = File::get(dirname(__FILE__).'/page-'.$page.'.md');
+
+        return Binput::clean(Markdown::render($content), true, false);
     }
 }
