@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6edeb3c453a0e9cf3d7ad4e8fde47133",
+    "hash": "b5983a5b87c9c7c6ebd65dec910dbf7d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -243,16 +243,16 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "d24439ada0704948deef0d3eda2ea20fd8db1747"
+                "reference": "c62365adc4488e1c35a8f45ea86f7d4a22bd58a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/d24439ada0704948deef0d3eda2ea20fd8db1747",
-                "reference": "d24439ada0704948deef0d3eda2ea20fd8db1747",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/c62365adc4488e1c35a8f45ea86f7d4a22bd58a0",
+                "reference": "c62365adc4488e1c35a8f45ea86f7d4a22bd58a0",
                 "shasum": ""
             },
             "type": "library",
@@ -278,7 +278,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2014-05-21 20:20:46"
+            "time": "2014-09-25 23:06:16"
         },
         {
             "name": "erusev/parsedown-extra",
@@ -426,16 +426,16 @@
         },
         {
             "name": "graham-campbell/binput",
-            "version": "v2.1.1",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Binput.git",
-                "reference": "3f7f2ffaa701562650202066419521146ab591fd"
+                "reference": "43dcec3dcabace1018e2fa009fc11165199f3889"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/3f7f2ffaa701562650202066419521146ab591fd",
-                "reference": "3f7f2ffaa701562650202066419521146ab591fd",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/43dcec3dcabace1018e2fa009fc11165199f3889",
+                "reference": "43dcec3dcabace1018e2fa009fc11165199f3889",
                 "shasum": ""
             },
             "require": {
@@ -448,11 +448,6 @@
                 "graham-campbell/testbench": "~1.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Binput\\": "src/"
@@ -468,7 +463,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Binput Is An Input Protector For Laravel 4.1+",
+            "description": "Binput Is An Input Protector For Laravel 4.1/4.2",
             "keywords": [
                 "Binput",
                 "Graham Campbell",
@@ -482,7 +477,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-08-09 15:19:56"
+            "time": "2014-10-05 15:29:30"
         },
         {
             "name": "graham-campbell/contact",
@@ -490,18 +485,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Contact.git",
-                "reference": "e3d349d81e5d41f36f2346b6f5e408af9cba9f76"
+                "reference": "3556a2757ba3aa525670dacfd49b98d2e3d8f287"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/e3d349d81e5d41f36f2346b6f5e408af9cba9f76",
-                "reference": "e3d349d81e5d41f36f2346b6f5e408af9cba9f76",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/3556a2757ba3aa525670dacfd49b98d2e3d8f287",
+                "reference": "3556a2757ba3aa525670dacfd49b98d2e3d8f287",
                 "shasum": ""
             },
             "require": {
                 "graham-campbell/binput": "~2.0",
                 "graham-campbell/core": "~1.0",
-                "graham-campbell/throttle": "~1.0",
+                "graham-campbell/throttle": "~2.0",
                 "illuminate/mail": "~4.1",
                 "illuminate/routing": "~4.1",
                 "illuminate/support": "~4.1",
@@ -548,7 +543,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-10-04 11:33:40"
+            "time": "2014-10-05 17:45:25"
         },
         {
             "name": "graham-campbell/core",
@@ -612,12 +607,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "138f93b1eff2ef3202300fcfbc82e8e6f0465b3b"
+                "reference": "60f468d605e829ebedaa46b24d5d8ce5d1069a23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/138f93b1eff2ef3202300fcfbc82e8e6f0465b3b",
-                "reference": "138f93b1eff2ef3202300fcfbc82e8e6f0465b3b",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/60f468d605e829ebedaa46b24d5d8ce5d1069a23",
+                "reference": "60f468d605e829ebedaa46b24d5d8ce5d1069a23",
                 "shasum": ""
             },
             "require": {
@@ -625,7 +620,7 @@
                 "graham-campbell/binput": "~2.0",
                 "graham-campbell/core": "~1.0",
                 "graham-campbell/database": "0.1.*",
-                "graham-campbell/throttle": "~1.0",
+                "graham-campbell/throttle": "~2.0",
                 "illuminate/console": "~4.2",
                 "illuminate/database": "~4.2",
                 "illuminate/events": "~4.2",
@@ -686,7 +681,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-10-04 11:30:13"
+            "time": "2014-10-05 17:45:59"
         },
         {
             "name": "graham-campbell/database",
@@ -746,16 +741,16 @@
         },
         {
             "name": "graham-campbell/htmlmin",
-            "version": "v2.1.2",
+            "version": "v2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-HTMLMin.git",
-                "reference": "954e0c240afd8be10bb44392b9d1592c8ef253ed"
+                "reference": "184d055ceec6c9c19726d916f2a988d7fe6e6c24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/954e0c240afd8be10bb44392b9d1592c8ef253ed",
-                "reference": "954e0c240afd8be10bb44392b9d1592c8ef253ed",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/184d055ceec6c9c19726d916f2a988d7fe6e6c24",
+                "reference": "184d055ceec6c9c19726d916f2a988d7fe6e6c24",
                 "shasum": ""
             },
             "require": {
@@ -771,11 +766,6 @@
                 "graham-campbell/testbench": "~1.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\HTMLMin\\": "src/"
@@ -791,7 +781,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "HTMLMin Is A Simple HTML Minifier For Laravel 4.2+",
+            "description": "HTMLMin Is A Simple HTML Minifier For Laravel 4.2",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -804,7 +794,7 @@
                 "laravel",
                 "minifier"
             ],
-            "time": "2014-08-12 14:48:10"
+            "time": "2014-10-05 13:59:09"
         },
         {
             "name": "graham-campbell/logviewer",
@@ -873,21 +863,21 @@
         },
         {
             "name": "graham-campbell/markdown",
-            "version": "v2.0.4",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "2bbb6a353cc4bbc02f3bec106cdd6ae7ef816470"
+                "reference": "d316f586fcaf59ecdf9d2f60f26da277cd6c8e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/2bbb6a353cc4bbc02f3bec106cdd6ae7ef816470",
-                "reference": "2bbb6a353cc4bbc02f3bec106cdd6ae7ef816470",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/d316f586fcaf59ecdf9d2f60f26da277cd6c8e8d",
+                "reference": "d316f586fcaf59ecdf9d2f60f26da277cd6c8e8d",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.0.1",
-                "erusev/parsedown-extra": "~0.2.1",
+                "erusev/parsedown": "~1.1",
+                "erusev/parsedown-extra": "~0.2.2",
                 "illuminate/support": "~4.1",
                 "illuminate/view": "~4.1",
                 "php": ">=5.4.7"
@@ -896,11 +886,6 @@
                 "graham-campbell/testbench": "~1.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Markdown\\": "src/"
@@ -916,7 +901,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Markdown Is A Parsedown Extra Wrapper For Laravel 4.1+",
+            "description": "Markdown Is A Parsedown Extra Wrapper For Laravel 4.1/4.2",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -931,7 +916,7 @@
                 "parsedown extra wrapper",
                 "parsedown wrapper"
             ],
-            "time": "2014-08-28 17:11:32"
+            "time": "2014-10-05 14:49:46"
         },
         {
             "name": "graham-campbell/navigation",
@@ -1063,16 +1048,16 @@
         },
         {
             "name": "graham-campbell/security",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "7745e23a35c1a6a0a72f95c3694ecf48a56c4534"
+                "reference": "ebb689d1ab282289edb6bd7d5d11cc5ebaca7638"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/7745e23a35c1a6a0a72f95c3694ecf48a56c4534",
-                "reference": "7745e23a35c1a6a0a72f95c3694ecf48a56c4534",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/ebb689d1ab282289edb6bd7d5d11cc5ebaca7638",
+                "reference": "ebb689d1ab282289edb6bd7d5d11cc5ebaca7638",
                 "shasum": ""
             },
             "require": {
@@ -1083,11 +1068,6 @@
                 "graham-campbell/testbench": "~1.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Security\\": "src/"
@@ -1103,7 +1083,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Security Is A Port Of The Security Class From Codeigniter 2.2 For Laravel 4.1+",
+            "description": "Security Is A Port Of The Security Class From Codeigniter 2.2 For Laravel 4.1/4.2",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -1114,20 +1094,20 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-08-27 11:26:39"
+            "time": "2014-10-05 15:10:05"
         },
         {
             "name": "graham-campbell/throttle",
-            "version": "v1.0.2",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Throttle.git",
-                "reference": "8e8650261b8ca2dbfcb8cace1416102cdaaf369c"
+                "reference": "7fa894d1bfddfef3d19c01e159ec63a2bd0541ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/8e8650261b8ca2dbfcb8cace1416102cdaaf369c",
-                "reference": "8e8650261b8ca2dbfcb8cace1416102cdaaf369c",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/7fa894d1bfddfef3d19c01e159ec63a2bd0541ca",
+                "reference": "7fa894d1bfddfef3d19c01e159ec63a2bd0541ca",
                 "shasum": ""
             },
             "require": {
@@ -1140,11 +1120,6 @@
                 "graham-campbell/testbench": "~1.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Throttle\\": "src/"
@@ -1160,7 +1135,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Throttle Is A Rate Limiter For Laravel 4.1+",
+            "description": "Throttle Is A Rate Limiter For Laravel 4.1/4.2",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -1172,7 +1147,7 @@
                 "throttle",
                 "throttling"
             ],
-            "time": "2014-08-09 15:21:46"
+            "time": "2014-10-05 17:41:03"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1263,16 +1238,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.10",
+            "version": "v4.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3fe430a55ec73346c708f0b864820528d6c28eda"
+                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3fe430a55ec73346c708f0b864820528d6c28eda",
-                "reference": "3fe430a55ec73346c708f0b864820528d6c28eda",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
+                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
                 "shasum": ""
             },
             "require": {
@@ -1374,7 +1349,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-10-02 19:50:12"
+            "time": "2014-10-04 18:48:27"
         },
         {
             "name": "leafo/lessphp",
@@ -3406,16 +3381,16 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "26404e0c90565b614ee76b988b9bc8790d77f590"
+                "reference": "8806c41c178ad4a2e87294b851d730779555d252"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/26404e0c90565b614ee76b988b9bc8790d77f590",
-                "reference": "26404e0c90565b614ee76b988b9bc8790d77f590",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8806c41c178ad4a2e87294b851d730779555d252",
+                "reference": "8806c41c178ad4a2e87294b851d730779555d252",
                 "shasum": ""
             },
             "require": {
@@ -3456,7 +3431,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2014-08-25 15:09:25"
+            "time": "2014-10-04 22:48:25"
         },
         {
             "name": "doctrine/lexer",
@@ -3516,12 +3491,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "b5ecc02235bae6519cb017dc91cc9cfbd9a47fd3"
+                "reference": "aeb312472eece0554584e76f88eadf4058f47cc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/b5ecc02235bae6519cb017dc91cc9cfbd9a47fd3",
-                "reference": "b5ecc02235bae6519cb017dc91cc9cfbd9a47fd3",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/aeb312472eece0554584e76f88eadf4058f47cc9",
+                "reference": "aeb312472eece0554584e76f88eadf4058f47cc9",
                 "shasum": ""
             },
             "require": {
@@ -3558,7 +3533,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-09-30 20:10:32"
+            "time": "2014-10-05 10:15:44"
         },
         {
             "name": "graham-campbell/testbench",
@@ -4118,16 +4093,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2"
+                "reference": "e54a01c0da1b87db3c5a3c4c5277ddf331da4aef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2",
-                "reference": "f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/e54a01c0da1b87db3c5a3c4c5277ddf331da4aef",
+                "reference": "e54a01c0da1b87db3c5a3c4c5277ddf331da4aef",
                 "shasum": ""
             },
             "require": {
@@ -4155,11 +4130,6 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                },
-                {
                     "name": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
@@ -4170,6 +4140,10 @@
                 {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
@@ -4179,27 +4153,27 @@
                 "compare",
                 "equality"
             ],
-            "time": "2014-05-02 07:05:58"
+            "time": "2014-05-11 23:00:21"
         },
         {
             "name": "sebastian/environment",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "79517609ec01139cd7e9fded0dd7ce08c952ef6a"
+                "reference": "10c7467da0622f7848cc5cadc0828c3359254df4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/79517609ec01139cd7e9fded0dd7ce08c952ef6a",
-                "reference": "79517609ec01139cd7e9fded0dd7ce08c952ef6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/10c7467da0622f7848cc5cadc0828c3359254df4",
+                "reference": "10c7467da0622f7848cc5cadc0828c3359254df4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.0.*@dev"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -4219,8 +4193,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Provides functionality to handle HHVM/PHP environments",
@@ -4230,27 +4203,27 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2014-02-18 16:17:19"
+            "time": "2014-05-04 17:56:05"
         },
         {
             "name": "sebastian/exporter",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "1f9a98e6f5dfe0524cb8c6166f7c82f3e9ae1529"
+                "reference": "c7d59948d6e82818e1bdff7cadb6c34710eb7dc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/1f9a98e6f5dfe0524cb8c6166f7c82f3e9ae1529",
-                "reference": "1f9a98e6f5dfe0524cb8c6166f7c82f3e9ae1529",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/c7d59948d6e82818e1bdff7cadb6c34710eb7dc0",
+                "reference": "c7d59948d6e82818e1bdff7cadb6c34710eb7dc0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.0.*@dev"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -4269,11 +4242,6 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                },
-                {
                     "name": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
@@ -4282,13 +4250,16 @@
                     "email": "github@wallbash.com"
                 },
                 {
-                    "name": "Adam Harvey",
-                    "email": "aharvey@php.net",
-                    "role": "Lead"
-                },
-                {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
+                {
+                    "name": "Adam Harvey",
+                    "email": "aharvey@php.net"
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
@@ -4297,7 +4268,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2014-02-16 08:26:31"
+            "time": "2014-09-10 00:51:36"
         },
         {
             "name": "sebastian/version",

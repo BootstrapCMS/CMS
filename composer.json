@@ -28,7 +28,7 @@
         "graham-campbell/htmlmin": "~2.0",
         "graham-campbell/markdown": "~2.0",
         "graham-campbell/binput": "~2.0",
-        "graham-campbell/throttle": "~1.0",
+        "graham-campbell/throttle": "~2.0",
         "graham-campbell/credentials": "0.3.*,>0.3.1",
         "graham-campbell/navigation": "~1.0",
         "graham-campbell/contact": "0.2.*,>0.2.0",
