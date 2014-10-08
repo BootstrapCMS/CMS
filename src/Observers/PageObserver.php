@@ -30,11 +30,9 @@ class PageObserver
     /**
      * Handle a page creation.
      *
-     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
-     *
      * @return void
      */
-    public function created($page = null)
+    public function created()
     {
         PageProvider::refresh();
     }
@@ -42,11 +40,9 @@ class PageObserver
     /**
      * Handle a page update.
      *
-     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
-     *
      * @return void
      */
-    public function updated($page = null)
+    public function updated()
     {
         PageProvider::refresh();
     }
@@ -54,11 +50,9 @@ class PageObserver
     /**
      * Handle a page deletion.
      *
-     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
-     *
      * @return void
      */
-    public function deleted($page = null)
+    public function deleted()
     {
         PageProvider::refresh();
     }
@@ -66,11 +60,9 @@ class PageObserver
     /**
      * Handle a page save.
      *
-     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
-     *
      * @return void
      */
-    public function saved($page = null)
+    public function saved()
     {
         PageProvider::refresh();
     }
@@ -78,11 +70,9 @@ class PageObserver
     /**
      * Handle a page restore.
      *
-     * @param \GrahamCampbell\BootstrapCMS\Models\Page $page
-     *
      * @return void
      */
-    public function restored($page = null)
+    public function restored()
     {
         PageProvider::refresh();
     }

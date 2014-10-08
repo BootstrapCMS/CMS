@@ -144,11 +144,9 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event first.
      *
-     * @param array $event
-     *
      * @return void
      */
-    public function onNavigationMainFirst(array $event = array())
+    public function onNavigationMainFirst()
     {
         // add the blog
         if ($this->blogging) {
@@ -168,11 +166,9 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event second.
      *
-     * @param array $event
-     *
      * @return void
      */
-    public function onNavigationMainSecond(array $event = array())
+    public function onNavigationMainSecond()
     {
         // get the pages
         $pages = $this->pageprovider->navigation();
@@ -209,11 +205,9 @@ class NavigationSubscriber
     /**
      * Handle a navigation.main event second.
      *
-     * @param array $event
-     *
      * @return void
      */
-    public function onNavigationMainThird(array $event = array())
+    public function onNavigationMainThird()
     {
         // get the pages
         $pages = $this->pageprovider->navigation();
@@ -237,11 +231,9 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event first.
      *
-     * @param array $event
-     *
      * @return void
      */
-    public function onNavigationBarFirst(array $event = array())
+    public function onNavigationBarFirst()
     {
         if ($this->credentials->check()) {
             // add the profile/history links
@@ -257,11 +249,9 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event second.
      *
-     * @param array $event
-     *
      * @return void
      */
-    public function onNavigationBarSecond(array $event = array())
+    public function onNavigationBarSecond()
     {
         // add the admin links
         if ($this->credentials->check() && $this->credentials->hasAccess('admin')) {
@@ -282,11 +272,9 @@ class NavigationSubscriber
     /**
      * Handle a navigation.bar event third.
      *
-     * @param array $event
-     *
      * @return void
      */
-    public function onNavigationBarThird(array $event = array())
+    public function onNavigationBarThird()
     {
         if ($this->credentials->check()) {
             // add the view users link
