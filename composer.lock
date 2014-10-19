@@ -920,16 +920,16 @@
         },
         {
             "name": "graham-campbell/navigation",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Navigation.git",
-                "reference": "03c774a647bfacd8d3263bfcac42918521a01929"
+                "reference": "8e7680a4cf62bd806fde44bf88cddb73ce861ed4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/03c774a647bfacd8d3263bfcac42918521a01929",
-                "reference": "03c774a647bfacd8d3263bfcac42918521a01929",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/8e7680a4cf62bd806fde44bf88cddb73ce861ed4",
+                "reference": "8e7680a4cf62bd806fde44bf88cddb73ce861ed4",
                 "shasum": ""
             },
             "require": {
@@ -944,11 +944,6 @@
                 "graham-campbell/testbench": "~1.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Navigation\\": "src/"
@@ -964,7 +959,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Navigation Is A Navigation Bar Generator For Laravel 4.2+",
+            "description": "Navigation Is A Navigation Bar Generator For Laravel 4.2",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -976,20 +971,20 @@
                 "navigation bar",
                 "navigation generator"
             ],
-            "time": "2014-08-12 14:06:49"
+            "time": "2014-10-19 14:17:36"
         },
         {
             "name": "graham-campbell/queuing",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Queuing.git",
-                "reference": "f7d04d5063b56da4366160e9edc65d8ba5b5d751"
+                "reference": "37965f5e0f1ca6e75e5da5aa68692d3ea4c526bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/f7d04d5063b56da4366160e9edc65d8ba5b5d751",
-                "reference": "f7d04d5063b56da4366160e9edc65d8ba5b5d751",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/37965f5e0f1ca6e75e5da5aa68692d3ea4c526bb",
+                "reference": "37965f5e0f1ca6e75e5da5aa68692d3ea4c526bb",
                 "shasum": ""
             },
             "require": {
@@ -1010,11 +1005,6 @@
                 "pda/pheanstalk": "Enables the beanstalk connector."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Queuing\\": "src/"
@@ -1030,7 +1020,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Queuing Provides Queuing Performance Increases Laravel 4.2+",
+            "description": "Queuing Provides Queuing Performance Increases Laravel 4.2",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -1044,7 +1034,7 @@
                 "queue",
                 "queuing"
             ],
-            "time": "2014-08-12 14:10:41"
+            "time": "2014-10-19 14:36:59"
         },
         {
             "name": "graham-campbell/security",
@@ -3251,16 +3241,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "fec965d330c958e175c39e61c3f6751955af32d0"
+                "reference": "0368bc031976126e5d36d37d2c56155092b6575b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fec965d330c958e175c39e61c3f6751955af32d0",
-                "reference": "fec965d330c958e175c39e61c3f6751955af32d0",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0368bc031976126e5d36d37d2c56155092b6575b",
+                "reference": "0368bc031976126e5d36d37d2c56155092b6575b",
                 "shasum": ""
             },
             "require": {
@@ -3272,7 +3262,7 @@
                 "symfony/console": "~2.0"
             },
             "suggest": {
-                "symfony/console": "Allows use of the command line interface"
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
             "type": "library",
             "autoload": {
@@ -3286,23 +3276,20 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
                 }
             ],
             "description": "Database Abstraction Layer",
@@ -3313,7 +3300,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-01-01 16:43:57"
+            "time": "2014-10-16 11:56:49"
         },
         {
             "name": "doctrine/inflector",
@@ -3381,20 +3368,20 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8806c41c178ad4a2e87294b851d730779555d252"
+                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8806c41c178ad4a2e87294b851d730779555d252",
-                "reference": "8806c41c178ad4a2e87294b851d730779555d252",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/f976e5de371104877ebc89bd8fecb0019ed9c119",
+                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119",
                 "shasum": ""
             },
             "require": {
-                "php": "~5.3"
+                "php": ">=5.3,<8.0-DEV"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
@@ -3431,7 +3418,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2014-10-04 22:48:25"
+            "time": "2014-10-13 12:58:55"
         },
         {
             "name": "doctrine/lexer",
@@ -3491,12 +3478,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "673a8bdd9ff59754100b3550dc558aeb8ee5233e"
+                "reference": "304859a6fdaeca066910c6cf7ba9b0cc3ceb4ec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/673a8bdd9ff59754100b3550dc558aeb8ee5233e",
-                "reference": "673a8bdd9ff59754100b3550dc558aeb8ee5233e",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/304859a6fdaeca066910c6cf7ba9b0cc3ceb4ec5",
+                "reference": "304859a6fdaeca066910c6cf7ba9b0cc3ceb4ec5",
                 "shasum": ""
             },
             "require": {
@@ -3506,6 +3493,7 @@
                 "symfony/event-dispatcher": "~2.1",
                 "symfony/filesystem": "~2.1",
                 "symfony/finder": "~2.1",
+                "symfony/process": "~2.3",
                 "symfony/stopwatch": "~2.5"
             },
             "bin": [
@@ -3533,7 +3521,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-10-07 21:06:32"
+            "time": "2014-10-18 15:03:48"
         },
         {
             "name": "graham-campbell/testbench",
@@ -3964,16 +3952,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.3.1",
+            "version": "4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "06005259429c156c02596add91f6a59c7dc3d4af"
+                "reference": "5a0bc4dcbb7340c0a9a9bc3507854a67c564edc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/06005259429c156c02596add91f6a59c7dc3d4af",
-                "reference": "06005259429c156c02596add91f6a59c7dc3d4af",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5a0bc4dcbb7340c0a9a9bc3507854a67c564edc4",
+                "reference": "5a0bc4dcbb7340c0a9a9bc3507854a67c564edc4",
                 "shasum": ""
             },
             "require": {
@@ -4034,7 +4022,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-06 06:20:35"
+            "time": "2014-10-16 16:53:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
