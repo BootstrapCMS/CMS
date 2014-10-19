@@ -81,11 +81,6 @@
     "config": {
         "preferred-install": "dist"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.8-dev"
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
