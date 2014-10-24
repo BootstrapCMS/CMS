@@ -53,10 +53,6 @@ if (Config::get('laravel-debugbar::enabled')) {
 Asset::registerScripts($scripts, '', 'main');
 
 Asset::registerScripts(array(
-    'js/to-markdown.js',
-), '', 'markdown');
-
-Asset::registerScripts(array(
     'js/cms-picker.js',
 ), '', 'picker');
 

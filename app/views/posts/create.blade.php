@@ -33,7 +33,5 @@ Create Post
 
 @section('js')
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.9/js/bootstrap-switch.js') }}
-{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/markdown.js/0.6.0-beta1/markdown.min.js') }}
-{{ Asset::scripts('markdown') }}
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.7.0/js/bootstrap-markdown.min.js') }}
 @stop

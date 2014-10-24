@@ -54,8 +54,6 @@ Edit {{{ $event->title }}}
 
 @section('js')
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.9/js/bootstrap-switch.js') }}
-{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/markdown.js/0.6.0-beta1/markdown.min.js') }}
-{{ Asset::scripts('markdown') }}
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.7.0/js/bootstrap-markdown.min.js') }}
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js') }}
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/2.1.30/js/bootstrap-datetimepicker.min.js') }}
