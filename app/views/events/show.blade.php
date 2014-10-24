@@ -77,15 +77,3 @@
 @include('events.delete')
 @endauth
 @stop
-
-@section('css')
-@auth('mod')
-{{ Asset::styles('form') }}
-@endauth
-@stop
-
-@section('js')
-@auth('mod')
-{{ Asset::scripts('form') }}
-@endauth
-@stop

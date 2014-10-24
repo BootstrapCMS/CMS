@@ -33,11 +33,11 @@ Create Page
 @stop
 
 @section('css')
-{{ Asset::styles('form') }}
+{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.9/css/bootstrap3/bootstrap-switch.css') }}
 @stop
 
 @section('js')
-{{ Asset::scripts('form') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.9/js/bootstrap-switch.js') }}
 <script type="text/javascript">
 $(document).ready(function () {
     var title = $('#title');

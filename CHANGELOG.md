@@ -2,14 +2,9 @@ CHANGE LOG
 ==========
 
 
-## V1.0 Beta 1 (Upcoming)
+## V0.8.1 Alpha (24/10/2014)
 
-* Bugfixes
-
-
-## V0.8.1 Alpha (Upcoming)
-
-* Updated bootswatch
+* Asset updates
 * Improved the test suite
 * Presenter fixes and cleanup
 * Started committing composer.lock

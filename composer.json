@@ -29,10 +29,10 @@
         "graham-campbell/markdown": "~2.0",
         "graham-campbell/binput": "~2.0",
         "graham-campbell/throttle": "~2.0",
-        "graham-campbell/credentials": "0.3.*,>0.3.1",
+        "graham-campbell/credentials": "~0.3.3",
         "graham-campbell/navigation": "~1.0",
-        "graham-campbell/contact": "0.2.*,>0.2.0",
-        "graham-campbell/logviewer": "0.2.*,>0.2.0",
+        "graham-campbell/contact": "~0.2.1",
+        "graham-campbell/logviewer": "~0.2.1",
         "mccool/laravel-auto-presenter": "2.1.*",
         "fideloper/proxy": "2.0.*",
         "barryvdh/laravel-debugbar": "1.7.*"
