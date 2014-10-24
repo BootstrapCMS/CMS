@@ -2,12 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V1.0 Beta 1 (Upcoming)
-
-* Bugfixes
-
-
-## V0.8.1 Alpha (Upcoming)
+## V0.8.1 Alpha (24/10/2014)
 
 * Asset updates
 * Improved the test suite
