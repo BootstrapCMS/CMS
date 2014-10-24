@@ -52,22 +52,7 @@ if (Config::get('laravel-debugbar::config.enabled')) {
 
 Asset::registerScripts($scripts, '', 'main');
 
-Asset::registerStyles(array(
-    'css/bootstrap-switch.css',
-    'css/bootstrap-markdown.min.css',
-), '', 'form');
-
 Asset::registerScripts(array(
-    'js/bootstrap-switch.js',
-    'js/bootstrap-markdown.js',
-), '', 'form');
-
-Asset::registerStyles(array(
-    'css/bootstrap-datetimepicker.min.css',
-), '', 'picker');
-
-Asset::registerScripts(array(
-    'js/bootstrap-datetimepicker.min.js',
     'js/cms-picker.js',
 ), '', 'picker');
 

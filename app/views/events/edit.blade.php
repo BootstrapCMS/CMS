@@ -47,12 +47,15 @@ Edit {{{ $event->title }}}
 @stop
 
 @section('css')
-{{ Asset::styles('form') }}
-{{ Asset::styles('picker') }}
+{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.2/css/bootstrap3/bootstrap-switch.min.css') }}
+{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.7.0/css/bootstrap-markdown.min.css') }}
+{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/2.1.30/css/bootstrap-datetimepicker.min.css') }}
 @stop
 
 @section('js')
-{{ Asset::scripts('form') }}
-{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.2/js/bootstrap-switch.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.7.0/js/bootstrap-markdown.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/2.1.30/js/bootstrap-datetimepicker.min.js') }}
 {{ Asset::scripts('picker') }}
 @stop
