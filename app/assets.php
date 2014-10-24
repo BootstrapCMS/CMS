@@ -34,7 +34,7 @@ if (Config::get('theme.name') == 'default') {
     $styles[] = 'css/bootstrap.'.Config::get('theme.name').'.min.css';
 }
 $styles[] = 'css/cms-main.css';
-if (Config::get('laravel-debugbar::config.enabled')) {
+if (Config::get('laravel-debugbar::enabled')) {
     $styles[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\styles\github.css';
 }
 
@@ -46,11 +46,15 @@ $scripts = array(
     'js/cms-carousel.js',
     'js/cms-alerts.js',
 );
-if (Config::get('laravel-debugbar::config.enabled')) {
+if (Config::get('laravel-debugbar::enabled')) {
     $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js';
 }
 
 Asset::registerScripts($scripts, '', 'main');
+
+Asset::registerScripts(array(
+    'js/to-markdown.js',
+), '', 'markdown');
 
 Asset::registerScripts(array(
     'js/cms-picker.js',
