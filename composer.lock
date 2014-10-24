@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9445738931d1daa166dfb9fd1798444a",
+    "hash": "c88b0034d4605fca5f9e44f6b5e064e4",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -481,16 +481,16 @@
         },
         {
             "name": "graham-campbell/contact",
-            "version": "dev-master",
+            "version": "v0.2.1-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Contact.git",
-                "reference": "3556a2757ba3aa525670dacfd49b98d2e3d8f287"
+                "reference": "8f49a48843b81915d28ab44270117399960dfbf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/3556a2757ba3aa525670dacfd49b98d2e3d8f287",
-                "reference": "3556a2757ba3aa525670dacfd49b98d2e3d8f287",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/8f49a48843b81915d28ab44270117399960dfbf0",
+                "reference": "8f49a48843b81915d28ab44270117399960dfbf0",
                 "shasum": ""
             },
             "require": {
@@ -543,7 +543,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-10-05 17:45:25"
+            "time": "2014-10-24 21:58:59"
         },
         {
             "name": "graham-campbell/core",
@@ -603,16 +603,16 @@
         },
         {
             "name": "graham-campbell/credentials",
-            "version": "v0.3.2-alpha",
+            "version": "v0.3.3-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "dcea5c764fb36063315d0640ef57c89d3f5f4cd9"
+                "reference": "59812a83d2d2e6b8919f1f7e9e738e65d982d58d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/dcea5c764fb36063315d0640ef57c89d3f5f4cd9",
-                "reference": "dcea5c764fb36063315d0640ef57c89d3f5f4cd9",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/59812a83d2d2e6b8919f1f7e9e738e65d982d58d",
+                "reference": "59812a83d2d2e6b8919f1f7e9e738e65d982d58d",
                 "shasum": ""
             },
             "require": {
@@ -630,7 +630,6 @@
                 "illuminate/routing": "~4.2",
                 "illuminate/support": "~4.2",
                 "illuminate/view": "~4.2",
-                "lightgear/asset": "1.4",
                 "mccool/laravel-auto-presenter": "2.1.*",
                 "php": ">=5.4.7",
                 "sebastian/diff": "~1.1"
@@ -681,7 +680,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-10-19 20:15:03"
+            "time": "2014-10-24 21:55:03"
         },
         {
             "name": "graham-campbell/database",
@@ -798,16 +797,16 @@
         },
         {
             "name": "graham-campbell/logviewer",
-            "version": "dev-master",
+            "version": "v0.2.1-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-LogViewer.git",
-                "reference": "71a9684d92ae2f4aa510e6ee39ca5db54a79c2a9"
+                "reference": "e918377f1b69b3e9074b03653a18e85fdafad55d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-LogViewer/zipball/71a9684d92ae2f4aa510e6ee39ca5db54a79c2a9",
-                "reference": "71a9684d92ae2f4aa510e6ee39ca5db54a79c2a9",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-LogViewer/zipball/e918377f1b69b3e9074b03653a18e85fdafad55d",
+                "reference": "e918377f1b69b3e9074b03653a18e85fdafad55d",
                 "shasum": ""
             },
             "require": {
@@ -859,7 +858,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2014-10-04 11:34:11"
+            "time": "2014-10-24 22:00:21"
         },
         {
             "name": "graham-campbell/markdown",
