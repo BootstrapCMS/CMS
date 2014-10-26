@@ -32,4 +32,4 @@ $ vendor/bin/phpunit
 
 If the test suite passes on your local machine you should be good to go.
 
-When you make a pull requests the tests will automatically be run again by [Travis CI](https://travis-ci.org/) on multiple php versions and hhvm.
+When you make a pull request, the tests will automatically be run again by [Travis CI](https://travis-ci.org/) on multiple php versions and hhvm.

@@ -16,7 +16,7 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 ## Installation
 
-[PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.2+, a database server, and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.3+, a database server, and [Composer](https://getcomposer.org) are required.
 
 1. There are 3 ways of grabbing the code:
   * Use GitHub: simply download the zip on the right of the readme
