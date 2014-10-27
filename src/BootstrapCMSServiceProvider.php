@@ -99,7 +99,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerNavigationFactory()
     {
-        $this->app->bindShared('navfactory', function ($app) {
+        $this->app->singleton('navfactory', function ($app) {
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
             $name = $app['config']['platform.name'];
@@ -119,7 +119,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerCommentProvider()
     {
-        $this->app->bindShared('commentprovider', function ($app) {
+        $this->app->singleton('commentprovider', function ($app) {
             $model = $app['config']['cms.comment'];
             $comment = new $model();
 
@@ -138,7 +138,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerEventProvider()
     {
-        $this->app->bindShared('eventprovider', function ($app) {
+        $this->app->singleton('eventprovider', function ($app) {
             $model = $app['config']['cms.event'];
             $event = new $model();
 
@@ -157,7 +157,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerPageProvider()
     {
-        $this->app->bindShared('pageprovider', function ($app) {
+        $this->app->singleton('pageprovider', function ($app) {
             $model = $app['config']['cms.page'];
             $page = new $model();
 
@@ -176,7 +176,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerPostProvider()
     {
-        $this->app->bindShared('postprovider', function ($app) {
+        $this->app->singleton('postprovider', function ($app) {
             $model = $app['config']['cms.post'];
             $post = new $model();
 
@@ -195,7 +195,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerCommandSubscriber()
     {
-        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber', function ($app) {
+        $this->app->singleton('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber', function ($app) {
             $pageprovider = $app['pageprovider'];
 
             return new Subscribers\CommandSubscriber($pageprovider);
@@ -209,7 +209,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerCoreSubscriber()
     {
-        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber', function ($app) {
+        $this->app->singleton('GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber', function ($app) {
             $config = $app['config'];
             $log = $app['log'];
 
@@ -224,7 +224,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     protected function registerNavigationSubscriber()
     {
-        $this->app->bindShared('GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber', function ($app) {
+        $this->app->singleton('GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber', function ($app) {
             $navigation = $app['navigation'];
             $credentials = $app['credentials'];
             $pageprovider = $app['pageprovider'];
