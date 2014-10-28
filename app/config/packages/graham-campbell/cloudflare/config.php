@@ -64,8 +64,8 @@ return array(
     |--------------------------------------------------------------------------
     |
     | This defines the cache driver to be used. It may be the name of any
-    | driver set in app/config/cache.php. Setting it to null will use the
-    | driver you have set as default in app/config/cache.php.
+    | driver set in config/cache.php. Setting it to null will use the driver
+    | you have set as default in config/cache.php.
     |
     | Default: null
     |

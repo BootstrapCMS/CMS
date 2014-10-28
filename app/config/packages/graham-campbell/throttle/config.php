@@ -22,9 +22,9 @@ return array(
     |--------------------------------------------------------------------------
     |
     | This defines the cache driver to be used. It may be the name of any
-    | driver set in app/config/cache.php. Setting it to null will use the
-    | driver you have set as default in app/config/cache.php. Please note that
-    | a driver that supports cache tags is required.
+    | driver set in config/cache.php. Setting it to null will use the driver
+    | you have set as default in config/cache.php. Please note that a driver
+    | that supports cache tags is required.
     |
     | Default: null
     |
