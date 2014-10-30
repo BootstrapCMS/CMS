@@ -38,4 +38,4 @@ $fixers = array(
 );
 
 return Symfony\CS\Config\Config::create()->fixers($fixers)
-    ->finder(Symfony\CS\Finder\DefaultFinder::create()->exclude('bootstrap')->in(__DIR__));
+    ->finder(Symfony\CS\Finder\DefaultFinder::create()->notName('*.blade.php')->exclude('bootstrap')->in(__DIR__));
