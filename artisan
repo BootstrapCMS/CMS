@@ -1,20 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-/**
- * This file is part of Bootstrap CMS by Graham Campbell.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- */
-
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -41,23 +27,7 @@ require __DIR__.'/bootstrap/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/bootstrap/start.php';
-
-/*
-|--------------------------------------------------------------------------
-| Load The Artisan Console Application
-|--------------------------------------------------------------------------
-|
-| We'll need to run the script to load and return the Artisan console
-| application. We keep this in its own script so that we will load
-| the console application independent of running commands which
-| will allow us to fire commands from Routes when we want to.
-|
-*/
-
-$app->setRequestForConsoleEnvironment();
-
-$artisan = Illuminate\Console\Application::start($app);
+$app = require_once __DIR__.'/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +40,10 @@ $artisan = Illuminate\Console\Application::start($app);
 |
 */
 
-$status = $artisan->run();
+$status = $app->make('Illuminate\Contracts\Console\Kernel')->handle(
+    new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -82,7 +55,5 @@ $status = $artisan->run();
 | down the process. This is the last thing to happen to the request.
 |
 */
-
-$app->shutdown();
 
 exit($status);

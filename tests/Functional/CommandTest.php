@@ -29,23 +29,28 @@ class CommandTest extends AbstractTestCase
 {
     public function testInstall()
     {
-        $this->assertEquals(0, $this->app['artisan']->call('app:install'));
+        $this->assertSame(0, $this->getKernel()->call('app:install'));
     }
 
     public function testReset()
     {
-        $this->assertEquals(0, $this->app['artisan']->call('migrate', array('--force' => true)));
-        $this->assertEquals(0, $this->app['artisan']->call('app:reset'));
+        $this->assertSame(0, $this->getKernel()->call('migrate', ['--force' => true]));
+        $this->assertSame(0, $this->getKernel()->call('app:reset'));
     }
 
     public function testUpdate()
     {
-        $this->assertEquals(0, $this->app['artisan']->call('app:update'));
+        $this->assertSame(0, $this->getKernel()->call('app:update'));
     }
 
     public function testResetAfterInstall()
     {
-        $this->assertEquals(0, $this->app['artisan']->call('app:install'));
-        $this->assertEquals(0, $this->app['artisan']->call('app:reset'));
+        $this->assertSame(0, $this->getKernel()->call('app:install'));
+        $this->assertSame(0, $this->getKernel()->call('app:reset'));
+    }
+
+    protected function getKernel()
+    {
+        return $this->app->make('Illuminate\Contracts\Console\Kernel');
     }
 }

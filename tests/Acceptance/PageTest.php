@@ -50,7 +50,7 @@ class PageTest extends AbstractTestCase
 
     public function testStoreFail()
     {
-        Credentials::shouldReceive('getuser')->once()->andReturn((object) array('id' => 1));
+        Credentials::shouldReceive('getuser')->once()->andReturn((object) ['id' => 1]);
 
         $this->call('POST', 'pages');
 
@@ -61,9 +61,9 @@ class PageTest extends AbstractTestCase
 
     public function testStoreSuccess()
     {
-        Credentials::shouldReceive('getuser')->once()->andReturn((object) array('id' => 1));
+        Credentials::shouldReceive('getuser')->once()->andReturn((object) ['id' => 1]);
 
-        $this->call('POST', 'pages', array(
+        $this->call('POST', 'pages', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'foobar',
@@ -74,7 +74,7 @@ class PageTest extends AbstractTestCase
             'show_title' => 'on',
             'show_nav'   => 'on',
 
-        ));
+        ]);
 
         $this->assertRedirectedTo('pages/foobar');
         $this->assertSessionHas('success');
@@ -121,7 +121,7 @@ class PageTest extends AbstractTestCase
 
     public function testUpdateHomeUrl()
     {
-        $this->call('PATCH', 'pages/home', array(
+        $this->call('PATCH', 'pages/home', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'foobar',
@@ -132,7 +132,7 @@ class PageTest extends AbstractTestCase
             'show_title' => 'on',
             'show_nav'   => 'on',
 
-        ));
+        ]);
 
         $this->assertRedirectedTo('pages/home/edit');
         $this->assertSessionHas('error');
@@ -141,7 +141,7 @@ class PageTest extends AbstractTestCase
 
     public function testUpdateHomeNav()
     {
-        $this->call('PATCH', 'pages/home', array(
+        $this->call('PATCH', 'pages/home', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'home',
@@ -152,7 +152,7 @@ class PageTest extends AbstractTestCase
             'show_title' => 'on',
             'show_nav'   => 'off',
 
-        ));
+        ]);
 
         $this->assertRedirectedTo('pages/home/edit');
         $this->assertSessionHas('error');
@@ -161,7 +161,7 @@ class PageTest extends AbstractTestCase
 
     public function testUpdateSuccess()
     {
-        $this->call('PATCH', 'pages/home', array(
+        $this->call('PATCH', 'pages/home', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'home',
@@ -172,7 +172,7 @@ class PageTest extends AbstractTestCase
             'show_title' => 'on',
             'show_nav'   => 'on',
 
-        ));
+        ]);
 
         $this->assertRedirectedTo('pages/home');
         $this->assertSessionHas('success');

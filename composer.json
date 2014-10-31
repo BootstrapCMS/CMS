@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/bootstrap-cms",
-    "description": "Bootstrap CMS Is A PHP CMS Powered By Laravel 4.2 And Sentry 2.1",
+    "description": "Bootstrap CMS Is A PHP CMS Powered By Laravel 5 And Sentry",
     "keywords": ["laravel", "framework", "sentry", "bootstrap", "cms", "bootstrap cms", "Bootstrap CMS", "Bootstrap-CMS", "blog", "login", "Graham Campbell", "GrahamCampbell"],
     "license": "AGPL-3.0",
     "authors": [
@@ -13,32 +13,35 @@
         {
             "type": "vcs",
             "url": "https://github.com/GrahamCampbell/asset"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/sentry"
         }
     ],
     "require": {
         "php": ">=5.4.7",
-        "laravel/framework": "~4.2.10",
-        "symfony/config": "2.5.*",
-        "symfony/event-dispatcher": "2.5.*",
-        "symfony/filesystem": "2.5.*",
-        "lightgear/asset": "1.4",
-        "graham-campbell/core": "~1.0",
-        "graham-campbell/database": "0.1.*",
-        "graham-campbell/queuing": "~1.0",
-        "graham-campbell/htmlmin": "~2.0",
-        "graham-campbell/markdown": "~2.0",
-        "graham-campbell/binput": "~2.0",
-        "graham-campbell/throttle": "~2.0",
-        "graham-campbell/credentials": "~0.3.3",
-        "graham-campbell/navigation": "~1.0",
-        "graham-campbell/contact": "~0.2.1",
-        "graham-campbell/logviewer": "~0.2.1",
-        "mccool/laravel-auto-presenter": "2.1.*",
-        "fideloper/proxy": "2.0.*",
-        "barryvdh/laravel-debugbar": "1.7.*"
+        "laravel/framework": "5.0.*",
+        "symfony/config": "2.6.*",
+        "symfony/event-dispatcher": "2.6.*",
+        "symfony/filesystem": "2.6.*",
+        "lightgear/asset": "1.5.*",
+        "graham-campbell/core": "~2.0",
+        "graham-campbell/database": "0.2.*",
+        "graham-campbell/htmlmin": "~3.0",
+        "graham-campbell/markdown": "~3.0",
+        "graham-campbell/binput": "~3.0",
+        "graham-campbell/throttle": "~3.0",
+        "graham-campbell/credentials": "0.4.*",
+        "graham-campbell/navigation": "~2.0",
+        "graham-campbell/contact": "0.3.*",
+        "graham-campbell/logviewer": "0.3.*",
+        "mccool/laravel-auto-presenter": "~3.0",
+        "fideloper/proxy": "dev-master as 2.0.x-dev",
+        "barryvdh/laravel-debugbar": "~1.7.15"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~1.0",
+        "graham-campbell/testbench": "~2.0",
         "doctrine/dbal": "~2.4"
     },
     "suggest": {
@@ -50,11 +53,10 @@
     },
     "autoload": {
         "classmap": [
-            "app/database/migrations",
-            "app/database/seeds"
+            "database"
         ],
         "psr-4": {
-            "GrahamCampbell\\BootstrapCMS\\": "src/"
+            "GrahamCampbell\\BootstrapCMS\\": "app/"
         }
     },
     "autoload-dev": {
@@ -65,6 +67,8 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",
+            "php artisan route:scan",
+            "php artisan event:scan",
             "php artisan optimize --force"
         ],
         "pre-update-cmd": [
@@ -72,6 +76,8 @@
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",
+            "php artisan route:scan",
+            "php artisan event:scan",
             "php artisan optimize --force"
         ],
         "post-create-project-cmd": [

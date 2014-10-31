@@ -38,9 +38,7 @@ abstract class AbstractTestCase extends TestCase
      */
     public function createApplication()
     {
-        $unitTesting = true;
-        $testEnvironment = 'testing';
-        return require __DIR__.'/../bootstrap/start.php';
+        return require __DIR__.'/../bootstrap/app.php';
     }
 
     /**
@@ -51,5 +49,17 @@ abstract class AbstractTestCase extends TestCase
     protected function getServiceProviderClass()
     {
         return 'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider';
+    }
+
+    /**
+     * Clean up the testing environment before the next test.
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        if ($this->app) {
+            $this->app->flush();
+        }
     }
 }

@@ -1,9 +1,9 @@
 Bootstrap CMS
 =============
 
-Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 4.2](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry). It utilises 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 5.0](http://laravel.com) and [Sentry](https://cartalyst.com/manual/sentry). It utilises 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
-![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4432326/c1990be0-468c-11e4-89ef-197316eeaa29.PNG)
+![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4432327/c1ae6436-468c-11e4-84eb-4e5e546da3ff.PNG)
 
 <p align="center">
 <a href="https://travis-ci.org/GrahamCampbell/Bootstrap-CMS"><img src="https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg?style=flat-square" alt="Build Status"></img></a>
@@ -16,7 +16,7 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 ## Installation
 
-[PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.3+, a database server, and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.3+, a database server, and [Composer](https://getcomposer.org) are required.
 
 1. There are 3 ways of grabbing the code:
   * Use GitHub: simply download the zip on the right of the readme
@@ -89,7 +89,7 @@ Bootstrap CMS can read [CloudFlare](https://www.cloudflare.com/) analytic data t
 
 GNU AFFERO GENERAL PUBLIC LICENSE
 
-Bootstrap CMS Is A PHP CMS Powered By Laravel And Sentry 2.1
+Bootstrap CMS Is A PHP CMS Powered By Laravel 5 And Sentry
 
 Copyright (C) 2013-2014  Graham Campbell
 

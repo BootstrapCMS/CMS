@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS\Acceptance;
 
-use GrahamCampbell\BootstrapCMS\Facades\PostProvider;
+use GrahamCampbell\BootstrapCMS\Facades\PostRepository;
 
 /**
  * This is the comment test class.
@@ -31,7 +31,7 @@ class CommentTest extends AbstractTestCase
 {
     public function testIndexFail()
     {
-        PostProvider::shouldReceive('find')->once()->with(1, array('id'));
+        PostRepository::shouldReceive('find')->once()->with(1, ['id']);
         $content = $this->call('GET', 'blog/posts/1/comments')->getContent();
 
         $this->assertResponseStatus(404);
