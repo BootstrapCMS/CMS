@@ -4,25 +4,25 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9afaf3db6cfcd0be4a5784917e3feb9",
+    "hash": "963b836f68554fcd2b09ec2819069f2b",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "dev-master",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "c3ee98b0213a738171dd79a8e1be4a0f98245762"
+                "reference": "97d92e663c5e8e391f701629a515951280e1b724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c3ee98b0213a738171dd79a8e1be4a0f98245762",
-                "reference": "c3ee98b0213a738171dd79a8e1be4a0f98245762",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/97d92e663c5e8e391f701629a515951280e1b724",
+                "reference": "97d92e663c5e8e391f701629a515951280e1b724",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "4.*|5.0.*",
-                "maximebf/debugbar": "~1.9.15",
+                "maximebf/debugbar": "1.10.*",
                 "php": ">=5.3.0",
                 "symfony/finder": "~2.3"
             },
@@ -58,7 +58,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-10-27 15:50:05"
+            "time": "2014-10-31 20:36:44"
         },
         {
             "name": "cartalyst/sentry",
@@ -434,16 +434,16 @@
         },
         {
             "name": "fideloper/proxy",
-            "version": "dev-master",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fideloper/TrustedProxy.git",
-                "reference": "5376ce057ed757f6b2e36fe275bbd3800f5d8791"
+                "reference": "3410a6b1279f1d78ca34497ccf39e7b39e5c188a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/5376ce057ed757f6b2e36fe275bbd3800f5d8791",
-                "reference": "5376ce057ed757f6b2e36fe275bbd3800f5d8791",
+                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/3410a6b1279f1d78ca34497ccf39e7b39e5c188a",
+                "reference": "3410a6b1279f1d78ca34497ccf39e7b39e5c188a",
                 "shasum": ""
             },
             "require": {
@@ -477,7 +477,7 @@
                 "proxy",
                 "trusted proxy"
             ],
-            "time": "2014-10-28 12:56:25"
+            "time": "2014-10-31 14:15:10"
         },
         {
             "name": "graham-campbell/binput",
@@ -1595,16 +1595,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "1.9.15",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "5d08b313576056234d464bedbba8ce1b26bcd918"
+                "reference": "348b49b3617c8295badef7f9fdb0aea15918154d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/5d08b313576056234d464bedbba8ce1b26bcd918",
-                "reference": "5d08b313576056234d464bedbba8ce1b26bcd918",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/348b49b3617c8295badef7f9fdb0aea15918154d",
+                "reference": "348b49b3617c8295badef7f9fdb0aea15918154d",
                 "shasum": ""
             },
             "require": {
@@ -1622,7 +1622,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.10-dev"
                 }
             },
             "autoload": {
@@ -1646,7 +1646,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2014-08-20 15:25:30"
+            "time": "2014-10-31 19:59:37"
         },
         {
             "name": "mccool/laravel-auto-presenter",
@@ -4290,18 +4290,9 @@
             "time": "2014-10-26 07:46:28"
         }
     ],
-    "aliases": [
-        {
-            "alias": "2.0.x-dev",
-            "alias_normalized": "2.0.9999999.9999999-dev",
-            "version": "9999999-dev",
-            "package": "fideloper/proxy"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "fideloper/proxy": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "platform": {
         "php": ">=5.4.7"
