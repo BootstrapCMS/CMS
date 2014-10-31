@@ -34,8 +34,8 @@
         "graham-campbell/contact": "~0.2.1",
         "graham-campbell/logviewer": "~0.2.1",
         "mccool/laravel-auto-presenter": "2.1.*",
-        "fideloper/proxy": "2.0.*",
-        "barryvdh/laravel-debugbar": "1.7.*"
+        "fideloper/proxy": "~2.1",
+        "barryvdh/laravel-debugbar": "1.8.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0",
