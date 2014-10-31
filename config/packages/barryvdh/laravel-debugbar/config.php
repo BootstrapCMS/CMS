@@ -115,6 +115,11 @@ return [
         'db' => [
             'with_params' => true,  // Render SQL with the parameters substituted
             'timeline'    => false, // Add the queries to the timeline
+            'explain'     => [      // EXPERIMENTAL: Show EXPLAIN output on queries
+                'enabled' => false,
+                'types'   => ['SELECT'], // ['SELECT', 'INSERT', 'UPDATE', 'DELETE']; for MySQL 5.6.3+
+            ],
+            'hints'       => true,  // Show hints for common mistakes
         ],
         'mail' => [
             'full_log' => false,
