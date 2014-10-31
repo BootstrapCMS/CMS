@@ -16,7 +16,6 @@
 
 namespace GrahamCampbell\BootstrapCMS\Presenters;
 
-use GrahamCampbell\BootstrapCMS\Models\Page;
 use McCool\LaravelAutoPresenter\BasePresenter;
 
 /**
