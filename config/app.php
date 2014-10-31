@@ -112,7 +112,7 @@ return [
         /*
          * Application Service Providers...
          */
-        'GrahamCampbell\BootstrapCMS\Repositories\EventServiceProvider',
+        'GrahamCampbell\BootstrapCMS\Providers\EventServiceProvider',
         'GrahamCampbell\BootstrapCMS\Providers\RouteServiceProvider',
 
         /*
