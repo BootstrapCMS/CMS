@@ -54,8 +54,6 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
-$response = $app->make('Illuminate\Contracts\Http\Kernel')->handle(
-    Illuminate\Http\Request::capture()
-);
+$response = $app->make('Illuminate\Contracts\Http\Kernel')->handle(Illuminate\Http\Request::capture());
 
 $response->send();
