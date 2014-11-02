@@ -14,7 +14,8 @@
  * GNU Affero General Public License for more details.
  */
 
- use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
+use GrahamCampbell\Throttle\Facades\Throttle;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 /*
 |--------------------------------------------------------------------------
