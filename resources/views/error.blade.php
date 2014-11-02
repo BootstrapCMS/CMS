@@ -9,7 +9,7 @@
 <meta name="description" content="{{ Config::get('platform.description') }}">
 <meta name="author" content="{{ Config::get('platform.author') }}">
 <style type="text/css">
-    @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+    @import url(//fonts.googleapis.com/css?family=Droid+Sans);
     article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
     audio,canvas,video{display:inline;zoom:1;}
     html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
