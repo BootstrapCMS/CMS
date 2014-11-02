@@ -14,9 +14,6 @@
  * GNU Affero General Public License for more details.
  */
 
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -29,7 +26,7 @@ use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 */
 
 // send users to the home page
-Route::get('/', ['as' => 'base', function () {
+$router->get('/', ['as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
     return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
@@ -37,7 +34,7 @@ Route::get('/', ['as' => 'base', function () {
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
-    Route::get('blog', ['as' => 'blog', function () {
+    $router->get('blog', ['as' => 'blog', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
         return Redirect::route('blog.posts.index');
@@ -45,39 +42,21 @@ if (Config::get('cms.blogging')) {
 }
 
 // page routes
-Route::resource('pages', 'GrahamCampbell\BootstrapCMS\Http\Controllers\PageController');
+$router->resource('pages', 'PageController');
 
 // blog routes
 if (Config::get('cms.blogging')) {
-    Route::resource('blog/posts', 'GrahamCampbell\BootstrapCMS\Http\Controllers\PostController');
-    Route::resource('blog/posts.comments', 'GrahamCampbell\BootstrapCMS\Http\Controllers\CommentController');
+    $router->resource('blog/posts', 'PostController');
+    $router->resource('blog/posts.comments', 'CommentController');
 }
 
 // event routes
 if (Config::get('cms.events')) {
-    Route::resource('events', 'GrahamCampbell\BootstrapCMS\Http\Controllers\EventController');
+    $router->resource('events', 'EventController');
 }
 
 // caching routes
-Route::get('caching', [
+$router->get('caching', [
     'as' => 'caching.index',
-    'uses' => 'GrahamCampbell\BootstrapCMS\Http\Controllers\CachingController@getIndex',
+    'uses' => 'CachingController@getIndex',
 ]);
-
-/*
-|--------------------------------------------------------------------------
-| Throttling Filters
-|--------------------------------------------------------------------------
-|
-| This is where we check the user is not spamming our system by limiting
-| certain types of actions with a throttler.
-|
-*/
-
-Route::filter('throttle.comment', function ($route, $request) {
-    // check if we've reached the rate limit, but don't hit the throttle yet
-    // we can hit the throttle later on in the if validation passes
-    if (!Throttle::check($request, 10, 1)) {
-        throw new TooManyRequestsHttpException(60, 'Rate limit exceed.');
-    }
-});

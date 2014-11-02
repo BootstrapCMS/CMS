@@ -45,7 +45,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function before(Router $router)
     {
-        //
+        require app_path('Http/filters.php');
     }
 
     /**
@@ -56,6 +56,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        require app_path('Http/routes.php');
+        $router->group(['namespace' => 'GrahamCampbell\BootstrapCMS\Http\Controllers'], function (Router $router) {
+            require app_path('Http/routes.php');
+        });
     }
 }
