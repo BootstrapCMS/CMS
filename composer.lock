@@ -3294,12 +3294,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "f99306acd08ed226bd2519442f52b3baf0a09514"
+                "reference": "ff8ec52e658829b9400f874fe61acf9553088867"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/f99306acd08ed226bd2519442f52b3baf0a09514",
-                "reference": "f99306acd08ed226bd2519442f52b3baf0a09514",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ff8ec52e658829b9400f874fe61acf9553088867",
+                "reference": "ff8ec52e658829b9400f874fe61acf9553088867",
                 "shasum": ""
             },
             "require": {
@@ -3337,7 +3337,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-10-28 20:14:47"
+            "time": "2014-11-03 06:18:03"
         },
         {
             "name": "graham-campbell/testbench",
