@@ -5,6 +5,8 @@ CHANGE LOG
 ## V0.9 Alpha (Upcoming)
 
 * Upgraded to laravel 5.0
+* Renamed providers to repositories
+* Cleaned up assets
 
 
 ## V0.8.2 Alpha (Upcoming)
