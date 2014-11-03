@@ -22,13 +22,6 @@ use Illuminate\Routing\Router;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * The controllers to scan for route annotations.
-     *
-     * @var array
-     */
-    protected $scan = [];
-
-    /**
      * All of the application's route middleware keys.
      *
      * @var array
