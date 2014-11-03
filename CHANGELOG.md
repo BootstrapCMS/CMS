@@ -2,6 +2,13 @@ CHANGE LOG
 ==========
 
 
+## V0.8.2 Alpha (Upcoming)
+
+* Updated dependencies
+* Fixed some flash messages
+* Fixed the datetime picker
+
+
 ## V0.8.1 Alpha (24/10/2014)
 
 * Asset updates
