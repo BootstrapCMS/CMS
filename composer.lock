@@ -2176,7 +2176,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
@@ -2224,7 +2224,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
@@ -2281,7 +2281,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
@@ -2337,7 +2337,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
@@ -2395,7 +2395,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
@@ -2442,7 +2442,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
@@ -2489,7 +2489,7 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
@@ -2542,17 +2542,17 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/HttpKernel",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "da46174dc0159ed5afbd8582ef40d8def62384d6"
+                "reference": "7fa0bd9220cd529ee78d8565bbf8d5a854bd72d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/da46174dc0159ed5afbd8582ef40d8def62384d6",
-                "reference": "da46174dc0159ed5afbd8582ef40d8def62384d6",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/7fa0bd9220cd529ee78d8565bbf8d5a854bd72d2",
+                "reference": "7fa0bd9220cd529ee78d8565bbf8d5a854bd72d2",
                 "shasum": ""
             },
             "require": {
@@ -2613,21 +2613,21 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-03 03:55:50"
+            "time": "2014-11-03 20:15:26"
         },
         {
             "name": "symfony/process",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Process",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "2f0db541a7de08dbe5a4b55acfbaf8e3e6b029d9"
+                "reference": "8cf0045eb7796aac695d5f4b865dea8438fb5131"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/2f0db541a7de08dbe5a4b55acfbaf8e3e6b029d9",
-                "reference": "2f0db541a7de08dbe5a4b55acfbaf8e3e6b029d9",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/8cf0045eb7796aac695d5f4b865dea8438fb5131",
+                "reference": "8cf0045eb7796aac695d5f4b865dea8438fb5131",
                 "shasum": ""
             },
             "require": {
@@ -2660,21 +2660,21 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2014-10-01 05:53:11"
+            "time": "2014-11-03 19:49:01"
         },
         {
             "name": "symfony/routing",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "3909bb01ed95fb2d4173646a3b3205ca0f07e0bf"
+                "reference": "f0bb6f818f9a7ece41c7dfe14e08b13c2de55b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/3909bb01ed95fb2d4173646a3b3205ca0f07e0bf",
-                "reference": "3909bb01ed95fb2d4173646a3b3205ca0f07e0bf",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/f0bb6f818f9a7ece41c7dfe14e08b13c2de55b0c",
+                "reference": "f0bb6f818f9a7ece41c7dfe14e08b13c2de55b0c",
                 "shasum": ""
             },
             "require": {
@@ -2727,11 +2727,11 @@
                 "uri",
                 "url"
             ],
-            "time": "2014-11-03 13:44:52"
+            "time": "2014-11-03 19:16:49"
         },
         {
             "name": "symfony/security-core",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Security/Core",
             "source": {
                 "type": "git",
@@ -2793,7 +2793,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Translation",
             "source": {
                 "type": "git",
@@ -3304,12 +3304,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "ff8ec52e658829b9400f874fe61acf9553088867"
+                "reference": "f2e47af024bafae929ae358a772e9b46526b09ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ff8ec52e658829b9400f874fe61acf9553088867",
-                "reference": "ff8ec52e658829b9400f874fe61acf9553088867",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/f2e47af024bafae929ae358a772e9b46526b09ee",
+                "reference": "f2e47af024bafae929ae358a772e9b46526b09ee",
                 "shasum": ""
             },
             "require": {
@@ -3328,12 +3328,12 @@
             "type": "application",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Symfony\\CS": "."
+                "psr-4": {
+                    "Symfony\\CS\\": "Symfony/CS/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3347,7 +3347,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-03 06:18:03"
+            "time": "2014-11-03 20:52:35"
         },
         {
             "name": "graham-campbell/testbench",
@@ -3485,12 +3485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/testbench.git",
-                "reference": "13cfee68433e69d6ba8d1b16a4d2aa37d312fa4b"
+                "reference": "7e971fe1b5c77b81b356bb3265442a691df1fb15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/testbench/zipball/13cfee68433e69d6ba8d1b16a4d2aa37d312fa4b",
-                "reference": "13cfee68433e69d6ba8d1b16a4d2aa37d312fa4b",
+                "url": "https://api.github.com/repos/GrahamCampbell/testbench/zipball/7e971fe1b5c77b81b356bb3265442a691df1fb15",
+                "reference": "7e971fe1b5c77b81b356bb3265442a691df1fb15",
                 "shasum": ""
             },
             "require": {
@@ -3540,7 +3540,7 @@
             "support": {
                 "source": "https://github.com/GrahamCampbell/testbench/tree/fix-logging"
             },
-            "time": "2014-11-03 15:18:07"
+            "time": "2014-11-03 17:14:46"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4209,7 +4209,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Stopwatch",
             "source": {
                 "type": "git",
@@ -4256,7 +4256,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "dev-master",
+            "version": "v2.6.0-BETA1",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
