@@ -147,7 +147,7 @@
 @stop
 
 @section('js')
-{!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js') !!}
+{!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js') !!}
 <script>
 var cmsCommentInterval = {!! Config::get('cms.commentfetch') !!};
 var cmsCommentTime = {!! Config::get('cms.commenttrans') !!};
