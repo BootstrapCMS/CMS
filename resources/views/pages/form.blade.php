@@ -59,9 +59,7 @@
     <div class="form-group{!! ($errors->has('show_title')) ? ' has-error' : '' !!}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="show_title">Show Title</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-            <div class="make-switch" data-on-label="<i class='fa fa-check fa-inverse'></i>" data-off-label="<i class='fa fa-times'>">
-                <input name="show_title" id="show_title" type="checkbox"{!! (Request::old('show_title', $form['defaults']['show_title']) == true) ? ' checked' : '' !!}>
-            </div>
+            <input class="make-switch" data-on-text="<i class='fa fa-check fa-inverse'></i>" data-off-text="<i class='fa fa-times'>" name="show_title" id="show_title" type="checkbox"{!! (Request::old('show_title', $form['defaults']['show_title']) == true) ? ' checked' : '' !!}>
             {!! ($errors->has('show_title') ? $errors->first('show_title') : '') !!}
         </div>
     </div>
@@ -69,9 +67,7 @@
     <div class="form-group{!! ($errors->has('show_nav')) ? ' has-error' : '' !!}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="show_nav">Show On Nav</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-            <div class="make-switch" data-on-label="<i class='fa fa-check fa-inverse'></i>" data-off-label="<i class='fa fa-times'>">
-                <input name="show_nav" id="show_nav" type="checkbox"{!! (Request::old('show_nav', $form['defaults']['show_nav']) == true) ? ' checked' : '' !!}>
-            </div>
+            <input class="make-switch" data-on-text="<i class='fa fa-check fa-inverse'></i>" data-off-text="<i class='fa fa-times'>" name="show_nav" id="show_nav" type="checkbox"{!! (Request::old('show_nav', $form['defaults']['show_nav']) == true) ? ' checked' : '' !!}>
             {!! ($errors->has('show_nav') ? $errors->first('show_nav') : '') !!}
         </div>
     </div>

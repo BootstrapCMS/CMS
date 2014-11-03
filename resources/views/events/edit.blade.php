@@ -47,13 +47,11 @@ Edit {{ $event->title }}
 @stop
 
 @section('css')
-{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.9/css/bootstrap3/bootstrap-switch.css') !!}
 {!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.7.0/css/bootstrap-markdown.min.css') !!}
 {!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css') !!}
 @stop
 
 @section('js')
-{!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.9/js/bootstrap-switch.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.7.0/js/bootstrap-markdown.min.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js') !!}
