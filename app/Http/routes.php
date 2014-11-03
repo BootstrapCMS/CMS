@@ -29,6 +29,7 @@
 $router->get('/', ['as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
+
     return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
 }, ]);
 
@@ -37,6 +38,7 @@ if (Config::get('cms.blogging')) {
     $router->get('blog', ['as' => 'blog', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
+
         return Redirect::route('blog.posts.index');
     }, ]);
 }

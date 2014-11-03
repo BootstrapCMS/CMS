@@ -71,6 +71,7 @@ class PageController extends AbstractController
     {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
+
         return Redirect::to($this->path);
     }
 

@@ -80,6 +80,7 @@ class CommentController extends AbstractController
         $post = PostRepository::find($postId, ['id']);
         if (!$post) {
             Session::flash('error', 'The post you were viewing has been deleted.');
+
             return Response::json([
                 'success' => false,
                 'code' => 404,
