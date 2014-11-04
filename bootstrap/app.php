@@ -48,6 +48,11 @@ $app->singleton(
     'GrahamCampbell\BootstrapCMS\Console\Kernel'
 );
 
+$app->singleton(
+    'Illuminate\Contracts\Debug\ExceptionHandler',
+    'GrahamCampbell\BootstrapCMS\Debug\ExceptionHandler'
+);
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

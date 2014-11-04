@@ -47,7 +47,9 @@ class Kernel extends HttpKernel
         try {
             return parent::handle($request);
         } catch (Exception $e) {
-            throw $e;
+            $this->reportException($e);
+
+            return $this->renderException($request, $e);
         }
     }
 }

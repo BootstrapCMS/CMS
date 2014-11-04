@@ -40,7 +40,9 @@ class Kernel extends ConsoleKernel
         try {
             return parent::handle($input, $output);
         } catch (Exception $e) {
-            $output->writeln((string) $e);
+            $this->reportException($e);
+
+            $this->renderException($output, $e);
 
             return 1;
         }
