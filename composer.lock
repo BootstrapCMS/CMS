@@ -3482,12 +3482,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
-                "reference": "ff8ec52e658829b9400f874fe61acf9553088867"
+                "reference": "a3d7bb945a57c2c4913478de2e5caffb3fc42035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/ff8ec52e658829b9400f874fe61acf9553088867",
-                "reference": "ff8ec52e658829b9400f874fe61acf9553088867",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/a3d7bb945a57c2c4913478de2e5caffb3fc42035",
+                "reference": "a3d7bb945a57c2c4913478de2e5caffb3fc42035",
                 "shasum": ""
             },
             "require": {
@@ -3506,12 +3506,12 @@
             "type": "application",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Symfony\\CS": "."
+                "psr-4": {
+                    "Symfony\\CS\\": "Symfony/CS/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3525,7 +3525,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-03 06:18:03"
+            "time": "2014-11-05 21:31:16"
         },
         {
             "name": "graham-campbell/testbench",
