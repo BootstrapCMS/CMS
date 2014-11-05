@@ -33,7 +33,7 @@ interface DisplayerInterface
      * @param \Exception $exception
      * @param int        $code
      *
-     * @return string
+     * @return string|array
      */
     public function display(Exception $exception, $code);
 }

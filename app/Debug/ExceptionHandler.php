@@ -22,6 +22,7 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Debug\ExceptionHandler as BaseHandler;
 use Psr\Log\LoggerInterface as Log;
 use Symfony\Component\Debug\Exception\FlattenException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -69,24 +70,37 @@ class ExceptionHandler extends BaseHandler
         $flattened = FlattenException::create($e);
 
         $code = $flattened->getStatusCode();
+        $ajax = $request->ajax();
+        $debug = $this->config->get('app.debug');
+
+        $content = $this->getContent($e, $code, $ajax, $debug);
+
         $headers = $flattened->getHeaders();
 
-        $content = $this->getContent($e, $code);
+        if (is_array($content)) {
+            return new JsonResponse($content, $code, $headers);
+        }
 
         return new Response($content, $code, $headers);
     }
 
     /**
-     * Get the HTML content associated with the given exception.
+     * Get the content associated with the given exception.
      *
      * @param \Exception $exception
      * @param int        $code
+     * @param bool       $ajax
+     * @param bool       $debug
      *
-     * @return string
+     * @return string|array
      */
-    protected function getContent(Exception $exception, $code)
+    protected function getContent(Exception $exception, $code, $ajax, $debug)
     {
-        if ($this->config->get('app.debug')) {
+        if ($ajax) {
+            return $this->container->make(AjaxDisplayer::class)->display($exception, $code);
+        }
+
+        if ($debug) {
             return $this->container->make(DebugDisplayer::class)->display($exception, $code);
         }
 

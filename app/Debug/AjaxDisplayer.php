@@ -17,47 +17,17 @@
 namespace GrahamCampbell\BootstrapCMS\Debug;
 
 use Exception;
-use Illuminate\Contracts\Config\Repository as Config;
-use Illuminate\Contracts\View\Factory as View;
 
 /**
- * This is the plain displayer class.
+ * This is the ajax displayer class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class PlainDisplayer implements DisplayerInterface
+class AjaxDisplayer implements DisplayerInterface
 {
     use InfoTrait;
-
-    /**
-     * The config repository instance.
-     *
-     * @var \Illuminate\Contracts\Config\Repository
-     */
-    protected $config;
-
-    /**
-     * The view factory instance.
-     *
-     * @var \Illuminate\Contracts\View\Factory
-     */
-    protected $view;
-
-    /**
-     * Create a new instance.
-     *
-     * @param \Illuminate\Contracts\Config\Repository $config
-     * @param \Illuminate\Contracts\View\Factory      $view
-     *
-     * @return string
-     */
-    public function __construct(Config $config, View $view)
-    {
-        $this->config = $config;
-        $this->view = $view;
-    }
 
     /**
      * Get the HTML content associated with the given exception.
@@ -65,13 +35,12 @@ class PlainDisplayer implements DisplayerInterface
      * @param \Exception $exception
      * @param int        $code
      *
-     * @return string
+     * @return array
      */
     public function display(Exception $exception, $code)
     {
-        $view = $this->config->get('views.error', 'error');
         $info = $this->info($code, $exception->getMessage());
 
-        return $this->view->make($view, $info)->render();
+        return ['success' => false, 'code' => $code, 'msg' => $info['extra']];
     }
 }
