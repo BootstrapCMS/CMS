@@ -17,8 +17,8 @@
 namespace GrahamCampbell\BootstrapCMS\Debug;
 
 use Exception;
-use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Config\Repository as Config;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Debug\ExceptionHandler as BaseHandler;
 use Psr\Log\LoggerInterface as Log;
 use Symfony\Component\Debug\Exception\FlattenException;
