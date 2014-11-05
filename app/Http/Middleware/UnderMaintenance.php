@@ -21,19 +21,27 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\Middleware;
 use Illuminate\Http\Response;
 
+/**
+ * This is the under maintenance middleware class.
+ *
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
+ */
 class UnderMaintenance implements Middleware
 {
     /**
-     * The application implementation.
+     * The application instance.
      *
-     * @var Application
+     * @var \Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
     /**
-     * Create a new filter instance.
+     * Create a new instance.
      *
-     * @param  Application $app
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
     public function __construct(Application $app)
@@ -44,8 +52,9 @@ class UnderMaintenance implements Middleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)

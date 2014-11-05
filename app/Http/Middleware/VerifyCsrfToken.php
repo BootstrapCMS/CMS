@@ -20,6 +20,13 @@ use Closure;
 use Illuminate\Contracts\Routing\Middleware;
 use Illuminate\Session\TokenMismatchException;
 
+/**
+ * This is the verify csrf middleware class.
+ *
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
+ */
 class VerifyCsrfToken implements Middleware
 {
     /**
@@ -33,11 +40,23 @@ class VerifyCsrfToken implements Middleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->method() == 'GET' || $this->tokensMatch($request)) {
+        if ($this->isReadOnly($request) || $this->tokensMatch($request)) {
             return $next($request);
         }
 
         throw new TokenMismatchException();
+    }
+
+    /**
+     * Determine if the HTTP request uses a ‘read’ verb.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return bool
+     */
+    protected function isReadOnly($request)
+    {
+        return in_array($request->method(), ['GET', 'OPTIONS']);
     }
 
     /**
@@ -48,6 +67,6 @@ class VerifyCsrfToken implements Middleware
      */
     protected function tokensMatch($request)
     {
-        return $request->session()->token() == $request->input('_token');
+        return $request->session()->token() === $request->input('_token');
     }
 }

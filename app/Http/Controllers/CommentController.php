@@ -19,6 +19,7 @@ namespace GrahamCampbell\BootstrapCMS\Http\Controllers;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\BootstrapCMS\Facades\CommentRepository;
 use GrahamCampbell\BootstrapCMS\Facades\PostRepository;
+use GrahamCampbell\Core\Http\Middleware\Ajax;
 use GrahamCampbell\Credentials\Facades\Credentials;
 use GrahamCampbell\Throttle\Throttlers\ThrottlerInterface;
 use Illuminate\Support\Facades\Response;
@@ -62,7 +63,8 @@ class CommentController extends AbstractController
             'destroy' => 'mod',
         ]);
 
-        $this->beforeFilter('ajax');
+        $this->middleware(Ajax::class);
+
         $this->beforeFilter('throttle.comment', ['only' => ['store']]);
 
         parent::__construct();

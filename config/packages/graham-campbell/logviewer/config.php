@@ -18,17 +18,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Filters
+    | Middleware
     |--------------------------------------------------------------------------
     |
-    | This defines the filters to be put in front of the endpoints provided by
-    | this package. A common use will be for your own authentication filters.
+    | This defines the middleware to be put in front of the endpoints provided
+    | by this package. A common use will be for your own authentication
+    | middleware.
     |
-    | Default to array().
+    | Default to [].
     |
     */
 
-    'filters' => ['credentials:admin'],
+    'middleware' => ['GrahamCampbell\Credentials\Http\Middleware\Auth\Admin'],
 
     /*
     |--------------------------------------------------------------------------
