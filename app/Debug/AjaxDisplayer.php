@@ -41,6 +41,6 @@ class AjaxDisplayer implements DisplayerInterface
     {
         $info = $this->info($code, $exception->getMessage());
 
-        return ['success' => false, 'code' => $code, 'msg' => $info['extra']];
+        return ['success' => false, 'code' => $info['code'], 'msg' => $info['extra']];
     }
 }
