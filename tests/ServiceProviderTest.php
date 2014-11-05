@@ -29,16 +29,6 @@ class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTestCaseTrait;
 
-    /**
-     * Run extra setup code.
-     *
-     * @return void
-     */
-    protected function start()
-    {
-        $this->markTestSkipped('Tests requiring the ioc are currently broken.');
-    }
-
     public function testNavigationFactoryIsInjectable()
     {
         $this->assertIsInjectable('GrahamCampbell\BootstrapCMS\Navigation\Factory');

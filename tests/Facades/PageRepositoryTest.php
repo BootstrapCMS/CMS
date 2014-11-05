@@ -31,16 +31,6 @@ class PageRepositoryTest extends AbstractTestCase
     use FacadeTestCaseTrait;
 
     /**
-     * Run extra setup code.
-     *
-     * @return void
-     */
-    protected function start()
-    {
-        $this->markTestSkipped('Tests requiring the ioc are currently broken.');
-    }
-
-    /**
      * Get the facade accessor.
      *
      * @return string

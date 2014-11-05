@@ -19,6 +19,8 @@ namespace GrahamCampbell\Tests\BootstrapCMS;
 use GrahamCampbell\TestBench\Traits\HelperTestCaseTrait;
 use GrahamCampbell\TestBench\Traits\LaravelTestCaseTrait;
 use Illuminate\Foundation\Testing\TestCase;
+use Orchestra\Testbench\Traits\ClientTrait as OrchestralClientTrait;
+use Orchestra\Testbench\Traits\PHPUnitAssertionsTrait as OrchestralAssertionsTrait;
 
 /**
  * This is the abstract test case class.
@@ -29,7 +31,7 @@ use Illuminate\Foundation\Testing\TestCase;
  */
 abstract class AbstractTestCase extends TestCase
 {
-    use HelperTestCaseTrait, LaravelTestCaseTrait;
+    use HelperTestCaseTrait, LaravelTestCaseTrait, OrchestralClientTrait, OrchestralAssertionsTrait;
 
     /**
      * Creates the application.
@@ -38,7 +40,22 @@ abstract class AbstractTestCase extends TestCase
      */
     public function createApplication()
     {
-        return require __DIR__.'/../bootstrap/app.php';
+        $app = require __DIR__.'/../bootstrap/app.php';
+
+        if (!$app->hasBeenBootstrapped()) {
+            $app->bootstrapWith([
+                'Illuminate\Foundation\Bootstrap\DetectEnvironment',
+                'Illuminate\Foundation\Bootstrap\LoadConfiguration',
+                'Illuminate\Foundation\Bootstrap\ConfigureLogging',
+                'Illuminate\Foundation\Bootstrap\HandleExceptions',
+                'Illuminate\Foundation\Bootstrap\RegisterFacades',
+                'Illuminate\Foundation\Bootstrap\SetRequestForConsole',
+                'Illuminate\Foundation\Bootstrap\RegisterProviders',
+                'Illuminate\Foundation\Bootstrap\BootProviders',
+            ]);
+        }
+
+        return $app;
     }
 
     /**

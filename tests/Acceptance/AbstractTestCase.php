@@ -34,8 +34,6 @@ abstract class AbstractTestCase extends BaseTestCase
      */
     protected function start()
     {
-        $this->markTestSkipped('Acceptance tests are currently broken.');
-
         $this->app->make('Illuminate\Contracts\Console\Kernel')->call('app:install');
     }
 
