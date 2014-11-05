@@ -16,11 +16,7 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS;
 
-use GrahamCampbell\TestBench\Traits\HelperTestCaseTrait;
-use GrahamCampbell\TestBench\Traits\LaravelTestCaseTrait;
-use Illuminate\Foundation\Testing\TestCase;
-use Orchestra\Testbench\Traits\ClientTrait as OrchestralClientTrait;
-use Orchestra\Testbench\Traits\PHPUnitAssertionsTrait as OrchestralAssertionsTrait;
+use GrahamCampbell\TestBench\AbstractAppTestCase;
 
 /**
  * This is the abstract test case class.
@@ -29,54 +25,17 @@ use Orchestra\Testbench\Traits\PHPUnitAssertionsTrait as OrchestralAssertionsTra
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-abstract class AbstractTestCase extends TestCase
+abstract class AbstractTestCase extends AbstractAppTestCase
 {
-    use HelperTestCaseTrait, LaravelTestCaseTrait, OrchestralClientTrait, OrchestralAssertionsTrait;
-
-    /**
-     * Creates the application.
-     *
-     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-     */
-    public function createApplication()
-    {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        if (!$app->hasBeenBootstrapped()) {
-            $app->bootstrapWith([
-                'Illuminate\Foundation\Bootstrap\DetectEnvironment',
-                'Illuminate\Foundation\Bootstrap\LoadConfiguration',
-                'Illuminate\Foundation\Bootstrap\ConfigureLogging',
-                'Illuminate\Foundation\Bootstrap\HandleExceptions',
-                'Illuminate\Foundation\Bootstrap\RegisterFacades',
-                'Illuminate\Foundation\Bootstrap\SetRequestForConsole',
-                'Illuminate\Foundation\Bootstrap\RegisterProviders',
-                'Illuminate\Foundation\Bootstrap\BootProviders',
-            ]);
-        }
-
-        return $app;
-    }
-
     /**
      * Get the service provider class.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return string
      */
-    protected function getServiceProviderClass()
+    protected function getServiceProviderClass($app)
     {
         return 'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider';
-    }
-
-    /**
-     * Clean up the testing environment before the next test.
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        if ($this->app) {
-            $this->app->flush();
-        }
     }
 }
