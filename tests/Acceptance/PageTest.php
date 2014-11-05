@@ -87,11 +87,13 @@ class PageTest extends AbstractTestCase
         $this->assertSessionHas('success');
     }
 
+    /**
+     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @expectedExceptionMessage Page Not Found
+     */
     public function testShowFail()
     {
         $this->call('GET', 'pages/error');
-
-        $this->assertResponseStatus(404);
     }
 
     public function testShowSuccess()
@@ -100,7 +102,7 @@ class PageTest extends AbstractTestCase
 
         $this->assertResponseOk();
 
-        $this->marktestIncomplete('assertSee is currently unimplemented.');
+        $this->markTestSkipped('assertSee is currently unimplemented.');
 
         $this->assertSee('Bootstrap CMS');
 
