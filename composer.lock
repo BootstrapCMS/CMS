@@ -543,12 +543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Binput.git",
-                "reference": "ad5e6b40e16ded8dc10282d0d35b33e855133c44"
+                "reference": "4a430fc025caee7844dd9dd1eda9658bffae2fc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/ad5e6b40e16ded8dc10282d0d35b33e855133c44",
-                "reference": "ad5e6b40e16ded8dc10282d0d35b33e855133c44",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/4a430fc025caee7844dd9dd1eda9658bffae2fc2",
+                "reference": "4a430fc025caee7844dd9dd1eda9658bffae2fc2",
                 "shasum": ""
             },
             "require": {
@@ -595,7 +595,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-11-03 23:00:19"
+            "time": "2014-11-05 19:32:35"
         },
         {
             "name": "graham-campbell/contact",
@@ -603,12 +603,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Contact.git",
-                "reference": "33fd8fac7618cde659b00c87a1337cdaaf1fb326"
+                "reference": "f1363f61e0cd1257c5de6ca8d3ab5568ffa38fc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/33fd8fac7618cde659b00c87a1337cdaaf1fb326",
-                "reference": "33fd8fac7618cde659b00c87a1337cdaaf1fb326",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/f1363f61e0cd1257c5de6ca8d3ab5568ffa38fc8",
+                "reference": "f1363f61e0cd1257c5de6ca8d3ab5568ffa38fc8",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +662,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-03 23:00:33"
+            "time": "2014-11-05 19:34:50"
         },
         {
             "name": "graham-campbell/core",
@@ -670,12 +670,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "801a0252a57dcefb730f37ab6cfda96b8de43ebb"
+                "reference": "4c8942c1db45d8ffc92c74247e1931db0c7aa1a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/801a0252a57dcefb730f37ab6cfda96b8de43ebb",
-                "reference": "801a0252a57dcefb730f37ab6cfda96b8de43ebb",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/4c8942c1db45d8ffc92c74247e1931db0c7aa1a6",
+                "reference": "4c8942c1db45d8ffc92c74247e1931db0c7aa1a6",
                 "shasum": ""
             },
             "require": {
@@ -721,7 +721,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2014-11-03 23:00:39"
+            "time": "2014-11-05 19:30:01"
         },
         {
             "name": "graham-campbell/credentials",
@@ -729,12 +729,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "1517914ce3514ee65460fd12311c0a0ce0d12b14"
+                "reference": "1e7ed432a5cd1d7d1731634712302f9671a5c056"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/1517914ce3514ee65460fd12311c0a0ce0d12b14",
-                "reference": "1517914ce3514ee65460fd12311c0a0ce0d12b14",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/1e7ed432a5cd1d7d1731634712302f9671a5c056",
+                "reference": "1e7ed432a5cd1d7d1731634712302f9671a5c056",
                 "shasum": ""
             },
             "require": {
@@ -804,7 +804,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-11-03 23:00:44"
+            "time": "2014-11-05 19:34:32"
         },
         {
             "name": "graham-campbell/database",
@@ -874,12 +874,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-HTMLMin.git",
-                "reference": "b3269f0fe9bb5ae0eff4b0acf04a656dc0b2e639"
+                "reference": "4f4bbb04c47d82b65d0364cfc9a2b0e893132a07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/b3269f0fe9bb5ae0eff4b0acf04a656dc0b2e639",
-                "reference": "b3269f0fe9bb5ae0eff4b0acf04a656dc0b2e639",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/4f4bbb04c47d82b65d0364cfc9a2b0e893132a07",
+                "reference": "4f4bbb04c47d82b65d0364cfc9a2b0e893132a07",
                 "shasum": ""
             },
             "require": {
@@ -928,7 +928,7 @@
                 "laravel",
                 "minifier"
             ],
-            "time": "2014-11-03 23:01:09"
+            "time": "2014-11-05 19:32:04"
         },
         {
             "name": "graham-campbell/logviewer",
@@ -936,12 +936,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-LogViewer.git",
-                "reference": "080761505505135bfae0d6800115cee3a35630e7"
+                "reference": "63be401304c86013ac674ce0fc7d4805a3092bdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-LogViewer/zipball/080761505505135bfae0d6800115cee3a35630e7",
-                "reference": "080761505505135bfae0d6800115cee3a35630e7",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-LogViewer/zipball/63be401304c86013ac674ce0fc7d4805a3092bdc",
+                "reference": "63be401304c86013ac674ce0fc7d4805a3092bdc",
                 "shasum": ""
             },
             "require": {
@@ -993,7 +993,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2014-11-03 23:01:13"
+            "time": "2014-11-05 21:10:28"
         },
         {
             "name": "graham-campbell/markdown",
@@ -1001,12 +1001,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "5933cf6cc985ac225dc3e26512512e3099f236e0"
+                "reference": "00680cdfa183d7c91679405806804d9e7090cdb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/5933cf6cc985ac225dc3e26512512e3099f236e0",
-                "reference": "5933cf6cc985ac225dc3e26512512e3099f236e0",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/00680cdfa183d7c91679405806804d9e7090cdb9",
+                "reference": "00680cdfa183d7c91679405806804d9e7090cdb9",
                 "shasum": ""
             },
             "require": {
@@ -1055,7 +1055,7 @@
                 "parsedown extra wrapper",
                 "parsedown wrapper"
             ],
-            "time": "2014-11-03 23:01:23"
+            "time": "2014-11-05 19:32:17"
         },
         {
             "name": "graham-campbell/navigation",
@@ -1063,12 +1063,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Navigation.git",
-                "reference": "a5c8f1f3edef59a49bb9904f6ccae28ab01a6ac0"
+                "reference": "d50500072771dd14dd73c02a1df48f6ab94eaee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/a5c8f1f3edef59a49bb9904f6ccae28ab01a6ac0",
-                "reference": "a5c8f1f3edef59a49bb9904f6ccae28ab01a6ac0",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/d50500072771dd14dd73c02a1df48f6ab94eaee0",
+                "reference": "d50500072771dd14dd73c02a1df48f6ab94eaee0",
                 "shasum": ""
             },
             "require": {
@@ -1113,7 +1113,7 @@
                 "navigation bar",
                 "navigation generator"
             ],
-            "time": "2014-11-03 23:01:27"
+            "time": "2014-11-05 19:34:13"
         },
         {
             "name": "graham-campbell/security",
@@ -1121,12 +1121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "c00741ba8413764af51d8d01a97c59e8dd5c99e4"
+                "reference": "dae872cd15f5e8e1bd43efa2a695e405ba140107"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/c00741ba8413764af51d8d01a97c59e8dd5c99e4",
-                "reference": "c00741ba8413764af51d8d01a97c59e8dd5c99e4",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/dae872cd15f5e8e1bd43efa2a695e405ba140107",
+                "reference": "dae872cd15f5e8e1bd43efa2a695e405ba140107",
                 "shasum": ""
             },
             "require": {
@@ -1134,8 +1134,7 @@
                 "php": ">=5.4.7"
             },
             "require-dev": {
-                "graham-campbell/testbench": "~2.0",
-                "orchestra/testbench": "dev-fix-logging as 3.0.x-dev"
+                "graham-campbell/testbench": "~2.0"
             },
             "type": "library",
             "extra": {
@@ -1169,7 +1168,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-11-03 15:30:37"
+            "time": "2014-11-05 19:32:26"
         },
         {
             "name": "graham-campbell/throttle",
@@ -1177,12 +1176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Throttle.git",
-                "reference": "202bc5afd38b81f638a85447c67db0fb4bb1f974"
+                "reference": "6cba7d788edbfb6537ccad68178ec0f2abbe141c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/202bc5afd38b81f638a85447c67db0fb4bb1f974",
-                "reference": "202bc5afd38b81f638a85447c67db0fb4bb1f974",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/6cba7d788edbfb6537ccad68178ec0f2abbe141c",
+                "reference": "6cba7d788edbfb6537ccad68178ec0f2abbe141c",
                 "shasum": ""
             },
             "require": {
@@ -1228,7 +1227,7 @@
                 "throttle",
                 "throttling"
             ],
-            "time": "2014-11-03 14:49:56"
+            "time": "2014-11-05 19:32:50"
         },
         {
             "name": "illuminate/html",
@@ -1369,12 +1368,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f01833bedb3237a7e9af373fb5a747b5172604ca"
+                "reference": "b6d1e7ecb0ad5375a7d8b0e99ce4ead16af8afc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f01833bedb3237a7e9af373fb5a747b5172604ca",
-                "reference": "f01833bedb3237a7e9af373fb5a747b5172604ca",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b6d1e7ecb0ad5375a7d8b0e99ce4ead16af8afc6",
+                "reference": "b6d1e7ecb0ad5375a7d8b0e99ce4ead16af8afc6",
                 "shasum": ""
             },
             "require": {
@@ -1476,7 +1475,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-04 21:27:54"
+            "time": "2014-11-05 21:03:40"
         },
         {
             "name": "leafo/lessphp",
@@ -1521,16 +1520,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "0.5.10",
+            "version": "0.5.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "96fe7ec1ebed35e3dc1e1dce4bbdab2eca0140a2"
+                "reference": "e046fe60d761e30691c642c9cc6a4089f724e805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/96fe7ec1ebed35e3dc1e1dce4bbdab2eca0140a2",
-                "reference": "96fe7ec1ebed35e3dc1e1dce4bbdab2eca0140a2",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e046fe60d761e30691c642c9cc6a4089f724e805",
+                "reference": "e046fe60d761e30691c642c9cc6a4089f724e805",
                 "shasum": ""
             },
             "require": {
@@ -1605,7 +1604,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-10-28 11:35:42"
+            "time": "2014-11-05 13:39:29"
         },
         {
             "name": "lightgear/asset",
@@ -3404,12 +3403,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "767e430b2f16d305f6a6bcd435443e4039172acc"
+                "reference": "23abf531e38b68ab3dc08cc95d4c7a553e25f374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/767e430b2f16d305f6a6bcd435443e4039172acc",
-                "reference": "767e430b2f16d305f6a6bcd435443e4039172acc",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/23abf531e38b68ab3dc08cc95d4c7a553e25f374",
+                "reference": "23abf531e38b68ab3dc08cc95d4c7a553e25f374",
                 "shasum": ""
             },
             "require": {
@@ -3460,7 +3459,7 @@
                 "laravel",
                 "test"
             ],
-            "time": "2014-11-03 14:48:58"
+            "time": "2014-11-05 21:19:45"
         },
         {
             "name": "mockery/mockery",
@@ -3534,12 +3533,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "c76f41cee75a1a012e4a45cd30fa228ac6e8c243"
+                "reference": "45ce47f1fdb753ec66f2f7d0952ea71d99fab7c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/c76f41cee75a1a012e4a45cd30fa228ac6e8c243",
-                "reference": "c76f41cee75a1a012e4a45cd30fa228ac6e8c243",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/45ce47f1fdb753ec66f2f7d0952ea71d99fab7c4",
+                "reference": "45ce47f1fdb753ec66f2f7d0952ea71d99fab7c4",
                 "shasum": ""
             },
             "require": {
@@ -3587,7 +3586,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2014-11-03 22:54:04"
+            "time": "2014-11-05 17:38:23"
         },
         {
             "name": "phpunit/php-code-coverage",
