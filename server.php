@@ -18,9 +18,9 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = urldecode($uri);
 
-$public = __DIR__ . '/public';
+$public = __DIR__.'/public';
 
-$requested = $public . $uri;
+$requested = $public.$uri;
 
 // This file allows us to emulate Apache's "mod_rewrite" functionality from the
 // built-in PHP web server. This provides a convenient way to test a Laravel
@@ -29,4 +29,4 @@ if ($uri !== '/' and file_exists($requested)) {
     return false;
 }
 
-require_once $public . '/index.php';
+require_once $public.'/index.php';
