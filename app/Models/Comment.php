@@ -23,7 +23,7 @@ use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
 use GrahamCampbell\Database\Models\AbstractModel;
-use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 /**
@@ -35,7 +35,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  */
 class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface, RevisionableInterface, HasPresenter
 {
-    use BelongsToPostTrait, BelongsToUserTrait, RevisionableTrait, SoftDeletingTrait;
+    use BelongsToPostTrait, BelongsToUserTrait, RevisionableTrait, SoftDeletes;
 
     /**
      * The table the comments are stored in.

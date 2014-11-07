@@ -21,7 +21,7 @@ use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
 use GrahamCampbell\Database\Models\AbstractModel;
-use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 /**
@@ -33,7 +33,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  */
 class Event extends AbstractModel implements BelongsToUserInterface, RevisionableInterface, HasPresenter
 {
-    use BelongsToUserTrait, RevisionableTrait, SoftDeletingTrait;
+    use BelongsToUserTrait, RevisionableTrait, SoftDeletes;
 
     /**
      * The table the events are stored in.
