@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "80fe14e999245dee67e0e4dbff678c24",
+    "hash": "2e80ba8b8771fbbe5faa29eaeee2d49a",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -729,12 +729,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "af47f60522397443f1eb1b91e9088738cc9b6878"
+                "reference": "0ff92d128ffa3e808b6efbd0fe2bb72e2635fcc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/af47f60522397443f1eb1b91e9088738cc9b6878",
-                "reference": "af47f60522397443f1eb1b91e9088738cc9b6878",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/0ff92d128ffa3e808b6efbd0fe2bb72e2635fcc2",
+                "reference": "0ff92d128ffa3e808b6efbd0fe2bb72e2635fcc2",
                 "shasum": ""
             },
             "require": {
@@ -804,7 +804,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-11-05 22:21:43"
+            "time": "2014-11-07 21:46:42"
         },
         {
             "name": "graham-campbell/database",
@@ -1116,6 +1116,75 @@
             "time": "2014-11-05 22:23:06"
         },
         {
+            "name": "graham-campbell/queuing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Queuing.git",
+                "reference": "d6fa05c6d236135ba0fb2d8f6f41825701decad7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/d6fa05c6d236135ba0fb2d8f6f41825701decad7",
+                "reference": "d6fa05c6d236135ba0fb2d8f6f41825701decad7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.0",
+                "illuminate/contracts": "~5.0",
+                "illuminate/queue": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.7"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "~2.4",
+                "graham-campbell/testbench": "~2.0",
+                "iron-io/iron_mq": "~1.4",
+                "pda/pheanstalk": "~3.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Enables the aws connector.",
+                "iron-io/iron_mq": "Enables the iron connector.",
+                "pda/pheanstalk": "Enables the beanstalk connector."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Queuing\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@mineuk.com"
+                }
+            ],
+            "description": "Queuing Provides Queuing Performance Increases Laravel 5",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Queuing",
+                "Laravel-Queuing",
+                "cron",
+                "email",
+                "framework",
+                "laravel",
+                "mail",
+                "queue",
+                "queuing"
+            ],
+            "time": "2014-11-07 21:47:50"
+        },
+        {
             "name": "graham-campbell/security",
             "version": "dev-master",
             "source": {
@@ -1368,12 +1437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "59498763d8d5666353ddfef7759dce3a74df88f0"
+                "reference": "249f1858ac1c435dcb72ff4cd6f7b06c9e0cba91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/59498763d8d5666353ddfef7759dce3a74df88f0",
-                "reference": "59498763d8d5666353ddfef7759dce3a74df88f0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/249f1858ac1c435dcb72ff4cd6f7b06c9e0cba91",
+                "reference": "249f1858ac1c435dcb72ff4cd6f7b06c9e0cba91",
                 "shasum": ""
             },
             "require": {
@@ -1475,7 +1544,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-06 19:08:51"
+            "time": "2014-11-07 16:16:04"
         },
         {
             "name": "leafo/lessphp",
@@ -3352,12 +3421,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "d14e0a2ad3d157d02e7db7dd8cf22df01f7c345f"
+                "reference": "144f2778b4edf26b182438028acffb2a87c6ff89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/d14e0a2ad3d157d02e7db7dd8cf22df01f7c345f",
-                "reference": "d14e0a2ad3d157d02e7db7dd8cf22df01f7c345f",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/144f2778b4edf26b182438028acffb2a87c6ff89",
+                "reference": "144f2778b4edf26b182438028acffb2a87c6ff89",
                 "shasum": ""
             },
             "require": {
@@ -3395,7 +3464,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-06 18:01:27"
+            "time": "2014-11-07 17:38:51"
         },
         {
             "name": "graham-campbell/testbench",
