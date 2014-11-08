@@ -74,10 +74,10 @@ return [
     | This is the author of your site. It will appear in the author head
     | element of every page except error pages.
     |
-    | Default to 'Bootstrap CMS is a PHP CMS powered by Laravel 4.2.'.
+    | Default to 'Bootstrap CMS is a PHP CMS powered by Laravel 5.'.
     |
     */
 
-    'description' => 'Bootstrap CMS is a PHP CMS powered by Laravel 4.2.',
+    'description' => 'Bootstrap CMS is a PHP CMS powered by Laravel 5.',
 
 ];

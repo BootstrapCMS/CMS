@@ -6,7 +6,7 @@
         <div class="visible-sm">
             <h1><?php echo Config::get("platform.name"); ?></h1>
         </div>
-        <p class="lead">Powered by Laravel 4 with Bootstrap CMS and Sentry 2</p>
+        <p class="lead">Powered by Laravel 5 with Bootstrap CMS and Sentry</p>
         <?php if (Config::get('graham-campbell/credentials::regallowed')) { ?>
             <a class="btn btn-lg btn-success" href="<?php echo URL::route("account.register"); ?>">Sign Up Today</a>
         <?php } else { ?>
@@ -18,7 +18,7 @@
 <div class="visible-xs">
     <div class="jumbotron">
         <h1><?php echo Config::get("platform.name"); ?></h1>
-        <p class="lead">Powered by Laravel 4 with Bootstrap CMS</p>
+        <p class="lead">Powered by Laravel 5 with Bootstrap CMS</p>
         <?php if (Config::get('graham-campbell/credentials::regallowed')) { ?>
             <a class="btn btn-lg btn-success" href="<?php echo URL::route("account.register"); ?>">Sign Up Today</a>
         <?php } else { ?>
@@ -33,7 +33,7 @@
 
     <div class="col-md-4 col-xs-12">
         <h2>Welcome</h2>
-        <p>Bootstrap CMS is a PHP CMS powered by <a href="http://laravel.com">Laravel 4.2</a> with <a href="https://github.com/GrahamCampbell/CMS-Core">Bootstrap CMS</a> and <a href="https://cartalyst.com/manual/sentry">Sentry 2</a>. Bootstrap CMS was created by, and is maintained by <a href="https://github.com/GrahamCampbell">Graham Campbell</a>.</p>
+        <p>Bootstrap CMS is a PHP CMS powered by <a href="http://laravel.com">Laravel 5</a> with <a href="https://github.com/GrahamCampbell/CMS-Core">Bootstrap CMS</a> and <a href="https://cartalyst.com/manual/sentry">Sentry</a>. Bootstrap CMS was created by, and is maintained by <a href="https://github.com/GrahamCampbell">Graham Campbell</a>.</p>
         <p>
             <a class="btn" href="<?php echo URL::route("pages.show", array("pages" => "about")); ?>">View details &raquo;</a>
         </p>
