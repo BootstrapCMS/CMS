@@ -603,12 +603,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Contact.git",
-                "reference": "b6af16a76a272979b71569e7de88c75e89b237cf"
+                "reference": "51fe83d5ec844acb70ea547a2a16f1c4c56864e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/b6af16a76a272979b71569e7de88c75e89b237cf",
-                "reference": "b6af16a76a272979b71569e7de88c75e89b237cf",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/51fe83d5ec844acb70ea547a2a16f1c4c56864e3",
+                "reference": "51fe83d5ec844acb70ea547a2a16f1c4c56864e3",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +662,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-05 22:21:34"
+            "time": "2014-11-08 11:23:16"
         },
         {
             "name": "graham-campbell/core",
@@ -1121,12 +1121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Queuing.git",
-                "reference": "d6fa05c6d236135ba0fb2d8f6f41825701decad7"
+                "reference": "c51c84bf5e80badf1f990fc00d50f78bddfd0d33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/d6fa05c6d236135ba0fb2d8f6f41825701decad7",
-                "reference": "d6fa05c6d236135ba0fb2d8f6f41825701decad7",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/c51c84bf5e80badf1f990fc00d50f78bddfd0d33",
+                "reference": "c51c84bf5e80badf1f990fc00d50f78bddfd0d33",
                 "shasum": ""
             },
             "require": {
@@ -1182,7 +1182,7 @@
                 "queue",
                 "queuing"
             ],
-            "time": "2014-11-07 21:47:50"
+            "time": "2014-11-08 11:33:04"
         },
         {
             "name": "graham-campbell/security",
