@@ -60,7 +60,7 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 
 ## Setting Up Themes
 
-Bootstrap CMS also ships with 19 themes, 17 from [Bootswatch](http://bootswatch.com).
+Bootstrap CMS also ships with 18 themes, 16 from [Bootswatch](http://bootswatch.com).
 
 1. You can set your theme in `config/theme.php`.
 2. You can also set your nav bar style in `config/theme.php`.

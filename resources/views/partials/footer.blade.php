@@ -24,7 +24,7 @@
 
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.min.js') !!}
-{!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js') !!}
+{!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js') !!}
 {!! Asset::scripts('main') !!}
 @section('js')
 @show
