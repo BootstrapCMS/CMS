@@ -25,11 +25,14 @@ return [
     | API, giving you convenient access to each back-end using the same
     | syntax for each one. Here you may set the default queue driver.
     |
-    | Supported: "sync", "beanstalkd", "sqs", "iron", "redis"
+    | Note that the async driver provided by Barry vd. Heuvel's Async Queue
+    | Driver package (https://github.com/barryvdh/laravel-async-queue).
+    |
+    | Supported: "sync", "async", "beanstalkd", "sqs", "iron", "redis"
     |
     */
 
-    'default' => 'sync',
+    'default' => 'async',
 
     /*
     |--------------------------------------------------------------------------
@@ -46,6 +49,10 @@ return [
 
         'sync' => [
             'driver' => 'sync',
+        ],
+
+        'async' => [
+            'driver' => 'async',
         ],
 
         'beanstalkd' => [

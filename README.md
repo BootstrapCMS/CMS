@@ -40,11 +40,11 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 ## Setting Up Queuing
 
-Bootstrap CMS's queuing is powered by my [Laravel Queuing](https://github.com/GrahamCampbell/Laravel-Queuing) package, and requires no configuration behond what Laravel's queuing would otherwise require.
+Bootstrap CMS allows you to use any of Laravel's queue drivers, but by default, will use the async driver provided by Barry vd. Heuvel's [Async Queue Driver](https://github.com/barryvdh/laravel-async-queue) package.
 
-1. Choose your poison - I'd recommend [Beanskalkd](http://kr.github.io/beanstalkd).
-2. Enter your queue server details into `config/queue.php`.
-3. Laravel Queuing provides a quickstart command for iron queuing. Simply run `php artisan queue:iron`.
+1. Enter your queue server details into `config/queue.php`.
+2. If you're using the `sync` driver or the `async` driver, your done here.
+3. If you're using one of the other drivers, check out the Laravel docs.
 
 
 ## Setting Up Caching
