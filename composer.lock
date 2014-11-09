@@ -979,16 +979,16 @@
         },
         {
             "name": "graham-campbell/queuing",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Queuing.git",
-                "reference": "37965f5e0f1ca6e75e5da5aa68692d3ea4c526bb"
+                "reference": "7e060b53a6fae250957a57e2997ccf0790eeedb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/37965f5e0f1ca6e75e5da5aa68692d3ea4c526bb",
-                "reference": "37965f5e0f1ca6e75e5da5aa68692d3ea4c526bb",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/7e060b53a6fae250957a57e2997ccf0790eeedb0",
+                "reference": "7e060b53a6fae250957a57e2997ccf0790eeedb0",
                 "shasum": ""
             },
             "require": {
@@ -1009,6 +1009,11 @@
                 "pda/pheanstalk": "Enables the beanstalk connector."
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Queuing\\": "src/"
@@ -1038,7 +1043,7 @@
                 "queue",
                 "queuing"
             ],
-            "time": "2014-10-19 14:36:59"
+            "time": "2014-11-09 15:56:58"
         },
         {
             "name": "graham-campbell/security",
