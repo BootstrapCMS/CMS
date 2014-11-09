@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2e80ba8b8771fbbe5faa29eaeee2d49a",
+    "hash": "80fe14e999245dee67e0e4dbff678c24",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1114,75 +1114,6 @@
                 "navigation generator"
             ],
             "time": "2014-11-05 22:23:06"
-        },
-        {
-            "name": "graham-campbell/queuing",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Queuing.git",
-                "reference": "c51c84bf5e80badf1f990fc00d50f78bddfd0d33"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Queuing/zipball/c51c84bf5e80badf1f990fc00d50f78bddfd0d33",
-                "reference": "c51c84bf5e80badf1f990fc00d50f78bddfd0d33",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~5.0",
-                "illuminate/contracts": "~5.0",
-                "illuminate/queue": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.7"
-            },
-            "require-dev": {
-                "aws/aws-sdk-php": "~2.4",
-                "graham-campbell/testbench": "~2.0",
-                "iron-io/iron_mq": "~1.4",
-                "pda/pheanstalk": "~3.0"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "Enables the aws connector.",
-                "iron-io/iron_mq": "Enables the iron connector.",
-                "pda/pheanstalk": "Enables the beanstalk connector."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Queuing\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@mineuk.com"
-                }
-            ],
-            "description": "Queuing Provides Queuing Performance Increases Laravel 5",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Queuing",
-                "Laravel-Queuing",
-                "cron",
-                "email",
-                "framework",
-                "laravel",
-                "mail",
-                "queue",
-                "queuing"
-            ],
-            "time": "2014-11-08 11:33:04"
         },
         {
             "name": "graham-campbell/security",
