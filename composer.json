@@ -28,7 +28,6 @@
         "lightgear/asset": "1.5.*",
         "graham-campbell/core": "~2.0",
         "graham-campbell/database": "0.2.*",
-        "graham-campbell/queuing": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
         "graham-campbell/markdown": "~3.0",
         "graham-campbell/binput": "~3.0",
