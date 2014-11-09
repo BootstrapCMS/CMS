@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/laravel-async-queue.git",
-                "reference": "e3b7094c9e1be1cc90603bac8224d3dd49030781"
+                "reference": "0a2a293c1f8cc1108dd344027fe8b6b00767144c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/laravel-async-queue/zipball/e3b7094c9e1be1cc90603bac8224d3dd49030781",
-                "reference": "e3b7094c9e1be1cc90603bac8224d3dd49030781",
+                "url": "https://api.github.com/repos/GrahamCampbell/laravel-async-queue/zipball/0a2a293c1f8cc1108dd344027fe8b6b00767144c",
+                "reference": "0a2a293c1f8cc1108dd344027fe8b6b00767144c",
                 "shasum": ""
             },
             "require": {
@@ -25,7 +25,6 @@
                 "illuminate/contracts": "~5.0",
                 "illuminate/support": "~5.0",
                 "php": ">=5.4.0",
-                "sebastian/environment": "~1.0",
                 "symfony/process": "~2.3"
             },
             "type": "library",
@@ -48,7 +47,7 @@
             "support": {
                 "source": "https://github.com/GrahamCampbell/laravel-async-queue/tree/laravel5"
             },
-            "time": "2014-11-09 15:41:01"
+            "time": "2014-11-09 19:41:54"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -647,12 +646,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Contact.git",
-                "reference": "51fe83d5ec844acb70ea547a2a16f1c4c56864e3"
+                "reference": "6fb1138e26129bb904b75df3f63eb208fb411e6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/51fe83d5ec844acb70ea547a2a16f1c4c56864e3",
-                "reference": "51fe83d5ec844acb70ea547a2a16f1c4c56864e3",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/6fb1138e26129bb904b75df3f63eb208fb411e6d",
+                "reference": "6fb1138e26129bb904b75df3f63eb208fb411e6d",
                 "shasum": ""
             },
             "require": {
@@ -669,9 +668,6 @@
             },
             "require-dev": {
                 "graham-campbell/testbench": "~2.0"
-            },
-            "suggest": {
-                "graham-campbell/queuing": "Improved mailer performance."
             },
             "type": "library",
             "extra": {
@@ -706,7 +702,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-08 11:23:16"
+            "time": "2014-11-09 15:56:24"
         },
         {
             "name": "graham-campbell/core",
@@ -773,12 +769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "0ff92d128ffa3e808b6efbd0fe2bb72e2635fcc2"
+                "reference": "1a086767345e7fbe246bf2916e7eedb31889e1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/0ff92d128ffa3e808b6efbd0fe2bb72e2635fcc2",
-                "reference": "0ff92d128ffa3e808b6efbd0fe2bb72e2635fcc2",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/1a086767345e7fbe246bf2916e7eedb31889e1ae",
+                "reference": "1a086767345e7fbe246bf2916e7eedb31889e1ae",
                 "shasum": ""
             },
             "require": {
@@ -807,8 +803,7 @@
                 "graham-campbell/testbench": "~2.0"
             },
             "suggest": {
-                "graham-campbell/navigation": "Easily add a navigation bar.",
-                "graham-campbell/queuing": "Improved mailer performance."
+                "graham-campbell/navigation": "Easily add a navigation bar."
             },
             "type": "library",
             "extra": {
@@ -848,7 +843,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-11-07 21:46:42"
+            "time": "2014-11-09 15:56:34"
         },
         {
             "name": "graham-campbell/database",
@@ -2213,56 +2208,6 @@
                 "diff"
             ],
             "time": "2014-08-15 10:29:00"
-        },
-        {
-            "name": "sebastian/environment",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "0d9bf79554d2a999da194a60416c15cf461eb67d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/0d9bf79554d2a999da194a60416c15cf461eb67d",
-                "reference": "0d9bf79554d2a999da194a60416c15cf461eb67d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de"
-                }
-            ],
-            "description": "Provides functionality to handle HHVM/PHP environments",
-            "homepage": "http://www.github.com/sebastianbergmann/environment",
-            "keywords": [
-                "Xdebug",
-                "environment",
-                "hhvm"
-            ],
-            "time": "2014-10-22 06:38:05"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4121,6 +4066,56 @@
                 "equality"
             ],
             "time": "2014-05-11 23:00:21"
+        },
+        {
+            "name": "sebastian/environment",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/environment.git",
+                "reference": "0d9bf79554d2a999da194a60416c15cf461eb67d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/0d9bf79554d2a999da194a60416c15cf461eb67d",
+                "reference": "0d9bf79554d2a999da194a60416c15cf461eb67d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Provides functionality to handle HHVM/PHP environments",
+            "homepage": "http://www.github.com/sebastianbergmann/environment",
+            "keywords": [
+                "Xdebug",
+                "environment",
+                "hhvm"
+            ],
+            "time": "2014-10-22 06:38:05"
         },
         {
             "name": "sebastian/exporter",
