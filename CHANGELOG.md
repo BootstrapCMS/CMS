@@ -7,6 +7,7 @@ CHANGE LOG
 * Updated dependencies
 * Fixed some flash messages
 * Fixed the datetime picker
+* Patched the laravel csrf vulnerability
 
 
 ## V0.8.1 Alpha (24/10/2014)

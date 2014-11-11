@@ -48,7 +48,7 @@ App::after(function ($request, $response) {
 */
 
 Route::filter('csrf', function () {
-    if (Session::token() != Input::get('_token')) {
+    if (Session::token() !== Input::get('_token')) {
         throw new TokenMismatchException();
     }
 });
