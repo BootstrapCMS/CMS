@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/laravel-async-queue.git",
-                "reference": "0a2a293c1f8cc1108dd344027fe8b6b00767144c"
+                "reference": "c0d6e20f4cfd5001127bca1b74a095b7878b3abf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/laravel-async-queue/zipball/0a2a293c1f8cc1108dd344027fe8b6b00767144c",
-                "reference": "0a2a293c1f8cc1108dd344027fe8b6b00767144c",
+                "url": "https://api.github.com/repos/GrahamCampbell/laravel-async-queue/zipball/c0d6e20f4cfd5001127bca1b74a095b7878b3abf",
+                "reference": "c0d6e20f4cfd5001127bca1b74a095b7878b3abf",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
             "support": {
                 "source": "https://github.com/GrahamCampbell/laravel-async-queue/tree/laravel5"
             },
-            "time": "2014-11-09 19:41:54"
+            "time": "2014-11-09 20:18:34"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1407,12 +1407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "249f1858ac1c435dcb72ff4cd6f7b06c9e0cba91"
+                "reference": "ee28bb0cf071e3f4498b737602c0d619d415caae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/249f1858ac1c435dcb72ff4cd6f7b06c9e0cba91",
-                "reference": "249f1858ac1c435dcb72ff4cd6f7b06c9e0cba91",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ee28bb0cf071e3f4498b737602c0d619d415caae",
+                "reference": "ee28bb0cf071e3f4498b737602c0d619d415caae",
                 "shasum": ""
             },
             "require": {
@@ -1423,7 +1423,7 @@
                 "ext-openssl": "*",
                 "ircmaxell/password-compat": "~1.0",
                 "jeremeamia/superclosure": "~1.0.1",
-                "league/flysystem": "0.5.*",
+                "league/flysystem": "0.6.*",
                 "monolog/monolog": "~1.6",
                 "nesbot/carbon": "~1.0",
                 "patchwork/utf8": "~1.1",
@@ -1514,7 +1514,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-07 16:16:04"
+            "time": "2014-11-11 18:52:01"
         },
         {
             "name": "leafo/lessphp",
@@ -1559,16 +1559,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "0.5.12",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "e046fe60d761e30691c642c9cc6a4089f724e805"
+                "reference": "9798895e42bae490e58d027cd7c1b4e731721a04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e046fe60d761e30691c642c9cc6a4089f724e805",
-                "reference": "e046fe60d761e30691c642c9cc6a4089f724e805",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9798895e42bae490e58d027cd7c1b4e731721a04",
+                "reference": "9798895e42bae490e58d027cd7c1b4e731721a04",
                 "shasum": ""
             },
             "require": {
@@ -1579,7 +1579,6 @@
                 "barracuda/copy": "~1.1.4",
                 "dropbox/dropbox-sdk": "~1.1.1",
                 "ext-fileinfo": "*",
-                "guzzlehttp/guzzle": "~4.0",
                 "league/event": "~1.0",
                 "league/phpunit-coverage-listener": "~1.1",
                 "mockery/mockery": "~0.9",
@@ -1587,7 +1586,7 @@
                 "phpspec/phpspec": "~2.0",
                 "phpunit/phpunit": "~4.0",
                 "predis/predis": "~1.0",
-                "rackspace/php-opencloud": "~1.10.0",
+                "rackspace/php-opencloud": "~1.11",
                 "sabre/dav": "~2.0.2",
                 "tedivm/stash": "~0.12.0"
             },
@@ -1607,7 +1606,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -1643,7 +1642,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-11-05 13:39:29"
+            "time": "2014-11-11 20:12:28"
         },
         {
             "name": "lightgear/asset",
@@ -3391,12 +3390,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "144f2778b4edf26b182438028acffb2a87c6ff89"
+                "reference": "83b76a26d11c1a3f0da76db6cb2d349e14d94696"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/144f2778b4edf26b182438028acffb2a87c6ff89",
-                "reference": "144f2778b4edf26b182438028acffb2a87c6ff89",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/83b76a26d11c1a3f0da76db6cb2d349e14d94696",
+                "reference": "83b76a26d11c1a3f0da76db6cb2d349e14d94696",
                 "shasum": ""
             },
             "require": {
@@ -3434,7 +3433,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-07 17:38:51"
+            "time": "2014-11-11 19:16:56"
         },
         {
             "name": "graham-campbell/testbench",
@@ -3572,12 +3571,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "45ce47f1fdb753ec66f2f7d0952ea71d99fab7c4"
+                "reference": "a38009e63276db1adc9c2b2ce07d0f202ebeb585"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/45ce47f1fdb753ec66f2f7d0952ea71d99fab7c4",
-                "reference": "45ce47f1fdb753ec66f2f7d0952ea71d99fab7c4",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/a38009e63276db1adc9c2b2ce07d0f202ebeb585",
+                "reference": "a38009e63276db1adc9c2b2ce07d0f202ebeb585",
                 "shasum": ""
             },
             "require": {
@@ -3625,7 +3624,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2014-11-05 17:38:23"
+            "time": "2014-11-11 10:16:30"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3876,16 +3875,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.3.4",
+            "version": "4.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "23e4e0310f037aae873cc81b8658dbbb82878f71"
+                "reference": "2dab9d593997db4abcf58d0daf798eb4e9cecfe1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/23e4e0310f037aae873cc81b8658dbbb82878f71",
-                "reference": "23e4e0310f037aae873cc81b8658dbbb82878f71",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2dab9d593997db4abcf58d0daf798eb4e9cecfe1",
+                "reference": "2dab9d593997db4abcf58d0daf798eb4e9cecfe1",
                 "shasum": ""
             },
             "require": {
@@ -3946,7 +3945,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-10-22 11:43:12"
+            "time": "2014-11-11 10:11:09"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
