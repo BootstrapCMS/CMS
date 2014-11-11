@@ -27,13 +27,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        'GrahamCampbell\BootstrapCMS\Http\Middleware\UnderMaintenance',
+        // 'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
         'Illuminate\Cookie\Middleware\EncryptCookies',
-        'Illuminate\Cookie\Middleware\AddQueuedCookiesToRequest',
-        'Illuminate\Session\Middleware\ReadSession',
-        'Illuminate\Session\Middleware\WriteSession',
+        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+        'Illuminate\Session\Middleware\StartSession',
         'Illuminate\View\Middleware\ShareErrorsFromSession',
-        // 'GrahamCampbell\BootstrapCMS\Http\Middleware\VerifyCsrfToken',
+        // 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
     ];
 
     /**
