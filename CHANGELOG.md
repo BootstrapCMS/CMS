@@ -10,7 +10,7 @@ CHANGE LOG
 * Cleaned up assets
 
 
-## V0.8.2 Alpha (Upcoming)
+## V0.8.2 Alpha (12/11/2014)
 
 * Updated dependencies
 * Fixed some flash messages
