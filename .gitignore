@@ -1,6 +1,4 @@
 /.idea
 /vendor
 phpunit.xml
-/bootstrap/compiled.php
-.env.*.php
-.env.php
+.env
