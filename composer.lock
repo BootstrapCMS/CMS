@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/laravel-async-queue.git",
-                "reference": "c0d6e20f4cfd5001127bca1b74a095b7878b3abf"
+                "reference": "627bb6b42a406c2e70782e2567cc5b6e11e1fe76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/laravel-async-queue/zipball/c0d6e20f4cfd5001127bca1b74a095b7878b3abf",
-                "reference": "c0d6e20f4cfd5001127bca1b74a095b7878b3abf",
+                "url": "https://api.github.com/repos/GrahamCampbell/laravel-async-queue/zipball/627bb6b42a406c2e70782e2567cc5b6e11e1fe76",
+                "reference": "627bb6b42a406c2e70782e2567cc5b6e11e1fe76",
                 "shasum": ""
             },
             "require": {
@@ -34,6 +34,9 @@
                 }
             },
             "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
                 "psr-4": {
                     "Barryvdh\\Queue\\": "src/"
                 }
@@ -47,7 +50,7 @@
             "support": {
                 "source": "https://github.com/GrahamCampbell/laravel-async-queue/tree/laravel5"
             },
-            "time": "2014-11-09 20:18:34"
+            "time": "2014-11-13 23:00:33"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1407,12 +1410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ee28bb0cf071e3f4498b737602c0d619d415caae"
+                "reference": "882acae8e87a7c7096856fae8a260c97d4c76a3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ee28bb0cf071e3f4498b737602c0d619d415caae",
-                "reference": "ee28bb0cf071e3f4498b737602c0d619d415caae",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/882acae8e87a7c7096856fae8a260c97d4c76a3f",
+                "reference": "882acae8e87a7c7096856fae8a260c97d4c76a3f",
                 "shasum": ""
             },
             "require": {
@@ -1514,7 +1517,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-11 18:52:01"
+            "time": "2014-11-13 20:24:41"
         },
         {
             "name": "leafo/lessphp",
@@ -1563,12 +1566,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "9798895e42bae490e58d027cd7c1b4e731721a04"
+                "reference": "6c5cdca78bf633363b00bfad9e1cacd7c1626f1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9798895e42bae490e58d027cd7c1b4e731721a04",
-                "reference": "9798895e42bae490e58d027cd7c1b4e731721a04",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/6c5cdca78bf633363b00bfad9e1cacd7c1626f1a",
+                "reference": "6c5cdca78bf633363b00bfad9e1cacd7c1626f1a",
                 "shasum": ""
             },
             "require": {
@@ -1642,7 +1645,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-11-11 20:12:28"
+            "time": "2014-11-13 00:38:34"
         },
         {
             "name": "lightgear/asset",
@@ -3386,16 +3389,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "v1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "ca95dbf448807420c0d78d447c250263c71080cf"
+                "reference": "6b4028b4250da22707d213a50138ca389334095e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/ca95dbf448807420c0d78d447c250263c71080cf",
-                "reference": "ca95dbf448807420c0d78d447c250263c71080cf",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/6b4028b4250da22707d213a50138ca389334095e",
+                "reference": "6b4028b4250da22707d213a50138ca389334095e",
                 "shasum": ""
             },
             "require": {
@@ -3414,7 +3417,7 @@
             "type": "application",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -3433,7 +3436,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-12 19:31:29"
+            "time": "2014-11-13 18:27:54"
         },
         {
             "name": "graham-campbell/testbench",
@@ -3441,16 +3444,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "7a424ac2b3c1b27638cd7ff19e3c44ac86428904"
+                "reference": "a64c17e415dd53f0d63c1a20171d870093f544ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/7a424ac2b3c1b27638cd7ff19e3c44ac86428904",
-                "reference": "7a424ac2b3c1b27638cd7ff19e3c44ac86428904",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/a64c17e415dd53f0d63c1a20171d870093f544ab",
+                "reference": "a64c17e415dd53f0d63c1a20171d870093f544ab",
                 "shasum": ""
             },
             "require": {
-                "fabpot/php-cs-fixer": "~1.0",
+                "fabpot/php-cs-fixer": "~1.1",
                 "illuminate/html": "5.0.*",
                 "laravel/framework": "5.0.*",
                 "mockery/mockery": "~0.9.2",
@@ -3497,7 +3500,7 @@
                 "laravel",
                 "test"
             ],
-            "time": "2014-11-05 22:23:23"
+            "time": "2014-11-13 22:36:30"
         },
         {
             "name": "mockery/mockery",
