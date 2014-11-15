@@ -58,7 +58,4 @@ if (Config::get('cms.events')) {
 }
 
 // caching routes
-$router->get('caching', [
-    'as'   => 'caching.index',
-    'uses' => 'CachingController@getIndex',
-]);
+$router->get('caching', ['as' => 'caching.index', 'uses' => 'CachingController@getIndex']);
