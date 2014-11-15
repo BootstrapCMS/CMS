@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
@@ -33,18 +34,23 @@ class RouteServiceProvider extends ServiceProvider
      *
      * Register any model bindings or pattern based filters.
      *
-     * @param  \Illuminate\Routing\Router $router
+     * @param \Illuminate\Routing\Router                 $router
+     * @param \Illuminate\Contracts\Routing\UrlGenerator $url
+     *
      * @return void
      */
-    public function before(Router $router)
+    public function before(Router $router, UrlGenerator $url)
     {
+        $url->setRootControllerNamespace('GrahamCampbell\BootstrapCMS\Http\Controllers');
+
         require app_path('Http/filters.php');
     }
 
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router $router
+     * @param \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     public function map(Router $router)
