@@ -44,7 +44,7 @@
         "fideloper/proxy": "~2.1",
         "barryvdh/laravel-async-queue": "dev-laravel5 as 0.4.x-dev",
         "barryvdh/laravel-debugbar": "~1.8",
-		"filp/whoops": "~1.1"
+        "filp/whoops": "~1.1"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0",
