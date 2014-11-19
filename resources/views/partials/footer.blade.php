@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-xs-8">
                 <p class="text-muted credit">
-                    © <a href="https://github.com/GrahamCampbell">{{ Config::get('graham-campbell/core::platform.author') }}</a> 2014. All rights reserved.
+                    © <a href="https://github.com/GrahamCampbell">{{ Config::get('cms.author') }}</a> 2014. All rights reserved.
                 </p>
             </div>
             <div class="col-xs-4">
@@ -17,7 +17,7 @@
     </div>
     <div class="container visible-xs">
         <p class="text-muted credit">
-            © <a href="https://github.com/GrahamCampbell">{{ Config::get('graham-campbell/core::platform.author') }}</a> 2014. All rights reserved.
+            © <a href="https://github.com/GrahamCampbell">{{ Config::get('cms.author') }}</a> 2014. All rights reserved.
         </p>
     </div>
 </div>

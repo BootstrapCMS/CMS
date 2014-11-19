@@ -1,4 +1,4 @@
-@extends(Config::get('graham-campbell/core::views.default'))
+@extends(Config::get('graham-campbell/core::layout'))
 
 @section('title')
 {{ $post->title }}

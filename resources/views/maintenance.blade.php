@@ -6,7 +6,7 @@
 <title>Site Maintenance</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Site Maintenance">
-<meta name="author" content="{{ Config::get('graham-campbell/core::platform.author') }}">
+<meta name="author" content="{{ Config::get('cms.author') }}">
 <style type="text/css">
     body{text-align:center;font:20px Helvetica, sans-serif;color:#333;padding:150px;}
     h1{font-size:50px;}

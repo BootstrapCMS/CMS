@@ -106,7 +106,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->singleton('navfactory', function ($app) {
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
-            $name = $app['config']['graham-campbell/core::platform.name'];
+            $name = $app['config']['graham-campbell/core::name'];
             $property = $app['config']['cms.nav'];
             $inverse = $app['config']['theme.inverse'];
 
