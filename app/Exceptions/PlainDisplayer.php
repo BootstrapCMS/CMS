@@ -14,20 +14,40 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Debug;
+namespace GrahamCampbell\BootstrapCMS\Exceptions;
 
 use Exception;
+use Illuminate\Contracts\View\Factory as View;
 
 /**
- * This is the ajax displayer class.
+ * This is the plain displayer class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class AjaxDisplayer implements DisplayerInterface
+class PlainDisplayer implements DisplayerInterface
 {
     use InfoTrait;
+
+    /**
+     * The view factory instance.
+     *
+     * @var \Illuminate\Contracts\View\Factory
+     */
+    protected $view;
+
+    /**
+     * Create a new instance.
+     *
+     * @param \Illuminate\Contracts\View\Factory $view
+     *
+     * @return string
+     */
+    public function __construct(View $view)
+    {
+        $this->view = $view;
+    }
 
     /**
      * Get the HTML content associated with the given exception.
@@ -35,12 +55,12 @@ class AjaxDisplayer implements DisplayerInterface
      * @param \Exception $exception
      * @param int        $code
      *
-     * @return array
+     * @return string
      */
     public function display(Exception $exception, $code)
     {
         $info = $this->info($code, $exception->getMessage());
 
-        return ['success' => false, 'code' => $info['code'], 'msg' => $info['extra']];
+        return $this->view->make('error', $info)->render();
     }
 }

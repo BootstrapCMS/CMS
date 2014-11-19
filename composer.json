@@ -17,10 +17,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/GrahamCampbell/sentry"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/laravel-async-queue"
         }
     ],
     "require": {
@@ -42,7 +38,7 @@
         "graham-campbell/logviewer": "0.3.*",
         "mccool/laravel-auto-presenter": "~3.0",
         "fideloper/proxy": "~2.1",
-        "barryvdh/laravel-async-queue": "dev-laravel5 as 0.4.x-dev",
+        "barryvdh/laravel-async-queue": "0.3.*",
         "barryvdh/laravel-debugbar": "~1.8",
         "filp/whoops": "~1.1"
     },

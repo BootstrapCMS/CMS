@@ -90,7 +90,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->registerPostRepository();
 
         $this->registerCommandSubscriber();
-        $this->registerCoreSubscriber();
         $this->registerNavigationSubscriber();
 
         $this->registerCommentController();
@@ -107,7 +106,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->singleton('navfactory', function ($app) {
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
-            $name = $app['config']['platform.name'];
+            $name = $app['config']['graham-campbell/core::platform.name'];
             $property = $app['config']['cms.nav'];
             $inverse = $app['config']['theme.inverse'];
 
@@ -204,21 +203,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $pagerepository = $app['pagerepository'];
 
             return new Subscribers\CommandSubscriber($pagerepository);
-        });
-    }
-
-    /**
-     * Register the core subscriber class.
-     *
-     * @return void
-     */
-    protected function registerCoreSubscriber()
-    {
-        $this->app->singleton('GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber', function ($app) {
-            $config = $app['config'];
-            $log = $app['log'];
-
-            return new Subscribers\CoreSubscriber($config, $log);
         });
     }
 

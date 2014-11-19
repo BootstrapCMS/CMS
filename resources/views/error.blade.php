@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>{{ Config::get('platform.brand') }} - Error {{ $code }}</title>
+<title>{{ Config::get('graham-campbell/core::platform.brand') }} - Error {{ $code }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ Config::get('platform.description') }}">
-<meta name="author" content="{{ Config::get('platform.author') }}">
+<meta name="description" content="{{ Config::get('graham-campbell/core::platform.description') }}">
+<meta name="author" content="{{ Config::get('graham-campbell/core::platform.author') }}">
 <style type="text/css">
     @import url(//fonts.googleapis.com/css?family=Droid+Sans);
     article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
@@ -88,7 +88,7 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="span5 ellipsis">
-                    <h1>{{ Config::get('platform.brand') }}</h1>
+                    <h1>{{ Config::get('graham-campbell/core::platform.brand') }}</h1>
                 </div>
                 <div class="span7 ellipsis">
                     <h2 class="pull-right">{{ $extra }}</h2>

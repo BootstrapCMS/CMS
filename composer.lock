@@ -4,33 +4,32 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "74f83cc4089ec6897baa4d4315c9c017",
+    "hash": "697f8b882f3b3ba2cf088fe9373d5130",
     "packages": [
         {
             "name": "barryvdh/laravel-async-queue",
-            "version": "dev-laravel5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/laravel-async-queue.git",
-                "reference": "627bb6b42a406c2e70782e2567cc5b6e11e1fe76"
+                "url": "https://github.com/barryvdh/laravel-async-queue.git",
+                "reference": "81c62966981c9168a7ca2fbf2dc9c1d55f264c52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/laravel-async-queue/zipball/627bb6b42a406c2e70782e2567cc5b6e11e1fe76",
-                "reference": "627bb6b42a406c2e70782e2567cc5b6e11e1fe76",
+                "url": "https://api.github.com/repos/barryvdh/laravel-async-queue/zipball/81c62966981c9168a7ca2fbf2dc9c1d55f264c52",
+                "reference": "81c62966981c9168a7ca2fbf2dc9c1d55f264c52",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "~5.0",
-                "illuminate/contracts": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0",
+                "illuminate/console": "4.x|5.0.x",
+                "illuminate/support": "4.x|5.0.x",
+                "php": ">=5.3.0",
                 "symfony/process": "~2.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.4-dev"
+                    "dev-master": "0.3-dev"
                 }
             },
             "autoload": {
@@ -41,29 +40,28 @@
                     "Barryvdh\\Queue\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "Barry vd. Heuvel",
                     "email": "barryvdh@gmail.com"
                 }
             ],
-            "support": {
-                "source": "https://github.com/GrahamCampbell/laravel-async-queue/tree/laravel5"
-            },
-            "time": "2014-11-13 23:00:33"
+            "description": "Async Queue Driver for Laravel (Push to background)",
+            "time": "2014-11-19 13:17:29"
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.8.1",
+            "version": "v1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "5eb06e09a2086c0254b4b808cb5544d140284374"
+                "reference": "c73003721a408cb59ec33c6901257838246dd2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5eb06e09a2086c0254b4b808cb5544d140284374",
-                "reference": "5eb06e09a2086c0254b4b808cb5544d140284374",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c73003721a408cb59ec33c6901257838246dd2eb",
+                "reference": "c73003721a408cb59ec33c6901257838246dd2eb",
                 "shasum": ""
             },
             "require": {
@@ -104,7 +102,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-11-14 07:51:09"
+            "time": "2014-11-18 14:03:50"
         },
         {
             "name": "cartalyst/sentry",
@@ -397,16 +395,16 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "da5d75e97e1ed19e57bd54fa6cb595a6a0879a67"
+                "reference": "9816507a75b27b61035671cd2fc6f524a9b4c25c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/da5d75e97e1ed19e57bd54fa6cb595a6a0879a67",
-                "reference": "da5d75e97e1ed19e57bd54fa6cb595a6a0879a67",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/9816507a75b27b61035671cd2fc6f524a9b4c25c",
+                "reference": "9816507a75b27b61035671cd2fc6f524a9b4c25c",
                 "shasum": ""
             },
             "type": "library",
@@ -432,7 +430,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2014-10-29 20:29:46"
+            "time": "2014-11-19 18:18:56"
         },
         {
             "name": "erusev/parsedown-extra",
@@ -649,12 +647,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Contact.git",
-                "reference": "38910ad5ace1486084e3ecc8e8293914a94ca058"
+                "reference": "f6354bb27449da8b3aca34f5fe39945c964cd9c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/38910ad5ace1486084e3ecc8e8293914a94ca058",
-                "reference": "38910ad5ace1486084e3ecc8e8293914a94ca058",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/f6354bb27449da8b3aca34f5fe39945c964cd9c3",
+                "reference": "f6354bb27449da8b3aca34f5fe39945c964cd9c3",
                 "shasum": ""
             },
             "require": {
@@ -705,7 +703,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-15 12:08:46"
+            "time": "2014-11-19 20:47:45"
         },
         {
             "name": "graham-campbell/core",
@@ -713,12 +711,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "7fc88ba130ae54835d63c6cbb05099298aec30ff"
+                "reference": "6ad55a8bd5b76870ccd157221a160a0bc119b606"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/7fc88ba130ae54835d63c6cbb05099298aec30ff",
-                "reference": "7fc88ba130ae54835d63c6cbb05099298aec30ff",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/6ad55a8bd5b76870ccd157221a160a0bc119b606",
+                "reference": "6ad55a8bd5b76870ccd157221a160a0bc119b606",
                 "shasum": ""
             },
             "require": {
@@ -764,7 +762,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2014-11-15 11:48:24"
+            "time": "2014-11-19 20:40:52"
         },
         {
             "name": "graham-campbell/credentials",
@@ -772,12 +770,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "ac124116c12a843b66f920e7c9dee981e1fe2f23"
+                "reference": "24061ea89ae492630ec9be0e3f002a33b800f1b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/ac124116c12a843b66f920e7c9dee981e1fe2f23",
-                "reference": "ac124116c12a843b66f920e7c9dee981e1fe2f23",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/24061ea89ae492630ec9be0e3f002a33b800f1b8",
+                "reference": "24061ea89ae492630ec9be0e3f002a33b800f1b8",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +844,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-11-15 12:07:47"
+            "time": "2014-11-19 20:47:01"
         },
         {
             "name": "graham-campbell/database",
@@ -978,12 +976,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-LogViewer.git",
-                "reference": "958466150eea972082b702a230b2bb20c196f332"
+                "reference": "60cb26e61bd92cdc6e1819f5e3d6ced5081d8d56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-LogViewer/zipball/958466150eea972082b702a230b2bb20c196f332",
-                "reference": "958466150eea972082b702a230b2bb20c196f332",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-LogViewer/zipball/60cb26e61bd92cdc6e1819f5e3d6ced5081d8d56",
+                "reference": "60cb26e61bd92cdc6e1819f5e3d6ced5081d8d56",
                 "shasum": ""
             },
             "require": {
@@ -1035,7 +1033,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2014-11-15 12:08:54"
+            "time": "2014-11-19 20:48:08"
         },
         {
             "name": "graham-campbell/markdown",
@@ -1410,12 +1408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "81614916082260c524b5a178e896f3f0ce79b820"
+                "reference": "025d4d125cf9ff457a346927af9e858aa3a013af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/81614916082260c524b5a178e896f3f0ce79b820",
-                "reference": "81614916082260c524b5a178e896f3f0ce79b820",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/025d4d125cf9ff457a346927af9e858aa3a013af",
+                "reference": "025d4d125cf9ff457a346927af9e858aa3a013af",
                 "shasum": ""
             },
             "require": {
@@ -1428,6 +1426,7 @@
                 "jeremeamia/superclosure": "~1.0.1",
                 "league/flysystem": "0.6.*",
                 "monolog/monolog": "~1.6",
+                "mtdowling/cron-expression": "~1.0",
                 "nesbot/carbon": "~1.0",
                 "patchwork/utf8": "~1.1",
                 "php": ">=5.4.0",
@@ -1517,7 +1516,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-14 21:34:02"
+            "time": "2014-11-19 05:10:53"
         },
         {
             "name": "leafo/lessphp",
@@ -1566,12 +1565,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "6c5cdca78bf633363b00bfad9e1cacd7c1626f1a"
+                "reference": "95d310c7b3720b73d6a7a2fd36b195fa47b4f73b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/6c5cdca78bf633363b00bfad9e1cacd7c1626f1a",
-                "reference": "6c5cdca78bf633363b00bfad9e1cacd7c1626f1a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/95d310c7b3720b73d6a7a2fd36b195fa47b4f73b",
+                "reference": "95d310c7b3720b73d6a7a2fd36b195fa47b4f73b",
                 "shasum": ""
             },
             "require": {
@@ -1645,7 +1644,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-11-13 00:38:34"
+            "time": "2014-11-18 09:45:43"
         },
         {
             "name": "lightgear/asset",
@@ -1918,6 +1917,47 @@
             "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
             "homepage": "http://code.google.com/p/minify/",
             "time": "2014-03-12 12:54:23"
+        },
+        {
+            "name": "mtdowling/cron-expression",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtdowling/cron-expression.git",
+                "reference": "a47ac8d5ec15049013792401af5a4d13e3dbe7f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/a47ac8d5ec15049013792401af5a4d13e3dbe7f6",
+                "reference": "a47ac8d5ec15049013792401af5a4d13e3dbe7f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Cron": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+            "keywords": [
+                "cron",
+                "schedule"
+            ],
+            "time": "2013-11-23 19:48:39"
         },
         {
             "name": "nesbot/carbon",
@@ -3389,16 +3429,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "dev-master",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "5168010e23b2c9a1e79e92bc1edacd5f1700604f"
+                "reference": "08a10b726562480180bf42d4370e0df95284cd1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/5168010e23b2c9a1e79e92bc1edacd5f1700604f",
-                "reference": "5168010e23b2c9a1e79e92bc1edacd5f1700604f",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/08a10b726562480180bf42d4370e0df95284cd1b",
+                "reference": "08a10b726562480180bf42d4370e0df95284cd1b",
                 "shasum": ""
             },
             "require": {
@@ -3436,7 +3476,7 @@
                 }
             ],
             "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-15 01:30:54"
+            "time": "2014-11-17 08:23:03"
         },
         {
             "name": "graham-campbell/testbench",
@@ -3574,12 +3614,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "a38009e63276db1adc9c2b2ce07d0f202ebeb585"
+                "reference": "3859780de925259e091504f2509004b19cf58cf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/a38009e63276db1adc9c2b2ce07d0f202ebeb585",
-                "reference": "a38009e63276db1adc9c2b2ce07d0f202ebeb585",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/3859780de925259e091504f2509004b19cf58cf5",
+                "reference": "3859780de925259e091504f2509004b19cf58cf5",
                 "shasum": ""
             },
             "require": {
@@ -3627,7 +3667,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2014-11-11 10:16:30"
+            "time": "2014-11-19 14:13:17"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4389,18 +4429,9 @@
             "time": "2014-11-03 03:55:50"
         }
     ],
-    "aliases": [
-        {
-            "alias": "0.4.x-dev",
-            "alias_normalized": "0.4.9999999.9999999-dev",
-            "version": "dev-laravel5",
-            "package": "barryvdh/laravel-async-queue"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "barryvdh/laravel-async-queue": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "platform": {
         "php": ">=5.4.7"

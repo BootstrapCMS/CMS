@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Debug;
+namespace GrahamCampbell\BootstrapCMS\Exceptions;
 
 /**
  * This is the exception info trait.

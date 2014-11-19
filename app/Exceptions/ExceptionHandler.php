@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Debug;
+namespace GrahamCampbell\BootstrapCMS\Exceptions;
 
 use Exception;
 use Illuminate\Contracts\Config\Repository as Config;

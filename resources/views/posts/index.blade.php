@@ -1,4 +1,4 @@
-@extends(Config::get('views.default', 'layouts.default'))
+@extends(Config::get('graham-campbell/core::views.default'))
 
 @section('title')
 Blog

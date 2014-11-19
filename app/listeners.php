@@ -30,9 +30,6 @@ if (Config::get('graham-campbell/core::commands')) {
     Event::subscribe($subscriber);
 }
 
-// $subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\CoreSubscriber');
-// Event::subscribe($subscriber);
-
 $subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber');
 Event::subscribe($subscriber);
 
