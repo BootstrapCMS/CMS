@@ -40,8 +40,7 @@
         "mccool/laravel-auto-presenter": "~3.0",
         "fideloper/proxy": "~2.1",
         "barryvdh/laravel-async-queue": "0.3.*",
-        "barryvdh/laravel-debugbar": "~1.8",
-        "filp/whoops": "~1.1"
+        "barryvdh/laravel-debugbar": "~1.8"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0",
