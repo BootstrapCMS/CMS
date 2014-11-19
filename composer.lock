@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "697f8b882f3b3ba2cf088fe9373d5130",
+    "hash": "647f325ed93d7608f6b6acd0e52d91c9",
     "packages": [
         {
             "name": "barryvdh/laravel-async-queue",
@@ -907,6 +907,69 @@
                 "repository"
             ],
             "time": "2014-11-15 11:48:38"
+        },
+        {
+            "name": "graham-campbell/exceptions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Exceptions.git",
+                "reference": "0d0a6c3b9a5926026ecd9ed7a069cf595c211772"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/0d0a6c3b9a5926026ecd9ed7a069cf595c211772",
+                "reference": "0d0a6c3b9a5926026ecd9ed7a069cf595c211772",
+                "shasum": ""
+            },
+            "require": {
+                "filp/whoops": "~1.1",
+                "illuminate/contracts": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0",
+                "psr/log": "~1.0",
+                "symfony/debug": "~2.6",
+                "symfony/http-foundation": "~2.6"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Exceptions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@mineuk.com"
+                }
+            ],
+            "description": "Provides Pretty Error Pages For Both Development And Production",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Exceptions",
+                "Laravel-Exceptions",
+                "error",
+                "errors",
+                "exception",
+                "exceptions",
+                "framework",
+                "laravel",
+                "whoops"
+            ],
+            "time": "2014-11-19 22:48:43"
         },
         {
             "name": "graham-campbell/htmlmin",

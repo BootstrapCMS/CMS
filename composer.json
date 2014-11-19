@@ -26,6 +26,7 @@
         "symfony/event-dispatcher": "2.6.*",
         "symfony/filesystem": "2.6.*",
         "lightgear/asset": "1.5.*",
+        "graham-campbell/exceptions": "0.1.*",
         "graham-campbell/core": "~2.0",
         "graham-campbell/database": "0.2.*",
         "graham-campbell/htmlmin": "~3.0",

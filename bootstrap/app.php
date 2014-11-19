@@ -50,7 +50,7 @@ $app->singleton(
 
 $app->singleton(
     'Illuminate\Contracts\Debug\ExceptionHandler',
-    'GrahamCampbell\BootstrapCMS\Exceptions\ExceptionHandler'
+    'GrahamCampbell\Exceptions\ExceptionHandler'
 );
 
 /*

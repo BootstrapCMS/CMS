@@ -127,6 +127,7 @@ return [
         /*
          * Application Service Providers...
          */
+        'GrahamCampbell\Exceptions\ExceptionsServiceProvider',
         'GrahamCampbell\BootstrapCMS\Providers\EventServiceProvider',
         'GrahamCampbell\BootstrapCMS\Providers\RouteServiceProvider',
 
