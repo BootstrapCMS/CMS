@@ -434,16 +434,16 @@
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.2.3",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "e81515ed5549871b16ece3aaab8cf023930b1e7e"
+                "reference": "daa9e57db4de2c4b126d33efe3dedfd6a29f4a37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/e81515ed5549871b16ece3aaab8cf023930b1e7e",
-                "reference": "e81515ed5549871b16ece3aaab8cf023930b1e7e",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/daa9e57db4de2c4b126d33efe3dedfd6a29f4a37",
+                "reference": "daa9e57db4de2c4b126d33efe3dedfd6a29f4a37",
                 "shasum": ""
             },
             "require": {
@@ -474,20 +474,20 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2014-10-29 01:21:00"
+            "time": "2014-11-20 02:35:26"
         },
         {
             "name": "fideloper/proxy",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fideloper/TrustedProxy.git",
-                "reference": "3410a6b1279f1d78ca34497ccf39e7b39e5c188a"
+                "reference": "a0ec0f35c82dceecc0d8975f29e6e8e85acbd419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/3410a6b1279f1d78ca34497ccf39e7b39e5c188a",
-                "reference": "3410a6b1279f1d78ca34497ccf39e7b39e5c188a",
+                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/a0ec0f35c82dceecc0d8975f29e6e8e85acbd419",
+                "reference": "a0ec0f35c82dceecc0d8975f29e6e8e85acbd419",
                 "shasum": ""
             },
             "require": {
@@ -521,7 +521,7 @@
                 "proxy",
                 "trusted proxy"
             ],
-            "time": "2014-10-31 14:15:10"
+            "time": "2014-11-20 02:20:43"
         },
         {
             "name": "filp/whoops",
@@ -914,12 +914,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Exceptions.git",
-                "reference": "f60a1409a1a5b8b5e972df3f2ddfbf6ad1c9fd3a"
+                "reference": "d478636a55d0478b69d99138aeb9c81d7ae73615"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/f60a1409a1a5b8b5e972df3f2ddfbf6ad1c9fd3a",
-                "reference": "f60a1409a1a5b8b5e972df3f2ddfbf6ad1c9fd3a",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/d478636a55d0478b69d99138aeb9c81d7ae73615",
+                "reference": "d478636a55d0478b69d99138aeb9c81d7ae73615",
                 "shasum": ""
             },
             "require": {
@@ -969,7 +969,7 @@
                 "laravel",
                 "whoops"
             ],
-            "time": "2014-11-19 23:04:37"
+            "time": "2014-11-20 15:35:56"
         },
         {
             "name": "graham-campbell/htmlmin",
@@ -1380,17 +1380,20 @@
         },
         {
             "name": "ircmaxell/password-compat",
-            "version": "1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "1fc1521b5e9794ea77e4eca30717be9635f1d4f4"
+                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/1fc1521b5e9794ea77e4eca30717be9635f1d4f4",
-                "reference": "1fc1521b5e9794ea77e4eca30717be9635f1d4f4",
+                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
+                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
                 "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
             },
             "type": "library",
             "autoload": {
@@ -1405,7 +1408,7 @@
             "authors": [
                 {
                     "name": "Anthony Ferrara",
-                    "email": "ircmaxell@ircmaxell.com",
+                    "email": "ircmaxell@php.net",
                     "homepage": "http://blog.ircmaxell.com"
                 }
             ],
@@ -1415,7 +1418,7 @@
                 "hashing",
                 "password"
             ],
-            "time": "2013-04-30 19:58:08"
+            "time": "2014-11-20 16:49:30"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1471,12 +1474,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "025d4d125cf9ff457a346927af9e858aa3a013af"
+                "reference": "801c0a70a13f299f571f434c99cda966904b591b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/025d4d125cf9ff457a346927af9e858aa3a013af",
-                "reference": "025d4d125cf9ff457a346927af9e858aa3a013af",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/801c0a70a13f299f571f434c99cda966904b591b",
+                "reference": "801c0a70a13f299f571f434c99cda966904b591b",
                 "shasum": ""
             },
             "require": {
@@ -1579,7 +1582,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-19 05:10:53"
+            "time": "2014-11-20 05:35:48"
         },
         {
             "name": "leafo/lessphp",
@@ -1628,12 +1631,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "95d310c7b3720b73d6a7a2fd36b195fa47b4f73b"
+                "reference": "2af62a3e493d5b3b327ccc8116b237a080f72098"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/95d310c7b3720b73d6a7a2fd36b195fa47b4f73b",
-                "reference": "95d310c7b3720b73d6a7a2fd36b195fa47b4f73b",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/2af62a3e493d5b3b327ccc8116b237a080f72098",
+                "reference": "2af62a3e493d5b3b327ccc8116b237a080f72098",
                 "shasum": ""
             },
             "require": {
@@ -1707,7 +1710,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-11-18 09:45:43"
+            "time": "2014-11-20 16:57:35"
         },
         {
             "name": "lightgear/asset",
