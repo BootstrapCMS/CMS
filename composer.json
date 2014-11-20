@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4.7",
+        "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
         "symfony/config": "2.6.*",
         "symfony/event-dispatcher": "2.6.*",

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7184bef1fa71d6dd599adf124412f624",
+    "hash": "6e8c116e578e53dad9d56ba1bcf1f1d0",
     "packages": [
         {
             "name": "barryvdh/laravel-async-queue",
@@ -1474,12 +1474,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "801c0a70a13f299f571f434c99cda966904b591b"
+                "reference": "0010d0ef7714580f82e52850c12777b3a9130bcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/801c0a70a13f299f571f434c99cda966904b591b",
-                "reference": "801c0a70a13f299f571f434c99cda966904b591b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0010d0ef7714580f82e52850c12777b3a9130bcb",
+                "reference": "0010d0ef7714580f82e52850c12777b3a9130bcb",
                 "shasum": ""
             },
             "require": {
@@ -1582,7 +1582,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-20 05:35:48"
+            "time": "2014-11-20 19:20:12"
         },
         {
             "name": "leafo/lessphp",
@@ -4500,7 +4500,7 @@
     "stability-flags": [],
     "prefer-stable": true,
     "platform": {
-        "php": ">=5.4.7"
+        "php": ">=5.5.0"
     },
     "platform-dev": []
 }
