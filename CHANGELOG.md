@@ -10,6 +10,11 @@ CHANGE LOG
 * Cleaned up assets
 
 
+## V0.8.3 Alpha (Upcoming)
+
+* Updated dependencies
+
+
 ## V0.8.2 Alpha (12/11/2014)
 
 * Updated dependencies
