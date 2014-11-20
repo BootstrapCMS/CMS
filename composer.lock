@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6e8c116e578e53dad9d56ba1bcf1f1d0",
+    "hash": "105e00be8de177ce5863dc2c11dd34e8",
     "packages": [
         {
             "name": "barryvdh/laravel-async-queue",
@@ -434,16 +434,16 @@
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.2.5",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "daa9e57db4de2c4b126d33efe3dedfd6a29f4a37"
+                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/daa9e57db4de2c4b126d33efe3dedfd6a29f4a37",
-                "reference": "daa9e57db4de2c4b126d33efe3dedfd6a29f4a37",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/77f604b65b08550f229c2e79c0427c84c0c0979e",
+                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e",
                 "shasum": ""
             },
             "require": {
@@ -474,7 +474,7 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2014-11-20 02:35:26"
+            "time": "2014-11-20 20:21:03"
         },
         {
             "name": "fideloper/proxy",
