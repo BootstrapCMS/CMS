@@ -16,32 +16,30 @@
 
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
-use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * All of the application's route middleware keys.
+     * This namespace is applied to the controller routes in your routes file.
      *
-     * @var array
+     * In addition, it is set as the URL generator's root namespace.
+     *
+     * @var string
      */
-    protected $middleware = [];
+    protected $namespace = 'GrahamCampbell\BootstrapCMS\Http\Controllers';
 
     /**
-     * Called before routes are registered.
+     * Define your route model bindings, pattern filters, etc.
      *
-     * Register any model bindings or pattern based filters.
-     *
-     * @param \Illuminate\Routing\Router                 $router
-     * @param \Illuminate\Contracts\Routing\UrlGenerator $url
+     * @param \Illuminate\Routing\Router $router
      *
      * @return void
      */
-    public function before(Router $router, UrlGenerator $url)
+    public function boot(Router $router)
     {
-        $url->setRootControllerNamespace('GrahamCampbell\BootstrapCMS\Http\Controllers');
+        parent::boot($router);
 
         require app_path('Http/filters.php');
     }
@@ -49,14 +47,10 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param \Illuminate\Routing\Router $router
-     *
      * @return void
      */
-    public function map(Router $router)
+    public function map()
     {
-        $router->group(['namespace' => 'GrahamCampbell\BootstrapCMS\Http\Controllers'], function (Router $router) {
-            require app_path('Http/routes.php');
-        });
+        $this->loadRoutesFrom(app_path('Http/routes.php'));
     }
 }

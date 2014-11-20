@@ -21,7 +21,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 class Kernel extends HttpKernel
 {
     /**
-     * The application's HTTP middleware stack.
+     * The application's global HTTP middleware stack.
      *
      * @var array
      */
@@ -33,4 +33,11 @@ class Kernel extends HttpKernel
         'Illuminate\View\Middleware\ShareErrorsFromSession',
         // 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
     ];
+
+    /**
+     * The application's route middleware.
+     *
+     * @var array
+     */
+    protected $routeMiddleware = [];
 }
