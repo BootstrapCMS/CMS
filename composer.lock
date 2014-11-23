@@ -8,21 +8,21 @@
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.8.2",
+            "version": "v1.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "c73003721a408cb59ec33c6901257838246dd2eb"
+                "reference": "9b76117fecfc4583e04abee2da26124c7992a9ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c73003721a408cb59ec33c6901257838246dd2eb",
-                "reference": "c73003721a408cb59ec33c6901257838246dd2eb",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/9b76117fecfc4583e04abee2da26124c7992a9ac",
+                "reference": "9b76117fecfc4583e04abee2da26124c7992a9ac",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "4.*|5.0.*",
-                "maximebf/debugbar": "1.10.*",
+                "maximebf/debugbar": "~1.10.1",
                 "php": ">=5.3.0",
                 "symfony/finder": "~2.3"
             },
@@ -58,7 +58,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-11-18 14:03:50"
+            "time": "2014-11-23 12:21:42"
         },
         {
             "name": "cartalyst/sentry",
@@ -282,16 +282,16 @@
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.2.5",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "daa9e57db4de2c4b126d33efe3dedfd6a29f4a37"
+                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/daa9e57db4de2c4b126d33efe3dedfd6a29f4a37",
-                "reference": "daa9e57db4de2c4b126d33efe3dedfd6a29f4a37",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/77f604b65b08550f229c2e79c0427c84c0c0979e",
+                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e",
                 "shasum": ""
             },
             "require": {
@@ -322,7 +322,7 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2014-11-20 02:35:26"
+            "time": "2014-11-20 20:21:03"
         },
         {
             "name": "fideloper/proxy",
@@ -1439,16 +1439,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "1.10.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "348b49b3617c8295badef7f9fdb0aea15918154d"
+                "reference": "f100f27124e8e042074d6264e33c75c6ea2677e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/348b49b3617c8295badef7f9fdb0aea15918154d",
-                "reference": "348b49b3617c8295badef7f9fdb0aea15918154d",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/f100f27124e8e042074d6264e33c75c6ea2677e6",
+                "reference": "f100f27124e8e042074d6264e33c75c6ea2677e6",
                 "shasum": ""
             },
             "require": {
@@ -1490,7 +1490,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2014-10-31 19:59:37"
+            "time": "2014-11-23 12:05:01"
         },
         {
             "name": "mccool/laravel-auto-presenter",
@@ -3485,78 +3485,25 @@
             "time": "2013-01-12 18:59:04"
         },
         {
-            "name": "fabpot/php-cs-fixer",
-            "version": "v1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "08a10b726562480180bf42d4370e0df95284cd1b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/08a10b726562480180bf42d4370e0df95284cd1b",
-                "reference": "08a10b726562480180bf42d4370e0df95284cd1b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.6",
-                "sebastian/diff": "~1.1",
-                "symfony/console": "~2.1",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/filesystem": "~2.1",
-                "symfony/finder": "~2.1",
-                "symfony/process": "~2.3",
-                "symfony/stopwatch": "~2.5"
-            },
-            "bin": [
-                "php-cs-fixer"
-            ],
-            "type": "application",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\CS\\": "Symfony/CS/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "A script to automatically fix Symfony Coding Standard",
-            "time": "2014-11-17 08:23:03"
-        },
-        {
             "name": "graham-campbell/testbench",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "c0e365f4b527bdf07c73e04b1d767e279ddc0153"
+                "reference": "c2e691ed06bfbf4af8ab1767b399993affc7581c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/c0e365f4b527bdf07c73e04b1d767e279ddc0153",
-                "reference": "c0e365f4b527bdf07c73e04b1d767e279ddc0153",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/c2e691ed06bfbf4af8ab1767b399993affc7581c",
+                "reference": "c2e691ed06bfbf4af8ab1767b399993affc7581c",
                 "shasum": ""
             },
             "require": {
-                "fabpot/php-cs-fixer": "~1.0",
                 "laravel/framework": "~4.2.10",
                 "mockery/mockery": "~0.9.2",
                 "orchestra/testbench": "2.2.*",
                 "php": ">=5.4.7",
                 "phpunit/phpunit": "~4.3",
-                "squizlabs/php_codesniffer": "~1.5",
                 "symfony/config": "2.5.*",
                 "symfony/event-dispatcher": "2.5.*",
                 "symfony/filesystem": "2.5.*",
@@ -3591,7 +3538,7 @@
                 "laravel",
                 "test"
             ],
-            "time": "2014-10-04 09:35:41"
+            "time": "2014-11-23 11:37:06"
         },
         {
             "name": "mockery/mockery",
@@ -4304,81 +4251,6 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2014-03-07 15:35:33"
-        },
-        {
-            "name": "squizlabs/php_codesniffer",
-            "version": "1.5.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "5d973e59cf58a0c847f298de84374c96b42b17b3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5d973e59cf58a0c847f298de84374c96b42b17b3",
-                "reference": "5d973e59cf58a0c847f298de84374c96b42b17b3",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": ">=5.1.2"
-            },
-            "suggest": {
-                "phpunit/php-timer": "dev-master"
-            },
-            "bin": [
-                "scripts/phpcs"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-phpcs-fixer": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "CodeSniffer.php",
-                    "CodeSniffer/CLI.php",
-                    "CodeSniffer/Exception.php",
-                    "CodeSniffer/File.php",
-                    "CodeSniffer/Report.php",
-                    "CodeSniffer/Reporting.php",
-                    "CodeSniffer/Sniff.php",
-                    "CodeSniffer/Tokens.php",
-                    "CodeSniffer/Reports/",
-                    "CodeSniffer/CommentParser/",
-                    "CodeSniffer/Tokenizers/",
-                    "CodeSniffer/DocGenerators/",
-                    "CodeSniffer/Standards/AbstractPatternSniff.php",
-                    "CodeSniffer/Standards/AbstractScopeSniff.php",
-                    "CodeSniffer/Standards/AbstractVariableSniff.php",
-                    "CodeSniffer/Standards/IncorrectPatternException.php",
-                    "CodeSniffer/Standards/Generic/Sniffs/",
-                    "CodeSniffer/Standards/MySource/Sniffs/",
-                    "CodeSniffer/Standards/PEAR/Sniffs/",
-                    "CodeSniffer/Standards/PSR1/Sniffs/",
-                    "CodeSniffer/Standards/PSR2/Sniffs/",
-                    "CodeSniffer/Standards/Squiz/Sniffs/",
-                    "CodeSniffer/Standards/Zend/Sniffs/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Greg Sherwood",
-                    "role": "lead"
-                }
-            ],
-            "description": "PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-            "homepage": "http://www.squizlabs.com/php-codesniffer",
-            "keywords": [
-                "phpcs",
-                "standards"
-            ],
-            "time": "2014-09-25 03:33:46"
         },
         {
             "name": "symfony/stopwatch",
