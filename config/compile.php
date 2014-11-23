@@ -27,12 +27,7 @@ return [
     |
     */
 
-    'files' => [
-
-        __DIR__.'/../app/Providers/EventServiceProvider.php',
-        __DIR__.'/../app/Providers/RouteServiceProvider.php',
-
-    ],
+    'files' => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -45,8 +40,6 @@ return [
     |
     */
 
-    'providers' => [
-        //
-    ],
+    'providers' => [],
 
 ];
