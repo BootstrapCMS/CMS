@@ -16,7 +16,7 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 ## Looking For Version 0.8?
 
-Version 0.8 is currently more stable than this version, and is available on the [0.8 branch](https://github.com/GrahamCampbell/Bootstrap-CMS/tree/0.8). It uses Laravel 4.2 for example, while this version is built on Laravel 5.
+Version 0.8 is currently more stable than this version (0.9), and is available on the [0.8 branch](https://github.com/GrahamCampbell/Bootstrap-CMS/tree/0.8). It uses Laravel 4.2 for example, while this version is built on Laravel 5.
 
 
 ## Installation
