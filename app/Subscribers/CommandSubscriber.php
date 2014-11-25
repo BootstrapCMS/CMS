@@ -58,28 +58,10 @@ class CommandSubscriber
     public function subscribe(Dispatcher $events)
     {
         $events->listen(
-            'command.runmigrations',
-            'GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber@onRunMigrations',
-            6
-        );
-
-        $events->listen(
             'command.updatecache',
             'GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber@onUpdateCache',
             3
         );
-    }
-
-    /**
-     * Handle a command.runmigrations event.
-     *
-     * @param \Illuminate\Console\Command $command
-     *
-     * @return void
-     */
-    public function onRunMigrations(Command $command)
-    {
-        $command->call('migrate', ['--package' => 'barryvdh/laravel-async-queue', '--force' => true]);
     }
 
     /**

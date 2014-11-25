@@ -159,7 +159,6 @@ return [
         /*
          * Package Service Providers...
          */
-        'Barryvdh\Queue\AsyncServiceProvider',
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
         'Lightgear\Asset\AssetServiceProvider',
         'Fideloper\Proxy\ProxyServiceProvider',
