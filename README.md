@@ -40,7 +40,7 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 ## Setting Up Queuing
 
-Bootstrap CMS uses Laravel's queue sysytem to offload jobs such as sending emails so your users don't have to wait for these activities to complete before their pages load. By default, we're using the "sync" queue driver.
+Bootstrap CMS uses Laravel's queue system to offload jobs such as sending emails so your users don't have to wait for these activities to complete before their pages load. By default, we're using the "sync" queue driver.
 
 1. Check out Laravel's [documentation](http://laravel.com/docs/master/queues#configuration).
 2. Enter your queue server details into `config/queue.php`.
