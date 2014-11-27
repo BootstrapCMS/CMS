@@ -25,6 +25,6 @@ return array(
     | the input.
     |
     */
-    'evil' => array('on\w*', 'style', 'xmlns', 'formaction', 'form', 'xlink:href'),
+    'evil' => array('(?<!\w)on\w*', 'style', 'xmlns', 'formaction', 'form', 'xlink:href'),
 
 );
