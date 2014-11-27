@@ -1047,16 +1047,16 @@
         },
         {
             "name": "graham-campbell/security",
-            "version": "v2.1.1",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "ebb689d1ab282289edb6bd7d5d11cc5ebaca7638"
+                "reference": "51b822b6cfcba80a3d8ec1ac6a5e7af9b8d17907"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/ebb689d1ab282289edb6bd7d5d11cc5ebaca7638",
-                "reference": "ebb689d1ab282289edb6bd7d5d11cc5ebaca7638",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/51b822b6cfcba80a3d8ec1ac6a5e7af9b8d17907",
+                "reference": "51b822b6cfcba80a3d8ec1ac6a5e7af9b8d17907",
                 "shasum": ""
             },
             "require": {
@@ -1093,7 +1093,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-10-05 15:10:05"
+            "time": "2014-11-27 23:04:50"
         },
         {
             "name": "graham-campbell/throttle",
@@ -1432,8 +1432,7 @@
             ],
             "description": "Easy asset Management for Laravel 4",
             "support": {
-                "source": "https://github.com/GrahamCampbell/asset/tree/1.4",
-                "issues": "https://github.com/GrahamCampbell/asset/issues"
+                "source": "https://github.com/GrahamCampbell/asset/tree/1.4"
             },
             "time": "2014-03-22 18:04:57"
         },
@@ -2041,16 +2040,16 @@
         },
         {
             "name": "stack/builder",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stackphp/builder.git",
-                "reference": "b4af43e7b7f3f7fac919ff475b29f7c5dc7b23b7"
+                "reference": "c1f8a4693b55c563405024f708a76ef576c3b276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stackphp/builder/zipball/b4af43e7b7f3f7fac919ff475b29f7c5dc7b23b7",
-                "reference": "b4af43e7b7f3f7fac919ff475b29f7c5dc7b23b7",
+                "url": "https://api.github.com/repos/stackphp/builder/zipball/c1f8a4693b55c563405024f708a76ef576c3b276",
+                "reference": "c1f8a4693b55c563405024f708a76ef576c3b276",
                 "shasum": ""
             },
             "require": {
@@ -2079,15 +2078,14 @@
             "authors": [
                 {
                     "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch",
-                    "homepage": "http://wiedler.ch/igor/"
+                    "email": "igor@wiedler.ch"
                 }
             ],
             "description": "Builder for stack middlewares based on HttpKernelInterface.",
             "keywords": [
                 "stack"
             ],
-            "time": "2014-01-28 19:42:24"
+            "time": "2014-11-23 20:37:11"
         },
         {
             "name": "swiftmailer/swiftmailer",
