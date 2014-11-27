@@ -726,12 +726,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "d5f53bb614999a82379c6df54e08a10c64b81f55"
+                "reference": "cb856b05777ee2e0164dc819ff60e93a7f7fa839"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/d5f53bb614999a82379c6df54e08a10c64b81f55",
-                "reference": "d5f53bb614999a82379c6df54e08a10c64b81f55",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/cb856b05777ee2e0164dc819ff60e93a7f7fa839",
+                "reference": "cb856b05777ee2e0164dc819ff60e93a7f7fa839",
                 "shasum": ""
             },
             "require": {
@@ -800,7 +800,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-11-23 14:37:27"
+            "time": "2014-11-27 22:46:24"
         },
         {
             "name": "graham-campbell/database",
@@ -1180,12 +1180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "b1734b385cb82a105738210288faaa6850f0dc7e"
+                "reference": "9b27f00ce4ac92a968624bbbed62bf8b8a7ea0a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/b1734b385cb82a105738210288faaa6850f0dc7e",
-                "reference": "b1734b385cb82a105738210288faaa6850f0dc7e",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/9b27f00ce4ac92a968624bbbed62bf8b8a7ea0a4",
+                "reference": "9b27f00ce4ac92a968624bbbed62bf8b8a7ea0a4",
                 "shasum": ""
             },
             "require": {
@@ -1227,7 +1227,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-11-23 14:56:40"
+            "time": "2014-11-27 23:08:32"
         },
         {
             "name": "graham-campbell/throttle",
@@ -1235,12 +1235,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Throttle.git",
-                "reference": "024a8c10b085a9b6cf4e7f84a73f239164eb2245"
+                "reference": "43af3a945c0825a82b9727ff7690aab9e9f12fbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/024a8c10b085a9b6cf4e7f84a73f239164eb2245",
-                "reference": "024a8c10b085a9b6cf4e7f84a73f239164eb2245",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/43af3a945c0825a82b9727ff7690aab9e9f12fbf",
+                "reference": "43af3a945c0825a82b9727ff7690aab9e9f12fbf",
                 "shasum": ""
             },
             "require": {
@@ -1286,7 +1286,7 @@
                 "throttle",
                 "throttling"
             ],
-            "time": "2014-11-23 14:58:42"
+            "time": "2014-11-27 22:43:19"
         },
         {
             "name": "illuminate/html",
@@ -1430,12 +1430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1489528d42013cf9ea616245c954f462991cfa8e"
+                "reference": "64d3da2630953b2d911361443b22f52c4e0e067d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1489528d42013cf9ea616245c954f462991cfa8e",
-                "reference": "1489528d42013cf9ea616245c954f462991cfa8e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/64d3da2630953b2d911361443b22f52c4e0e067d",
+                "reference": "64d3da2630953b2d911361443b22f52c4e0e067d",
                 "shasum": ""
             },
             "require": {
@@ -1538,7 +1538,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-25 20:00:39"
+            "time": "2014-11-27 02:38:47"
         },
         {
             "name": "leafo/lessphp",
