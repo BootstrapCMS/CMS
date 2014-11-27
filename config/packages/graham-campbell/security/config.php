@@ -25,6 +25,6 @@ return [
     | the input.
     |
     */
-    'evil' => ['on\w*', 'style', 'xmlns', 'formaction', 'form', 'xlink:href'],
+    'evil' => ['(?<!\w)on\w*', 'style', 'xmlns', 'formaction', 'form', 'xlink:href'],
 
 ];
