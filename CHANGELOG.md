@@ -13,6 +13,7 @@ CHANGE LOG
 ## V0.8.3 Alpha (Upcoming)
 
 * Updated dependencies
+* Removed the extra symfony dependencies
 
 
 ## V0.8.2 Alpha (12/11/2014)
