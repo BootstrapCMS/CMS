@@ -1430,12 +1430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1abf68a485a7b7ecf2e12dc4eb23940a8c050c2b"
+                "reference": "ef38d34725411f43c23b5f232e1b16ab5cdb567f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1abf68a485a7b7ecf2e12dc4eb23940a8c050c2b",
-                "reference": "1abf68a485a7b7ecf2e12dc4eb23940a8c050c2b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ef38d34725411f43c23b5f232e1b16ab5cdb567f",
+                "reference": "ef38d34725411f43c23b5f232e1b16ab5cdb567f",
                 "shasum": ""
             },
             "require": {
@@ -1538,7 +1538,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-28 05:10:37"
+            "time": "2014-11-29 22:53:37"
         },
         {
             "name": "leafo/lessphp",
@@ -1587,12 +1587,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "69a2119209f7b51ea0d16596e1aa58ae7174bc18"
+                "reference": "161f915a8ccc60166db45ef1a295e15db6536d92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/69a2119209f7b51ea0d16596e1aa58ae7174bc18",
-                "reference": "69a2119209f7b51ea0d16596e1aa58ae7174bc18",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/161f915a8ccc60166db45ef1a295e15db6536d92",
+                "reference": "161f915a8ccc60166db45ef1a295e15db6536d92",
                 "shasum": ""
             },
             "require": {
@@ -1666,7 +1666,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-11-28 22:54:14"
+            "time": "2014-11-30 12:09:36"
         },
         {
             "name": "lightgear/asset",
