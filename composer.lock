@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "64a7a5e68c7ea21d8586c5d2777eae37d4da1008"
+                "reference": "244ea7f8ee2a643cb1fb1ee9ec2188dadc434747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/64a7a5e68c7ea21d8586c5d2777eae37d4da1008",
-                "reference": "64a7a5e68c7ea21d8586c5d2777eae37d4da1008",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/244ea7f8ee2a643cb1fb1ee9ec2188dadc434747",
+                "reference": "244ea7f8ee2a643cb1fb1ee9ec2188dadc434747",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-11-24 21:34:36"
+            "time": "2014-12-02 07:50:51"
         },
         {
             "name": "cartalyst/sentry",
@@ -808,12 +808,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Database.git",
-                "reference": "7912c7984d0d08b13c6e89ce276090b7377f04fa"
+                "reference": "ec944d8f406c2ab9caa0675a85c7f498cce786ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Database/zipball/7912c7984d0d08b13c6e89ce276090b7377f04fa",
-                "reference": "7912c7984d0d08b13c6e89ce276090b7377f04fa",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Database/zipball/ec944d8f406c2ab9caa0675a85c7f498cce786ea",
+                "reference": "ec944d8f406c2ab9caa0675a85c7f498cce786ea",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +862,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2014-11-23 14:38:41"
+            "time": "2014-12-01 23:40:10"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -1430,12 +1430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ef38d34725411f43c23b5f232e1b16ab5cdb567f"
+                "reference": "d3441d3b6e73db5162c789d4082e8731e35bf80e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ef38d34725411f43c23b5f232e1b16ab5cdb567f",
-                "reference": "ef38d34725411f43c23b5f232e1b16ab5cdb567f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d3441d3b6e73db5162c789d4082e8731e35bf80e",
+                "reference": "d3441d3b6e73db5162c789d4082e8731e35bf80e",
                 "shasum": ""
             },
             "require": {
@@ -1538,7 +1538,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-29 22:53:37"
+            "time": "2014-12-02 03:13:28"
         },
         {
             "name": "leafo/lessphp",
