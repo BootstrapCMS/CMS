@@ -18,12 +18,19 @@ namespace GrahamCampbell\BootstrapCMS\Console;
 
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+/**
+ * This is the console kernel class.
+ *
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
+ */
 class Kernel extends ConsoleKernel
 {
     /**
      * The Artisan commands provided by your application.
      *
-     * @var array
+     * @var string[]
      */
     protected $commands = [];
 }
