@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of Bootstrap CMS by Graham Campbell.
  *
  * This program is free software: you can redistribute it and/or modify
