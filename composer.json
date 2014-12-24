@@ -16,7 +16,15 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/framework"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/GrahamCampbell/sentry"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/testbench"
         }
     ],
     "require": {
