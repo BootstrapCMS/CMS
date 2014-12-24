@@ -46,7 +46,7 @@ abstract class AbstractDisplayer extends AbstractRevisionDisplayer
     {
         $event = $this->resource->revisionable()->withTrashed()
             ->cacheDriver('array')->rememberForever()
-            ->first(array('title'));
+            ->first(['title']);
 
         return ' "'.$event->title.'".';
     }

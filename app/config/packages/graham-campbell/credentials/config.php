@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -55,4 +55,4 @@ return array(
 
     'revision' => 'GrahamCampbell\Credentials\Models\Revision',
 
-);
+];

@@ -40,6 +40,7 @@ abstract class AbstractTestCase extends TestCase
     {
         $unitTesting = true;
         $testEnvironment = 'testing';
+
         return require __DIR__.'/../bootstrap/start.php';
     }
 

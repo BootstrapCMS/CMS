@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -81,11 +81,11 @@ return array(
     |
     */
 
-    'memcached' => array(
+    'memcached' => [
 
-        array('host' => '127.0.0.1', 'port' => 11211, 'weight' => 100),
+        ['host' => '127.0.0.1', 'port' => 11211, 'weight' => 100],
 
-    ),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -100,4 +100,4 @@ return array(
 
     'prefix' => 'laravel',
 
-);
+];

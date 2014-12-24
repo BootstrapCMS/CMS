@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -42,42 +42,42 @@ return array(
     |
     */
 
-    'connections' => array(
+    'connections' => [
 
-        'sync' => array(
+        'sync' => [
             'driver' => 'sync',
-        ),
+        ],
 
-        'beanstalkd' => array(
+        'beanstalkd' => [
             'driver' => 'beanstalkd',
             'host'   => 'localhost',
             'queue'  => 'default',
             'ttr'    => 60,
-        ),
+        ],
 
-        'sqs' => array(
+        'sqs' => [
             'driver' => 'sqs',
             'key'    => 'your-public-key',
             'secret' => 'your-secret-key',
             'queue'  => 'your-queue-url',
             'region' => 'eu-west-1',
-        ),
+        ],
 
-        'iron' => array(
+        'iron' => [
             'driver'  => 'iron',
             'host'    => 'mq-aws-eu-west-1.iron.io',
             'token'   => 'your-token',
             'project' => 'your-project-id',
             'queue'   => 'your-queue-name',
             'encrypt' => true,
-        ),
+        ],
 
-        'redis' => array(
+        'redis' => [
             'driver' => 'redis',
             'queue'  => 'default',
-        ),
+        ],
 
-    ),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -90,10 +90,10 @@ return array(
     |
     */
 
-    'failed' => array(
+    'failed' => [
 
         'database' => 'mysql', 'table' => 'failed_jobs',
 
-    ),
+    ],
 
-);
+];

@@ -34,9 +34,9 @@ class CachingController extends AbstractController
      */
     public function __construct()
     {
-        $this->setPermissions(array(
+        $this->setPermissions([
             'getIndex' => 'admin',
-        ));
+        ]);
 
         parent::__construct();
     }

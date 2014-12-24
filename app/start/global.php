@@ -25,9 +25,9 @@
 |
 */
 
-ClassLoader::addDirectories(array(
+ClassLoader::addDirectories([
     // it is better to autoload in composer.json
-));
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -68,20 +68,22 @@ App::fatal(function ($exception) {
         $name = 'Internal Server Error';
         $message = 'An error has occurred and this resource cannot be displayed.';
         if (Request::ajax()) {
-            $details = array(
+            $details = [
                 'success' => false,
-                'code' => $code,
-                'msg' => $message,
-            );
+                'code'    => $code,
+                'msg'     => $message,
+            ];
+
             return Response::json($details, $code);
         }
         if (Config::get('app.debug') === false) {
-            $details = array(
-                'code' => $code,
-                'name' => $name,
+            $details = [
+                'code'    => $code,
+                'name'    => $name,
                 'message' => $message,
-                'extra' => 'Fatal Error',
-            );
+                'extra'   => 'Fatal Error',
+            ];
+
             return Response::view(Config::get('views.error', 'error'), $details, $code);
         }
     } catch (Exception $e) {
@@ -101,14 +103,14 @@ App::error(function (Exception $exception, $code) {
             Log::error($exception);
     }
 
-    $headers = array();
+    $headers = [];
 
     try {
         if ($exception instanceof Symfony\Component\HttpKernel\Exception\HttpExceptionInterface) {
             $headers = (array) $exception->getHeaders();
         }
     } catch (Exception $e) {
-        $headers = array();
+        $headers = [];
     }
 
     try {
@@ -198,38 +200,42 @@ App::error(function (Exception $exception, $code) {
                 $name = 'Internal Server Error';
                 $message = 'An error has occurred and this resource cannot be displayed.';
                 if (Request::ajax()) {
-                    $details = array(
+                    $details = [
                         'success' => false,
-                        'code' => $code,
-                        'msg' => $message,
-                    );
+                        'code'    => $code,
+                        'msg'     => $message,
+                    ];
+
                     return Response::json($details, $code, $headers);
                 }
                 if (Config::get('app.debug') === false) {
-                    $details = array(
-                        'code' => $code,
-                        'name' => $name,
+                    $details = [
+                        'code'    => $code,
+                        'name'    => $name,
                         'message' => $message,
-                        'extra' => 'Fatal Error',
-                    );
+                        'extra'   => 'Fatal Error',
+                    ];
+
                     return Response::view(Config::get('views.error', 'error'), $details, $code, $headers);
                 }
         }
         if (Request::ajax()) {
-            $details = array(
+            $details = [
                 'success' => false,
-                'code' => $code,
-                'msg' => (!$exception->getMessage() || strlen($exception->getMessage()) > 100 || strlen($exception->getMessage()) < 5) ? $message : $exception->getMessage(),
-            );
+                'code'    => $code,
+                'msg'     => (!$exception->getMessage() || strlen($exception->getMessage()) > 100 || strlen($exception->getMessage()) < 5) ? $message : $exception->getMessage(),
+            ];
+
             return Response::json($details, $code, $headers);
         }
         if (Config::get('app.debug') === false) {
-            $details = array(
-                'code' => $code,
-                'name' => $name,
+            $details = [
+                'code'    => $code,
+                'name'    => $name,
                 'message' => $message,
-                'extra' => (!$exception->getMessage() || strlen($exception->getMessage()) > 35 || strlen($exception->getMessage()) < 5) ? 'Houston, We Have A Problem' : $exception->getMessage(),
-            );
+                'extra'   => (!$exception->getMessage() || strlen($exception->getMessage()) > 35 || strlen($exception->getMessage()) < 5) ? 'Houston, We Have A Problem' : $exception->getMessage(),
+            ];
+
             return Response::view(Config::get('views.error', 'error'), $details, $code, $headers);
         }
     } catch (Exception $e) {
@@ -239,20 +245,22 @@ App::error(function (Exception $exception, $code) {
             $name = 'Internal Server Error';
             $message = 'An error has occurred and this resource cannot be displayed.';
             if (Request::ajax()) {
-                $details = array(
+                $details = [
                     'success' => false,
-                    'code' => $code,
-                    'msg' => $message,
-                );
+                    'code'    => $code,
+                    'msg'     => $message,
+                ];
+
                 return Response::json($details, $code);
             }
             if (Config::get('app.debug') === false) {
-                $details = array(
-                    'code' => $code,
-                    'name' => $name,
+                $details = [
+                    'code'    => $code,
+                    'name'    => $name,
                     'message' => $message,
-                    'extra' => 'Fatal Error',
-                );
+                    'extra'   => 'Fatal Error',
+                ];
+
                 return Response::view(Config::get('views.error', 'error'), $details, $code);
             }
         } catch (Exception $e) {
@@ -273,7 +281,7 @@ App::error(function (Exception $exception, $code) {
 */
 
 App::down(function () {
-    return Response::view(Config::get('views.maintenance', 'maintenance'), array(), 503);
+    return Response::view(Config::get('views.maintenance', 'maintenance'), [], 503);
 });
 
 /*

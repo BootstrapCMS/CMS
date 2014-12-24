@@ -56,14 +56,14 @@ class CommentController extends AbstractController
     {
         $this->throttler = $throttler;
 
-        $this->setPermissions(array(
+        $this->setPermissions([
             'store'   => 'user',
             'update'  => 'mod',
             'destroy' => 'mod',
-        ));
+        ]);
 
         $this->beforeFilter('ajax');
-        $this->beforeFilter('throttle.comment', array('only' => array('store')));
+        $this->beforeFilter('throttle.comment', ['only' => ['store']]);
 
         parent::__construct();
     }
@@ -77,23 +77,24 @@ class CommentController extends AbstractController
      */
     public function index($postId)
     {
-        $post = PostProvider::find($postId, array('id'));
+        $post = PostProvider::find($postId, ['id']);
         if (!$post) {
             Session::flash('error', 'The post you were viewing has been deleted.');
-            return Response::json(array(
+
+            return Response::json([
                 'success' => false,
-                'code' => 404,
-                'msg' => 'The post you were viewing has been deleted.',
-                'url' => URL::route('blog.posts.index'),
-            ), 404);
+                'code'    => 404,
+                'msg'     => 'The post you were viewing has been deleted.',
+                'url'     => URL::route('blog.posts.index'),
+            ], 404);
         }
 
-        $comments = $post->comments()->get(array('id', 'version'));
+        $comments = $post->comments()->get(['id', 'version']);
 
-        $data = array();
+        $data = [];
 
         foreach ($comments as $comment) {
-            $data[] = array('comment_id' => $comment->id, 'comment_ver' => $comment->version);
+            $data[] = ['comment_id' => $comment->id, 'comment_ver' => $comment->version];
         }
 
         return Response::json(array_reverse($data));
@@ -110,11 +111,11 @@ class CommentController extends AbstractController
      */
     public function store($postId)
     {
-        $input = array_merge(Binput::only('body'), array(
+        $input = array_merge(Binput::only('body'), [
             'user_id' => Credentials::getuser()->id,
             'post_id' => $postId,
             'version' => 1,
-        ));
+        ]);
 
         if (CommentProvider::validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
@@ -124,17 +125,17 @@ class CommentController extends AbstractController
 
         $comment = CommentProvider::create($input);
 
-        $contents = View::make('posts.comment', array(
+        $contents = View::make('posts.comment', [
             'comment' => $comment,
             'post_id' => $postId,
-        ));
+        ]);
 
-        return Response::json(array(
-            'success' => true,
-            'msg' => 'Comment created successfully.',
-            'contents' => $contents->render(),
+        return Response::json([
+            'success'    => true,
+            'msg'        => 'Comment created successfully.',
+            'contents'   => $contents->render(),
             'comment_id' => $comment->id,
-        ), 201);
+        ], 201);
     }
 
     /**
@@ -150,17 +151,17 @@ class CommentController extends AbstractController
         $comment = CommentProvider::find($id);
         $this->checkComment($comment);
 
-        $contents = View::make('posts.comment', array(
+        $contents = View::make('posts.comment', [
             'comment' => $comment,
-            'postId' => $postId,
-        ));
+            'postId'  => $postId,
+        ]);
 
-        return Response::json(array(
-            'contents' => $contents->render(),
+        return Response::json([
+            'contents'     => $contents->render(),
             'comment_text' => nl2br(e($comment->body)),
-            'comment_id' => $id,
-            'comment_ver' => $comment->version,
-        ));
+            'comment_id'   => $id,
+            'comment_ver'  => $comment->version,
+        ]);
     }
 
     /**
@@ -176,7 +177,7 @@ class CommentController extends AbstractController
      */
     public function update($postId, $id)
     {
-        $input = Binput::map(array('edit_body' => 'body'));
+        $input = Binput::map(['edit_body' => 'body']);
 
         if (CommentProvider::validate($input, array_keys($input))->fails()) {
             throw new BadRequestHttpException('Your comment was empty.');
@@ -197,15 +198,15 @@ class CommentController extends AbstractController
 
         $version++;
 
-        $comment->update(array_merge($input, array('version' => $version)));
+        $comment->update(array_merge($input, ['version' => $version]));
 
-        return Response::json(array(
-            'success' => true,
-            'msg' => 'Comment updated successfully.',
+        return Response::json([
+            'success'      => true,
+            'msg'          => 'Comment updated successfully.',
             'comment_text' => nl2br(e($comment->body)),
-            'comment_id' => $id,
-            'comment_ver' => $version,
-        ));
+            'comment_id'   => $id,
+            'comment_ver'  => $version,
+        ]);
     }
 
     /**
@@ -223,11 +224,11 @@ class CommentController extends AbstractController
 
         $comment->delete();
 
-        return Response::json(array(
-            'success' => true,
-            'msg' => 'Comment deleted successfully.',
+        return Response::json([
+            'success'    => true,
+            'msg'        => 'Comment deleted successfully.',
             'comment_id' => $id,
-        ));
+        ]);
     }
 
     /**

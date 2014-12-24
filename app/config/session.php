@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +97,7 @@ return array(
     |
     */
 
-    'lottery' => array(2, 100),
+    'lottery' => [2, 100],
 
     /*
     |--------------------------------------------------------------------------
@@ -151,4 +151,4 @@ return array(
 
     'secure' => false,
 
-);
+];

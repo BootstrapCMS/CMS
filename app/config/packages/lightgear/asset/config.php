@@ -1,16 +1,16 @@
 <?php
 
-return array(
+return [
 
     /**
      * The paths where the assets will be searched in,
      * relative to the project root
      */
-    'search_paths' => array(
+    'search_paths' => [
         '/workbench',
         '/vendor',
         '/app/assets',
-    ),
+    ],
 
     /**
      * The directory, relative to "public" where the assets will
@@ -30,7 +30,7 @@ return array(
      * the minification process.
      * Ex. jquery.min.js, yui-min.js
      */
-    'minify_patterns' => array('-min.', '.min.'),
+    'minify_patterns' => ['-min.', '.min.'],
 
     /**
      * Turn on/off assets merge.
@@ -52,4 +52,4 @@ return array(
      */
     'use_cache' => true,
 
-);
+];

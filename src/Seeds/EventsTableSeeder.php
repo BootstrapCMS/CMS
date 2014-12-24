@@ -42,7 +42,7 @@ class EventsTableSeeder extends Seeder
 
         $date->second = 0;
 
-        $event = array(
+        $event = [
             'title'      => 'Example Event',
             'date'       => $date,
             'location'   => 'Example Location',
@@ -50,7 +50,7 @@ class EventsTableSeeder extends Seeder
             'user_id'    => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        );
+        ];
 
         DB::table('events')->insert($event);
     }

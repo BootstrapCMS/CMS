@@ -56,21 +56,21 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
      *
      * @var array
      */
-    protected $dates = array('deleted_at');
+    protected $dates = ['deleted_at'];
 
     /**
      * The revisionable columns.
      *
      * @var array
      */
-    protected $keepRevisionOf = array('title', 'summary', 'body');
+    protected $keepRevisionOf = ['title', 'summary', 'body'];
 
     /**
      * The columns to select when displaying an index.
      *
      * @var array
      */
-    public static $index = array('id', 'title', 'summary');
+    public static $index = ['id', 'title', 'summary'];
 
     /**
      * The max posts per page when displaying a paginated index.
@@ -98,12 +98,12 @@ class Post extends AbstractModel implements HasManyCommentsInterface, BelongsToU
      *
      * @var array
      */
-    public static $rules = array(
+    public static $rules = [
         'title'   => 'required',
         'summary' => 'required',
         'body'    => 'required',
         'user_id' => 'required',
-    );
+    ];
 
     /**
      * Get the presenter class.

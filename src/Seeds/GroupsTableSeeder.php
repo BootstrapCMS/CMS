@@ -39,28 +39,28 @@ class GroupsTableSeeder extends Seeder
         DB::table('groups')->truncate();
 
         // users
-        $permissions = array('user' => 1, 'edit' => 0, 'blog' => 0, 'mod' => 0, 'admin' => 0);
-        $group = array('name' => 'Users', 'permissions' => $permissions);
+        $permissions = ['user' => 1, 'edit' => 0, 'blog' => 0, 'mod' => 0, 'admin' => 0];
+        $group = ['name' => 'Users', 'permissions' => $permissions];
         Credentials::getGroupProvider()->create($group);
 
         // editors
-        $permissions = array('user' => 1, 'edit' => 1, 'blog' => 0, 'mod' => 0, 'admin' => 0);
-        $group = array('name' => 'Editors', 'permissions' => $permissions);
+        $permissions = ['user' => 1, 'edit' => 1, 'blog' => 0, 'mod' => 0, 'admin' => 0];
+        $group = ['name' => 'Editors', 'permissions' => $permissions];
         Credentials::getGroupProvider()->create($group);
 
         // bloggers
-        $permissions = array('user' => 1, 'edit' => 0, 'blog' => 1, 'mod' => 0, 'admin' => 0);
-        $group = array('name' => 'Bloggers', 'permissions' => $permissions);
+        $permissions = ['user' => 1, 'edit' => 0, 'blog' => 1, 'mod' => 0, 'admin' => 0];
+        $group = ['name' => 'Bloggers', 'permissions' => $permissions];
         Credentials::getGroupProvider()->create($group);
 
         // moderators
-        $permissions = array('user' => 1, 'edit' => 0, 'blog' => 0, 'mod' => 1, 'admin' => 0);
-        $group = array('name' => 'Moderators', 'permissions' => $permissions);
+        $permissions = ['user' => 1, 'edit' => 0, 'blog' => 0, 'mod' => 1, 'admin' => 0];
+        $group = ['name' => 'Moderators', 'permissions' => $permissions];
         Credentials::getGroupProvider()->create($group);
 
         // admins
-        $permissions = array('user' => 1, 'edit' => 1, 'blog' => 1, 'mod' => 1, 'admin' => 1);
-        $group = array('name' => 'Admins', 'permissions' => $permissions);
+        $permissions = ['user' => 1, 'edit' => 1, 'blog' => 1, 'mod' => 1, 'admin' => 1];
+        $group = ['name' => 'Admins', 'permissions' => $permissions];
         Credentials::getGroupProvider()->create($group);
     }
 }

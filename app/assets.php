@@ -24,7 +24,7 @@
 |
 */
 
-$styles = array();
+$styles = [];
 if (Config::get('theme.name') == 'default') {
     $styles[] = 'css/bootstrap.min.css';
 } elseif (Config::get('theme.name') == 'legacy') {
@@ -40,27 +40,27 @@ if (Config::get('laravel-debugbar::enabled')) {
 
 Asset::registerStyles($styles, '', 'main');
 
-$scripts = array(
+$scripts = [
     'js/cms-timeago.js',
     'js/cms-restfulizer.js',
     'js/cms-carousel.js',
     'js/cms-alerts.js',
-);
+];
 if (Config::get('laravel-debugbar::enabled')) {
     $scripts[] = 'maximebf\debugbar\src\DebugBar\Resources\vendor\highlightjs\highlight.pack.js';
 }
 
 Asset::registerScripts($scripts, '', 'main');
 
-Asset::registerScripts(array(
+Asset::registerScripts([
     'js/cms-picker.js',
-), '', 'picker');
+], '', 'picker');
 
-Asset::registerScripts(array(
+Asset::registerScripts([
     'js/cms-comment-core.js',
     'js/cms-comment-edit.js',
     'js/cms-comment-delete.js',
     'js/cms-comment-create.js',
     'js/cms-comment-fetch.js',
     'js/cms-comment-main.js',
-), '', 'comment');
+], '', 'comment');

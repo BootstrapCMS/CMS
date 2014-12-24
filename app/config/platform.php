@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -80,4 +80,4 @@ return array(
 
     'description' => 'Bootstrap CMS is a PHP CMS powered by Laravel 4.2.',
 
-);
+];

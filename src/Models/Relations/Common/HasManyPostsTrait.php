@@ -42,7 +42,7 @@ trait HasManyPostsTrait
      */
     public function deletePosts()
     {
-        foreach ($this->posts()->get(array('id')) as $post) {
+        foreach ($this->posts()->get(['id']) as $post) {
             $post->delete();
         }
     }

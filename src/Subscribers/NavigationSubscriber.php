@@ -151,14 +151,14 @@ class NavigationSubscriber
         // add the blog
         if ($this->blogging) {
             $this->navigation->addToMain(
-                array('title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book')
+                ['title' => 'Blog', 'slug' => 'blog/posts', 'icon' => 'book']
             );
         }
 
         // add the events
         if ($this->events) {
             $this->navigation->addToMain(
-                array('title' => 'Events', 'slug' => 'events', 'icon' => 'calendar')
+                ['title' => 'Events', 'slug' => 'events', 'icon' => 'calendar']
             );
         }
     }
@@ -185,16 +185,16 @@ class NavigationSubscriber
             // add the admin links
             if ($this->credentials->hasAccess('admin')) {
                 $this->navigation->addToMain(
-                    array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'),
+                    ['title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'],
                     'admin'
                 );
                 $this->navigation->addToMain(
-                    array('title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'),
+                    ['title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'],
                     'admin'
                 );
                 if ($this->cloudflare) {
                     $this->navigation->addToMain(
-                        array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'),
+                        ['title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud'],
                         'admin'
                     );
                 }
@@ -222,7 +222,7 @@ class NavigationSubscriber
         // add the view users link
         if ($this->credentials->check() && $this->credentials->hasAccess('mod')) {
             $this->navigation->addToMain(
-                array('title' => 'Users', 'slug' => 'users', 'icon' => 'user'),
+                ['title' => 'Users', 'slug' => 'users', 'icon' => 'user'],
                 'admin'
             );
         }
@@ -238,10 +238,10 @@ class NavigationSubscriber
         if ($this->credentials->check()) {
             // add the profile/history links
             $this->navigation->addToBar(
-                array('title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog')
+                ['title' => 'View Profile', 'slug' => 'account/profile', 'icon' => 'cog']
             );
             $this->navigation->addToBar(
-                array('title' => 'View History', 'slug' => 'account/history', 'icon' => 'history')
+                ['title' => 'View History', 'slug' => 'account/history', 'icon' => 'history']
             );
         }
     }
@@ -256,14 +256,14 @@ class NavigationSubscriber
         // add the admin links
         if ($this->credentials->check() && $this->credentials->hasAccess('admin')) {
             $this->navigation->addToBar(
-                array('title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer')
+                ['title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer']
             );
             $this->navigation->addToBar(
-                array('title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench')
+                ['title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench']
             );
             if ($this->cloudflare) {
                 $this->navigation->addToBar(
-                    array('title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud')
+                    ['title' => 'CloudFlare', 'slug' => 'cloudflare', 'icon' => 'cloud']
                 );
             }
         }
@@ -280,21 +280,21 @@ class NavigationSubscriber
             // add the view users link
             if ($this->credentials->hasAccess('mod')) {
                 $this->navigation->addToBar(
-                    array('title' => 'View Users', 'slug' => 'users', 'icon' => 'user')
+                    ['title' => 'View Users', 'slug' => 'users', 'icon' => 'user']
                 );
             }
 
             // add the create user link
             if ($this->credentials->hasAccess('admin')) {
                 $this->navigation->addToBar(
-                    array('title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star')
+                    ['title' => 'Create User', 'slug' => 'users/create', 'icon' => 'star']
                 );
             }
 
             // add the create page link
             if ($this->credentials->hasAccess('edit')) {
                 $this->navigation->addToBar(
-                    array('title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil')
+                    ['title' => 'Create Page', 'slug' => 'pages/create', 'icon' => 'pencil']
                 );
             }
 
@@ -302,7 +302,7 @@ class NavigationSubscriber
             if ($this->blogging) {
                 if ($this->credentials->hasAccess('blog')) {
                     $this->navigation->addToBar(
-                        array('title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book')
+                        ['title' => 'Create Post', 'slug' => 'blog/posts/create', 'icon' => 'book']
                     );
                 }
             }
@@ -311,7 +311,7 @@ class NavigationSubscriber
             if ($this->events) {
                 if ($this->credentials->hasAccess('edit')) {
                     $this->navigation->addToBar(
-                        array('title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar')
+                        ['title' => 'Create Event', 'slug' => 'events/create', 'icon' => 'calendar']
                     );
                 }
             }

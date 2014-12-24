@@ -29,7 +29,7 @@ use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 */
 
 App::before(function ($request) {
-    Event::fire('page.load', array(array('Path' => $request->path(), 'Headers' => $request->header())));
+    Event::fire('page.load', [['Path' => $request->path(), 'Headers' => $request->header()]]);
 });
 
 App::after(function ($request, $response) {

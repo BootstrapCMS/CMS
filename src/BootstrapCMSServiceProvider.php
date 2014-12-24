@@ -60,12 +60,14 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $blade->extend(function ($value, $compiler) {
             $pattern = $compiler->createMatcher('navtype');
             $replace = '$1<?php $__navtype = $2; ?>';
+
             return preg_replace($pattern, $replace, $value);
         });
 
         $blade->extend(function ($value, $compiler) {
             $pattern = $compiler->createPlainMatcher('navigation');
             $replace = '$1<?php echo \GrahamCampbell\BootstrapCMS\Facades\NavigationFactory::make($__navtype); ?>$2';
+
             return preg_replace($pattern, $replace, $value);
         });
     }
@@ -278,7 +280,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array(
+        return [
             'navfactory',
             'commentprovider',
             'eventprovider',
@@ -286,6 +288,6 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             'folderprovider',
             'pageprovider',
             'postprovider',
-        );
+        ];
     }
 }

@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -66,6 +66,6 @@ return array(
     |
     */
 
-    'storage' => __DIR__.'/../app/storage'
+    'storage' => __DIR__.'/../app/storage',
 
-);
+];

@@ -54,21 +54,21 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
      *
      * @var array
      */
-    protected $dates = array('deleted_at');
+    protected $dates = ['deleted_at'];
 
     /**
      * The revisionable columns.
      *
      * @var array
      */
-    protected $keepRevisionOf = array('title', 'nav_title', 'slug', 'body', 'css', 'js', 'show_title', 'show_nav', 'icon');
+    protected $keepRevisionOf = ['title', 'nav_title', 'slug', 'body', 'css', 'js', 'show_title', 'show_nav', 'icon'];
 
     /**
      * The columns to select when displaying an index.
      *
      * @var array
      */
-    public static $index = array('id', 'slug', 'title', 'nav_title');
+    public static $index = ['id', 'slug', 'title', 'nav_title'];
 
     /**
      * The max pages per page when displaying a paginated index.
@@ -96,7 +96,7 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
      *
      * @var array
      */
-    public static $rules = array(
+    public static $rules = [
         'title'      => 'required',
         'nav_title'  => 'required',
         'slug'       => 'required|alpha_dash',
@@ -104,7 +104,7 @@ class Page extends AbstractModel implements BelongsToUserInterface, Revisionable
         'show_title' => 'required',
         'show_nav'   => 'required',
         'user_id'    => 'required',
-    );
+    ];
 
     /**
      * Get the presenter class.

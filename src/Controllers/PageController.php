@@ -51,13 +51,13 @@ class PageController extends AbstractController
     {
         $this->path = $path;
 
-        $this->setPermissions(array(
+        $this->setPermissions([
             'create'  => 'edit',
             'store'   => 'edit',
             'edit'    => 'edit',
             'update'  => 'edit',
             'destroy' => 'edit',
-        ));
+        ]);
 
         parent::__construct();
     }
@@ -71,6 +71,7 @@ class PageController extends AbstractController
     {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
+
         return Redirect::to($this->path);
     }
 
@@ -91,7 +92,7 @@ class PageController extends AbstractController
      */
     public function store()
     {
-        $input = array_merge($this->getInput(), array('user_id' => Credentials::getuser()->id));
+        $input = array_merge($this->getInput(), ['user_id' => Credentials::getuser()->id]);
 
         $val = PageProvider::validate($input, array_keys($input));
         if ($val->fails()) {
@@ -101,7 +102,7 @@ class PageController extends AbstractController
         $page = PageProvider::create($input);
 
         // write flash message and redirect
-        return Redirect::route('pages.show', array('pages' => $page->slug))
+        return Redirect::route('pages.show', ['pages' => $page->slug])
             ->with('success', 'Your page has been created successfully.');
     }
 
@@ -117,7 +118,7 @@ class PageController extends AbstractController
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return View::make('pages.show', array('page' => $page));
+        return View::make('pages.show', ['page' => $page]);
     }
 
     /**
@@ -132,7 +133,7 @@ class PageController extends AbstractController
         $page = PageProvider::find($slug);
         $this->checkPage($page, $slug);
 
-        return View::make('pages.edit', array('page' => $page));
+        return View::make('pages.edit', ['page' => $page]);
     }
 
     /**
@@ -156,7 +157,7 @@ class PageController extends AbstractController
 
         $val = PageProvider::validate($input, array_keys($input));
         if ($val->fails()) {
-            return Redirect::route('pages.edit', array('pages' => $slug))->withInput()->withErrors($val->errors());
+            return Redirect::route('pages.edit', ['pages' => $slug])->withInput()->withErrors($val->errors());
         }
 
         $page = PageProvider::find($slug);
@@ -170,7 +171,7 @@ class PageController extends AbstractController
         $page->update($input);
 
         // write flash message and redirect
-        return Redirect::route('pages.show', array('pages' => $page->slug))
+        return Redirect::route('pages.show', ['pages' => $page->slug])
             ->with('success', 'Your page has been updated successfully.');
     }
 
@@ -189,7 +190,7 @@ class PageController extends AbstractController
         try {
             $page->delete();
         } catch (\Exception $e) {
-            return Redirect::route('pages.show', array('pages' => $page->slug))
+            return Redirect::route('pages.show', ['pages' => $page->slug])
                 ->with('error', 'You cannot delete this page.');
         }
 
@@ -204,7 +205,7 @@ class PageController extends AbstractController
      */
     protected function getInput()
     {
-        return array(
+        return [
             'title'      => Binput::get('title'),
             'nav_title'  => Binput::get('nav_title'),
             'slug'       => Binput::get('slug'),
@@ -214,7 +215,7 @@ class PageController extends AbstractController
             'show_title' => (Binput::get('show_title') == 'on'),
             'show_nav'   => (Binput::get('show_nav') == 'on'),
             'icon'       => Binput::get('icon'),
-        );
+        ];
     }
 
     /**
@@ -251,12 +252,12 @@ class PageController extends AbstractController
     {
         if ($slug == 'home') {
             if ($slug != $input['slug']) {
-                return Redirect::route('pages.edit', array('pages' => $slug))->withInput()
+                return Redirect::route('pages.edit', ['pages' => $slug])->withInput()
                     ->with('error', 'You cannot change the homepage slug.');
             }
 
             if ($input['show_nav'] == false) {
-                return Redirect::route('pages.edit', array('pages' => $slug))->withInput()
+                return Redirect::route('pages.edit', ['pages' => $slug])->withInput()
                     ->with('error', 'The homepage must remain on the navigation bar.');
             }
         }

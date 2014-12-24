@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -37,4 +37,4 @@ return array(
 
     "reset"    => "Password has been reset!",
 
-);
+];

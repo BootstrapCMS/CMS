@@ -48,7 +48,7 @@ abstract class AbstractDisplayer extends AbstractRevisionDisplayer
     {
         $page = $this->resource->revisionable()->withTrashed()
             ->cacheDriver('array')->rememberForever()
-            ->first(array('title'));
+            ->first(['title']);
 
         if ($final) {
             return ' "'.$page->title.'".';

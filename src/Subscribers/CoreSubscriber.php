@@ -95,11 +95,11 @@ class CoreSubscriber
      *
      * @return void
      */
-    public function onPageLoad($event = array())
+    public function onPageLoad($event = [])
     {
         if ($this->config->get('log.pageload') == true) {
             if (!is_array($event)) {
-                $event = array($event);
+                $event = [$event];
             }
             $this->log->debug('Page Loading', $event);
         }
@@ -112,11 +112,11 @@ class CoreSubscriber
      *
      * @return void
      */
-    public function onArtisanStart($event = array())
+    public function onArtisanStart($event = [])
     {
         if ($this->config->get('log.artisanstart') == true) {
             if (!is_array($event)) {
-                $event = array($event);
+                $event = [$event];
             }
             $this->log->debug('Artisan Starting', $event);
         }
@@ -129,11 +129,11 @@ class CoreSubscriber
      *
      * @return void
      */
-    public function onIlluminateQuery($event = array())
+    public function onIlluminateQuery($event = [])
     {
         if ($this->config->get('log.illuminatequery') == true) {
             if (!is_array($event)) {
-                $event = array($event);
+                $event = [$event];
             }
             $this->log->debug('Query Executed', $event);
         }
@@ -146,11 +146,11 @@ class CoreSubscriber
      *
      * @return void
      */
-    public function onLocaleChanged($event = array())
+    public function onLocaleChanged($event = [])
     {
         if ($this->config->get('log.localechanged') == true) {
             if (!is_array($event)) {
-                $event = array($event);
+                $event = [$event];
             }
             $this->log->debug('Locale Changed', $event);
         }

@@ -32,14 +32,14 @@ abstract class AbstractController extends Controller
      *
      * @var string[]
      */
-    protected $edits = array();
+    protected $edits = [];
 
     /**
      * A list of methods protected by blog permissions.
      *
      * @var string[]
      */
-    protected $blogs = array();
+    protected $blogs = [];
 
     /**
      * Create a new instance.
@@ -50,7 +50,7 @@ abstract class AbstractController extends Controller
     {
         parent::__construct();
 
-        $this->beforeFilter('credentials:edit', array('only' => $this->edits));
-        $this->beforeFilter('credentials:blog', array('only' => $this->blogs));
+        $this->beforeFilter('credentials:edit', ['only' => $this->edits]);
+        $this->beforeFilter('credentials:blog', ['only' => $this->blogs]);
     }
 }

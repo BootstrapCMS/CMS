@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -25,6 +25,6 @@ return array(
     | the input.
     |
     */
-    'evil' => array('(?<!\w)on\w*', 'style', 'xmlns', 'formaction', 'form', 'xlink:href'),
+    'evil' => ['(?<!\w)on\w*', 'style', 'xmlns', 'formaction', 'form', 'xlink:href'],
 
-);
+];

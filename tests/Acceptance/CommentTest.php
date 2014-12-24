@@ -31,7 +31,7 @@ class CommentTest extends AbstractTestCase
 {
     public function testIndexFail()
     {
-        PostProvider::shouldReceive('find')->once()->with(1, array('id'));
+        PostProvider::shouldReceive('find')->once()->with(1, ['id']);
         $content = $this->call('GET', 'blog/posts/1/comments')->getContent();
 
         $this->assertResponseStatus(404);

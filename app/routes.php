@@ -26,19 +26,21 @@
 */
 
 // send users to the home page
-Route::get('/', array('as' => 'base', function () {
+Route::get('/', ['as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
+
     return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
-}));
+}]);
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
-    Route::get('blog', array('as' => 'blog', function () {
+    Route::get('blog', ['as' => 'blog', function () {
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
+
         return Redirect::route('blog.posts.index');
-    }));
+    }]);
 }
 
 // page routes
@@ -56,7 +58,7 @@ if (Config::get('cms.events')) {
 }
 
 // caching routes
-Route::get('caching', array(
-    'as' => 'caching.index',
+Route::get('caching', [
+    'as'   => 'caching.index',
     'uses' => 'GrahamCampbell\BootstrapCMS\Controllers\CachingController@getIndex',
-));
+]);

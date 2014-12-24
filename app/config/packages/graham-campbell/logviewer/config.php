@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
     |
     */
 
-    'filters' => array('credentials:admin'),
+    'filters' => ['credentials:admin'],
 
     /*
     |--------------------------------------------------------------------------
@@ -43,4 +43,4 @@ return array(
 
     'per_page' => 20,
 
-);
+];

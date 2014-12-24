@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
     |
     */
 
-    'filters' => array('credentials:admin'),
+    'filters' => ['credentials:admin'],
 
     /*
     |--------------------------------------------------------------------------
@@ -86,4 +86,4 @@ return array(
 
     'key' => 'cloudflarestats',
 
-);
+];

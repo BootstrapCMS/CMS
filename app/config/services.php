@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -28,18 +28,18 @@ return array(
     |
     */
 
-    'mailgun' => array(
+    'mailgun' => [
         'domain' => '',
         'secret' => '',
-    ),
+    ],
 
-    'mandrill' => array(
+    'mandrill' => [
         'secret' => '',
-    ),
+    ],
 
-    'stripe' => array(
+    'stripe' => [
         'model'  => 'User',
         'secret' => '',
-    ),
+    ],
 
-);
+];

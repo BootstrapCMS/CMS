@@ -36,11 +36,11 @@ abstract class AbstractDisplayer extends AbstractRevisionDisplayer
     {
         $comment = $this->resource->revisionable()->withTrashed()
             ->cacheDriver('array')->rememberForever()
-            ->first(array('post_id'));
+            ->first(['post_id']);
 
         $post = $comment->post()->withTrashed()
             ->cacheDriver('array')->rememberForever()
-            ->first(array('title'));
+            ->first(['title']);
 
         return ' "'.$post->title.'".';
     }

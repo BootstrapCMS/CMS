@@ -46,7 +46,7 @@ abstract class AbstractDisplayer extends AbstractRevisionDisplayer
     {
         $post = $this->resource->revisionable()->withTrashed()
             ->cacheDriver('array')->rememberForever()
-            ->first(array('title'));
+            ->first(['title']);
 
         return ' "'.$post->title.'".';
     }

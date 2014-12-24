@@ -42,7 +42,7 @@ trait HasManyEventsTrait
      */
     public function deleteEvents()
     {
-        foreach ($this->events()->get(array('id')) as $event) {
+        foreach ($this->events()->get(['id']) as $event) {
             $event->delete();
         }
     }

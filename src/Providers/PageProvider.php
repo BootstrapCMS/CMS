@@ -39,7 +39,7 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
      *
      * @var array
      */
-    protected $nav = array();
+    protected $nav = [];
 
     /**
      * Get the page navigation.
@@ -101,7 +101,7 @@ class PageProvider extends AbstractProvider implements PaginateProviderInterface
     protected function sendGet()
     {
         $model = $this->model;
-        $pages = $model::where('show_nav', '=', true)->get(array('nav_title', 'slug', 'icon'))->toArray();
+        $pages = $model::where('show_nav', '=', true)->get(['nav_title', 'slug', 'icon'])->toArray();
 
         foreach ($pages as $key => $page) {
             $pages[$key]['slug'] = 'pages/'.$page['slug'];

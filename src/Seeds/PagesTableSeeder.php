@@ -41,7 +41,7 @@ class PagesTableSeeder extends Seeder
     {
         DB::table('pages')->truncate();
 
-        $home = array(
+        $home = [
             'title'      => 'Welcome',
             'nav_title'  => 'Home',
             'slug'       => 'home',
@@ -51,11 +51,11 @@ class PagesTableSeeder extends Seeder
             'user_id'    => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        );
+        ];
 
         DB::table('pages')->insert($home);
 
-        $contact = array(
+        $contact = [
             'title'      => 'Contact Us',
             'nav_title'  => 'Contact',
             'slug'       => 'contact',
@@ -64,11 +64,11 @@ class PagesTableSeeder extends Seeder
             'icon'       => 'envelope',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        );
+        ];
 
         DB::table('pages')->insert($contact);
 
-        $about = array(
+        $about = [
             'title'      => 'About Us',
             'nav_title'  => 'About',
             'slug'       => 'about',
@@ -77,7 +77,7 @@ class PagesTableSeeder extends Seeder
             'icon'       => 'info-circle',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        );
+        ];
 
         DB::table('pages')->insert($about);
     }

@@ -40,13 +40,13 @@ class EventController extends AbstractController
      */
     public function __construct()
     {
-        $this->setPermissions(array(
+        $this->setPermissions([
             'create'  => 'edit',
             'store'   => 'edit',
             'edit'    => 'edit',
             'update'  => 'edit',
             'destroy' => 'edit',
-        ));
+        ]);
 
         parent::__construct();
     }
@@ -61,7 +61,7 @@ class EventController extends AbstractController
         $events = EventProvider::paginate();
         $links = EventProvider::links();
 
-        return View::make('events.index', array('events' => $events, 'links' => $links));
+        return View::make('events.index', ['events' => $events, 'links' => $links]);
     }
 
     /**
@@ -81,9 +81,9 @@ class EventController extends AbstractController
      */
     public function store()
     {
-        $input = array_merge(array('user_id' => Credentials::getuser()->id), Binput::only(array(
+        $input = array_merge(['user_id' => Credentials::getuser()->id], Binput::only([
             'title', 'location', 'date', 'body',
-        )));
+        ]));
 
         $val = EventProvider::validate($input, array_keys($input));
         if ($val->fails()) {
@@ -94,7 +94,7 @@ class EventController extends AbstractController
 
         $event = EventProvider::create($input);
 
-        return Redirect::route('events.show', array('events' => $event->id))
+        return Redirect::route('events.show', ['events' => $event->id])
             ->with('success', 'Your event has been created successfully.');
     }
 
@@ -110,7 +110,7 @@ class EventController extends AbstractController
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return View::make('events.show', array('event' => $event));
+        return View::make('events.show', ['event' => $event]);
     }
 
     /**
@@ -125,7 +125,7 @@ class EventController extends AbstractController
         $event = EventProvider::find($id);
         $this->checkEvent($event);
 
-        return View::make('events.edit', array('event' => $event));
+        return View::make('events.edit', ['event' => $event]);
     }
 
     /**
@@ -137,11 +137,11 @@ class EventController extends AbstractController
      */
     public function update($id)
     {
-        $input = Binput::only(array('title', 'location', 'date', 'body'));
+        $input = Binput::only(['title', 'location', 'date', 'body']);
 
         $val = $val = EventProvider::validate($input, array_keys($input));
         if ($val->fails()) {
-            return Redirect::route('events.edit', array('events' => $id))->withInput()->withErrors($val->errors());
+            return Redirect::route('events.edit', ['events' => $id])->withInput()->withErrors($val->errors());
         }
 
         $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
@@ -151,7 +151,7 @@ class EventController extends AbstractController
 
         $event->update($input);
 
-        return Redirect::route('events.show', array('events' => $event->id))
+        return Redirect::route('events.show', ['events' => $event->id])
             ->with('success', 'Your event has been updated successfully.');
     }
 

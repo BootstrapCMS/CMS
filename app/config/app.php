@@ -14,7 +14,7 @@
  * GNU Affero General Public License for more details.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +107,7 @@ return array(
     |
     */
 
-    'providers' => array(
+    'providers' => [
 
         'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
@@ -152,7 +152,7 @@ return array(
         'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
 
-    ),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -178,7 +178,7 @@ return array(
     |
     */
 
-    'aliases' => array(
+    'aliases' => [
 
         'App'               => 'Illuminate\Support\Facades\App',
         'Artisan'           => 'Illuminate\Support\Facades\Artisan',
@@ -232,6 +232,6 @@ return array(
         'PostProvider'      => 'GrahamCampbell\BootstrapCMS\Facades\PostProvider',
         'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 
-    ),
+    ],
 
-);
+];

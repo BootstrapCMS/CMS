@@ -54,21 +54,21 @@ class Event extends AbstractModel implements BelongsToUserInterface, Revisionabl
      *
      * @var array
      */
-    protected $dates = array('date', 'deleted_at');
+    protected $dates = ['date', 'deleted_at'];
 
     /**
      * The revisionable columns.
      *
      * @var array
      */
-    protected $keepRevisionOf = array('title', 'body', 'date', 'location');
+    protected $keepRevisionOf = ['title', 'body', 'date', 'location'];
 
     /**
      * The columns to select when displaying an index.
      *
      * @var array
      */
-    public static $index = array('id', 'title', 'date');
+    public static $index = ['id', 'title', 'date'];
 
     /**
      * The max events per page when displaying a paginated index.
@@ -96,13 +96,13 @@ class Event extends AbstractModel implements BelongsToUserInterface, Revisionabl
      *
      * @var array
      */
-    public static $rules = array(
+    public static $rules = [
         'title'    => 'required',
         'location' => 'required',
         'date'     => 'required',
         'body'     => 'required',
         'user_id'  => 'required',
-    );
+    ];
 
     /**
      * Get the presenter class.

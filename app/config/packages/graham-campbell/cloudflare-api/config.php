@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -40,20 +40,20 @@ return array(
     |
     */
 
-    'connections' => array(
+    'connections' => [
 
-        'main' => array(
+        'main' => [
             'token'   => 'your-token',
             'email'   => 'your-email',
             // 'baseurl' => 'https://www.cloudflare.com/api_json.html'
-        ),
+        ],
 
-        'alternative' => array(
+        'alternative' => [
             'token'   => 'your-token',
             'email'   => 'your-email',
             // 'baseurl' => 'https://www.cloudflare.com/api_json.html'
-        ),
+        ],
 
-    ),
+    ],
 
-);
+];

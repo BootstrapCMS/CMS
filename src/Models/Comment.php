@@ -56,21 +56,21 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
      *
      * @var array
      */
-    protected $dates = array('deleted_at');
+    protected $dates = ['deleted_at'];
 
     /**
      * The revisionable columns.
      *
      * @var array
      */
-    protected $keepRevisionOf = array('body');
+    protected $keepRevisionOf = ['body'];
 
     /**
      * The columns to select when displaying an index.
      *
      * @var array
      */
-    public static $index = array('id', 'body', 'user_id', 'created_at', 'version');
+    public static $index = ['id', 'body', 'user_id', 'created_at', 'version'];
 
     /**
      * The columns to order by when displaying an index.
@@ -91,11 +91,11 @@ class Comment extends AbstractModel implements BelongsToPostInterface, BelongsTo
      *
      * @var array
      */
-    public static $rules = array(
+    public static $rules = [
         'body'    => 'required',
         'user_id' => 'required',
         'post_id' => 'required',
-    );
+    ];
 
     /**
      * Get the presenter class.

@@ -39,13 +39,13 @@ class PostController extends AbstractController
      */
     public function __construct()
     {
-        $this->setPermissions(array(
+        $this->setPermissions([
             'create'  => 'blog',
             'store'   => 'blog',
             'edit'    => 'blog',
             'update'  => 'blog',
             'destroy' => 'blog',
-        ));
+        ]);
 
         parent::__construct();
     }
@@ -60,7 +60,7 @@ class PostController extends AbstractController
         $posts = PostProvider::paginate();
         $links = PostProvider::links();
 
-        return View::make('posts.index', array('posts' => $posts, 'links' => $links));
+        return View::make('posts.index', ['posts' => $posts, 'links' => $links]);
     }
 
     /**
@@ -80,9 +80,9 @@ class PostController extends AbstractController
      */
     public function store()
     {
-        $input = array_merge(array('user_id' => Credentials::getuser()->id), Binput::only(array(
+        $input = array_merge(['user_id' => Credentials::getuser()->id], Binput::only([
             'title', 'summary', 'body',
-        )));
+        ]));
 
         $val = PostProvider::validate($input, array_keys($input));
         if ($val->fails()) {
@@ -91,7 +91,7 @@ class PostController extends AbstractController
 
         $post = PostProvider::create($input);
 
-        return Redirect::route('blog.posts.show', array('posts' => $post->id))
+        return Redirect::route('blog.posts.show', ['posts' => $post->id])
             ->with('success', 'Your post has been created successfully.');
     }
 
@@ -109,7 +109,7 @@ class PostController extends AbstractController
 
         $comments = $post->comments()->orderBy('id', 'desc')->get();
 
-        return View::make('posts.show', array('post' => $post, 'comments' => $comments));
+        return View::make('posts.show', ['post' => $post, 'comments' => $comments]);
     }
 
     /**
@@ -124,7 +124,7 @@ class PostController extends AbstractController
         $post = PostProvider::find($id);
         $this->checkPost($post);
 
-        return View::make('posts.edit', array('post' => $post));
+        return View::make('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -136,11 +136,11 @@ class PostController extends AbstractController
      */
     public function update($id)
     {
-        $input = Binput::only(array('title', 'summary', 'body'));
+        $input = Binput::only(['title', 'summary', 'body']);
 
         $val = PostProvider::validate($input, array_keys($input));
         if ($val->fails()) {
-            return Redirect::route('blog.posts.edit', array('posts' => $id))->withInput()->withErrors($val->errors());
+            return Redirect::route('blog.posts.edit', ['posts' => $id])->withInput()->withErrors($val->errors());
         }
 
         $post = PostProvider::find($id);
@@ -148,7 +148,7 @@ class PostController extends AbstractController
 
         $post->update($input);
 
-        return Redirect::route('blog.posts.show', array('posts' => $post->id))
+        return Redirect::route('blog.posts.show', ['posts' => $post->id])
             ->with('success', 'Your post has been updated successfully.');
     }
 

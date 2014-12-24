@@ -38,13 +38,13 @@ class CommentsTableSeeder extends Seeder
     {
         DB::table('comments')->truncate();
 
-        $comment = array(
+        $comment = [
             'body'       => 'This is an example comment.',
             'user_id'    => 1,
             'post_id'    => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        );
+        ];
 
         DB::table('comments')->insert($comment);
     }
