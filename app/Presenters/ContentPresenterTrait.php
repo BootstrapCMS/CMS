@@ -34,6 +34,6 @@ trait ContentPresenterTrait
      */
     public function content()
     {
-        return Markdown::render($this->getWrappedObject()->body);
+        return Markdown::convertToHtml($this->getWrappedObject()->body);
     }
 }

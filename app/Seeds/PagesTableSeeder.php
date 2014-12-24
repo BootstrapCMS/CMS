@@ -93,6 +93,6 @@ class PagesTableSeeder extends Seeder
     {
         $content = File::get(dirname(__FILE__).'/page-'.$page.'.md');
 
-        return Binput::clean(Markdown::render($content), true, false);
+        return Binput::clean(Markdown::convertToHtml($content), true, false);
     }
 }
