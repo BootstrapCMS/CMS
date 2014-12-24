@@ -31,7 +31,7 @@ $router->get('/', ['as' => 'base', function () {
     Session::reflash();
 
     return Redirect::to(Config::get('graham-campbell/core::home', 'pages/home'));
-}, ]);
+}]);
 
 // send users to the posts page
 if (Config::get('cms.blogging')) {
@@ -40,7 +40,7 @@ if (Config::get('cms.blogging')) {
         Session::reflash();
 
         return Redirect::route('blog.posts.index');
-    }, ]);
+    }]);
 }
 
 // page routes
