@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of Laravel HTMLMin by Graham Campbell.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
