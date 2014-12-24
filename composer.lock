@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "662199a7be3de909899cbbb163feb12e",
+    "hash": "86a1c0a0440dabc55594dde48cd8d900",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -231,16 +231,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.1",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633"
+                "reference": "eeda578cbe24a170331a1cfdf78be723412df7a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/6a6bec0670bb6e71a263b08bc1b98ea242928633",
-                "reference": "6a6bec0670bb6e71a263b08bc1b98ea242928633",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/eeda578cbe24a170331a1cfdf78be723412df7a4",
+                "reference": "eeda578cbe24a170331a1cfdf78be723412df7a4",
                 "shasum": ""
             },
             "require": {
@@ -295,7 +295,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-09-25 16:45:30"
+            "time": "2014-12-20 20:49:38"
         },
         {
             "name": "doctrine/lexer",
@@ -348,89 +348,6 @@
                 "parser"
             ],
             "time": "2013-01-12 18:59:04"
-        },
-        {
-            "name": "erusev/parsedown",
-            "version": "1.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/erusev/parsedown.git",
-                "reference": "495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a",
-                "reference": "495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Parsedown": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Emanuil Rusev",
-                    "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
-                }
-            ],
-            "description": "Parser for Markdown.",
-            "homepage": "http://parsedown.org",
-            "keywords": [
-                "markdown",
-                "parser"
-            ],
-            "time": "2014-11-29 02:29:14"
-        },
-        {
-            "name": "erusev/parsedown-extra",
-            "version": "0.2.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/77f604b65b08550f229c2e79c0427c84c0c0979e",
-                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e",
-                "shasum": ""
-            },
-            "require": {
-                "erusev/parsedown": "~1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ParsedownExtra": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Emanuil Rusev",
-                    "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
-                }
-            ],
-            "description": "An extension of Parsedown that adds support for Markdown Extra.",
-            "homepage": "https://github.com/erusev/parsedown-extra",
-            "keywords": [
-                "markdown",
-                "markdown extra",
-                "parsedown",
-                "parser"
-            ],
-            "time": "2014-11-20 20:21:03"
         },
         {
             "name": "fideloper/proxy",
@@ -543,12 +460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Binput.git",
-                "reference": "14a18c2c84d88794e60f7bb99f4d23c1b066e098"
+                "reference": "9bc80e80e87a17796a71c5c1e5c3cac62c98443d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/14a18c2c84d88794e60f7bb99f4d23c1b066e098",
-                "reference": "14a18c2c84d88794e60f7bb99f4d23c1b066e098",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/9bc80e80e87a17796a71c5c1e5c3cac62c98443d",
+                "reference": "9bc80e80e87a17796a71c5c1e5c3cac62c98443d",
                 "shasum": ""
             },
             "require": {
@@ -595,7 +512,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-11-23 14:21:57"
+            "time": "2014-12-23 23:24:29"
         },
         {
             "name": "graham-campbell/contact",
@@ -603,12 +520,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Contact.git",
-                "reference": "d8e44a7334e6f9c06aba07e415c193555a049c91"
+                "reference": "b685e4ccc354b1024a5bb0e5eff04f7f4e0c2cde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/d8e44a7334e6f9c06aba07e415c193555a049c91",
-                "reference": "d8e44a7334e6f9c06aba07e415c193555a049c91",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/b685e4ccc354b1024a5bb0e5eff04f7f4e0c2cde",
+                "reference": "b685e4ccc354b1024a5bb0e5eff04f7f4e0c2cde",
                 "shasum": ""
             },
             "require": {
@@ -659,7 +576,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-11-23 14:35:09"
+            "time": "2014-12-24 01:07:27"
         },
         {
             "name": "graham-campbell/core",
@@ -667,12 +584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "3c05356631c04237e26d76cd4a292b1b0f113d21"
+                "reference": "a2a57c849915419451a8ef3de693b7dfa9eb80be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/3c05356631c04237e26d76cd4a292b1b0f113d21",
-                "reference": "3c05356631c04237e26d76cd4a292b1b0f113d21",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/a2a57c849915419451a8ef3de693b7dfa9eb80be",
+                "reference": "a2a57c849915419451a8ef3de693b7dfa9eb80be",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +635,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2014-11-29 12:32:44"
+            "time": "2014-12-24 00:50:30"
         },
         {
             "name": "graham-campbell/credentials",
@@ -726,12 +643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
-                "reference": "41eebd80d98d8ff7ee4de00c55f00287f1202a1a"
+                "reference": "3ac5aae50b3f5ddb25a57c1ba679e044848e02ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/41eebd80d98d8ff7ee4de00c55f00287f1202a1a",
-                "reference": "41eebd80d98d8ff7ee4de00c55f00287f1202a1a",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/3ac5aae50b3f5ddb25a57c1ba679e044848e02ef",
+                "reference": "3ac5aae50b3f5ddb25a57c1ba679e044848e02ef",
                 "shasum": ""
             },
             "require": {
@@ -800,7 +717,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-11-28 23:06:51"
+            "time": "2014-12-24 01:22:28"
         },
         {
             "name": "graham-campbell/database",
@@ -808,12 +725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Database.git",
-                "reference": "ec944d8f406c2ab9caa0675a85c7f498cce786ea"
+                "reference": "34ed4eca8dc39e99db97b84487183af18c198251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Database/zipball/ec944d8f406c2ab9caa0675a85c7f498cce786ea",
-                "reference": "ec944d8f406c2ab9caa0675a85c7f498cce786ea",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Database/zipball/34ed4eca8dc39e99db97b84487183af18c198251",
+                "reference": "34ed4eca8dc39e99db97b84487183af18c198251",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +779,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2014-12-01 23:40:10"
+            "time": "2014-12-23 18:56:19"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -870,12 +787,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Exceptions.git",
-                "reference": "7a157d2ee305b5e025046ed72fa9bc9a71b3586c"
+                "reference": "aae97b9634432ea4239a62ca677de2423b6811a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/7a157d2ee305b5e025046ed72fa9bc9a71b3586c",
-                "reference": "7a157d2ee305b5e025046ed72fa9bc9a71b3586c",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/aae97b9634432ea4239a62ca677de2423b6811a3",
+                "reference": "aae97b9634432ea4239a62ca677de2423b6811a3",
                 "shasum": ""
             },
             "require": {
@@ -925,7 +842,7 @@
                 "laravel",
                 "whoops"
             ],
-            "time": "2014-12-04 19:57:34"
+            "time": "2014-12-23 17:06:49"
         },
         {
             "name": "graham-campbell/htmlmin",
@@ -933,12 +850,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-HTMLMin.git",
-                "reference": "f397c7c77f956a53c73d42fe81eff1e9a9101e3d"
+                "reference": "128cac383bb8391599c9a246701f53b0e7fdcdc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/f397c7c77f956a53c73d42fe81eff1e9a9101e3d",
-                "reference": "f397c7c77f956a53c73d42fe81eff1e9a9101e3d",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/128cac383bb8391599c9a246701f53b0e7fdcdc8",
+                "reference": "128cac383bb8391599c9a246701f53b0e7fdcdc8",
                 "shasum": ""
             },
             "require": {
@@ -987,7 +904,7 @@
                 "laravel",
                 "minifier"
             ],
-            "time": "2014-11-28 23:09:18"
+            "time": "2014-12-23 19:07:26"
         },
         {
             "name": "graham-campbell/logviewer",
@@ -1060,19 +977,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "fd33fd7ce6bb27861a3b07e015f875b63303087c"
+                "reference": "2e66322cccfc0d57b64b3d709050ff2c012932be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/fd33fd7ce6bb27861a3b07e015f875b63303087c",
-                "reference": "fd33fd7ce6bb27861a3b07e015f875b63303087c",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/2e66322cccfc0d57b64b3d709050ff2c012932be",
+                "reference": "2e66322cccfc0d57b64b3d709050ff2c012932be",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.1",
-                "erusev/parsedown-extra": "~0.2.6",
                 "illuminate/support": "~5.0",
                 "illuminate/view": "~5.0",
+                "league/commonmark": "0.5.*",
                 "php": ">=5.4.7"
             },
             "require-dev": {
@@ -1099,22 +1015,19 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Markdown Is A Parsedown Extra Wrapper For Laravel 5",
+            "description": "Markdown Is A CommonMark Wrapper For Laravel 5",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
                 "Laravel Markdown",
                 "Laravel-Markdown",
-                "Parsedown Extra",
+                "common mark",
+                "commonmark",
                 "framework",
                 "laravel",
-                "markdown",
-                "markdown wrapper",
-                "parsedown",
-                "parsedown extra wrapper",
-                "parsedown wrapper"
+                "markdown"
             ],
-            "time": "2014-11-23 14:50:54"
+            "time": "2014-12-23 20:14:37"
         },
         {
             "name": "graham-campbell/navigation",
@@ -1122,12 +1035,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Navigation.git",
-                "reference": "3f159fd56379a9c0df2341a24198b518b9ed30f5"
+                "reference": "e7ad4f2646b96eb5c12cefc1e65599255ccab44b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/3f159fd56379a9c0df2341a24198b518b9ed30f5",
-                "reference": "3f159fd56379a9c0df2341a24198b518b9ed30f5",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/e7ad4f2646b96eb5c12cefc1e65599255ccab44b",
+                "reference": "e7ad4f2646b96eb5c12cefc1e65599255ccab44b",
                 "shasum": ""
             },
             "require": {
@@ -1172,7 +1085,7 @@
                 "navigation bar",
                 "navigation generator"
             ],
-            "time": "2014-11-23 14:53:14"
+            "time": "2014-12-24 00:37:49"
         },
         {
             "name": "graham-campbell/security",
@@ -1180,12 +1093,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "9b27f00ce4ac92a968624bbbed62bf8b8a7ea0a4"
+                "reference": "cb3f172f3ac21571bcf60872be066c326cd8c391"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/9b27f00ce4ac92a968624bbbed62bf8b8a7ea0a4",
-                "reference": "9b27f00ce4ac92a968624bbbed62bf8b8a7ea0a4",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/cb3f172f3ac21571bcf60872be066c326cd8c391",
+                "reference": "cb3f172f3ac21571bcf60872be066c326cd8c391",
                 "shasum": ""
             },
             "require": {
@@ -1227,7 +1140,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-11-27 23:08:32"
+            "time": "2014-12-23 23:23:27"
         },
         {
             "name": "graham-campbell/throttle",
@@ -1235,12 +1148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Throttle.git",
-                "reference": "177c96d5d781d92c076246001cabb6f04488cbcc"
+                "reference": "5325d93ae12af72ac6bec4d095fe6cb49dd20c4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/177c96d5d781d92c076246001cabb6f04488cbcc",
-                "reference": "177c96d5d781d92c076246001cabb6f04488cbcc",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/5325d93ae12af72ac6bec4d095fe6cb49dd20c4a",
+                "reference": "5325d93ae12af72ac6bec4d095fe6cb49dd20c4a",
                 "shasum": ""
             },
             "require": {
@@ -1286,7 +1199,7 @@
                 "throttle",
                 "throttling"
             ],
-            "time": "2014-11-29 10:38:02"
+            "time": "2014-12-23 23:28:38"
         },
         {
             "name": "illuminate/html",
@@ -1429,12 +1342,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
+                "url": "https://github.com/GrahamCampbell/framework.git",
                 "reference": "fa1ad0fa950cc30f306729b6ea851cec9ddded16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/fa1ad0fa950cc30f306729b6ea851cec9ddded16",
+                "url": "https://api.github.com/repos/GrahamCampbell/framework/zipball/fa1ad0fa950cc30f306729b6ea851cec9ddded16",
                 "reference": "fa1ad0fa950cc30f306729b6ea851cec9ddded16",
                 "shasum": ""
             },
@@ -1523,7 +1436,6 @@
                     "Illuminate": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1538,6 +1450,9 @@
                 "framework",
                 "laravel"
             ],
+            "support": {
+                "source": "https://github.com/GrahamCampbell/framework/tree/master"
+            },
             "time": "2014-12-04 19:32:27"
         },
         {
@@ -1582,17 +1497,76 @@
             "time": "2014-11-24 18:39:20"
         },
         {
+            "name": "league/commonmark",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "cde709b66b253abe1ed3afcc58389a0bce5300a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/cde709b66b253abe1ed3afcc58389a0bce5300a1",
+                "reference": "cde709b66b253abe1ed3afcc58389a0bce5300a1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.3"
+            },
+            "replace": {
+                "colinodell/commonmark-php": "*"
+            },
+            "require-dev": {
+                "erusev/parsedown": "~1.0",
+                "jgm/commonmark": "0.13",
+                "michelf/php-markdown": "~1.4",
+                "phpunit/phpunit": "~4.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\CommonMark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "http://www.colinodell.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Markdown parser for PHP based on the CommonMark spec",
+            "homepage": "https://github.com/thephpleague/commonmark",
+            "keywords": [
+                "commonmark",
+                "markdown",
+                "parser"
+            ],
+            "time": "2014-12-23 21:13:14"
+        },
+        {
             "name": "league/flysystem",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "b59998778b7771fea7637a3192e028e8f974204e"
+                "reference": "e63bbefb51e49a78a732c5a920240c6e8c08d641"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b59998778b7771fea7637a3192e028e8f974204e",
-                "reference": "b59998778b7771fea7637a3192e028e8f974204e",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e63bbefb51e49a78a732c5a920240c6e8c08d641",
+                "reference": "e63bbefb51e49a78a732c5a920240c6e8c08d641",
                 "shasum": ""
             },
             "require": {
@@ -1607,11 +1581,10 @@
                 "league/phpunit-coverage-listener": "~1.1",
                 "mockery/mockery": "~0.9",
                 "phpseclib/phpseclib": "~0.3.5",
-                "phpspec/phpspec": "~2.0",
+                "phpspec/phpspec": "~2.0.0",
                 "phpunit/phpunit": "~4.0",
                 "predis/predis": "~1.0",
                 "rackspace/php-opencloud": "~1.11",
-                "sabre/dav": "~2.0",
                 "tedivm/stash": "~0.12.0"
             },
             "suggest": {
@@ -1621,6 +1594,8 @@
                 "ext-fileinfo": "Required for MimeType",
                 "guzzlehttp/guzzle": "Allows you to use http files (reading only)",
                 "league/event": "Required for EventableFilesystem",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
                 "phpseclib/phpseclib": "Allows SFTP server storage",
                 "predis/predis": "Allows you to use Predis for caching",
                 "rackspace/php-opencloud": "Allows you to use Rackspace Cloud Files",
@@ -1666,7 +1641,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-12-04 19:27:05"
+            "time": "2014-12-22 16:32:36"
         },
         {
             "name": "lightgear/asset",
@@ -1714,16 +1689,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "dev-master",
+            "version": "v1.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "4b8ba47e583564b1bec89e84a1b8820ae187b53b"
+                "reference": "4971283c1fa8da051e97d1fa62e053d49259f7ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/4b8ba47e583564b1bec89e84a1b8820ae187b53b",
-                "reference": "4b8ba47e583564b1bec89e84a1b8820ae187b53b",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/4971283c1fa8da051e97d1fa62e053d49259f7ef",
+                "reference": "4971283c1fa8da051e97d1fa62e053d49259f7ef",
                 "shasum": ""
             },
             "require": {
@@ -1766,7 +1741,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2014-12-04 08:05:26"
+            "time": "2014-12-17 08:39:39"
         },
         {
             "name": "mccool/laravel-auto-presenter",
@@ -2275,16 +2250,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205"
+                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/b86b927dfefdb56ab0b22d1350033d9a38e9f205",
-                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
+                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
                 "shasum": ""
             },
             "require": {
@@ -2323,7 +2298,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-10-04 05:53:18"
+            "time": "2014-12-05 14:17:14"
         },
         {
             "name": "symfony/console",
@@ -3007,16 +2982,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v1.0.9",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "56c252d48dce336da97926591aed71805203815b"
+                "reference": "732d2adb7d916c9593b9d58c3b0d9ebefead07aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/56c252d48dce336da97926591aed71805203815b",
-                "reference": "56c252d48dce336da97926591aed71805203815b",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/732d2adb7d916c9593b9d58c3b0d9ebefead07aa",
+                "reference": "732d2adb7d916c9593b9d58c3b0d9ebefead07aa",
                 "shasum": ""
             },
             "require": {
@@ -3054,7 +3029,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2014-10-16 14:50:21"
+            "time": "2014-12-05 15:19:21"
         }
     ],
     "packages-dev": [
@@ -3275,30 +3250,38 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.4.3",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "0368bc031976126e5d36d37d2c56155092b6575b"
+                "reference": "71140662c0a954602e81271667b6e03d9f53ea34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0368bc031976126e5d36d37d2c56155092b6575b",
-                "reference": "0368bc031976126e5d36d37d2c56155092b6575b",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/71140662c0a954602e81271667b6e03d9f53ea34",
+                "reference": "71140662c0a954602e81271667b6e03d9f53ea34",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
+                "doctrine/common": ">=2.4,<2.6-dev",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "symfony/console": "~2.0"
+                "phpunit/phpunit": "4.*",
+                "symfony/console": "2.*"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\": "lib/"
@@ -3334,26 +3317,34 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-10-16 11:56:49"
+            "time": "2014-12-04 21:57:15"
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08"
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/54b8333d2a5682afdc690060c1cf384ba9f47f08",
-                "reference": "54b8333d2a5682afdc690060c1cf384ba9f47f08",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Inflector\\": "lib/"
@@ -3365,17 +3356,6 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -3384,21 +3364,27 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Common String Manipulations with regard to casing and singular/plural rules.",
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "inflection",
-                "pluarlize",
-                "singuarlize",
+                "pluralize",
+                "singularize",
                 "string"
             ],
-            "time": "2013-01-10 21:49:15"
+            "time": "2014-12-20 21:24:13"
         },
         {
             "name": "doctrine/instantiator",
@@ -3460,12 +3446,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "9a06abd56a30607f913af7349e60b42e97bbce7e"
+                "reference": "be668024ec4615ba3c9dd8097c12915e6c92eead"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/9a06abd56a30607f913af7349e60b42e97bbce7e",
-                "reference": "9a06abd56a30607f913af7349e60b42e97bbce7e",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/be668024ec4615ba3c9dd8097c12915e6c92eead",
+                "reference": "be668024ec4615ba3c9dd8097c12915e6c92eead",
                 "shasum": ""
             },
             "require": {
@@ -3508,20 +3494,20 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2014-11-29 12:28:40"
+            "time": "2014-12-23 16:52:12"
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.2",
+            "version": "0.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "95a4855380dc70176c51807c678fb3bd6198529a"
+                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/95a4855380dc70176c51807c678fb3bd6198529a",
-                "reference": "95a4855380dc70176c51807c678fb3bd6198529a",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
+                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
                 "shasum": ""
             },
             "require": {
@@ -3574,19 +3560,19 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-09-03 10:11:10"
+            "time": "2014-12-22 10:06:19"
         },
         {
             "name": "orchestra/testbench",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/orchestral/testbench.git",
+                "url": "https://github.com/GrahamCampbell/testbench.git",
                 "reference": "a48283d9918791d79dc749cddc53a70979796752"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/a48283d9918791d79dc749cddc53a70979796752",
+                "url": "https://api.github.com/repos/GrahamCampbell/testbench/zipball/a48283d9918791d79dc749cddc53a70979796752",
                 "reference": "a48283d9918791d79dc749cddc53a70979796752",
                 "shasum": ""
             },
@@ -3614,7 +3600,6 @@
                     "Orchestra\\Testbench\\": "src/Testbench/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3628,13 +3613,16 @@
             "description": "Laravel Package Unit Testing Helper",
             "homepage": "http://orchestraplatform.com/docs/latest/components/testbench/",
             "keywords": [
-                "BDD",
-                "TDD",
+                "bdd",
                 "laravel",
                 "orchestra-platform",
                 "orchestral",
+                "tdd",
                 "testing"
             ],
+            "support": {
+                "source": "https://github.com/GrahamCampbell/testbench/tree/master"
+            },
             "time": "2014-12-04 02:54:12"
         },
         {
@@ -3886,16 +3874,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.3.5",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2dab9d593997db4abcf58d0daf798eb4e9cecfe1"
+                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2dab9d593997db4abcf58d0daf798eb4e9cecfe1",
-                "reference": "2dab9d593997db4abcf58d0daf798eb4e9cecfe1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
+                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
                 "shasum": ""
             },
             "require": {
@@ -3912,8 +3900,9 @@
                 "phpunit/phpunit-mock-objects": "~2.3",
                 "sebastian/comparator": "~1.0",
                 "sebastian/diff": "~1.1",
-                "sebastian/environment": "~1.0",
+                "sebastian/environment": "~1.1",
                 "sebastian/exporter": "~1.0",
+                "sebastian/global-state": "~1.0",
                 "sebastian/version": "~1.0",
                 "symfony/yaml": "~2.0"
             },
@@ -3926,7 +3915,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3.x-dev"
+                    "dev-master": "4.4.x-dev"
                 }
             },
             "autoload": {
@@ -3935,10 +3924,6 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "",
-                "../../symfony/yaml/"
-            ],
             "license": [
                 "BSD-3-Clause"
             ],
@@ -3950,13 +3935,13 @@
                 }
             ],
             "description": "The PHP Unit Testing framework.",
-            "homepage": "http://www.phpunit.de/",
+            "homepage": "https://phpunit.de/",
             "keywords": [
                 "phpunit",
                 "testing",
                 "xunit"
             ],
-            "time": "2014-11-11 10:11:09"
+            "time": "2014-12-05 06:49:03"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4193,6 +4178,57 @@
             "time": "2014-09-10 00:51:36"
         },
         {
+            "name": "sebastian/global-state",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/global-state.git",
+                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
+                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.2"
+            },
+            "suggest": {
+                "ext-uopz": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Snapshotting of global state",
+            "homepage": "http://www.github.com/sebastianbergmann/global-state",
+            "keywords": [
+                "global state"
+            ],
+            "time": "2014-10-06 09:23:50"
+        },
+        {
             "name": "sebastian/version",
             "version": "1.0.3",
             "source": {
@@ -4279,6 +4315,7 @@
     "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.5.0"
     },
