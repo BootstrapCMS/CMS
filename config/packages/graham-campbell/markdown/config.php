@@ -18,18 +18,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Enable The Engines
+    | Enable View Integration
     |--------------------------------------------------------------------------
     |
-    | This option specifies if the view engines are enabled so you can write
-    | markdown views and have them compiled into html. The following extensions
+    | This option specifies if the view integration is enabled so you can write
+    | markdown views and have them rendered as html. The following extensions
     | are currently supported: ".md", ".md.php", and ".md.blade.php". You may
-    | disable the engines if they are conflicting with another package.
+    | disable this integration if it is conflicting with another package.
     |
     | Default: true
     |
     */
 
-    'engines' => true,
+    'views' => true,
 
 ];
