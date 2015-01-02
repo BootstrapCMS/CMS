@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "86a1c0a0440dabc55594dde48cd8d900",
+    "hash": "358ecd74cf0b8376008067d5835de4a0",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -65,12 +65,12 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/sentry.git",
+                "url": "https://github.com/BootstrapCMS/sentry.git",
                 "reference": "b297aef1e785a0ac8753fc54bf49db77758e8f7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/sentry/zipball/b297aef1e785a0ac8753fc54bf49db77758e8f7b",
+                "url": "https://api.github.com/repos/BootstrapCMS/sentry/zipball/b297aef1e785a0ac8753fc54bf49db77758e8f7b",
                 "reference": "b297aef1e785a0ac8753fc54bf49db77758e8f7b",
                 "shasum": ""
             },
@@ -144,7 +144,7 @@
                 "security"
             ],
             "support": {
-                "source": "https://github.com/GrahamCampbell/sentry/tree/master"
+                "source": "https://github.com/BootstrapCMS/sentry/tree/master"
             },
             "time": "2014-10-25 16:05:41"
         },
@@ -520,12 +520,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Laravel-Contact.git",
-                "reference": "b685e4ccc354b1024a5bb0e5eff04f7f4e0c2cde"
+                "reference": "acfae5db18706570e6afc31a0fbd73bc546dd949"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Contact/zipball/b685e4ccc354b1024a5bb0e5eff04f7f4e0c2cde",
-                "reference": "b685e4ccc354b1024a5bb0e5eff04f7f4e0c2cde",
+                "url": "https://api.github.com/repos/BootstrapCMS/Laravel-Contact/zipball/acfae5db18706570e6afc31a0fbd73bc546dd949",
+                "reference": "acfae5db18706570e6afc31a0fbd73bc546dd949",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-12-24 01:07:27"
+            "time": "2015-01-01 16:27:15"
         },
         {
             "name": "graham-campbell/core",
@@ -916,7 +916,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-LogViewer/zipball/384b31cffea26b4bc9b679ea061c8b66c92b50f1",
+                "url": "https://api.github.com/repos/BootstrapCMS/Laravel-LogViewer/zipball/384b31cffea26b4bc9b679ea061c8b66c92b50f1",
                 "reference": "384b31cffea26b4bc9b679ea061c8b66c92b50f1",
                 "shasum": ""
             },
@@ -1207,12 +1207,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/html.git",
-                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56"
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/html/zipball/b04be9a84be0d6f7552b281ad6b9e2795218fe56",
-                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56",
+                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
                 "shasum": ""
             },
             "require": {
@@ -1245,7 +1245,7 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-10-16 14:38:30"
+            "time": "2015-01-01 16:31:18"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1563,12 +1563,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "e63bbefb51e49a78a732c5a920240c6e8c08d641"
+                "reference": "cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e63bbefb51e49a78a732c5a920240c6e8c08d641",
-                "reference": "e63bbefb51e49a78a732c5a920240c6e8c08d641",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0",
+                "reference": "cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0",
                 "shasum": ""
             },
             "require": {
@@ -1643,7 +1643,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2014-12-22 16:32:36"
+            "time": "2015-01-01 21:01:25"
         },
         {
             "name": "lightgear/asset",
@@ -1655,7 +1655,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/asset/zipball/e76bec3e06d4f6ff88c83d494101d6331f9d329f",
+                "url": "https://api.github.com/repos/BootstrapCMS/asset/zipball/e76bec3e06d4f6ff88c83d494101d6331f9d329f",
                 "reference": "e76bec3e06d4f6ff88c83d494101d6331f9d329f",
                 "shasum": ""
             },
@@ -1685,7 +1685,7 @@
             ],
             "description": "Easy asset Management for Laravel",
             "support": {
-                "source": "https://github.com/GrahamCampbell/asset/tree/1.5.1"
+                "source": "https://github.com/BootstrapCMS/asset/tree/1.5.1"
             },
             "time": "2014-10-28 15:58:38"
         },
@@ -1747,16 +1747,16 @@
         },
         {
             "name": "mccool/laravel-auto-presenter",
-            "version": "3.0.0-beta7",
+            "version": "v3.0.0-beta8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ShawnMcCool/laravel-auto-presenter.git",
-                "reference": "39f71d7b1a7e073466cea5a0a4d010ed028941e1"
+                "reference": "5eb6740ce98f587c95b7ff1785befda275379c48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ShawnMcCool/laravel-auto-presenter/zipball/39f71d7b1a7e073466cea5a0a4d010ed028941e1",
-                "reference": "39f71d7b1a7e073466cea5a0a4d010ed028941e1",
+                "url": "https://api.github.com/repos/ShawnMcCool/laravel-auto-presenter/zipball/5eb6740ce98f587c95b7ff1785befda275379c48",
+                "reference": "5eb6740ce98f587c95b7ff1785befda275379c48",
                 "shasum": ""
             },
             "require": {
@@ -1769,6 +1769,7 @@
                 "php": ">=5.5.0"
             },
             "require-dev": {
+                "fabpot/php-cs-fixer": "~1.2",
                 "graham-campbell/testbench": "~2.0"
             },
             "type": "library",
@@ -1803,7 +1804,7 @@
                 "lpm",
                 "presenter"
             ],
-            "time": "2014-10-28 20:55:24"
+            "time": "2015-01-01 01:31:21"
         },
         {
             "name": "monolog/monolog",
@@ -2107,16 +2108,16 @@
         },
         {
             "name": "predis/predis",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "d4be306d0aca28b5633b96adef03b29fea569c2f"
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/d4be306d0aca28b5633b96adef03b29fea569c2f",
-                "reference": "d4be306d0aca28b5633b96adef03b29fea569c2f",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/7a170b3d8123c556597b4fbdb88631f99de180c2",
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2",
                 "shasum": ""
             },
             "require": {
@@ -2130,11 +2131,6 @@
                 "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Predis\\": "src/"
@@ -2158,7 +2154,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-08-01 09:59:50"
+            "time": "2015-01-02 12:51:34"
         },
         {
             "name": "psr/log",

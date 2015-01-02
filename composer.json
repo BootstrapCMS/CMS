@@ -16,11 +16,11 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/framework"
+            "url": "https://github.com/BootstrapCMS/sentry"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/sentry"
+            "url": "https://github.com/GrahamCampbell/framework"
         },
         {
             "type": "vcs",
