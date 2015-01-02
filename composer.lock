@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "358ecd74cf0b8376008067d5835de4a0",
+    "hash": "b56c3b00c575b754fb914d12c63315c4",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -524,7 +524,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Laravel-Contact/zipball/acfae5db18706570e6afc31a0fbd73bc546dd949",
+                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/acfae5db18706570e6afc31a0fbd73bc546dd949",
                 "reference": "acfae5db18706570e6afc31a0fbd73bc546dd949",
                 "shasum": ""
             },
@@ -584,12 +584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "a2a57c849915419451a8ef3de693b7dfa9eb80be"
+                "reference": "cc58f3a88961bba3ac37d7cf574befcca14f6f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/a2a57c849915419451a8ef3de693b7dfa9eb80be",
-                "reference": "a2a57c849915419451a8ef3de693b7dfa9eb80be",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/cc58f3a88961bba3ac37d7cf574befcca14f6f2d",
+                "reference": "cc58f3a88961bba3ac37d7cf574befcca14f6f2d",
                 "shasum": ""
             },
             "require": {
@@ -635,7 +635,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2014-12-24 00:50:30"
+            "time": "2015-01-02 17:37:26"
         },
         {
             "name": "graham-campbell/credentials",
@@ -643,19 +643,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "a98a42d2aecb49a90f08a5b23d9fac588317195a"
+                "reference": "28e3fec05fb5bc0cde69a7bc5d66f10bd3333538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/a98a42d2aecb49a90f08a5b23d9fac588317195a",
-                "reference": "a98a42d2aecb49a90f08a5b23d9fac588317195a",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/28e3fec05fb5bc0cde69a7bc5d66f10bd3333538",
+                "reference": "28e3fec05fb5bc0cde69a7bc5d66f10bd3333538",
                 "shasum": ""
             },
             "require": {
                 "cartalyst/sentry": "~3.0",
                 "graham-campbell/binput": "~3.0",
                 "graham-campbell/core": "~2.0",
-                "graham-campbell/database": "0.2.*",
                 "graham-campbell/throttle": "~3.0",
                 "illuminate/console": "~5.0",
                 "illuminate/contracts": "~5.0",
@@ -695,7 +694,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -717,69 +716,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-12-29 17:55:40"
-        },
-        {
-            "name": "graham-campbell/database",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Database.git",
-                "reference": "34ed4eca8dc39e99db97b84487183af18c198251"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Database/zipball/34ed4eca8dc39e99db97b84487183af18c198251",
-                "reference": "34ed4eca8dc39e99db97b84487183af18c198251",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "~5.0",
-                "illuminate/database": "~5.0",
-                "illuminate/events": "~5.0",
-                "illuminate/pagination": "~5.0",
-                "illuminate/support": "~5.0",
-                "illuminate/validation": "~5.0",
-                "php": ">=5.4.7"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Database\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@mineuk.com"
-                }
-            ],
-            "description": "Database Provides Some Extra Database Stuff For Laravel 5",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Database",
-                "Laravel-Database",
-                "database",
-                "eloquent",
-                "framework",
-                "laravel",
-                "model",
-                "repository"
-            ],
-            "time": "2014-12-23 18:56:19"
+            "time": "2015-01-02 18:45:30"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -787,12 +724,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Exceptions.git",
-                "reference": "aae97b9634432ea4239a62ca677de2423b6811a3"
+                "reference": "42f98da80fc9a7caf1df036647f3966c4a0d5ad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/aae97b9634432ea4239a62ca677de2423b6811a3",
-                "reference": "aae97b9634432ea4239a62ca677de2423b6811a3",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/42f98da80fc9a7caf1df036647f3966c4a0d5ad3",
+                "reference": "42f98da80fc9a7caf1df036647f3966c4a0d5ad3",
                 "shasum": ""
             },
             "require": {
@@ -820,7 +757,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -842,7 +779,7 @@
                 "laravel",
                 "whoops"
             ],
-            "time": "2014-12-23 17:06:49"
+            "time": "2015-01-02 17:49:15"
         },
         {
             "name": "graham-campbell/htmlmin",
@@ -916,7 +853,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Laravel-LogViewer/zipball/384b31cffea26b4bc9b679ea061c8b66c92b50f1",
+                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/384b31cffea26b4bc9b679ea061c8b66c92b50f1",
                 "reference": "384b31cffea26b4bc9b679ea061c8b66c92b50f1",
                 "shasum": ""
             },
@@ -3444,12 +3381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5"
+                "reference": "817987f0bebf73c00a40163cb365bca8f8889955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5",
-                "reference": "f84efd32ed8eb06d0655cd3a6e1cab18f418c3d5",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/817987f0bebf73c00a40163cb365bca8f8889955",
+                "reference": "817987f0bebf73c00a40163cb365bca8f8889955",
                 "shasum": ""
             },
             "require": {
@@ -3492,7 +3429,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2014-12-30 19:06:54"
+            "time": "2015-01-02 16:15:28"
         },
         {
             "name": "mockery/mockery",
