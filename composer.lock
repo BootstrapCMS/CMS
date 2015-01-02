@@ -520,12 +520,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Contact.git",
-                "reference": "acfae5db18706570e6afc31a0fbd73bc546dd949"
+                "reference": "b0fd3f5c78c78782ddd0963fed3c392c3d81985f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/acfae5db18706570e6afc31a0fbd73bc546dd949",
-                "reference": "acfae5db18706570e6afc31a0fbd73bc546dd949",
+                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/b0fd3f5c78c78782ddd0963fed3c392c3d81985f",
+                "reference": "b0fd3f5c78c78782ddd0963fed3c392c3d81985f",
                 "shasum": ""
             },
             "require": {
@@ -538,7 +538,7 @@
                 "illuminate/support": "~5.0",
                 "illuminate/validation": "~5.0",
                 "illuminate/view": "~5.0",
-                "php": ">=5.4.7"
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "graham-campbell/testbench": "~2.0"
@@ -556,7 +556,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -576,7 +576,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-01 16:27:15"
+            "time": "2015-01-02 22:02:14"
         },
         {
             "name": "graham-campbell/core",
@@ -851,12 +851,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/LogViewer.git",
-                "reference": "384b31cffea26b4bc9b679ea061c8b66c92b50f1"
+                "reference": "20da117dee54ea358a170c4201a0180c46c951ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/384b31cffea26b4bc9b679ea061c8b66c92b50f1",
-                "reference": "384b31cffea26b4bc9b679ea061c8b66c92b50f1",
+                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/20da117dee54ea358a170c4201a0180c46c951ad",
+                "reference": "20da117dee54ea358a170c4201a0180c46c951ad",
                 "shasum": ""
             },
             "require": {
@@ -889,7 +889,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -908,7 +908,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2014-12-24 01:10:33"
+            "time": "2015-01-02 22:02:22"
         },
         {
             "name": "graham-campbell/markdown",
