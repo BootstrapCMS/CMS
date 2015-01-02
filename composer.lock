@@ -489,12 +489,12 @@
             "version": "v0.2.1-alpha",
             "source": {
                 "type": "git",
-                "url": "https://github.com/BootstrapCMS/Laravel-Contact.git",
+                "url": "https://github.com/BootstrapCMS/Contact.git",
                 "reference": "8f49a48843b81915d28ab44270117399960dfbf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Laravel-Contact/zipball/8f49a48843b81915d28ab44270117399960dfbf0",
+                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/8f49a48843b81915d28ab44270117399960dfbf0",
                 "reference": "8f49a48843b81915d28ab44270117399960dfbf0",
                 "shasum": ""
             },
@@ -552,16 +552,16 @@
         },
         {
             "name": "graham-campbell/core",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "f469a64d98174aa40d9b285b5e8892234db40ab8"
+                "reference": "b5332a094062e0962b294db2f0d814785c37d37f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/f469a64d98174aa40d9b285b5e8892234db40ab8",
-                "reference": "f469a64d98174aa40d9b285b5e8892234db40ab8",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/b5332a094062e0962b294db2f0d814785c37d37f",
+                "reference": "b5332a094062e0962b294db2f0d814785c37d37f",
                 "shasum": ""
             },
             "require": {
@@ -574,7 +574,7 @@
             },
             "require-dev": {
                 "graham-campbell/testbench": "~1.0",
-                "lightgear/asset": "1.4"
+                "lightgear/asset": "1.4.*"
             },
             "type": "library",
             "autoload": {
@@ -584,7 +584,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -604,19 +604,19 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2014-10-04 11:03:52"
+            "time": "2015-01-02 17:04:59"
         },
         {
             "name": "graham-campbell/credentials",
             "version": "v0.3.3-alpha",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
+                "url": "https://github.com/BootstrapCMS/Credentials.git",
                 "reference": "59812a83d2d2e6b8919f1f7e9e738e65d982d58d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Credentials/zipball/59812a83d2d2e6b8919f1f7e9e738e65d982d58d",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/59812a83d2d2e6b8919f1f7e9e738e65d982d58d",
                 "reference": "59812a83d2d2e6b8919f1f7e9e738e65d982d58d",
                 "shasum": ""
             },
@@ -805,12 +805,12 @@
             "version": "v0.2.1-alpha",
             "source": {
                 "type": "git",
-                "url": "https://github.com/BootstrapCMS/Laravel-LogViewer.git",
+                "url": "https://github.com/BootstrapCMS/LogViewer.git",
                 "reference": "e918377f1b69b3e9074b03653a18e85fdafad55d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Laravel-LogViewer/zipball/e918377f1b69b3e9074b03653a18e85fdafad55d",
+                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/e918377f1b69b3e9074b03653a18e85fdafad55d",
                 "reference": "e918377f1b69b3e9074b03653a18e85fdafad55d",
                 "shasum": ""
             },
@@ -3502,16 +3502,16 @@
         },
         {
             "name": "graham-campbell/testbench",
-            "version": "v1.1.6",
+            "version": "v1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "b3a2798ccbe4a9db3b1eba49691ce7894775445e"
+                "reference": "c3cc314f67c4520cc11d7a68dddd161e98fc6068"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/b3a2798ccbe4a9db3b1eba49691ce7894775445e",
-                "reference": "b3a2798ccbe4a9db3b1eba49691ce7894775445e",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/c3cc314f67c4520cc11d7a68dddd161e98fc6068",
+                "reference": "c3cc314f67c4520cc11d7a68dddd161e98fc6068",
                 "shasum": ""
             },
             "require": {
@@ -3529,7 +3529,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -3549,7 +3549,7 @@
                 "laravel",
                 "test"
             ],
-            "time": "2014-11-29 12:21:29"
+            "time": "2015-01-02 16:11:14"
         },
         {
             "name": "mockery/mockery",
