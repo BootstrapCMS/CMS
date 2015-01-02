@@ -1,16 +1,16 @@
 Bootstrap CMS
 =============
 
-Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 4.2](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry). It utilises 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/GrahamCampbell/Laravel-Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Bootstrap-CMS/releases), [license](LICENSE.md), [screenshots](SCREENSHOTS.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 4.2](http://laravel.com) and [Sentry 2.1](https://cartalyst.com/manual/sentry). It utilises 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/BootstrapCMS/Credentials). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CMS/releases), [license](LICENSE), [screenshots](SCREENSHOTS.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4432326/c1990be0-468c-11e4-89ef-197316eeaa29.PNG)
 
 <p align="center">
-<a href="https://travis-ci.org/GrahamCampbell/Bootstrap-CMS"><img src="https://img.shields.io/travis/GrahamCampbell/Bootstrap-CMS/master.svg?style=flat-square" alt="Build Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square" alt="Coverage Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Bootstrap-CMS"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square" alt="Quality Score"></img></a>
-<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-AGPL%203.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
-<a href="https://github.com/GrahamCampbell/Bootstrap-CMS/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Bootstrap-CMS.svg?style=flat-square" alt="Latest Version"></img></a>
+<a href="https://travis-ci.org/BootstrapCMS/CMS"><img src="https://img.shields.io/travis/BootstrapCMS/CMS/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/BootstrapCMS/CMS/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/BootstrapCMS/CMS.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/BootstrapCMS/CMS"><img src="https://img.shields.io/scrutinizer/g/BootstrapCMS/CMS.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL%203.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/BootstrapCMS/CMS/releases"><img src="https://img.shields.io/github/release/BootstrapCMS/CMS.svg?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
 
@@ -20,7 +20,7 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
 
 1. There are 3 ways of grabbing the code:
   * Use GitHub: simply download the zip on the right of the readme
-  * Use Git: `git clone git@github.com:GrahamCampbell/Bootstrap-CMS.git`
+  * Use Git: `git clone git@github.com:BootstrapCMS/CMS.git`
   * Use Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
 2. From a command line open in the folder, run `composer install --no-dev -o`.
 3. Enter your database details into `app/config/database.php`.
@@ -80,7 +80,7 @@ Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analyti
 
 Bootstrap CMS can read [CloudFlare](https://www.cloudflare.com/) analytic data through a package.
 
-1. Follow the install instructions for my [Laravel CloudFlare](https://github.com/GrahamCampbell/Laravel-CloudFlare) package.
+1. Follow the install instructions for my [Laravel CloudFlare](https://github.com/BootstrapCMS/CloudFlare) package.
 2. Remember to add your credentials to `app/config/packages/graham-campbell/cloudflare-api/config.php`.
 3. Bootstrap CMS will auto-detect the package, only allow admin access, and add links to the navigation bar.
 
@@ -91,7 +91,7 @@ GNU AFFERO GENERAL PUBLIC LICENSE
 
 Bootstrap CMS Is A PHP CMS Powered By Laravel And Sentry 2.1
 
-Copyright (C) 2013-2014  Graham Campbell
+Copyright (C) 2013-2015 Graham Campbell
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
