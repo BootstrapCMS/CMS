@@ -12,7 +12,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/asset"
+            "url": "https://github.com/BootstrapCMS/asset"
         },
         {
             "type": "vcs",
