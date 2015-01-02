@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\BootstrapCMS\Repositories;
 
-use GrahamCampbell\Database\Repositories\AbstractRepository;
-use GrahamCampbell\Database\Repositories\Common\PaginateRepositoryTrait;
-use GrahamCampbell\Database\Repositories\Interfaces\PaginateRepositoryInterface;
+use GrahamCampbell\Credentials\Repositories\AbstractRepository;
+use GrahamCampbell\Credentials\Repositories\Common\PaginateRepositoryTrait;
+use GrahamCampbell\Credentials\Repositories\Interfaces\PaginateRepositoryInterface;
 
 /**
  * This is the post repository class.

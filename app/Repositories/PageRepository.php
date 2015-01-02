@@ -16,11 +16,11 @@
 
 namespace GrahamCampbell\BootstrapCMS\Repositories;
 
-use GrahamCampbell\Database\Repositories\AbstractRepository;
-use GrahamCampbell\Database\Repositories\Common\PaginateRepositoryTrait;
-use GrahamCampbell\Database\Repositories\Common\SlugRepositoryTrait;
-use GrahamCampbell\Database\Repositories\Interfaces\PaginateRepositoryInterface;
-use GrahamCampbell\Database\Repositories\Interfaces\SlugRepositoryInterface;
+use GrahamCampbell\Credentials\Repositories\AbstractRepository;
+use GrahamCampbell\Credentials\Repositories\Common\PaginateRepositoryTrait;
+use GrahamCampbell\Credentials\Repositories\Common\SlugRepositoryTrait;
+use GrahamCampbell\Credentials\Repositories\Interfaces\PaginateRepositoryInterface;
+use GrahamCampbell\Credentials\Repositories\Interfaces\SlugRepositoryInterface;
 use Illuminate\Support\Facades\Cache;
 
 /**

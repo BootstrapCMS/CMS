@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Repositories;
 
-use GrahamCampbell\Database\Repositories\AbstractRepository;
+use GrahamCampbell\Credentials\Repositories\AbstractRepository;
 
 /**
  * This is the comment repository class.

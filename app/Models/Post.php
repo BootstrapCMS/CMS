@@ -18,11 +18,11 @@ namespace GrahamCampbell\BootstrapCMS\Models;
 
 use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyCommentsTrait;
 use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
+use GrahamCampbell\Credentials\Models\AbstractModel;
 use GrahamCampbell\Credentials\Models\Relations\Common\BelongsToUserTrait;
 use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
 use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
-use GrahamCampbell\Database\Models\AbstractModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
