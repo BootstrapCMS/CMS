@@ -519,7 +519,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/BootstrapCMS/Laravel-Contact.git",
+                "url": "https://github.com/BootstrapCMS/Contact.git",
                 "reference": "acfae5db18706570e6afc31a0fbd73bc546dd949"
             },
             "dist": {
@@ -615,7 +615,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -642,7 +642,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Credentials.git",
+                "url": "https://github.com/BootstrapCMS/Credentials.git",
                 "reference": "a98a42d2aecb49a90f08a5b23d9fac588317195a"
             },
             "dist": {
@@ -911,7 +911,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/BootstrapCMS/Laravel-LogViewer.git",
+                "url": "https://github.com/BootstrapCMS/LogViewer.git",
                 "reference": "384b31cffea26b4bc9b679ea061c8b66c92b50f1"
             },
             "dist": {
@@ -3473,7 +3473,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
