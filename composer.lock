@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b56c3b00c575b754fb914d12c63315c4",
+    "hash": "ef826606caa1da633bd04356197c0a2d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -643,12 +643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "28e3fec05fb5bc0cde69a7bc5d66f10bd3333538"
+                "reference": "c0295f2dcf8982a8282461b1d756f0cd8e70c173"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/28e3fec05fb5bc0cde69a7bc5d66f10bd3333538",
-                "reference": "28e3fec05fb5bc0cde69a7bc5d66f10bd3333538",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/c0295f2dcf8982a8282461b1d756f0cd8e70c173",
+                "reference": "c0295f2dcf8982a8282461b1d756f0cd8e70c173",
                 "shasum": ""
             },
             "require": {
@@ -663,8 +663,10 @@
                 "illuminate/html": "~5.0",
                 "illuminate/http": "~5.0",
                 "illuminate/mail": "~5.0",
+                "illuminate/pagination": "~5.0",
                 "illuminate/routing": "~5.0",
                 "illuminate/support": "~5.0",
+                "illuminate/validation": "~5.0",
                 "illuminate/view": "~5.0",
                 "mccool/laravel-auto-presenter": "~3.0",
                 "php": ">=5.5.0",
@@ -716,7 +718,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-01-02 18:45:30"
+            "time": "2015-01-02 20:41:15"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -1143,13 +1145,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/illuminate/html.git",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
+                "url": "https://github.com/GrahamCampbell/html.git",
+                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "url": "https://api.github.com/repos/GrahamCampbell/html/zipball/b04be9a84be0d6f7552b281ad6b9e2795218fe56",
+                "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56",
                 "shasum": ""
             },
             "require": {
@@ -1172,7 +1174,6 @@
                     "helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1182,7 +1183,10 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2015-01-01 16:31:18"
+            "support": {
+                "source": "https://github.com/GrahamCampbell/html/tree/master"
+            },
+            "time": "2014-10-16 14:38:30"
         },
         {
             "name": "ircmaxell/password-compat",

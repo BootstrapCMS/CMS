@@ -24,6 +24,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/html"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/GrahamCampbell/testbench"
         }
     ],
