@@ -16,14 +16,10 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyCommentsTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyEventsTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyPagesTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\HasManyPostsTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyCommentsInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyEventsInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyPagesInterface;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\HasManyPostsInterface;
+use GrahamCampbell\BootstrapCMS\Models\Relations\HasManyCommentsTrait;
+use GrahamCampbell\BootstrapCMS\Models\Relations\HasManyEventsTrait;
+use GrahamCampbell\BootstrapCMS\Models\Relations\HasManyPagesTrait;
+use GrahamCampbell\BootstrapCMS\Models\Relations\HasManyPostsTrait;
 use GrahamCampbell\Credentials\Models\User as CredentialsUser;
 
 /**
@@ -33,7 +29,7 @@ use GrahamCampbell\Credentials\Models\User as CredentialsUser;
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class User extends CredentialsUser implements HasManyPagesInterface, HasManyPostsInterface, HasManyEventsInterface, HasManyCommentsInterface
+class User extends CredentialsUser
 {
     use HasManyPagesTrait, HasManyPostsTrait, HasManyEventsTrait, HasManyCommentsTrait;
 

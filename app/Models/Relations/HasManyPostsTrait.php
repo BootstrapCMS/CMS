@@ -14,36 +14,36 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Models\Relations\Common;
+namespace GrahamCampbell\BootstrapCMS\Models\Relations;
 
 /**
- * This is the has many events trait.
+ * This is the has many posts trait.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-trait HasManyEventsTrait
+trait HasManyPostsTrait
 {
     /**
-     * Get the event relation.
+     * Get the post relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOneOrMany
      */
-    public function events()
+    public function posts()
     {
-        return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Event');
+        return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Post');
     }
 
     /**
-     * Delete all events.
+     * Delete all posts.
      *
      * @return void
      */
-    public function deleteEvents()
+    public function deletePosts()
     {
-        foreach ($this->events()->get(['id']) as $event) {
-            $event->delete();
+        foreach ($this->posts()->get(['id']) as $post) {
+            $post->delete();
         }
     }
 }

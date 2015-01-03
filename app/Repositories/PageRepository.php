@@ -17,10 +17,8 @@
 namespace GrahamCampbell\BootstrapCMS\Repositories;
 
 use GrahamCampbell\Credentials\Repositories\AbstractRepository;
-use GrahamCampbell\Credentials\Repositories\Common\PaginateRepositoryTrait;
-use GrahamCampbell\Credentials\Repositories\Common\SlugRepositoryTrait;
-use GrahamCampbell\Credentials\Repositories\Interfaces\PaginateRepositoryInterface;
-use GrahamCampbell\Credentials\Repositories\Interfaces\SlugRepositoryInterface;
+use GrahamCampbell\Credentials\Repositories\PaginateRepositoryTrait;
+use GrahamCampbell\Credentials\Repositories\SlugRepositoryTrait;
 use Illuminate\Support\Facades\Cache;
 
 /**
@@ -30,7 +28,7 @@ use Illuminate\Support\Facades\Cache;
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class PageRepository extends AbstractRepository implements PaginateRepositoryInterface, SlugRepositoryInterface
+class PageRepository extends AbstractRepository
 {
     use PaginateRepositoryTrait, SlugRepositoryTrait;
 

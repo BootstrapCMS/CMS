@@ -17,8 +17,7 @@
 namespace GrahamCampbell\BootstrapCMS\Repositories;
 
 use GrahamCampbell\Credentials\Repositories\AbstractRepository;
-use GrahamCampbell\Credentials\Repositories\Common\PaginateRepositoryTrait;
-use GrahamCampbell\Credentials\Repositories\Interfaces\PaginateRepositoryInterface;
+use GrahamCampbell\Credentials\Repositories\PaginateRepositoryTrait;
 
 /**
  * This is the post repository class.
@@ -27,7 +26,7 @@ use GrahamCampbell\Credentials\Repositories\Interfaces\PaginateRepositoryInterfa
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class PostRepository extends AbstractRepository implements PaginateRepositoryInterface
+class PostRepository extends AbstractRepository
 {
     use PaginateRepositoryTrait;
 }

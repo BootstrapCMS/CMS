@@ -14,28 +14,24 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces;
+namespace GrahamCampbell\BootstrapCMS\Models\Relations;
 
 /**
- * This is the has many comments interface.
+ * This is the belongs to post trait.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-interface HasManyCommentsInterface
+trait BelongsToPostTrait
 {
     /**
-     * Get the comment relation.
+     * Get the post relation.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOneOrMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function comments();
-
-    /**
-     * Delete all comments.
-     *
-     * @return void
-     */
-    public function deleteComments();
+    public function post()
+    {
+        return $this->belongsTo('GrahamCampbell\BootstrapCMS\Models\Post');
+    }
 }

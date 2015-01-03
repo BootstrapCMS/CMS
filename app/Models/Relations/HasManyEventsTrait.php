@@ -14,21 +14,36 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces;
+namespace GrahamCampbell\BootstrapCMS\Models\Relations;
 
 /**
- * This is the belongs to post interface.
+ * This is the has many events trait.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-interface BelongsToPostInterface
+trait HasManyEventsTrait
 {
     /**
-     * Get the post relation.
+     * Get the event relation.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOneOrMany
      */
-    public function post();
+    public function events()
+    {
+        return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Event');
+    }
+
+    /**
+     * Delete all events.
+     *
+     * @return void
+     */
+    public function deleteEvents()
+    {
+        foreach ($this->events()->get(['id']) as $event) {
+            $event->delete();
+        }
+    }
 }

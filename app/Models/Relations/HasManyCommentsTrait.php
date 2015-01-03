@@ -14,28 +14,36 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces;
+namespace GrahamCampbell\BootstrapCMS\Models\Relations;
 
 /**
- * This is the has many events interface.
+ * This is the has many comments trait.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-interface HasManyEventsInterface
+trait HasManyCommentsTrait
 {
     /**
-     * Get the event relation.
+     * Get the comment relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOneOrMany
      */
-    public function events();
+    public function comments()
+    {
+        return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Comment');
+    }
 
     /**
-     * Delete all events.
+     * Delete all comments.
      *
      * @return void
      */
-    public function deleteEvents();
+    public function deleteComments()
+    {
+        foreach ($this->comments()->get(['id']) as $comment) {
+            $comment->delete();
+        }
+    }
 }

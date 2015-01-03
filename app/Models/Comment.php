@@ -16,13 +16,10 @@
 
 namespace GrahamCampbell\BootstrapCMS\Models;
 
-use GrahamCampbell\BootstrapCMS\Models\Relations\Common\BelongsToPostTrait;
-use GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces\BelongsToPostInterface;
+use GrahamCampbell\BootstrapCMS\Models\Relations\BelongsToPostTrait;
 use GrahamCampbell\Credentials\Models\AbstractModel;
-use GrahamCampbell\Credentials\Models\Relations\Common\BelongsToUserTrait;
-use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
-use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
-use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
+use GrahamCampbell\Credentials\Models\Relations\BelongsToUserTrait;
+use GrahamCampbell\Credentials\Models\Relations\RevisionableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
@@ -33,7 +30,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class Comment extends AbstractModel implements BelongsToPostInterface, BelongsToUserInterface, RevisionableInterface, HasPresenter
+class Comment extends AbstractModel implements HasPresenter
 {
     use BelongsToPostTrait, BelongsToUserTrait, RevisionableTrait, SoftDeletes;
 

@@ -17,10 +17,8 @@
 namespace GrahamCampbell\BootstrapCMS\Models;
 
 use GrahamCampbell\Credentials\Models\AbstractModel;
-use GrahamCampbell\Credentials\Models\Relations\Common\BelongsToUserTrait;
-use GrahamCampbell\Credentials\Models\Relations\Common\RevisionableTrait;
-use GrahamCampbell\Credentials\Models\Relations\Interfaces\BelongsToUserInterface;
-use GrahamCampbell\Credentials\Models\Relations\Interfaces\RevisionableInterface;
+use GrahamCampbell\Credentials\Models\Relations\BelongsToUserTrait;
+use GrahamCampbell\Credentials\Models\Relations\RevisionableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
@@ -31,7 +29,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-class Event extends AbstractModel implements BelongsToUserInterface, RevisionableInterface, HasPresenter
+class Event extends AbstractModel implements HasPresenter
 {
     use BelongsToUserTrait, RevisionableTrait, SoftDeletes;
 

@@ -14,28 +14,36 @@
  * GNU Affero General Public License for more details.
  */
 
-namespace GrahamCampbell\BootstrapCMS\Models\Relations\Interfaces;
+namespace GrahamCampbell\BootstrapCMS\Models\Relations;
 
 /**
- * This is the has many posts interface.
+ * This is the has many pages trait.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
  */
-interface HasManyPostsInterface
+trait HasManyPagesTrait
 {
     /**
-     * Get the post relation.
+     * Get the page relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOneOrMany
      */
-    public function posts();
+    public function pages()
+    {
+        return $this->hasMany('GrahamCampbell\BootstrapCMS\Models\Page');
+    }
 
     /**
-     * Delete all posts.
+     * Delete all pages.
      *
      * @return void
      */
-    public function deletePosts();
+    public function deletePages()
+    {
+        foreach ($this->pages()->get(['id', 'slug']) as $page) {
+            $page->delete();
+        }
+    }
 }
