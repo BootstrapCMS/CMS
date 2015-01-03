@@ -643,12 +643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "c0295f2dcf8982a8282461b1d756f0cd8e70c173"
+                "reference": "46b72fbce7ddeaaf4d31962f101d4a919dc51bde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/c0295f2dcf8982a8282461b1d756f0cd8e70c173",
-                "reference": "c0295f2dcf8982a8282461b1d756f0cd8e70c173",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/46b72fbce7ddeaaf4d31962f101d4a919dc51bde",
+                "reference": "46b72fbce7ddeaaf4d31962f101d4a919dc51bde",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +718,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-01-02 20:41:15"
+            "time": "2015-01-03 17:48:37"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -1688,7 +1688,7 @@
         },
         {
             "name": "mccool/laravel-auto-presenter",
-            "version": "v3.0.0-beta8",
+            "version": "3.0.0-beta8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ShawnMcCool/laravel-auto-presenter.git",
