@@ -7,6 +7,8 @@ CHANGE LOG
 * Upgraded to laravel 5.0
 * Upgraded to bootstrap 3.3.1
 * Renamed providers to repositories
+* Removed dependency on laravel database
+* Cleaned up models and providers
 * Cleaned up assets
 
 
