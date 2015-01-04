@@ -1,17 +1,12 @@
 <?php
 
 /*
- * This file is part of Bootstrap CMS by Graham Campbell.
+ * This file is part of Bootstrap CMS.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * (c) Graham Campbell <graham@mineuk.com>
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
@@ -19,9 +14,7 @@ namespace GrahamCampbell\BootstrapCMS\Presenters\RevisionDisplayers\Page;
 /**
  * This is the title displayer class.
  *
- * @author    Graham Campbell <graham@mineuk.com>
- * @copyright 2013-2014 Graham Campbell
- * @license   <https://github.com/GrahamCampbell/Bootstrap-CMS/blob/master/LICENSE.md> AGPL 3.0
+ * @author Graham Campbell <graham@mineuk.com>
  */
 class TitleDisplayer extends AbstractDisplayer
 {
