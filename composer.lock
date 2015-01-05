@@ -299,22 +299,27 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "2f708a85bb3aab5d99dab8be435abd73e0b18acb"
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/2f708a85bb3aab5d99dab8be435abd73e0b18acb",
-                "reference": "2f708a85bb3aab5d99dab8be435abd73e0b18acb",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Lexer\\": "lib/"
@@ -326,19 +331,16 @@
             ],
             "authors": [
                 {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
@@ -347,7 +349,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2013-01-12 18:59:04"
+            "time": "2014-09-09 13:34:57"
         },
         {
             "name": "fideloper/proxy",
@@ -460,12 +462,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Binput.git",
-                "reference": "9bc80e80e87a17796a71c5c1e5c3cac62c98443d"
+                "reference": "5f1fc771d648a40c8556a234a2e8e0c7c671093b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/9bc80e80e87a17796a71c5c1e5c3cac62c98443d",
-                "reference": "9bc80e80e87a17796a71c5c1e5c3cac62c98443d",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/5f1fc771d648a40c8556a234a2e8e0c7c671093b",
+                "reference": "5f1fc771d648a40c8556a234a2e8e0c7c671093b",
                 "shasum": ""
             },
             "require": {
@@ -490,7 +492,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -512,7 +514,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-12-23 23:24:29"
+            "time": "2015-01-05 00:44:25"
         },
         {
             "name": "graham-campbell/contact",
@@ -643,12 +645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "2743383b1fbfa614cb2723ff469cb9023cf4045e"
+                "reference": "a7f50eef1aaae4f8d52cbc092bea6af207224327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/2743383b1fbfa614cb2723ff469cb9023cf4045e",
-                "reference": "2743383b1fbfa614cb2723ff469cb9023cf4045e",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/a7f50eef1aaae4f8d52cbc092bea6af207224327",
+                "reference": "a7f50eef1aaae4f8d52cbc092bea6af207224327",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +720,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-01-03 20:02:42"
+            "time": "2015-01-04 15:03:48"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -789,12 +791,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-HTMLMin.git",
-                "reference": "06ddac4f13a65834cbc134a27ff67ccdb62f7296"
+                "reference": "a674e2be67c03e85fe3be0c460bbf14d67c2faaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/06ddac4f13a65834cbc134a27ff67ccdb62f7296",
-                "reference": "06ddac4f13a65834cbc134a27ff67ccdb62f7296",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-HTMLMin/zipball/a674e2be67c03e85fe3be0c460bbf14d67c2faaf",
+                "reference": "a674e2be67c03e85fe3be0c460bbf14d67c2faaf",
                 "shasum": ""
             },
             "require": {
@@ -822,7 +824,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -843,7 +845,7 @@
                 "laravel",
                 "minifier"
             ],
-            "time": "2014-12-30 19:03:14"
+            "time": "2015-01-04 22:14:59"
         },
         {
             "name": "graham-campbell/logviewer",
@@ -916,12 +918,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "d233a5206ab0584d6b9647919d3fa014f27f38ee"
+                "reference": "bcbd8cacf2e1e35f26a01873e70e0452090fda1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/d233a5206ab0584d6b9647919d3fa014f27f38ee",
-                "reference": "d233a5206ab0584d6b9647919d3fa014f27f38ee",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/bcbd8cacf2e1e35f26a01873e70e0452090fda1e",
+                "reference": "bcbd8cacf2e1e35f26a01873e70e0452090fda1e",
                 "shasum": ""
             },
             "require": {
@@ -946,7 +948,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -966,7 +968,7 @@
                 "laravel",
                 "markdown"
             ],
-            "time": "2014-12-24 17:28:29"
+            "time": "2015-01-04 22:20:37"
         },
         {
             "name": "graham-campbell/navigation",
@@ -1032,12 +1034,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "cb3f172f3ac21571bcf60872be066c326cd8c391"
+                "reference": "5ad7f833c4fe18750b4d8367e519c8dcff2d222b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/cb3f172f3ac21571bcf60872be066c326cd8c391",
-                "reference": "cb3f172f3ac21571bcf60872be066c326cd8c391",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/5ad7f833c4fe18750b4d8367e519c8dcff2d222b",
+                "reference": "5ad7f833c4fe18750b4d8367e519c8dcff2d222b",
                 "shasum": ""
             },
             "require": {
@@ -1068,7 +1070,7 @@
                     "email": "graham@mineuk.com"
                 }
             ],
-            "description": "Security Is A Port Of The Security Class From Codeigniter 2.2 For Laravel 5",
+            "description": "Security Is A Port Of The Security Class From Codeigniter 3 For Laravel 5",
             "keywords": [
                 "Graham Campbell",
                 "GrahamCampbell",
@@ -1079,7 +1081,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-12-23 23:23:27"
+            "time": "2015-01-05 00:40:03"
         },
         {
             "name": "graham-campbell/throttle",
@@ -1087,12 +1089,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Throttle.git",
-                "reference": "5325d93ae12af72ac6bec4d095fe6cb49dd20c4a"
+                "reference": "72e218ef5720b08d3e4d7c7bd475b87cbcb04250"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/5325d93ae12af72ac6bec4d095fe6cb49dd20c4a",
-                "reference": "5325d93ae12af72ac6bec4d095fe6cb49dd20c4a",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/72e218ef5720b08d3e4d7c7bd475b87cbcb04250",
+                "reference": "72e218ef5720b08d3e4d7c7bd475b87cbcb04250",
                 "shasum": ""
             },
             "require": {
@@ -1118,7 +1120,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1138,7 +1140,7 @@
                 "throttle",
                 "throttling"
             ],
-            "time": "2014-12-23 23:28:38"
+            "time": "2015-01-05 00:46:16"
         },
         {
             "name": "illuminate/html",
@@ -1504,12 +1506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0"
+                "reference": "2bd5a0812236a834cb4bb07cab06d80c86881b3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0",
-                "reference": "cfa08d0aa5ef861ed7614b2b8d9ca88465d150e0",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/2bd5a0812236a834cb4bb07cab06d80c86881b3b",
+                "reference": "2bd5a0812236a834cb4bb07cab06d80c86881b3b",
                 "shasum": ""
             },
             "require": {
@@ -1584,7 +1586,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-01-01 21:01:25"
+            "time": "2015-01-04 22:04:13"
         },
         {
             "name": "lightgear/asset",
@@ -3385,12 +3387,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "817987f0bebf73c00a40163cb365bca8f8889955"
+                "reference": "554353e5f74cf297dd913bd4a820288939a12850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/817987f0bebf73c00a40163cb365bca8f8889955",
-                "reference": "817987f0bebf73c00a40163cb365bca8f8889955",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/554353e5f74cf297dd913bd4a820288939a12850",
+                "reference": "554353e5f74cf297dd913bd4a820288939a12850",
                 "shasum": ""
             },
             "require": {
@@ -3433,7 +3435,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2015-01-02 16:15:28"
+            "time": "2015-01-04 15:02:53"
         },
         {
             "name": "mockery/mockery",
