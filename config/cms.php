@@ -16,7 +16,7 @@ return [
     | Site Description
     |--------------------------------------------------------------------------
     |
-    | This defines the site author.
+    | This defines the site description.
     |
     | Default to 'Bootstrap CMS is a PHP CMS powered by Laravel 5.'.
     |
