@@ -14,6 +14,11 @@ namespace GrahamCampbell\BootstrapCMS\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
+/**
+ * This is the route service provider class.
+ *
+ * @author Graham Campbell <graham@mineuk.com>
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -26,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'GrahamCampbell\BootstrapCMS\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
+     * Define the route model bindings, pattern filters, etc.
      *
      * @param \Illuminate\Routing\Router $router
      *
@@ -42,10 +47,14 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
+     * @param \Illuminate\Routing\Router $router
+     *
      * @return void
      */
-    public function map()
+    public function map(Router $router)
     {
-        $this->loadRoutesFrom(app_path('Http/routes.php'));
+        $router->group(['namespace' => $this->namespace], function ($router) {
+            require app_path('Http/routes.php');
+        });
     }
 }

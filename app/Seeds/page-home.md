@@ -1,10 +1,10 @@
 <div class="hidden-xs">
     <div class="jumbotron">
         <div class="hidden-sm">
-            <h1><?php echo Config::get("graham-campbell/core::name"); ?></h1>
+            <h1><?php echo Config::get("core.name"); ?></h1>
         </div>
         <div class="visible-sm">
-            <h1><?php echo Config::get("graham-campbell/core::name"); ?></h1>
+            <h1><?php echo Config::get("core.name"); ?></h1>
         </div>
         <p class="lead">Powered by Laravel 5 with Bootstrap CMS and Sentry</p>
         <?php if (Config::get('graham-campbell/credentials::regallowed')) { ?>
@@ -17,7 +17,7 @@
 
 <div class="visible-xs">
     <div class="jumbotron">
-        <h1><?php echo Config::get("graham-campbell/core::name"); ?></h1>
+        <h1><?php echo Config::get("core.name"); ?></h1>
         <p class="lead">Powered by Laravel 5 with Bootstrap CMS</p>
         <?php if (Config::get('graham-campbell/credentials::regallowed')) { ?>
             <a class="btn btn-lg btn-success" href="<?php echo URL::route("account.register"); ?>">Sign Up Today</a>

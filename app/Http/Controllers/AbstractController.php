@@ -14,6 +14,8 @@ namespace GrahamCampbell\BootstrapCMS\Http\Controllers;
 use GrahamCampbell\BootstrapCMS\Http\Middleware\Auth\Blog;
 use GrahamCampbell\BootstrapCMS\Http\Middleware\Auth\Edit;
 use GrahamCampbell\Credentials\Http\Controllers\AbstractController as Controller;
+use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 /**
  * This is the abstract controller class.
@@ -22,6 +24,8 @@ use GrahamCampbell\Credentials\Http\Controllers\AbstractController as Controller
  */
 abstract class AbstractController extends Controller
 {
+    use DispatchesCommands, ValidatesRequests;
+
     /**
      * A list of methods protected by edit permissions.
      *

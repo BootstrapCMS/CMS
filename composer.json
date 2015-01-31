@@ -17,25 +17,13 @@
         {
             "type": "vcs",
             "url": "https://github.com/BootstrapCMS/sentry"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/framework"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/html"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/testbench"
         }
     ],
     "require": {
         "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
         "illuminate/html": "5.0.*",
-        "lightgear/asset": "1.5.*",
+        "lightgear/asset": "1.6.*",
         "graham-campbell/exceptions": "0.1.*",
         "graham-campbell/core": "~2.0",
         "graham-campbell/htmlmin": "~3.0",
@@ -47,20 +35,14 @@
         "graham-campbell/contact": "0.3.*",
         "graham-campbell/logviewer": "0.3.*",
         "mccool/laravel-auto-presenter": "~3.0",
-        "fideloper/proxy": "2.1.1",
-        "barryvdh/laravel-debugbar": "1.8.4",
-        "maximebf/debugbar": "1.10.2"
+        "barryvdh/laravel-debugbar": "~2.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0",
         "doctrine/dbal": "~2.4"
     },
     "suggest": {
-        "doctrine/dbal": "Allow renaming columns and dropping SQLite columns.",
-        "graham-campbell/cloudflare": "Integration with CloudFlare.",
-        "pda/pheanstalk": "Enables the beanstalk connector.",
-        "aws/aws-sdk-php": "Enables the aws connector.",
-        "iron-io/iron_mq": "Enables the iron connector."
+        "graham-campbell/cloudflare": "Integration with CloudFlare."
     },
     "autoload": {
         "classmap": [
@@ -78,8 +60,6 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",
-            "php artisan route:scan",
-            "php artisan event:scan",
             "php artisan optimize --force"
         ],
         "pre-update-cmd": [
@@ -87,8 +67,6 @@
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",
-            "php artisan route:scan",
-            "php artisan event:scan",
             "php artisan optimize --force"
         ],
         "post-create-project-cmd": [

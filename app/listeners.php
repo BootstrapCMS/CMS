@@ -20,7 +20,7 @@ use GrahamCampbell\BootstrapCMS\Facades\PageRepository;
 |
 */
 
-if (Config::get('graham-campbell/core::commands')) {
+if (Config::get('core.commands')) {
     $subscriber = App::make('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber');
     Event::subscribe($subscriber);
 }

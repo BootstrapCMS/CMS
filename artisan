@@ -24,6 +24,8 @@
 
 require __DIR__.'/bootstrap/autoload.php';
 
+$app = require_once __DIR__.'/bootstrap/app.php';
+
 /*
 |--------------------------------------------------------------------------
 | Run The Artisan Application
@@ -34,8 +36,6 @@ require __DIR__.'/bootstrap/autoload.php';
 | or another output device for the developers. Here goes nothing!
 |
 */
-
-$app = require_once __DIR__.'/bootstrap/app.php';
 
 $status = $app->make('Illuminate\Contracts\Console\Kernel')->handle(
     new Symfony\Component\Console\Input\ArgvInput,

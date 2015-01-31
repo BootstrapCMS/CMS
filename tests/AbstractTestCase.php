@@ -29,6 +29,6 @@ abstract class AbstractTestCase extends AbstractAppTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'GrahamCampbell\BootstrapCMS\BootstrapCMSServiceProvider';
+        return 'GrahamCampbell\BootstrapCMS\Providers\AppServiceProvider';
     }
 }

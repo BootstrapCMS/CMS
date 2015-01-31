@@ -9,24 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\BootstrapCMS;
+namespace GrahamCampbell\BootstrapCMS\Providers;
 
+use GrahamCampbell\BootstrapCMS\Http\Controllers\CommentController;
+use GrahamCampbell\BootstrapCMS\Http\Controllers\PageController;
+use GrahamCampbell\BootstrapCMS\Navigation\Factory;
+use GrahamCampbell\BootstrapCMS\Repositories\CommentRepository;
+use GrahamCampbell\BootstrapCMS\Repositories\EventRepository;
+use GrahamCampbell\BootstrapCMS\Repositories\PageRepository;
+use GrahamCampbell\BootstrapCMS\Repositories\PostRepository;
+use GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber;
+use GrahamCampbell\BootstrapCMS\Subscribers\NavigationSubscriber;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * This is the bootstrap cms service provider class.
+ * This is the app service provider class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class BootstrapCMSServiceProvider extends ServiceProvider
+class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
     /**
      * Bootstrap the application events.
      *
@@ -34,12 +36,10 @@ class BootstrapCMSServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('graham-campbell/bootstrap-cms', 'graham-campbell/bootstrap-cms', __DIR__);
-
         $this->setupBlade();
 
-        require 'assets.php';
-        require 'listeners.php';
+        require __DIR__.'/../assets.php';
+        require __DIR__.'/../listeners.php';
     }
 
     /**
@@ -99,11 +99,11 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->singleton('navfactory', function ($app) {
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
-            $name = $app['config']['graham-campbell/core::name'];
+            $name = $app['config']['core.name'];
             $property = $app['config']['cms.nav'];
             $inverse = $app['config']['theme.inverse'];
 
-            return new Navigation\Factory($credentials, $navigation, $name, $property, $inverse);
+            return new Factory($credentials, $navigation, $name, $property, $inverse);
         });
 
         $this->app->alias('navfactory', 'GrahamCampbell\BootstrapCMS\Navigation\Factory');
@@ -122,7 +122,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             $validator = $app['validator'];
 
-            return new Repositories\CommentRepository($comment, $validator);
+            return new CommentRepository($comment, $validator);
         });
 
         $this->app->alias('commentrepository', 'GrahamCampbell\BootstrapCMS\Repositories\CommentRepository');
@@ -141,7 +141,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             $validator = $app['validator'];
 
-            return new Repositories\EventRepository($event, $validator);
+            return new EventRepository($event, $validator);
         });
 
         $this->app->alias('eventrepository', 'GrahamCampbell\BootstrapCMS\Repositories\EventRepository');
@@ -160,7 +160,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             $validator = $app['validator'];
 
-            return new Repositories\PageRepository($page, $validator);
+            return new PageRepository($page, $validator);
         });
 
         $this->app->alias('pagerepository', 'GrahamCampbell\BootstrapCMS\Repositories\PageRepository');
@@ -179,7 +179,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
 
             $validator = $app['validator'];
 
-            return new Repositories\PostRepository($post, $validator);
+            return new PostRepository($post, $validator);
         });
 
         $this->app->alias('postrepository', 'GrahamCampbell\BootstrapCMS\Repositories\PostRepository');
@@ -195,7 +195,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->singleton('GrahamCampbell\BootstrapCMS\Subscribers\CommandSubscriber', function ($app) {
             $pagerepository = $app['pagerepository'];
 
-            return new Subscribers\CommandSubscriber($pagerepository);
+            return new CommandSubscriber($pagerepository);
         });
     }
 
@@ -214,7 +214,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
             $events = $app['config']['cms.events'];
             $cloudflare = class_exists('GrahamCampbell\CloudFlare\CloudFlareServiceProvider');
 
-            return new Subscribers\NavigationSubscriber(
+            return new NavigationSubscriber(
                 $navigation,
                 $credentials,
                 $pagerepository,
@@ -235,7 +235,7 @@ class BootstrapCMSServiceProvider extends ServiceProvider
         $this->app->bind('GrahamCampbell\BootstrapCMS\Http\Controllers\CommentController', function ($app) {
             $throttler = $app['throttle']->get($app['request'], 1, 10);
 
-            return new Http\Controllers\CommentController($throttler);
+            return new CommentController($throttler);
         });
     }
 
@@ -247,9 +247,9 @@ class BootstrapCMSServiceProvider extends ServiceProvider
     protected function registerPageController()
     {
         $this->app->bind('GrahamCampbell\BootstrapCMS\Http\Controllers\PageController', function ($app) {
-            $path = $app['config']['graham-campbell/core::home'];
+            $path = $app['config']['core.home'];
 
-            return new Http\Controllers\PageController($path);
+            return new PageController($path);
         });
     }
 

@@ -1,18 +1,16 @@
 <?php
 
 /*
- * Part of the Sentry package.
+ * This file is part of Bootstrap CMS.
  *
- * NOTICE OF LICENSE
+ * (c) Graham Campbell <graham@mineuk.com>
  *
- * Licensed under the 3-clause BSD License.
- *
- * This source file is subject to the 3-clause BSD License that is
- * bundled with this package in the LICENSE file.  It is also available at
- * the following URL: http://www.opensource.org/licenses/BSD-3-Clause.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 return [
+
 
     /*
     |--------------------------------------------------------------------------
