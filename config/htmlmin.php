@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel HTMLMin.
+ * This file is part of Bootstrap CMS.
  *
  * (c) Graham Campbell <graham@mineuk.com>
  *
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'blade' => true,
+    'blade' => false,
 
     /*
     |--------------------------------------------------------------------------

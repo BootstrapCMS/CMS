@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel CloudFlare API.
+ * This file is part of Bootstrap CMS.
  *
  * (c) Graham Campbell <graham@mineuk.com>
  *
@@ -38,14 +38,14 @@ return [
     'connections' => [
 
         'main' => [
-            'token'   => 'your-token',
-            'email'   => 'your-email',
+            'token' => 'your-token',
+            'email' => 'your-email',
             // 'baseurl' => 'https://www.cloudflare.com/api_json.html'
         ],
 
         'alternative' => [
-            'token'   => 'your-token',
-            'email'   => 'your-email',
+            'token' => 'your-token',
+            'email' => 'your-email',
             // 'baseurl' => 'https://www.cloudflare.com/api_json.html'
         ],
 

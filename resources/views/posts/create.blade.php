@@ -1,4 +1,4 @@
-@extends(Config::get('core.layout'))
+@extends(Config::get('core.default'))
 
 @section('title')
 Create Post

@@ -1615,12 +1615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/asset.git",
-                "reference": "d0d59cfc115210094ef4a80be29c679d33b387c2"
+                "reference": "d5f76223d1694fa45be26c7f91a9e10f5afdf9d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/asset/zipball/d0d59cfc115210094ef4a80be29c679d33b387c2",
-                "reference": "d0d59cfc115210094ef4a80be29c679d33b387c2",
+                "url": "https://api.github.com/repos/BootstrapCMS/asset/zipball/d5f76223d1694fa45be26c7f91a9e10f5afdf9d2",
+                "reference": "d5f76223d1694fa45be26c7f91a9e10f5afdf9d2",
                 "shasum": ""
             },
             "require": {
@@ -1650,7 +1650,7 @@
             "support": {
                 "source": "https://github.com/BootstrapCMS/asset/tree/1.6"
             },
-            "time": "2015-01-30 23:49:10"
+            "time": "2015-01-31 11:50:49"
         },
         {
             "name": "maximebf/debugbar",

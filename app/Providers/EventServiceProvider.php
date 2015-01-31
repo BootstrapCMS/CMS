@@ -11,14 +11,14 @@
 
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 /**
  * This is the event service provider class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class EventServiceProvider extends EventServiceProvider
+class EventServiceProvider extends ServiceProvider
 {
     /**
      * The event handler mappings for the application.

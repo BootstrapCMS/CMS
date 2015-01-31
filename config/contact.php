@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel Contact.
+ * This file is part of Bootstrap CMS.
  *
  * (c) Graham Campbell <graham@mineuk.com>
  *

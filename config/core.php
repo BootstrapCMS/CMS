@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel Core.
+ * This file is part of Bootstrap CMS.
  *
  * (c) Graham Campbell <graham@mineuk.com>
  *
@@ -39,21 +39,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Enable Commands
-    |--------------------------------------------------------------------------
-    |
-    | This enables the install/update/reset commands and bindings shipped with
-    | this package. Other packages can read this config to save time by not
-    | registering event command event listeners if command are disabled.
-    |
-    | Default to true.
-    |
-    */
-
-    'commands' => true,
-
-    /*
-    |--------------------------------------------------------------------------
     | Page Layout
     |--------------------------------------------------------------------------
     |
@@ -63,7 +48,7 @@ return [
     |
     */
 
-    'layout' => 'layouts.default',
+    'default' => 'layouts.default',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,5 +62,20 @@ return [
     */
 
     'email' => 'layouts.email',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Enable Commands
+    |--------------------------------------------------------------------------
+    |
+    | This enables the install/update/reset commands and bindings shipped with
+    | this package. Other packages can read this config to save time by not
+    | registering event command event listeners if command are disabled.
+    |
+    | Default to true.
+    |
+    */
+
+    'commands' => true,
 
 ];
