@@ -884,12 +884,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "e5ee4dc5b8466b8113f011e47b403bde47cd6846"
+                "reference": "bff30a6ab041dafb64ed75b25a31b0fcacc709cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/e5ee4dc5b8466b8113f011e47b403bde47cd6846",
-                "reference": "e5ee4dc5b8466b8113f011e47b403bde47cd6846",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/bff30a6ab041dafb64ed75b25a31b0fcacc709cf",
+                "reference": "bff30a6ab041dafb64ed75b25a31b0fcacc709cf",
                 "shasum": ""
             },
             "require": {
@@ -935,7 +935,7 @@
                 "laravel",
                 "markdown"
             ],
-            "time": "2015-01-29 21:33:55"
+            "time": "2015-01-31 12:46:36"
         },
         {
             "name": "graham-campbell/navigation",
