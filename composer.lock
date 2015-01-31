@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c99eb918ca46027d512dbd7523469ae2",
+    "hash": "a161b94eceabd92f46e36ba5c1791f2b",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -554,12 +554,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "85a26beb257562962bbd5cf9c8bcfee266e1ba7a"
+                "reference": "2cd358941aeefc08098cd82ce28ef23c7dd0bf51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/85a26beb257562962bbd5cf9c8bcfee266e1ba7a",
-                "reference": "85a26beb257562962bbd5cf9c8bcfee266e1ba7a",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/2cd358941aeefc08098cd82ce28ef23c7dd0bf51",
+                "reference": "2cd358941aeefc08098cd82ce28ef23c7dd0bf51",
                 "shasum": ""
             },
             "require": {
@@ -605,7 +605,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2015-01-30 23:59:16"
+            "time": "2015-01-31 13:43:59"
         },
         {
             "name": "graham-campbell/credentials",
@@ -613,12 +613,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "8c724e590931b5c1d2f1e7c15b44fe8e51e3b972"
+                "reference": "243faa4912579709d568ea3abcdee1fb07209f53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/8c724e590931b5c1d2f1e7c15b44fe8e51e3b972",
-                "reference": "8c724e590931b5c1d2f1e7c15b44fe8e51e3b972",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/243faa4912579709d568ea3abcdee1fb07209f53",
+                "reference": "243faa4912579709d568ea3abcdee1fb07209f53",
                 "shasum": ""
             },
             "require": {
@@ -685,7 +685,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-01-31 00:00:24"
+            "time": "2015-01-31 13:44:27"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -884,12 +884,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "bff30a6ab041dafb64ed75b25a31b0fcacc709cf"
+                "reference": "5c50bfa3782049819a2cbc1e4751eb473227a544"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/bff30a6ab041dafb64ed75b25a31b0fcacc709cf",
-                "reference": "bff30a6ab041dafb64ed75b25a31b0fcacc709cf",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/5c50bfa3782049819a2cbc1e4751eb473227a544",
+                "reference": "5c50bfa3782049819a2cbc1e4751eb473227a544",
                 "shasum": ""
             },
             "require": {
@@ -935,7 +935,7 @@
                 "laravel",
                 "markdown"
             ],
-            "time": "2015-01-31 12:46:36"
+            "time": "2015-01-31 14:52:55"
         },
         {
             "name": "graham-campbell/navigation",
