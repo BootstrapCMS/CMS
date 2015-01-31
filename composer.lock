@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "35e24e36195440b33725be444cc6c110",
+    "hash": "282ba978a9385335c7982bed1dc5b9ed",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -243,16 +243,16 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "1.5.1",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "9da19c1108c39df9b42adc42e39b8371070652d0"
+                "reference": "495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/9da19c1108c39df9b42adc42e39b8371070652d0",
-                "reference": "9da19c1108c39df9b42adc42e39b8371070652d0",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a",
+                "reference": "495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a",
                 "shasum": ""
             },
             "type": "library",
@@ -278,36 +278,32 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2015-01-24 13:01:47"
+            "time": "2014-11-29 02:29:14"
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.7.1",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/parsedown-extra.git",
-                "reference": "b626bf738c28669221952e6a06c4cf47e0a76641"
+                "url": "https://github.com/erusev/parsedown-extra.git",
+                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/parsedown-extra/zipball/b626bf738c28669221952e6a06c4cf47e0a76641",
-                "reference": "b626bf738c28669221952e6a06c4cf47e0a76641",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/77f604b65b08550f229c2e79c0427c84c0c0979e",
+                "reference": "77f604b65b08550f229c2e79c0427c84c0c0979e",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.5"
+                "erusev/parsedown": "~1.1"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.7-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "ParsedownExtra": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -326,10 +322,7 @@
                 "parsedown",
                 "parser"
             ],
-            "support": {
-                "source": "https://github.com/GrahamCampbell/parsedown-extra/tree/0.7.1"
-            },
-            "time": "2015-01-31 14:06:21"
+            "time": "2014-11-20 20:21:03"
         },
         {
             "name": "fideloper/proxy",
@@ -879,20 +872,21 @@
         },
         {
             "name": "graham-campbell/markdown",
-            "version": "v2.0.9",
+            "version": "v2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "95d725ef5eb4f0ce6ef01e374d9d056a660c8a4e"
+                "reference": "9b79f2ace1772281284f570ca64931d550421786"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/95d725ef5eb4f0ce6ef01e374d9d056a660c8a4e",
-                "reference": "95d725ef5eb4f0ce6ef01e374d9d056a660c8a4e",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/9b79f2ace1772281284f570ca64931d550421786",
+                "reference": "9b79f2ace1772281284f570ca64931d550421786",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown-extra": "0.7.*",
+                "erusev/parsedown": "~1.1",
+                "erusev/parsedown-extra": "~0.2.6",
                 "illuminate/support": "~4.1",
                 "illuminate/view": "~4.1",
                 "php": ">=5.4.7"
@@ -931,7 +925,7 @@
                 "parsedown extra wrapper",
                 "parsedown wrapper"
             ],
-            "time": "2015-01-31 12:44:03"
+            "time": "2015-01-04 22:11:30"
         },
         {
             "name": "graham-campbell/navigation",
