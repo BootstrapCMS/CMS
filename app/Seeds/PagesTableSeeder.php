@@ -13,7 +13,6 @@ namespace GrahamCampbell\BootstrapCMS\Seeds;
 
 use Carbon\Carbon;
 use GrahamCampbell\Binput\Facades\Binput;
-use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -84,8 +83,8 @@ class PagesTableSeeder extends Seeder
      */
     protected function getContent($page)
     {
-        $content = File::get(dirname(__FILE__).'/page-'.$page.'.md');
+        $content = File::get(dirname(__FILE__).'/page-'.$page.'.stub');
 
-        return Binput::clean(Markdown::convertToHtml($content), true, false);
+        return Binput::clean($content, true, false);
     }
 }
