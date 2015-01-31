@@ -613,12 +613,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "243faa4912579709d568ea3abcdee1fb07209f53"
+                "reference": "100b134f9d78caf12e7f4ca988c18c22ee7957c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/243faa4912579709d568ea3abcdee1fb07209f53",
-                "reference": "243faa4912579709d568ea3abcdee1fb07209f53",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/100b134f9d78caf12e7f4ca988c18c22ee7957c5",
+                "reference": "100b134f9d78caf12e7f4ca988c18c22ee7957c5",
                 "shasum": ""
             },
             "require": {
@@ -685,7 +685,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-01-31 13:44:27"
+            "time": "2015-01-31 16:36:56"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -819,12 +819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/LogViewer.git",
-                "reference": "ca48cd2c8c2ed004bb991b4e368131ba668e42e6"
+                "reference": "20f439c0075c8799b56fbca0f9c90b09fb75cf3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/ca48cd2c8c2ed004bb991b4e368131ba668e42e6",
-                "reference": "ca48cd2c8c2ed004bb991b4e368131ba668e42e6",
+                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/20f439c0075c8799b56fbca0f9c90b09fb75cf3a",
+                "reference": "20f439c0075c8799b56fbca0f9c90b09fb75cf3a",
                 "shasum": ""
             },
             "require": {
@@ -876,7 +876,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2015-01-30 23:58:14"
+            "time": "2015-01-31 16:32:28"
         },
         {
             "name": "graham-campbell/markdown",
@@ -943,12 +943,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Navigation.git",
-                "reference": "5e5c61dab2529cf743e9741e35f95427c50c13e5"
+                "reference": "2697daeb887c14488b3645c8b2ebcffb6d05c9ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/5e5c61dab2529cf743e9741e35f95427c50c13e5",
-                "reference": "5e5c61dab2529cf743e9741e35f95427c50c13e5",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Navigation/zipball/2697daeb887c14488b3645c8b2ebcffb6d05c9ee",
+                "reference": "2697daeb887c14488b3645c8b2ebcffb6d05c9ee",
                 "shasum": ""
             },
             "require": {
@@ -993,7 +993,7 @@
                 "navigation bar",
                 "navigation generator"
             ],
-            "time": "2015-01-29 21:35:33"
+            "time": "2015-01-31 16:02:31"
         },
         {
             "name": "graham-campbell/security",
