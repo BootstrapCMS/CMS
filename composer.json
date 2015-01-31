@@ -20,6 +20,7 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
         "illuminate/html": "5.0.*",
@@ -36,6 +37,25 @@
         "graham-campbell/logviewer": "0.3.*",
         "mccool/laravel-auto-presenter": "~3.0",
         "barryvdh/laravel-debugbar": "~2.0"
+=======
+        "php": ">=5.4.7",
+        "laravel/framework": "~4.2.10",
+        "lightgear/asset": "1.4.*",
+        "graham-campbell/core": "~1.0",
+        "graham-campbell/database": "0.1.*",
+        "graham-campbell/queuing": "~1.0",
+        "graham-campbell/htmlmin": "~2.0",
+        "graham-campbell/markdown": "~2.0",
+        "graham-campbell/binput": "~2.0",
+        "graham-campbell/throttle": "~2.0",
+        "graham-campbell/credentials": "~0.3.3",
+        "graham-campbell/navigation": "~1.0",
+        "graham-campbell/contact": "~0.2.1",
+        "graham-campbell/logviewer": "~0.2.1",
+        "mccool/laravel-auto-presenter": "2.1.*",
+        "fideloper/proxy": "2.1.1",
+        "barryvdh/laravel-debugbar": "~1.8"
+>>>>>>> origin/0.8
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0",
