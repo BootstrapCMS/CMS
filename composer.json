@@ -13,6 +13,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/BootstrapCMS/asset"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/parsedown-extra"
         }
     ],
     "require": {

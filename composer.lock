@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4dc1837cf0c282b54bf60ee5f7e5d25c",
+    "hash": "35e24e36195440b33725be444cc6c110",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -282,28 +282,32 @@
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5"
+                "url": "https://github.com/GrahamCampbell/parsedown-extra.git",
+                "reference": "b626bf738c28669221952e6a06c4cf47e0a76641"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/11a44e076d02ffcc4021713398a60cd73f78b6f5",
-                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5",
+                "url": "https://api.github.com/repos/GrahamCampbell/parsedown-extra/zipball/b626bf738c28669221952e6a06c4cf47e0a76641",
+                "reference": "b626bf738c28669221952e6a06c4cf47e0a76641",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.4"
+                "erusev/parsedown": "~1.5"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.7-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "ParsedownExtra": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -322,7 +326,10 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2015-01-25 14:52:34"
+            "support": {
+                "source": "https://github.com/GrahamCampbell/parsedown-extra/tree/0.7.1"
+            },
+            "time": "2015-01-31 14:06:21"
         },
         {
             "name": "fideloper/proxy",
