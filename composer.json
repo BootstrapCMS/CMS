@@ -39,7 +39,7 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0",
-        "doctrine/dbal": "~2.4"
+        "doctrine/dbal": "~2.5"
     },
     "suggest": {
         "graham-campbell/cloudflare": "Integration with CloudFlare."
