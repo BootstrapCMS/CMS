@@ -7,7 +7,7 @@
             <h1><?php echo Config::get("core.name"); ?></h1>
         </div>
         <p class="lead">Powered by Laravel 5 with Bootstrap CMS and Sentry</p>
-        <?php if (Config::get('graham-campbell/credentials::regallowed')) { ?>
+        <?php if (Config::get('credentials.regallowed')) { ?>
             <a class="btn btn-lg btn-success" href="<?php echo URL::route("account.register"); ?>">Sign Up Today</a>
         <?php } else { ?>
             <a class="btn btn-lg btn-success" href="<?php echo URL::route("pages.show", array("pages" => "about")); ?>">More Information</a>
@@ -19,7 +19,7 @@
     <div class="jumbotron">
         <h1><?php echo Config::get("core.name"); ?></h1>
         <p class="lead">Powered by Laravel 5 with Bootstrap CMS</p>
-        <?php if (Config::get('graham-campbell/credentials::regallowed')) { ?>
+        <?php if (Config::get('credentials.regallowed')) { ?>
             <a class="btn btn-lg btn-success" href="<?php echo URL::route("account.register"); ?>">Sign Up Today</a>
         <?php } else { ?>
             <a class="btn btn-lg btn-success" href="<?php echo URL::route("pages.show", array("pages" => "about")); ?>">More Information</a>
