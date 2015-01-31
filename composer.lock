@@ -282,16 +282,16 @@
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.6.1",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "a2b8418b2ae272eb59ef8767bf45df80ab02f29c"
+                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/a2b8418b2ae272eb59ef8767bf45df80ab02f29c",
-                "reference": "a2b8418b2ae272eb59ef8767bf45df80ab02f29c",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/11a44e076d02ffcc4021713398a60cd73f78b6f5",
+                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5",
                 "shasum": ""
             },
             "require": {
@@ -322,7 +322,7 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2015-01-22 13:11:06"
+            "time": "2015-01-25 14:52:34"
         },
         {
             "name": "fideloper/proxy",
@@ -872,20 +872,20 @@
         },
         {
             "name": "graham-campbell/markdown",
-            "version": "v2.0.8",
+            "version": "v2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "9e74dff2d33a4c75bcd97e9529de498ed9af7c9c"
+                "reference": "95d725ef5eb4f0ce6ef01e374d9d056a660c8a4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/9e74dff2d33a4c75bcd97e9529de498ed9af7c9c",
-                "reference": "9e74dff2d33a4c75bcd97e9529de498ed9af7c9c",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/95d725ef5eb4f0ce6ef01e374d9d056a660c8a4e",
+                "reference": "95d725ef5eb4f0ce6ef01e374d9d056a660c8a4e",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown-extra": "0.6.*",
+                "erusev/parsedown-extra": "0.7.*",
                 "illuminate/support": "~4.1",
                 "illuminate/view": "~4.1",
                 "php": ">=5.4.7"
@@ -924,7 +924,7 @@
                 "parsedown extra wrapper",
                 "parsedown wrapper"
             ],
-            "time": "2015-01-22 20:41:15"
+            "time": "2015-01-31 12:44:03"
         },
         {
             "name": "graham-campbell/navigation",
