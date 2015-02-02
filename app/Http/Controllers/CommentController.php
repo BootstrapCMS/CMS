@@ -134,7 +134,7 @@ class CommentController extends AbstractController
     }
 
     /**
-     * Show the specified post.
+     * Show the specified comment.
      *
      * @param int $postId
      * @param int $id
@@ -148,7 +148,7 @@ class CommentController extends AbstractController
 
         $contents = View::make('posts.comment', [
             'comment' => $comment,
-            'postId'  => $postId,
+            'post_id' => $postId,
         ]);
 
         return Response::json([
