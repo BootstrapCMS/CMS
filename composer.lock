@@ -4,24 +4,24 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "282ba978a9385335c7982bed1dc5b9ed",
+    "hash": "7abe88f4cd8a6aeb822210936e84bf25",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.8.6",
+            "version": "v1.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "1d39c5130fb7ebc9135d5a31467bcc870789acf9"
+                "reference": "d510da02fef2381c0946185bddd6271b73e60169"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/1d39c5130fb7ebc9135d5a31467bcc870789acf9",
-                "reference": "1d39c5130fb7ebc9135d5a31467bcc870789acf9",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d510da02fef2381c0946185bddd6271b73e60169",
+                "reference": "d510da02fef2381c0946185bddd6271b73e60169",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "4.*|5.0.*",
+                "illuminate/support": "4.*",
                 "maximebf/debugbar": "~1.10.2",
                 "php": ">=5.3.0",
                 "symfony/finder": "~2.3"
@@ -29,7 +29,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-v1.x": "1.8-dev"
                 }
             },
             "autoload": {
@@ -58,7 +58,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2015-01-30 08:40:23"
+            "time": "2015-02-04 09:52:12"
         },
         {
             "name": "cartalyst/sentry",
@@ -872,20 +872,20 @@
         },
         {
             "name": "graham-campbell/markdown",
-            "version": "v2.0.6",
+            "version": "v2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
-                "reference": "9b79f2ace1772281284f570ca64931d550421786"
+                "reference": "7c659621747cf291c344149b20383205f041f259"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/9b79f2ace1772281284f570ca64931d550421786",
-                "reference": "9b79f2ace1772281284f570ca64931d550421786",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/7c659621747cf291c344149b20383205f041f259",
+                "reference": "7c659621747cf291c344149b20383205f041f259",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.1",
+                "erusev/parsedown": "~1.1.4",
                 "erusev/parsedown-extra": "~0.2.6",
                 "illuminate/support": "~4.1",
                 "illuminate/view": "~4.1",
@@ -925,7 +925,7 @@
                 "parsedown extra wrapper",
                 "parsedown wrapper"
             ],
-            "time": "2015-01-04 22:11:30"
+            "time": "2015-02-02 15:35:24"
         },
         {
             "name": "graham-campbell/navigation",
