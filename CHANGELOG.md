@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Updated dependencies
 * Removed the extra symfony dependencies
+* Fixed an issue with the blog comments
 
 
 ## V0.8.2 Alpha (12/11/2014)
