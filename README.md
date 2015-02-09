@@ -31,16 +31,16 @@ Version 0.8 is currently more stable than this version (0.9), and is available o
 3. Enter your database details into `config/database.php`.
 4. Run `php artisan app:install` to setup and seed your database.
 5. You will need to enter your mail server details into `config/mail.php`.
-  * You can disable verification emails in `config/packages/graham-campbell/navigation/config.php`
+  * You can disable verification emails in `config/navigation.php`
   * Mail is still required for other functions like password resets and the contact form
-  * You must set the contact email in `config/packages/graham-campbell/contact/config.php`
+  * You must set the contact email in `config/contact.php`
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
 6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
 7. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
   * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
-  * Also note, without caching asset generation will cause page load delay - to reduce this, I have turned off minification in `config/packages/lightgear/asset/config.php` by default
+  * Also note, without caching asset generation will cause page load delay - to reduce this, I have turned off minification in `config/asset.php` by default
 
 
 ## Setting Up Queuing
@@ -58,7 +58,7 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 
 1. Choose your poison - I'd recommend [Redis](http://redis.io).
 2. Enter your cache server details into `config/cache.php`.
-3. You will probably want to enabled minification in `config/packages/lightgear/asset/config.php`.
+3. You will probably want to enabled minification in `config/asset.php`.
 4. Setting the driver to array will effectively disable caching if you don't want the overhead.
 
 
@@ -85,7 +85,7 @@ Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analyti
 Bootstrap CMS can read [CloudFlare](https://www.cloudflare.com/) analytic data through a package.
 
 1. Follow the install instructions for my [Laravel CloudFlare](https://github.com/BootstrapCMS/CloudFlare) package.
-2. Remember to add your credentials to `config/packages/graham-campbell/cloudflare-api/config.php`.
+2. Remember to add your credentials to `config/cloudflareapi.php`.
 3. Bootstrap CMS will auto-detect the package, only allow admin access, and add links to the navigation bar.
 
 
