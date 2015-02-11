@@ -12,7 +12,7 @@ CHANGE LOG
 * Cleaned up assets
 
 
-## V0.8.3 Alpha (Upcoming)
+## V0.8.3 Alpha (11/02/2015)
 
 * Updated dependencies
 * Removed the extra symfony dependencies
