@@ -211,16 +211,16 @@
         },
         {
             "name": "danielstjules/stringy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad"
+                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad",
-                "reference": "6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
+                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2015-01-08 15:21:43"
+            "time": "2015-02-10 06:19:18"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1344,16 +1344,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.1",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "022d46dc5eff9056e25078f283d2810749275966"
+                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/022d46dc5eff9056e25078f283d2810749275966",
-                "reference": "022d46dc5eff9056e25078f283d2810749275966",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b5eafda7dba3d1367a63095b83a068a73d32d97f",
+                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f",
                 "shasum": ""
             },
             "require": {
@@ -1465,7 +1465,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-06 19:37:20"
+            "time": "2015-02-11 20:37:48"
         },
         {
             "name": "league/commonmark",
@@ -3557,21 +3557,71 @@
             "time": "2014-12-22 10:06:19"
         },
         {
-            "name": "orchestra/testbench",
-            "version": "v3.0.1",
+            "name": "orchestra/database",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/orchestral/testbench.git",
-                "reference": "94e9e4a52027aee2eb97d985c544604399ab6f92"
+                "url": "https://github.com/orchestral/database.git",
+                "reference": "2232c9d5750894acf70153cc1a3d4f85b04836c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/94e9e4a52027aee2eb97d985c544604399ab6f92",
-                "reference": "94e9e4a52027aee2eb97d985c544604399ab6f92",
+                "url": "https://api.github.com/repos/orchestral/database/zipball/2232c9d5750894acf70153cc1a3d4f85b04836c6",
+                "reference": "2232c9d5750894acf70153cc1a3d4f85b04836c6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.0.*",
+                "illuminate/database": "5.0.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orchestra\\Database\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mior Muhammad Zaki",
+                    "email": "crynobone@gmail.com",
+                    "homepage": "https://github.com/crynobone"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell"
+                }
+            ],
+            "description": "Database Component for Orchestra Platform",
+            "time": "2015-02-10 09:20:46"
+        },
+        {
+            "name": "orchestra/testbench",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orchestral/testbench.git",
+                "reference": "86b631415d442582b434db38f598da51144e539c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/86b631415d442582b434db38f598da51144e539c",
+                "reference": "86b631415d442582b434db38f598da51144e539c",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "5.0.*",
+                "orchestra/database": "3.0.*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -3615,7 +3665,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2015-02-05 00:26:32"
+            "time": "2015-02-10 23:31:50"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
