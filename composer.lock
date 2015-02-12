@@ -2056,16 +2056,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.3.3",
+            "version": "v0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0355cecab0591c83fed019a9572c510b0da29174"
+                "reference": "2ce0e8f3020fd292c2ad2a496c5d83939823f642"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0355cecab0591c83fed019a9572c510b0da29174",
-                "reference": "0355cecab0591c83fed019a9572c510b0da29174",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/2ce0e8f3020fd292c2ad2a496c5d83939823f642",
+                "reference": "2ce0e8f3020fd292c2ad2a496c5d83939823f642",
                 "shasum": ""
             },
             "require": {
@@ -2115,14 +2115,14 @@
                 }
             ],
             "description": "An interactive shell for modern PHP.",
-            "homepage": "https://github.com/bobthecow/psysh",
+            "homepage": "http://psysh.org",
             "keywords": [
                 "REPL",
                 "console",
                 "interactive",
                 "shell"
             ],
-            "time": "2015-01-20 21:18:03"
+            "time": "2015-02-12 19:35:52"
         },
         {
             "name": "sebastian/diff",
@@ -3438,23 +3438,23 @@
         },
         {
             "name": "graham-campbell/testbench",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench.git",
-                "reference": "23cb2b8df66a6493ca08752b502ca1a42504fea9"
+                "reference": "9bb6d0c478669df0d944032d4425e33d5fcaa6b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/23cb2b8df66a6493ca08752b502ca1a42504fea9",
-                "reference": "23cb2b8df66a6493ca08752b502ca1a42504fea9",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench/zipball/9bb6d0c478669df0d944032d4425e33d5fcaa6b7",
+                "reference": "9bb6d0c478669df0d944032d4425e33d5fcaa6b7",
                 "shasum": ""
             },
             "require": {
                 "mockery/mockery": "~0.9.3",
                 "orchestra/testbench": "3.0.*",
                 "php": ">=5.4.7",
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "~4.5"
             },
             "type": "library",
             "extra": {
@@ -3488,7 +3488,7 @@
                 "laravel",
                 "testing"
             ],
-            "time": "2015-02-04 19:39:07"
+            "time": "2015-02-12 19:18:14"
         },
         {
             "name": "mockery/mockery",
