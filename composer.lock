@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7abe88f4cd8a6aeb822210936e84bf25",
+    "hash": "b87ec3a1cac26053a5a7b3d8f86fe7ef",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1404,12 +1404,12 @@
             "version": "1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/BootstrapCMS/asset.git",
+                "url": "https://github.com/BootstrapCMS/Asset.git",
                 "reference": "c52eb255f4de391cf3e9eb972315b8ebf0b70d1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/asset/zipball/c52eb255f4de391cf3e9eb972315b8ebf0b70d1b",
+                "url": "https://api.github.com/repos/BootstrapCMS/Asset/zipball/c52eb255f4de391cf3e9eb972315b8ebf0b70d1b",
                 "reference": "c52eb255f4de391cf3e9eb972315b8ebf0b70d1b",
                 "shasum": ""
             },
@@ -1437,7 +1437,7 @@
             ],
             "description": "Easy asset Management for Laravel 4",
             "support": {
-                "source": "https://github.com/BootstrapCMS/asset/tree/1.4"
+                "source": "https://github.com/BootstrapCMS/Asset/tree/1.4"
             },
             "time": "2014-03-22 18:04:57"
         },
