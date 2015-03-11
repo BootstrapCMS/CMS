@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V0.8.4 Alpha (11/03/2015)
+
+* Updated dependencies (fixes sentry vulnerability)
+
+
 ## V0.8.3 Alpha (11/02/2015)
 
 * Updated dependencies
