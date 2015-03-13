@@ -16,7 +16,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/BootstrapCMS/sentry"
+            "url": "https://github.com/BootstrapCMS/Sentry"
         }
     ],
     "require": {
