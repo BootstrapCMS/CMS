@@ -486,16 +486,16 @@
         },
         {
             "name": "graham-campbell/contact",
-            "version": "v0.2.1-alpha",
+            "version": "v0.2.2-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Contact.git",
-                "reference": "8f49a48843b81915d28ab44270117399960dfbf0"
+                "reference": "4b4e3d7abed915c1aeb89311ee20f12fb8c42e26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/8f49a48843b81915d28ab44270117399960dfbf0",
-                "reference": "8f49a48843b81915d28ab44270117399960dfbf0",
+                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/4b4e3d7abed915c1aeb89311ee20f12fb8c42e26",
+                "reference": "4b4e3d7abed915c1aeb89311ee20f12fb8c42e26",
                 "shasum": ""
             },
             "require": {
@@ -516,11 +516,6 @@
                 "graham-campbell/queuing": "Improved mailer performance."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.2-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Contact\\": "src/"
@@ -528,7 +523,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -548,7 +543,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-10-24 21:58:59"
+            "time": "2015-03-15 20:19:50"
         },
         {
             "name": "graham-campbell/core",
@@ -608,16 +603,16 @@
         },
         {
             "name": "graham-campbell/credentials",
-            "version": "v0.3.3-alpha",
+            "version": "v0.3.4-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "59812a83d2d2e6b8919f1f7e9e738e65d982d58d"
+                "reference": "a76ea7916aa8c6577697ffcc0179af37b5f24564"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/59812a83d2d2e6b8919f1f7e9e738e65d982d58d",
-                "reference": "59812a83d2d2e6b8919f1f7e9e738e65d982d58d",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/a76ea7916aa8c6577697ffcc0179af37b5f24564",
+                "reference": "a76ea7916aa8c6577697ffcc0179af37b5f24564",
                 "shasum": ""
             },
             "require": {
@@ -648,11 +643,6 @@
                 "graham-campbell/queuing": "Improved mailer performance."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
             "autoload": {
                 "classmap": [
                     "src/migrations"
@@ -663,7 +653,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -685,7 +675,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2014-10-24 21:55:03"
+            "time": "2015-03-15 20:10:58"
         },
         {
             "name": "graham-campbell/database",
@@ -807,16 +797,16 @@
         },
         {
             "name": "graham-campbell/logviewer",
-            "version": "v0.2.1-alpha",
+            "version": "v0.2.2-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/LogViewer.git",
-                "reference": "e918377f1b69b3e9074b03653a18e85fdafad55d"
+                "reference": "6b5e9ca72e13569dd44add941ce6074b55162bce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/e918377f1b69b3e9074b03653a18e85fdafad55d",
-                "reference": "e918377f1b69b3e9074b03653a18e85fdafad55d",
+                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/6b5e9ca72e13569dd44add941ce6074b55162bce",
+                "reference": "6b5e9ca72e13569dd44add941ce6074b55162bce",
                 "shasum": ""
             },
             "require": {
@@ -827,7 +817,7 @@
                 "illuminate/session": "~4.1",
                 "illuminate/support": "~4.1",
                 "illuminate/view": "~4.1",
-                "lightgear/asset": "1.4",
+                "lightgear/asset": "1.4.*",
                 "php": ">=5.4.7"
             },
             "require-dev": {
@@ -837,11 +827,6 @@
                 "graham-campbell/navigation": "Easily add a navigation bar."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.2-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\LogViewer\\": "src/"
@@ -849,7 +834,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -868,7 +853,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2014-10-24 22:00:21"
+            "time": "2015-03-15 20:20:13"
         },
         {
             "name": "graham-campbell/markdown",
@@ -1549,16 +1534,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.13.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae"
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c41c218e239b50446fd883acb1ecfd4b770caeae",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
                 "shasum": ""
             },
             "require": {
@@ -1618,7 +1603,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-03-05 01:12:12"
+            "time": "2015-03-09 09:58:04"
         },
         {
             "name": "mrclay/minify",
@@ -1667,16 +1652,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.16.0",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "9b7665041754eaa9bb2622349bc9adbc1cf61cb8"
+                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9b7665041754eaa9bb2622349bc9adbc1cf61cb8",
-                "reference": "9b7665041754eaa9bb2622349bc9adbc1cf61cb8",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
+                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
                 "shasum": ""
             },
             "require": {
@@ -1709,7 +1694,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-03-04 04:50:11"
+            "time": "2015-03-08 14:05:44"
         },
         {
             "name": "nikic/php-parser",
@@ -2102,16 +2087,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.3.1",
+            "version": "v5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a"
+                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
-                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/31454f258f10329ae7c48763eb898a75c39e0a9f",
+                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f",
                 "shasum": ""
             },
             "require": {
@@ -2123,7 +2108,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.3-dev"
+                    "dev-master": "5.4-dev"
                 }
             },
             "autoload": {
@@ -2150,7 +2135,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-12-05 14:17:14"
+            "time": "2015-03-14 06:06:39"
         },
         {
             "name": "symfony/browser-kit",
