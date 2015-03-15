@@ -2,8 +2,8 @@
 <meta name="description" content="{{ Config::get('cms.description') }}">
 <meta name="author" content="{{ Config::get('cms.author') }}">
 
-{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css') !!}
-{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css') !!}
+{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css') !!}
+{!! HTML::style('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css') !!}
 {!! Asset::styles('main') !!}
 @section('css')
 @show
