@@ -62,7 +62,7 @@
         },
         {
             "name": "cartalyst/sentry",
-            "version": "dev-master",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Sentry.git",
@@ -145,7 +145,7 @@
                 "security"
             ],
             "support": {
-                "source": "https://github.com/BootstrapCMS/Sentry/tree/master"
+                "source": "https://github.com/BootstrapCMS/Sentry/tree/v3.0.0"
             },
             "time": "2015-03-12 23:18:06"
         },
@@ -537,16 +537,16 @@
         },
         {
             "name": "graham-campbell/contact",
-            "version": "dev-master",
+            "version": "v0.3.0-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Contact.git",
-                "reference": "07617bbc29899143feb0fab3a1660433caa93edb"
+                "reference": "45bb52e69615eef569b9e30b972b6c6a48d073dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/07617bbc29899143feb0fab3a1660433caa93edb",
-                "reference": "07617bbc29899143feb0fab3a1660433caa93edb",
+                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/45bb52e69615eef569b9e30b972b6c6a48d073dc",
+                "reference": "45bb52e69615eef569b9e30b972b6c6a48d073dc",
                 "shasum": ""
             },
             "require": {
@@ -597,7 +597,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-03-12 23:24:41"
+            "time": "2015-03-15 20:23:31"
         },
         {
             "name": "graham-campbell/core",
@@ -660,16 +660,16 @@
         },
         {
             "name": "graham-campbell/credentials",
-            "version": "dev-master",
+            "version": "v0.4.0-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "66f3c4b7571a5f9d9a8740d9da3a0a33729b233e"
+                "reference": "82f4cfac22775d3af3d6fd3b8cb11b38cbdba7cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/66f3c4b7571a5f9d9a8740d9da3a0a33729b233e",
-                "reference": "66f3c4b7571a5f9d9a8740d9da3a0a33729b233e",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/82f4cfac22775d3af3d6fd3b8cb11b38cbdba7cf",
+                "reference": "82f4cfac22775d3af3d6fd3b8cb11b38cbdba7cf",
                 "shasum": ""
             },
             "require": {
@@ -736,7 +736,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-03-12 23:20:59"
+            "time": "2015-03-15 20:15:23"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -866,16 +866,16 @@
         },
         {
             "name": "graham-campbell/logviewer",
-            "version": "dev-master",
+            "version": "v0.3.0-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/LogViewer.git",
-                "reference": "b2fdd8971d4e212f1f2b4560d4fd7a7509fd90e0"
+                "reference": "74893cb5b1071f047ff8329288d7fb9934a7a33f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/b2fdd8971d4e212f1f2b4560d4fd7a7509fd90e0",
-                "reference": "b2fdd8971d4e212f1f2b4560d4fd7a7509fd90e0",
+                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/74893cb5b1071f047ff8329288d7fb9934a7a33f",
+                "reference": "74893cb5b1071f047ff8329288d7fb9934a7a33f",
                 "shasum": ""
             },
             "require": {
@@ -927,7 +927,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2015-03-12 23:25:05"
+            "time": "2015-03-15 20:24:32"
         },
         {
             "name": "graham-campbell/markdown",
