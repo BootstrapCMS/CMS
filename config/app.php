@@ -146,6 +146,7 @@ return [
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
         'Lightgear\Asset\AssetServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'Fideloper\Proxy\TrustedProxyServiceProvider'
         'GrahamCampbell\Core\CoreServiceProvider',
         'GrahamCampbell\HTMLMin\HTMLMinServiceProvider',
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
