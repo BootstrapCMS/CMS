@@ -39,7 +39,8 @@ return [
     ],
 
     'stripe' => [
-        'model'  => 'User',
+        'model'  => 'GrahamCampbell\BootstrapCMS\Models\User',
+        'key' => '',
         'secret' => '',
     ],
 
