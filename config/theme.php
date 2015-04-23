@@ -18,13 +18,13 @@ return [
     |
     | This defines what theme of Bootstrap to use from bootswatch.com.
     |
+    | After making theme changes, you will have to run php artisan app:update.
+    |
     | Supported: "cerulean", "cosmo", "cyborg", "darkly", "default", "flatly",
     |            "journal", "legacy", "lumen", "paper", "readable", "sandstone",
     |            "simplex", "slate", "spacelab", "superhero", "united", "yeti"
     |
     | Default to 'default'.
-    |
-    | After making theme changes, you will have to run php artisan app:update
     |
     */
 
