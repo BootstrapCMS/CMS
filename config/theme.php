@@ -24,6 +24,8 @@ return [
     |
     | Default to 'default'.
     |
+    | After making theme changes, you will have to run php artisan app:update
+    |
     */
 
     'name' => 'default',
