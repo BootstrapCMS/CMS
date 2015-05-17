@@ -31,7 +31,7 @@ Version 0.8 is currently more stable than this version (0.9), and is available o
 3. Enter your database details into `config/database.php`.
 4. Run `php artisan app:install` to setup and seed your database.
 5. You will need to enter your mail server details into `config/mail.php`.
-  * You can disable verification emails in `config/navigation.php`
+  * You can disable verification emails in `config/credentials.php`
   * Mail is still required for other functions like password resets and the contact form
   * You must set the contact email in `config/contact.php`
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
