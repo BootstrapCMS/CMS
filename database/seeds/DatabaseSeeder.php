@@ -3,7 +3,7 @@
 /*
  * This file is part of Bootstrap CMS.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@cachethq.io>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@ use Illuminate\Database\Seeder;
 /**
  * This is the database seeder class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@cachethq.io>
  */
 class DatabaseSeeder extends Seeder
 {
