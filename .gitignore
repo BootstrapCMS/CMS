@@ -1,4 +1,3 @@
-/.idea
-/vendor
-phpunit.xml
 .env
+phpunit.xml
+vendor
