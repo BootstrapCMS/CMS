@@ -1,5 +1,5 @@
 $(document).ready(function() {
     $('#datetimepicker1').datetimepicker({
-        pick12HourFormat: false
+        format: 'D/M/YYYY HH:mm'
     });
 });

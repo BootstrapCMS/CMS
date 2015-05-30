@@ -20,7 +20,7 @@
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="date">Event Date</label>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
             <div class="input-group date" id="datetimepicker1">
-                <input name="date" value="{!! Request::old('date', $form['defaults']['date']) !!}" type='text' class="form-control" placeholder="Event Date" data-format="DD/MM/YYYY HH:mm">
+                <input name="date" value="{!! Request::old('date', $form['defaults']['date']) !!}" type='text' class="form-control" placeholder="Event Date">
                 <span class="input-group-addon"><span class="fa fa-calendar fa-fw"></span></span>
             </div>
         </div>
