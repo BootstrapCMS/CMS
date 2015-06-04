@@ -31,7 +31,7 @@ Edit {{ $event->title }}
         'button'   => 'Save Event',
         'defaults' => [
             'title'    => $event->title,
-            'date'     => $event->date->format('d/m/Y H:i'),
+            'date'     => $event->date->format(Config::get('date.php_format')),
             'location' => $event->location,
             'body'     => $event->body,
     ], ];
@@ -55,5 +55,8 @@ Edit {{ $event->title }}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.8.0/js/bootstrap-markdown.min.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js') !!}
+<script>
+js_datetime_format = '<?= Config::get("date.js_format"); ?>';
+</script>
 {!! Asset::scripts('picker') !!}
 @stop

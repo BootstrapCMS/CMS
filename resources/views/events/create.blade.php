@@ -18,7 +18,7 @@ Create Event
         'button'   => 'Create New Event',
         'defaults' => [
             'title'    => '',
-            'date'     => Carbon\Carbon::now()->addMinutes(30)->format('d/m/Y H:i'),
+            'date'     => Carbon\Carbon::now()->addMinutes(30)->format(Config::get('date.php_format')),
             'location' => '',
             'body'     => '',
     ], ];
@@ -36,5 +36,8 @@ Create Event
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.8.0/js/bootstrap-markdown.min.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js') !!}
 {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js') !!}
+<script>
+js_datetime_format = '<?= Config::get("date.js_format"); ?>';
+</script>
 {!! Asset::scripts('picker') !!}
 @stop

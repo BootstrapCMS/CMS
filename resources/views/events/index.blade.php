@@ -32,7 +32,7 @@ Events
 @foreach($events as $event)
     <h2>{!! $event->title !!}</h2>
     <p>
-        <strong>{!! $event->date->format('l jS F Y H:i') !!}</strong>
+        <strong>{!! $event->date->format(Config::get('date.php_display_format')) !!}</strong>
     </p>
     <p>
         <a class="btn btn-success" href="{!! URL::route('events.show', array('events' => $event->id)) !!}"><i class="fa fa-file-text"></i> Show Event</a>

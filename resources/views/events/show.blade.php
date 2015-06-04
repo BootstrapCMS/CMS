@@ -51,7 +51,7 @@
 <div class="well clearfix">
     <div class="hidden-xs">
         <div class="col-xs-6">
-            <p class="lead">Date: {!! $event->date->format('l jS F Y H:i') !!}</p>
+            <p class="lead">Date: {!! $event->date->format(Config::get('date.php_display_format')) !!}</p>
         </div>
         <div class="col-xs-6">
             <div class="pull-right">
@@ -61,7 +61,7 @@
     </div>
     <div class="visible-xs">
         <div class="col-xs-12">
-            <p class="lead">Date: {!! $event->date->format('l jS F Y H:i') !!}</p>
+            <p class="lead">Date: {!! $event->date->format(Config::get('date.php_display_format')) !!}</p>
             <p class="lead">Location: {!! $event->location !!}</p>
         </div>
     </div>

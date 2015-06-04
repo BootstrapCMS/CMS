@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\BootstrapCMS\Facades\EventRepository;
 use GrahamCampbell\Credentials\Facades\Credentials;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -83,7 +84,7 @@ class EventController extends AbstractController
             return Redirect::route('events.create')->withInput()->withErrors($val->errors());
         }
 
-        $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
+        $input['date'] = Carbon::createFromFormat(Config::get('date.php_format'), $input['date']);
 
         $event = EventRepository::create($input);
 
@@ -137,7 +138,7 @@ class EventController extends AbstractController
             return Redirect::route('events.edit', ['events' => $id])->withInput()->withErrors($val->errors());
         }
 
-        $input['date'] = Carbon::createFromFormat('d/m/Y H:i', $input['date']);
+        $input['date'] = Carbon::createFromFormat(Config::get('date.php_format'), $input['date']);
 
         $event = EventRepository::find($id);
         $this->checkEvent($event);
