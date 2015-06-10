@@ -18,11 +18,9 @@ return [
     |
     | Take a look at http://php.net/manual/en/function.date.php
     |
-    | The default is ISO-8601
-    |
     */
 
-    'php_format' => 'Y-m-d H:i',
+    'php_format' => 'd/m/Y H:i',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,8 +28,6 @@ return [
     |--------------------------------------------------------------------------
     |
     | This is the format that the javascript datepicker needs
-    |
-    | The default is ISO-8601
     |
     | D: Day without leading 0
     | DD: Day with leading 0
@@ -51,7 +47,7 @@ return [
     |
     */
 
-    'js_format' => 'YYYY-M-D HH:mm',
+    'js_format' => 'D/M/YYYY HH:mm',
 
     /*
     |--------------------------------------------------------------------------
