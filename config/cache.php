@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'array'),
+    'default' => env('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'path'   => storage_path().'/framework/cache',
+            'path'   => storage_path('framework/cache'),
         ],
 
         'memcached' => [
@@ -83,6 +83,6 @@ return [
     |
     */
 
-    'prefix' => 'cms',
+    'prefix' => 'laravel',
 
 ];

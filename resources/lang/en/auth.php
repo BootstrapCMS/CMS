@@ -13,17 +13,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Driver
+    | Authentication Language Lines
     |--------------------------------------------------------------------------
     |
-    | This defines the cache driver to be used. It may be the name of any
-    | driver set in config/cache.php. Setting it to null will use the driver
-    | you have set as default in config/cache.php.
-    |
-    | Default: null
+    | The following language lines are used during authentication for various
+    | messages that we need to display to the user. You are free to modify
+    | these language lines according to your application's requirements.
     |
     */
 
-    'driver' => null,
+    'failed'   => 'These credentials do not match our records.',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

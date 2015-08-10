@@ -21,6 +21,13 @@ use GrahamCampbell\TestBench\AbstractAppTestCase;
 abstract class AbstractTestCase extends AbstractAppTestCase
 {
     /**
+     * The base URL to use while testing the application.
+     *
+     * @var string
+     */
+    protected $baseUrl = 'http://localhost';
+
+    /**
      * Get the service provider class.
      *
      * @param \Illuminate\Contracts\Foundation\Application $app

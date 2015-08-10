@@ -51,18 +51,12 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app['view']->share('__navtype', 'default');
 
-        $blade->extend(function ($value, $compiler) {
-            $pattern = $compiler->createMatcher('navtype');
-            $replace = '$1<?php $__navtype = $2; ?>';
-
-            return preg_replace($pattern, $replace, $value);
+        $blade->directive('navtype', function ($expression) {
+            return "<?php $__navtype = {$expression}; ?>";
         });
 
-        $blade->extend(function ($value, $compiler) {
-            $pattern = $compiler->createPlainMatcher('navigation');
-            $replace = '$1<?php echo \GrahamCampbell\BootstrapCMS\Facades\NavigationFactory::make($__navtype); ?>$2';
-
-            return preg_replace($pattern, $replace, $value);
+        $blade->directive('navigation', function () {
+            return '<?php echo \GrahamCampbell\BootstrapCMS\Facades\NavigationFactory::make($__navtype); ?>';
         });
     }
 

@@ -1,7 +1,7 @@
 Bootstrap CMS
 =============
 
-Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 5.0](http://laravel.com) and [Sentry](https://cartalyst.com/manual/sentry). It utilises 12 of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/BootstrapCMS/Credentials). Feel free to check out the [releases](https://github.com/BootstrapCMS/CMS/releases), [license](LICENSE), [screenshots](SCREENSHOTS.md), and [contribution guidelines](CONTRIBUTING.md).
+Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 5.0](http://laravel.com) and [Sentry](https://cartalyst.com/manual/sentry). It utilises many of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/BootstrapCMS/Credentials). Feel free to check out the [releases](https://github.com/BootstrapCMS/CMS/releases), [license](LICENSE), [screenshots](SCREENSHOTS.md), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4432327/c1ae6436-468c-11e4-84eb-4e5e546da3ff.PNG)
 
@@ -24,18 +24,15 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
   * Use Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
 2. From a command line open in the folder, run `composer install --no-dev -o`.
 3. Enter your database details into `config/database.php`.
-4. Run `php artisan app:install` to setup and seed your database.
-5. You will need to enter your mail server details into `config/mail.php`.
+4. Run `php artisan app:install` to setup the application.
+5. Run `npm install` and then `gulp --production` to compile the application assets.
+6. You will need to enter your mail server details into `config/mail.php`.
   * You can disable verification emails in `config/credentials.php`
   * Mail is still required for other functions like password resets and the contact form
   * You must set the contact email in `config/contact.php`
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
-6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
+7. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
-7. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
-  * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queuing), are disabled out of the box
-  * This is to allow Bootstrap CMS to work with minimal setup
-  * For use in production run `gulp --production` to minify assets. See [relevant docs](http://laravel.com/docs/5.0/elixir).
 
 
 ## Setting Up Queuing
@@ -55,12 +52,13 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 2. Enter your cache server details into `config/cache.php`.
 3. Setting the driver to array will effectively disable caching if you don't want the overhead.
 
+
 ## Setting Up Themes
 
 Bootstrap CMS also ships with 18 themes, 16 from [Bootswatch](http://bootswatch.com).
 
 1. You can set your theme in `config/theme.php`.
-2. You can also set your nav bar style in `config/theme.php`.
+2. You can also set your navbar style in `config/theme.php`.
 3. After making theme changes, you will have to run `php artisan app:update`.
 
 
@@ -78,8 +76,7 @@ Bootstrap CMS natively supports [Google Analytics](http://www.google.com/analyti
 Bootstrap CMS can read [CloudFlare](https://www.cloudflare.com/) analytic data through a package.
 
 1. Follow the install instructions for my [Laravel CloudFlare](https://github.com/BootstrapCMS/CloudFlare) package.
-2. Remember to add your credentials to `config/cloudflareapi.php`.
-3. Bootstrap CMS will auto-detect the package, only allow admin access, and add links to the navigation bar.
+2. Bootstrap CMS will auto-detect the package, only allow admin access, and add links to the navigation bar.
 
 
 ## License

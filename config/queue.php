@@ -20,9 +20,6 @@ return [
     | API, giving you convenient access to each back-end using the same
     | syntax for each one. Here you may set the default queue driver.
     |
-    | Note that the styleci will not work with the "null", "sync", or "iron"
-    | queue drivers. The recommended driver is "beanstalkd".
-    |
     | Supported: "null", "sync", "database", "beanstalkd",
     |            "sqs", "iron", "redis"
     |
@@ -47,18 +44,18 @@ return [
             'driver' => 'sync',
         ],
 
-        'beanstalkd' => [
-            'driver' => 'beanstalkd',
-            'host'   => 'localhost',
-            'queue'  => 'default',
-            'ttr'    => 86400,
-        ],
-
         'database' => [
             'driver' => 'database',
             'table'  => 'jobs',
             'queue'  => 'default',
-            'expire' => 86400,
+            'expire' => 60,
+        ],
+
+        'beanstalkd' => [
+            'driver' => 'beanstalkd',
+            'host'   => 'localhost',
+            'queue'  => 'default',
+            'ttr'    => 60,
         ],
 
         'sqs' => [
@@ -79,9 +76,10 @@ return [
         ],
 
         'redis' => [
-            'driver' => 'redis',
-            'queue'  => 'default',
-            'expire' => 86400,
+            'driver'     => 'redis',
+            'connection' => 'default',
+            'queue'      => 'default',
+            'expire'     => 60,
         ],
 
     ],

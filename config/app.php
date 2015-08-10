@@ -134,6 +134,7 @@ return [
         'GrahamCampbell\Exceptions\ExceptionsServiceProvider',
         'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
+        'Illuminate\Broadcasting\BroadcastServiceProvider',
         'Illuminate\Bus\BusServiceProvider',
         'Illuminate\Cache\CacheServiceProvider',
         'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
@@ -168,8 +169,6 @@ return [
         'GrahamCampbell\Contact\ContactServiceProvider',
         'GrahamCampbell\LogViewer\LogViewerServiceProvider',
         'GrahamCampbell\BootstrapCMS\Providers\AppServiceProvider',
-        'GrahamCampbell\BootstrapCMS\Providers\BusServiceProvider',
-        'GrahamCampbell\BootstrapCMS\Providers\EventServiceProvider',
         'GrahamCampbell\BootstrapCMS\Providers\RouteServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
 

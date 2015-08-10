@@ -17,9 +17,9 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.0.*",
+        "laravel/framework": "~5.1.10",
         "fideloper/proxy": "~3.0",
-        "graham-campbell/exceptions": "~2.0",
+        "graham-campbell/exceptions": "~4.0",
         "graham-campbell/core": "~4.0",
         "graham-campbell/htmlmin": "~4.0",
         "graham-campbell/markdown": "~4.0",

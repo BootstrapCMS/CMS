@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'default' => env('DB_DRIVER', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
 
         'sqlite' => [
             'driver'   => 'sqlite',
-            'database' => ':memory:',
+            'database' => env('DB_HOST', storage_path('database.sqlite')),
             'prefix'   => '',
         ],
 
@@ -68,6 +68,7 @@ return [
             'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
             'strict'    => false,
         ],
 
@@ -88,6 +89,7 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+            'charset'  => 'utf8',
             'prefix'   => '',
         ],
 

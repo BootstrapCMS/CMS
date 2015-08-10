@@ -37,7 +37,7 @@ $app->singleton('Illuminate\Contracts\Http\Kernel', 'GrahamCampbell\BootstrapCMS
 
 $app->singleton('Illuminate\Contracts\Console\Kernel', 'GrahamCampbell\BootstrapCMS\Console\Kernel');
 
-$app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', 'GrahamCampbell\BootstrapCMS\Exceptions\Handler');
+$app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', 'GrahamCampbell\Exceptions\ExceptionHandler');
 
 /*
 |--------------------------------------------------------------------------
