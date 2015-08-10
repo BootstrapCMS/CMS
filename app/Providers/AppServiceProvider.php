@@ -12,7 +12,6 @@
 namespace GrahamCampbell\BootstrapCMS\Providers;
 
 use GrahamCampbell\BootstrapCMS\Http\Controllers\CommentController;
-use GrahamCampbell\BootstrapCMS\Http\Controllers\PageController;
 use GrahamCampbell\BootstrapCMS\Navigation\Factory;
 use GrahamCampbell\BootstrapCMS\Repositories\CommentRepository;
 use GrahamCampbell\BootstrapCMS\Repositories\EventRepository;
