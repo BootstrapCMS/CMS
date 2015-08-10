@@ -76,7 +76,8 @@
 @auth('user')
     <br>
     <div class="well well-sm clearfix">
-        {!! Form::open(array('id' => 'commentform', 'url' => URL::route('blog.posts.comments.store', array('posts' => $post->id)), 'method' => 'POST', 'class' => 'form-vertical')) !!}
+        <form id="commentform" class="form-vertical" action="{{ URL::route('blog.posts.comments.store', array('posts' => $post->id)) }}" method="POST">
+            {{ csrf_field() }}
             <div class="form-group">
                 <div class="col-xs-12">
                     <textarea id="body" name="body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
@@ -87,7 +88,7 @@
                     <button id="contact-submit" type="submit" class="btn btn-primary"><i class="fa fa-comment"></i> Post Comment</button> <label id="commentstatus"></label>
                 </div>
             </div>
-        {!! Form::close() !!}
+        </form>
     </div>
 @else
 <p>
@@ -125,15 +126,15 @@
                 <h4 class="modal-title">Edit Comment</h4>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    {!! Form::open(array('id' => 'edit_commentform', 'method' => 'PATCH', 'class' => 'form-vertical', 'data-pk' => '0')) !!}
+                <form id="edit_commentform" class="form-vertical" action="{{ URL::route('blog.posts.comments.store', array('posts' => $post->id)) }}" method="PATCH" data-pk="0">
+                    {{ csrf_field() }}
                         <input id="verion" name="version" value="1" type="hidden">
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <textarea id="edit_body" name="edit_body" class="form-control comment-box" placeholder="Type a comment..." rows="3"></textarea>
                             </div>
                         </div>
-                    {!! Form::close() !!}
+                    </form>
                 </div>
             </div>
             <div class="modal-footer">

@@ -1,4 +1,6 @@
-{!! Form::open(array('url' => $form['url'], 'method' => $form['method'], 'class' => 'form-horizontal')) !!}
+<form class="form-horizontal" action="{{ $form['url'] }}" method="{{ $form['method'] }}">
+
+    {{ csrf_field() }}
 
     <div class="form-group{!! ($errors->has('title')) ? ' has-error' : '' !!}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Event Title</label>
@@ -40,4 +42,5 @@
             <button class="btn btn-primary" type="submit"><i class="fa fa-rocket"></i> {!! $form['button'] !!}</button>
         </div>
     </div>
-{!! Form::close() !!}
+
+</form>
