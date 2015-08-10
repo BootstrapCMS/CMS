@@ -606,12 +606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "577540c1993d8de13c66acdc821a83b0d32326d8"
+                "reference": "d774f18a291fddf14ad8f304448116b6d01bb3b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/577540c1993d8de13c66acdc821a83b0d32326d8",
-                "reference": "577540c1993d8de13c66acdc821a83b0d32326d8",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/d774f18a291fddf14ad8f304448116b6d01bb3b2",
+                "reference": "d774f18a291fddf14ad8f304448116b6d01bb3b2",
                 "shasum": ""
             },
             "require": {
@@ -678,7 +678,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-08-10 21:30:53"
+            "time": "2015-08-10 22:52:26"
         },
         {
             "name": "graham-campbell/exceptions",
