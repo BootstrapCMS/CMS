@@ -38,7 +38,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->setupBlade();
 
-        require __DIR__.'/../assets.php';
         require __DIR__.'/../listeners.php';
     }
 

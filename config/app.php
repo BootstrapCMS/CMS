@@ -144,7 +144,6 @@ return [
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
-        'Lightgear\Asset\AssetServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         'GrahamCampbell\Core\CoreServiceProvider',
@@ -210,7 +209,6 @@ return [
         'URL'         => 'Illuminate\Support\Facades\URL',
         'Validator'   => 'Illuminate\Support\Facades\Validator',
         'View'        => 'Illuminate\Support\Facades\View',
-        'Asset'       => 'Lightgear\Asset\Facades\Asset',
 
     ],
 

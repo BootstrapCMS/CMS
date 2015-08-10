@@ -12,10 +12,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/BootstrapCMS/Asset"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/BootstrapCMS/Sentry"
         }
     ],
@@ -23,7 +19,6 @@
         "php": ">=5.5.0",
         "laravel/framework": "5.0.*",
         "illuminate/html": "5.0.*",
-        "lightgear/asset": "~2.0",
         "fideloper/proxy": "~3.0",
         "graham-campbell/exceptions": "~1.0",
         "graham-campbell/core": "~2.0",

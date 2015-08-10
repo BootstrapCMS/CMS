@@ -38,9 +38,9 @@ Version 0.8 is currently more stable than this version (0.9), and is available o
 6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
 7. Additionally, you may to setup some of Bootstrap CMS's other features (see below).
-  * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queing), are disabled out of the box
+  * Some things, like [caching](#setting-up-caching) and [queuing](#setting-up-queuing), are disabled out of the box
   * This is to allow Bootstrap CMS to work with minimal setup
-  * Also note, without caching asset generation will cause page load delay - to reduce this, I have turned off minification in `config/asset.php` by default
+  * For use in production run `gulp --production` to minify assets. See [relevant docs](http://laravel.com/docs/5.0/elixir).
 
 
 ## Setting Up Queuing
@@ -58,9 +58,7 @@ Note that caching will not work with Laravel's `file` or `database` cache driver
 
 1. Choose your poison - I'd recommend [Redis](http://redis.io).
 2. Enter your cache server details into `config/cache.php`.
-3. You will probably want to enabled minification in `config/asset.php`.
-4. Setting the driver to array will effectively disable caching if you don't want the overhead.
-
+3. Setting the driver to array will effectively disable caching if you don't want the overhead.
 
 ## Setting Up Themes
 

@@ -152,5 +152,5 @@
 var cmsCommentInterval = {!! Config::get('cms.commentfetch') !!};
 var cmsCommentTime = {!! Config::get('cms.commenttrans') !!};
 </script>
-{!! Asset::scripts('comment') !!}
+{!! HTML::script('assets/scripts/cms-comment.js') !!}
 @stop

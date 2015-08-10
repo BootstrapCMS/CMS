@@ -39,5 +39,5 @@ Create Event
 <script>
 js_datetime_format = '<?= Config::get("date.js_format"); ?>';
 </script>
-{!! Asset::scripts('picker') !!}
+{!! HTML::script('/assets/scripts/cms-picker.js') !!}
 @stop
