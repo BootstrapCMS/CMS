@@ -543,12 +543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Contact.git",
-                "reference": "c0549a0cfbc1be2b91100f0c84eff61ecfec9aad"
+                "reference": "5a3e4d97cfca8f0a1220eb7b3cceac7e7bc213f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/c0549a0cfbc1be2b91100f0c84eff61ecfec9aad",
-                "reference": "c0549a0cfbc1be2b91100f0c84eff61ecfec9aad",
+                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/5a3e4d97cfca8f0a1220eb7b3cceac7e7bc213f3",
+                "reference": "5a3e4d97cfca8f0a1220eb7b3cceac7e7bc213f3",
                 "shasum": ""
             },
             "require": {
@@ -599,7 +599,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-08-10 10:20:25"
+            "time": "2015-08-10 11:12:44"
         },
         {
             "name": "graham-campbell/core",
@@ -666,12 +666,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "7c53eec6808c39a2371c31c356821908576a7b4d"
+                "reference": "b68da1cd9edcaa721445851f5c7a9f12588137e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/7c53eec6808c39a2371c31c356821908576a7b4d",
-                "reference": "7c53eec6808c39a2371c31c356821908576a7b4d",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/b68da1cd9edcaa721445851f5c7a9f12588137e3",
+                "reference": "b68da1cd9edcaa721445851f5c7a9f12588137e3",
                 "shasum": ""
             },
             "require": {
@@ -737,7 +737,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-08-10 10:32:12"
+            "time": "2015-08-10 11:13:05"
         },
         {
             "name": "graham-campbell/exceptions",
