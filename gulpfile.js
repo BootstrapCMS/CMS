@@ -19,7 +19,4 @@ elixir(function (mix) {
     mix.scripts(['cms-timeago.js', 'cms-restfulizer.js', 'cms-carousel.js', 'cms-alerts.js'], scriptsPath + 'cms-main.js');
     mix.scripts(['cms-picker.js'], scriptsPath + 'cms-picker.js');
     mix.scripts(['cms-comment-core.js', 'cms-comment-edit.js', 'cms-comment-delete.js', 'cms-comment-create.js', 'cms-comment-fetch.js', 'cms-comment-main.js'], scriptsPath + 'cms-comment.js');
-
-    mix.copy('vendor/maximebf/debugbar/src/DebugBar/Resources/vendor/highlightjs/styles/github.css', stylesPath + 'debugbar.css')
-    mix.copy('vendor/maximebf/debugbar/src/DebugBar/Resources/vendor/highlightjs/highlight.pack.js', scriptsPath + 'debugbar.js')
 });

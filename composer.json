@@ -29,8 +29,7 @@
         "graham-campbell/navigation": "~2.0",
         "graham-campbell/contact": "~1.0",
         "graham-campbell/logviewer": "~1.0",
-        "mccool/laravel-auto-presenter": "~3.0",
-        "barryvdh/laravel-debugbar": "~2.0"
+        "mccool/laravel-auto-presenter": "~3.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0",
