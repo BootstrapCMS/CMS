@@ -13,6 +13,7 @@ namespace GrahamCampbell\BootstrapCMS\Providers;
 
 use GrahamCampbell\BootstrapCMS\Http\Controllers\CommentController;
 use GrahamCampbell\BootstrapCMS\Navigation\Factory;
+use GrahamCampbell\BootstrapCMS\Observers\PageObserver;
 use GrahamCampbell\BootstrapCMS\Repositories\CommentRepository;
 use GrahamCampbell\BootstrapCMS\Repositories\EventRepository;
 use GrahamCampbell\BootstrapCMS\Repositories\PageRepository;
@@ -37,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->setupBlade();
 
-        require __DIR__.'/../listeners.php';
+        $this->setupListeners();
     }
 
     /**
@@ -58,6 +59,20 @@ class AppServiceProvider extends ServiceProvider
         $blade->directive('navigation', function () {
             return '<?php echo \GrahamCampbell\BootstrapCMS\Facades\NavigationFactory::make($__navtype); ?>';
         });
+    }
+
+    /**
+     * Setup the event listeners.
+     *
+     * @return void
+     */
+    protected function setupListeners()
+    {
+        $this->app['events']->subscribe($this->app->make(CommandSubscriber::class));
+
+        $this->app['events']->subscribe($this->app->make(NavigationSubscriber::class));
+
+        $app['pagerepository']->observe($this->app->make(PageObserver::class));
     }
 
     /**
