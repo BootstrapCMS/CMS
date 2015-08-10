@@ -11,15 +11,20 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS;
 
-use GrahamCampbell\TestBench\AbstractAppTestCase;
+use GrahamCampbell\BootstrapCMS\Providers\AppServiceProvider;
+use GrahamCampbell\TestBenchCore\MockeryTrait;
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Foundation\Testing\TestCase;
 
 /**
  * This is the abstract test case class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-abstract class AbstractTestCase extends AbstractAppTestCase
+abstract class AbstractTestCase extends TestCase
 {
+    use MockeryTrait;
+
     /**
      * The base URL to use while testing the application.
      *
@@ -36,6 +41,20 @@ abstract class AbstractTestCase extends AbstractAppTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'GrahamCampbell\BootstrapCMS\Providers\AppServiceProvider';
+        return AppServiceProvider::class;
+    }
+
+    /**
+     * Creates the application.
+     *
+     * @return \Illuminate\Foundation\Application
+     */
+    public function createApplication()
+    {
+        $app = require __DIR__.'/../bootstrap/app.php';
+
+        $app->make(Kernel::class)->bootstrap();
+
+        return $app;
     }
 }

@@ -11,6 +11,8 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS;
 
+use Illuminate\Contracts\Console\Kernel;
+
 /**
  * This is the basic test class.
  *
@@ -18,17 +20,21 @@ namespace GrahamCampbell\Tests\BootstrapCMS;
  */
 class BasicTest extends AbstractTestCase
 {
+    /**
+     * @before
+     */
+    public function runInstallCommand()
+    {
+        $this->app->make(Kernel::class)->call('app:install');
+    }
+
     public function testBase()
     {
-        $this->call('GET', '/');
-
-        $this->assertRedirectedTo('pages/home');
+        $this->visit('/')->seePageIs('pages/home');
     }
 
     public function testBlog()
     {
-        $this->call('GET', 'blog');
-
-        $this->assertRedirectedTo('blog/posts');
+        $this->visit('blog')->seePageIs('blog/posts');
     }
 }

@@ -11,7 +11,8 @@
 
 namespace GrahamCampbell\Tests\BootstrapCMS\Facades;
 
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
+use GrahamCampbell\TestBenchCore\HelperTrait;
 use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
 
 /**
@@ -21,7 +22,7 @@ use GrahamCampbell\Tests\BootstrapCMS\AbstractTestCase;
  */
 class PostRepositoryTest extends AbstractTestCase
 {
-    use FacadeTestCaseTrait;
+    use FacadeTrait, HelperTrait;
 
     /**
      * Get the facade accessor.

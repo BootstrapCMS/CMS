@@ -24,24 +24,14 @@ class PageTest extends AbstractTestCase
 {
     public function testIndex()
     {
-        $this->call('GET', '/');
-
-        $this->assertRedirectedTo('pages/home');
-
-        $this->callAgain('GET', 'pages');
-
-        $this->assertRedirectedTo('pages/home');
+        $this->visit('/')->seePageIs('pages/home');
     }
 
     public function testCreate()
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('GET', 'pages/create');
-
-        $this->assertResponseOk();
-
-        $this->assertSee('Create Page');
+        $this->visit('pages/create')->see('Create Page');
     }
 
     public function testStoreFail()
@@ -50,7 +40,7 @@ class PageTest extends AbstractTestCase
 
         Credentials::shouldReceive('getuser')->once()->andReturn((object) ['id' => 1]);
 
-        $this->call('POST', 'pages');
+        $this->post('pages');
 
         $this->assertRedirectedTo('pages/create');
         $this->assertSessionHasErrors();
@@ -63,7 +53,7 @@ class PageTest extends AbstractTestCase
 
         Credentials::shouldReceive('getuser')->once()->andReturn((object) ['id' => 1]);
 
-        $this->call('POST', 'pages', [
+        $this->post('pages', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'foobar',
@@ -80,47 +70,30 @@ class PageTest extends AbstractTestCase
         $this->assertSessionHas('success');
     }
 
-    /**
-     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @expectedExceptionMessage Page Not Found
-     */
     public function testShowFail()
     {
-        $this->call('GET', 'pages/error');
+        $this->get('pages/error');
+
+        $this->assertEquals(404, $this->response->status());
     }
 
     public function testShowSuccess()
     {
-        $this->call('GET', 'pages/home');
-
-        $this->assertResponseOk();
-
-        $this->markTestSkipped('assertSee is currently unimplemented.');
-
-        $this->assertSee('Bootstrap CMS');
-
-        $this->callAgain('GET', 'pages/about');
-
-        $this->assertResponseOk();
-        $this->assertSee('This is the about page!');
+        $this->visit('pages/home')->see('Bootstrap CMS');
     }
 
     public function testEditHome()
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('GET', 'pages/home/edit');
-
-        $this->assertResponseOk();
-
-        $this->assertSee('Edit Welcome');
+        $this->visit('pages/home/edit')->see('Edit Welcome');
     }
 
     public function testUpdateFail()
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('PATCH', 'pages/home');
+        $this->patch('pages/home');
 
         $this->assertRedirectedTo('pages/home/edit');
         $this->assertSessionHasErrors();
@@ -131,7 +104,7 @@ class PageTest extends AbstractTestCase
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('PATCH', 'pages/home', [
+        $this->patch('pages/home', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'foobar',
@@ -153,7 +126,7 @@ class PageTest extends AbstractTestCase
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('PATCH', 'pages/home', [
+        $this->patch('pages/home', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'home',
@@ -175,7 +148,7 @@ class PageTest extends AbstractTestCase
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('PATCH', 'pages/home', [
+        $this->patch('pages/home', [
             'title'      => 'New Page',
             'nav_title'  => 'Herro',
             'slug'       => 'home',
@@ -196,7 +169,7 @@ class PageTest extends AbstractTestCase
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('DELETE', 'pages/home');
+        $this->delete('pages/home');
 
         $this->assertRedirectedTo('pages/home');
         $this->assertSessionHas('error');
@@ -206,7 +179,7 @@ class PageTest extends AbstractTestCase
     {
         $this->markTestSkipped('Tests requiring authentication are currently broken.');
 
-        $this->call('DELETE', 'pages/about');
+        $this->delete('pages/about');
 
         $this->assertRedirectedTo('pages/home');
     }
