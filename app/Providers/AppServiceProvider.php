@@ -72,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app['events']->subscribe($this->app->make(NavigationSubscriber::class));
 
-        $app['pagerepository']->observe($this->app->make(PageObserver::class));
+        $this->app['pagerepository']->observe($this->app->make(PageObserver::class));
     }
 
     /**
