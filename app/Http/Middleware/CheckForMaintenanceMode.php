@@ -13,7 +13,6 @@ namespace GrahamCampbell\BootstrapCMS\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\Routing\Middleware;
 use Illuminate\Contracts\View\Factory as View;
 use Illuminate\Http\Response;
 
@@ -22,7 +21,7 @@ use Illuminate\Http\Response;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class CheckForMaintenanceMode implements Middleware
+class CheckForMaintenanceMode
 {
     /**
      * The application instance.
