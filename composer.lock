@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b9f58376a80c815024c2549085fdc18e",
+    "hash": "7f7fafe602ef0f1108dff892c8a9afb1",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -62,27 +62,26 @@
         },
         {
             "name": "cartalyst/sentry",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Sentry.git",
-                "reference": "267c486227bd2132a6a7fd9cde442653c139abb1"
+                "reference": "c50e5e0d839dd4fd93b5cc324a52aaa966facbe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Sentry/zipball/267c486227bd2132a6a7fd9cde442653c139abb1",
-                "reference": "267c486227bd2132a6a7fd9cde442653c139abb1",
+                "url": "https://api.github.com/repos/BootstrapCMS/Sentry/zipball/c50e5e0d839dd4fd93b5cc324a52aaa966facbe6",
+                "reference": "c50e5e0d839dd4fd93b5cc324a52aaa966facbe6",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "5.0.*",
-                "illuminate/cookie": "5.0.*",
-                "illuminate/database": "5.0.*",
-                "illuminate/http": "5.0.*",
-                "illuminate/session": "5.0.*",
-                "illuminate/support": "5.0.*",
-                "ircmaxell/password-compat": "~1.0",
-                "php": ">=5.5.0"
+                "illuminate/contracts": "5.0.*|5.1.*",
+                "illuminate/cookie": "5.0.*|5.1.*",
+                "illuminate/database": "5.0.*|5.1.*",
+                "illuminate/http": "5.0.*|5.1.*",
+                "illuminate/session": "5.0.*|5.1.*",
+                "illuminate/support": "5.0.*|5.1.*",
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.3",
@@ -134,7 +133,7 @@
                 },
                 {
                     "name": "Graham Campbell",
-                    "email": "graham@mineuk.com",
+                    "email": "graham@alt-three.com",
                     "role": "Developer"
                 }
             ],
@@ -145,9 +144,9 @@
                 "security"
             ],
             "support": {
-                "source": "https://github.com/BootstrapCMS/Sentry/tree/v3.0.0"
+                "source": "https://github.com/BootstrapCMS/Sentry/tree/v3.0.1"
             },
-            "time": "2015-03-12 23:18:06"
+            "time": "2015-08-10 15:00:13"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -543,17 +542,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Contact.git",
-                "reference": "5a3e4d97cfca8f0a1220eb7b3cceac7e7bc213f3"
+                "reference": "2a04011bfd9ca797eecb01438893c9e13f5b8b54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/5a3e4d97cfca8f0a1220eb7b3cceac7e7bc213f3",
-                "reference": "5a3e4d97cfca8f0a1220eb7b3cceac7e7bc213f3",
+                "url": "https://api.github.com/repos/BootstrapCMS/Contact/zipball/2a04011bfd9ca797eecb01438893c9e13f5b8b54",
+                "reference": "2a04011bfd9ca797eecb01438893c9e13f5b8b54",
                 "shasum": ""
             },
             "require": {
                 "graham-campbell/binput": "~3.0",
-                "graham-campbell/core": "~2.0",
                 "graham-campbell/throttle": "~3.0",
                 "illuminate/contracts": "5.0.*",
                 "illuminate/mail": "5.0.*",
@@ -561,7 +559,7 @@
                 "illuminate/support": "5.0.*",
                 "illuminate/validation": "5.0.*",
                 "illuminate/view": "5.0.*",
-                "php": ">=5.5.0"
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "graham-campbell/testbench": "~2.0"
@@ -599,36 +597,37 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-08-10 11:12:44"
+            "time": "2015-08-10 16:37:26"
         },
         {
             "name": "graham-campbell/core",
-            "version": "v2.0.1",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "ffa9170bc2a580ea603cfad931790ffad8a7332b"
+                "reference": "5ca2ff7049be5058a1cbcf027f5f70b31892ab18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/ffa9170bc2a580ea603cfad931790ffad8a7332b",
-                "reference": "ffa9170bc2a580ea603cfad931790ffad8a7332b",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/5ca2ff7049be5058a1cbcf027f5f70b31892ab18",
+                "reference": "5ca2ff7049be5058a1cbcf027f5f70b31892ab18",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "5.0.*",
-                "illuminate/contracts": "5.0.*",
-                "illuminate/support": "5.0.*",
-                "php": ">=5.4.7"
+                "illuminate/console": "5.0.*|5.1.*",
+                "illuminate/contracts": "5.0.*|5.1.*",
+                "illuminate/support": "5.0.*|5.1.*",
+                "php": ">=5.5.9"
             },
             "require-dev": {
-                "graham-campbell/testbench": "~2.0",
-                "illuminate/html": "5.0.*"
+                "graham-campbell/testbench": "~3.0",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.7.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -643,7 +642,7 @@
             "authors": [
                 {
                     "name": "Graham Campbell",
-                    "email": "graham@mineuk.com"
+                    "email": "graham@alt-three.com"
                 }
             ],
             "description": "Core Provides Some Extra Functionality For Laravel 5",
@@ -658,7 +657,7 @@
                 "laravel",
                 "starter"
             ],
-            "time": "2015-02-20 09:37:52"
+            "time": "2015-06-26 16:44:58"
         },
         {
             "name": "graham-campbell/credentials",
@@ -666,18 +665,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/Credentials.git",
-                "reference": "b68da1cd9edcaa721445851f5c7a9f12588137e3"
+                "reference": "75bb781173098c651ebb3b688c1b255f021321bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/b68da1cd9edcaa721445851f5c7a9f12588137e3",
-                "reference": "b68da1cd9edcaa721445851f5c7a9f12588137e3",
+                "url": "https://api.github.com/repos/BootstrapCMS/Credentials/zipball/75bb781173098c651ebb3b688c1b255f021321bc",
+                "reference": "75bb781173098c651ebb3b688c1b255f021321bc",
                 "shasum": ""
             },
             "require": {
                 "cartalyst/sentry": "~3.0",
                 "graham-campbell/binput": "~3.0",
-                "graham-campbell/core": "~2.0",
                 "graham-campbell/throttle": "~3.0",
                 "illuminate/console": "5.0.*",
                 "illuminate/contracts": "5.0.*",
@@ -691,7 +689,7 @@
                 "illuminate/validation": "5.0.*",
                 "illuminate/view": "5.0.*",
                 "mccool/laravel-auto-presenter": "~3.0",
-                "php": ">=5.5.0",
+                "php": ">=5.5.9",
                 "psr/log": "~1.0",
                 "sebastian/diff": "~1.2"
             },
@@ -711,7 +709,10 @@
             "autoload": {
                 "psr-4": {
                     "GrahamCampbell\\Credentials\\": "src/"
-                }
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -737,7 +738,7 @@
                 "permissions",
                 "sentry"
             ],
-            "time": "2015-08-10 11:13:05"
+            "time": "2015-08-10 16:39:27"
         },
         {
             "name": "graham-campbell/exceptions",
@@ -871,23 +872,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BootstrapCMS/LogViewer.git",
-                "reference": "be4ecc49fe2b03d3bbe7f86fa8400ff16c00a4e7"
+                "reference": "0b694aa64a97001e300b14d2c1059d22aeb2cea3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/be4ecc49fe2b03d3bbe7f86fa8400ff16c00a4e7",
-                "reference": "be4ecc49fe2b03d3bbe7f86fa8400ff16c00a4e7",
+                "url": "https://api.github.com/repos/BootstrapCMS/LogViewer/zipball/0b694aa64a97001e300b14d2c1059d22aeb2cea3",
+                "reference": "0b694aa64a97001e300b14d2c1059d22aeb2cea3",
                 "shasum": ""
             },
             "require": {
-                "graham-campbell/core": "~2.0",
                 "illuminate/filesystem": "5.0.*",
                 "illuminate/pagination": "5.0.*",
                 "illuminate/routing": "5.0.*",
                 "illuminate/session": "5.0.*",
                 "illuminate/support": "5.0.*",
                 "illuminate/view": "5.0.*",
-                "php": ">=5.5.0"
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "graham-campbell/testbench": "~2.0"
@@ -927,7 +927,7 @@
                 "log viewer",
                 "logviewer"
             ],
-            "time": "2015-08-10 10:48:46"
+            "time": "2015-08-10 16:19:41"
         },
         {
             "name": "graham-campbell/markdown",
@@ -4547,7 +4547,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.9"
     },
     "platform-dev": []
 }
