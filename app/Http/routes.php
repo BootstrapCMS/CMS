@@ -51,6 +51,3 @@ if (Config::get('cms.blogging')) {
 if (Config::get('cms.events')) {
     $router->resource('events', 'EventController');
 }
-
-// caching routes
-$router->get('caching', ['as' => 'caching.index', 'uses' => 'CachingController@getIndex']);

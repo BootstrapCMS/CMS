@@ -178,10 +178,6 @@ class NavigationSubscriber
             // add the admin links
             if ($this->credentials->hasAccess('admin')) {
                 $this->navigation->addToMain(
-                    ['title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer'],
-                    'admin'
-                );
-                $this->navigation->addToMain(
                     ['title' => 'Logs', 'slug' => 'logviewer', 'icon' => 'wrench'],
                     'admin'
                 );
@@ -248,9 +244,6 @@ class NavigationSubscriber
     {
         // add the admin links
         if ($this->credentials->check() && $this->credentials->hasAccess('admin')) {
-            $this->navigation->addToBar(
-                ['title' => 'Caching', 'slug' => 'caching', 'icon' => 'tachometer']
-            );
             $this->navigation->addToBar(
                 ['title' => 'View Logs', 'slug' => 'logviewer', 'icon' => 'wrench']
             );
