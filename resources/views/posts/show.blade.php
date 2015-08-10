@@ -23,10 +23,10 @@
             <div class="col-xs-6">
                 <div class="pull-right">
                     <p>
-                        <em>Post Created: {!! HTML::ago($post->created_at) !!}</em>
+                        <em>Post Created: {!! html_ago($post->created_at) !!}</em>
                     </p>
                     <p>
-                        <em>Last Updated: {!! HTML::ago($post->updated_at) !!}</em>
+                        <em>Last Updated: {!! html_ago($post->updated_at) !!}</em>
                     </p>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                     <strong>Post Owner:</strong> {!! $post->owner !!}
                 </p>
                 <p>
-                    <strong>Post Created:</strong> {!! HTML::ago($post->created_at) !!}
+                    <strong>Post Created:</strong> {!! html_ago($post->created_at) !!}
                 </p>
                 <p>
-                    <strong>Last Updated:</strong> {!! HTML::ago($post->updated_at) !!}
+                    <strong>Last Updated:</strong> {!! html_ago($post->updated_at) !!}
                 </p>
                 <a class="btn btn-info" href="{!! URL::route('blog.posts.edit', array('posts' => $post->id)) !!}"><i class="fa fa-pencil-square-o"></i> Edit Post</a> <a class="btn btn-danger" href="#delete_post" data-toggle="modal" data-target="#delete_post"><i class="fa fa-times"></i> Delete Post</a>
             </div>
@@ -147,10 +147,10 @@
 @stop
 
 @section('js')
-{!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js') !!}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
 <script>
 var cmsCommentInterval = {!! Config::get('cms.commentfetch') !!};
 var cmsCommentTime = {!! Config::get('cms.commenttrans') !!};
 </script>
-{!! HTML::script('assets/scripts/cms-comment.js') !!}
+<script type="text/javascript" src="{{ asset('assets/scripts/cms-comment.js') }}"></script>
 @stop
