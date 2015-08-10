@@ -52,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app['view']->share('__navtype', 'default');
 
         $blade->directive('navtype', function ($expression) {
-            return "<?php $__navtype = {$expression}; ?>";
+            return "<?php \$__navtype = {$expression}; ?>";
         });
 
         $blade->directive('navigation', function () {
