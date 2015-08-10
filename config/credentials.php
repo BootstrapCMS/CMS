@@ -50,4 +50,43 @@ return [
 
     'revision' => 'GrahamCampbell\Credentials\Models\Revision',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Home
+    |--------------------------------------------------------------------------
+    |
+    | This defines the location of the homepage.
+    |
+    | Default to '/'.
+    |
+    */
+
+    'home' => 'pages/home',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Layout
+    |--------------------------------------------------------------------------
+    |
+    | This defines the layout to extend when building views.
+    |
+    | Default to 'layouts.default'.
+    |
+    */
+
+    'layout' => 'layouts.default',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Email Layout
+    |--------------------------------------------------------------------------
+    |
+    | This defines the layout to extend when building email views.
+    |
+    | Default to 'layouts.email'.
+    |
+    */
+
+    'email' => 'layouts.email',
+
 ];

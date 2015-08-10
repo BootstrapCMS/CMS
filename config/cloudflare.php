@@ -13,6 +13,60 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | API Key
+    |--------------------------------------------------------------------------
+    |
+    | This defines the api key to use to make calls to CloudFlare's API.
+    |
+    | Default to ''.
+    |
+    */
+
+    'key' => '',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Email
+    |--------------------------------------------------------------------------
+    |
+    | This defines the email address to use to make calls to CloudFlare's API.
+    |
+    | Default to ''.
+    |
+    */
+
+    'email' => '',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Zone
+    |--------------------------------------------------------------------------
+    |
+    | This defines the zone to read analytics information for.
+    |
+    | Default to ''.
+    |
+    */
+
+    'zone' => '',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cache Driver
+    |--------------------------------------------------------------------------
+    |
+    | This defines the cache driver to be used. It may be the name of any
+    | driver set in config/cache.php. Setting it to null will use the driver
+    | you have set as default in config/cache.php.
+    |
+    | Default: null
+    |
+    */
+
+    'cache' => null,
+
+    /*
+    |--------------------------------------------------------------------------
     | Middleware
     |--------------------------------------------------------------------------
     |
@@ -28,58 +82,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Connection
+    | Layout
     |--------------------------------------------------------------------------
     |
-    | This defines the connection to use for api calls to CloudFlare. Set this
-    | to null to use the default connection, or specify a connection name as
-    | defined in your cloudflare-api config file.
+    | This defines the layout to extend when building views.
     |
-    | Default to null.
+    | Default to 'layouts.default'.
     |
     */
 
-    'connection' => null,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Zone
-    |--------------------------------------------------------------------------
-    |
-    | This defines the zone to use for api calls to CloudFlare.
-    |
-    | Default to 'example.com'.
-    |
-    */
-
-    'zone' => 'example.com',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Cache Driver
-    |--------------------------------------------------------------------------
-    |
-    | This defines the cache driver to be used. It may be the name of any
-    | driver set in config/cache.php. Setting it to null will use the driver
-    | you have set as default in config/cache.php.
-    |
-    | Default: null
-    |
-    */
-
-    'driver' => null,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Cache Key
-    |--------------------------------------------------------------------------
-    |
-    | This defines the cache key to be used for storing the stats cache.
-    |
-    | Default: 'cloudflarestats'
-    |
-    */
-
-    'key' => 'cloudflarestats',
+    'layout' => 'layouts.default',
 
 ];

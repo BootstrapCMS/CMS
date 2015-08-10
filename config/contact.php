@@ -39,4 +39,17 @@ return [
 
     'email' => 'admin@example.com',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Email Layout
+    |--------------------------------------------------------------------------
+    |
+    | This defines the layout to extend when building email views.
+    |
+    | Default to 'layouts.email'.
+    |
+    */
+
+    'layout' => 'layouts.email',
+
 ];
