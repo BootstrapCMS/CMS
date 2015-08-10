@@ -13,10 +13,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | PHP Format: NOTE this must be compatiable with the javascript date
+    | PHP Format
     |--------------------------------------------------------------------------
     |
-    | Take a look at http://php.net/manual/en/function.date.php
+    | Take a look at http://php.net/manual/en/function.date.php.
+    |
+    | NOTE: this must be compatible with the javascript date.
     |
     */
 
@@ -24,10 +26,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Javascript Format: NOTE this must be compatiable with the php date
+    | Javascript Format
     |--------------------------------------------------------------------------
     |
-    | This is the format that the javascript datepicker needs
+    | This is the format that the javascript datepicker needs.
+    |
+    | NOTE: this must be compatible with the php date.
     |
     | D: Day without leading 0
     | DD: Day with leading 0
@@ -54,7 +58,7 @@ return [
     | PHP Display Format
     |--------------------------------------------------------------------------
     |
-    | Take a look at http://php.net/manual/en/function.date.php
+    | Take a look at http://php.net/manual/en/function.date.php.
     |
     */
 
