@@ -1,7 +1,7 @@
 {
     "dependencies": {
         "gulp": "~3.9.0",
-        "laravel-elixir": "~3.1.1",
+        "laravel-elixir": "~3.1.1"
     },
     "private": true
 }
