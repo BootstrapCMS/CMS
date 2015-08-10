@@ -85,7 +85,6 @@ class AppServiceProvider extends ServiceProvider
         $this->registerNavigationSubscriber();
 
         $this->registerCommentController();
-        $this->registerPageController();
     }
 
     /**
@@ -98,7 +97,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('navfactory', function ($app) {
             $credentials = $app['credentials'];
             $navigation = $app['navigation'];
-            $name = $app['config']['core.name'];
+            $name = $app['config']['app.name'];
             $property = $app['config']['cms.nav'];
             $inverse = $app['config']['theme.inverse'];
 
@@ -235,20 +234,6 @@ class AppServiceProvider extends ServiceProvider
             $throttler = $app['throttle']->get($app['request'], 1, 10);
 
             return new CommentController($throttler);
-        });
-    }
-
-    /**
-     * Register the page controller class.
-     *
-     * @return void
-     */
-    protected function registerPageController()
-    {
-        $this->app->bind('GrahamCampbell\BootstrapCMS\Http\Controllers\PageController', function ($app) {
-            $path = $app['config']['core.home'];
-
-            return new PageController($path);
         });
     }
 

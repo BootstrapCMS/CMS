@@ -1,4 +1,4 @@
-@extends(Config::get('core.default'))
+@extends('layouts.default')
 
 @section('title')
 Blog

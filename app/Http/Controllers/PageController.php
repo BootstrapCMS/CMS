@@ -27,23 +27,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PageController extends AbstractController
 {
     /**
-     * The home page path.
-     *
-     * @var string
-     */
-    protected $path;
-
-    /**
      * Create a new instance.
-     *
-     * @param string $path
      *
      * @return void
      */
-    public function __construct($path)
+    public function __construct()
     {
-        $this->path = $path;
-
         $this->setPermissions([
             'create'  => 'edit',
             'store'   => 'edit',
@@ -65,7 +54,7 @@ class PageController extends AbstractController
         Session::flash('', ''); // work around laravel bug if there is no session yet
         Session::reflash();
 
-        return Redirect::to($this->path);
+        return Redirect::to('pages/home');
     }
 
     /**
@@ -188,7 +177,7 @@ class PageController extends AbstractController
         }
 
         // write flash message and redirect
-        return Redirect::to($this->path)->with('success', 'Your page has been deleted successfully.');
+        return Redirect::to('pages/home')->with('success', 'Your page has been deleted successfully.');
     }
 
     /**

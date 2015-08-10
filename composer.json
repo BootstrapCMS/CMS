@@ -20,7 +20,7 @@
         "laravel/framework": "5.0.*",
         "fideloper/proxy": "~3.0",
         "graham-campbell/exceptions": "~1.0",
-        "graham-campbell/core": "~3.0",
+        "graham-campbell/core": "~4.0",
         "graham-campbell/htmlmin": "~3.0",
         "graham-campbell/markdown": "~3.0",
         "graham-campbell/binput": "~3.0",

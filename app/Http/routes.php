@@ -25,7 +25,7 @@ $router->get('/', ['as' => 'base', function () {
     Session::flash('', ''); // work around laravel bug if there is no session yet
     Session::reflash();
 
-    return Redirect::to(Config::get('core.home', 'pages/home'));
+    return Redirect::to('pages/home');
 }]);
 
 // send users to the posts page

@@ -39,6 +39,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the application name. This will be used for anything
+    | that requires the application name, such as emails.
+    |
+    */
+
+    'name' => 'Bootstrap CMS',
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
