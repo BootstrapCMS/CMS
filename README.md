@@ -1,7 +1,7 @@
 Bootstrap CMS
 =============
 
-Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 5.0](http://laravel.com) and [Sentry](https://cartalyst.com/manual/sentry). It utilises many of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/BootstrapCMS/Credentials). Feel free to check out the [releases](https://github.com/BootstrapCMS/CMS/releases), [license](LICENSE), [screenshots](SCREENSHOTS.md), and [contribution guidelines](CONTRIBUTING.md).
+Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a PHP CMS powered by [Laravel 5.1](http://laravel.com) and [Sentry](https://cartalyst.com/manual/sentry). It utilises many of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel Credentials](https://github.com/BootstrapCMS/Credentials). Feel free to check out the [releases](https://github.com/BootstrapCMS/CMS/releases), [license](LICENSE), [screenshots](SCREENSHOTS.md), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Bootstrap CMS](https://cloud.githubusercontent.com/assets/2829600/4432327/c1ae6436-468c-11e4-84eb-4e5e546da3ff.PNG)
 
@@ -22,16 +22,15 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
   * Use GitHub: simply download the zip on the right of the readme
   * Use Git: `git clone git@github.com:BootstrapCMS/CMS.git`
   * Use Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
-2. From a command line open in the folder, run `composer install --no-dev -o`.
+2. From a command line open in the folder, run `composer install --no-dev -o` and then `npm install`.
 3. Enter your database details into `config/database.php`.
-4. Run `php artisan app:install` to setup the application.
-5. Run `npm install` and then `gulp --production` to compile the application assets.
-6. You will need to enter your mail server details into `config/mail.php`.
+4. Run `php artisan app:install` followed by `gulp --production` to setup the application.
+5. You will need to enter your mail server details into `config/mail.php`.
   * You can disable verification emails in `config/credentials.php`
   * Mail is still required for other functions like password resets and the contact form
   * You must set the contact email in `config/contact.php`
   * I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
-7. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
+6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
   * For development, you can simply run `php artisan serve`
 
 
