@@ -11,6 +11,7 @@
 
 namespace GrahamCampbell\BootstrapCMS\Http\Controllers;
 
+use Exception;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\BootstrapCMS\Facades\PageRepository;
 use GrahamCampbell\Credentials\Facades\Credentials;
@@ -171,7 +172,7 @@ class PageController extends AbstractController
 
         try {
             $page->delete();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return Redirect::route('pages.show', ['pages' => $page->slug])
                 ->with('error', 'You cannot delete this page.');
         }
@@ -209,17 +210,19 @@ class PageController extends AbstractController
      * @throws \Exception
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     protected function checkPage($page, $slug)
     {
-        if (!$page) {
-            if ($slug == 'home') {
-                throw new \Exception('The Homepage Is Missing');
-            }
-
-            throw new NotFoundHttpException('Page Not Found');
+        if ($page) {
+            return;
         }
+
+        if ($slug == 'home') {
+            throw new Exception('The homepage is missing.');
+        }
+
+        throw new NotFoundHttpException('Page Not Found');
     }
 
     /**
