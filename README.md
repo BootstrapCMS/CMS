@@ -22,7 +22,7 @@ Bootstrap CMS was created by, and is maintained by [Graham Campbell](https://git
   * Use GitHub: simply download the zip on the right of the readme
   * Use Git: `git clone git@github.com:BootstrapCMS/CMS.git`
   * Use Composer: `composer create-project graham-campbell/bootstrap-cms --prefer-dist -s dev`
-2. From a command line open in the folder, run `composer install --no-dev -o` and then `npm install`.
+2. From a command line open in the folder, run `composer install --no-dev -o`, `npm install`, then `bower install`.
 3. Enter your database details into `config/database.php`.
 4. Run `php artisan app:install` followed by `gulp --production` to setup the application.
 5. You will need to enter your mail server details into `config/mail.php`.
