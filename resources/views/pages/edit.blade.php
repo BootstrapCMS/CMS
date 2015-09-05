@@ -27,7 +27,8 @@ Edit {{ $page->title }}
 <div class="well">
     <?php
     $form = ['url' => URL::route('pages.update', ['pages' => $page->slug]),
-        'method' => 'PATCH',
+        '_method' => 'PATCH',
+        'method' => 'POST',
         'button' => 'Save Page',
         'defaults' => [
             'title' => $page->title,
