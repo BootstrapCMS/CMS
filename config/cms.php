@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'description' => 'Bootstrap CMS is a PHP CMS powered by Laravel 5.',
+    'description' => env('CMS_DESC', 'Bootstrap CMS is a PHP CMS powered by Laravel 5.'),
 
     /*
     |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'author' => 'Graham Campbell',
+    'author' => env('CMS_AUTHOR', 'Graham Campbell'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ return [
     |
     */
 
-    'nav' => 'email',
+    'nav' => env('CMS_NAV', 'email'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'eval' => true,
+    'eval' => env('CMS_EVAL', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'blogging' => true,
+    'blogging' => env('CMS_BLOGGING', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -129,7 +129,7 @@ return [
     |
     */
 
-    'events' => true,
+    'events' => env('CMS_EVENTS', true),
 
     /*
     |--------------------------------------------------------------------------

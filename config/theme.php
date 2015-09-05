@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'name' => 'default',
+    'name' => env('THEME_NAME', 'default'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,6 +44,6 @@ return [
     |
     */
 
-    'inverse' => true,
+    'inverse' => env('THEME_INVERSE', true),
 
 ];
