@@ -1,6 +1,7 @@
 <form class="form-horizontal" action="{{ $form['url'] }}" method="{{ $form['method'] }}">
 
     {{ csrf_field() }}
+    <input type="hidden" name="_method" value="{{ $form['_method'] }}">
 
     <div class="form-group{!! ($errors->has('title')) ? ' has-error' : '' !!}">
         <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Event Title</label>
