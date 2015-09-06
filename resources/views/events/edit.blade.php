@@ -27,7 +27,8 @@ Edit {{ $event->title }}
 <div class="well">
     <?php
     $form = ['url' => URL::route('events.update', ['events' => $event->id]),
-        'method'   => 'PATCH',
+        '_method'   => 'PATCH',
+        'method' => 'POST',
         'button'   => 'Save Event',
         'defaults' => [
             'title'    => $event->title,
