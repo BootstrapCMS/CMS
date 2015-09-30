@@ -57,7 +57,7 @@ Edit {{ $event->title }}
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js"></script>
 <script>
-js_datetime_format = {{ Config::get('date.js_format') }};
+js_datetime_format = '{{ Config::get('date.js_format') }}';
 </script>
 <script type="text/javascript" src="{{ asset('assets/scripts/cms-picker.js') }}"></script>
 @stop
