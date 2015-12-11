@@ -136,6 +136,6 @@ class PageRepository extends AbstractRepository
      */
     protected function validCache($value)
     {
-        return (is_array($value) && !empty($value));
+        return is_array($value) && !empty($value);
     }
 }
