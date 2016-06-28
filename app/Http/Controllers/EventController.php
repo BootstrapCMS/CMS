@@ -89,7 +89,7 @@ class EventController extends AbstractController
         $event = EventRepository::create($input);
 
         return Redirect::route('events.show', ['events' => $event->id])
-            ->with('success', 'Your event has been created successfully.');
+            ->with('success', trans('messages.event.store_success'));
     }
 
     /**
@@ -146,7 +146,7 @@ class EventController extends AbstractController
         $event->update($input);
 
         return Redirect::route('events.show', ['events' => $event->id])
-            ->with('success', 'Your event has been updated successfully.');
+            ->with('success', trans('messages.event.update_success'));
     }
 
     /**
@@ -164,7 +164,7 @@ class EventController extends AbstractController
         $event->delete();
 
         return Redirect::route('events.index')
-            ->with('success', 'Your event has been deleted successfully.');
+            ->with('success', trans('messages.event.delete_success'));
     }
 
     /**
