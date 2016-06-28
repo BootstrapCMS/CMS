@@ -27,12 +27,12 @@ return [
         'delete_success' => 'Your page has been deleted successfully.',
         'delete_error'   => 'You cannot delete this page.',
         'homepage_slug'  => 'You cannot change the homepage slug.',
-        'show_nav'       => 'The homepage must remain on the navigation bar.'
+        'show_nav'       => 'The homepage must remain on the navigation bar.',
     ],
 
     'post'    => [
         'store_success'  => 'Your post has been created successfully.',
         'update_success' => 'Your post has been updated successfully.',
         'delete_success' => 'Your post has been deleted successfully.',
-    ]
+    ],
 ];
