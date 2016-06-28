@@ -110,7 +110,7 @@ class CommentController extends AbstractController
         ]);
 
         if (CommentRepository::validate($input, array_keys($input))->fails()) {
-            throw new BadRequestHttpException('Comment Not Found.');
+            throw new BadRequestHttpException('Your comment was empty.');
         }
 
         $this->throttler->hit();
