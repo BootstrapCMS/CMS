@@ -179,7 +179,7 @@ class EventController extends AbstractController
     protected function checkEvent($event)
     {
         if (!$event) {
-            throw new NotFoundHttpException(trans('messages.event.not_found'));
+            throw new NotFoundHttpException('Event Not Found');
         }
     }
 }

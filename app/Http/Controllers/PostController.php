@@ -175,7 +175,7 @@ class PostController extends AbstractController
     protected function checkPost($post)
     {
         if (!$post) {
-            throw new NotFoundHttpException(trans('messages.post.not_found'));
+            throw new NotFoundHttpException('Post Not Found');
         }
     }
 }

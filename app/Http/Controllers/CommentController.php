@@ -110,7 +110,7 @@ class CommentController extends AbstractController
         ]);
 
         if (CommentRepository::validate($input, array_keys($input))->fails()) {
-            throw new BadRequestHttpException(trans('messages.comment.empty'));
+            throw new BadRequestHttpException('Comment Not Found.');
         }
 
         $this->throttler->hit();
@@ -172,7 +172,7 @@ class CommentController extends AbstractController
         $input = Binput::map(['edit_body' => 'body']);
 
         if (CommentRepository::validate($input, array_keys($input))->fails()) {
-            throw new BadRequestHttpException(trans('messages.comment.empty'));
+            throw new BadRequestHttpException('Your comment was empty.');
         }
 
         $comment = CommentRepository::find($id);
@@ -181,11 +181,11 @@ class CommentController extends AbstractController
         $version = Binput::get('version');
 
         if (empty($version)) {
-            throw new BadRequestHttpException(trans('messages.comment.no_version_data'));
+            throw new BadRequestHttpException('No version data was supplied.');
         }
 
         if ($version != $comment->version && $version) {
-            throw new ConflictHttpException(trans('messages.comment.version_mismatch'));
+            throw new ConflictHttpException('The comment was modified by someone else.');
         }
 
         $version++;
@@ -235,7 +235,7 @@ class CommentController extends AbstractController
     protected function checkComment($comment)
     {
         if (!$comment) {
-            throw new NotFoundHttpException(trans('messages.comment.not_found'));
+            throw new NotFoundHttpException('Comment Not Found.');
         }
     }
 }
